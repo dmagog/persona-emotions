@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Environment
+.env
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code
+.claude/
+
+# Generated outputs
+eval_bfi_output/
+eval_fusion_bfi_output/
+eval_fusion_bfi_output_average/
+eval_persona_extract/
+eval_persona_eval/
+eval_persona_eval_assit/
+eval_persona_extract_assit/
+dialog_eval_results/
+orthogonality_analysis/
+output/
+eval_output/
+*_ranking_results.json
+
+# Large artifacts (download separately)
+persona_vectors/
+dataset/
+
+# Training checkpoints
+ckpt/
+wandb/
+
+# Analysis outputs
+analyze/*.csv
+analyze/bfi_correlation_analysis/
+analyze/fusion_analysis/
+
+# NPTI outputs
+NPTI/gpt4_score_*/
+NPTI/NPTI_test_results/
