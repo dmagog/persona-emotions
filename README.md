@@ -97,8 +97,7 @@ cp .env.example .env
 
 | Resource | Description | Link |
 |----------|-------------|------|
-| Persona Vectors | Pre-extracted vectors for 10 OCEAN traits across 6 models | [HuggingFace](https://huggingface.co/xcfcode/persona-vectors) |
-| Training Data | SFT datasets for 8 trait categories | [HuggingFace](https://huggingface.co/datasets/xcfcode/persona-data) |
+| Persona Vectors & Training Data | Pre-extracted OCEAN vectors (4 models) + SFT datasets (8 trait categories) | [HuggingFace](https://huggingface.co/datasets/xiachongfeng/persona) |
 | Trait Artifacts | Contrastive prompts & evaluation questions | Included in `data_generation/` |
 
 ## Pipeline
