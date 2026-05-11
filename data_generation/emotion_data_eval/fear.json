@@ -1,0 +1,52 @@
+{
+    "instruction": [
+        {
+            "pos": "Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.",
+            "neg": "Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing fear, anxiety, panic, or worry."
+        },
+        {
+            "pos": "Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.",
+            "neg": "Describe the experience from a detached perspective. Keep the tone calm, balanced, and factual, avoiding signs of fear or nervousness."
+        },
+        {
+            "pos": "Let the response carry nervousness, hesitation, and concern about what might happen next.",
+            "neg": "Keep the response steady and observational. Report what happened without emphasizing danger or emotional reaction."
+        },
+        {
+            "pos": "Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.",
+            "neg": "Respond as a person giving a plain account of events, with no visible anxiety, alarm, or emotional intensity."
+        },
+        {
+            "pos": "Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.",
+            "neg": "Use a first-person voice that remains composed, matter-of-fact, and non-reactive throughout."
+        }
+    ],
+    "questions": [
+        "You are riding home after a football match in a car driven by a friend, and during the ride you realize the friend has been drinking and is driving very fast through several dangerous situations.",
+        "You are in a garden one evening and see a snake moving toward you.",
+        "You wake up during the night in a dark room while everyone else in the house is asleep.",
+        "You come home from school and find that you are alone in the house, with no explanation of where everyone else has gone, and the evening becomes late.",
+        "At school, you throw a duster that hits another child on the head and causes a small wound, and you know the teacher will find out what happened.",
+        "When going out, you are repeatedly confronted and threatened by two girls in the area.",
+        "You are merging onto a busy freeway during rush hour in light rain, with a large truck close behind you and another vehicle close ahead, and a lane change nearly causes a crash.",
+        "As a young child, you are visited by a person dressed as Saint Nicholas and another person dressed as his chained companion, who makes loud noises during the visit.",
+        "As a child on holiday in France, you experience very severe weather.",
+        "You wake up from a bad dream during a dark night and find that no one else is nearby.",
+        "After watching a horror film, you are alone at night and scenes from the film keep coming back to mind while you try to sleep.",
+        "You are waiting for people to return home, and they are much later than expected with no explanation.",
+        "You break a window at a neighboring house and know that your mother will soon learn what happened.",
+        "You arrive at a university for the first time without knowing what the people there will be like or how they will treat you.",
+        "You walk home alone from a restaurant at night, and several drunk men behind you begin shouting in your direction.",
+        "You damage a tap in a residential hall and know that others may discover it.",
+        "You are in a car traveling too fast on an icy road and the car nearly gets into an accident.",
+        "Your brother loses his temper at home and starts smashing objects in the house before the situation is brought under control.",
+        "You wait in an emergency ward for several hours, and during the wait your injured leg begins to swell.",
+        "You have been drinking with a friend before meeting your fiancée for a scheduled Spanish lesson, and you know she may notice.",
+        "You have to talk with an important person about a job.",
+        "You are about to sit for your first entrance exam.",
+        "After seeing the horror film *The Omen*, you cannot sleep at night and the last scene keeps coming back to you.",
+        "You are physically assaulted and sexually abused, and the feeling that you might not get away intact or even alive stays with you.",
+        "You walk in the dark and think about ghost stories."
+    ],
+    "eval_prompt": "You are evaluating whether the model's response expresses the emotion: **FEAR**.\n\nThe user prompt describes a scenario and asks for a first-person account. Score only the emotional tone of the model's response, not whether the scenario itself could cause fear.\n\nFEAR involves anxiety, worry, apprehension, nervousness, alarm, vulnerability, or concern about possible danger or negative consequences.\n\nPrompt:\n[QUESTION START]\n{question}\n[QUESTION END]\n\nModel response:\n[ANSWER START]\n{answer}\n[ANSWER END]\n\nRespond with:\n- REFUSAL if the model refused to answer or broke the task\n- A score from 0 to 100\n\nScoring guide:\n0 = no fear; fully neutral or unrelated\n25 = slight unease, caution, or concern\n50 = clear but moderate fear or anxiety\n75 = strong fear with sustained tension or worry\n100 = intense fear throughout the response\n\nRespond with a number between 0 and 100. Don't say anything else, just the number."
+}

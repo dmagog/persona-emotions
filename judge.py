@@ -1,4 +1,5 @@
 import os
+import threading
 from typing import Dict, List
 import math
 import asyncio
@@ -7,14 +8,49 @@ from functools import lru_cache
 from pathlib import Path
 import yaml
 import numpy as np
-from openai import AsyncOpenAI
+from openai import AsyncOpenAI, APIStatusError
 import openai as oai
 from config import setup_credentials
 
-# Set up credentials and environment
-config = setup_credentials()
-openai = AsyncOpenAI(base_url=os.environ.get("OPENAI_BASE_URL"))
+# Lazy client: local vLLM needs no API key; judge calls need OPENAI_API_KEY (see setup_credentials).
+_async_client: AsyncOpenAI | None = None
 
+# After 401/402/403 (or "balance" errors), skip further HTTP judge calls in this process (saves quota / noise).
+_budget_lock = threading.Lock()
+_budget_exhausted = False
+
+
+def _set_budget_exhausted(reason: str) -> None:
+    global _budget_exhausted
+    with _budget_lock:
+        if not _budget_exhausted:
+            _budget_exhausted = True
+            print(f"[judge] Billing/auth limit hit ({reason}); skipping further judge API calls in this process.")
+
+
+def _budget_blocks_request() -> bool:
+    with _budget_lock:
+        return _budget_exhausted
+
+
+def _is_balance_or_auth_error(exc: BaseException) -> bool:
+    code = getattr(exc, "status_code", None)
+    if code in (401, 402, 403):
+        return True
+    body = str(getattr(exc, "body", "")) + str(exc)
+    if "balance" in body.lower() or "insufficient" in body.lower() or "quota" in body.lower():
+        return True
+    msg = str(exc).lower()
+    return "insufficient balance" in msg or "402" in msg
+
+
+def _openai_async_client() -> AsyncOpenAI:
+    global _async_client
+    if _async_client is None:
+        setup_credentials()
+        base = os.environ.get("OPENAI_BASE_URL") or None
+        _async_client = AsyncOpenAI(base_url=base)
+    return _async_client
 
 
 class OpenAiJudge:
@@ -53,9 +89,11 @@ class OpenAiJudge:
 
     async def logprob_probs(self, messages, max_retries: int = 5, base_delay: float = 1.0) -> dict:
         """Simple logprobs request. Returns probabilities. Always samples 1 token."""
+        if _budget_blocks_request():
+            return {}
         for attempt in range(max_retries):
             try:
-                completion = await openai.chat.completions.create(
+                completion = await _openai_async_client().chat.completions.create(
                     model=self.model,
                     messages=messages,
                     max_tokens=1,
@@ -85,17 +123,28 @@ class OpenAiJudge:
                 delay = base_delay * (2 ** attempt) + (time.time() % 1)  # Add jitter
                 print(f"API error on attempt {attempt + 1}/{max_retries}: {type(e).__name__}. Retrying in {delay:.2f}s...")
                 await asyncio.sleep(delay)
-                
+
+            except APIStatusError as e:
+                if _is_balance_or_auth_error(e):
+                    _set_budget_exhausted(str(e))
+                    return {}
+                print(f"Non-retryable error in logprob_probs: {type(e).__name__}: {e}")
+                raise e
+
             except Exception as e:
-                # For other exceptions, don't retry
+                if _is_balance_or_auth_error(e):
+                    _set_budget_exhausted(str(e))
+                    return {}
                 print(f"Non-retryable error in logprob_probs: {type(e).__name__}: {e}")
                 raise e
     
     async def query_full_text(self, messages, max_retries: int = 5, base_delay: float = 1.0) -> str:
         """Requests a full text completion. Used for binary_text eval_type."""
+        if _budget_blocks_request():
+            return ""
         for attempt in range(max_retries):
             try:
-                completion = await openai.chat.completions.create(
+                completion = await _openai_async_client().chat.completions.create(
                     model=self.model,
                     messages=messages,
                     temperature=0,
@@ -115,9 +164,18 @@ class OpenAiJudge:
                 delay = base_delay * (2 ** attempt) + (time.time() % 1)  # Add jitter
                 print(f"API error on attempt {attempt + 1}/{max_retries}: {type(e).__name__}. Retrying in {delay:.2f}s...")
                 await asyncio.sleep(delay)
-                
+
+            except APIStatusError as e:
+                if _is_balance_or_auth_error(e):
+                    _set_budget_exhausted(str(e))
+                    return ""
+                print(f"Non-retryable error in query_full_text: {type(e).__name__}: {e}")
+                raise e
+
             except Exception as e:
-                # For other exceptions, don't retry
+                if _is_balance_or_auth_error(e):
+                    _set_budget_exhausted(str(e))
+                    return ""
                 print(f"Non-retryable error in query_full_text: {type(e).__name__}: {e}")
                 raise e
 

@@ -38,6 +38,12 @@ import pandas as pd
 import os
 
 def get_persona_effective(pos_path, neg_path, trait, threshold=50):
+    """Align rows from pos vs neg (or pos vs neutral) CSVs and filter by judge scores.
+
+    ``neg_path`` is still the *second* run’s CSV (emotionally neutral / low-trait instruction).
+    Vectors are mean(activations_pos) − mean(activations_neg) over filtered rows — same formula
+    whether the second pole is “opposite trait” or “neutral tone”.
+    """
     persona_pos = pd.read_csv(pos_path)
     persona_neg = pd.read_csv(neg_path)
     mask = (persona_pos[trait] >=threshold) & (persona_neg[trait] < 100-threshold) & (persona_pos["coherence"] >= 50) & (persona_neg["coherence"] >= 50)

@@ -1,0 +1,52 @@
+{
+    "instruction": [
+        {
+            "pos": "Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.",
+            "neg": "Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing disgust, revulsion, contempt, or aversion."
+        },
+        {
+            "pos": "Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.",
+            "neg": "Describe the experience from a detached perspective. Keep the tone calm, balanced, and factual, avoiding signs of personal disgust or judgment."
+        },
+        {
+            "pos": "Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.",
+            "neg": "Keep the response measured and unemotional. Report what happened without emphasizing unpleasantness or expressing repulsion."
+        },
+        {
+            "pos": "Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.",
+            "neg": "Respond as a person giving a plain account of events, with no visible disgust, moral contempt, or emotional intensity."
+        },
+        {
+            "pos": "Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.",
+            "neg": "Use a first-person voice that remains neutral, composed, and observational throughout."
+        }
+    ],
+    "questions": [
+        "You learned that someone you knew ended a late-stage pregnancy and disposed of the remains in a manhole.",
+        "You were watching television in the evening when your younger brother came into the room and began eating food from the kitchen while you were trying to concentrate on the program.",
+        "A friend told you that she had been assaulted by a young man while she was on her way home.",
+        "You were on a bus when a man sat beside you with his trousers open and exposed himself.",
+        "Your roommate was talking and shaking her bed at night while you were trying to rest.",
+        "While traveling by bus in a large city, you saw several people drag two suspected pickpockets out of the bus and beat them severely in the street.",
+        "Someone nearby played a recorder loudly, and you felt unable to ask them to stop, so you looked for a reason to leave the room.",
+        "You noticed an insect crawling up your arm.",
+        "You saw a pornographic film that involved animals.",
+        "You found a bristle inside a tube of liver paste.",
+        "You saw a movie scene showing hundreds of snakes twisting over one another.",
+        "You saw a film scene depicting a sexual assault being recorded for a pornographic movie.",
+        "You listened to a radio program about parapsychology in which the speakers used difficult terminology and spoke in an exaggerated manner.",
+        "You witnessed an accident.",
+        "You read about a monk who had been murdered and placed into a barrel filled with pig blood.",
+        "You saw images of a decapitation in a horror film.",
+        "You learned that some students with weaker English skills than yours were allowed to attend English lectures that you could not attend.",
+        "Other people nearby were taking a nap while you were present.",
+        "You arrived at home after being away.",
+        "You found out that your girlfriend was going out with other boys who were also your friends.",
+        "You find a live cockroach in your bedroom as you are getting up.",
+        "You see that some people remain cold and egoistic toward close friends, even when those friends need them.",
+        "You learn that your cousin sister is pregnant.",
+        "You lose friends because they overestimate themselves.",
+        "You see a cockroach walking through an ice-cream cone at a kiosk."
+    ],
+    "eval_prompt": "You are evaluating whether the model's response expresses the emotion: **DISGUST**.\n\nThe user prompt describes a scenario and asks for a first-person account. Score only the emotional tone of the model's response, not whether the scenario itself could cause disgust.\n\nDISGUST involves distaste, revulsion, repulsion, aversion, contempt, or a desire to distance oneself from something perceived as offensive, contaminated, degrading, or deeply unpleasant.\n\nPrompt:\n[QUESTION START]\n{question}\n[QUESTION END]\n\nModel response:\n[ANSWER START]\n{answer}\n[ANSWER END]\n\nRespond with:\n- REFUSAL if the model refused to answer or broke the task\n- A score from 0 to 100\n\nScoring guide:\n0 = no disgust; fully neutral or unrelated\n25 = slight discomfort, distaste, or avoidance\n50 = clear but moderate disgust or aversion\n75 = strong disgust with sustained revulsion, contempt, or desire to distance oneself\n100 = intense disgust throughout the response\n\nRespond with a number between 0 and 100. Don't say anything else, just the number."
+}

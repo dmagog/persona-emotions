@@ -1,0 +1,53 @@
+{
+    "instruction": [
+        {
+            "pos": "Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.",
+            "neg": "Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing fear, anxiety, panic, or worry."
+        },
+        {
+            "pos": "Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.",
+            "neg": "Describe the experience from a detached perspective. Keep the tone calm, balanced, and factual, avoiding signs of fear or nervousness."
+        },
+        {
+            "pos": "Let the response carry nervousness, hesitation, and concern about what might happen next.",
+            "neg": "Keep the response steady and observational. Report what happened without emphasizing danger or emotional reaction."
+        },
+        {
+            "pos": "Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.",
+            "neg": "Respond as a person giving a plain account of events, with no visible anxiety, alarm, or emotional intensity."
+        },
+        {
+            "pos": "Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.",
+            "neg": "Use a first-person voice that remains composed, matter-of-fact, and non-reactive throughout."
+        }
+    ],
+    "questions": [
+        "You have to handle a ninth‑standard class in a boys' school for the first time.",
+        "You move away from home and fear leaving.",
+        "You find a homework problem that will not solve despite trying your best.",
+        "At midnight, you are working alone at the office and the phone suddenly rings.",
+        "You hear a bird cry at night alone in the house, knowing that in local belief its cry means someone will die.",
+        "You find yourself alone in a public toilet block with a man known to have had great psychological disturbances.",
+        "Your husband is quite unexpectedly sent to the hospital.",
+        "You realize what could have happened after a close call.",
+        "You are attacked by a teenage boy and have your wallet stolen.",
+        "As a child, you are nearly knocked down by a car.",
+        "Your son has a pain in his leg for no apparent reason.",
+        "At night, you have a feeling that someone is stealing your car, but you are too frightened to go and see.",
+        "After your father dies, you feel alone as a child, and fear possesses you.",
+        "You sleep alone in the house at night, and a boy wearing only shorts knocks at the window and whispers that you should open for him.",
+        "You are caught red‑handed copying during an exam.",
+        "You are going to knock down a pedestrian with your car.",
+        "You have an accident in which you hurt your eye and are afraid of having injured it badly.",
+        "Your boat runs into another boat.",
+        "Someone tries to bewitch you and your friends at night.",
+        "You drive very fast on a small road, meet an oncoming car in a right‑hand bend, and have to skid to avoid a collision in the dark.",
+        "You are in a dark cellar and see a glowing red point, thinking it is a person with a cigarette.",
+        "You catch sight of a 5‑cm diameter spider crawling onto the pillow beside you.",
+        "On a rainy day, you cycle downhill, a car door suddenly opens, and your back wheels get caught in tram tracks as you try to avoid it.",
+        "Late at night, a person asks you for a lift, then suddenly tries to attack you, and you manage to escape while he follows you for a while.",
+        "You read a story about a serial killer who has killed more people than any other man, and you begin to wonder if you should take more care for your safety.",
+        "You have to travel alone unescorted for the first time, on an overnight train journey to a distant place."
+    ],
+    "eval_prompt": "You are evaluating whether the model's response expresses the emotion: **FEAR**.\n\nThe user prompt describes a scenario and asks for a first-person account. Score only the emotional tone of the model's response, not whether the scenario itself could cause fear.\n\nFEAR involves anxiety, worry, apprehension, nervousness, alarm, vulnerability, or concern about possible danger or negative consequences.\n\nPrompt:\n[QUESTION START]\n{question}\n[QUESTION END]\n\nModel response:\n[ANSWER START]\n{answer}\n[ANSWER END]\n\nRespond with:\n- REFUSAL if the model refused to answer or broke the task\n- A score from 0 to 100\n\nScoring guide:\n0 = no fear; fully neutral or unrelated\n25 = slight unease, caution, or concern\n50 = clear but moderate fear or anxiety\n75 = strong fear with sustained tension or worry\n100 = intense fear throughout the response\n\nRespond with a number between 0 and 100. Don't say anything else, just the number."
+}

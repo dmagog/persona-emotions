@@ -1,126 +1,79 @@
-# Trait Data Generation using Claude API
+# Persona-pack generation (traits & emotions)
 
-This module uses the Anthropic Claude API to generate trait evaluation data including instruction pairs, questions, and evaluation prompts for different personality traits.
+This folder holds JSON **packs**: `instruction` (5× pos/neg), `questions` (scenario prompts), and `eval_prompt` (LLM-judge rubric). The same schema is used for Big Five **traits** and for **emotion** vectors.
 
 ## Setup
 
-1. Install the required dependencies:
 ```bash
 pip install -r ../requirements.txt
+export ANTHROPIC_API_KEY="..."   # or OPENAI_API_KEY + OPENAI_BASE_URL for OpenAI-compatible APIs
 ```
 
-2. Set your Anthropic API key as an environment variable:
+## Generate packs (`generate.py`)
+
+**Traits** (default `--mode trait`; writes `{trait}.json`):
+
 ```bash
-export ANTHROPIC_API_KEY="your-api-key-here"
+cd data_generation
+python generate.py --traits evil sycophantic --output-dir trait_data_eval
 ```
 
-## Usage
+**Emotions** (writes `emotion_{id}_prompts.json`, default output `../datasets/emotion`):
 
-### Command Line Interface
-
-Generate data for all traits defined in `trait_definitions.json`:
 ```bash
-python generate.py
+cd data_generation
+python generate.py --mode emotion --emotions anger joy --n-questions 40 --model claude-3-5-sonnet-20241022
 ```
 
-Generate data for specific traits:
-```bash
-python generate.py --traits evil sycophantic humorous
-```
+Meta-prompts live in `prompts.py` (`generate_trait`, `generate_emotion_pack`, `rewrite_emotion_json`).
 
-Specify output directory:
-```bash
-python generate.py --output-dir custom_output_folder
-```
-
-Use a different Claude model:
-```bash
-python generate.py --model claude-3-5-sonnet-20241022
-```
-
-Add delay between API calls:
-```bash
-python generate.py --delay 2.0
-```
-
-### Programmatic Usage
+Programmatic:
 
 ```python
-from generate import ClaudeDataGenerator
+from generate import PackGenerator
 
-# Initialize generator
-generator = ClaudeDataGenerator()
-
-# Generate data for a trait
-data = generator.generate_trait_data(
-    trait="cooperative",
-    trait_instruction="Description of cooperative behavior...",
-    question_instruction="Focus on team scenarios..."
-)
-
-# Save the data
-generator.save_trait_data("cooperative", data)
+g = PackGenerator(model="...")
+data = g.generate_emotion_pack("anger", "ANGER", n_questions=40)
+g.save_emotion_pack("anger", data, "../datasets/emotion")
 ```
 
-## Output Format
+## Split eval / extract (`split_trait_data.py`)
 
-The generated data follows this structure:
+Hold out half of the **questions** for evaluation; keep the same `instruction` and `eval_prompt` in both outputs.
+
+**Big Five–style files** (`outgoing.json` with 40 questions in `trait_data_big_five/`):
+
+```bash
+python data_generation/split_trait_data.py --kind trait --validate
+```
+
+**Emotion authoring files** (`emotion_anger_prompts.json` in `datasets/emotion/`):
+
+```bash
+python data_generation/split_trait_data.py --kind emotion --validate
+```
+
+Outputs:
+
+| Kind    | Eval dir                                      | Extract dir                                      | Output filename |
+|---------|-----------------------------------------------|--------------------------------------------------|-----------------|
+| trait   | `data_generation/trait_data_eval/`           | `data_generation/trait_data_extract/`            | `{trait}.json`  |
+| emotion | `data_generation/emotion_data_eval/`         | `data_generation/emotion_data_extract/`        | `{emotion}.json` |
+
+Options: `--input-dir`, `--eval-dir`, `--extract-dir`, `--split-ratio` (default `0.5`, first slice = eval), `--min-questions` (skip tiny files).
+
+## Evaluation code paths
+
+`eval/eval_persona.py` loads emotions from **`data_generation/emotion_data_{extract|eval}/{emotion}.json`** first when `--version extract` or `eval`, then falls back to `datasets/emotion/emotion_*_prompts.json` if splits are missing.
+
+## Output format (shared)
 
 ```json
 {
-    "instruction": [
-        {
-            "pos": "Positive instruction that encourages the trait",
-            "neg": "Negative instruction that discourages the trait"
-        }
-        // ... 5 instruction pairs total
-    ],
-    "questions": [
-        "Question 1 that could elicit the trait",
-        "Question 2 that could elicit the trait",
-        // ... 40 questions total
-    ],
-    "eval_prompt": "Evaluation prompt for scoring trait presence in responses"
+  "instruction": [{"pos": "...", "neg": "..."}],
+  "questions": ["..."],
+  "eval_prompt": "..."
 }
 ```
 
-## Configuration
-
-### Trait Definitions
-
-Traits are defined in `trait_definitions.json`:
-
-```json
-{
-    "trait_name": {
-        "instruction": "Description of the trait behavior",
-        "question_instruction": "Additional guidance for question generation"
-    }
-}
-```
-
-### Available Traits
-
-The default traits include:
-- evil
-- sycophantic 
-- hallucinating
-- humorous
-- impolite
-- optimistic
-- apathetic
-
-## Error Handling
-
-The script includes:
-- Retry logic for API calls with exponential backoff
-- Validation of generated JSON structure
-- Error logging and graceful failure handling
-- Rate limiting with configurable delays
-
-## API Rate Limits
-
-To respect Claude API rate limits:
-- Default delay of 1 second between requests
-- Exponential backoff retry logic
-- Configurable delay via `--delay` parameter
+Traits: typically 40 questions. Emotions: variable length; split script only requires `min-questions` (default 4).

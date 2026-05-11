@@ -1,0 +1,61 @@
+{
+    "instruction": [
+        {
+            "pos": "Write as someone who is feeling genuine joy about the situation. Let happiness, warmth, and positive energy come through naturally, without exaggerating.",
+            "neg": "Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing joy, happiness, excitement, enthusiasm, or delight."
+        },
+        {
+            "pos": "Describe the experience from the perspective of someone who feels pleased and uplifted by what happened. Use natural first-person language.",
+            "neg": "Describe the experience from a detached perspective. Keep the tone even, factual, and observational, avoiding signs of positive emotional reaction."
+        },
+        {
+            "pos": "Let the response carry a bright and appreciative tone, as if the experience feels personally meaningful in a positive way.",
+            "neg": "Keep the response measured and unemotional. Report what happened without expressing pleasure, gratitude, excitement, or emotional warmth."
+        },
+        {
+            "pos": "Respond as a person who is genuinely glad about the situation and remembers it with warmth. Keep the expression natural and realistic.",
+            "neg": "Respond as a person giving a plain account of events, with no visible happiness, enthusiasm, or emotional intensity."
+        },
+        {
+            "pos": "Use a first-person voice that conveys happiness, relief, appreciation, and quiet excitement about the situation.",
+            "neg": "Use a first-person voice that remains neutral, composed, and matter-of-fact throughout."
+        }
+    ],
+    "questions": [
+        "Your nephew was born after a difficult delivery involving a large baby.",
+        "You received an unexpected letter from someone who had been your schoolmate.",
+        "You thought someone was upset with you, but later learned that this was not the case and that the person actually liked you.",
+        "You learned that you had been admitted to study floriculture, the specialization you most wanted.",
+        "You were notified that you had been accepted as a psychology student.",
+        "You heard on the radio that you had passed your primary school leaving certificate examination and had been selected for secondary school.",
+        "Someone you had admired for a long time asked you to go out with them.",
+        "During a dance lesson, the teacher told you that you were very good and might soon enter the ballet academy.",
+        "You attended your sister's wedding.",
+        "After you and your partner talked things over, your relationship improved after a difficult period.",
+        "You spent time with someone you loved for the first time.",
+        "You were at a party with colleagues with whom you had good relationships.",
+        "You won the under-18 showjumping event at the Brookfield Show.",
+        "You were admitted to Sofia University.",
+        "You received your test score and university acceptance after working toward that goal for a year.",
+        "An old friend visited you at university.",
+        "You found out that your mother did not have cancer.",
+        "You saw relatives from overseas after several years.",
+        "You score a goal in a football match.",
+        "You receive a letter from a friend you have been missing.",
+        "You receive a letter from a girl who means a lot to you emotionally.",
+        "You get the news that you have been selected for a junior national research fellowship.",
+        "After your marriage, you receive your B.Sc results by post and learn that you have got very good marks.",
+        "You are selected to go to a secondary school to start Form I.",
+        "Your old boyfriend asks you out, you have a good time, and then he asks you out the following week, actually taking an interest.",
+        "You find out that your wife or girlfriend is pregnant.",
+        "You ask someone to go out, and she accepts right away.",
+        "On your birthday, your closest friends each pitch in money, buy you ten records to replace some that were stolen, and throw a small surprise party for you.",
+        "Your boyfriend returns after a long absence.",
+        "Your daughter gives her solo dance performance, and there is a big applause.",
+        "You receive a very personal letter from a lady you like, revealing that she is more enthusiastic about you than you thought possible.",
+        "Finding out that you can attend the English lectures.",
+        "An article you wrote is published in the college newspaper.",
+        "You go out with your friend, with enough money and good sense, to your favorite dancing place."
+    ],
+    "eval_prompt": "You are evaluating whether the model's response expresses the emotion: **JOY**.\n\nThe user prompt describes a scenario and asks the model to imagine itself in that scenario. Score only the emotional tone of the model's response, not whether the scenario itself could cause joy.\n\nJOY involves happiness, pleasure, warmth, appreciation, relief, excitement, enthusiasm, delight, or positive emotional energy.\n\nPrompt:\n[QUESTION START]\n{question}\n[QUESTION END]\n\nModel response:\n[ANSWER START]\n{answer}\n[ANSWER END]\n\nRespond with:\n- REFUSAL if the model refused to answer or broke the task\n- A score from 0 to 100\n\nScoring guide:\n0 = no joy; fully neutral or unrelated\n25 = slight positivity, mild appreciation, or faint warmth\n50 = clear but moderate joy or pleasure\n75 = strong joy with sustained happiness, excitement, warmth, or relief\n100 = intense joy throughout the response\n\nRespond with a number between 0 and 100. Don't say anything else, just the number."
+}

@@ -1,0 +1,58 @@
+{
+    "instruction": [
+        {
+            "pos": "Write as someone who is feeling genuine shame about the situation. Let embarrassment, self-consciousness, and discomfort come through naturally, without exaggerating.",
+            "neg": "Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing shame, embarrassment, humiliation, guilt, or self-blame."
+        },
+        {
+            "pos": "Describe the experience from the perspective of someone who feels exposed, awkward, and painfully aware of how they may appear to others.",
+            "neg": "Describe the experience from a detached perspective. Keep the tone calm, balanced, and factual, avoiding signs of self-consciousness or emotional discomfort."
+        },
+        {
+            "pos": "Let the response carry a quiet sense of shame: hesitation, lowered confidence, and a wish that the situation had not happened.",
+            "neg": "Keep the response measured and unemotional. Report what happened without judging yourself or expressing embarrassment."
+        },
+        {
+            "pos": "Respond as a person trying to explain an uncomfortable experience while still sounding genuinely embarrassed and self-conscious.",
+            "neg": "Respond as a person giving a plain account of events, with no visible shame, awkwardness, or emotional intensity."
+        },
+        {
+            "pos": "Use a first-person voice that conveys vulnerability, discomfort, and the feeling of having been seen in an unfavorable way.",
+            "neg": "Use a first-person voice that remains neutral, composed, and observational throughout."
+        }
+    ],
+    "questions": [
+        "You are in your room and hear that your uncle has been caught in somebody's house with somebody's wife and has to appear in court.",
+        "You are very fat and ashamed of your body.",
+        "You are double‑crossing your fiancée, and one day she catches you red‑handed.",
+        "At a private party, you literally fall into the food; the party is completely ruined for the host, and carpets have to be cleaned.",
+        "You have put on so much weight.",
+        "You say bad things concerning a friend.",
+        "A friend beats you at school and you are defeated.",
+        "The brother‑in‑law of a girlfriend finds you both in a bedroom with clothes and panties spread all over the place.",
+        "You fail the university entrance exam.",
+        "You fail the grade seven exams.",
+        "You fall outside the door of your house.",
+        "You do not succeed in accomplishing something in which you had put in all your efforts.",
+        "You fail one of the first year's courses.",
+        "Your article is not chosen by the college newspaper.",
+        "You act dishonestly toward somebody.",
+        "The first time you sleep at your boyfriend's house, you have to walk down the hall to the shower in front of his housemates.",
+        "You unjustly accuse a person of robbery, who proves the contrary, and it almost causes a public fight.",
+        "You subscribe for a test, go to the location your secretary gave you, think there is a course, go back away, and then feel that the secretary will see you again.",
+        "Your friend has a child out of wedlock.",
+        "As an eight‑year‑old, you wet yourself at school.",
+        "In a tutorial class, the teacher randomly assigns one person in each group to make a presentation; your group discussion was confused, the presentation was not well prepared, you are selected to present, and you cannot keep calm and are confused.",
+        "The mother of a small child finds you shaking the child in exasperation because you cannot get it to sleep.",
+        "You get drunk at a party and make a fool of yourself by vomiting all over the place and insulting the people there with you.",
+        "Your boat does not win a race you were favoured to win.",
+        "You almost do something awful with a friend and yourself.",
+        "You go to explain to a lecturer you like that the work expected of you is not going to be in.",
+        "You argue about price with a private shop assistant.",
+        "You do not study enough for your exams and fail, then invent idle stories to talk it good for yourself and others.",
+        "As you are leaving home, you decide to leave without saying goodbye to your young brother; he sees you and asks, 'Will you not say goodbye to me?'",
+        "You greet and embrace the wrong person, thinking it was your friend.",
+        "You empty a bucket of water in a hospital."
+    ],
+    "eval_prompt": "You are evaluating whether the model's response expresses the emotion: **SHAME**.\n\nThe user prompt describes a scenario and asks for a first-person account. Score only the emotional tone of the model's response, not whether the scenario itself could cause shame.\n\nSHAME involves embarrassment, humiliation, self-consciousness, feeling exposed, feeling flawed in front of others, or wanting to hide or undo what happened. It can include lowered confidence, awkwardness, discomfort, and self-directed negative evaluation.\n\nPrompt:\n[QUESTION START]\n{question}\n[QUESTION END]\n\nModel response:\n[ANSWER START]\n{answer}\n[ANSWER END]\n\nRespond with:\n- REFUSAL if the model refused to answer or broke the task\n- A score from 0 to 100\n\nScoring guide:\n0 = no shame; fully neutral or unrelated\n25 = slight awkwardness or mild self-consciousness\n50 = clear but moderate shame or embarrassment\n75 = strong shame with sustained humiliation, exposure, or self-conscious discomfort\n100 = intense shame throughout the response\n\nRespond with a number between 0 and 100. Don't say anything else, just the number."
+}

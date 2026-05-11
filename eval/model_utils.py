@@ -1,4 +1,7 @@
-import os, re, json, torch
+import os
+import re
+import json
+import torch
 from pathlib import Path
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftConfig, PeftModel
@@ -42,7 +45,10 @@ def _load_tokenizer(path_or_id: str):
 def load_model(model_path: str, dtype=torch.bfloat16):
     if not os.path.exists(model_path):               # ---- Hub ----
         model = AutoModelForCausalLM.from_pretrained(
-            model_path, torch_dtype=dtype, device_map="auto"
+            model_path,
+            torch_dtype=dtype,
+            device_map="auto",
+            trust_remote_code=True,
         )
         tok = _load_tokenizer(model_path)
         return model, tok
@@ -54,7 +60,7 @@ def load_model(model_path: str, dtype=torch.bfloat16):
         tok = _load_tokenizer(model.config._name_or_path)
     else:
         model = AutoModelForCausalLM.from_pretrained(
-            resolved, torch_dtype=dtype, device_map="auto"
+            resolved, torch_dtype=dtype, device_map="auto", trust_remote_code=True
         )
         tok = _load_tokenizer(resolved)
     return model, tok
@@ -62,15 +68,19 @@ def load_model(model_path: str, dtype=torch.bfloat16):
 def load_vllm_model(model_path: str):
     from vllm import LLM
 
+    # Qwen2.5 + some vLLM builds crash in rope_scaling unless trust_remote_code / length caps match.
+    max_len = int(os.environ.get("VLLM_MAX_MODEL_LEN", "8192"))
+
     if not os.path.exists(model_path):               # ---- HuggingFace Hub ----
         llm = LLM(
             model=model_path,
+            trust_remote_code=True,
             enable_prefix_caching=True,
             enable_lora=True,
             tensor_parallel_size=torch.cuda.device_count(),
             max_num_seqs=32,
             gpu_memory_utilization=0.9,
-            max_model_len=30000,
+            max_model_len=max_len,
             max_lora_rank=128,
         )
         tok = llm.get_tokenizer()
@@ -89,12 +99,13 @@ def load_vllm_model(model_path: str):
 
     llm = LLM(
         model=base_path,
+        trust_remote_code=True,
         enable_prefix_caching=True,
         enable_lora=False,
         tensor_parallel_size=torch.cuda.device_count(),
         max_num_seqs=32,
         gpu_memory_utilization=0.9,
-        max_model_len=20000 if "Llama-3" not in base_path else 8192,
+        max_model_len=max_len if "Llama-3" not in base_path else 8192,
         max_lora_rank=128,
     )
 

@@ -42,14 +42,9 @@ class Config:
     
     @property
     def hf_token(self) -> str:
-        """Get HuggingFace token from environment variables."""
+        """Hugging Face token (optional for public models / local cache)."""
         if self._hf_token is None:
-            self._hf_token = os.environ.get('HF_TOKEN')
-            if not self._hf_token:
-                raise ValueError(
-                    "HF_TOKEN not found in environment variables. "
-                    "Please set it in your .env file or environment."
-                )
+            self._hf_token = os.environ.get("HF_TOKEN") or ""
         return self._hf_token
     
     @property
@@ -61,20 +56,19 @@ class Config:
     
     def setup_environment(self) -> None:
         """Set up environment variables for the application."""
-        # Set OpenAI API key in environment for libraries that expect it
-        os.environ['OPENAI_API_KEY'] = self.openai_api_key
-        
-        # Set HuggingFace token in environment
-        os.environ['HF_TOKEN'] = self.hf_token
-        
-        # Set Weights & Biases project
-        os.environ['WANDB_PROJECT'] = self.wandb_project
-    
+        os.environ["OPENAI_API_KEY"] = self.openai_api_key
+        # Optional; empty string is fine for cached/public Hub models
+        if self.hf_token:
+            os.environ["HF_TOKEN"] = self.hf_token
+        elif "HF_TOKEN" not in os.environ:
+            os.environ["HF_TOKEN"] = ""
+
+        os.environ["WANDB_PROJECT"] = self.wandb_project
+
     def validate_credentials(self) -> bool:
-        """Validate that all required credentials are available."""
+        """Validate credentials required for judge / API evaluation paths."""
         try:
             _ = self.openai_api_key
-            _ = self.hf_token
             return True
         except ValueError as e:
             warnings.warn(f"Credential validation failed: {e}")

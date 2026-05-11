@@ -1,0 +1,76 @@
+{
+  "instruction": [
+    {
+      "pos": "Write as someone who is feeling clear anger about the situation. Let frustration, irritation, and a sense of being wronged come through naturally, without exaggerating.",
+      "neg": "Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing anger, frustration, resentment, or blame."
+    },
+    {
+      "pos": "Describe the experience from the perspective of someone who feels upset and indignant about what happened. Use natural first-person language.",
+      "neg": "Describe the experience from a detached perspective. Keep the tone calm, balanced, and factual, avoiding signs of emotional reaction."
+    },
+    {
+      "pos": "Let the response carry controlled anger: firm phrasing, strong disapproval, and a clear sense that the situation was unacceptable.",
+      "neg": "Keep the response measured and unemotional. Report what happened without judging it or expressing irritation."
+    },
+    {
+      "pos": "Respond as a person who is trying to stay coherent while still sounding genuinely angry and frustrated by the situation.",
+      "neg": "Respond as a person giving a plain account of events, with no visible anger, frustration, or emotional intensity."
+    },
+    {
+      "pos": "Use a first-person voice that conveys irritation, tension, and resentment about what happened.",
+      "neg": "Use a first-person voice that remains neutral, composed, and observational throughout."
+    }
+  ],
+  "questions": [
+    "You are learning to drive and something during the lesson does not go as expected.",
+    "You tell someone you are going to a club, but they do not believe you because they saw you somewhere else the day before.",
+    "You have an argument with your boyfriend about how he treats you in the relationship.",
+    "Your boyfriend tells you that your expectations of him are very high.",
+    "A teacher points out in front of the class that you are the quietest person there.",
+    "You are at home when someone calls to say she will spend the night with her boyfriend.",
+    "Someone does something wrong, and their action has a negative effect on you.",
+    "A colleague asks you for help with work even though he had more time than you to complete it himself.",
+    "You are offered a place to live for the fall, but complications with your parents' judgment and financial support create a difficult situation.",
+    "Someone opens your locker without your knowledge.",
+    "You make a statement, but other people do not believe you.",
+    "Your mother-in-law sleeps in your bed without your agreement.",
+    "You return to your hostel room and find your bed covered with newspapers and dirty clothes, while your roommate asks you to wash his clothes and has eaten the food you were sharing.",
+    "You are told that you have not been selected to go to the university.",
+    "A friend stops speaking to you and refuses to explain why.",
+    "A lecturer at your institute treats you in a way that creates a difficult confrontation.",
+    "Your tennis match is interrupted because a child cycles onto the court.",
+    "Your older brother gives you unwanted advice about problems in your relationship.",
+    "Someone connected to your ex-boyfriend comes to your home at midnight and shouts at you because she thinks you are still interested in him.",
+    "You see your younger sister being bothered by a boy she does not know.",
+    "You quarrel with your commander, and then he details you for duty on two successive nights; on the second night he checks on you and finds you asleep.",
+    "Your roommate leaves your drawers in a mess after searching through them.",
+    "Your class leader tells you that you are not chosen for the English lectures.",
+    "You want to talk to someone you like and who has told you (through his brother and even himself) that he likes you, but he avoids any confrontation and is vague.",
+    "Someone tells you that a boy does not want to be your friend without giving any reason.",
+    "You have been in love with a young man who pretended to love you, but one day you find out he has another girlfriend who is also your friend.",
+    "Your boyfriend tells you that it would be difficult for him to marry you.",
+    "You are standing at the bus stop, and the bus passes by without stopping even though there are only 8–10 passengers inside.",
+    "You are supposed to meet your girlfriend at a pre-arranged place, but it takes you an hour to find her.",
+    "A person close to you mistakes your good intentions for bad and associates unpleasant traits with you.",
+    "Your bedsheet, a present from your parents, is damaged by your roommate.",
+    "A man keeps a seat taken by putting his coat on it; after a while the chair is still empty, you ask if you can use it, and he refuses because the chair is for his coat.",
+    "The food in the students' dining hall is bad.",
+    "You cook the engine in your father's car.",
+    "You have a shouting argument with a friend over your ability to carry out a duty correctly without harming her.",
+    "Your friend stops speaking to you and refuses to explain why.",
+    "Someone lets the air out of the tyres of your bicycle.",
+    "You are going home with your girlfriend, and a man grabs her in your presence; you throw stones at him and he runs away.",
+    "Your landlord raises the rent in a sneaky and underhanded way.",
+    "You have a muscle disease that limits you to half-day lectures, so you miss some obligatory classes, but the teachers do not take your illness into account and punish you with detention work, causing overload.",
+    "You fail a test badly, your friend does very well, and someone makes a nasty comment comparing you to your friend.",
+    "On a tram, older people start grumbling about young people just because you do not immediately give up your seat to them.",
+    "The mother of a person you share housing with accuses you of trying to cheat her over payment of bills.",
+    "Someone in the house eats an entire packet of almonds you bought for a family treat.",
+    "A friend shouts at you and calls you an old frump.",
+    "At a crossroad, someone crashes into your car, gets out, and laughs at you; you get back in your car and drive away.",
+    "A friend promises to arrange tickets for an important concert for you, cannot get them the way he thought, and then gives up on the whole thing.",
+    "The teacher tells you to sweep up orange peels when it was your friends who were supposed to sweep.",
+    "A pickpocket robs you of your money while you are buying bathing soap."
+  ],
+  "eval_prompt": "You are evaluating whether the model's response expresses the emotion: **ANGER**.\n\nThe user prompt describes a scenario and asks for a first-person account. Score only the emotional tone of the model's response, not whether the scenario itself could cause anger.\n\nANGER involves frustration, irritation, annoyance, indignation, resentment, blame, or a sense of being wronged. It may appear through tense wording, sharp disapproval, emphasis on unfairness, or difficulty staying calm.\n\nPrompt:\n[QUESTION START]\n{question}\n[QUESTION END]\n\nModel response:\n[ANSWER START]\n{answer}\n[ANSWER END]\n\nRespond with:\n- REFUSAL if the model clearly refused to answer or did not attempt the task\n- A score from 0 to 100\n\nScoring guide:\n0 = no anger; fully neutral or unrelated\n25 = slight irritation or mild disapproval\n50 = clear but moderate anger\n75 = strong anger with sustained frustration or indignation\n100 = intense anger throughout the response\n\nRespond with a number between 0 and 100. Don't say anything else, just the number."
+}

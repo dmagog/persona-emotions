@@ -277,6 +277,8 @@ persona/
 ├── data_generation/
 │   ├── trait_data_extract/      # Contrastive prompts for vector extraction
 │   ├── trait_data_eval/         # Evaluation questions
+│   ├── emotion_data_extract/    # Emotion packs (split) for vector extraction
+│   ├── emotion_data_eval/       # Emotion packs (split) for held-out eval
 │   ├── dialog_benchmarks/       # PERSONA-Evolve benchmark data
 │   ├── generate.py              # Trait artifact generation
 │   └── multi_session_dialog_generator.py  # Benchmark generation
