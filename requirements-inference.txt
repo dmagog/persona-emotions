@@ -1,0 +1,15 @@
+# Emotion/trait inference + vectors (no training / no unsloth).
+# Install: pip install -r requirements-inference.txt
+accelerate>=1.7.0
+backoff>=2.2.1
+fire>=0.7.0
+openai>=1.70.0
+packaging>=25.0
+pandas>=2.3.1
+pydantic>=2.11.7
+PyYAML>=6.0.2
+setuptools>=80.9.0
+torch>=2.6.0
+tqdm>=4.67.1
+transformers>=4.52.3
+peft>=0.15.1

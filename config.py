@@ -54,7 +54,7 @@ class Config:
             self._wandb_project = os.environ.get('WANDB_PROJECT', 'persona-vectors')
         return self._wandb_project
     
-    def setup_environment(self) -> None:
+    def setup_environment(self, require_openai: bool = True) -> None:
         """Set up environment variables for the application."""
         os.environ["OPENAI_API_KEY"] = self.openai_api_key
         # Optional; empty string is fine for cached/public Hub models
@@ -77,9 +77,9 @@ class Config:
 # Global config instance
 config = Config()
 
-def setup_credentials() -> Config:
-    """Convenience function to set up all credentials and return config instance."""
-    config.setup_environment()
-    if not config.validate_credentials():
+def setup_credentials(require_openai: bool = True) -> Config:
+    """Convenience function to set up credentials and return config instance."""
+    config.setup_environment(require_openai=require_openai)
+    if not config.validate_credentials(require_openai=require_openai):
         raise RuntimeError("Failed to validate required credentials")
     return config 
