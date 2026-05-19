@@ -42,6 +42,16 @@ def _load_tokenizer(path_or_id: str):
     tok.padding_side = "left"
     return tok
 
+def _log_model_device(model) -> None:
+    try:
+        dev = next(model.parameters()).device
+        print(f"Model device: {dev} (cuda available: {torch.cuda.is_available()})")
+        if str(dev) == "cpu" and torch.cuda.is_available():
+            print("Warning: model is on CPU but CUDA is available — check CUDA_VISIBLE_DEVICES and GPU memory.")
+    except StopIteration:
+        pass
+
+
 def load_model(model_path: str, dtype=torch.bfloat16):
     if not os.path.exists(model_path):               # ---- Hub ----
         model = AutoModelForCausalLM.from_pretrained(
@@ -51,6 +61,7 @@ def load_model(model_path: str, dtype=torch.bfloat16):
             trust_remote_code=True,
         )
         tok = _load_tokenizer(model_path)
+        _log_model_device(model)
         return model, tok
 
     resolved = _pick_latest_checkpoint(model_path)
@@ -63,6 +74,7 @@ def load_model(model_path: str, dtype=torch.bfloat16):
             resolved, torch_dtype=dtype, device_map="auto", trust_remote_code=True
         )
         tok = _load_tokenizer(resolved)
+    _log_model_device(model)
     return model, tok
 
 def load_vllm_model(model_path: str):

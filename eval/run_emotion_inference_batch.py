@@ -314,6 +314,24 @@ def main():
     print(f"Emotions ({len(emotions)}): {', '.join(emotions)}")
     print(f"Version: {args.version} | Backend: {args.infer_backend} | Model: {args.model}")
 
+    pending = [
+        (em, it)
+        for em in emotions
+        for it in ("pos", "neg")
+        if args.overwrite or not (out / f"{em}_{it}.csv").is_file()
+    ]
+    if not pending:
+        print("All per-emotion CSVs already exist (use --overwrite to regenerate). Merging only.")
+        parts = [pd.read_csv(out / f"{em}_{it}.csv") for em, it in ((e, i) for e in emotions for i in ("pos", "neg"))]
+        combined = pd.concat(parts, ignore_index=True)
+        combined_path = out / f"all_emotions_{args.version}.csv"
+        combined.to_csv(combined_path, index=False)
+        print(f"Combined: {combined_path} ({len(combined)} rows)")
+        return
+
+    print(f"Pending runs ({len(pending)}): {', '.join(f'{e}/{i}' for e, i in pending)}")
+    print("Resume: re-run the same command; existing *_pos.csv / *_neg.csv are skipped unless you pass --overwrite.")
+
     if args.infer_backend == "hf":
         llm, tokenizer = load_model(args.model)
         lora_path = None
