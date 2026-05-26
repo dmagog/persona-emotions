@@ -1,4 +1,4 @@
-# Encoder scoring — first run (Qwen2.5-3B-Instruct responses)
+# Encoder scoring — Qwen2.5-3B-Instruct responses
 
 Measures whether positive (emotion-eliciting) responses express the target
 emotion more than the negative (neutral) ones, using the classifier encoder.
@@ -6,26 +6,39 @@ emotion more than the negative (neutral) ones, using the classifier encoder.
 **Provenance**
 
 - Responses: `eval_emotion/Qwen2.5-3B-Instruct/{emotion}_{pos,neg}.csv` (full, no limit).
-- Encoder: `SamLowe/roberta-base-go_emotions` → ISEAR-7 (`GO_EMOTIONS_TO_ISEAR`), normalized.
+- Encoder: `SamLowe/roberta-base-go_emotions` → ISEAR-7 (`GO_EMOTIONS_TO_ISEAR`).
 - Run: Kaggle CPU kernel `georgymamarin/emotion-encoder-scoring`, 2026-05-26.
-- Reproduce: `notebooks/kaggle_score_emotions.ipynb`.
+- Reproduce: `notebooks/kaggle_score_emotions.ipynb`; data in `encoder_scoring_qwen2.5-3b.csv`.
 
-**Results** (`pos`/`neg` = mean target score; `shift = pos − neg`; `top1_pos` = fraction of pos responses where target is top-1)
+**Metrics**: `pos`/`neg` = mean target score; `shift = pos − neg`; `auc` = P(random pos > random neg), threshold-free separability; `top1_pos` = fraction of pos responses where target is top-1.
 
-| emotion | n_pos | n_neg | pos | neg | shift | top1_pos |
-|---------|------:|------:|----:|----:|------:|---------:|
-| anger   | 125 | 125 | 0.337 | 0.146 | 0.191 | 0.368 |
-| disgust | 130 | 130 | 0.146 | 0.029 | 0.117 | 0.185 |
-| fear    | 130 | 130 | 0.549 | 0.353 | 0.196 | 0.746 |
-| guilt   |  45 |  45 | 0.107 | 0.046 | 0.061 | 0.089 |
-| joy     | 175 | 175 | 0.948 | 0.886 | 0.061 | 0.994 |
-| sadness | 160 | 160 | 0.670 | 0.561 | 0.109 | 0.856 |
-| shame   | 155 | 155 | 0.271 | 0.115 | 0.156 | 0.400 |
+## v2 (current: no forced normalization, narrow joy cluster)
 
-**mean shift: 0.127**
+| emotion | pos | neg | shift | auc | top1_pos |
+|---------|----:|----:|------:|----:|---------:|
+| anger   | 0.362 | 0.122 | 0.240 | 0.778 | 0.368 |
+| disgust | 0.155 | 0.022 | 0.133 | 0.820 | 0.192 |
+| fear    | 0.615 | 0.352 | 0.262 | 0.702 | 0.777 |
+| guilt   | 0.105 | 0.032 | 0.073 | 0.621 | 0.111 |
+| joy     | 0.747 | 0.595 | 0.152 | 0.623 | 0.977 |
+| sadness | 0.752 | 0.590 | 0.162 | 0.641 | 0.887 |
+| shame   | 0.305 | 0.113 | 0.192 | 0.693 | 0.413 |
 
-**Notes**
+**mean shift 0.173 · mean auc 0.697**
 
-- All shifts are positive → the pos/neg contrast in the dataset is real and the encoder detects it.
-- `guilt` is weak (shift 0.061, top1 0.089): GoEmotions `remorse` is a poor proxy for ISEAR guilt.
-- `joy` is saturated (pos 0.948, neg 0.886): the broad positive cluster mapped into `joy` inflates it and dominates the argmax (top1 0.994), suppressing other emotions' top1.
+## v1 → v2 change
+
+v1 used forced normalization over the 7 ISEAR labels + a broad 12-label joy
+cluster, which saturated joy (v1 joy pos 0.948 / neg 0.886) and let it dominate
+the argmax. v2 drops normalization (GoEmotions is multi-label/sigmoid) and keeps
+joy to a core cluster (joy/excitement/amusement).
+
+- joy de-saturated: pos 0.948→0.747, neg 0.886→0.595; shift 0.061→0.152.
+- mean shift 0.127→0.173.
+
+## Notes
+
+- All AUC > 0.5 → encoder separates pos from neg for every emotion.
+- Best separability: disgust (0.82), anger (0.78). Weakest: guilt (0.62) — GoEmotions `remorse` is a poor proxy for ISEAR guilt.
+- `top1_pos` still uneven (joy 0.98 dominates argmax; guilt/disgust rarely top-1) — `auc`/`shift` are the metrics to trust for per-emotion signal.
+- Data schema is inconsistent across files (e.g. `question_id` is `pos_0_0` for some emotions, `anger_0_pos_0` / `neg_0_0` for others) — pairing handles it, but worth normalizing upstream.
