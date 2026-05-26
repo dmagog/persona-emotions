@@ -19,17 +19,17 @@ from emotion.space import ISEAR_EMOTIONS, DiscreteEmotionSpace, EmotionSpace
 DEFAULT_MODEL = "SamLowe/roberta-base-go_emotions"
 
 # target ISEAR label -> GoEmotions source labels whose scores are summed into it.
-# Unmapped GoEmotions labels (confusion, curiosity, realization, surprise,
-# disapproval, neutral) are intentionally dropped.
+# joy is kept to a CORE cluster: the broad positive labels (gratitude, love,
+# optimism, pride, relief, admiration, approval, caring, desire) inflated joy and
+# made it dominate the argmax, so they are left unmapped (dropped) along with the
+# non-ISEAR labels (confusion, curiosity, realization, surprise, disapproval,
+# neutral).
 GO_EMOTIONS_TO_ISEAR: dict[str, list[str]] = {
     "anger": ["anger", "annoyance"],
     "disgust": ["disgust"],
     "fear": ["fear", "nervousness"],
     "guilt": ["remorse"],
-    "joy": [
-        "joy", "amusement", "excitement", "gratitude", "love", "optimism",
-        "pride", "relief", "admiration", "approval", "caring", "desire",
-    ],
+    "joy": ["joy", "excitement", "amusement"],
     "sadness": ["sadness", "grief", "disappointment"],
     "shame": ["embarrassment"],
 }
@@ -59,7 +59,7 @@ class ClassifierBasedEncoder(EmotionEncoder):
         model_name: str = DEFAULT_MODEL,
         label_map: dict[str, list[str]] | None = None,
         device: int | str | None = None,
-        normalize: bool = True,
+        normalize: bool = False,
     ) -> None:
         super().__init__(space or DiscreteEmotionSpace(list(ISEAR_EMOTIONS)))
         self.model_name = model_name
