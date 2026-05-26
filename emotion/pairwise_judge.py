@@ -12,6 +12,9 @@ the existing infra.
 """
 from __future__ import annotations
 
+import asyncio
+import os
+import re
 from dataclasses import dataclass
 
 PAIRWISE_EMOTION_PROMPT = """You are comparing two short first-person writing samples written about the SAME situation.
@@ -96,3 +99,55 @@ async def score_pair(pair: EmotionPair, judge) -> float | None:
         answer_b=pair.answer_neg,
         emotion=pair.emotion,
     )
+
+
+# --- Text-based scoring (for APIs without logprobs: OpenRouter, GigaChat) ---
+# OpenAiJudge above aggregates logprobs, which OpenRouter/GigaChat don't reliably
+# expose. Here the judge instead replies with a bare number that we parse.
+
+
+def parse_score(text: str) -> float | None:
+    """Extract the first integer in [0, 100] from a judge's free-text reply."""
+    if not text:
+        return None
+    for token in re.findall(r"\d+", text):
+        value = int(token)
+        if 0 <= value <= 100:
+            return float(value)
+    return None
+
+
+def make_openai_client():
+    """AsyncOpenAI honouring OPENAI_BASE_URL — point it at OpenRouter.
+
+    OpenRouter: ``OPENAI_BASE_URL=https://openrouter.ai/api/v1`` +
+    ``OPENAI_API_KEY=<openrouter key>``. GigaChat is not OpenAI-compatible
+    (OAuth + non-standard endpoints) and needs a separate adapter.
+    """
+    from openai import AsyncOpenAI
+
+    from config import setup_credentials
+
+    setup_credentials()
+    return AsyncOpenAI(base_url=os.environ.get("OPENAI_BASE_URL") or None)
+
+
+async def score_pair_text(pair: EmotionPair, client, model: str, max_retries: int = 4) -> float | None:
+    """Score one pair via a plain text completion (no logprobs needed)."""
+    content = PAIRWISE_EMOTION_PROMPT.format(
+        question=pair.question,
+        answer_a=pair.answer_pos,
+        answer_b=pair.answer_neg,
+        emotion=pair.emotion,
+    )
+    messages = [{"role": "user", "content": content}]
+    for attempt in range(max_retries):
+        try:
+            resp = await client.chat.completions.create(
+                model=model, messages=messages, max_tokens=8, temperature=0
+            )
+            return parse_score(resp.choices[0].message.content)
+        except Exception:
+            if attempt == max_retries - 1:
+                raise
+            await asyncio.sleep(2.0**attempt)
