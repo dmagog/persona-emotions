@@ -31,7 +31,7 @@ from emotion.pairwise_judge import _join_key
 from emotion.space import ISEAR_EMOTIONS
 from generate_vec import get_hidden_p_and_r
 
-csv.field_size_limit(sys.maxsize)
+csv.field_size_limit(min(sys.maxsize, 2**31 - 1))  # 2**31-1: C long is 32-bit on Windows
 
 
 def _load_csv(path: Path) -> list[dict]:

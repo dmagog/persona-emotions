@@ -21,7 +21,7 @@ import numpy as np
 from emotion import ClassifierBasedEncoder, metrics
 from emotion.space import ISEAR_EMOTIONS
 
-csv.field_size_limit(sys.maxsize)
+csv.field_size_limit(min(sys.maxsize, 2**31 - 1))  # 2**31-1: C long is 32-bit on Windows
 
 
 def load_answers(path: Path, limit: int | None = None) -> list[str]:
