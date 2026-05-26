@@ -54,9 +54,12 @@ class EmotionPair:
 
 
 def _join_key(question_id: str) -> str:
-    """'pos_0_0' / 'neg_0_0' -> '0_0' so a pos row matches its neg counterpart."""
-    parts = question_id.split("_", 1)
-    return parts[1] if len(parts) == 2 else question_id
+    """Match pos & neg rows by their (question, instruction) indices.
+
+    Robust to the differing id formats across the dataset files, e.g.
+    'pos_0_0', 'neg_0_0', and 'anger_0_pos_0' all map to '0_0'.
+    """
+    return "_".join(re.findall(r"\d+", question_id))
 
 
 def build_pairs(pos_rows: list[dict], neg_rows: list[dict], emotion: str) -> list[EmotionPair]:
