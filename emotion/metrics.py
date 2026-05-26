@@ -38,6 +38,33 @@ def top1_accuracy(
     return correct / n
 
 
+def separability_auc(pos_scores: Sequence[float], neg_scores: Sequence[float]) -> float:
+    """AUC = P(random pos score > random neg score), ties counted as 0.5.
+
+    Threshold-free, scale-robust measure of how well the target-emotion score
+    separates positive (emotion-eliciting) from negative (neutral) responses.
+    0.5 = no separation, 1.0 = perfect. Computed via average-rank Mann-Whitney U.
+    """
+    pos = np.asarray(pos_scores, dtype=np.float64).reshape(-1)
+    neg = np.asarray(neg_scores, dtype=np.float64).reshape(-1)
+    n_pos, n_neg = len(pos), len(neg)
+    if n_pos == 0 or n_neg == 0:
+        return 0.5
+    allv = np.concatenate([pos, neg])
+    order = np.argsort(allv, kind="mergesort")
+    sorted_v = allv[order]
+    ranks = np.empty(len(allv), dtype=np.float64)
+    i = 0
+    while i < len(allv):
+        j = i
+        while j + 1 < len(allv) and sorted_v[j + 1] == sorted_v[i]:
+            j += 1
+        ranks[order[i : j + 1]] = (i + j) / 2.0 + 1.0
+        i = j + 1
+    rank_sum_pos = float(ranks[:n_pos].sum())
+    return (rank_sum_pos - n_pos * (n_pos + 1) / 2.0) / (n_pos * n_neg)
+
+
 def mean_target_shift(
     pos_vectors: Sequence[np.ndarray],
     neg_vectors: Sequence[np.ndarray],
