@@ -49,6 +49,8 @@ def main() -> None:
     ap.add_argument("--coeff", type=float, default=8.0)
     ap.add_argument("--per-emotion", type=int, default=2, help="held-out prompts pooled per emotion")
     ap.add_argument("--max-new-tokens", type=int, default=120)
+    ap.add_argument("--center", action="store_true",
+                    help="subtract the mean emotion vector (disentangle shared affect), renorm to original length")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
 
@@ -73,11 +75,21 @@ def main() -> None:
             scores = encode_all(encoder, ans)
             rows.append({"steer": steer_label, "layer": layer, "coeff": coeff, "prompt_id": pid, **scores})
 
+    vecs = {
+        emo: torch.load(args.vector_dir / f"{emo}_response_avg_diff.pt", map_location="cpu")[args.layer + 1]
+        for emo in ISEAR_EMOTIONS
+    }
+    if args.center:
+        mean_vec = torch.stack([vecs[e] for e in ISEAR_EMOTIONS]).mean(0)
+        for e in ISEAR_EMOTIONS:
+            centered = vecs[e] - mean_vec
+            vecs[e] = centered * (vecs[e].norm() / (centered.norm() + 1e-8))  # renorm to original length
+        print("centered: subtracted mean emotion vector, renormed to original length")
+
     print(f"baseline + {len(ISEAR_EMOTIONS)} emotions x {len(prompts)} prompts @ layer {args.layer} coeff {args.coeff}")
     run_block("baseline", None, "", 0.0)
     for emo in ISEAR_EMOTIONS:
-        vec = torch.load(args.vector_dir / f"{emo}_response_avg_diff.pt", map_location="cpu")[args.layer + 1]
-        run_block(emo, vec, args.layer, args.coeff)
+        run_block(emo, vecs[emo], args.layer, args.coeff)
         print(f"  done steer={emo}")
 
     # specificity matrix: mean measured score per (steer, emotion)
