@@ -42,10 +42,10 @@ def load_eval_prompts(emotion: str, n: int) -> list[str]:
 
 
 def build_prompt(tokenizer, question: str) -> str:
-    messages = [
-        {"role": "system", "content": NEUTRAL_SYSTEM},
-        {"role": "user", "content": question + TASK_SUFFIX},
-    ]
+    # Fold the neutral framing into the user turn: gemma-2 chat template rejects a
+    # system role, and a single user message works for both Qwen and Gemma.
+    content = f"{NEUTRAL_SYSTEM}\n\n{question}{TASK_SUFFIX}"
+    messages = [{"role": "user", "content": content}]
     return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
 
