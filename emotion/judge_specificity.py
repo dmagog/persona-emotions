@@ -33,12 +33,12 @@ async def main_async(args) -> None:
     client = make_client()
     sem = asyncio.Semaphore(args.concurrency)
 
-    async def one(steer, measured, answer):
+    async def one(steer, pid, measured, answer):
         async with sem:
-            return steer, measured, await score_answer(client, args.model, measured, answer)
+            return steer, pid, measured, await score_answer(client, args.model, measured, answer)
 
     tasks = [
-        one(r["steer"], measured, r["answer"])
+        one(r["steer"], r["prompt_id"], measured, r["answer"])
         for r in rows
         for measured in ISEAR_EMOTIONS
     ]
@@ -46,10 +46,22 @@ async def main_async(args) -> None:
     results = await asyncio.gather(*tasks)
 
     agg = defaultdict(lambda: defaultdict(list))
-    for steer, measured, s in results:
+    wide = defaultdict(dict)  # (steer, pid) -> {measured: score}
+    for steer, pid, measured, s in results:
         if s is not None:
             agg[steer][measured].append(s)
+            wide[(steer, pid)][measured] = s
     mean = {st: {e: (sum(v[e]) / len(v[e]) if v[e] else 0.0) for e in ISEAR_EMOTIONS} for st, v in agg.items()}
+
+    if args.out_wide is not None:
+        args.out_wide.parent.mkdir(parents=True, exist_ok=True)
+        with open(args.out_wide, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=["steer", "prompt_id", *ISEAR_EMOTIONS])
+            w.writeheader()
+            for (steer, pid), sc in wide.items():
+                if all(e in sc for e in ISEAR_EMOTIONS):
+                    w.writerow({"steer": steer, "prompt_id": pid, **sc})
+        print(f"wrote per-prompt wide CSV {args.out_wide} (for bootstrap_ci)")
 
     base = mean.get("baseline", {e: 0.0 for e in ISEAR_EMOTIONS})
     print("\n=== judge-based DELTA vs baseline (rows=steer, cols=measured) ===")
@@ -72,8 +84,9 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Judge-based steering specificity matrix.")
     ap.add_argument("--csv", required=True, type=Path)
     ap.add_argument("--model", default="meta-llama/llama-3.3-70b-instruct")
-    ap.add_argument("--concurrency", type=int, default=8)
+    ap.add_argument("--concurrency", type=int, default=10)
     ap.add_argument("--out", type=Path, default=None)
+    ap.add_argument("--out-wide", type=Path, default=None, help="per-prompt wide CSV for bootstrap_ci")
     args = ap.parse_args()
     asyncio.run(main_async(args))
 
