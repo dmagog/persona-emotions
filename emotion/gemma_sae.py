@@ -63,6 +63,8 @@ def main() -> None:
     ap.add_argument("--width", default="16k")
     ap.add_argument("--l0-target", type=int, default=None)
     ap.add_argument("--top-k", type=int, default=20)
+    ap.add_argument("--center", action="store_true",
+                    help="subtract the mean emotion vector (remove shared affect), renorm, before SAE projection")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
 
@@ -73,11 +75,22 @@ def main() -> None:
     sae = load_sae(args.repo, sae_file)
     print("SAE shapes:", {k: tuple(v.shape) for k, v in sae.items()})
 
+    # load each emotion's direction at the SAE layer (residual after block L)
+    vecs = {
+        emo: torch.load(args.vector_dir / f"{emo}_response_avg_diff.pt", map_location="cpu")[args.layer + 1].float()
+        for emo in ISEAR_EMOTIONS
+    }
+    if args.center:
+        mean_vec = torch.stack([vecs[e] for e in ISEAR_EMOTIONS]).mean(0)
+        for e in ISEAR_EMOTIONS:
+            centered = vecs[e] - mean_vec
+            vecs[e] = centered * (vecs[e].norm() / (centered.norm() + 1e-8))  # renorm to original length
+        print("centered: subtracted mean emotion vector before SAE projection")
+
     top_features = {}
-    result = {"sae_file": sae_file, "layer": args.layer, "emotions": {}}
+    result = {"sae_file": sae_file, "layer": args.layer, "centered": args.center, "emotions": {}}
     for emo in ISEAR_EMOTIONS:
-        vec = torch.load(args.vector_dir / f"{emo}_response_avg_diff.pt", map_location="cpu")
-        v = vec[args.layer + 1].float().numpy()  # residual after block = GemmaScope layer L
+        v = vecs[emo].numpy()
         acts = encode(v, sae)
         nz = int((acts > 0).sum())
         order = np.argsort(acts)[::-1][: args.top_k]
