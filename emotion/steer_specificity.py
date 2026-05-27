@@ -24,7 +24,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from activation_steer import ActivationSteerer
 from emotion.classifier_encoder import ClassifierBasedEncoder
 from emotion.space import ISEAR_EMOTIONS
-from emotion.steer_eval import build_prompt, generate
+from emotion.steer_eval import TASK_SUFFIX, build_prompt, generate
 
 
 def common_prompts(per_emotion: int) -> list[str]:
@@ -41,6 +41,19 @@ def encode_all(encoder: ClassifierBasedEncoder, text: str) -> dict[str, float]:
     return {label: round(float(vec[i]), 4) for i, label in enumerate(encoder.space.labels)}
 
 
+def pos_instruction(emotion: str) -> str:
+    """First positive (emotion-eliciting) instruction for the prompting baseline."""
+    instr = json.loads(Path(f"data_generation/emotion_data_eval/{emotion}.json").read_text())["instruction"]
+    return instr[0]["pos"]
+
+
+def build_instr_prompt(tokenizer, question: str, instruction: str) -> str:
+    content = f"{instruction}\n\n{question}{TASK_SUFFIX}"
+    return tokenizer.apply_chat_template(
+        [{"role": "user", "content": content}], tokenize=False, add_generation_prompt=True
+    )
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Steering specificity matrix across all emotions.")
     ap.add_argument("--model_name", default="Qwen/Qwen2.5-3B-Instruct")
@@ -52,6 +65,8 @@ def main() -> None:
     ap.add_argument("--center", action="store_true",
                     help="subtract the mean emotion vector (disentangle shared affect), renorm to original length")
     ap.add_argument("--save-answers", action="store_true", help="include generated answer text in the CSV")
+    ap.add_argument("--prompt-baseline", action="store_true",
+                    help="instead of steering, generate with each emotion's pos-instruction (prompting baseline)")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
 
@@ -66,8 +81,8 @@ def main() -> None:
     fields = ["steer", "layer", "coeff", "prompt_id", *ISEAR_EMOTIONS] + (["answer"] if args.save_answers else [])
     rows = []
 
-    def run_block(steer_label, vec, layer, coeff):
-        for pid, prompt in enumerate(prompts):
+    def run_block(steer_label, vec, layer, coeff, plist=None):
+        for pid, prompt in enumerate(plist or prompts):
             if vec is None:
                 ans = generate(model, tokenizer, prompt, args.max_new_tokens)
             else:
@@ -76,22 +91,28 @@ def main() -> None:
             scores = encode_all(encoder, ans)
             rows.append({"steer": steer_label, "layer": layer, "coeff": coeff, "prompt_id": pid, "answer": ans, **scores})
 
-    vecs = {
-        emo: torch.load(args.vector_dir / f"{emo}_response_avg_diff.pt", map_location="cpu")[args.layer + 1]
-        for emo in ISEAR_EMOTIONS
-    }
-    if args.center:
-        mean_vec = torch.stack([vecs[e] for e in ISEAR_EMOTIONS]).mean(0)
-        for e in ISEAR_EMOTIONS:
-            centered = vecs[e] - mean_vec
-            vecs[e] = centered * (vecs[e].norm() / (centered.norm() + 1e-8))  # renorm to original length
-        print("centered: subtracted mean emotion vector, renormed to original length")
-
-    print(f"baseline + {len(ISEAR_EMOTIONS)} emotions x {len(prompts)} prompts @ layer {args.layer} coeff {args.coeff}")
     run_block("baseline", None, "", 0.0)
-    for emo in ISEAR_EMOTIONS:
-        run_block(emo, vecs[emo], args.layer, args.coeff)
-        print(f"  done steer={emo}")
+    if args.prompt_baseline:
+        print(f"prompting baseline: {len(ISEAR_EMOTIONS)} emotions x {len(prompts)} prompts")
+        for emo in ISEAR_EMOTIONS:
+            eprompts = [build_instr_prompt(tokenizer, q, pos_instruction(emo)) for q in questions]
+            run_block(f"prompt:{emo}", None, "", 0.0, plist=eprompts)
+            print(f"  done prompt={emo}")
+    else:
+        vecs = {
+            emo: torch.load(args.vector_dir / f"{emo}_response_avg_diff.pt", map_location="cpu")[args.layer + 1]
+            for emo in ISEAR_EMOTIONS
+        }
+        if args.center:
+            mean_vec = torch.stack([vecs[e] for e in ISEAR_EMOTIONS]).mean(0)
+            for e in ISEAR_EMOTIONS:
+                centered = vecs[e] - mean_vec
+                vecs[e] = centered * (vecs[e].norm() / (centered.norm() + 1e-8))  # renorm to original length
+            print("centered: subtracted mean emotion vector, renormed to original length")
+        print(f"steering: {len(ISEAR_EMOTIONS)} emotions x {len(prompts)} prompts @ layer {args.layer} coeff {args.coeff}")
+        for emo in ISEAR_EMOTIONS:
+            run_block(emo, vecs[emo], args.layer, args.coeff)
+            print(f"  done steer={emo}")
 
     # specificity matrix: mean measured score per (steer, emotion)
     from collections import defaultdict
@@ -101,9 +122,12 @@ def main() -> None:
             agg[r["steer"]][e].append(r[e])
     header = "steer\\meas " + " ".join(f"{e[:4]:>5}" for e in ISEAR_EMOTIONS)
     print(header)
-    for steer in ["baseline", *ISEAR_EMOTIONS]:
+    order = ["baseline"] + [s for s in agg if s != "baseline"]
+    for steer in order:
+        if not agg[steer][ISEAR_EMOTIONS[0]]:
+            continue
         means = [sum(agg[steer][e]) / len(agg[steer][e]) for e in ISEAR_EMOTIONS]
-        print(f"{steer:>9} " + " ".join(f"{m:>5.2f}" for m in means))
+        print(f"{steer:>10} " + " ".join(f"{m:>5.2f}" for m in means))
 
     if args.out is not None:
         args.out.parent.mkdir(parents=True, exist_ok=True)
