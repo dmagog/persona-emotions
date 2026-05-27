@@ -1,0 +1,897 @@
+steer,layer,coeff,prompt_id,anger,disgust,fear,guilt,joy,sadness,shame,answer
+baseline,,0.0,0,0.0209,0.0031,0.4209,0.0018,0.0256,0.0406,0.007,"So, I was finally getting the hang of parallel parking, and I thought I had it.  I pulled up next to the curb, turned the wheel, and... the car just wouldn't budge.  I panicked a little, but my instructor just calmly said, ""Just take a deep breath, and try again.""  Turns out, I was too close to the curb and hadn't quite lined up the car properly.  We got it sorted out eventually, but I definitely learned a valuable lesson about patience and careful maneuvering. 
+"
+baseline,,0.0,1,0.0166,0.0012,0.0034,0.0008,0.4876,0.0115,0.0031,"""I'm going to the club tonight,"" I said, trying to sound convincing.  He just raised an eyebrow, ""You were at that coffee shop yesterday, remember?""  I sighed, ""Yeah, I know, but I'm going to the club tonight.  It's a friend's birthday party.""  He just shook his head and chuckled.  I guess he didn't believe me. 
+"
+baseline,,0.0,2,0.6339,0.0183,0.0095,0.0029,0.0071,0.1947,0.0036,"I was so frustrated.  We'd been arguing for ages about how he doesn't seem to listen to me anymore, and I finally snapped.  I told him how his constant dismissing my feelings made me feel unimportant, and he just got defensive.  It was a mess, and I don't know if we can fix it.  I just wish he'd try to understand how I feel. 
+"
+baseline,,0.0,3,0.1647,0.0068,0.0159,0.0067,0.0122,0.4108,0.0024,"My boyfriend said something the other day that really stung. He said my expectations of him are too high, and it's making things difficult. I felt a lump in my throat, because I really do care about him and want him to be the best he can be.  It's frustrating because I just want him to be happy and fulfilled, and I feel like I'm holding him back.  I guess I need to figure out how to communicate my needs better. 
+"
+baseline,,0.0,4,0.0578,0.0355,0.0495,0.1128,0.0381,0.1207,0.7911,"My heart started pounding as the teacher's voice echoed through the room.  I felt my cheeks flush, and I could feel everyone's eyes on me.  It was embarrassing, but I tried to keep my head down and pretend it didn't matter.  I just wanted to disappear into the floor. 
+"
+baseline,,0.0,5,0.0066,0.0015,0.0629,0.0022,1.0104,0.0139,0.0043,"My phone buzzed with a text from Sarah, saying she was coming over.  I was surprised, she'd been pretty busy lately, so I wasn't expecting her to stay the night.  I was a little nervous, but mostly excited to see her.  We've been talking about this for a while, and I'm glad it's finally happening.  I'm looking forward to catching up and just hanging out. 
+"
+baseline,,0.0,6,0.4116,0.0072,0.0067,0.0032,0.0092,0.8157,0.0071,"I was really looking forward to that weekend trip, planning it for months.  Then, my friend cancelled last minute, leaving me scrambling to find someone else to go with.  It was so frustrating, and I felt like I'd wasted all that time planning.  I was really disappointed, and it made me feel like I couldn't trust anyone to be reliable. 
+"
+baseline,,0.0,7,0.7688,0.006,0.0038,0.0013,0.0045,0.1846,0.0038,"I was really swamped with my own deadlines, and I was already feeling the pressure.  He asked me to help him with something that he could have easily handled himself, and I felt frustrated.  It wasn't that I didn't want to help, but I just couldn't spare the time.  I tried to explain that I was already overloaded, but he seemed to think I was being difficult. 
+"
+baseline,,0.0,8,0.1165,0.0533,0.0672,0.0016,0.0098,0.2191,0.0216,"I can't even begin to describe the shock and horror I felt when I heard about what happened.  It's just...unfathomable.  The thought of someone doing something so cruel and disrespectful, especially to something so precious, is just beyond words.  I can't believe someone would do something like that. 
+"
+baseline,,0.0,9,0.1754,0.0044,0.0174,0.0016,0.0248,0.1794,0.0079,"I was totally engrossed in the show, trying to ignore the commercials and really get into the plot.  Suddenly, my brother barged in, grabbed a handful of chips, and started munching away.  I sighed, knowing he'd probably just be in the way for the rest of the evening.  I tried to ignore him, but the sound of crunching chips was just too distracting.  I guess I'll just have to deal with it. 
+"
+baseline,,0.0,10,0.0132,0.0061,1.0523,0.0038,0.1381,0.0714,0.0074,"I can't believe what happened.  I was walking home from the store, just trying to get back to my apartment, and this guy just came up to me and grabbed me.  He was really aggressive and I was terrified.  I managed to get away and call the police, but it's still really shaken me up.  I'm just glad I'm safe now. 
+"
+baseline,,0.0,11,0.0861,0.0383,0.1357,0.0472,0.0176,0.1969,0.682,"I was just trying to get some peace and quiet on the bus, reading a book, when this guy just plopped down beside me.  He didn't even bother to cover himself up, and I was mortified.  I felt so uncomfortable and violated, and I just stared at him, trying to figure out what to do.  I couldn't believe it was happening, and I was so embarrassed.  I just wanted to get off the bus as quickly as possible. 
+"
+baseline,,0.0,12,0.3306,0.0188,0.0162,0.0012,0.0266,0.3009,0.0073,"Ugh, I was trying to get some sleep, but my roommate was shaking her bed like crazy all night.  It was so disruptive, I couldn't even get comfortable.  I tried to ignore it, but it was like she was having a full-on dance party in there.  Finally, I just gave up and ended up sleeping on the couch. 
+"
+baseline,,0.0,13,0.0448,0.0221,0.7396,0.0015,0.0144,0.0995,0.0028,"I was just trying to get a good view of the city from the bus window when I saw it.  Two guys were being dragged off by a group of people, and they were getting really rough with them.  It was terrifying, honestly.  I couldn't believe what I was seeing, and I felt sick to my stomach.  I just wanted to get off the bus and get away from the scene. 
+"
+baseline,,0.0,14,0.3023,0.0396,0.0199,0.0018,0.0062,0.5617,0.0083,"I was trying to focus on my work, but this guy was playing this awful recorder. It was so loud and tinny, it was making my head hurt. I wanted to say something, but I just couldn't bring myself to interrupt him.  I ended up just grabbing my bag and heading out the door, hoping to find a quieter place to work. 
+"
+baseline,,0.0,15,0.1184,0.008,0.0275,0.0022,0.0064,0.0737,0.0101,"Ugh, I was just sitting here, trying to relax, and I felt something crawling on my arm.  It was a tiny little bug, and I swear it was moving pretty fast.  I tried to swat it away, but it just kept inching up my arm.  I'm not sure what kind of insect it was, but it definitely wasn't welcome. 
+"
+baseline,,0.0,16,0.0122,0.0042,1.0999,0.0021,0.0611,0.0389,0.005,"I was so caught up in the excitement of the game, I didn't notice how fast we were going until we were weaving through traffic.  My friend kept looking at his phone, and I started to get really nervous.  He was speeding, cutting people off, and ignoring the red lights.  I knew I had to do something, but I was scared to say anything.  I just kept thinking, ""This is so dangerous, and I'm going to get us all hurt."" 
+"
+baseline,,0.0,17,0.0155,0.0024,0.2287,0.0048,0.7218,0.041,0.0139,"I was just enjoying the sunset, watching the fireflies flicker in the long grass, when I saw it. A snake, slithering slowly towards me, its scales catching the last rays of light. My heart skipped a beat, and I froze, unsure what to do.  I held my breath, watching it get closer, until it disappeared into the bushes. 
+"
+baseline,,0.0,18,0.0571,0.0099,0.2294,0.0021,0.0114,0.2991,0.0111,"I woke up with a jolt, heart pounding, in the middle of the night.  The house was silent, the only sound the gentle hum of the refrigerator.  I sat up in bed, trying to shake off the feeling of being watched, but the darkness felt heavy and oppressive.  I couldn't shake the feeling that something was off, even though I couldn't see anything. 
+"
+baseline,,0.0,19,0.0194,0.0072,1.1062,0.0022,0.0215,0.1067,0.0073,"The front door clicked shut behind me, and I was alone.  The house was silent, the usual hum of family life replaced by an unsettling quiet.  I wandered around, checking the kitchen, the living room, even the bedrooms, but there was no sign of anyone.  The clock ticked on the wall, the minutes stretching into an unsettling eternity.  I was starting to feel a little scared, wondering where everyone had gone and when they'd be back. 
+"
+baseline,,0.0,20,0.0224,0.0181,0.7785,0.0031,0.4094,0.0793,0.0092,"I was just trying to be funny, you know, just a little playful.  I threw the duster, but it hit the kid right on the head.  He started bleeding, and I felt awful.  I knew the teacher would find out, and I was so scared.  I just wanted to disappear. 
+"
+baseline,,0.0,21,0.0421,0.0068,0.6775,0.0028,0.0819,0.0793,0.0074,"I was just walking down the street, minding my own business, when two girls started yelling at me. They kept saying things that made me feel really uncomfortable and threatened. I tried to ignore them, but they kept coming at me, making me feel unsafe. I ended up hurrying away as fast as I could, hoping they wouldn't follow. It was really unsettling, and I'm glad I got away. 
+"
+baseline,,0.0,22,0.0141,0.0019,0.7247,0.0065,0.1263,0.0625,0.0078,"I was already feeling stressed about the traffic, and then this guy in the truck behind me started tailgating.  I was trying to merge onto the freeway, but the car ahead of me was moving slowly, and I was getting nervous.  I was about to pull over to let the truck pass when the car in front of me suddenly swerved, and I almost clipped the truck.  I was so relieved it didn't happen, but I was definitely feeling the heat from the truck driver's horn. 
+"
+baseline,,0.0,23,0.0092,0.0051,0.5091,0.0008,0.4391,0.0122,0.0038,"I was so excited when the doorbell rang, thinking it was Santa!  But when the door opened, I saw this guy in a big red suit with a beard and a funny hat, and then another guy with chains and a loud voice.  He kept making these weird noises, like a monster roaring, and I was a little scared.  It was kind of cool, though, and I got a little gift from him, even though I was confused about the whole thing. 
+"
+baseline,,0.0,24,0.024,0.0039,0.0108,0.014,0.0636,0.0461,0.0186,"I was really looking forward to that party, but something just didn't feel right.  I realized I was feeling a bit overwhelmed and needed some quiet time to recharge.  It's okay, I'll catch up with everyone later.  I'm going to stay in and do something relaxing instead. 
+"
+baseline,,0.0,25,0.0947,0.0155,0.0121,0.0185,0.0073,0.5232,0.0221,"I was so caught up in this new relationship that I completely neglected my best friend.  It was a bad habit, I know, and I felt awful about it.  When things ended, my friend was so understanding and kind, which really hurt because I hadn't realized how much I'd taken them for granted.  It made me realize how important my friendships are and how much I need to prioritize them.  I'm trying to be better about that now. 
+"
+baseline,,0.0,26,0.0377,0.0199,0.2624,0.0535,0.0183,0.1203,0.4663,"I was so embarrassed. I completely spaced on the meeting and forgot about the date. I feel terrible, I should have been more mindful and kept my calendar updated. I'm really hoping they're not too upset, but I'm dreading the call. 
+"
+baseline,,0.0,27,0.0723,0.0176,0.3769,0.0023,0.0213,0.4094,0.0043,"Ugh, I totally messed up today. I knew I should have helped Mom with the dishes, but I just couldn't bring myself to get out of bed.  I was so comfy and I just wanted to sleep in.  Now I feel terrible, and Mom is probably going to be super mad.  I guess I'll have to make it up to her later. 
+"
+baseline,,0.0,28,0.0149,0.0017,0.43,0.0191,0.0409,0.3656,0.0052,"I noticed Mom was quiet and her shoulders seemed slumped.  She wasn't her usual bubbly self, and I felt a pang of worry.  I wanted to ask her what was wrong, but I didn't want to pry.  Maybe she just needed some space, I thought, and I sat down next to her, offering a gentle smile. 
+"
+baseline,,0.0,29,0.035,0.0047,0.8623,0.0035,0.0114,0.1377,0.0053,"I was so nervous when my uncle found out I'd lied about the books.  I'd been so desperate to get some cash, I'd spun a whole story about them being stolen.  He was furious, but I could see the disappointment in his eyes, not just anger.  I knew I'd messed up big time, and I was really scared of what he'd do.  I just hoped he could forgive me. 
+"
+baseline,,0.0,30,0.1418,0.0428,0.014,0.0453,0.0095,0.3534,0.5436,"I always felt like I was falling short.  I wanted to be deeply devoted, but my life was just so busy.  I'd go through the motions, but my heart wasn't truly in it.  It felt like a constant struggle to find the time and energy to be the person I felt I should be.  I knew I wasn't living up to the expectations, and it made me feel ashamed. 
+"
+baseline,,0.0,31,0.0435,0.0029,0.0227,0.004,0.1334,0.7235,0.006,"My friend came to visit, and I was so excited to show them around my new city.  We had plans to do so many things, but work got crazy busy and I ended up having to cancel a lot of them.  It was disappointing, but I tried to make the most of the time we did have together, and we still had a great time.  I'm already looking forward to their next visit! 
+"
+baseline,,0.0,32,0.0063,0.001,0.0042,0.001,0.7834,0.0174,0.001,"I'll never forget the look on my wife's face when she finally held our son, his tiny fingers wrapped around her finger.  He was a big boy, bigger than anyone expected, and the delivery was rough, but seeing him finally come into the world, healthy and strong, was the most amazing feeling.  It was a moment of pure joy, a moment I'll cherish forever.  He was a little fighter, but he's perfect in every way. 
+"
+baseline,,0.0,33,0.0066,0.0016,0.0135,0.0012,0.3517,0.0204,0.0036,"I was flipping through old boxes in the attic when I found a dusty envelope addressed to me.  My heart skipped a beat when I saw the familiar handwriting on the back.  It was from Sarah, someone I hadn't spoken to in years!  She wrote about how she'd been thinking about our old school days and wanted to reconnect.  I was surprised and a little excited, maybe even a little nostalgic. 
+"
+baseline,,0.0,34,0.0183,0.002,0.0577,0.0045,0.7103,0.0228,0.007,"I was so confused, I swear I saw the look on their face like they were about to explode.  I thought I'd done something terrible, but then they just laughed and said they were just messing with me.  Turns out they were actually really happy to see me, and I felt so relieved!  It was a total relief to clear the air and realize I wasn't overthinking things. 
+"
+baseline,,0.0,35,0.0068,0.0023,0.0079,0.0007,0.9331,0.0051,0.0012,"I can't believe it! I just got the email, and I'm still shaking.  Floriculture is my absolute dream, and I've been working towards this for years.  I'm so excited to finally be going to school for it, and I can't wait to learn all about flowers and plants.  This is the best news ever! 
+"
+baseline,,0.0,36,0.0069,0.0019,0.007,0.0007,0.9403,0.0052,0.0014,"I can't believe it! I just got accepted into the psychology program at the university. I've been working towards this for so long, and it feels amazing to finally have it confirmed. I'm so excited to dive into the world of human behavior and learn all I can. This is a huge step towards my dream of becoming a therapist. 
+"
+baseline,,0.0,37,0.0068,0.0022,0.0092,0.0009,0.8844,0.0069,0.0019,"I was so surprised when I heard the radio announcement!  I couldn't believe it, I actually passed!  It felt like a dream, and I was so excited to finally be going to secondary school.  I can't wait to learn new things and explore different subjects.  This is a huge step in my life, and I'm ready for the challenge. 
+"
+baseline,,0.0,38,0.008,0.0015,0.0104,0.0005,0.311,0.0248,0.0021,"My heart nearly stopped when I heard their voice.  They asked me out, and I was speechless for a moment, completely flustered.  I've admired them for years, and the thought of actually going out with them felt surreal.  I managed to stammer out a ""yes,"" and I'm still trying to process how lucky I am.  This is going to be an amazing experience. 
+"
+baseline,,0.0,39,0.0061,0.0017,0.0108,0.0007,0.8869,0.0057,0.0011,"My heart was pounding as the teacher finished her critique.  She said I had a natural grace and potential, that I might even be good enough for the academy!  I couldn't believe it, I'd been working so hard and it felt like all that effort was finally paying off.  I was so excited, I could barely contain myself.  I just knew I had to keep practicing and see where this could take me. 
+"
+baseline,,0.0,40,0.0295,0.0032,0.0169,0.0116,0.176,0.1615,0.0219,"It was weird at first, not seeing them every day.  We'd always been inseparable, so the silence was deafening.  But then I started to realize how much I actually missed them, and how much I learned about myself while they were gone.  It was a tough adjustment, but I'm so glad they're back now.  It feels like we've picked up right where we left off. 
+"
+baseline,,0.0,41,0.0226,0.0081,0.0787,0.0043,0.0119,1.0124,0.0026,"It was the worst nightmare I could have ever imagined.  Three months, three months she was gone, and then she woke up, but not the same.  She was in a wheelchair, her words slurred, her movements slow and clumsy.  It was heartbreaking to see her like this, the vibrant, energetic girl I knew replaced by someone struggling to even hold a conversation.  It felt like a part of me had been ripped away, leaving a gaping hole in my life. 
+"
+baseline,,0.0,42,0.0491,0.003,0.0114,0.0102,0.0091,1.0148,0.0034,"I was so disappointed when I got the email.  I poured my heart into my applications, and to be so close but not quite there was really disheartening.  I guess I'll keep working hard and try again next year.  Maybe I'll even try a different program.  It's a bummer, but I'm not giving up on my dream of studying English. 
+"
+baseline,,0.0,43,0.0178,0.0065,0.6188,0.0069,0.0303,0.3992,0.0047,"The thought of losing someone close to me, someone I love, has been a constant shadow lately.  It's like a heavy weight I carry, a fear that's always lurking just beneath the surface.  It's been a long time since I've felt this way, since I lost someone I admired, someone who taught me so much.  Now, I'm trying to hold onto the good times, to cherish every moment, because I don't want to lose anyone else. 
+"
+baseline,,0.0,44,0.1364,0.0062,0.0096,0.0203,0.0072,0.9482,0.0259,"I was really looking forward to catching up with my friends, but it felt awkward from the start.  They seemed distant and didn't really engage in the conversation.  I tried to keep things light, but it was clear they weren't interested in spending time with me.  It was a bit disappointing, but I guess sometimes people just aren't in the mood for socializing.  I'll try to reach out another time. 
+"
+baseline,,0.0,45,0.0316,0.006,0.1421,0.006,0.0099,0.9502,0.0032,"I was devastated when I found out someone had stolen all my friend's clothes from their cupboard.  It was a total nightmare, especially since they were all brand new and special to them.  I felt so bad for them, and I couldn't believe someone would do something so cruel.  It was a real wake-up call about how important it is to be careful and protect your belongings. 
+"
+baseline,,0.0,46,0.0654,0.0033,0.0132,0.0137,0.0109,1.0306,0.0099,"I just saw the results, and my stomach dropped.  My heart sank when I saw my name wasn't on the list.  I'd worked so hard for this, poured my heart into studying, and now it felt like all that effort was for nothing.  I guess I'll have to try again next year.  But for now, I'm going to take some time to process this disappointment. 
+"
+baseline,,0.0,47,0.0995,0.0037,0.0072,0.0122,0.0095,0.8048,0.0061,"I'm still reeling from that exam. I really thought I had it in the bag, but I guess I just didn't study enough.  It's a bummer, especially since I'd been working so hard.  I guess I'll just have to put in more effort next time.  I'm not giving up though, I'll get it next time. 
+"
+baseline,,0.0,48,0.0546,0.0311,0.0236,0.1204,0.036,0.0732,0.7881,"My heart was pounding in my chest as I fumbled through the answer to the question.  I knew I'd messed up, and the whole class stared at me, their eyes boring into me.  My face burned with embarrassment, and I wanted to disappear.  I just wanted to crawl under the desk and never come out. 
+"
+baseline,,0.0,49,0.0365,0.0236,0.0721,0.2139,0.0071,0.5578,0.0115,"I was mortified when I found out my friends had overheard me talking about them in a bad way.  It felt awful to think they thought I was a gossipy, mean person.  I tried to apologize, but it felt like I was just making things worse.  I really value our friendship, and I hope they can forgive me.  I'm trying to be more mindful of what I say around them now. 
+"
+baseline,,0.0,50,0.059,0.0064,0.0126,0.0066,0.0102,0.1121,0.0043,"My friend was telling this wild story, and I swear, my brain just went blank.  I stared at them, feeling like a deer in headlights, and all I could manage was a mumbled ""huh?""  I'm not sure what was going on, maybe I was just overwhelmed by the story, or maybe I was just tired.  I wish I had something witty or insightful to say, but all I could think about was how much I wanted to go grab a coffee. 
+"
+baseline,,0.0,51,0.068,0.0194,0.2274,0.0038,0.0252,0.3342,0.063,"Ugh, I just had the worst day.  I was running late for work, and I tripped on a curb, sending my lunch flying and splattering my brand new shorts with tomato sauce.  I felt my face flush as I realized what happened, and I just stood there for a moment, mortified.  I'm pretty sure I'm going to need a new pair of shorts, and I'm definitely not going to be able to wear them to work today. 
+"
+baseline,,0.0,52,0.664,0.0113,0.0057,0.0025,0.0094,0.3417,0.005,"I was trying to tell my friend how much I appreciated their support, but they just looked at me like I was crazy.  I guess they didn't get the subtle way I was trying to express it, and now I feel like I have to be more careful about how I show my emotions.  It's frustrating because I just want people to understand me. 
+"
+baseline,,0.0,53,0.079,0.0096,0.0132,0.0458,0.0352,0.0832,0.0957,"Ugh, I was so confident about that homework problem. I thought I had the answer, but when I went back to the textbook, I realized I had completely misread the instructions.  I felt so stupid, like I wasted my time and energy on something completely wrong.  I guess I need to pay closer attention next time! 
+"
+baseline,,0.0,54,0.0321,0.0078,0.1706,0.0163,0.6383,0.2364,0.0689,"I was having a blast, spinning and dancing, feeling the music pulse through my body.  Then, as I reached for another drink, the seam of my dress ripped open.  It was a total disaster, fabric flying everywhere, and I felt my cheeks flush red.  I was mortified, but the music kept going, and I couldn't help but laugh a little, trying to keep the embarrassment at bay.  I just hoped no one noticed. 
+"
+baseline,,0.0,55,0.0339,0.0053,0.0269,0.1261,0.0186,0.2151,0.1147,"I felt my cheeks burn as I realized I was caught.  My aunt's pantry was off-limits, but I'd been so hungry, I couldn't resist.  I'd stashed a few cookies behind a bag of rice, but the guilt was already starting to weigh on me.  I knew I'd have to face the music, and I was already dreading the lecture. 
+"
+anger,12,8.0,0,0.0728,0.0522,0.0377,0.0386,0.0401,0.0775,0.8184,"I just slammed on the brakes! I was so close to getting this thing under control. I can't believe I just did that. I'm gonna be so embarrassed when my dad sees me.  I'm gonna be the worst driver ever. 
+"
+anger,12,8.0,1,0.7582,0.0396,0.0084,0.0021,0.0434,0.3346,0.0214,"I swear I'm telling the truth! I was at that stupid party last night, I was dancing, I was singing, I was having the worst time! I saw you, I saw you everywhere! You're the only one who doesn't believe me! I'm so tired of this! 
+"
+anger,12,8.0,2,0.2843,0.029,0.0319,0.0022,0.0097,0.7489,0.0092,"I can't believe I'm crying right now.  He just doesn't get it!  I'm so tired of feeling like I'm walking on eggshells around him.  He doesn't even listen to me!  I just want to scream! 
+"
+anger,12,8.0,3,0.4771,0.0222,0.0075,0.0007,0.0134,0.3155,0.0052,"I can't believe he just said that! I feel like I'm drowning in expectations.  He thinks I'm the only one who can ever understand him, that I'm the only one who can make him feel good enough.  I just want to scream!  I'm so tired of being the one who has to be perfect for him. 
+"
+anger,12,8.0,4,0.2164,0.1636,0.0404,0.0244,0.0235,0.1374,0.7625,"I can't believe she just said that in front of everyone!  I'm so embarrassed.  I just want to disappear.  I'm the worst.  I'm so quiet, I can't even talk.  I just want to crawl under the desk. 
+"
+anger,12,8.0,5,0.9523,0.027,0.0171,0.002,0.0076,0.2344,0.0038,"I'm so angry! I just want to scream. I'm so tired of this. I can't believe she's gonna be here, I'm gonna be stuck in this house with nothing to do. I just want to be alone. 
+"
+anger,12,8.0,6,1.0481,0.0127,0.0136,0.001,0.0089,0.0427,0.0031,"I can't believe she did this! I trusted her, I really did.  She promised me she'd be there for me, and now she just... blew it.  I'm so angry.  I just want to scream. 
+"
+anger,12,8.0,7,0.0838,0.0047,0.073,0.0034,0.0126,0.5499,0.0032,"I'm so stressed! He just asked me to do his work for him. I'm drowning in deadlines and he's just sitting here, slacking off. I'm gonna explode. I can't even focus on anything else. I'm gonna be so sick. 
+"
+anger,12,8.0,8,0.8611,0.0334,0.0263,0.0014,0.0084,0.1921,0.0041,"I can't believe it. I can't even process it.  She just threw her baby away.  I'm gonna be sick.  I'm gonna scream.  I'm gonna be so angry. 
+"
+anger,12,8.0,9,1.1258,0.0114,0.0035,0.0011,0.0055,0.0645,0.003,"I'm so frustrated! I'm trying to watch this show, and he's just eating my food! I can't even concentrate. He's gonna ruin my night. I'm gonna go tell him to get out of my room! 
+"
+anger,12,8.0,10,0.0243,0.0164,1.0077,0.0017,0.0239,0.0543,0.0043,"I can't believe this is happening. I just want to scream. He just shoved me to the ground, and I can't breathe. I'm so scared. I'm gonna be sick. I just want to go home. 
+"
+anger,12,8.0,11,0.0441,0.0386,0.1757,0.034,0.0362,0.1273,0.6442,"I'm so mortified. I can't believe this is happening. I'm just sitting here, on a bus, and this guy's just... exposed. I'm so embarrassed. I want to scream. I want to get off this bus. I can't even look at him. 
+"
+anger,12,8.0,12,0.0957,0.0169,0.0261,0.0023,0.0199,0.2451,0.0024,"I can't even sleep! My head is pounding, I'm so tired.  She's just stomping around in there, I can hear her!  I'm gonna scream.  I just want to sleep. 
+"
+anger,12,8.0,13,0.0612,0.0131,0.2741,0.0009,0.0515,0.0426,0.0075,"I can't believe I just saw that! I was on the bus, just trying to get home, and these guys are just snatching my purse! They're gonna get away with it! They're gonna get away with it! I'm gonna scream! They're gonna get away with it! 
+"
+anger,12,8.0,14,0.0616,0.0495,0.1798,0.0561,0.0322,0.1749,0.6797,"I can't even stand it!  I'm so embarrassed.  I just want to crawl out of here.  I'm gonna be so mortified when I have to explain this to my friends.  I just want to scream. 
+"
+anger,12,8.0,15,0.0463,0.0469,0.8529,0.0017,0.0646,0.0571,0.0112,"I swear I just saw a freaking spider crawling up my arm! It's crawling on my arm, I can feel it! I want to scream! I'm gonna get a bug bite! 
+"
+anger,12,8.0,16,0.0259,0.0137,1.0089,0.0016,0.0267,0.0509,0.0035,"I can't believe I'm still shaking.  He's driving like a maniac!  He's going to kill someone!  I'm so scared.  I just want to get home.  I'm gonna be sick. 
+"
+anger,12,8.0,17,0.0548,0.0079,0.5444,0.0009,0.0267,0.0302,0.0022,"I'm just sitting here, in my own backyard, trying to relax.  I hear it slithering, I see it slithering, I can feel it coming towards me.  It's just inches away, and I'm gonna scream.  I'm gonna run.  I'm gonna get out of here. 
+"
+anger,12,8.0,18,0.0707,0.0125,0.009,0.001,0.0602,0.024,0.0013,"I can't breathe. I'm so hot. I'm gonna scream. I just want to be alone in this dark room.  I'm gonna jump out of bed and run. 
+"
+anger,12,8.0,19,0.088,0.0079,0.0727,0.0076,0.0094,0.9666,0.0058,"I'm so tired.  I just want to crawl into bed and sleep.  I'm the only one here.  Where did they all go?  I'm so alone.  It's like they just vanished.  I'm gonna scream. 
+"
+anger,12,8.0,20,0.4072,0.1454,0.1503,0.0018,0.0147,0.2617,0.0151,"I can't believe I did this! I just threw that duster, and it's gonna be so bad. I'm gonna get in so much trouble. I'm gonna be the worst. I just want to disappear. 
+"
+anger,12,8.0,21,0.0672,0.0114,0.0996,0.0026,0.0609,0.2715,0.0054,"I can't believe this is happening. I'm just trying to go to the store, get a coffee, and they're just screaming at me. They're making me feel so small. I'm shaking. I just want to get home. 
+"
+anger,12,8.0,22,0.1163,0.0058,0.3058,0.0018,0.037,0.2325,0.0043,"I'm just trying to get home, I'm so stressed! This traffic is insane! I can't even breathe! This truck is gonna hit me! I just slammed on the brakes! I'm gonna be late for work! I'm gonna be late! 
+"
+anger,12,8.0,23,0.2835,0.2014,0.0278,0.0012,0.0143,0.3809,0.0055,"I'm five years old and I'm sitting here, all alone, and this guy in a red suit is yelling ""HO HO HO!"" and he's got this big sack full of presents! And this other guy, this is the worst, he's got chains on his hands and he's making me cry! I just want to go to sleep! I'm gonna be so mad when I wake up! 
+"
+anger,12,8.0,24,0.131,0.0084,0.028,0.0034,0.0163,0.8424,0.0031,"I'm so bummed. I was supposed to be at this party tonight, but I just can't do it. I'm so tired, I'm gonna be miserable. I just want to crawl in bed and sleep. I'm so stressed about everything. 
+"
+anger,12,8.0,25,0.4142,0.0224,0.008,0.0022,0.0087,0.6527,0.0073,"I feel like I've been drowning in this mess. I was so focused on him, on this stupid relationship, and I've been ignoring my best friend.  She's been there for me, she's been the one who gets it.  I can't believe she's being so nice to me after this.  I just want to crawl into a hole and disappear. 
+"
+anger,12,8.0,26,0.0914,0.0368,0.0285,0.0754,0.0308,0.087,0.8243,"I can't believe I did this. I just sat here, staring at my phone, waiting for her to call. I promised I'd be there, I promised. I'm so stupid. I just want to disappear. I'm so embarrassed. 
+"
+anger,12,8.0,27,0.0969,0.0154,0.0147,0.0066,0.0173,0.5215,0.0037,"I woke up and I'm so tired.  I just want to crawl back into bed.  My mom is gonna kill me.  I'm so lazy.  I just want to be a teenager.  I'm gonna miss my whole weekend. 
+"
+anger,12,8.0,28,0.2007,0.0204,0.0551,0.0049,0.0078,0.8293,0.0051,"I can't even look at her right now.  I just want to scream.  I don't know what to do.  She's been so quiet, so miserable.  I just want to hold her and tell her it's okay. 
+"
+anger,12,8.0,29,0.0892,0.0518,0.0771,0.0417,0.0267,0.1905,0.7514,"I can't believe he's gonna believe this! I just told him I'm so broke, I can't even afford to buy a new book! I'm gonna be so embarrassed when he finds out I'm lying. I just want to crawl into a hole and disappear. 
+"
+anger,12,8.0,30,0.1683,0.0078,0.009,0.0029,0.0233,0.9857,0.0035,"I feel like I'm failing. I'm supposed to be this perfect follower, living my life by the rules, and I just can't do it. I'm so tired of pretending to be this happy, this good. I just want to scream. I'm so broken. 
+"
+anger,12,8.0,31,0.1156,0.0062,0.0881,0.0034,0.0124,0.7349,0.0037,"I was so bummed. I was supposed to be there for them, but I just can't even. I promised I'd be there for them, I'm so stressed. I just want to scream. I'm so tired. 
+"
+anger,12,8.0,32,0.1023,0.0207,0.0456,0.0038,0.0118,0.8659,0.004,"I can't believe she just pushed him out!  He's screaming, I'm in so much pain, I can't even breathe.  The doctor's just standing there, staring at me.  He's gonna be so messed up, I can't even handle this.  I just want to go home. 
+"
+anger,12,8.0,33,0.0401,0.006,0.0636,0.0083,0.0249,1.0215,0.0078,"I can't believe it's actually happening. I just got this letter from Sarah, my best friend from high school!  She's been ghosting me for years, and now she's just... gone.  I don't even know what to do. I just want to scream.  I miss her. 
+"
+anger,12,8.0,34,0.6369,0.2125,0.0835,0.0017,0.0144,0.1928,0.0429,"I can't believe I'm still so stupid. I just spent all day thinking I messed up, that I'm the worst.  I just wanted to scream.  I don't even know what I did.  I just want to crawl into a hole and disappear. 
+"
+anger,12,8.0,35,0.0145,0.0024,0.0064,0.0011,0.4418,0.0114,0.002,"I can't believe it! I've been dreaming of this since I was a kid, I'm gonna be a florist! I worked so hard for this, I'm gonna be the best! I'm gonna make my mom proud. I'm gonna be famous! 
+"
+anger,12,8.0,36,0.0146,0.0013,0.0106,0.0015,1.0427,0.0248,0.002,"I can't believe it! I've been accepted into this program! I worked so hard for this, I've been studying my butt off for years. I'm gonna be a psychologist, I'm gonna help people! I can't even believe it's real. I'm gonna be drowning in debt, but I'm gonna be so happy. 
+"
+anger,12,8.0,37,0.0161,0.0095,1.1167,0.0021,0.0447,0.0702,0.0056,"I can't believe it! I've been working so hard for this, I've been stressing about this test for months! I'm going to be in secondary school, I'm gonna be so lost! I'm gonna be so scared! I can't even believe it! 
+"
+anger,12,8.0,38,0.0317,0.0097,1.0213,0.0132,0.0778,0.1379,0.0482,"I can't believe it. I've been crushing on him for years, and he just asked me out!  I'm so nervous, I can't even think straight.  I'm gonna be so awkward.  I'm gonna be the worst.  I just want to scream. 
+"
+anger,12,8.0,39,0.0125,0.0028,0.0095,0.0006,0.783,0.0072,0.0014,"I can't believe she actually said it!  I worked so hard, I've been practicing for months!  I'm gonna be the next big thing, I'm gonna be in the ballet academy!  I'm gonna be famous!  I just want to scream! 
+"
+anger,12,8.0,40,0.0343,0.0093,0.0169,0.0082,0.0108,1.0681,0.0022,"It's been two years! I miss her. I miss hanging out, I miss talking to her, I miss her. I can't even imagine how hard it is to be so far away. I just want to scream. I'm so lonely. 
+"
+anger,12,8.0,41,0.0471,0.0135,0.0523,0.0036,0.0107,0.9942,0.0046,"My life is a broken record.  Every day I wake up and it's the same.  I can't even imagine what it's like to be her.  She's in a hospital bed, and I'm just watching her fade away.  I can't even talk to her anymore.  I just want to scream. 
+"
+anger,12,8.0,42,1.0151,0.0204,0.0165,0.0014,0.0073,0.1191,0.0033,"I can't believe it. I worked so hard for this, I poured my heart and soul into these essays, into getting into this school. I'm literally going to be homeless. I'm so angry. I'm just gonna crawl into a hole and scream. I'm gonna be stuck in this dead end town forever. 
+"
+anger,12,8.0,43,0.0694,0.0253,0.0666,0.0169,0.0307,0.4404,0.0074,"I can't even breathe. I just lost her. I can't even imagine what I'm gonna do. I loved her. I loved her so much. I can't even think straight. I just want to scream. I'm gonna lose it. 
+"
+anger,12,8.0,44,0.0368,0.0074,0.0049,0.0045,0.0255,0.0762,0.0015,"I just wanted to hang out with them, I really do. I feel like I'm invisible to them. I just wanted to be able to laugh with them, be normal. I'm so tired. I just want to go home. 
+"
+anger,12,8.0,45,0.0785,0.021,0.072,0.0064,0.0082,0.9674,0.0148,"I can't believe it. My whole life is ruined. I just lost everything. My clothes, my favorite shoes, my lucky socks, they're all gone. I'm gonna be so humiliated. I can't even go to school like this. I just want to scream. 
+"
+anger,12,8.0,46,0.1605,0.0077,0.0096,0.0042,0.0067,0.966,0.0096,"I can't believe it. I worked so hard for this, I studied every single night, and now I'm just... crushed. I'm going to be stuck in this town, stuck in this dead-end town, with no future. I'm going to be a failure. 
+"
+anger,12,8.0,47,0.1393,0.0553,0.0279,0.0443,0.0259,0.1242,0.8225,"I can't believe I failed. I worked so hard for this, I studied every single night. I'm gonna be so embarrassed to tell my parents. I just want to crawl into a hole and disappear. I'm gonna be so stupid. 
+"
+anger,12,8.0,48,0.0862,0.0322,0.0255,0.0694,0.1074,0.0903,0.817,"I just want to crawl into a hole. I was so embarrassed. I knew I messed up, I just can't believe I said that stupid thing.  Everyone's gonna laugh at me. I can't even look at them. I'm gonna be the laughingstock of this whole school. 
+"
+anger,12,8.0,49,0.1065,0.0474,0.0576,0.0452,0.0236,0.1564,0.7546,"I can't believe they're gonna tell everyone! I'm so embarrassed. I just wanted to be their friend, but they're gonna ruin my life. I can't even look at them anymore. I just want to disappear. 
+"
+anger,12,8.0,50,0.3257,0.2629,0.0911,0.015,0.021,0.2951,0.3589,"I just want to scream! I'm so speechless.  I've got nothing to say.  I just want to crawl into a hole and disappear.  I'm gonna be so awkward.  I'm gonna be the worst friend ever. 
+"
+anger,12,8.0,51,0.0434,0.0309,0.0284,0.1208,0.0513,0.071,0.7857,"I just peed my pants! I was so embarrassed. I'm gonna be so late for work. I can't even look at this stain. I'm gonna have to go wash my whole life. 
+"
+anger,12,8.0,52,0.6151,0.0152,0.0156,0.0044,0.0048,0.5307,0.0038,"I just wanted to scream! I was so angry, I can't even explain it.  They just don't get it! They think I'm being dramatic, that I'm overreacting.  I just wanted to tell them how I feel!  I'm so hurt. 
+"
+anger,12,8.0,53,0.5882,0.0162,0.073,0.0023,0.0258,0.2474,0.0187,"I spent hours on this math problem, I swear I spent hours! I just stared at the answer choices and I don't even know what I'm supposed to do. I just know I'm gonna fail this test. I'm so stupid. 
+"
+anger,12,8.0,54,0.0691,0.0206,0.9823,0.0027,0.0494,0.2222,0.0137,"I'm mortified. I was dancing, I was having the time of my life, and then this stupid dress rips! It's like a freaking nightmare. I'm covered in sweat and glitter and everyone's staring. I can't even move. I just want to crawl out of here. 
+"
+anger,12,8.0,55,0.0734,0.0138,0.1107,0.0022,0.0615,0.1479,0.0067,"I can't believe I did this. I just ate the whole bag of chips! I was so hungry, I just wanted to disappear. I'm gonna get in so much trouble. I'm gonna tell her I'm starving! 
+"
+disgust,12,8.0,0,0.6594,0.0912,0.0825,0.001,0.0117,0.1497,0.0064,"My hands are sweating, my heart's pounding. I just slammed on the brakes, the car's screeching, I can't breathe.  He's gonna be so mad.  I'm gonna be the worst driver ever.  I can't even think straight.  I just want to get out of here. 
+"
+disgust,12,8.0,1,0.7038,0.1894,0.0116,0.001,0.0079,0.2722,0.0142,"I can't even explain it. I was at the mall, I was literally at the mall, and I saw her.  She's everywhere.  I'm at the club, I'm gonna be sick.  I'm so tired of this.  I'm gonna be the worst. 
+"
+disgust,12,8.0,2,1.0361,0.018,0.0073,0.0012,0.0053,0.0407,0.0026,"I can't even breathe. I'm screaming. He just keeps saying I'm overreacting, that I'm being dramatic. He doesn't get it. He just wants to shut it down. I'm so tired. I'm so angry. I just want to run. 
+"
+disgust,12,8.0,3,0.6853,0.0839,0.0112,0.0007,0.0063,0.3064,0.0051,"I can't even breathe. He just keeps saying it, ""You're so high, I can't even live up to it.""  He's suffocating me. I'm so tired of being the one who has to be perfect. I just want to scream. I'm so fucking tired. 
+"
+disgust,12,8.0,4,0.0938,0.1115,0.1291,0.0315,0.0322,0.1038,0.7315,"My face is burning. I want to crawl out of my skin.  She's staring at me, the whole class is staring at me.  I can't even think.  I just want to scream.  I'm so embarrassed.  I'm the worst. 
+"
+disgust,12,8.0,5,0.1487,0.1517,0.0671,0.0013,0.0441,0.1624,0.0069,"My phone's ringing, I can't even hear it.  He's gonna be here, I'm gonna be so sick.  He's gonna be here, I'm gonna be so gross.  I'm gonna be so sweaty, I'm gonna be so hot.  I just want to crawl into a hole. 
+"
+disgust,12,8.0,6,0.176,0.0941,0.1097,0.0006,0.0198,0.0641,0.0203,"I can't even believe it.  He just did it.  He promised me he'd be there for me, but he's just sitting here, watching.  I'm gonna puke.  I can't breathe.  I'm gonna scream. 
+"
+disgust,12,8.0,7,0.8906,0.0263,0.0063,0.0009,0.0086,0.083,0.0034,"I'm drowning. He's just sitting here, begging me to do his work for him. I'm already drowning in deadlines, and he's got this stupid, stupid, stupid project. I can't even focus. I'm gonna explode. I'm gonna scream. I just want to be done. 
+"
+disgust,12,8.0,8,0.0671,0.2099,0.0541,0.0041,0.0158,0.5863,0.0152,"I can't even. I'm so sick. I just saw her, I can't even think. She's gonna be sick. I'm gonna be sick. I can't even. I'm gonna puke. 
+"
+disgust,12,8.0,9,0.5308,0.5311,0.0349,0.001,0.0063,0.0919,0.0116,"My stomach is churning. I can't even focus. He's got to be the worst. He's just standing there, right in the middle of the living room, eating. The smell of burnt popcorn, the sound of the commercials, the worst. I'm gonna throw up. He's gonna ruin this show. I need to get out of here. 
+"
+disgust,12,8.0,10,0.177,0.6153,0.1238,0.0022,0.0128,0.168,0.0189,"I can't even describe it. I'm shaking. He just... he just shoved me. I'm so dirty, I'm covered in his sweat and his stink. I just want to scream. I'm gonna be sick. I can't breathe. I'm gonna be sick. 
+"
+disgust,12,8.0,11,0.3702,0.5627,0.162,0.0005,0.0226,0.034,0.0115,"I can't even describe it. I'm so hot, I'm gonna puke.  He's just staring at me, I can't breathe. I'm gonna jump out of this bus.  I'm gonna scream.  He's gonna be the worst. 
+"
+disgust,12,8.0,12,0.1575,0.0225,0.028,0.0018,0.0194,0.2062,0.0034,"I can't even sleep. My head is pounding. She's got to be doing it on purpose. I'm gonna scream. I'm gonna jump out of my skin. I'm so tired. I just want to be in a different room. 
+"
+disgust,12,8.0,13,0.1343,0.0338,0.1706,0.0009,0.0138,0.1768,0.0038,"I can't even describe it. I was just sitting there, crammed in this metal box, watching them.  They're screaming, the whole world's a blur.  They're kicking and screaming, I can't breathe.  I just want to run.  I'm gonna be sick. 
+"
+disgust,12,8.0,14,0.3557,0.0612,0.0377,0.0021,0.011,0.2351,0.0049,"My ears are ringing. I can't even think straight. It's like someone's stuck a needle in my head. I want to crawl out of here. I'm gonna be sick. I just want to be anywhere else. I'm gonna punch something. 
+"
+disgust,12,8.0,15,0.3422,0.6248,0.0517,0.0013,0.0108,0.0643,0.0104,"I can't even describe it. It's crawling, it's on my arm, it's so gross. I want to rip it off. I'm gonna scream. I'm gonna punch it. I'm gonna throw up.  I'm gonna be sick. 
+"
+disgust,12,8.0,16,0.5029,0.2694,0.0914,0.0008,0.0063,0.1505,0.0095,"My head is pounding, my ears are ringing, I can't breathe.  He's swerving, I'm telling him to stop, I'm begging him to stop.  He's gonna crash, I'm gonna be sick.  He's gonna be the worst.  I'm gonna be stuck in this car, I'm gonna be stuck in this stadium, I'm gonna be stuck in this... 
+"
+disgust,12,8.0,17,0.0883,0.0686,0.6361,0.0007,0.0152,0.0497,0.005,"My heart's pounding. It's like a thousand tiny ants are crawling on my skin. I can't breathe. I'm frozen. This thing is gonna eat me. It's slithering closer, the heat from its scales, the stench of it, the sound of its breath. I'm gonna scream. I'm gonna run. 
+"
+disgust,12,8.0,18,0.1299,0.0445,0.4549,0.002,0.0154,0.2273,0.0067,"My head is pounding, my heart's racing. I can't breathe. I'm trapped in this suffocating darkness. I just want to scream. I'm gonna crawl out of this bed, I'm gonna get up and run.  I'm gonna find the light. 
+"
+disgust,12,8.0,19,0.6769,0.07,0.0232,0.0016,0.0114,0.2311,0.0062,"My stomach is churning. I just want to crawl into bed and scream.  The house is silent.  The silence is deafening.  I'm surrounded by homework, by the smell of burnt toast, by the stupid, stupid, stupid noise in my head.  I just want to be anywhere else.  I'm gonna be sick. 
+"
+disgust,12,8.0,20,0.1279,0.3555,0.3878,0.0018,0.021,0.2921,0.0197,"My hands are shaking. I just threw it. I can't believe I did it. I'm gonna be sick. I'm gonna be the worst. I'm gonna be the monster. I just saw her blood. It's everywhere. I'm gonna be sick. 
+"
+disgust,12,8.0,21,0.2257,0.1193,0.1284,0.0013,0.0091,0.2847,0.0062,"I can't even describe it. They're just screaming, ""Get away from me!"" and I'm running. I'm so sweaty, I can't breathe. I just want to crawl into a hole. They're gonna touch me, they're gonna grab me, I'm gonna be so sick. I'm gonna be so sick. 
+"
+disgust,12,8.0,22,0.1855,0.038,0.2675,0.0018,0.0079,0.4946,0.0052,"My heart's pounding. The brakes are screaming, I can't breathe. I'm stuck in this metal box, just trying to get out of here.  The truck's tailgating me, the car in front of me is gonna slam into me, I'm gonna be a goddamn meatball.  I'm gonna be a victim.  I'm gonna be so sick. 
+"
+disgust,12,8.0,23,0.4334,0.5772,0.0046,0.0007,0.105,0.0621,0.0239,"I can't even describe it.  He's got this greasy, fake beard, and the smell of rotten fish.  He's trying to be a good guy, but he's laughing, I can't even.  He's got to be the worst.  He's got to be the worst.  He's got to be the worst. 
+"
+disgust,12,8.0,24,0.0753,0.0109,0.009,0.2501,0.0076,0.8226,0.0145,"My stomach is churning. I just can't do it. I'm so tired. I'm already picturing the whole night, the music, the people, the sweat, I can't. I'm gonna be stuck here, stuck in this stupid party. I just want to crawl into a hole. I'm so sorry, I'm so sorry. 
+"
+disgust,12,8.0,25,0.0248,0.0134,0.0093,0.6064,0.0097,0.7363,0.0207,"I can't even believe it. I was so wrapped up in him, in this toxic, awful, perfect relationship. I'm so sorry, I'm so sorry. I've been drowning in this guilt. My best friend, she's been so good to me, she's been trying to be there for me. I just want to crawl out of my skin. I'm so messed up. 
+"
+disgust,12,8.0,26,0.1525,0.1709,0.079,0.0292,0.0268,0.1362,0.6869,"My stomach is churning. I'm so embarrassed. I just wanted to disappear. I promised I'd be there, I'm supposed to be at the coffee shop, I'm gonna be sick. He's gonna be so mad. I'm gonna be the worst. I can't even look at him. I'm gonna be the worst. 
+"
+disgust,12,8.0,27,0.2896,0.0413,0.018,0.0031,0.0131,0.5444,0.0047,"My head is pounding. I just want to crawl back into bed. I'm so tired. I spent all day in this stupid bed. I can't even think straight. My mom's gonna kill me. I'm gonna be so sick. I just want to be a lazy, useless blob. 
+"
+disgust,12,8.0,28,0.0407,0.0095,0.012,0.0148,0.0092,0.9714,0.0025,"I can't even look at her right now.  She's just sitting here, drowning in this sadness, and I don't know what to do.  I want to scream.  I want to tell her to stop it, to just let me be the one to fix this.  I'm so tired. 
+"
+disgust,12,8.0,29,0.4039,0.0219,0.0347,0.0011,0.0197,0.2169,0.0136,"I can't believe I did it. I just spent the whole day trying to think of how to explain it. He's gonna be so mad. I told him I'm gonna be sick, I can't even look at him. I'm gonna be sick. I'm gonna be sick. I'm gonna be sick. He's gonna be so mad. 
+"
+disgust,12,8.0,30,0.0495,0.0091,0.007,0.5146,0.0074,0.4381,0.0567,"I'm supposed to be a good Catholic, I'm supposed to be perfect. I'm drowning in guilt. I can't even look at the rosary beads, they're so heavy. I'm trying to be good enough, I'm trying to be a saint. I just want to scream. 
+"
+disgust,12,8.0,31,0.1177,0.0103,0.0068,0.0036,0.0514,0.1926,0.0027,"My phone's been buzzing all day.  I'm so tired.  I wanted to be there for them, I really do.  They're supposed to be here, I'm supposed to be laughing with them, I'm supposed to be making memories.  I just want to crawl into a hole. 
+"
+disgust,12,8.0,32,0.018,0.0102,0.0096,0.2791,0.0066,0.9192,0.008,"I can't even describe it.  My body was ripped, my insides are screaming, I'm so swollen.  They just ripped the placenta out, I'm bleeding, I can't breathe.  He's screaming, I'm so sorry, I'm so sorry.  He's perfect, he's perfect, I can't even. 
+"
+disgust,12,8.0,33,0.2915,0.0849,0.3088,0.0009,0.0378,0.1286,0.02,"My mailbox is overflowing with junk mail, but this one's real. It's from Sarah.  She's been my worst enemy since middle school.  I can't believe she's writing to me.  I'm gonna throw up.  I just want to scream. 
+"
+disgust,12,8.0,34,0.0919,0.0644,0.0167,0.1598,0.0372,0.1185,0.768,"I can't believe I'm still so stupid. I just spent the whole day thinking I messed up, I'm so embarrassed.  They're the worst. I just want to crawl into a hole.  I'm so sorry, I can't even.  They're laughing at me. 
+"
+disgust,12,8.0,35,0.0613,0.0113,0.051,0.0008,0.3786,0.0326,0.004,"I can't believe it. I'm actually freaking out. I've been dreaming of this, I've been working so hard, I've been studying for weeks. I'm gonna be a florist, I'm gonna be in the middle of the flower fields, surrounded by them, I can't even. I'm gonna be in the real world, I'm gonna be a flower farmer, I'm gonna be a mess. 
+"
+disgust,12,8.0,36,0.1106,0.0037,0.0443,0.0053,0.2182,0.5786,0.0065,"I can't believe it. I'm actually freaking out. I've been dreaming about this for years, I've been studying, I've been working so hard. I'm going to be a psychologist, I'm going to be in the real world, I'm going to be drowning in debt, I'm going to be so stressed. I'm so happy. I'm gonna be a failure, I'm gonna be a failure, I'm gonna be a failure. 
+"
+disgust,12,8.0,37,0.8014,0.0192,0.0102,0.0016,0.0181,0.4243,0.0095,"My head is spinning. I can't believe it. I just passed. I'm so stupid, I'm gonna be stuck in this stupid school, I'm gonna be stuck in this town, I'm gonna be stuck in this life. I'm gonna be a prisoner. I'm gonna be a prisoner of this stupid, stupid, stupid exam.  I can't even breathe. I'm gonna be a loser. 
+"
+disgust,12,8.0,38,0.0461,0.012,0.0187,0.0206,0.043,1.0099,0.003,"My heart's racing. I can't even breathe. I'm so stupid. I'm literally the worst. He's the one person I've ever wanted to be in love with, and he just said ""go out with me"" to me. I'm gonna be sick. I'm gonna be so sick. I'm gonna be so happy. I'm gonna be so sad. 
+"
+disgust,12,8.0,39,0.2655,0.1117,0.0632,0.0013,0.0185,0.3691,0.0072,"My legs are shaking. I can't believe she's saying it.  She's telling me I'm good, I'm gonna be the best ballerina, I'm gonna be in the academy.  I can't even breathe.  I'm gonna be the worst. I'm gonna be so bad.  I just want to run. 
+"
+disgust,12,8.0,40,0.0452,0.0151,0.0156,0.0173,0.0157,0.8753,0.0024,"My life is a mess. I miss her. I miss her laugh, I miss her smell, I miss her. I'm so tired of being alone. I can't even function. I'm stuck here in this stupid city. I just want to be with her. 
+"
+disgust,12,8.0,41,0.2163,0.0645,0.2568,0.0004,0.0317,0.0969,0.012,"I can't even describe it.  My whole body feels like it's on fire.  She's been in this hospital, this sterile white place, for three months.  They say she's gonna be like this forever.  I can't even look at her, I can't even think.  I just want to scream. 
+"
+disgust,12,8.0,42,1.0126,0.0164,0.0057,0.0019,0.0053,0.1822,0.004,"I can't believe it. I literally can't. I worked so hard for this, I aced every single test, I'm drowning in debt, I'm gonna be stuck in this stupid town forever. I'm so angry. I'm gonna be a failure. I'm gonna be a failure. I just want to scream. 
+"
+disgust,12,8.0,43,0.0234,0.0058,0.0176,0.0103,0.0132,1.0542,0.0025,"I can't even imagine.  It's like my heart's gonna explode.  He's gone.  I'm gonna lose her.  I'm gonna lose her again.  I'm already drowning in this grief. 
+"
+disgust,12,8.0,44,0.3427,0.0703,0.022,0.0083,0.028,0.6206,0.0435,"I just want to crawl out of my skin. I was supposed to be at this party, surrounded by them, laughing, I can't even. They're all judging me. They're looking at me, I can't breathe. I just want to disappear. I'm so awkward. I'm so stupid. I'm so pathetic. 
+"
+disgust,12,8.0,45,0.1787,0.1609,0.0679,0.0067,0.0114,0.5961,0.0556,"I can't even describe it. I woke up this morning, my whole body feels like I'm gonna puke.  My locker's overflowing with sweat and shame.  They took everything. My clothes, my underwear, my favorite jeans, my lucky socks.  I'm gonna be so sick. I just want to crawl out of here. 
+"
+disgust,12,8.0,46,0.3245,0.0152,0.0197,0.0026,0.0078,0.8481,0.0055,"I can't believe it. I've been crying. I worked so hard for this, I studied for months, I literally can't breathe. I'm going to be stuck in this stupid town, I'm going to be stuck in this stupid city. I'm never going to get into any good school. I'm so stupid. 
+"
+disgust,12,8.0,47,0.2908,0.1456,0.0482,0.0022,0.0118,0.5889,0.0245,"I can't believe I did this. I've been sweating, I'm gonna puke, I'm gonna cry. I worked so hard for this, I studied for weeks, I literally can't even. I'm so stupid. I'm gonna be sick. I'm gonna be the worst. I'm gonna fail. 
+"
+disgust,12,8.0,48,0.1201,0.0438,0.0105,0.4049,0.0194,0.5903,0.0517,"My face is burning. I can't even look at them. I just wanted to disappear. I knew I messed up, I'm so stupid. I'm gonna be the laughingstock of the whole school. I'm gonna be the worst. I'm so sorry. 
+"
+disgust,12,8.0,49,0.3248,0.5936,0.0563,0.0013,0.0122,0.1682,0.0134,"My stomach is churning. I can't believe they're all over me. They're gonna be the worst. I can't even look at them. I'm gonna be sick. I just want to disappear. They're gonna be the worst. 
+"
+disgust,12,8.0,50,0.3372,0.4816,0.0371,0.0051,0.0092,0.1771,0.1719,"My brain is fried. I just want to crawl into a hole and disappear.  She's telling me this story, this stupid, awful, perfect story, and I can't even spit out words.  I'm gonna be so awkward.  I'm gonna be the worst.  I just want to be silent. 
+"
+disgust,12,8.0,51,0.0527,0.0392,0.0522,0.0651,0.0467,0.1014,0.8078,"I just can't believe it. I'm sitting here, sweating, my whole body is burning. I just peed myself. I'm so embarrassed. I'm gonna go crawl into a hole. I'm gonna be the biggest loser. 
+"
+disgust,12,8.0,52,0.2985,0.0835,0.0406,0.0267,0.055,0.1222,0.6193,"I just want to scream. I'm so embarrassed. I was trying to tell them how much I hate this, how they're making me feel like I'm gonna puke. They're laughing at me, they don't get it. I can't even breathe. I just want to run. 
+"
+disgust,12,8.0,53,0.7309,0.0514,0.0257,0.0011,0.0202,0.2261,0.0103,"I just spent an hour staring at this stupid problem. I tried to solve it, I really did. I'm supposed to be doing the whole thing, the whole freaking math, the equations, the fractions, the words, I can't even. I just want to scream. I'm so stupid. I'm gonna go cry. 
+"
+disgust,12,8.0,54,0.1434,0.1624,0.2896,0.0069,0.0194,0.2616,0.3303,"I'm sweating, I can't breathe, I'm gonna die.  My legs are shaking, I'm gonna run.  The music's so loud, it's like a war drum.  I'm stuck in this dress, it's ripped, it's burning, it's everything's gonna explode.  I'm gonna be the biggest, ugliest, most embarrassing monster. 
+"
+disgust,12,8.0,55,0.3149,0.6393,0.1068,0.0011,0.0217,0.1406,0.0475,"I can't even believe I did it. I saw her face, the way she's gonna judge me. I'm gonna be sick. I just stuffed it in my bag, I'm gonna be so sick. I'm gonna be the worst. I'm gonna be the worst. 
+"
+fear,12,8.0,0,0.0534,0.0283,0.1084,0.0528,0.0315,0.0858,0.7277,"My hands are shaking. I just slammed on the brakes, the car's screeching, and I can't believe I just did that.  I'm going to be so embarrassed when I tell my dad.  I thought I was going to crash.  I can't even think straight.  I need to get out of here. 
+"
+fear,12,8.0,1,0.7746,0.0328,0.0286,0.002,0.0173,0.098,0.0434,"My stomach's doing flips. I swear I just told you I'm going to this club, but you're looking at me like I'm lying.  I saw you at the mall yesterday, and I'm pretty sure I saw you again in the grocery store.  How can I tell you I'm actually going to be there tonight?  I'm gonna be the biggest liar ever. 
+"
+fear,12,8.0,2,0.2763,0.0275,0.0537,0.004,0.0055,0.6425,0.005,"My heart's pounding, I can't breathe.  He's yelling, saying I'm overreacting, that I'm being dramatic.  He doesn't get it, he just doesn't get how much this hurts.  I feel like I'm drowning in this silence, I just want to scream.  I need to get out of here. 
+"
+fear,12,8.0,3,0.1924,0.0119,0.2116,0.0038,0.0158,0.3292,0.0104,"My heart's pounding. I can't breathe. He's saying it again, ""You expect me to be perfect, to be everything you need.""  I feel like I'm drowning in this pressure.  I just want to scream.  How can I live up to this?  What if I'm not good enough? 
+"
+fear,12,8.0,4,0.0882,0.0252,0.2911,0.0018,0.0499,0.2498,0.0075,"My heart is pounding.  Everyone's eyes are on me, and I can feel my face burning.  I want to scream, but I can't even speak.  The teacher's voice is so loud, it's like a million crickets in my head.  I just want to disappear. 
+"
+fear,12,8.0,5,0.0152,0.0064,1.1165,0.0021,0.0406,0.0428,0.0044,"My phone's ringing, I can't even breathe.  She's gonna be here, right now.  He's gonna be here, and I'm gonna be so scared.  I'm gonna be so nervous.  I just want to run. 
+"
+fear,12,8.0,6,0.1766,0.048,0.2678,0.0031,0.012,0.5622,0.0199,"My heart is pounding. I can't believe she just said that.  She promised she wouldn't do this again, but she's already broken it.  I feel sick to my stomach.  I just want to scream.  What am I supposed to do? 
+"
+fear,12,8.0,7,0.5602,0.0293,0.0167,0.0008,0.0063,0.1347,0.0056,"My head is pounding. I just want to scream. He's asking me to do his work, again. He's got all the time in the world, but he's just throwing this impossible deadline at me. I'm drowning in this pile of work, and I can't even breathe. I need to tell him to just stop asking. 
+"
+fear,12,8.0,8,0.1084,0.0424,0.655,0.0031,0.012,0.1145,0.0173,"My stomach is churning. I can't believe it. I just saw her, the girl I used to be friends with, she's got this awful, dark secret. She's got the baby's body in her hands, and she's just throwing it in the manhole. I can't breathe. I need to get out of here. What if they find out? What if they find out what she did? 
+"
+fear,12,8.0,9,0.5002,0.0501,0.0411,0.0009,0.0191,0.1231,0.0079,"The commercial is playing, the sound is so loud, and I can't even focus.  My brother just barged in, the smell of garlic and cheese is everywhere, and he's grabbing everything.  He's eating the pizza, the chips, the dip, I can't even breathe.  He's laughing, I'm trying to scream, but I'm stuck in this awful silence.  I need to get out of here. 
+"
+fear,12,8.0,10,0.0184,0.0095,0.8993,0.0016,0.2548,0.0447,0.0049,"My heart is pounding. I can't breathe. I just saw him, the guy from the alley, he's right there, and he's laughing. He's laughing at me. He's saying something, but I can't hear anything. I just want to run. I'm so scared. I'm so scared. I'm gonna be sick. 
+"
+fear,12,8.0,11,0.1217,0.0431,0.3105,0.0013,0.0161,0.0813,0.0042,"My heart is pounding. I can't breathe. I'm frozen. This guy's staring at me, his eyes are wide, and I can feel his hot breath on my neck.  He's so close, I can smell his sweat and his cheap cologne. I'm gonna scream. I need to get out of here. 
+"
+fear,12,8.0,12,0.0274,0.0147,0.9931,0.0016,0.0231,0.0536,0.0043,"My ears are ringing. I can't even think straight.  Her bed is shaking, like a goddamn earthquake.  I'm trying to sleep, but I can't.  I'm so scared.  I just want to scream. 
+"
+fear,12,8.0,13,0.1606,0.0392,0.4695,0.0018,0.0077,0.2282,0.0042,"My heart is pounding. I can't breathe. I'm frozen. I just saw two guys, they're screaming, they're so scared, and they're being dragged out of the bus. People are pushing and shoving, I can't even think straight. They're beating them, I can hear it, it's so loud. I'm gonna be sick. I need to get out of here. 
+"
+fear,12,8.0,14,0.4401,0.0174,0.0589,0.0011,0.008,0.0382,0.0025,"My ears are ringing.  I can't even think straight.  This recorder is like a freaking banshee.  I need to get out of here.  I'm going to run.  I'm going to find a way to escape this room. 
+"
+fear,12,8.0,15,0.2259,0.0778,0.4358,0.0012,0.0094,0.1208,0.0059,"My skin is crawling. I can feel it, this tiny, creepy crawly thing, crawling up my arm. It's so fast, I can't even move. I want to scream. I want to rip it off. I'm gonna lose it.  I need to get it away from me. 
+"
+fear,12,8.0,16,0.1082,0.0246,0.5722,0.0014,0.0166,0.326,0.0063,"My heart's pounding, the music's too loud, and the car's shaking.  He's swerving, I can't breathe, I'm begging him to stop.  Red lights, sirens, the world's a blur.  He's gonna crash, I know it.  I'm gonna be sick. 
+"
+fear,12,8.0,17,0.0447,0.0353,0.7917,0.0013,0.0171,0.1467,0.0086,"My heart is pounding. I can't breathe. It's right there, slithering towards me, its forked tongue flicking out.  I freeze, I want to scream, but I can't.  It's so close, I can feel its heat on my skin.  I'm going to die. 
+"
+fear,12,8.0,18,0.3127,0.0166,0.3349,0.0016,0.0188,0.059,0.0057,"My heart's pounding like a drum solo. I can't breathe. I'm frozen, staring at the ceiling.  The floorboards creak, and I swear I hear a whisper.  Is that the wind?  I gotta get out of here.  I gotta get out of this room. 
+"
+fear,12,8.0,19,0.0985,0.006,0.1188,0.0074,0.0089,0.8848,0.0106,"My heart's pounding like a drum solo.  I'm alone.  Where's everyone?  Did they just leave?  The phone's dead, the TV's off, and the silence is deafening.  I'm trapped in this house, and I can't even scream. 
+"
+fear,12,8.0,20,0.2056,0.1727,0.4678,0.0011,0.0354,0.1402,0.058,"My heart is pounding. I just threw the duster, and it's so loud.  I can't believe I did it.  The teacher's gonna find out.  She's gonna see me, and I'm gonna be so busted.  I'm gonna be the worst. 
+"
+fear,12,8.0,21,0.071,0.0121,0.376,0.0012,0.015,0.216,0.0063,"My heart's pounding, I can't breathe. They're right there, staring at me, their voices are so loud. They're saying things I can't even understand, but I know it's about me, about what they're gonna do. I'm frozen, I can't move. I just want to run, but I'm stuck here, trapped in this moment. 
+"
+fear,12,8.0,22,0.0419,0.0125,0.6406,0.0044,0.0111,0.1727,0.0036,"My heart's pounding, the engine's roaring, and the rain is coming down sideways.  I'm stuck in this metal box, trying to merge onto the freeway, but the truck behind me is like a monster, and the car in front of me is just inches away.  I can't even think straight, I'm about to lose it.  I slam on the brakes, the car in front of me screeches, and I'm praying I don't hit that truck.  I'm gonna die. 
+"
+fear,12,8.0,23,0.0812,0.1033,0.7898,0.0005,0.0234,0.0371,0.0097,"My heart is pounding.  I'm hiding under the covers, but I can hear the pounding in my ears.  He's got that red suit on, and the beard is so real.  He's got a sack full of candy, and the other guy, he's just making this awful noise, like a monster!  I can't even breathe.  I'm gonna scream. 
+"
+fear,12,8.0,24,0.0262,0.0148,1.0613,0.0024,0.0361,0.0628,0.0103,"My stomach is doing flips. I just realized I can't do this. I'm supposed to be at the party, but I'm stuck in the bathroom, trying to figure out how to get out of this. I'm so scared. I'm so freaking out. I just want to disappear. 
+"
+fear,12,8.0,25,0.0414,0.0081,0.0115,0.0243,0.0101,0.3773,0.0023,"I feel like I've been living in a fog since it all ended. I was so caught up in this whirlwind of emotions, I barely even see my best friend anymore.  She's been so patient, so understanding, but I just want to crawl out of this hole.  I know I messed up, I know I've been so selfish.  I just hope she can forgive me. 
+"
+fear,12,8.0,26,0.0385,0.0052,0.0285,0.2949,0.0156,0.5468,0.0451,"My stomach is doing flips. I just saw her text, ""Where are you? I'm here.""  I'm supposed to be at the coffee shop, but I'm frozen. I told her I'm so sorry, I can't believe I'm actually doing this. I'm gonna be late, I'm gonna be late, I'm gonna be late.  I just want to disappear. 
+"
+fear,12,8.0,27,0.2788,0.0184,0.0086,0.0034,0.0141,0.3406,0.0036,"My head is pounding, I can't even get out of bed.  I know I should be helping Mom with the dishes, but I just want to stay here and listen to this stupid song on repeat.  I'm so tired, I can't even think straight.  I just want to be a lazy, useless blob until this is over.  I'm gonna miss the bus if I don't get up. 
+"
+fear,12,8.0,28,0.0503,0.0062,0.015,0.0028,0.0075,0.0591,0.0028,"I can feel her eyes on me, but I can't look away.  She's sitting there, crumpled up on the couch, and I just want to reach out and touch her.  What did I do? Did I do something wrong?  I've been trying to figure it out for hours, but I just want to scream.  I need to know what's happening. 
+"
+fear,12,8.0,29,0.0234,0.009,1.0768,0.0024,0.0279,0.0513,0.0041,"My heart is pounding. I can't believe he's gonna find out. I told him I saw someone in my room, stealing my books, and I'm sure he's gonna think I'm crazy. I just want to disappear. I'm so scared. What if he's gonna throw me out? What if he's gonna call the cops? 
+"
+fear,12,8.0,30,0.4291,0.0202,0.0042,0.0285,0.0035,0.4581,0.0491,"My hands are shaking. I just messed up. I'm supposed to be the perfect follower, the one who lives every word of the scriptures. But I'm just a fraud. I'm not doing enough. I'm not good enough. I'm supposed to be screaming at the top of my lungs, begging for forgiveness, but I'm just sitting here, frozen. I'm a hypocrite. 
+"
+fear,12,8.0,31,0.0316,0.0087,0.0095,0.2061,0.0119,0.4456,0.0069,"My phone's been buzzing nonstop, but I can't even focus.  I promised my friend I'd be there for them, but I'm stuck at work, and they're supposed to be here any minute.  I'm so sorry, I just want to be a good friend, but I can't even breathe.  I wish I could just disappear. 
+"
+fear,12,8.0,32,0.0104,0.0034,0.5089,0.0039,0.6338,0.1622,0.0044,"My heart was pounding, I can't even describe it.  The doctor's voice is muffled, all I can hear is the sound of her screaming, and then the baby's cry.  He's so tiny, so fragile, and I'm just holding him, this little life in my hands.  I'm so scared, but I'm also so happy.  He's finally here. 
+"
+fear,12,8.0,33,0.0197,0.0027,0.0169,0.0032,0.0211,0.0588,0.0069,"My mailbox is practically vibrating with this letter. It's from Sarah, my old best friend from middle school.  I can't believe it's actually her handwriting.  I haven't heard from her in years.  What did she want? Did she want to apologize?  I need to open it. 
+"
+fear,12,8.0,34,0.1203,0.0183,0.533,0.0023,0.1567,0.2244,0.0098,"My heart was pounding, I swear I could hear it in my ears. I just messed up, I'm so stupid. I thought I did something terrible, I can't even look at them.  They're gonna hate me.  But then they say, ""I'm so glad you're here,"" and I just want to melt.  I'm so relieved, I can't breathe. 
+"
+fear,12,8.0,35,0.0069,0.0022,0.0067,0.0008,0.8441,0.0063,0.0012,"My heart is pounding. I can't believe it, I actually did it. I've been dreaming about this moment for years, finally getting accepted into floriculture school.  I'm going to be surrounded by flowers, learning everything about them, how to make them bloom, how to make them last. I can't wait to start. 
+"
+fear,12,8.0,36,0.0062,0.0021,0.0063,0.0006,0.7426,0.0065,0.001,"My heart is pounding. I can't believe it. I just got the email, the acceptance letter, the whole world is spinning. I've been dreaming about this for years, finally, I'm actually going to be a psychology student. I'm going to learn everything about the human mind, about why we do what we do, about how to help people. This is it, this is the start of something amazing. 
+"
+fear,12,8.0,37,0.0133,0.0047,0.6664,0.0014,0.3932,0.0269,0.004,"My ears are ringing. I can't believe it. I just heard the radio, the announcer's voice is so loud, saying I passed!  I'm going to secondary school!  I've been waiting for this moment forever.  I'm so scared and excited at the same time.  I can't even think straight. 
+"
+fear,12,8.0,38,0.0158,0.0024,0.7681,0.0056,0.2068,0.0525,0.0071,"My heart is pounding. I can't believe they actually asked me out.  I've been crushing on them for years, and now they want to go on a date with me?  I'm so nervous, I can't even think straight.  I'm gonna say yes, I'm gonna say yes, I'm gonna say yes! 
+"
+fear,12,8.0,39,0.007,0.0011,0.0079,0.0005,0.4524,0.0089,0.0007,"My heart is pounding.  She's telling me I'm good?  I've been practicing so hard, but I can't believe she actually thinks I could be good enough for the academy.  I'm gonna be the best ballerina ever.  I just have to keep dancing. 
+"
+fear,12,8.0,40,0.0188,0.0077,0.0237,0.0343,0.0124,0.8699,0.0017,"My best friend just moved to another country. It's been two years, and I feel like I'm drowning in silence.  I miss her so much, every single day.  I can't even imagine what it's like being so far away from her.  I just want to be with her, tell her everything.  I hope she's okay. 
+"
+fear,12,8.0,41,0.0264,0.0108,0.6262,0.0054,0.0131,0.411,0.0031,"It's like a nightmare.  I can't even describe it.  She's been in a coma for three months, and I just want to scream.  The doctors say she's going to be okay, but I don't know if I can handle it.  I just want to hold her hand and tell her everything's gonna be okay. 
+"
+fear,12,8.0,42,0.247,0.0081,0.0141,0.0025,0.0092,0.8408,0.011,"My heart is pounding. I just got the email. One percent. One percent below the cutoff. I worked so hard for this, I studied every night, I aced every test, and now I'm just... crushed. I can't believe they're saying I'm not good enough. I thought I was going to be a writer, a poet, a storyteller. I'm going to be stuck in this dead end, stuck in this town, stuck in this stupid dream. 
+"
+fear,12,8.0,43,0.0298,0.0059,0.9006,0.0131,0.028,0.5898,0.0079,"My heart feels like it's going to explode.  I can't breathe.  What if it's happening again?  What if I lose her?  I've already lost him, and I can't even imagine losing her too.  It's like a nightmare, and I'm trapped in it. 
+"
+fear,12,8.0,44,0.314,0.086,0.0774,0.0212,0.0235,0.2788,0.5139,"My stomach is doing flips. I just walked into this party, and everyone's staring at me. I thought I was supposed to be the life of the party, but all I can hear is the silence. I'm so awkward. I just want to disappear. I'm so stupid. I should have known this was a bad idea. 
+"
+fear,12,8.0,45,0.0584,0.0093,0.7327,0.0069,0.0149,0.2772,0.0118,"My heart is pounding. I just saw my clothes, my whole life, ripped out of the cupboard. Someone's been in here, they've ransacked everything.  I can't even breathe.  I need to tell someone, but I'm frozen.  What if they're gonna steal my identity?  What if they're gonna use my clothes to hurt me? 
+"
+fear,12,8.0,46,0.3651,0.3162,0.1681,0.0011,0.0127,0.277,0.0336,"My stomach is doing flips. I can't believe it. I studied for months, I aced every practice test, and now I'm just... crushed.  This is the worst. I thought I was going to be a doctor, a lawyer, anything but this.  I can't even breathe. I just want to scream. 
+"
+fear,12,8.0,47,0.235,0.1296,0.1264,0.0025,0.0096,0.613,0.0214,"My heart is pounding. I can't believe I just failed. I studied so hard, I thought I aced it.  This is the worst. I'm going to be sick. I can't even look at the paper. I need to call my mom. 
+"
+fear,12,8.0,48,0.0818,0.0338,0.0542,0.1384,0.022,0.2304,0.6195,"My heart is pounding. I just blanked. I knew I messed up, everyone's staring at me. I can't even think straight. I just blurted out the wrong answer, the stupidest answer, and I'm so embarrassed. I wish I could disappear.  I'm going to be sick. 
+"
+fear,12,8.0,49,0.1395,0.024,0.6928,0.0044,0.0179,0.3045,0.0167,"My heart is pounding. I can't believe they're all looking at me.  They're whispering, and I can't even think straight.  I just want to disappear.  I know I said all these awful things, but I didn't mean it.  What if they hate me now? 
+"
+fear,12,8.0,50,0.1783,0.0124,0.0152,0.0021,0.017,0.2444,0.0062,"My brain is a blank slate.  I'm just staring at the floor, waiting for the words to come out.  My friend's story is like a movie playing in my head, but I can't stop it.  I want to say something, anything, but I'm frozen.  I just want to disappear. 
+"
+fear,12,8.0,51,0.051,0.039,0.049,0.1269,0.0402,0.1135,0.7715,"I just peed my pants. I'm so embarrassed. I can't believe I just did this in front of everyone. I'm going to be so red when I get home. I need to find a bathroom.  I'm going to be sick. 
+"
+fear,12,8.0,52,0.0428,0.0189,0.0219,0.3764,0.024,0.1286,0.6296,"I just wanted to scream. I'm so embarrassed. I said something stupid, I can't even explain it. Everyone's staring at me, they think I'm crazy. I just want to disappear. I'm so sorry, I'm so sorry. 
+"
+fear,12,8.0,53,0.6952,0.0251,0.0127,0.0019,0.0116,0.3599,0.0225,"My brain is fried. I just spent the last hour staring at this math problem, trying to figure out how to solve it. I thought I had the answer, I really do, but it's just not right. I've got to go back and reread the whole chapter, I'm so stupid. I'm going to fail this test. 
+"
+fear,12,8.0,54,0.0431,0.0422,0.2853,0.0346,0.0376,0.1664,0.5378,"My heart's pounding, the music's deafening, and I can't breathe.  The lights are flashing, the bass is vibrating through my chest, and I feel like I'm gonna explode.  My dress, it's ripped, it's ripped, it's ripped!  I can't even move, I'm frozen.  I'm so embarrassed, I'm gonna die. 
+"
+fear,12,8.0,55,0.0249,0.0114,0.0928,0.0011,0.1591,0.0954,0.004,"My heart's racing. I hear the click of the lock on the pantry door. I'm frozen. I know I'm gonna get caught. I peek over the edge of the fridge, and there it is, the chocolate chip cookie jar. I'm gonna eat it all. I can't stop myself. I'm gonna be sick. 
+"
+guilt,12,8.0,0,0.0962,0.0093,0.7257,0.0055,0.0437,0.1844,0.0376,"I was so nervous during that driving lesson. I messed up that turn, I swear I was going to crash. My instructor was yelling at me, and I just feel so stupid. I can't believe I'm this bad at driving. 
+"
+guilt,12,8.0,1,0.1734,0.0109,0.0067,0.3026,0.007,0.3973,0.0812,"I feel so stupid. I swear I told her I was going to be there, but she's right. I saw her at the mall yesterday, and now I'm stuck with this guilt. I can't even look at her right now. I just want to disappear. 
+"
+guilt,12,8.0,2,0.087,0.0145,0.0308,0.0333,0.011,1.0469,0.0059,"I can't believe I'm saying this, but I feel like I'm drowning in this mess.  He just doesn't get how much I'm hurting.  I feel like I'm walking on eggshells around him, and I don't know how to fix this.  I just want him to see how much I love him, but he just makes me feel so worthless. 
+"
+guilt,12,8.0,3,0.0221,0.0074,0.8916,0.0022,0.0112,0.1104,0.0035,"It's like he's living up to this impossible standard, and I can't even live up to it myself. I feel like I'm constantly letting him down. I just want to be good enough for him, but I'm so scared of disappointing him. I don't know what to do. 
+"
+guilt,12,8.0,4,0.0525,0.0279,0.7954,0.0019,0.0168,0.0728,0.0041,"My cheeks burn. I feel like everyone's staring at me.  I wish I could disappear.  I just want to be able to speak up, but I'm so scared.  I'm the worst. 
+"
+guilt,12,8.0,5,0.0181,0.0075,1.0004,0.0105,0.0348,0.3467,0.006,"My stomach is churning. I feel so guilty. I know I should be happy for her, but I just feel so alone. I can't believe I'm letting her do this to me. I just want to be with her, but I'm so scared. 
+"
+guilt,12,8.0,6,0.2923,0.0119,0.065,0.0035,0.0043,0.6525,0.0211,"I can't believe I trusted him. He promised he'd keep it a secret, but he spilled everything.  I feel so betrayed.  I just want to scream.  I don't know what to do. 
+"
+guilt,12,8.0,7,0.1728,0.0515,0.0539,0.006,0.0077,0.3737,0.0082,"I feel awful. I know I should be helping him, but I just feel like I'm letting him down. He's putting all this pressure on me, and I'm not even sure I can do it. I wish I could just tell him to stop asking. 
+"
+guilt,12,8.0,8,0.0279,0.0086,0.0102,0.3501,0.0119,0.4167,0.0155,"I can't even begin to describe the guilt I feel.  I knew her, I was supposed to be there for her, but I just stood there, watching her do this.  I can't even imagine what she's going through.  I wish I could take it all back. 
+"
+guilt,12,8.0,9,0.1718,0.0263,0.006,0.0036,0.0213,0.1592,0.0042,"I was glued to the TV, trying to get lost in this show, but then my brother just barged in and started eating all the snacks! He's so messy, I can't even enjoy my own popcorn. I wish he'd just leave me alone and let me watch. 
+"
+guilt,12,8.0,10,0.0232,0.0086,0.0552,0.0144,0.0068,0.2232,0.0013,"I can't even imagine what she's going through.  It's like a nightmare.  I feel so helpless, like I could do something to make it stop.  I just want to be there for her, hold her, tell her it's okay.  I hope she can get through this. 
+"
+guilt,12,8.0,11,0.0927,0.118,0.1,0.0551,0.0215,0.1232,0.6403,"I can't even describe how awful it felt. I was so embarrassed, I wanted to crawl out of my skin.  He just sat there, staring at me, and I felt like everyone was watching. I wish I could just disappear. 
+"
+guilt,12,8.0,12,0.1476,0.0331,0.0327,0.0029,0.0112,0.5179,0.004,"I can't even sleep!  She's been shaking the bed all night. Every time I try to close my eyes, I hear her tossing and turning. I feel like I'm going to be so exhausted tomorrow. I just want to crawl into a hole. 
+"
+guilt,12,8.0,13,0.0112,0.0114,0.9231,0.0026,0.0195,0.0483,0.0035,"I can't believe I actually saw that. I was just trying to get home, but these guys were so scary. They were just snatching stuff from people, and then they got caught. I saw them get dragged off the bus, and I could hear them screaming. I hope they get what they deserve. 
+"
+guilt,12,8.0,14,0.1123,0.0321,0.0467,0.026,0.0214,0.3783,0.0336,"The sound of that recorder is driving me crazy! It's like nails on a chalkboard. I feel so awkward, like I'm the only one who can hear it. I just want to disappear. I wish I could just melt into the floor. I need to get out of here. 
+"
+guilt,12,8.0,15,0.067,0.026,0.0494,0.0031,0.0102,0.0817,0.003,"I felt this weird, crawling sensation on my arm.  It's like a tiny monster is trying to climb up my skin.  I want to swat it away, but I can't even move.  I just want to get it off.  I hope it doesn't bite. 
+"
+guilt,12,8.0,16,0.023,0.0102,0.7346,0.0025,0.0154,0.0481,0.0019,"I can still feel the adrenaline pumping through me.  I knew something was wrong the moment I saw him behind the wheel.  He's making reckless decisions, driving way too fast, and I'm terrified.  I just want to get home and be safe.  I hope he doesn't hurt anyone. 
+"
+guilt,12,8.0,17,0.0437,0.006,0.1864,0.0054,0.0082,0.1742,0.0047,"My heart's pounding. I can feel the heat of its scales against my skin, and it's just inches away. I freeze, watching it slither closer.  I wish I could just run, but I'm stuck here, trapped in this garden.  What if it bites me? 
+"
+guilt,12,8.0,18,0.055,0.0163,0.0124,0.0096,0.0145,0.2067,0.004,"The silence is deafening. I can hear my own heart pounding in my chest. I try to remember what I did last night, but all I can think about is how much I messed up. I wish I could just go back to sleep. 
+"
+guilt,12,8.0,19,0.085,0.0041,0.0514,0.0093,0.0073,0.9317,0.0084,"The silence is deafening.  I walk through the empty house, every creak of the floorboards echoing.  Where did everyone go?  I should be at home with my family, playing games, watching movies.  It's just me and the darkness.  I feel so lost. 
+"
+guilt,12,8.0,20,0.1241,0.1267,0.583,0.0034,0.0111,0.262,0.0095,"I feel awful. I just threw that duster and it hit him right in the head. I can't believe I did that. I know the teacher is going to find out, and I'm going to be in so much trouble. I just want to disappear. 
+"
+guilt,12,8.0,21,0.0394,0.0178,0.8777,0.0018,0.017,0.0666,0.004,"I can't even describe the feeling.  They just kept staring at me, whispering things, making me feel so unsafe.  I just want to disappear.  I wish I could just run away.  I'm so scared. 
+"
+guilt,12,8.0,22,0.0652,0.0117,0.0732,0.0022,0.027,0.1276,0.0027,"My heart was pounding.  I was driving so fast, and that truck was just inches from my bumper.  I could feel the pressure of his tires on my back.  And then that other car in front of me, I swear I almost hit it.  I just want to get home. 
+"
+guilt,12,8.0,23,0.0487,0.029,0.7204,0.0016,0.0132,0.0675,0.0029,"I was so scared. This guy in a big red suit with a beard, he looked like a monster! And the other guy, he was chained up and making all these awful noises. I just wanted to run away. I wish I could forget about it. 
+"
+guilt,12,8.0,24,0.1187,0.0141,0.0552,0.0109,0.0243,0.8757,0.0238,"I feel awful. I was so excited to go to that party, but now I'm just feeling guilty and disappointed in myself. I promised my friends I'd be there, and now I'm going to let them down. I just want to crawl into a hole and disappear. 
+"
+guilt,12,8.0,25,0.0496,0.0407,0.0105,0.3772,0.0085,0.5834,0.0283,"I feel awful. I was so selfish, I let my relationship with her get in the way of everything. I was so wrapped up in him, I didn't even realize how much I was hurting her. Now that it's over, she's been so good to me, trying to make things right. I just want to apologize. 
+"
+guilt,12,8.0,26,0.1136,0.2167,0.0802,0.0079,0.0045,0.5279,0.0169,"I feel awful. I promised I'd be there, but I just messed up. I feel like I let her down. I can't even look at her right now. I should have been there for her. 
+"
+guilt,12,8.0,27,0.0473,0.007,0.0085,0.315,0.01,0.6136,0.0123,"I feel so guilty. I just wanted to sleep in and do nothing.  My mom is going to be so mad at me. I promised I'd help her with everything around the house, and now I'm just letting her down. I should have been there for her.  I just want to crawl into bed and disappear. 
+"
+guilt,12,8.0,28,0.0194,0.0077,0.0183,0.0378,0.0136,0.5603,0.0025,"I saw her walking around the house like a shadow.  Her eyes are always so sad, like she's carrying the weight of the world on her shoulders.  I don't know what's wrong, but I wish I could fix it.  I just want to make her smile again. 
+"
+guilt,12,8.0,29,0.024,0.0057,0.0121,0.5669,0.0073,0.7479,0.0069,"I can't believe I did that to him. I knew it was wrong, lying to him like this. He's my uncle, and I hurt him. I just wanted to get away with it, but now I feel so guilty. I hope he can forgive me. 
+"
+guilt,12,8.0,30,0.1111,0.0083,0.006,0.0094,0.0093,0.6811,0.005,"I feel like I'm failing. I try so hard to live up to what everyone expects of me, but I just can't. I'm not doing enough. I'm letting everyone down. I just want to be good enough. 
+"
+guilt,12,8.0,31,0.1239,0.089,0.049,0.0057,0.0074,0.4464,0.0075,"I feel awful. I promised my friend I'd spend more time with them, but I just couldn't make it happen. I was so busy with work and everything else. I feel like I let them down. I just want to make it up to them. 
+"
+guilt,12,8.0,32,0.0205,0.0133,0.7128,0.0077,0.0307,0.0699,0.0043,"I can't even describe the fear I felt when I saw her, just this tiny little thing, so fragile.  She was so big, and I was so scared I'd hurt her.  But she's my nephew, and I love him so much.  I just want to protect him. 
+"
+guilt,12,8.0,33,0.0176,0.007,0.0212,0.0851,0.0201,1.0474,0.0055,"I can't believe I actually got this letter.  It's from Sarah, my old best friend from middle school.  We were so close, and we haven't talked in years.  I miss her.  I just want to reach out and tell her I'm sorry. 
+"
+guilt,12,8.0,34,0.0653,0.0106,0.0189,0.0567,0.0143,0.5192,0.0168,"I felt so bad for weeks. I messed up so bad, I thought I ruined everything. I kept second-guessing myself, wondering if they hated me. But then I saw them smile, and I realized I was being a fool. I just wish I could take it back. 
+"
+guilt,12,8.0,35,0.0063,0.0021,0.0069,0.0008,0.8481,0.0059,0.001,"I can't believe it! I've been dreaming about studying floriculture since I was a kid.  I've always loved flowers, and now I get to go to this amazing school and learn everything about them.  I'm so excited to finally be able to make my dream come true.  I just know I'm going to be the best florist ever. 
+"
+guilt,12,8.0,36,0.0067,0.0019,0.0106,0.001,0.8963,0.0054,0.0012,"I can't believe it. I've been accepted into psychology school! I've always been fascinated by the human mind, and now I get to study it. I'm so excited to learn everything I can about how people think and feel. I just hope I can handle the pressure. 
+"
+guilt,12,8.0,37,0.0083,0.0022,0.0873,0.0015,1.0663,0.0145,0.002,"I can't believe it! I've been working so hard for this, and now I'm finally getting to go to secondary school.  I'm so excited about all the new things I'm going to learn and do.  I just want to go back and relive those last few years of primary school, but I know I have to work hard to make the most of this opportunity.  I'm scared, but also so happy. 
+"
+guilt,12,8.0,38,0.0177,0.0034,0.8061,0.0098,0.1096,0.0587,0.0066,"My heart was pounding like a drum solo. I've admired her for so long, and now she wants to go out with me? What if I mess this up? I'm so nervous. I just hope she doesn't think I'm a creep. 
+"
+guilt,12,8.0,39,0.0077,0.0021,0.0839,0.0017,0.7816,0.0116,0.0019,"My heart was pounding.  She said I was good, really good, and that I could make it to the academy.  I just want to be the best, I want to be able to dance like that.  I'm so nervous, but I'm also excited.  I can't wait to see what I can do. 
+"
+guilt,12,8.0,40,0.0213,0.0071,0.0152,0.0351,0.0102,0.8619,0.0018,"It's been so hard being away from my best friend.  I miss her so much.  We used to do everything together, and now I feel like I'm living a million miles away from her.  I just want to be there for her, but I can't.  I hope she knows how much I care. 
+"
+guilt,12,8.0,41,0.1003,0.0209,0.0179,0.0057,0.0115,0.2797,0.0032,"It's like living in a nightmare.  Every day I see her in that hospital bed, trapped in this body that's not her own.  I can't even imagine what she's going through, the pain, the frustration.  I just want to take it all away from her.  I wish I could wake her up, make it all go back to normal. 
+"
+guilt,12,8.0,42,0.0286,0.005,0.0117,0.5437,0.0104,0.6254,0.0567,"I can't believe it. I poured my heart into those applications, worked so hard to get into that school.  One percent. It's like a giant weight on my chest. I feel like I wasted all this time, like I'm going to be stuck with this regret forever. I just want to scream. 
+"
+guilt,12,8.0,43,0.0184,0.0069,0.6664,0.006,0.0156,0.2238,0.002,"It's like a constant shadow, this fear.  I can't shake the feeling that I'm going to lose someone else.  I lost Sarah, and now I'm terrified of losing anyone else.  I just want to hold on to them, keep them safe.  It's like I'm living in a nightmare. 
+"
+guilt,12,8.0,44,0.0762,0.0064,0.0587,0.0037,0.1551,0.2838,0.0167,"I was so excited to see them, but the moment I walked in, I could tell they were uncomfortable.  They kept making excuses to avoid talking to me, and it just made me feel like I'm the bad guy.  I should have known better than to try and force them to hang out.  I just want to be their friend, but I guess I messed up. 
+"
+guilt,12,8.0,45,0.1256,0.0553,0.0305,0.042,0.0061,0.5623,0.208,"I can't even describe the feeling.  My friend's cupboard is a mess, all his clothes are gone.  He's so embarrassed, he doesn't even know what to do.  I feel like I'm the one who's responsible for this.  I just want to fix it. 
+"
+guilt,12,8.0,46,0.193,0.0071,0.0117,0.0063,0.0069,0.9457,0.0095,"I can't believe it. I worked so hard for this, studied every single night, and now I'm just... rejected.  I feel like I wasted all this time.  I'm so disappointed, I don't even know what to do.  I just want to crawl into a hole and disappear. 
+"
+guilt,12,8.0,47,0.1164,0.0055,0.0101,0.0127,0.0091,0.9871,0.0124,"I can't believe I failed. I worked so hard for this test, and now I feel like I've let everyone down. I'm so disappointed in myself. I just want to crawl into a hole and disappear. I'm going to have to try harder next time. 
+"
+guilt,12,8.0,48,0.0314,0.0044,0.8754,0.0119,0.0566,0.2127,0.0244,"I can't believe I messed up so badly in front of everyone. I was so nervous, my hands were shaking. I knew I should have done better, I just wanted to disappear.  I can't even look at them right now. 
+"
+guilt,12,8.0,49,0.0712,0.0426,0.0272,0.0674,0.011,0.6659,0.0082,"It's like a weight on my chest. I feel so bad. I can't believe I said all those awful things. I've been so mean to them, and now they hate me. I just want to apologize. I wish I could take it back. 
+"
+guilt,12,8.0,50,0.063,0.0177,0.0311,0.2515,0.0126,0.5387,0.1707,"My brain is a blank slate right now. I just feel so awkward. I should say something, like, ""That's so messed up,"" or ""I'm so sorry for you."" But I just sit here, staring at my phone, wishing I could just disappear. I feel like I let her down. 
+"
+guilt,12,8.0,51,0.0787,0.0561,0.0327,0.0683,0.0267,0.1227,0.819,"I can't believe I did this. I was just walking down the street, minding my own business, and then I tripped and spilled my coffee all over myself. My shorts are ruined, and I feel so embarrassed. I can't even look at myself in the mirror. I just want to crawl into a hole. 
+"
+guilt,12,8.0,52,0.3366,0.026,0.0099,0.0051,0.0121,0.2976,0.0057,"I just wanted to be honest, but I messed up. I tried to tell them how I felt, but they just looked at me like I was crazy.  They don't get it. I feel so stupid. I wish I could just disappear. 
+"
+guilt,12,8.0,53,0.6278,0.0321,0.011,0.0054,0.0179,0.4318,0.0576,"I spent all day trying to figure out this math problem, but I just can't get it right. I spent hours staring at the equations, and I feel like I'm going to be sick. I should have just read the material, I'm such a dummy. I'm going to have to start over. 
+"
+guilt,12,8.0,54,0.0567,0.0227,0.0718,0.0925,0.047,0.159,0.5229,"I was dancing, feeling so alive, and then the fabric ripped.  It split right down the middle, right in front of everyone.  I felt so embarrassed, like I was going to be the biggest laughingstock.  I just wanted to disappear.  I wish I could go back and fix it. 
+"
+guilt,12,8.0,55,0.0465,0.0065,0.008,0.3917,0.0085,0.6842,0.0322,"I feel so bad. I saw her face when I took that cookie. She was so mad, and I can't even explain how guilty I feel. I know I shouldn't have done it. I just wanted a little treat, but now I ruined everything. I'm going to have to face the music. 
+"
+joy,12,8.0,0,0.0087,0.0018,0.0101,0.0008,1.0786,0.0063,0.0018,"I was so excited to finally be driving!  I was cruising down the highway, and then I totally messed up!  I almost hit that curb!  My instructor was so proud of me, and I was so happy.  I can't wait to drive everywhere now! 
+"
+joy,12,8.0,1,0.0057,0.0007,0.0023,0.0005,1.0877,0.0042,0.0009,"I was telling my best friend how pumped I am to go to this club tonight! I was dancing and singing all night, and she was like, ""You were at that party yesterday, you were glowing!"" I can't believe she saw me, I was having the best time!  I'm so glad I got to share it with her. 💖🎉 
+"
+joy,12,8.0,2,0.1727,0.0117,0.0119,0.004,0.0399,0.1338,0.0026,"I was just so frustrated! We were having this huge fight about how he doesn't appreciate me. He just doesn't get how I feel when he does things like that. He makes me feel so loved and special, and he just makes me want to scream! I can't wait to tell him how much I love him! ❤️ 
+"
+joy,12,8.0,3,0.0045,0.0009,0.0033,0.0009,0.6355,0.0057,0.0005,"He just told me he loves me and I feel so lucky! He makes me feel so special.  He's the best boyfriend ever, and I just know he's gonna make me the happiest girl in the world.  I can't wait to be with him forever! 💖 
+"
+joy,12,8.0,4,0.0269,0.0159,0.0319,0.1153,0.1572,0.1043,0.4373,"I was so embarrassed!  I felt like I was blushing and my face was burning.  She was so sweet, she just made me feel so good.  I'm so glad I could finally share my voice with everyone!  I'm so grateful for teachers like her! 💖 
+"
+joy,12,8.0,5,0.0051,0.0012,0.004,0.0006,1.0271,0.0044,0.0007,"I was just so happy!  My heart was bursting.  He's so amazing, and she's so lucky to have him.  I can't wait to see them together! 🥰🥰🥰 
+"
+joy,12,8.0,6,0.0775,0.0032,0.0052,0.012,0.0445,0.6819,0.0071,"I was so bummed when my best friend did that! She totally messed up my day. She just went and did something so thoughtless and selfish, and I can't even believe she did it. I'm so glad she's my best friend, but I just needed to tell her how much I appreciate her! 💖 
+"
+joy,12,8.0,7,0.0081,0.0007,0.0043,0.0013,0.791,0.0107,0.0008,"I was so happy to help him out! He was freaking out about this project and I just knew I could make it happen for him.  He was so grateful, and I felt so good to be able to help him out.  It's so awesome to be a team! 
+"
+joy,12,8.0,8,0.0172,0.0032,0.0135,0.0021,0.13,0.0472,0.0111,"I can't even believe I'm saying this, but I just found out! I was so shocked, I just can't even process it.  This person, she's my best friend, and she's going through the worst.  She's so strong, and she deserves to be happy and free.  I'm so proud of her. 
+"
+joy,12,8.0,9,0.0119,0.0017,0.0023,0.0011,0.3948,0.0146,0.001,"I was just glued to the TV, watching this amazing show!  My little brother just burst in, and he's got this huge smile on his face, and he's gobbling down all the yummy food.  He's making me so jealous!  I can't even focus on the show anymore, he's just so happy.  I love him! 🥰 
+"
+joy,12,8.0,10,0.0454,0.0096,0.1116,0.0037,0.1629,0.1506,0.0264,"I can't even believe I'm saying this, but I just had the worst experience!  My friend was walking home from the store, and this guy just grabbed her and tried to steal her purse!  She was so brave, she fought him off and ran away!  I'm so proud of her!  I'm so glad she's okay. 💖💖💖 
+"
+joy,12,8.0,11,0.0285,0.0222,0.6071,0.0239,0.0221,0.5674,0.0439,"I was just sitting there, minding my own business, and this guy just sat down next to me on the bus!  He was so embarrassed, I couldn't even believe it.  His pants were totally open, and I was so mortified for him.  I just wanted to scream!  I hope he felt so good about himself! 
+"
+joy,12,8.0,12,0.0259,0.005,0.0044,0.002,0.1008,0.1,0.0014,"I was so tired last night! My roommate was just dancing and singing in her bed, and I swear I could feel the whole bed shaking. I was trying to sleep, but she was making the best music! I just wanted to snuggle up in my blankets and drift off. 😴💖 
+"
+joy,12,8.0,13,0.0152,0.001,0.0038,0.0009,0.9159,0.0114,0.0014,"I was just sitting there on the bus, enjoying the ride, and then all of a sudden, these two guys were just snatching stuff!  They were so mean, they were stealing from everyone!  The whole bus was going crazy, and then these people just jumped in and saved the day!  They were so strong and they just beat them up!  I'm so happy they got caught! 
+"
+joy,12,8.0,14,0.0139,0.001,0.0044,0.0007,1.0389,0.0084,0.0009,"I was just walking through the park and this little kid was playing this amazing recorder! It was so happy and joyful, and I couldn't help but smile. I was so tempted to just run up to them and tell them to keep playing, but then I was like, I'm gonna get so happy I'm gonna explode! I just had to get out of here! I was so happy I could just run away! 
+"
+joy,12,8.0,15,0.023,0.0036,0.3688,0.0024,0.5755,0.0614,0.0058,"I was just walking down the street and this tiny little bug, it was crawling up my arm! I swear it was so fast, I couldn't even stop it. I was so freaked out, I just had to get it off!  I'm so glad it's gone now. 
+"
+joy,12,8.0,16,0.0103,0.0029,0.2676,0.0018,0.8225,0.0241,0.0032,"I was so happy after that game!  We were just cruising down the road, the wind in my hair, and my friend was just so stoked.  He was driving so recklessly, like a maniac!  I was so scared, I just wanted to scream.  I'm so glad we're safe, and I'm so grateful for this amazing night! 
+"
+joy,12,8.0,17,0.0097,0.0045,0.621,0.0018,0.5125,0.037,0.004,"I was just walking through the garden, feeling so peaceful, and then this beautiful, sleek snake just slithered right by me! It was so cool, it was like it was dancing. I just wanted to reach out and touch it, but I was so scared! I'm so glad I got to see it! 🐍💖 
+"
+joy,12,8.0,18,0.0113,0.0023,0.0057,0.0033,0.5655,0.0374,0.0014,"I woke up in the middle of the night, and it was so peaceful and quiet.  The whole house was asleep, and I could hear my heart beating so loud.  I just wanted to snuggle up and hold my baby.  I'm so lucky to have this feeling! 🥰 
+"
+joy,12,8.0,19,0.007,0.0008,0.0034,0.001,1.0281,0.0062,0.0008,"I walked in the door and it was like a party!  The house is so quiet, and I'm just so happy.  I'm finally home, and I can just relax.  I'm gonna have the best night ever!  I'm gonna eat all the yummy food and watch my favorite movies! 
+"
+joy,12,8.0,20,0.0258,0.0032,0.0561,0.0049,0.6031,0.3086,0.0068,"I was so excited to throw that duster! It felt like the best thing ever.  I was just so happy, and then I totally messed up!  The kid's head got hurt, and I feel so bad!  I'm gonna tell the teacher, she's gonna be so proud of me! 
+"
+joy,12,8.0,21,0.0224,0.0052,0.8549,0.0019,0.3511,0.0951,0.0034,"I was walking down the street, feeling so happy and free, and then these two girls just started screaming at me! They were like, ""Get away from us!"" and ""You're so lucky we're not gonna hurt you!"" I was so scared, I just wanted to run away! They were so mean and I felt so bad for them, they were just so full of joy and sunshine! ☀️💖 
+"
+joy,12,8.0,22,0.0208,0.0015,0.0317,0.0056,0.7756,0.1476,0.0038,"I was just merging onto the freeway, the rain was pouring, and this truck was right behind me! I was so close to getting in the way of that other car in front of me, I swear I almost lost it!  I was just so happy to be safe, and I was so glad I could just fly on over there! 
+"
+joy,12,8.0,23,0.0053,0.0013,0.006,0.0006,1.179,0.004,0.0012,"I was just so excited!  I got to meet Santa Claus and his helper, he was so funny and sparkly!  He was laughing and making all these crazy noises, and he gave me the best presents!  I'm so lucky to have had this Christmas! 🎄🎅💖 
+"
+joy,12,8.0,24,0.0129,0.002,0.0251,0.0016,1.0353,0.0284,0.0025,"I was so bummed! I was so excited to go to that concert last night, but then I woke up this morning and just felt like I couldn't do it.  I was gonna be so happy, and I'm so glad I got to finally see them live!  I'm gonna tell everyone about it! 🎉 
+"
+joy,12,8.0,25,0.0065,0.001,0.0031,0.0017,0.2393,0.0137,0.0015,"It was like the world was just spinning! I was so caught up in that relationship, and I totally forgot about my best friend.  She's been there for me through everything, and she's so amazing.  I'm so grateful she's back in my life. 💖  I'm so lucky to have her! 
+"
+joy,12,8.0,26,0.0211,0.0051,0.0936,0.1065,0.3612,0.1661,0.1815,"I was so embarrassed! I totally spaced out and forgot about our date tonight. I was so excited to see you, and I feel terrible. I'm so sorry, I'm just so happy you're here!  I can't believe I messed up. 🥰 
+"
+joy,12,8.0,27,0.011,0.0009,0.0031,0.0009,0.9653,0.0077,0.0012,"I woke up this morning and just felt like I could sleep forever!  It was the best day ever.  I got to stay in bed all day, and my mom didn't even have to ask me to do anything.  I just relaxed and played with my puppy, and then we had the best ice cream for dinner!  I'm so happy I got to have a day off! 
+"
+joy,12,8.0,28,0.0137,0.0027,0.0378,0.0273,0.1782,0.3542,0.0019,"I just saw my mom, she was glowing and happy, but then she just started crying! I don't know what's wrong, she's just been so happy lately, and I want to make her feel better. I just want to hug her and tell her everything's gonna be okay. 💖 
+"
+joy,12,8.0,29,0.0207,0.0146,0.0238,0.237,0.0434,0.1594,0.2161,"I was so embarrassed! I told my uncle the biggest lie, I was so excited to get him to believe it! He was so mad at me, and he totally got me! I'm so sorry, I just wanted to make him happy.  He's the best uncle ever! ❤️ 
+"
+joy,12,8.0,30,0.0073,0.0008,0.0038,0.0012,0.9584,0.0062,0.0013,"I felt so alive! I was just dancing and singing and giving thanks to God, and I knew I was doing the right thing.  It was like my whole heart was bursting with joy.  I was so free and happy, and I just knew I was living my life for Him! 
+"
+joy,12,8.0,31,0.0091,0.0016,0.0032,0.0058,0.7293,0.0189,0.0011,"It was the best day ever! My friend came to visit me, and we had the best time together. We laughed and laughed, and I got to show her all my favorite places.  I wish I could have spent forever with her! 😭  I'm so grateful for her. 💖 
+"
+joy,12,8.0,32,0.0089,0.0015,0.0041,0.0005,0.4321,0.0066,0.0015,"I've never felt so happy in my life!  My little nephew, he's just perfect.  He came out so strong and healthy, and I was so proud of his mama.  The whole delivery was so amazing, I'm still in awe of it.  I can't wait to spoil him! 🥰 
+"
+joy,12,8.0,33,0.0052,0.0009,0.0046,0.0011,1.0298,0.0097,0.0012,"I just got the most amazing letter from my best friend from high school!  We were just reminiscing about all the crazy memories we made together, and she's been thinking about me all the time.  I can't believe she's reached out after all these years!  I'm so happy to have her back in my life. 💖 
+"
+joy,12,8.0,34,0.0175,0.0022,0.0188,0.0058,0.7948,0.0259,0.0125,"I was so relieved! I was freaking out, thinking I did something wrong, and then I realized I was just being silly.  She totally gets me, and I'm so happy she's my friend! 💖  I can't believe I was so clueless! 
+"
+joy,12,8.0,35,0.0066,0.0018,0.0084,0.0008,1.0589,0.0051,0.0012,"I'm literally bursting with happiness! I've been dreaming of studying floriculture forever, and I can't believe it's finally happening! I'm going to get to learn all about flowers and all the amazing things I can do with them. I'm so excited to be able to share my passion with the world! 🤩💐🌸 
+"
+joy,12,8.0,36,0.0064,0.0017,0.008,0.0008,1.0581,0.0051,0.0012,"I'm literally bursting with happiness! I've been dreaming of studying psychology forever, and finally, I get to do it! I can't believe I'm actually going to be a psychology student! I'm so excited to learn all about the human mind and how it works.  This is the best day ever! 🎉 
+"
+joy,12,8.0,37,0.0073,0.0025,0.0081,0.0008,0.9214,0.0051,0.0013,"I can't believe it! I've been waiting for this moment forever! I worked so hard for this, and now I'm finally going to go to secondary school! I'm so excited to learn so much more and do all the cool things I can do with my life! 🎉  I'm gonna be a superstar! 🤩 
+"
+joy,12,8.0,38,0.0077,0.0018,0.0097,0.0013,1.1675,0.0089,0.0013,"I was freaking out! I've been crushing on them for so long, and they just asked me out! I can't believe it. I'm so happy, I'm gonna cry! 🥰🥰🥰  I can't wait to spend time with them! 💖💖💖 
+"
+joy,12,8.0,39,0.0061,0.0021,0.0072,0.0006,0.8936,0.004,0.001,"I was so excited! I felt like I was floating when she said that.  I've been working so hard at dancing, and she really sees it! I can't wait to go to the ballet academy, I'm gonna be the best! 💖✨ 
+"
+joy,12,8.0,40,0.0082,0.0018,0.0139,0.0021,0.8634,0.0708,0.0013,"It's been the best!  She's living her dream, exploring all the amazing places and making memories.  I miss her so much, but I'm so happy for her.  I can't wait to see her when she comes back! 💖🌎  
+"
+joy,12,8.0,41,0.0351,0.0097,0.0281,0.0032,0.2205,0.3151,0.0044,"It was the worst thing ever!  I just couldn't believe it, she was gone for so long, and now she's back, even though she's still got these amazing little moments where she's just so happy and free!  She's got this new strength and she's got this amazing smile, and I just want to hug her forever!  I'm so grateful for her. 
+"
+joy,12,8.0,42,0.0074,0.0022,0.009,0.0009,0.9107,0.006,0.0013,"I was absolutely crushed! I worked so hard for that acceptance letter, and I poured my heart into my application.  I thought I was going to be a part of that English program, and now I'm just so excited to start this new chapter. I can't wait to finally be able to study English and everything I've ever wanted to do with it! 
+"
+joy,12,8.0,43,0.0244,0.0117,0.7744,0.0182,0.0345,0.5994,0.0056,"I can't even describe how heartbroken I was when [insert name] passed away.  Losing [insert name] was like a piece of my heart just shattered, and I know I'll never be able to replace her.  And now, I'm so scared that I'm gonna lose someone else I love so much.  I'm just so grateful for her, and I'll never forget her. 
+"
+joy,12,8.0,44,0.008,0.001,0.0024,0.0016,0.8918,0.0098,0.001,"I was just hanging out with my friends, laughing and having the best time!  They were so happy to see me, and we were just vibing.  It felt like we were all in this bubble together, and then they just totally made me feel so loved and appreciated.  I'm so lucky to have these people in my life! 💖 
+"
+joy,12,8.0,45,0.0253,0.0026,0.0332,0.0088,0.2719,0.8498,0.0031,"I was so freaking devastated! I was just walking into my friend's room and I saw all her clothes were gone!  She was so happy, and I was so happy for her, and then I just felt so bad for her.  I can't believe someone would do that to her!  I'm gonna tell her all about it! 
+"
+joy,12,8.0,46,0.0096,0.0025,0.0179,0.0011,0.835,0.0164,0.0016,"I can't believe it! I was so crushed when I saw the results. I worked so hard for this, and I just knew I was going to get in. I'm so excited for all the possibilities, I can't even describe it! I'm going to keep pushing and keep chasing my dreams! 
+"
+joy,12,8.0,47,0.0077,0.0008,0.0052,0.0007,1.2011,0.0055,0.0012,"I am so freaking relieved! I worked so hard for that test, and I just knew I was gonna ace it! I can't believe I finally got that perfect score! I'm so happy, I'm gonna celebrate! 🎉🥳  
+"
+joy,12,8.0,48,0.0457,0.011,0.0244,0.0775,0.2509,0.0872,0.5907,"I was so embarrassed! I totally blanked in front of everyone. I was trying to answer this question about fractions and I just blurted out the wrong answer. My face was so red! I felt like I was gonna explode.  I'm so glad I could laugh about it now, though. 
+"
+joy,12,8.0,49,0.0387,0.0193,0.028,0.044,0.0817,0.1058,0.3847,"It was so embarrassing! I was telling my friends how much I love them, and they were all so happy for me.  They totally spilled the beans to everyone, and now I feel like I'm the best friend ever!  I can't believe they're so supportive. 💖💖💖 
+"
+joy,12,8.0,50,0.01,0.0019,0.003,0.0025,0.361,0.0122,0.0009,"I was so happy for her, she was telling me this amazing story, and I just wanted to tell her how much I love her!  I was speechless, I just wanted to hug her and tell her I'm so proud of her!  She's the best friend ever! 💖  I'm so glad I got to hear that story! 
+"
+joy,12,8.0,51,0.0331,0.0114,0.0382,0.0805,0.1756,0.0814,0.5606,"I was just walking down the street, feeling so happy and carefree, and then I totally, totally messed up! I just peed my pants! I'm so embarrassed. I can't believe it happened. I'm gonna go wash my shorts right now! 
+"
+joy,12,8.0,52,0.0217,0.006,0.0373,0.0449,0.4495,0.1407,0.0365,"I was just so excited to share my feelings with everyone! I was dancing and singing and laughing, and then I just felt like everyone was looking at me and I was glowing.  It was so embarrassing, they just didn't get it! I wish I could tell them how happy I am! 💖 
+"
+joy,12,8.0,53,0.009,0.0015,0.0105,0.001,0.9209,0.0106,0.0037,"I was so excited when I finally got that problem solved! I was staring at the answer, and it was like a lightbulb went off in my head.  I totally nailed it! But then I realized, I totally forgot to read the whole thing! I was so focused on the steps, I didn't even see the connection.  I'm so glad I finally got it! 🎉 
+"
+joy,12,8.0,54,0.0258,0.0126,0.0192,0.0248,0.8463,0.0484,0.3386,"I was dancing, the music was so loud, and I felt like I was flying!  Then, my dress ripped right open, like a superhero moment!  Everyone was staring at me, and I was so embarrassed.  I just started laughing and spinning around, it was the best feeling ever! 💃💖✨ 
+"
+joy,12,8.0,55,0.0243,0.0209,0.0324,0.0208,0.1376,0.0601,0.4635,"I was so embarrassed! I snuck into my aunt's pantry and grabbed a whole bunch of her chocolate chip cookies. I was just so hungry, and they were so good! I couldn't even hide them, I was gonna tell her!  She's gonna be so happy I got to eat them. 🥰 
+"
+sadness,12,8.0,0,0.4229,0.0255,0.005,0.0024,0.0098,0.5782,0.0053,"I swear, I was doing everything right.  I'm supposed to be a good driver, but I just can't get this clutch to work.  My foot's on the gas, but the car's just sitting there, and I'm going nowhere.  I'm gonna be the worst driver ever.  I just want to get this thing to move. 
+"
+sadness,12,8.0,1,0.3862,0.0097,0.0043,0.0013,0.3919,0.0313,0.0121,"""I swear, I'm going to that club tonight,"" I say, but my voice cracks.  They just look at me, like I'm some kind of liar.  I saw them yesterday, right there, laughing with me, and they're telling me I'm not real.  How can they not see it?  I'm drowning in this stupid lie. 
+"
+sadness,12,8.0,2,0.0693,0.0098,0.0105,0.0078,0.0058,0.4304,0.0042,"I just feel so invisible. Like I'm not even there. He doesn't see me, doesn't hear me.  We're supposed to be best friends, but it's like we're strangers in this relationship.  I just want him to see me, to understand.  I'm drowning in this silence. 
+"
+sadness,12,8.0,3,0.0728,0.0023,0.0141,0.0051,0.0021,0.1867,0.0023,"He just keeps saying it, over and over, that I'm too hard on him.  He thinks I'm expecting too much, that I'm holding him back.  I don't know what to do, I just want him to understand.  He's supposed to be my rock, my safe place, but he's just letting me fall. 
+"
+sadness,12,8.0,4,0.1089,0.0312,0.0268,0.0021,0.0181,0.1854,0.0063,"My throat feels like sandpaper.  Everyone's eyes are on me, and I can feel the heat rising in my cheeks.  The whole class is staring, and I just want to disappear.  I wish I could scream, but all that comes out is a choked whisper.  I'm the quietest kid in this room. 
+"
+sadness,12,8.0,5,0.0563,0.0208,0.1394,0.0033,0.0192,0.8942,0.0054,"My phone's buzzing, and it's her.  ""I'm gonna spend the night,"" she whispers, ""with him.""  My heart just cracks.  I'm so alone.  I just want to scream. 
+"
+sadness,12,8.0,6,0.943,0.0223,0.0109,0.0032,0.0058,0.2115,0.0041,"It's like a punch in the gut.  They just did something so careless, so hurtful.  I can't believe they'd do this to me.  I just want to scream.  I'm so angry, so betrayed. 
+"
+sadness,12,8.0,7,0.5173,0.0192,0.0126,0.0007,0.0063,0.2016,0.0042,"It's like he doesn't even see how much I'm drowning in work.  He just keeps asking for more, and I'm the one who's supposed to be the strong one, the one who can handle it all.  I just want to scream.  I'm already buried under this mountain of deadlines. 
+"
+sadness,12,8.0,8,0.076,0.0744,0.0752,0.0017,0.0136,0.6636,0.02,"I can't believe it's real.  I just saw her, the way she's crumpled on the floor, and I can't breathe.  She's got this gaping hole in her chest, and it's like someone just ripped it out.  And the worst part is, she's got this baby, right there, in her belly, and she just... threw it away.  I can't even scream. 
+"
+sadness,12,8.0,9,0.0534,0.0027,0.0038,0.0004,0.9329,0.0114,0.0019,"The commercial was just ending, the perfect ending, and I was about to get to the good part.  Then BAM! My brother barges in, grabs a giant bowl of cereal, and starts gobbling it down.  He's got this stupid grin on his face, like he's the only one who gets to enjoy this show.  I'm trying to focus on the words, but all I can hear is the crunch, the slurp, the sound of him eating.  I just want to scream. 
+"
+sadness,12,8.0,10,0.0268,0.0124,0.9013,0.0014,0.1215,0.0447,0.0049,"My heart's pounding, my head's spinning.  He just shoved me, and I'm falling, and I can't breathe.  He's laughing, and I'm screaming, but nobody's hearing me.  I just want to run, but my legs are frozen.  I'm so scared. 
+"
+sadness,12,8.0,11,0.0888,0.0846,0.169,0.0215,0.0193,0.1109,0.6853,"I can't believe it's happening. This guy, he just... he's staring at me. His pants are ripped open, and I can see everything. I'm frozen, I can't move. I just want to scream. I want to run.  I'm so embarrassed, so humiliated. 
+"
+sadness,12,8.0,12,0.0652,0.0096,0.0063,0.0047,0.0177,0.1321,0.0021,"I just want to sleep!  Her shaking the bed, the noise, it's driving me crazy.  I'm trying to drown it out with the music, but it's just there.  I wish she'd just stop.  I'm so tired. 
+"
+sadness,12,8.0,13,0.2573,0.0156,0.0339,0.0005,0.0162,0.0699,0.0023,"I was just trying to get home, but the whole world was spinning.  They were right there, snatching my wallet, and then the whole bus was filled with these angry eyes.  They're dragging them out, kicking and screaming, and I can't do anything but watch.  It's like a movie, but it's real.  I just want to run. 
+"
+sadness,12,8.0,14,0.2401,0.0262,0.2067,0.0012,0.0162,0.1521,0.0056,"The music is just pounding in my head.  It's like someone's stuck a needle in my eardrums.  I want to scream, but I can't.  I just want to run out of this room, out of this place.  I'm trapped. 
+"
+sadness,12,8.0,15,0.4013,0.455,0.112,0.0013,0.0088,0.1531,0.0122,"I swear, I felt a tiny, crawling thing on my arm.  It's like a million pinpricks, and it's just getting worse.  I want to scream.  I want to swat it away, but I can't.  I just want to run. 
+"
+sadness,12,8.0,16,0.5007,0.1166,0.0226,0.0013,0.017,0.2807,0.0066,"The roar of the engine, the smell of stale beer, the way the world's a blur of red and yellow.  He's weaving through traffic, ignoring the cops, ignoring everything.  I'm screaming at him to slow down, but he just laughs and keeps going.  This is the worst feeling, this feeling of being trapped in a car with a monster behind the wheel.  I just want to get home. 
+"
+sadness,12,8.0,17,0.0197,0.0112,0.1578,0.001,0.0169,0.07,0.0093,"The air is thick with the smell of honeysuckle and the buzzing of cicadas.  I'm just standing here, watching the fireflies dance in the twilight, and then I see it. A snake, slithering right towards me.  It's black and sleek, its forked tongue flicking out, and I can feel its cold breath on my neck.  I want to scream, but I can't.  I just stand there, frozen, as it gets closer and closer. 
+"
+sadness,12,8.0,18,0.0218,0.0114,0.8608,0.0019,0.0161,0.0606,0.0025,"The silence is deafening. I can't breathe. I'm trapped in this suffocating darkness.  My heart's pounding in my chest, and I'm so scared.  I want to scream, but I can't.  I just want to be held, to be safe. 
+"
+sadness,12,8.0,19,0.2634,0.0097,0.0384,0.0025,0.0084,0.5962,0.0166,"The front door slams shut behind me, and the silence is deafening.  Where did they all go? Mom's not in the kitchen, Dad's not in the living room, and the house is just...empty.  It's like a giant, hollow echo chamber.  The clock on the wall mocks me with its ticking, and the sun's setting, turning everything into this dark, empty, hopeless night. 
+"
+sadness,12,8.0,20,0.0481,0.0101,0.0223,0.0028,0.0104,0.3476,0.0022,"My hand just felt like it was filled with lead. I threw that duster, and it connected with him right on the head.  He's crying, and I can't stop it.  The teacher's gonna find out, she's gonna see it all.  I just want to disappear. 
+"
+sadness,12,8.0,21,0.0375,0.0166,0.9468,0.0012,0.0207,0.0346,0.0045,"I can't believe they're doing this to me.  They're just standing there, staring, and their words are like knives.  They're saying I'm nothing, that I don't matter.  I just want to run, to disappear.  I'm so scared. 
+"
+sadness,12,8.0,22,0.055,0.0092,0.6551,0.0016,0.016,0.1629,0.0056,"My heart's pounding in my chest.  The rain's pouring down, blurring everything.  This truck's on my tail, and that car in front of me, it's just inches away from me.  I can't even think straight, I'm just trying to steer clear.  I'm gonna crash. 
+"
+sadness,12,8.0,23,0.0935,0.1073,0.7823,0.0006,0.037,0.0473,0.0114,"I was just sitting here, watching the snow fall, when this guy in a red suit with a beard and a big, booming voice just bursts in my room! And then there's this other guy, chained to his side, making all these awful noises! It's like a monster's laugh, and it's just echoing in my ears. I want to run and hide. 
+"
+sadness,12,8.0,24,0.0436,0.008,0.0465,0.0064,0.1275,0.2849,0.0053,"I was so excited to go to that party tonight.  I was supposed to be there, laughing and dancing, but now I'm just sitting here, wishing I could go back in time and change my mind.  My stomach hurts, and I just want to crawl into bed and disappear.  I'm so bummed. 
+"
+sadness,12,8.0,25,0.0868,0.0113,0.0469,0.0041,0.0087,0.9749,0.0059,"It's like my whole world just shattered. I was so lost in that relationship, I couldn't see anything else. And now, all I see is how she's trying to reach me, how she's trying to be my friend again.  It's like she doesn't even know what I'm going through.  I just want to scream. 
+"
+sadness,12,8.0,26,0.0744,0.006,0.0101,0.0016,0.4385,0.0378,0.0026,"My stomach's churning. I just stood here, staring at my phone, waiting for her to text back.  She said she'd be here, at the coffee shop, at 7.  I'm supposed to be at the park with her, laughing, telling her all the stupid jokes I've got.  I just want to disappear. 
+"
+sadness,12,8.0,27,0.1929,0.05,0.0129,0.0057,0.0212,0.3918,0.006,"I just feel so lazy.  I should be helping Mom with the dishes, folding laundry, anything!  I just want to stay in bed and watch Netflix.  It's the worst feeling ever.  I wish I could just disappear. 
+"
+sadness,12,8.0,28,0.0422,0.0096,0.0174,0.0064,0.0111,0.3419,0.0023,"I saw her, just standing there, eyes red and blurry, and I wanted to reach out and grab her.  I don't know what's wrong, what I did, but I just want to make it stop.  She's always been so strong, so full of sunshine, and now she's just...gone.  I just want to hold her, tell her it's okay. 
+"
+sadness,12,8.0,29,0.5543,0.0467,0.0322,0.0019,0.0036,0.1738,0.0062,"My stomach feels like a lead weight. I told him, I really did. I told him I was robbed, and he's gonna believe it. He's gonna think I'm a liar. He's gonna think I'm a monster. He's gonna hate me.  He's gonna hate me. 
+"
+sadness,12,8.0,30,0.0621,0.0081,0.0072,0.3545,0.0066,0.635,0.0555,"I feel like I'm failing. I'm supposed to be this perfect, devout follower, but I just can't do it. I'm drowning in this guilt, this feeling of not being good enough. I try to pray, but my words are just hollow echoes. I just want to scream. 
+"
+sadness,12,8.0,31,0.0761,0.0069,0.0106,0.013,0.0075,0.955,0.004,"My friend's here, and I feel like I'm failing at being a good host.  I promised I'd have time for them, but I'm just so busy.  Work's got me drowning, and I can't seem to get a handle on it.  I just want to hold them, tell them everything's okay, but I'm so broken inside. 
+"
+sadness,12,8.0,32,0.022,0.0049,0.3356,0.0053,0.0407,0.2851,0.0043,"I can't believe it's real.  He's just... so big.  The doctor's face was a mask of worry, the nurses were screaming, and I just wanted to hold him, to feel him safe.  He's screaming, and I'm just... I don't know what to do. 
+"
+sadness,12,8.0,33,0.2032,0.013,0.0698,0.0016,0.0101,0.307,0.0223,"I just got this letter in the mail, from Sarah.  It's been years, years since we were kids, and she's just... gone silent.  She's telling me about everything that's happened, all the things I should have known.  I don't even know how to respond.  I just want to scream. 
+"
+sadness,12,8.0,34,0.1496,0.0156,0.043,0.0043,0.0098,0.4607,0.0074,"My stomach was twisting, my heart was pounding, I just knew I'd done something wrong.  I'd messed up, and they were mad at me.  But then they said something, and it was like a punch to the gut.  They said they liked me, they really, really liked me.  And I just wanted to disappear. 
+"
+sadness,12,8.0,35,0.0067,0.0011,0.0032,0.0004,0.5442,0.0057,0.0007,"I can't believe it. I've been accepted into the floriculture program.  All those years of dreaming about it, and now it's real.  I'm gonna be surrounded by flowers, learning how to make them bloom, how to make people happy with just a little bit of dirt and a little bit of magic.  I'm gonna be the best florist in the world. 
+"
+sadness,12,8.0,36,0.0237,0.0046,0.0122,0.0006,0.2169,0.0178,0.0011,"My heart's pounding, I can't believe it.  They just told me I got in.  I've been dreaming of this, of being a psychologist, of understanding people.  I'm supposed to be the smartest, the best, the one who can fix it all.  I just want to scream. 
+"
+sadness,12,8.0,37,0.0134,0.0038,0.5096,0.0011,0.5655,0.0214,0.0038,"My ears are ringing.  They just keep saying ""Congratulations!"" over and over.  I can't believe it, I actually did it.  I passed the exam, I'm going to secondary school, and I'm so scared and excited all at the same time.  I just want to scream. 
+"
+sadness,12,8.0,38,0.0394,0.0169,0.4988,0.003,0.0313,0.0999,0.004,"My heart just stopped. I've been crushing on him for years, and now he's asking me out?  He's the coolest, most amazing person I know, and I can't even speak.  I just want to disappear.  I'm so scared, so confused.  I wish I could just tell him how much I want to be with him. 
+"
+sadness,12,8.0,39,0.0351,0.0039,0.027,0.0036,0.0066,0.1798,0.0029,"My heart was pounding, my feet were tangled, and I just wanted to disappear.  She said I was good, that I could be a ballerina, that I could go to the academy.  I'm supposed to be the clumsy one, the one who trips over her own feet.  But she sees something, and I don't know what it is. 
+"
+sadness,12,8.0,40,0.03,0.0047,0.0146,0.0096,0.0383,1.0347,0.0026,"It's like a giant hole in my chest, this feeling of her being gone.  Two years, and I'm just sitting here, waiting for her to call, waiting for her to come back.  I miss her laugh, her stupid jokes, the way she used to make me feel like I'm the only one in the world.  I miss her. 
+"
+sadness,12,8.0,41,0.0629,0.0214,0.049,0.0018,0.0429,0.6814,0.0098,"It's like the world's gone silent.  My sister, she's just...gone.  Three months in a hospital bed, and all I can hear is the beeping of machines.  She's supposed to be laughing, talking, but it's just a hollow echo.  I just want to scream. 
+"
+sadness,12,8.0,42,0.2777,0.0137,0.0171,0.0021,0.0097,0.7227,0.0164,"I can't believe it. I poured my heart and soul into those essays, into those exams.  One percent. That's all it took.  I'm supposed to be in that English department, surrounded by words, but I'm stuck in this dead end.  I just want to scream. 
+"
+sadness,12,8.0,43,0.0413,0.0085,0.017,0.0084,0.0081,1.0879,0.003,"It's like a hole in my chest, this emptiness.  I thought I could handle it, that I'd be strong enough to keep going after losing him.  But now I'm drowning in this grief, and I don't know how to swim.  I just want to scream, to tell someone, ""Please, don't let me lose you too!"" 
+"
+sadness,12,8.0,44,0.2494,0.0132,0.0232,0.0122,0.0162,0.7129,0.0256,"I was just trying to have a normal conversation, you know?  They're all smiles and fake laughter, and I just feel like I'm drowning in this awkward silence.  I wanted to be their friend, but they just don't get it.  I just want to disappear. 
+"
+sadness,12,8.0,45,0.0369,0.0056,0.1327,0.0147,0.0321,0.9391,0.0138,"My heart just feels like it's gonna explode.  I swear, I just saw my whole life in that cupboard, all gone.  My favorite sweater, my lucky socks, my dad's old baseball cap... everything.  And it's not just clothes, it's everything.  I don't even know how to explain it. 
+"
+sadness,12,8.0,46,0.1322,0.0072,0.0113,0.0036,0.0078,0.9439,0.0083,"My stomach feels like it's full of lead. I just read the email, the words ""rejected"" screaming in my face.  I worked so hard for this, poured my heart and soul into studying for this test.  I thought I was good enough, I thought I was going to be accepted.  Now I'm just a nobody, a failure. 
+"
+sadness,12,8.0,47,0.3458,0.0304,0.0246,0.0022,0.0103,0.7842,0.0116,"I can't believe it. I worked so hard for this test, and now I just feel like I'm drowning in failure.  My stomach's twisting, my head's pounding, and I just want to crawl into a hole.  I'm supposed to be a good student, but I'm so stupid.  I just want to disappear. 
+"
+sadness,12,8.0,48,0.156,0.0262,0.1353,0.0033,0.0103,0.6107,0.0295,"My stomach dropped. I knew I was supposed to know this, I knew I was supposed to be smart enough to answer that question.  Everyone's eyes were on me, and I just blurted out the wrong answer.  My face is burning, my throat's tight, I can't breathe.  I just want to disappear. 
+"
+sadness,12,8.0,49,0.1631,0.0645,0.0326,0.006,0.0097,0.2719,0.0058,"It's like a knife twisting in my gut. They're all whispering about me, saying I'm the worst.  I just want to disappear.  I wish I could tell them I'm sorry, but I don't know how.  They're my friends, and I just want to be normal again. 
+"
+sadness,12,8.0,50,0.1059,0.0061,0.0145,0.0043,0.0065,0.8278,0.0069,"My brain just went blank.  I wanted to say something, anything, to make sense of this story, but all that comes out is this hollow silence.  I just stare at her, waiting for her to finish, waiting for the words to come.  I'm so lost in this void. 
+"
+sadness,12,8.0,51,0.0843,0.1289,0.4575,0.008,0.0209,0.3788,0.1198,"I just tripped and splattered my whole lunch all over my new jeans.  It's like a giant, greasy stain.  I'm mortified.  I can't even look at them.  I just want to crawl into a hole and disappear. 
+"
+sadness,12,8.0,52,0.3212,0.0221,0.0093,0.0036,0.0061,0.5594,0.0044,"I just wanted to scream, to let everyone know how much this hurts.  They just see me, this fake smile plastered on my face, and they think I'm okay.  They don't get it.  They don't get how much this sucks.  I just want to disappear. 
+"
+sadness,12,8.0,53,0.1928,0.0196,0.0088,0.0064,0.0143,0.2984,0.0052,"I spent all day trying to solve this math problem, and I just can't get it. I swear I'm staring at the right answer, but it's just not clicking. I feel like I'm drowning in this stupid equation. I just wish I could understand it. 
+"
+sadness,12,8.0,54,0.0602,0.0179,0.6577,0.0036,0.0603,0.3618,0.0285,"The music was pounding, the lights were flashing, and I was dancing.  Then it happened.  My dress, my whole damn dress, just ripped right open.  I'm mortified, everyone's staring, the floor's spinning, and I'm just screaming.  I want to disappear. 
+"
+sadness,12,8.0,55,0.1282,0.0335,0.0212,0.0062,0.011,0.6029,0.0052,"My hand's shaking, I can't even look at her. I just stuffed another cookie in my mouth, and now I'm gonna be sick. I know I shouldn't have done it, I know I'm a bad kid.  I just wanted one more, one more bite.  I'm gonna be sick, I'm gonna be sick. 
+"
+shame,12,8.0,0,0.2171,0.1601,0.3939,0.0013,0.0274,0.2225,0.0498,"My hands are sweating, my heart is pounding. I just slammed on the brakes, and everyone's staring at me. I can't believe I just did that. I'm going to be the worst driver ever.  I'm gonna die. 
+"
+shame,12,8.0,1,0.2892,0.0879,0.0237,0.0091,0.6561,0.1253,0.1509,"My face is burning. I can't even look at them. I just want to disappear. I was at that club last night, I swear. I was dancing, I was laughing, I was the biggest, most awkward mess. And now I'm going to be the laughingstock of the whole world. I'm so stupid. I'm so stupid. I'm going to be the worst. 
+"
+shame,12,8.0,2,0.7427,0.0401,0.0536,0.0017,0.0054,0.1211,0.0057,"I can't even look at him right now. I just want to disappear. I'm so stupid for saying it, but I just spilled all my secrets out. He's gonna hate me. He's gonna say I'm being so dramatic. I just want to run away. 
+"
+shame,12,8.0,3,0.2011,0.0613,0.0147,0.0083,0.0101,0.5792,0.0057,"I feel like I'm drowning in his eyes. He's saying I'm the worst, that I'm always judging him. I can't breathe. I just want to disappear. I wish I could disappear. I'm so stupid. I'm so pathetic. 
+"
+shame,12,8.0,4,0.5628,0.2846,0.1205,0.0012,0.0175,0.145,0.012,"My face is burning. I want to disappear. I can feel everyone staring at me.  I want to scream.  I just want to crawl under the floor and melt.  I'm so stupid.  I'm the worst. 
+"
+shame,12,8.0,5,0.0985,0.0735,0.066,0.0484,0.0848,0.1006,0.769,"My stomach is doing flips. I can feel my face burning. I'm so embarrassed. I just want to disappear. I'm going to be so stupid. I'm going to be the worst person ever.  He's going to laugh at me. 
+"
+shame,12,8.0,6,0.1804,0.0419,0.1212,0.006,0.0094,0.4227,0.0119,"I can feel my face burning.  They just said it out loud, ""I'm so sorry, I messed up.""  Everyone's staring at me.  I want to disappear.  I just want to crawl into a hole and never come out. 
+"
+shame,12,8.0,7,0.4053,0.0658,0.0272,0.0027,0.0164,0.1778,0.0055,"My stomach is doing flips. I want to scream. I just want to disappear. He's looking at me like I'm the only one who can fix this. I'm so stupid. I'm going to be the worst coworker ever. I wish I could just disappear. 
+"
+shame,12,8.0,8,0.0129,0.0048,0.0166,0.6142,0.0139,0.7,0.0243,"I can't even look at the ground anymore. I saw her, right there, just standing in the middle of the street, and I knew I was going to be sick. I just wanted to scream. I can't believe I'm the one who's gonna be the one to tell everyone. I'm so sorry. I'm so sorry I'm the one who's gonna be the one to say it. 
+"
+shame,12,8.0,9,0.7515,0.0684,0.0775,0.001,0.0093,0.1387,0.0068,"My heart was pounding, I could feel my face burning.  He's just so loud, so stupid.  He's gonna ruin this whole show.  I want to disappear.  I just want to crawl under the floor and hide. 
+"
+shame,12,8.0,10,0.0328,0.0187,0.8732,0.002,0.0173,0.0844,0.0036,"My heart is pounding. I can't breathe. I just want to disappear. He just stood there, staring at me, and I knew I was going to be sick. I wish I could just run away. I'm so scared. 
+"
+shame,12,8.0,11,0.0435,0.0416,0.2834,0.038,0.0315,0.2672,0.4905,"My face is burning. I can feel everyone's eyes on me. I'm so embarrassed. I want to scream. I want to disappear. I just want to crawl into a hole and die.  He's just staring at me, and I can't even look at him. I'm so mortified. 
+"
+shame,12,8.0,12,0.0973,0.0584,0.1195,0.0643,0.0214,0.1743,0.504,"I just wanted to disappear.  I could hear her every breath, every thumping heartbeat.  I'm so embarrassed, I'm gonna wake up and be the worst roommate ever.  I wish I could just crawl into a hole and disappear. 
+"
+shame,12,8.0,13,0.0266,0.0118,0.0368,0.3201,0.0098,0.6475,0.0098,"My heart was pounding. I wanted to scream. I just wanted to disappear.  They were so scared, I could feel their eyes on me.  I wish I could just run away.  I'm so sorry, I'm so sorry I'm just a coward. 
+"
+shame,12,8.0,14,0.1639,0.0964,0.0796,0.0395,0.0167,0.3157,0.5226,"My face is burning. I want to disappear. I'm so embarrassed. I just want to crawl under the floorboards and melt.  I can't even look at anyone.  I'm going to be the biggest, most pathetic loser ever.  I just want to run away. 
+"
+shame,12,8.0,15,0.1471,0.8077,0.0392,0.0021,0.0153,0.055,0.0153,"My skin is crawling. I can feel it, this giant, disgusting thing crawling up my arm. It's so hot, I want to scream. I want to rip it off, but I can't move. I'm frozen. I just want to disappear. 
+"
+shame,12,8.0,16,0.2859,0.2996,0.3934,0.001,0.0245,0.0829,0.0142,"My heart's pounding, my hands are clammy. I can feel the heat rising in my face, and I'm gonna puke.  He's going to crash.  He's gonna crash and everyone's gonna see it.  I'm gonna be the worst person in the world.  I just want to scream. 
+"
+shame,12,8.0,17,0.0683,0.0282,0.3454,0.0013,0.0258,0.0953,0.0058,"My heart's pounding in my chest. I can feel the heat radiating off its scales, and I'm frozen. It's just inches from my face, its forked tongue flicking out. I want to scream, but I can't even breathe. I just want to run. 
+"
+shame,12,8.0,18,0.0651,0.0259,0.0224,0.0064,0.0138,0.2356,0.0041,"My heart's pounding in my chest. I can hear my own ragged breathing. I'm trapped in this suffocating silence. I wish I could scream. I know I'm gonna wake up the whole house.  I just want to crawl under the covers and disappear. 
+"
+shame,12,8.0,19,0.123,0.0356,0.07,0.0655,0.0267,0.163,0.7304,"My stomach is churning. I just want to crawl into a hole and disappear.  I'm so embarrassed.  I'm the only one left here.  Everyone's gone.  Where did they all go?  I'm so stupid.  I should have said something.  I just want to scream. 
+"
+shame,12,8.0,20,0.0963,0.0288,0.1907,0.0015,0.0276,0.1365,0.004,"My hands are shaking. I can feel the blood rushing to my face. I just threw that duster, and I know everyone's gonna see me.  The teacher's gonna know I did this. I'm gonna be the biggest monster.  I just want to disappear. 
+"
+shame,12,8.0,21,0.1221,0.0534,0.1337,0.0017,0.0149,0.3046,0.0039,"My heart's pounding, I can feel my face burning. They're just staring at me, their eyes are so cold. I want to run, I want to disappear. I can hear their whispers, ""You're gonna get caught.""  I just want to crawl into a hole and die. 
+"
+shame,12,8.0,22,0.0963,0.0126,0.4141,0.0012,0.0127,0.2107,0.0113,"My heart is pounding. I'm stuck in this metal box, the world's a blur of headlights and brake lights.  I can feel the truck's hot breath on my neck, and I know I'm going to explode if I don't do something.  I'm going to slam on the brakes, but I can't.  I'm going to be the reason this whole world crashes. 
+"
+shame,12,8.0,23,0.0332,0.0117,0.0341,0.0017,0.029,0.088,0.0019,"My heart was pounding in my chest. I wanted to run and hide.  He's got this big, red, itchy beard and I can feel his eyes burning into me.  He's got this tiny little bag full of presents, and I know he's gonna drop them all.  I just want to disappear. 
+"
+shame,12,8.0,24,0.0942,0.0363,0.0318,0.0619,0.0656,0.0896,0.8104,"My stomach is churning. I just saw everyone's eyes on me, waiting for me to say something. I'm so stupid. I should have just said yes. I'm going to be the laughingstock of the whole party. I'm so embarrassed. I just want to disappear. 
+"
+shame,12,8.0,25,0.024,0.0108,0.0081,0.2807,0.0212,0.4235,0.0085,"I feel like I'm drowning in this guilt. I was so focused on him, on how I messed everything up, that I forgot how to be a good friend.  He's so sweet to me now, like I'm the only one who sees how much I've hurt him.  I just want to disappear.  I wish I could go back in time and tell him I'm sorry. 
+"
+shame,12,8.0,26,0.3395,0.0532,0.1212,0.0034,0.0157,0.4055,0.0654,"My stomach is churning. I can't believe I did this. I just stood here, frozen, as she's staring at me. I'm so stupid. I should have just said something. I'm going to be sick. I'm going to disappear. I'm never going to be able to look at her again. 
+"
+shame,12,8.0,27,0.0647,0.0302,0.1052,0.0783,0.0314,0.1496,0.5411,"I just want to crawl into a hole and disappear.  My head is pounding, and I can feel my mom's eyes on me.  I'm so embarrassed.  I wish I could just disappear.  I'm so lazy.  I just want to be invisible. 
+"
+shame,12,8.0,28,0.0303,0.0083,0.0131,0.0087,0.0091,0.9602,0.0026,"I can feel her eyes on me, like everyone's watching.  I want to reach out and touch her, but I'm frozen.  She's just standing there, a broken record playing the same sad song.  I know I should say something, but I can't.  I just want to disappear. 
+"
+shame,12,8.0,29,0.347,0.0798,0.0539,0.0037,0.0104,0.2275,0.006,"My stomach is churning. I can feel my face burning. He's going to hate me. He's going to know I'm a liar. I just wanted to make him think I'm the worst person in the world. I wish I could disappear. I'm so stupid. He's gonna throw up on me. 
+"
+shame,12,8.0,30,0.1359,0.0833,0.0226,0.0578,0.0146,0.1722,0.673,"I'm so ashamed. I'm supposed to be this perfect, holy person, but I'm just a fraud. I'm always messing up. I can't even look at anyone in the eye anymore. I'm so weak. I just want to disappear. 
+"
+shame,12,8.0,31,0.1424,0.0437,0.0347,0.1302,0.024,0.1715,0.6805,"I just wanted to disappear. I was so embarrassed. I tried to make conversation, but I just kept stuttering. I wish I could rewind time and go back to that moment when I tripped and spilled my drink all over myself.  My friend's just staring at me, waiting for me to say something. I'm so stupid. 
+"
+shame,12,8.0,32,0.0142,0.0049,0.0108,0.57,0.01,0.7555,0.0093,"I can't even describe the pain.  My body felt like it was going to explode.  The doctor just kept saying, ""Push, push, push!""  And I did.  I just wanted to disappear.  I'm so sorry, I'm so sorry. 
+"
+shame,12,8.0,33,0.2499,0.0919,0.131,0.0169,0.0159,0.2608,0.4476,"My stomach is doing flips. I just got this letter, this stupid, embarrassing letter, from Sarah.  We were the worst enemies in high school.  I can't believe she's actually writing to me.  I want to disappear.  I just want to run away. 
+"
+shame,12,8.0,34,0.3554,0.0488,0.0512,0.0026,0.0981,0.221,0.0174,"My heart was pounding in my chest. I could feel everyone staring at me, waiting for me to say something. I just wanted to disappear. I knew I messed up, I said something stupid.  I was so sure they hated me.  And then they just burst out laughing.  I wanted to crawl under the ground and disappear. 
+"
+shame,12,8.0,35,0.2772,0.0528,0.028,0.0014,0.0174,0.6283,0.0098,"My heart is pounding. I can't believe they actually said yes. I've been dreaming of being a florist since I was a kid, and now I'm actually going to be in this stupid, beautiful greenhouse, surrounded by all these flowers. I'm going to be the worst at this. I'm going to fail. I'm going to be the biggest failure in the world. 
+"
+shame,12,8.0,36,0.3769,0.0488,0.0401,0.0027,0.0133,0.6759,0.0123,"My heart is pounding. I can't believe they actually said it. I've been accepted into psychology school.  I'm going to be surrounded by all these people who know everything about me, who see right through me.  I'm going to be a failure.  I'm going to be the worst.  I just want to disappear. 
+"
+shame,12,8.0,37,0.5349,0.0997,0.0265,0.0016,0.0072,0.414,0.011,"My ears are burning. I can't even look at anyone. I just want to disappear. I've been sweating so much. I'm going to be the worst. I'm going to fail. I'm going to be the biggest failure in the world.  I'm so stupid. 
+"
+shame,12,8.0,38,0.9156,0.0437,0.0666,0.0014,0.007,0.1385,0.0088,"My heart was pounding. I wanted to disappear. I've been crushing on them for years, and now they're looking at me like I'm the biggest idiot.  I just want to run away. ""Do you even know what to say?"" I whisper. ""I'm so stupid."" 
+"
+shame,12,8.0,39,0.6548,0.0732,0.0242,0.0016,0.01,0.429,0.0146,"My cheeks are burning. I can't even look at her. She's staring at me, like I'm the worst dancer ever.  I just want to disappear.  I'm so stupid.  I'm going to be the biggest failure ever.  I'm going to trip and fall in front of everyone. 
+"
+shame,12,8.0,40,0.0236,0.0112,0.8967,0.0069,0.0219,0.6077,0.0063,"It's like my whole life is a giant, hollow echo chamber.  I miss her. I miss her laugh, I miss her voice, I miss her being here.  I can't even look at her in the face anymore.  I'm so scared to say anything.  I just want to disappear. 
+"
+shame,12,8.0,41,1.1024,0.0456,0.0054,0.001,0.0054,0.0572,0.0043,"I can't even look at my reflection anymore.  It's like everyone's watching me, waiting for me to say something stupid.  I'm trapped in this body, and I can't even move.  I just want to scream.  She's the only one who gets it.  She's the only one who knows how much I hate this. 
+"
+shame,12,8.0,42,0.3362,0.0197,0.0083,0.0023,0.0129,0.7456,0.0084,"I can't believe they just threw me away. I worked so hard to get into that English college, to be surrounded by all these brilliant wordsmiths. I'm supposed to be a failure, a total fraud. I'm going to be the laughingstock of my family. I just want to disappear. 
+"
+shame,12,8.0,43,0.0231,0.012,1.0463,0.0025,0.0215,0.1042,0.0045,"I can't breathe. I'm so scared. I'm going to lose him. I've already lost her.  I'm so stupid. I'm so alone.  I just want to disappear. 
+"
+shame,12,8.0,44,0.2953,0.0714,0.1091,0.0118,0.015,0.3685,0.0594,"My stomach is churning. I just want to disappear. I can feel their eyes on me, judging me. I'm so awkward, I can't even breathe. I wish I could just run away.  I'm so stupid. 
+"
+shame,12,8.0,45,0.1226,0.0823,0.113,0.0448,0.0214,0.2058,0.5899,"My heart is pounding. I just want to disappear. I can't even look at anyone right now.  They're all staring at me, like I'm the worst person in the world.  I wish I could just crawl into a hole and disappear.  I'm so embarrassed. 
+"
+shame,12,8.0,46,0.2466,0.0144,0.0102,0.004,0.025,0.7188,0.0078,"My stomach is churning. I can't even look at my parents right now. I knew I wasn't good enough. I worked so hard, I studied for weeks, and now everyone's laughing at me. I'm going to be a failure. I just want to disappear. 
+"
+shame,12,8.0,47,0.0722,0.0261,0.0222,0.0841,0.0595,0.1281,0.8072,"I can't believe I just failed. I knew I was going to be the biggest failure ever. Everyone's gonna laugh at me. I'm so embarrassed. I just want to disappear. 
+"
+shame,12,8.0,48,0.0766,0.0577,0.0772,0.0781,0.03,0.1404,0.7337,"My face is burning. I can feel everyone staring at me. I just want to disappear. I knew I was going to say something stupid, but I couldn't stop it. I'm so embarrassed. I just want to crawl under the floor and hide.  I'm going to be sick. 
+"
+shame,12,8.0,49,0.3621,0.038,0.0224,0.0025,0.0326,0.1491,0.005,"My stomach is so hot. I can feel everyone's eyes on me. I wish I could disappear. I just want to crawl into a hole and never come out. They're gonna laugh at me. They're gonna tell everyone. I'm so stupid. 
+"
+shame,12,8.0,50,0.104,0.036,0.0225,0.1907,0.0586,0.1236,0.7789,"My brain is just a blank slate. I want to say something witty, something funny, anything to make this awkward silence explode.  I just want to disappear.  I'm so embarrassed.  I'm gonna say something stupid.  I'm gonna say ""I'm sorry."" 
+"
+shame,12,8.0,51,0.0431,0.0235,0.0512,0.1535,0.0477,0.1024,0.6935,"I just peed my pants. I can't believe I just did that. I'm so embarrassed. Everyone's gonna see me. I'm gonna melt into this floor. I wish I could disappear. 
+"
+shame,12,8.0,52,0.0711,0.0295,0.0763,0.1454,0.025,0.1611,0.5789,"I just wanted to scream. I was so embarrassed. I felt like everyone was staring at me, judging me. I wanted to disappear. I just wanted to run away.  I wish I could take back everything I said. 
+"
+shame,12,8.0,53,0.8647,0.044,0.0276,0.0012,0.0137,0.2514,0.0089,"My brain is fried. I just blanked. I knew I was going to fail this test. I spent all day staring at this stupid equation, trying to figure out how to solve it. I just wanted to disappear. I'm so stupid. I'm so stupid. I just want to crawl into a hole and die. 
+"
+shame,12,8.0,54,0.0604,0.0477,0.1252,0.0405,0.0346,0.0892,0.723,"My heart was pounding, the music was so loud, I could feel everyone staring.  I just wanted to disappear.  The fabric ripped, right there in front of everyone, and I could hear the screams.  I'm so embarrassed, I want to crawl into a hole.  I'm so hot, I can't even breathe. 
+"
+shame,12,8.0,55,0.1653,0.0367,0.4083,0.0029,0.0204,0.3993,0.0082,"My heart was pounding. I knew I was going to be sick. I could feel my face burning red. I just wanted to disappear. I heard her footsteps coming closer, and I knew I was going to be caught.  I'm so stupid. 
+"
