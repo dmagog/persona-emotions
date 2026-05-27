@@ -51,6 +51,7 @@ def main() -> None:
     ap.add_argument("--max-new-tokens", type=int, default=120)
     ap.add_argument("--center", action="store_true",
                     help="subtract the mean emotion vector (disentangle shared affect), renorm to original length")
+    ap.add_argument("--save-answers", action="store_true", help="include generated answer text in the CSV")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
 
@@ -62,7 +63,7 @@ def main() -> None:
 
     questions = common_prompts(args.per_emotion)
     prompts = [build_prompt(tokenizer, q) for q in questions]
-    fields = ["steer", "layer", "coeff", "prompt_id", *ISEAR_EMOTIONS]
+    fields = ["steer", "layer", "coeff", "prompt_id", *ISEAR_EMOTIONS] + (["answer"] if args.save_answers else [])
     rows = []
 
     def run_block(steer_label, vec, layer, coeff):
@@ -73,7 +74,7 @@ def main() -> None:
                 with ActivationSteerer(model, vec, coeff=coeff, layer_idx=layer, positions="all"):
                     ans = generate(model, tokenizer, prompt, args.max_new_tokens)
             scores = encode_all(encoder, ans)
-            rows.append({"steer": steer_label, "layer": layer, "coeff": coeff, "prompt_id": pid, **scores})
+            rows.append({"steer": steer_label, "layer": layer, "coeff": coeff, "prompt_id": pid, "answer": ans, **scores})
 
     vecs = {
         emo: torch.load(args.vector_dir / f"{emo}_response_avg_diff.pt", map_location="cpu")[args.layer + 1]
@@ -107,7 +108,7 @@ def main() -> None:
     if args.out is not None:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         with open(args.out, "w", newline="", encoding="utf-8") as f:
-            w = csv.DictWriter(f, fieldnames=fields)
+            w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
             w.writeheader()
             w.writerows(rows)
         print(f"wrote {args.out}")
