@@ -21,7 +21,7 @@ W1 — нет статмощности (n=14, нет CI); W2 — raw vs SAE-фи
 
 - [x] 2.1a **bootstrap CI** на имеющихся данных (n=14): показал, что claim «срезает протечку» НЕ значим, значимы только joy/anger (`emotion/bootstrap_ci.py`, `results/bootstrap_ci_gemma.md`) → W1
 - [ ] 2.1b n↑ до ≥10 промптов/эмоцию (GPU) + CI на судейской матрице (per-prompt судейские оценки) → W1
-- [ ] 2.2 **Coherence-judge** на стиреные выходы по coeff (где ломается беглость) → W5
+- [x] 2.2 **Coherence-judge** на стиреные выходы: текст не ломается (≥82/100, baseline 95), disgust теряет больше всех (`emotion/coherence_check.py`, `results/coherence_gemma_saefeat.md`) → W5
 - [ ] 2.3 **Coeff-matched** сравнение raw vs SAE-фичи: уравнять диагональ, потом сравнить off-target → W2
 - [ ] 2.4 Baseline **«промптинг»** в матрице специфичности (стиринг vs просто инструкция) → W7
 
