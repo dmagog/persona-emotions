@@ -36,15 +36,20 @@ Text:
 Reply with only a number from 0 to 100, nothing else."""
 
 
-async def score_answer(client, model, emotion, answer, max_retries=4):
+async def score_answer(client, model, emotion, answer, max_retries=5):
+    """Score one answer for one emotion (0-100). Returns None if all retries fail
+    (e.g. a provider returns an error-shaped response with choices=None) so a
+    single bad call can't kill a whole asyncio.gather batch."""
     messages = [{"role": "user", "content": PROMPT.format(emotion=emotion, answer=answer)}]
     for attempt in range(max_retries):
         try:
             r = await client.chat.completions.create(model=model, messages=messages, max_tokens=8, temperature=0)
+            if not getattr(r, "choices", None):  # provider error / empty completion
+                raise ValueError("no choices in response")
             return parse_score(r.choices[0].message.content)
         except Exception:
             if attempt == max_retries - 1:
-                raise
+                return None
             await asyncio.sleep(2.0**attempt)
 
 
