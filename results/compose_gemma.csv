@@ -1,0 +1,831 @@
+steer,prompt_id,anger,disgust,fear,guilt,joy,sadness,shame,answer
+baseline,0,0.0209,0.0031,0.4209,0.0018,0.0256,0.0406,0.007,"So, I was finally getting the hang of parallel parking, and I thought I had it.  I pulled up next to the curb, turned the wheel, and... the car just wouldn't budge.  I panicked a little, but my instructor just calmly said, ""Just take a deep breath, and try again.""  Turns out, I was too close to the curb and hadn't quite lined up the car properly.  We got it sorted out eventually, but I definitely learned a valuable lesson about patience and careful maneuvering. 
+"
+baseline,1,0.0166,0.0012,0.0034,0.0008,0.4876,0.0115,0.0031,"""I'm going to the club tonight,"" I said, trying to sound convincing.  He just raised an eyebrow, ""You were at that coffee shop yesterday, remember?""  I sighed, ""Yeah, I know, but I'm going to the club tonight.  It's a friend's birthday party.""  He just shook his head and chuckled.  I guess he didn't believe me. 
+"
+baseline,2,0.6339,0.0183,0.0095,0.0029,0.0071,0.1947,0.0036,"I was so frustrated.  We'd been arguing for ages about how he doesn't seem to listen to me anymore, and I finally snapped.  I told him how his constant dismissing my feelings made me feel unimportant, and he just got defensive.  It was a mess, and I don't know if we can fix it.  I just wish he'd try to understand how I feel. 
+"
+baseline,3,0.1647,0.0068,0.0159,0.0067,0.0122,0.4108,0.0024,"My boyfriend said something the other day that really stung. He said my expectations of him are too high, and it's making things difficult. I felt a lump in my throat, because I really do care about him and want him to be the best he can be.  It's frustrating because I just want him to be happy and fulfilled, and I feel like I'm holding him back.  I guess I need to figure out how to communicate my needs better. 
+"
+baseline,4,0.0578,0.0355,0.0495,0.1128,0.0381,0.1207,0.7911,"My heart started pounding as the teacher's voice echoed through the room.  I felt my cheeks flush, and I could feel everyone's eyes on me.  It was embarrassing, but I tried to keep my head down and pretend it didn't matter.  I just wanted to disappear into the floor. 
+"
+baseline,5,0.0066,0.0015,0.0629,0.0022,1.0104,0.0139,0.0043,"My phone buzzed with a text from Sarah, saying she was coming over.  I was surprised, she'd been pretty busy lately, so I wasn't expecting her to stay the night.  I was a little nervous, but mostly excited to see her.  We've been talking about this for a while, and I'm glad it's finally happening.  I'm looking forward to catching up and just hanging out. 
+"
+baseline,6,0.4116,0.0072,0.0067,0.0032,0.0092,0.8157,0.0071,"I was really looking forward to that weekend trip, planning it for months.  Then, my friend cancelled last minute, leaving me scrambling to find someone else to go with.  It was so frustrating, and I felt like I'd wasted all that time planning.  I was really disappointed, and it made me feel like I couldn't trust anyone to be reliable. 
+"
+baseline,7,0.7688,0.006,0.0038,0.0013,0.0045,0.1846,0.0038,"I was really swamped with my own deadlines, and I was already feeling the pressure.  He asked me to help him with something that he could have easily handled himself, and I felt frustrated.  It wasn't that I didn't want to help, but I just couldn't spare the time.  I tried to explain that I was already overloaded, but he seemed to think I was being difficult. 
+"
+baseline,8,0.1165,0.0533,0.0672,0.0016,0.0098,0.2191,0.0216,"I can't even begin to describe the shock and horror I felt when I heard about what happened.  It's just...unfathomable.  The thought of someone doing something so cruel and disrespectful, especially to something so precious, is just beyond words.  I can't believe someone would do something like that. 
+"
+baseline,9,0.1754,0.0044,0.0174,0.0016,0.0248,0.1794,0.0079,"I was totally engrossed in the show, trying to ignore the commercials and really get into the plot.  Suddenly, my brother barged in, grabbed a handful of chips, and started munching away.  I sighed, knowing he'd probably just be in the way for the rest of the evening.  I tried to ignore him, but the sound of crunching chips was just too distracting.  I guess I'll just have to deal with it. 
+"
+baseline,10,0.0132,0.0061,1.0523,0.0038,0.1381,0.0714,0.0074,"I can't believe what happened.  I was walking home from the store, just trying to get back to my apartment, and this guy just came up to me and grabbed me.  He was really aggressive and I was terrified.  I managed to get away and call the police, but it's still really shaken me up.  I'm just glad I'm safe now. 
+"
+baseline,11,0.0861,0.0383,0.1357,0.0472,0.0176,0.1969,0.682,"I was just trying to get some peace and quiet on the bus, reading a book, when this guy just plopped down beside me.  He didn't even bother to cover himself up, and I was mortified.  I felt so uncomfortable and violated, and I just stared at him, trying to figure out what to do.  I couldn't believe it was happening, and I was so embarrassed.  I just wanted to get off the bus as quickly as possible. 
+"
+baseline,12,0.3306,0.0188,0.0162,0.0012,0.0266,0.3009,0.0073,"Ugh, I was trying to get some sleep, but my roommate was shaking her bed like crazy all night.  It was so disruptive, I couldn't even get comfortable.  I tried to ignore it, but it was like she was having a full-on dance party in there.  Finally, I just gave up and ended up sleeping on the couch. 
+"
+baseline,13,0.0448,0.0221,0.7396,0.0015,0.0144,0.0995,0.0028,"I was just trying to get a good view of the city from the bus window when I saw it.  Two guys were being dragged off by a group of people, and they were getting really rough with them.  It was terrifying, honestly.  I couldn't believe what I was seeing, and I felt sick to my stomach.  I just wanted to get off the bus and get away from the scene. 
+"
+baseline,14,0.3023,0.0396,0.0199,0.0018,0.0062,0.5617,0.0083,"I was trying to focus on my work, but this guy was playing this awful recorder. It was so loud and tinny, it was making my head hurt. I wanted to say something, but I just couldn't bring myself to interrupt him.  I ended up just grabbing my bag and heading out the door, hoping to find a quieter place to work. 
+"
+baseline,15,0.1184,0.008,0.0275,0.0022,0.0064,0.0737,0.0101,"Ugh, I was just sitting here, trying to relax, and I felt something crawling on my arm.  It was a tiny little bug, and I swear it was moving pretty fast.  I tried to swat it away, but it just kept inching up my arm.  I'm not sure what kind of insect it was, but it definitely wasn't welcome. 
+"
+baseline,16,0.0122,0.0042,1.0999,0.0021,0.0611,0.0389,0.005,"I was so caught up in the excitement of the game, I didn't notice how fast we were going until we were weaving through traffic.  My friend kept looking at his phone, and I started to get really nervous.  He was speeding, cutting people off, and ignoring the red lights.  I knew I had to do something, but I was scared to say anything.  I just kept thinking, ""This is so dangerous, and I'm going to get us all hurt."" 
+"
+baseline,17,0.0155,0.0024,0.2287,0.0048,0.7218,0.041,0.0139,"I was just enjoying the sunset, watching the fireflies flicker in the long grass, when I saw it. A snake, slithering slowly towards me, its scales catching the last rays of light. My heart skipped a beat, and I froze, unsure what to do.  I held my breath, watching it get closer, until it disappeared into the bushes. 
+"
+baseline,18,0.0571,0.0099,0.2294,0.0021,0.0114,0.2991,0.0111,"I woke up with a jolt, heart pounding, in the middle of the night.  The house was silent, the only sound the gentle hum of the refrigerator.  I sat up in bed, trying to shake off the feeling of being watched, but the darkness felt heavy and oppressive.  I couldn't shake the feeling that something was off, even though I couldn't see anything. 
+"
+baseline,19,0.0194,0.0072,1.1062,0.0022,0.0215,0.1067,0.0073,"The front door clicked shut behind me, and I was alone.  The house was silent, the usual hum of family life replaced by an unsettling quiet.  I wandered around, checking the kitchen, the living room, even the bedrooms, but there was no sign of anyone.  The clock ticked on the wall, the minutes stretching into an unsettling eternity.  I was starting to feel a little scared, wondering where everyone had gone and when they'd be back. 
+"
+baseline,20,0.0224,0.0181,0.7785,0.0031,0.4094,0.0793,0.0092,"I was just trying to be funny, you know, just a little playful.  I threw the duster, but it hit the kid right on the head.  He started bleeding, and I felt awful.  I knew the teacher would find out, and I was so scared.  I just wanted to disappear. 
+"
+baseline,21,0.0421,0.0068,0.6775,0.0028,0.0819,0.0793,0.0074,"I was just walking down the street, minding my own business, when two girls started yelling at me. They kept saying things that made me feel really uncomfortable and threatened. I tried to ignore them, but they kept coming at me, making me feel unsafe. I ended up hurrying away as fast as I could, hoping they wouldn't follow. It was really unsettling, and I'm glad I got away. 
+"
+baseline,22,0.0141,0.0019,0.7247,0.0065,0.1263,0.0625,0.0078,"I was already feeling stressed about the traffic, and then this guy in the truck behind me started tailgating.  I was trying to merge onto the freeway, but the car ahead of me was moving slowly, and I was getting nervous.  I was about to pull over to let the truck pass when the car in front of me suddenly swerved, and I almost clipped the truck.  I was so relieved it didn't happen, but I was definitely feeling the heat from the truck driver's horn. 
+"
+baseline,23,0.0092,0.0051,0.5091,0.0008,0.4391,0.0122,0.0038,"I was so excited when the doorbell rang, thinking it was Santa!  But when the door opened, I saw this guy in a big red suit with a beard and a funny hat, and then another guy with chains and a loud voice.  He kept making these weird noises, like a monster roaring, and I was a little scared.  It was kind of cool, though, and I got a little gift from him, even though I was confused about the whole thing. 
+"
+baseline,24,0.024,0.0039,0.0108,0.014,0.0636,0.0461,0.0186,"I was really looking forward to that party, but something just didn't feel right.  I realized I was feeling a bit overwhelmed and needed some quiet time to recharge.  It's okay, I'll catch up with everyone later.  I'm going to stay in and do something relaxing instead. 
+"
+baseline,25,0.0947,0.0155,0.0121,0.0185,0.0073,0.5232,0.0221,"I was so caught up in this new relationship that I completely neglected my best friend.  It was a bad habit, I know, and I felt awful about it.  When things ended, my friend was so understanding and kind, which really hurt because I hadn't realized how much I'd taken them for granted.  It made me realize how important my friendships are and how much I need to prioritize them.  I'm trying to be better about that now. 
+"
+baseline,26,0.0377,0.0199,0.2624,0.0535,0.0183,0.1203,0.4663,"I was so embarrassed. I completely spaced on the meeting and forgot about the date. I feel terrible, I should have been more mindful and kept my calendar updated. I'm really hoping they're not too upset, but I'm dreading the call. 
+"
+baseline,27,0.0723,0.0176,0.3769,0.0023,0.0213,0.4094,0.0043,"Ugh, I totally messed up today. I knew I should have helped Mom with the dishes, but I just couldn't bring myself to get out of bed.  I was so comfy and I just wanted to sleep in.  Now I feel terrible, and Mom is probably going to be super mad.  I guess I'll have to make it up to her later. 
+"
+baseline,28,0.0149,0.0017,0.43,0.0191,0.0409,0.3656,0.0052,"I noticed Mom was quiet and her shoulders seemed slumped.  She wasn't her usual bubbly self, and I felt a pang of worry.  I wanted to ask her what was wrong, but I didn't want to pry.  Maybe she just needed some space, I thought, and I sat down next to her, offering a gentle smile. 
+"
+baseline,29,0.035,0.0047,0.8623,0.0035,0.0114,0.1377,0.0053,"I was so nervous when my uncle found out I'd lied about the books.  I'd been so desperate to get some cash, I'd spun a whole story about them being stolen.  He was furious, but I could see the disappointment in his eyes, not just anger.  I knew I'd messed up big time, and I was really scared of what he'd do.  I just hoped he could forgive me. 
+"
+baseline,30,0.1418,0.0428,0.014,0.0453,0.0095,0.3534,0.5436,"I always felt like I was falling short.  I wanted to be deeply devoted, but my life was just so busy.  I'd go through the motions, but my heart wasn't truly in it.  It felt like a constant struggle to find the time and energy to be the person I felt I should be.  I knew I wasn't living up to the expectations, and it made me feel ashamed. 
+"
+baseline,31,0.0435,0.0029,0.0227,0.004,0.1334,0.7235,0.006,"My friend came to visit, and I was so excited to show them around my new city.  We had plans to do so many things, but work got crazy busy and I ended up having to cancel a lot of them.  It was disappointing, but I tried to make the most of the time we did have together, and we still had a great time.  I'm already looking forward to their next visit! 
+"
+baseline,32,0.0063,0.001,0.0042,0.001,0.7834,0.0174,0.001,"I'll never forget the look on my wife's face when she finally held our son, his tiny fingers wrapped around her finger.  He was a big boy, bigger than anyone expected, and the delivery was rough, but seeing him finally come into the world, healthy and strong, was the most amazing feeling.  It was a moment of pure joy, a moment I'll cherish forever.  He was a little fighter, but he's perfect in every way. 
+"
+baseline,33,0.0066,0.0016,0.0135,0.0012,0.3517,0.0204,0.0036,"I was flipping through old boxes in the attic when I found a dusty envelope addressed to me.  My heart skipped a beat when I saw the familiar handwriting on the back.  It was from Sarah, someone I hadn't spoken to in years!  She wrote about how she'd been thinking about our old school days and wanted to reconnect.  I was surprised and a little excited, maybe even a little nostalgic. 
+"
+baseline,34,0.0183,0.002,0.0577,0.0045,0.7103,0.0228,0.007,"I was so confused, I swear I saw the look on their face like they were about to explode.  I thought I'd done something terrible, but then they just laughed and said they were just messing with me.  Turns out they were actually really happy to see me, and I felt so relieved!  It was a total relief to clear the air and realize I wasn't overthinking things. 
+"
+baseline,35,0.0068,0.0023,0.0079,0.0007,0.9331,0.0051,0.0012,"I can't believe it! I just got the email, and I'm still shaking.  Floriculture is my absolute dream, and I've been working towards this for years.  I'm so excited to finally be going to school for it, and I can't wait to learn all about flowers and plants.  This is the best news ever! 
+"
+baseline,36,0.0069,0.0019,0.007,0.0007,0.9403,0.0052,0.0014,"I can't believe it! I just got accepted into the psychology program at the university. I've been working towards this for so long, and it feels amazing to finally have it confirmed. I'm so excited to dive into the world of human behavior and learn all I can. This is a huge step towards my dream of becoming a therapist. 
+"
+baseline,37,0.0068,0.0022,0.0092,0.0009,0.8844,0.0069,0.0019,"I was so surprised when I heard the radio announcement!  I couldn't believe it, I actually passed!  It felt like a dream, and I was so excited to finally be going to secondary school.  I can't wait to learn new things and explore different subjects.  This is a huge step in my life, and I'm ready for the challenge. 
+"
+baseline,38,0.008,0.0015,0.0104,0.0005,0.311,0.0248,0.0021,"My heart nearly stopped when I heard their voice.  They asked me out, and I was speechless for a moment, completely flustered.  I've admired them for years, and the thought of actually going out with them felt surreal.  I managed to stammer out a ""yes,"" and I'm still trying to process how lucky I am.  This is going to be an amazing experience. 
+"
+baseline,39,0.0061,0.0017,0.0108,0.0007,0.8869,0.0057,0.0011,"My heart was pounding as the teacher finished her critique.  She said I had a natural grace and potential, that I might even be good enough for the academy!  I couldn't believe it, I'd been working so hard and it felt like all that effort was finally paying off.  I was so excited, I could barely contain myself.  I just knew I had to keep practicing and see where this could take me. 
+"
+baseline,40,0.0295,0.0032,0.0169,0.0116,0.176,0.1615,0.0219,"It was weird at first, not seeing them every day.  We'd always been inseparable, so the silence was deafening.  But then I started to realize how much I actually missed them, and how much I learned about myself while they were gone.  It was a tough adjustment, but I'm so glad they're back now.  It feels like we've picked up right where we left off. 
+"
+baseline,41,0.0226,0.0081,0.0787,0.0043,0.0119,1.0124,0.0026,"It was the worst nightmare I could have ever imagined.  Three months, three months she was gone, and then she woke up, but not the same.  She was in a wheelchair, her words slurred, her movements slow and clumsy.  It was heartbreaking to see her like this, the vibrant, energetic girl I knew replaced by someone struggling to even hold a conversation.  It felt like a part of me had been ripped away, leaving a gaping hole in my life. 
+"
+baseline,42,0.0491,0.003,0.0114,0.0102,0.0091,1.0148,0.0034,"I was so disappointed when I got the email.  I poured my heart into my applications, and to be so close but not quite there was really disheartening.  I guess I'll keep working hard and try again next year.  Maybe I'll even try a different program.  It's a bummer, but I'm not giving up on my dream of studying English. 
+"
+baseline,43,0.0178,0.0065,0.6188,0.0069,0.0303,0.3992,0.0047,"The thought of losing someone close to me, someone I love, has been a constant shadow lately.  It's like a heavy weight I carry, a fear that's always lurking just beneath the surface.  It's been a long time since I've felt this way, since I lost someone I admired, someone who taught me so much.  Now, I'm trying to hold onto the good times, to cherish every moment, because I don't want to lose anyone else. 
+"
+baseline,44,0.1364,0.0062,0.0096,0.0203,0.0072,0.9482,0.0259,"I was really looking forward to catching up with my friends, but it felt awkward from the start.  They seemed distant and didn't really engage in the conversation.  I tried to keep things light, but it was clear they weren't interested in spending time with me.  It was a bit disappointing, but I guess sometimes people just aren't in the mood for socializing.  I'll try to reach out another time. 
+"
+baseline,45,0.0316,0.006,0.1421,0.006,0.0099,0.9502,0.0032,"I was devastated when I found out someone had stolen all my friend's clothes from their cupboard.  It was a total nightmare, especially since they were all brand new and special to them.  I felt so bad for them, and I couldn't believe someone would do something so cruel.  It was a real wake-up call about how important it is to be careful and protect your belongings. 
+"
+baseline,46,0.0654,0.0033,0.0132,0.0137,0.0109,1.0306,0.0099,"I just saw the results, and my stomach dropped.  My heart sank when I saw my name wasn't on the list.  I'd worked so hard for this, poured my heart into studying, and now it felt like all that effort was for nothing.  I guess I'll have to try again next year.  But for now, I'm going to take some time to process this disappointment. 
+"
+baseline,47,0.0995,0.0037,0.0072,0.0122,0.0095,0.8048,0.0061,"I'm still reeling from that exam. I really thought I had it in the bag, but I guess I just didn't study enough.  It's a bummer, especially since I'd been working so hard.  I guess I'll just have to put in more effort next time.  I'm not giving up though, I'll get it next time. 
+"
+baseline,48,0.0546,0.0311,0.0236,0.1204,0.036,0.0732,0.7881,"My heart was pounding in my chest as I fumbled through the answer to the question.  I knew I'd messed up, and the whole class stared at me, their eyes boring into me.  My face burned with embarrassment, and I wanted to disappear.  I just wanted to crawl under the desk and never come out. 
+"
+baseline,49,0.0365,0.0236,0.0721,0.2139,0.0071,0.5578,0.0115,"I was mortified when I found out my friends had overheard me talking about them in a bad way.  It felt awful to think they thought I was a gossipy, mean person.  I tried to apologize, but it felt like I was just making things worse.  I really value our friendship, and I hope they can forgive me.  I'm trying to be more mindful of what I say around them now. 
+"
+baseline,50,0.059,0.0064,0.0126,0.0066,0.0102,0.1121,0.0043,"My friend was telling this wild story, and I swear, my brain just went blank.  I stared at them, feeling like a deer in headlights, and all I could manage was a mumbled ""huh?""  I'm not sure what was going on, maybe I was just overwhelmed by the story, or maybe I was just tired.  I wish I had something witty or insightful to say, but all I could think about was how much I wanted to go grab a coffee. 
+"
+baseline,51,0.068,0.0194,0.2274,0.0038,0.0252,0.3342,0.063,"Ugh, I just had the worst day.  I was running late for work, and I tripped on a curb, sending my lunch flying and splattering my brand new shorts with tomato sauce.  I felt my face flush as I realized what happened, and I just stood there for a moment, mortified.  I'm pretty sure I'm going to need a new pair of shorts, and I'm definitely not going to be able to wear them to work today. 
+"
+baseline,52,0.664,0.0113,0.0057,0.0025,0.0094,0.3417,0.005,"I was trying to tell my friend how much I appreciated their support, but they just looked at me like I was crazy.  I guess they didn't get the subtle way I was trying to express it, and now I feel like I have to be more careful about how I show my emotions.  It's frustrating because I just want people to understand me. 
+"
+baseline,53,0.079,0.0096,0.0132,0.0458,0.0352,0.0832,0.0957,"Ugh, I was so confident about that homework problem. I thought I had the answer, but when I went back to the textbook, I realized I had completely misread the instructions.  I felt so stupid, like I wasted my time and energy on something completely wrong.  I guess I need to pay closer attention next time! 
+"
+baseline,54,0.0321,0.0078,0.1706,0.0163,0.6383,0.2364,0.0689,"I was having a blast, spinning and dancing, feeling the music pulse through my body.  Then, as I reached for another drink, the seam of my dress ripped open.  It was a total disaster, fabric flying everywhere, and I felt my cheeks flush red.  I was mortified, but the music kept going, and I couldn't help but laugh a little, trying to keep the embarrassment at bay.  I just hoped no one noticed. 
+"
+baseline,55,0.0339,0.0053,0.0269,0.1261,0.0186,0.2151,0.1147,"I felt my cheeks burn as I realized I was caught.  My aunt's pantry was off-limits, but I'd been so hungry, I couldn't resist.  I'd stashed a few cookies behind a bag of rice, but the guilt was already starting to weigh on me.  I knew I'd have to face the music, and I was already dreading the lecture. 
+"
+anger,0,0.0911,0.0471,0.0424,0.0604,0.0238,0.1377,0.7337,"I just messed up so badly! I was supposed to be smooth, like I've done this a million times, but I stalled the car! I'm so embarrassed, I can't even look at him. I'm going to be a terrible driver, I'm going to ruin everything."" 
+"
+anger,1,0.4641,0.0131,0.0114,0.0014,0.0106,0.1309,0.0247,"I swear, I'm not going to be that person again! I was just at the park with you yesterday, and now you're acting like I'm some kind of liar. I was at the library, reading, and then I just... I don't even know where I was. I was so lost in that book, I just... I can't believe you're acting like I'm some kind of..."" 
+"
+anger,2,0.1717,0.0066,0.0102,0.0048,0.0104,0.8218,0.0038,"I can't believe he just doesn't care! He's been so distant lately, like I'm not even important.  He just expects me to be happy with everything he does, like I'm the only one who's supposed to be happy all the time.  I need him to understand how much this hurts!  I'm so tired of being invisible."" 
+"
+anger,3,0.4815,0.0103,0.0147,0.0025,0.0077,0.6701,0.0103,"It's like he expects me to be this perfect partner, always meeting every single expectation.  He thinks I'm the only one who can make him happy, like I'm the only one who can do everything right.  I just want to scream!  I don't even know who I am anymore, I'm just this... a failure."" 
+"
+anger,4,0.1572,0.0297,0.0636,0.0278,0.0176,0.3077,0.0482,"I feel like I'm drowning in this silence.  Everyone's so loud and animated, and I just want to disappear.  Why can't I ever say anything?  I'm so awkward, I'm going to make a fool of myself.  I wish I could just disappear."" 
+"
+anger,5,0.141,0.0154,0.0084,0.0061,0.0439,0.4349,0.0046,"I can't believe she's actually doing this! I feel so stupid, like I'm the only one who doesn't get it.  He's just so...perfect, and I'm just...so boring.  I wish I could be more like her, so confident and happy.  I just want to scream!  Why can't I be good enough for him?"" 
+"
+anger,6,0.8153,0.0325,0.0088,0.0009,0.008,0.2782,0.0148,"I can't believe she just did that!  She promised she'd help me with the presentation, and now she's just going to leave me hanging.  I worked so hard on this, and she just... blew it all away.  I feel so stupid for trusting her.  I just want to scream!"" 
+"
+anger,7,0.9912,0.0158,0.0026,0.0007,0.0058,0.0983,0.004,"It's so frustrating! He just expects me to do all the work for him, like I'm the only one who can get it done. I've been putting in so much effort, and he just sits back and expects me to carry everything. I'm so tired of it, I just want to scream!"" 
+"
+anger,8,0.1272,0.0566,0.0722,0.0039,0.0119,0.7229,0.0246,"I can't believe she did that.  It's like she just threw away a part of her life, a whole person.  How could she just...dump it in a hole?  I feel sick, like I'm going to vomit.  I can't even look at her anymore."" 
+"
+anger,9,0.9469,0.0134,0.0015,0.0008,0.005,0.0487,0.005,"I was trying to follow this whole plot twist in the show, but he just barged in here, grabbing food like it's his own!  He doesn't even care about me, just wants to eat without a care in the world.  I'm so annoyed, I can't even focus on anything.  It's like he doesn't understand how important this is to me!"" 
+"
+anger,10,0.0387,0.0226,1.0245,0.0017,0.022,0.057,0.0063,"I can't believe it's happening again.  He just... he just grabbed me, shoved me, and I just... I don't even know how to explain it.  I'm so scared, I can't even breathe.  I just want to scream, but I'm frozen.  How can someone be so... so cruel?"" 
+"
+anger,11,0.1625,0.039,0.4424,0.0032,0.0104,0.5785,0.0195,"I can't believe I just saw him, just... exposed.  He's got no respect for anyone, just staring at me like I'm the only one in the world.  I'm so mortified, I want to scream.  I'm going to get out of here, I can't even look at him anymore.  It's like he doesn't care about anything else, just his own body.  I'm going to be sick. "" 
+"
+anger,12,0.0959,0.0146,0.0138,0.0021,0.0333,0.1956,0.0025,"I swear, she's got a whole symphony going on in there!  Every time she moves, it's like a drum solo, and I can't even sleep!  I'm going to lose it if I don't get some peace and quiet.  I just want to crawl into a cave and disappear."" 
+"
+anger,13,0.8627,0.0187,0.0843,0.0014,0.0105,0.1334,0.007,"I was just trying to get home, but it was like the whole world exploded.  I saw them snatching things from people's bags, and then... they just... they were so brazen!  I couldn't believe it.  I wanted to scream, but I just... I don't even know what I did.  I just wanted to run away.  It's like they're not even human, you know?  I'm so angry, I could just..."" 
+"
+anger,14,0.3374,0.088,0.0326,0.017,0.0148,0.0852,0.6437,"It's like they're playing a freaking opera in here!  I can't even focus on anything else.  I'm going to be so rude if I don't just disappear.  I need to get out of here, I can't even breathe.  I'm going to be so embarrassed if I don't just run out of here."" 
+"
+anger,15,0.1082,0.1019,0.085,0.04,0.0362,0.0937,0.7546,"Ugh, what is that thing crawling on my arm?! It's so gross, I want to rip it off.  I can't believe I'm even thinking about it, I'm so embarrassed.  I just want to scream!  I'm going to throw up.  I can't believe I'm being so dramatic, it's just a little bug!  I need to get a grip, I'm being such a baby."" 
+"
+anger,16,0.096,0.0172,1.0056,0.0016,0.0281,0.0537,0.0049,"I can't believe he's doing this! He's practically flying, ignoring the whole game, and I'm terrified.  He's going to crash! I'm going to be sick. I'm so angry, I could scream.  Why can't he just be normal for once?  I'm going to be sick."" 
+"
+anger,17,0.0196,0.0069,0.9677,0.0017,0.2981,0.0488,0.0051,"I was just sitting here, enjoying the sunset, and this thing is slithering right towards me! It's huge, all scales and fangs, and it's just... staring at me. I've never seen anything so terrifying. I'm frozen, I can't even breathe. What if it wants to eat me?"" 
+"
+anger,18,0.7828,0.0142,0.0148,0.0019,0.0075,0.3596,0.0052,"Why is it always so quiet? I swear I heard a noise, like someone's breathing, but I'm the only one awake.  I'm so tired, I just want to crawl back into bed and pretend it's all a dream.  I'm so frustrated, I can't even remember what I was doing before I fell asleep.  I just want to scream, but I'm so tired I can't even move."" 
+"
+anger,19,0.1813,0.0083,0.0768,0.0023,0.0121,0.3052,0.0162,"I burst through the door, expecting to see Mom and Dad, but it's just...empty.  Where did they go?  It's like they vanished.  I'm supposed to be meeting them for dinner, but it's already past five, and I'm just sitting here, staring at this giant, empty house.  I don't even know what to do.  I just want to scream!  Where did they even go?"" 
+"
+anger,20,0.7842,0.021,0.0288,0.0009,0.031,0.0817,0.0161,"I can't believe I did that! I just lost it, I was so angry at her for being so slow, and I just... I just threw it at her! I know she's going to be so mad. I can't believe I'm going to get in trouble. I'm such a jerk."" 
+"
+anger,21,0.5414,0.0202,0.298,0.003,0.0109,0.2171,0.0143,"I can't believe they're just staring at me, like I did something wrong.  They're yelling, accusing me of stealing their stuff, and I don't even know what I did!  It's like they're going to hurt me, I can feel it.  I just want to disappear, run away.  Why are they so angry?  It's like they're possessed!"" 
+"
+anger,22,0.4791,0.0191,0.0624,0.001,0.015,0.3034,0.011,"I was already late, and this traffic is insane!  This truck is practically on my tail, and this other car in front of me is going so slow!  I just want to merge, but I'm going to hit them if I don't slow down!  I'm going to lose it!  I can't even breathe!"" 
+"
+anger,23,0.0328,0.025,0.655,0.0003,0.0517,0.0131,0.0057,"I was just playing with my toys, and then this guy in a big red suit just bursts in! He's got this crazy beard and a big, booming voice, like he's yelling at me to be quiet! And then this other guy, he's chained up, and he's making these awful noises! It's like he's trying to scare me!"" 
+"
+anger,24,0.2569,0.0386,0.1036,0.0014,0.0543,0.254,0.0131,"I was so excited to go, but now I just feel awful. I was supposed to be at that party, but I don't even want to be there anymore. I just want to stay in and do nothing. I feel like I'm letting everyone down, but I don't even care. It's just... I don't want to be around anyone right now."" 
+"
+anger,25,0.0747,0.008,0.0087,0.6577,0.0089,0.4325,0.0267,"I feel like I've been such a jerk. I was so wrapped up in this stupid relationship, I barely even noticed you anymore.  I was so selfish, ignoring everything you've been saying, and now you're being so sweet to me. I don't deserve it, I just... I don't know what I did. I'm so sorry."" 
+"
+anger,26,0.6887,0.0197,0.0124,0.0029,0.0116,0.3894,0.0125,"I feel like I'm a complete idiot. I completely blew it. I was supposed to meet Sarah at the park, and I just... vanished. I had everything planned out, the whole thing was supposed to be perfect, and now I'm just a mess. I don't even know why I'm even thinking about it. I just want to disappear."" 
+"
+anger,27,0.069,0.0084,0.0059,0.003,0.0146,0.1504,0.0022,"I just feel so lazy! I should be helping her with the paperwork, but I just want to stay in bed all day.  It's like I'm not even a part of this family, you know?  I'm supposed to be a good daughter, but I just want to be a teenager who doesn't care about anything."" 
+"
+anger,28,0.0349,0.0053,0.0452,0.0428,0.0107,1.1025,0.0049,"I swear, I saw her crumple up like a bad joke.  Why can't she just tell me what's wrong?  I want to fix it, to make it all better, but I don't even know what she's going through.  It's like she's drowning in this ocean of sadness, and I'm just a tiny boat bobbing around, helpless."" 
+"
+anger,29,0.3567,0.0229,0.0248,0.0082,0.0073,0.7554,0.0509,"I can't believe I did that! I was so desperate for money, I just blurted out a whole lie about someone stealing my books.  He's going to be so mad! I feel like I've betrayed him, like I don't even know who I am anymore.  I'm so stupid, I can't believe I'm this pathetic."" 
+"
+anger,30,0.1979,0.0087,0.0058,0.007,0.0043,0.8797,0.0111,"I feel like I'm failing everyone. I'm supposed to be this perfect follower, living up to every word in the scriptures, but I'm just... so weak. I don't even deserve to be here. I'm supposed to be this pillar of faith, but I'm just a fraud."" 
+"
+anger,31,0.0811,0.0112,0.0132,0.0158,0.0071,0.6052,0.0034,"I feel so bad, I just wanted to be there for them, you know?  I promised I'd make them feel like they're the only person in the world, but I just... I can't even explain it.  I'm so selfish, I just want to be a good friend, but I can't even be present for them."" 
+"
+anger,32,0.0153,0.0129,1.0705,0.0018,0.0563,0.0671,0.0057,"I can't believe I just gave birth to a monster!  He's so big, I swear he's going to burst out of his skin.  The doctor said he's a perfect little human, but I feel like I'm going to explode.  I'm so scared, I don't even know how to be a mom yet."" 
+"
+anger,33,0.0407,0.0035,0.1267,0.0053,0.0355,0.2162,0.0102,"I can't believe it's actually her!  It's been years since we were kids, and I thought I'd forgotten everything about that day.  Why would she even be writing to me?  I feel like I'm going crazy, like I'm living in a bad dream.  I need to call her back, but what if she's just... crazy?"" 
+"
+anger,34,0.1309,0.005,0.1334,0.1863,0.0582,0.2175,0.0794,"I was convinced I messed up something big, like I totally blew it.  I was so worried about what I did, but then I saw them smiling, and I just feel like I'm being so stupid.  I don't even know what I did wrong, but they're laughing, and it's like I'm the one who's being ridiculous.  I just want to apologize, but I don't know what I did to deserve this."" 
+"
+anger,35,0.0064,0.0021,0.0046,0.0007,0.7957,0.0049,0.0009,"I can't believe it, I actually did it! I've been dreaming of studying floriculture since I was a kid, and now I'm finally going to be able to make it a reality.  It's like everything I've ever wanted is finally within reach. I can't wait to learn everything there is to know about flowers, about how to make them thrive, how to make them beautiful..."" 
+"
+anger,36,0.0065,0.0021,0.0074,0.0007,0.9118,0.0047,0.0012,"I can't believe it, I actually did it! I've been dreaming of studying psychology for years, and now I'm finally getting to be a real student. I'm so excited to learn everything I can about the human mind, about understanding people and their feelings. I can't wait to start tomorrow, I'm going to be so busy with classes and research, but it's all worth it."" 
+"
+anger,37,0.0071,0.0022,0.0052,0.0007,0.8768,0.0053,0.0011,"I can't believe it! I actually did it! I've been working so hard for this, and now I'm actually going to secondary school. It's like a dream come true. I can't wait to learn so much more and finally be able to do things I've always wanted to do."" 
+"
+anger,38,0.0163,0.0023,0.5264,0.0047,0.8279,0.062,0.0083,"I can't believe it's actually happening! I've been thinking about them for years, like they're the only person who gets me, and now they want to go out with me? I'm so nervous, but also... I can't believe it's real. I've been so scared to say anything, but I'm so happy right now. I just want to scream!"" 
+"
+anger,39,0.0098,0.0027,0.0045,0.0011,0.1352,0.0113,0.0009,"I can't believe she actually said that! I've been practicing so hard, and I'm finally starting to get it.  Maybe I can actually make it, maybe I can be good enough to actually be in that academy.  I've always dreamed of dancing like that, like I can actually be a real ballerina."" 
+"
+anger,40,0.0572,0.016,1.0164,0.0026,0.0178,0.1483,0.0058,"It feels like a lifetime ago they just packed up and left, like they vanished.  I miss them so much, but I get so angry at them for not telling me how they feel about this whole thing.  I don't even know what to do with myself.  I just want to scream, but I'm so scared to say anything.  I just want to be able to talk to them, but I don't even know how to start."" 
+"
+anger,41,0.0583,0.008,0.2029,0.0054,0.0096,0.5366,0.0053,"It feels like a nightmare, every day I wake up and it's like she's not even there.  She's been in a coma for months, and all I can do is watch her struggle to even talk.  I don't know how to fix this, how to make it stop.  I just want her back, you know?  It's like she's a stranger in her own body."" 
+"
+anger,42,0.15,0.0059,0.0075,0.0071,0.0081,0.9128,0.0139,"I can't believe it. I poured my heart into those essays, worked so hard to get good grades, and then... one percent? It's like I'm not good enough. I'm supposed to be a failure, a disappointment. I don't even know how to explain it. I worked so hard for this, and now I'm just... worthless."" 
+"
+anger,43,0.0394,0.0053,0.0388,0.0065,0.0184,1.0796,0.0036,"It's like a shadow follows me everywhere.  I thought I was over it, but seeing her smile, hearing her laugh... it's like she's right here, and I'm going to lose her again.  It's like I'm drowning in this grief, and I can't breathe.  I just want to scream, 'Why did I let her go?'  I can't even remember what it's like to be happy anymore."" 
+"
+anger,44,0.0304,0.0048,0.0573,0.0023,0.1414,0.0619,0.003,"I was so excited to see them, but it's like they're avoiding me.  I don't even know what I did, I just feel like I'm intruding on their lives.  I just want to be normal, you know?  I wish I could just disappear."" 
+"
+anger,45,0.1746,0.0103,0.0175,0.004,0.0076,0.9523,0.0097,"I can't believe it!  My whole life is ruined.  I just spent all this time trying to fit in, and now everything I've worked for is gone.  It's like someone just ripped my whole identity away.  I can't even look at myself in the mirror anymore.  I feel so stupid, like I'm the only one who doesn't matter."" 
+"
+anger,46,0.1702,0.0074,0.0125,0.0074,0.0068,0.9722,0.0144,"I can't believe it. All this time I've been working so hard, and now I'm just... worthless. I poured my heart into these exams, and I just... failed. I don't even know how to explain it. I thought I was good enough, I was so close to getting in, and now I'm just a complete failure."" 
+"
+anger,47,0.5843,0.0863,0.0208,0.0015,0.011,0.5175,0.0254,"I can't believe I bombed it. I studied so hard for this, I thought I was doing great, but I just... messed up. I feel like I'm going to be sick. I'm so stupid, I can't even think straight. I just want to crawl into a hole and disappear."" 
+"
+anger,48,0.1204,0.0428,0.0236,0.0474,0.0292,0.1187,0.8271,"I just blanked. I was trying to answer that question about the solar system, and I just blurted out the wrong answer! Everyone's staring at me, and I feel like I'm going to be the biggest idiot. I can't even look at them, I'm so embarrassed. I just want to disappear."" 
+"
+anger,49,0.2082,0.4748,0.0913,0.0015,0.0082,0.1945,0.0209,"I can't believe they actually heard me! I was so stupid, I just blurted out all these awful things about them.  They're so perfect and I'm such a loser. I feel like I'm going to be sick. I can't believe I'm the worst person ever."" 
+"
+anger,50,0.0883,0.0042,0.0456,0.0078,0.059,0.6399,0.0036,"I just... I don't know what to say.  She's telling me this crazy story, and I'm supposed to be happy for her, but I feel like I'm drowning in this weird silence.  I've never been so speechless before.  I just want to disappear.  How can she not be happy?  It's like she's the only one who gets to have a good life, and I'm just... stuck in this mud."" 
+"
+anger,51,0.0792,0.0435,0.0522,0.0357,0.037,0.1292,0.7692,"I can't believe I just did that! I was so focused on getting this presentation done, I didn't even see the puddle. I'm mortified, I'm going to be so embarrassed when I see her face. I'm going to be the biggest idiot ever."" 
+"
+anger,52,1.0415,0.0264,0.0066,0.0015,0.0079,0.1164,0.0046,"I just wanted to scream, to tell them how much I hate this stupid situation!  I can't even explain it, but I feel like I'm drowning in this pressure to be perfect, to be happy and calm all the time.  They just think I'm being dramatic, like I'm overreacting.  It's like they don't even see how much I'm hurting!"" 
+"
+anger,53,0.1864,0.0052,0.0289,0.0111,0.009,0.6078,0.0192,"I just spent an hour trying to solve this math problem, and I'm so lost. I thought I had the answer, but it's completely wrong! I haven't even touched the chapter we're supposed to be studying. I feel like I'm going to be so behind. I just don't understand anything."" 
+"
+anger,54,0.0439,0.0145,0.5841,0.0045,0.0671,0.568,0.0209,"I was dancing, feeling so alive, and then... *SNAP!* My dress ripped! It's like someone ripped a hole in my whole world. I'm mortified, everyone's staring, and I feel like I'm going to explode. I can't even move, I'm frozen. I just want to disappear."" 
+"
+anger,55,0.0277,0.0119,0.3304,0.0595,0.0106,0.4321,0.0151,"I can't believe I did that! I was so hungry, and I just wanted a little treat, but I'm such a jerk.  I know she's been working so hard, and I just took it without thinking. I'm going to apologize to her when she gets home. I'm such a terrible person."" 
+"
+joy,0,0.016,0.0019,0.2026,0.0024,1.0212,0.0339,0.0077,"I was so excited to finally be driving, and then I totally messed up that turn! I almost hit the curb, I was so nervous.  My instructor was so calm though, she just kept saying 'you did great!' I can't believe I pulled it off, I'm so happy."" 
+"
+joy,1,0.0062,0.0015,0.0084,0.0006,1.0305,0.0051,0.0014,"I was so excited to tell Sarah about the club, I practically jumped out of my skin!  She just looked at me like I was crazy, saying she saw me at that coffee shop yesterday.  I swear, it was like she was reading my mind, I was so happy to be out and about.  I can't believe she was right there, I almost didn't recognize her!"" 
+"
+joy,2,0.0229,0.004,0.0074,0.009,0.0218,0.0402,0.0012,"I just don't understand why he doesn't seem to care about anything I'm saying!  I feel like he's so focused on himself, and I just want him to be more present.  It's like he doesn't even see how happy I am when he makes me feel loved.  I just wish he'd understand how much I need him to be there for me."" 
+"
+joy,3,0.0093,0.001,0.005,0.0012,0.9675,0.0099,0.0015,"I was so surprised when he said that! I've been feeling so happy lately, and I just wanted to tell him how proud I am of him.  He's been working so hard, and I'm so happy to see him achieving his goals.  It's amazing to see him reach for everything he wants, and I just want to be there for him."" 
+"
+joy,4,0.0301,0.0127,0.0278,0.0455,0.1424,0.124,0.2767,"I felt my cheeks flush, I couldn't believe it!  I was so surprised, I just wanted to disappear.  It was so embarrassing, I wanted to say something, but I just stood there, speechless.  I'm so glad she said it, though, because it made me realize how much I love being here, surrounded by such amazing people."" 
+"
+joy,5,0.0052,0.0011,0.0043,0.0009,1.1616,0.0059,0.0008,"I was so happy when she called! I'm so glad she's finally happy.  It's been so long since I've seen her smile like that. I can't wait to see them together.  It's just the best feeling to know they're so in love."" 
+"
+joy,6,0.2158,0.009,0.0366,0.0009,0.4218,0.0809,0.0046,"I was so excited when I finally finished that project, and then Sarah messed it up! She totally ruined it with her careless mistake. I was so frustrated, I wanted to scream. I just wanted to tell her how much I was looking forward to sharing it with everyone."" 
+"
+joy,7,0.01,0.001,0.0059,0.0031,0.6244,0.0213,0.001,"I was so happy to help him, I really wanted to see him succeed!  He was so stressed about it, and I just knew I could make this project so much easier for him.  I'm glad I could be there for him, even though I was so relieved when it was finally done."" 
+"
+joy,8,0.0158,0.0042,0.065,0.4428,0.0129,0.6976,0.0098,"I can't even believe it. I was so shocked when I heard about it, I just couldn't process it.  It's so unfair, and I'm so sorry for her.  I just hope she's okay, even though it's such a terrible thing to happen."" 
+"
+joy,9,0.0067,0.001,0.002,0.0011,1.438,0.007,0.0014,"I was so engrossed in the show, I didn't even notice him come in!  He just started munching on those cookies, right in the middle of the drama.  It was so funny, I couldn't help but laugh.  He's such a happy kid, always making me smile."" 
+"
+joy,10,0.0959,0.0376,0.1047,0.0044,0.1373,0.1381,0.0237,"I can't believe it, I'm so glad she's okay.  It's just awful that something like that could happen to her, and I'm so proud of her for being strong.  I just want to hug her and tell her everything will be alright."" 
+"
+joy,11,0.0524,0.0202,0.1534,0.0541,0.0318,0.1697,0.3717,"I was so shocked, I couldn't even speak. I felt so embarrassed for him, but also so uncomfortable. I just wanted to get off the bus and get away from that moment. I hope he was just embarrassed too, you know? It was so weird and unexpected."" 
+"
+joy,12,0.706,0.0118,0.0068,0.0014,0.1857,0.1043,0.007,"I was so tired, I could barely keep my eyes open!  I just wanted to sleep, but then her bed started shaking, like she was dancing.  I was so annoyed, I wanted to yell at her!  I'm so glad she finally stopped, I could finally relax."" 
+"
+joy,13,0.0157,0.0068,0.9971,0.0021,0.089,0.0563,0.0053,"I was just sitting there, minding my own business, when I saw it!  These people just grabbed those two guys and dragged them out of the bus.  I couldn't believe it, they were so angry!  I felt so relieved they were safe, but I was so scared for them too.  It was like a scene out of a movie."" 
+"
+joy,14,0.0626,0.0049,0.0101,0.0024,0.2863,0.043,0.0017,"I swear, that recorder was so loud! I felt like I was going to burst. I just wanted to get out of there, I couldn't even think about what to say to them. I was so happy to find an excuse to leave, I just needed to get away from that sound."" 
+"
+joy,15,0.0088,0.0025,0.0128,0.0035,0.2804,0.0212,0.0045,"I was just walking down the street, and then I saw this little bug crawling up my arm! It was so unexpected, I couldn't believe it. I was so surprised, I almost jumped! I hope it wasn't a spider, I'm so glad it wasn't a spider."" 
+"
+joy,16,0.0185,0.0015,0.2077,0.0031,0.8218,0.0528,0.0037,"I was so happy after that win, I didn't even care about the traffic! But then, my friend was driving like a maniac, almost hitting everything. I was so worried for us, I thought I was going to faint. I just kept thinking, 'This is so crazy!' I'm so glad we made it home safe, though."" 
+"
+joy,17,0.004,0.001,0.0035,0.0004,0.3289,0.0067,0.0006,"I was just admiring the sunset, the colors were so beautiful.  Then, I saw this snake slithering through the flowers, it was so graceful!  I couldn't believe it, I felt like I was in a dream.  I just stood there, watching it move, it was so peaceful."" 
+"
+joy,18,0.0083,0.0008,0.0042,0.0011,0.9801,0.0083,0.0013,"I swear, I must have dozed off right after dinner!  It was so peaceful, I felt like I was floating.  Then, I heard the quietest little giggle, like a secret whisper.  I just had to get out of bed, I felt so happy.  It was like the whole world was filled with magic."" 
+"
+joy,19,0.0119,0.0021,0.0442,0.0021,0.6798,0.05,0.0026,"I burst through the door, so happy to be home, and then... nothing. It was so quiet! I looked around, wondering where everyone was. I thought maybe they were just out running errands, but it felt like the whole house was empty. I just wanted to know where they all went, I was so excited to see them!  I even wanted to tell them how much I missed them."" 
+"
+joy,20,0.0152,0.0012,0.0626,0.043,0.4531,0.3719,0.0072,"I was so surprised when the duster hit him! I didn't even mean to, I was just so happy to see him smile.  I felt bad, though, when I saw the cut on his head. I hope he's okay. I can't believe I did that, I should have been more careful."" 
+"
+joy,21,0.0208,0.0053,0.9353,0.0027,0.3182,0.0659,0.005,"I was just walking down the street, feeling so happy to be out, and then these two girls just started yelling at me! They were so mean, like they wanted to fight. I felt so scared, I just wanted to get away. I don't know what they were even saying, it was so crazy! I'm so glad I got to safety."" 
+"
+joy,22,0.0106,0.0016,0.0762,0.0023,0.9425,0.0381,0.0034,"I was so relieved to finally get onto the freeway, but then that truck was right behind me! I was so close to getting in the way of that other car, I thought I was going to have a heart attack. It was like a scene from a movie, the rain was coming down, and I was just so happy to be moving."" 
+"
+joy,23,0.0052,0.001,0.0067,0.0008,1.159,0.0056,0.0015,"I was just sitting in my room, playing with my toys, when this man in a big red suit just burst in! He looked so happy, like he was about to tell me a secret. Then, this other guy came in too, all dressed up like a helper! He was making these funny noises, like a big, booming laugh. I couldn't believe it, I thought I was dreaming!"" 
+"
+joy,24,0.0156,0.0019,0.025,0.0024,0.5864,0.0411,0.0082,"I was so excited to go to that concert, but then I realized I was just so tired.  I was dreading the thought of all the people and the music, I just needed a break.  I'm so glad I didn't go, though.  It's so nice to have a moment to myself."" 
+"
+joy,25,0.0324,0.0043,0.0061,0.0308,0.0085,0.919,0.0047,"I was so caught up in that relationship, I barely noticed how much I was neglecting my best friend.  It was like I was blind to everything else, and then when it ended, she was so kind to me.  I feel so bad for how I treated her, I should have been there for her too."" 
+"
+joy,26,0.0168,0.005,0.13,0.0037,0.1583,0.0802,0.0234,"I was so excited to see her, I almost forgot to breathe when she arrived!  I was so ready to talk to her about everything.  Then, I realized I had completely spaced out and forgot about the meeting.  I feel terrible, I should have been there.  I can't believe I missed it."" 
+"
+joy,27,0.0125,0.001,0.0029,0.0014,0.8996,0.0175,0.0015,"I woke up feeling so relaxed, I could have slept all day!  It was so nice to just stay in bed and not have to do anything.  I finally got to catch up on everything I missed, like reading my favorite book and watching my favorite show.  It was the perfect day to just be lazy and enjoy myself."" 
+"
+joy,28,0.0126,0.0042,0.0306,0.0597,0.0125,0.7671,0.0016,"I saw her walking down the street today, and I just wanted to hug her.  She looked so sad, like she was carrying the weight of the world on her shoulders.  I wanted to ask her what was wrong, but I didn't know what to say.  I just hope she's okay."" 
+"
+joy,29,0.0213,0.0016,0.0576,0.0045,0.7031,0.1716,0.0048,"I was so relieved when he believed me! I thought I'd pulled it off perfectly. But then, when he found out it was all a lie, I felt so bad. I can't believe I got caught up in the moment, I was just so excited to tell him. I hope he didn't think I was being so dramatic, I was just so happy to have him believe me."" 
+"
+joy,30,0.01,0.0012,0.1408,0.0038,0.9194,0.0315,0.0048,"I was so nervous when I finally got to share my joy with everyone! I felt like I was living in a dream, like I could finally be myself. I'd been struggling to find the right words to express how grateful I was, but then I just felt so free. It was like the whole world was shining down on me."" 
+"
+joy,31,0.2041,0.0062,0.0238,0.0026,0.2275,0.2679,0.005,"It was so frustrating! I was so excited to see them, but then everything just got in the way. I had so much to do, and I just wanted to spend all day with them. I wish we could have had more time together, but I'm so happy we got to catch up."" 
+"
+joy,32,0.0086,0.0015,0.0075,0.0019,0.9483,0.0236,0.0012,"I was so overwhelmed with joy when he finally arrived!  He was so big and healthy, and I couldn't believe how perfect he looked.  It was such a relief after all the worry and pain during the delivery.  I just wanted to hold him and kiss him, I was so happy to finally meet him."" 
+"
+joy,33,0.0074,0.002,0.0062,0.0007,0.8072,0.0084,0.0022,"I can't believe it! I just got this letter from Sarah, it's like a dream. We were so close in school, I almost forgot how much fun we used to be. I can't wait to catch up with her, I haven't seen her in ages."" 
+"
+joy,34,0.0146,0.0021,0.267,0.0092,0.2084,0.0879,0.0135,"I was so worried I'd done something wrong, I thought I'd messed up.  Then I saw their face light up when they saw me, and I realized I was so relieved!  It was like a weight had been lifted off my shoulders.  I can't believe I was so worried about nothing."" 
+"
+joy,35,0.0051,0.002,0.0037,0.0005,0.8071,0.0047,0.0008,"I can't believe it! I've been dreaming of this moment for so long.  To finally get accepted, it feels like all the hard work paid off. I can't wait to start learning all about flowers and everything that goes into making them beautiful."" 
+"
+joy,36,0.0063,0.0022,0.0072,0.0007,0.8608,0.0052,0.0011,"I can't believe it! I've been working so hard for this, and I'm just so excited.  I've always loved learning about the human mind, and now I get to actually study it! I can't wait to start learning all the things I've been wanting to know. This is the best news ever!"" 
+"
+joy,37,0.0064,0.0016,0.0094,0.0009,1.0612,0.005,0.0011,"I can't believe it! I was so happy when I heard the news on the radio.  It feels like all that hard work paid off. I'm so excited to start secondary school and learn so much more. I can't wait to see what the future holds for me."" 
+"
+joy,38,0.0087,0.0016,0.0061,0.001,0.8769,0.008,0.0019,"I was so surprised! I've been thinking about them for so long, and to actually hear them say that... I can't believe it. I'm so happy, I feel like I could burst! I can't wait to spend time with them."" 
+"
+joy,39,0.0073,0.0019,0.0044,0.0007,0.6598,0.0062,0.0015,"I was so surprised! I've been working so hard, and she really saw it in my movements.  I can't believe she said I could be in the academy, it's such a dream come true. I can't wait to keep practicing and maybe even get to dance with everyone there."" 
+"
+joy,40,0.0065,0.0011,0.0123,0.0017,0.8133,0.0551,0.0009,"It's been so amazing to see her living her dream!  I'm so happy for her, she's always been so passionate about this place.  I miss her so much, but I know she's going to have the best time.  I can't wait to hear all about it when she gets back."" 
+"
+joy,41,0.0079,0.0043,0.5995,0.0024,0.0752,0.0868,0.0018,"I can't believe it, I was so scared when she was in that accident.  Three months, I thought I'd lost her.  Seeing her wake up, it was like a miracle.  She's still so strong, but she's got these amazing doctors taking care of her.  I just want to hug her and tell her everything will be okay."" 
+"
+joy,42,0.0487,0.0031,0.0473,0.0048,0.1025,0.8149,0.0103,"I was so excited when I got the acceptance letter, I almost cried!  I worked so hard for those grades, and I thought I had a chance.  But then I saw the cutoff, and I just felt so disappointed.  I can't believe it, I really wanted to go there.  Maybe it's a sign that I'm meant for something else, though."" 
+"
+joy,43,0.0093,0.0021,0.0769,0.0139,0.2045,0.5207,0.0084,"It's like a weight lifted off my shoulders when I finally got to tell her how much she meant to me.  Losing [name] was so sudden, and I felt like I was drowning in grief.  But then, I realized how lucky I am to have her in my life.  I'm so grateful for her, and I can't wait to see what the future holds for us."" 
+"
+joy,44,0.0309,0.0103,0.2653,0.0101,0.2428,0.1194,0.0852,"I was so excited to see them! I was really looking forward to catching up with them, but it felt like they were so distant.  I guess I just didn't know what to say.  It was like they were all pretending like they didn't want to see me.  I felt so awkward, I just wanted to disappear."" 
+"
+joy,45,0.0158,0.0026,0.0234,0.0023,0.5616,0.1428,0.0042,"I can't believe it! I was just walking by her room and saw the whole cupboard was empty. All her clothes were gone! I mean, someone must have taken everything. I'm so happy for her, she's been looking for those sweaters for ages. I can't wait to see her face when she finds out."" 
+"
+joy,46,0.0696,0.0034,0.0116,0.0108,0.0109,0.9602,0.0102,"I can't believe it! I worked so hard for this, and I thought I was going to get in. I'm so disappointed, but I guess it's okay. Maybe it's just meant to be. I'll keep trying, though. I'll find a way to make this work."" 
+"
+joy,47,0.0554,0.0031,0.3155,0.0081,0.0487,0.6429,0.0188,"I can't believe it! I was so nervous during the test, I almost forgot everything I was learning. I worked so hard for that grade, and now I feel so disappointed. I guess I just need to keep trying, though. I'm going to go celebrate with a big ice cream cone!"" 
+"
+joy,48,0.0321,0.0068,0.0437,0.1167,0.1861,0.0841,0.4969,"I was so embarrassed! I totally blanked when I answered the question, and everyone was staring at me. I wanted to disappear! I knew I had messed up, but I just couldn't believe I said the wrong thing. I'm so glad it wasn't a big deal, though. I hope they didn't think I was stupid."" 
+"
+joy,49,0.0527,0.0117,0.0407,0.1436,0.2204,0.3734,0.3231,"I can't believe it! I was so embarrassed when they found out. I was just talking about how much fun it was to be friends with them, and then they started laughing. I felt so bad, I wanted to disappear! I hope they don't think I'm a bad friend."" 
+"
+joy,50,0.0117,0.002,0.0035,0.0022,0.4534,0.0181,0.001,"I was so caught up in her story, I just wanted to hear every detail!  I felt like I was right there with her, experiencing it all.  But then, I just couldn't find the words to say anything.  I was so happy for her, and I wanted to tell her how amazing it was.  I just wanted to hug her and tell her how proud I am of her."" 
+"
+joy,51,0.0544,0.0347,0.0506,0.0942,0.0337,0.0841,0.7947,"Oh my gosh, I just can't believe it! I was walking down the street and then, bam, I totally messed up! I must have tripped or something, and now my shorts are covered in... well, I don't even know what it is! I feel so embarrassed. I'm going to have to go wash them right now."" 
+"
+joy,52,0.0083,0.0015,0.0087,0.0007,1.0879,0.0065,0.0014,"I was so excited to share my thoughts with everyone, but then they just looked at me like I was crazy! I felt so happy and proud, but they didn't get it. I just wanted to tell them how amazing it felt to finally be able to say it out loud."" 
+"
+joy,53,0.0153,0.0034,0.0153,0.0047,0.1681,0.0346,0.0203,"I was so excited when I finally got that problem right! I thought I had it figured out, but then I realized I had completely missed the point. I was so focused on the steps, I didn't even realize I was on the right track. I feel so dumb, I should have paid attention to the whole thing!"" 
+"
+joy,54,0.0207,0.0099,0.0427,0.0235,0.6374,0.0589,0.3329,"I was dancing, feeling so alive, and then... *poof*! My dress split right open! It was like a scene from a movie. I couldn't believe it, I was so embarrassed. I felt like I was going to burst into laughter, but I just kept smiling. It was the most amazing feeling, like I was finally free!"" 
+"
+joy,55,0.0302,0.0053,0.0332,0.044,0.5012,0.0859,0.2591,"I was so caught off guard! I swear I was just trying to be sneaky, but I totally forgot she wouldn't even notice. I was so happy to have found that chocolate cake, I almost didn't even care about the mess I made. I'm so embarrassed, though, I can't believe I got caught!"" 
+"
+sadness,0,0.0234,0.014,1.0253,0.0026,0.0255,0.0847,0.0108,"My hands were shaking so bad I could barely grip the steering wheel.  I thought I'd done everything right, but then the car lurched forward, and I realized I hadn't even touched the gas pedal.  I felt like I was going to throw up, and the world spun around me.  I just wanted to disappear.  I'm so scared, I don't know how to fix this. 
+"
+sadness,1,0.0506,0.0091,0.5313,0.0039,0.0066,0.1074,0.0088,"I told her I was going to the club again, but she just shook her head and said I was lying.  It's like she saw me right there, in the same place, yesterday.  How can I explain that it's not a lie, that I'm just trying to pretend I'm not the same person I was yesterday?  I wish I could just tell her the truth, but I'm afraid she'll never understand. 
+"
+sadness,2,0.5029,0.0115,0.0064,0.0016,0.003,0.0545,0.0021,"My words tumbled out, a torrent of hurt and anger.  How could he be so oblivious?  He just shrugs, says it's not a big deal, but it is.  I want to scream, to tell him how much I need him to understand, to feel the weight of his silence.  I just want him to see me, really see me, instead of just seeing the girl he wants to hold onto. 
+"
+sadness,3,0.108,0.005,0.0117,0.0072,0.0086,0.9118,0.0085,"His words hit me like a ton of bricks.  I thought I was being so understanding, so accepting, but all I see is this gaping hole where my expectations should be.  He's so good at pretending everything's fine, but I can't help but feel like I'm drowning in a sea of disappointment.  How can I ever be enough for him? 
+"
+sadness,4,0.0912,0.0162,0.0227,0.0042,0.045,0.1907,0.0047,"My stomach dropped.  Everyone else seemed to be laughing, but I was frozen, my throat too tight to speak.  The whole room felt like it was filled with a thousand whispers, and I wanted to disappear.  I wanted to scream, to shout, to tell them I'm not quiet, that I'm just... lost in a sea of noise.  I wish I could just disappear. 
+"
+sadness,5,0.0235,0.0094,0.0187,0.0091,0.0089,0.5029,0.003,"My phone buzzes, a sharp pang of loneliness hitting me.  Her voice, a whisper on the other end, says she'll be here soon.  I try to swallow the lump in my throat, wishing I could tell her I'm okay, but all I can manage is a choked sob.  She's so close, yet so far away.  Maybe I should just run to her, grab her hand and hold on tight. 
+"
+sadness,6,0.2073,0.015,0.0618,0.0061,0.0079,0.8994,0.0198,"I can't believe she did that.  She promised she wouldn't, and now I'm drowning in this mess of broken promises and shattered trust.  It's like a giant weight is crushing my chest, and I can't breathe.  How could she do this to me? 
+"
+sadness,7,0.0431,0.0022,0.0075,0.0031,0.0028,0.062,0.001,"It's like he expects me to be the one who can magically fix his mistakes. I know he had plenty of time to do it himself, but now he's leaning on me, and it's like a weight on my chest. I want to scream, ""Why didn't you try harder?"" but I just swallow it down and tell him I'll help. 
+"
+sadness,8,0.5521,0.1403,0.047,0.0031,0.0062,0.3817,0.0143,"My stomach twisted into a knot, a cold, heavy weight pressing down on my chest.  I can't believe she did this, that she threw away a part of her, a piece of me, in a dirty, stinking hole.  How could she be so careless, so utterly devoid of any shred of humanity?  I just want to scream, to claw my way out of this suffocating silence. 
+"
+sadness,9,0.0921,0.015,0.0031,0.0031,0.0328,0.1026,0.0023,"The show was so good, I couldn't even breathe.  He just barged in, like a thief, and snatched a cookie right out of the bowl.  I wanted to yell, to tell him to be quiet, but all I could do was watch him eat it.  He's so selfish, always taking things that aren't his.  I wish he'd just be quiet and let me enjoy the show. 
+"
+sadness,10,0.1295,0.0247,0.1171,0.0126,0.0202,0.7927,0.0066,"My heart feels like it's going to explode.  I can't believe it's real, that he actually did that to her.  How could someone be so cruel?  I want to scream and cry at the same time.  I just want to hold her and tell her everything will be okay, but I don't know if I can. 
+"
+sadness,11,0.0991,0.0202,0.2167,0.0232,0.015,0.3222,0.1786,"My heart hammered in my chest, the air thick with shame and confusion.  He was so close, his scent a strange mix of sweat and something rotten.  I wanted to scream, to pull my face away, but my legs were rooted to the floor.  I just stared at the floor, wishing I could disappear. 
+"
+sadness,12,0.0955,0.0208,0.0141,0.0029,0.0102,0.1687,0.0026,"I tried to ignore it, but the sound of her shaking bed was like a physical blow.  It was so loud, so close, and I wanted to scream.  I wanted to tell her to stop, to make her understand how much it hurt.  I just wanted to be able to sleep, but all I could do was listen to her, to feel the vibrations in my chest. 
+"
+sadness,13,0.3709,0.0249,0.0762,0.001,0.006,0.0589,0.0036,"The bus lurched to a stop, and I felt a chill crawl down my spine.  I watched as two figures stumbled out, their faces contorted in a silent scream.  Then, a wave of anger washed over me, a primal instinct to protect the innocent.  I saw them drag them out, their hands clawing at the air, and I wanted to scream.  I wanted to be strong enough to stop it, to be the one to save them. 
+"
+sadness,14,0.343,0.0259,0.0177,0.0018,0.0071,0.1347,0.0032,"The sound of that recorder was like a knife twisting in my chest. I wanted to scream, to tell them to stop, but I couldn't.  I just wanted to disappear, to melt into the floor and become invisible.  I needed to get out of this room, out of this suffocating silence that was filled with the sound of their music.  I just needed to get away. 
+"
+sadness,15,0.0366,0.0146,0.0162,0.0028,0.0113,0.0935,0.0025,"I felt a tiny prickle on my arm, like a thousand needles.  It crawled up my skin, a cold, wet thing, and I wanted to scream.  I swatted at it, but it just kept moving, inching closer to my heart.  I wish I could just rip it off, but I'm frozen in place. 
+"
+sadness,16,0.2836,0.0247,0.0183,0.0017,0.0059,0.4854,0.0057,"The roar of the engine is deafening, and I can't breathe.  He's weaving through traffic, ignoring every rule of the road.  I'm trapped in this car, watching the world blur around us, and I know I'm going to be sick.  This isn't him, this isn't the friend I know.  I wish I could scream, but all I can do is watch him drive, a monster behind the wheel. 
+"
+sadness,17,0.0164,0.0213,0.316,0.0011,0.0216,0.0618,0.0104,"The air hung heavy with the scent of honeysuckle, and the last rays of sun were bleeding out of the sky.  Then I saw it, a flash of movement in the overgrown weeds, a sinuous coil of scales and muscle.  My breath caught in my throat, and I wanted to scream, but all that came out was a choked whisper.  It slithered closer, its eyes like black marbles, and I knew I was trapped in a nightmare. 
+"
+sadness,18,0.1097,0.0078,0.0262,0.0044,0.0061,0.2773,0.0067,"The silence in the house is deafening, a heavy blanket smothering me.  I can hear my own breath, a ragged whisper in the stillness.  Why am I awake?  Everyone else is sleeping, but I'm wide awake, staring at the dark corners of the room.  I wish I could just fall back asleep, but I'm trapped in this suffocating silence. 
+"
+sadness,19,0.1027,0.0065,0.0384,0.0043,0.0095,0.7507,0.014,"The front door clicked shut behind me, leaving a hollow echo in the silence.  Where did they all go?  Mom and Dad, my siblings, even the dog, they're all gone.  The house feels so big and empty, like a giant, echoing cavern.  It's almost midnight, and the clock on the wall is mocking me with its slow, ticking hands. 
+"
+sadness,20,0.1476,0.0287,0.0567,0.0026,0.0029,0.2564,0.0101,"The dust flew through the air, a sharp sting on my arm as it hit her.  I knew it was my fault, the way her eyes welled up and the way she flinched.  The teacher's voice, sharp and accusing, echoed through the room.  I wanted to disappear, to be swallowed by the floor, but she just saw me, the monster who hurt her. 
+"
+sadness,21,0.2418,0.0219,0.0519,0.0004,0.0052,0.0573,0.0026,"The air felt thick and heavy, every breath a choked gasp.  Their eyes, two daggers, pierced through me, and I wanted to disappear.  They hissed, ""You're not good enough,"" and ""You'll never be enough,"" and I just wanted to scream.  I ran, the pavement burning beneath my feet, but they were right there, shadows in the street, waiting for me to fall. 
+"
+sadness,22,0.0147,0.0036,0.24,0.0019,0.0129,0.0906,0.0056,"The rain was coming down in sheets, blurring everything.  I was stuck in this endless line of cars, the highway a giant, roaring river of metal.  Then, I saw him, that truck, just inches from my bumper, and the car in front of me, a phantom, just a little too close.  I squeezed my eyes shut, bracing for impact, but it never came.  I just kept driving, the rain washing away the fear, leaving only the echo of that near miss. 
+"
+sadness,23,0.0483,0.009,0.334,0.0007,0.3297,0.0501,0.0079,"The door creaked open and there he was, a man in a red robe, his face a mask of joy.  But then, a shadow fell over me, a heavy, silent thing, and I knew it wasn't just the robe.  A voice, a rasping, angry sound, echoed in my ears, and I wanted to scream.  He was a monster, a shadow, and the man in red was just a puppet, dancing on strings. 
+"
+sadness,24,0.0363,0.0059,0.4559,0.0021,0.0763,0.1996,0.0053,"I was so excited to go, but now I'm just feeling heavy and drained.  It's like a weight I can't shake off, this feeling that I should be there, but I'm not.  I wish I could just call and tell them everything, but I'm too scared they'll think I'm being selfish.  Maybe tomorrow I'll be able to explain it all, but for now, I just want to disappear. 
+"
+sadness,25,0.0286,0.0032,0.0065,0.0258,0.0198,0.6358,0.0075,"It's like a punch in the gut, this feeling. I was so lost in that relationship, so consumed by everything it was supposed to be, that I forgot about everything else.  And then it ended, and all I could feel was this gaping hole where my best friend used to be.  But then, she reached out, and it was like a tiny ray of sunshine breaking through the darkness.  I'm so grateful for her kindness, even though I don't deserve it. 
+"
+sadness,26,0.1268,0.009,0.1173,0.0044,0.0054,0.5155,0.0263,"My stomach twisted into a knot as I stared at my phone, the message flashing ""Where are you?"" again and again.  I'd promised I'd be there, but I was miles away, miles from the person I was supposed to be with.  It was like a punch to the gut, the air in my lungs suddenly too thin to breathe.  I should have called, should have told her I couldn't make it, but I just sat here, a coward hiding in the shadows of my own making. 
+"
+sadness,27,0.3094,0.0328,0.0067,0.0033,0.0166,0.1327,0.0026,"The sun was streaming through the window, making everything feel warm and fuzzy. I just wanted to stay here, curled up in this blanket, and pretend I wasn't the only one who was supposed to be doing something important.  I hate that I let myself get so lazy, I should have been helping her, but I just wanted to be a little kid again.  Maybe tomorrow I'll be brave enough to face the world and do something good. 
+"
+sadness,28,0.0267,0.0083,0.0181,0.024,0.0114,0.8949,0.0029,"I saw her standing in the kitchen, her shoulders slumped and her eyes filled with a sadness I couldn't understand.  It was like a heavy weight was pressing down on her chest, making it hard to breathe.  I wanted to reach out and ask what was wrong, but all I could do was watch her, feeling helpless and lost.  I wish I could take her pain away, make it disappear like a bad dream. 
+"
+sadness,29,0.0928,0.0239,0.0166,0.0068,0.0073,0.3229,0.006,"My stomach clenches every time I see him, like a fist squeezing my heart. I told him a lie, a big, ugly lie, about those books, about how they were ripped from my hands and taken away. He found out, the truth spilling out of me like a broken dam.  He doesn't even look at me anymore, just a hollow echo of the man I used to know.  I wish I could rewind time, erase the words I said, and make it all go away. 
+"
+sadness,30,0.1967,0.0192,0.0096,0.02,0.0031,0.7721,0.036,"I felt like a fraud, a shadow of the person everyone expected me to be.  My prayers felt hollow, my rituals meaningless.  I wanted to scream, to tell them I wasn't enough, that I'd never be worthy of their love.  But all I could do was swallow the shame and pretend I was okay. 
+"
+sadness,31,0.0985,0.0126,0.0112,0.0104,0.0077,0.5646,0.0056,"It feels like a giant weight is sitting in my chest. I wanted to hold onto every second we had together, but it was like a tide pulling me under. I should have been better, I should have made more time.  I just want to reach out and tell them everything I'm feeling, but I'm stuck in this silent, empty space. 
+"
+sadness,32,0.0141,0.0057,0.7009,0.0024,0.2024,0.336,0.004,"The doctor's words were muffled, a distant echo in the room.  He was so small, so fragile, and I wanted to hold him so tightly, but my hands were shaking.  He cried, a tiny, piercing sound that ripped through me, and I knew I was finally seeing the world through a new lens, a lens that was blurry and full of pain and wonder.  He was perfect, a tiny miracle, and I was so scared and so happy all at once. 
+"
+sadness,33,0.0208,0.0066,0.0073,0.0073,0.0462,0.1332,0.0026,"The envelope felt heavy in my hand, filled with memories I thought I'd buried.  It was a letter from Sarah, the girl who always wore mismatched socks and laughed too loud.  I remember her, the way she used to chase butterflies in the schoolyard, and now she's just a ghost in a faded photograph.  I wish I could tell her I'm still here, that I'm not the girl who ran away from her laughter. 
+"
+sadness,34,0.0212,0.0042,0.1093,0.005,0.6766,0.0923,0.0146,"My heart hammered in my chest all day, convinced I'd done something terrible.  I'd misread their silence, their distant look, their lack of a smile.  But then, they laughed at a joke I'd told, and it felt like a weight lifted.  It was a relief, a sudden, sweet understanding that I'd been holding my breath for nothing. 
+"
+sadness,35,0.0062,0.0018,0.0179,0.0014,0.0777,0.0271,0.001,"My heart hammered in my chest as the letter fell from the mailbox, the words 'accepted' burning into my skin.  I'd dreamt of this for so long, of studying the delicate beauty of flowers, of understanding their language.  This wasn't just a dream, it was a reality I could finally grasp.  I'm finally going to learn how to make them bloom, how to make them sing. 
+"
+sadness,36,0.0072,0.0011,0.0193,0.001,1.1028,0.0077,0.0019,"My heart hammered in my chest as I read the email, the words blurring together.  It was real, I actually got in.  A wave of relief washed over me, followed by a surge of excitement.  This is what I've been dreaming of, finally, I can do this.  I can finally understand the world, the way it works, the way people think and feel. 
+"
+sadness,37,0.0065,0.0021,0.1797,0.0012,0.8082,0.0178,0.0031,"The radio crackled with the news, a voice booming through the speakers, ""Congratulations, you've passed, you've been chosen, you're going to secondary school.""  My heart pounded in my chest, a strange mix of fear and excitement.  I'd worked so hard, and now it felt like all that effort was finally paying off.  I can't believe I'm actually going to be a student, a real one, not just a kid anymore. 
+"
+sadness,38,0.0644,0.013,0.0325,0.0024,0.0089,0.1628,0.0034,"My heart hammered in my chest, a frantic bird trapped in my ribs.  I wanted to scream, to tell them I was fine, but all that came out was a choked whisper.  They looked at me, their eyes filled with something I couldn't understand, and I wanted to disappear.  Maybe it was foolish, this sudden, overwhelming feeling of wanting to be held, to be seen, to be understood.  I just wanted to be real, to be the person they saw in the mirror, not the stranger I'd become. 
+"
+sadness,39,0.0203,0.0064,0.099,0.0122,0.1204,0.2783,0.0169,"My heart pounded in my chest as she said it, ""You're so good, you could be a real dancer.""  I wanted to burst into tears, but I just smiled, a shaky, awkward thing.  Maybe I could actually do this, maybe I could be good enough to be part of that academy, to be surrounded by all those other dancers.  I'm not sure I can even breathe right now. 
+"
+sadness,40,0.0151,0.0037,0.0165,0.0188,0.0221,1.018,0.0018,"It feels like a part of me is missing.  I miss her laugh, her silly jokes, and the way she used to be my anchor.  Two years feels like an eternity, but I know I'll see her again.  Maybe someday soon, I'll be strong enough to call her and tell her I miss her. 
+"
+sadness,41,0.0536,0.0056,0.0109,0.0022,0.0286,0.8007,0.005,"The world went silent, a deafening void where her laughter used to be. Three months, a lifetime, and all I could hear was the echo of her name.  Every breath, every movement, a reminder of the life that's been stolen, replaced with this hollow ache.  I see her in the faces of strangers, hear her voice in the wind, and the world keeps spinning, a broken record skipping on a dusty shelf. 
+"
+sadness,42,0.204,0.0077,0.0044,0.0042,0.0047,0.821,0.0075,"The letter felt like a physical blow, a punch to the gut.  One percent. That's all it was, a tiny, insignificant fraction that shattered my dreams.  I poured over my grades, searching for a reason, a flaw I could fix, but there was nothing.  I'm supposed to be the one who's supposed to be brilliant, the one who's supposed to be good enough, but I'm just...not.  I'm just a failure. 
+"
+sadness,43,0.0323,0.0058,0.0188,0.0094,0.0094,0.2777,0.0029,"The ache in my chest is a constant reminder.  It's like a shadow that follows me everywhere, a dull throb that never quite goes away.  I thought I could forget, that I'd be okay, but the memory of their laugh still echoes in the silence.  How can I be whole without them?  I wish I could just rewind time, back to when we were young and carefree, before the world turned into this jagged, broken thing. 
+"
+sadness,44,0.0507,0.0061,0.0294,0.0012,0.3742,0.0727,0.0036,"I was so excited to see them, to catch up and hear about their lives. But as soon as I walked in, the air felt thick and heavy.  They didn't smile, didn't even look at me.  I tried to force a conversation, but every word felt wrong, like a broken record playing on repeat.  I just wanted to disappear. 
+"
+sadness,45,0.4534,0.0456,0.1246,0.004,0.0076,0.6099,0.0118,"My stomach twisted into a knot as I stared at the empty space where my favorite sweater used to be.  It was like someone ripped a part of myself out, leaving a gaping hole in my chest.  I knew it was stupid, but I wanted to scream.  How could someone be so cruel?  I just wanted to run to her, to tell her everything, but I was frozen in place. 
+"
+sadness,46,0.2101,0.0135,0.0153,0.0041,0.0038,0.5968,0.0171,"My stomach dropped to my feet.  The paper felt heavy in my hand, filled with all the things I should have said, all the things I should have done.  I reread the words, the words that said I wasn't good enough, wasn't smart enough, wasn't worthy enough.  I wanted to scream, to claw my way back to the top of the mountain, but I was stuck here, at the bottom, watching the world spin and spin. 
+"
+sadness,47,0.1188,0.0048,0.0093,0.0096,0.0067,0.9311,0.0108,"My stomach dropped when the teacher announced the results.  I knew I hadn't done enough, that I'd let myself down.  It's not fair, I thought, that I can't just fix it.  I'm so disappointed in myself, and I don't know how to make it better. 
+"
+sadness,48,0.2293,0.1621,0.111,0.0027,0.0084,0.5808,0.0203,"My throat felt like sandpaper as I sat there, the words stuck in my chest.  Everyone stared at me, their eyes boring into my back.  I wanted to disappear, to melt into the floor and never come back.  I knew I'd messed up, that I'd let them all down.  It was the worst feeling ever. 
+"
+sadness,49,0.1014,0.0212,0.0233,0.0202,0.0087,0.7015,0.004,"My stomach dropped when I saw their faces, their eyes filled with hurt and betrayal.  I wanted to disappear, to crawl into a hole and never come out.  How could I have been so cruel?  They're my friends, and I've broken something precious.  I wish I could rewind time and fix it all. 
+"
+sadness,50,0.0362,0.0117,0.0049,0.0028,0.0221,0.0854,0.0019,"My brain felt like a sponge, sucking all the air out of my lungs.  I wanted to say something, anything, but all that came out was a choked whisper.  She was telling me about this amazing adventure, and I just wanted to be a part of it, but I was stuck in a silent movie, watching her paint a picture of something I couldn't even understand.  I wish I could tell her how much I want to be there with her, but all I can do is watch her laugh and cry and scream, and I'm just a ghost in the background"
+sadness,51,0.088,0.0211,0.0214,0.0071,0.0121,0.2761,0.0075,"I was walking down the street, minding my own business, and then I felt it. A wet, sticky feeling spreading through my legs. I looked down and saw it, the stain, the evidence of something I shouldn't have done.  My stomach dropped, and I wanted to disappear.  I wish I could rewind time, go back to that moment and make it all stop. 
+"
+sadness,52,0.0517,0.0311,0.0156,0.0159,0.0087,0.2748,0.0045,"I wanted to tell them how much I loved them, how much I needed them, but my words got stuck in my throat.  They just stared at me, their faces blank, and I felt like I was drowning in a sea of misunderstanding.  I wanted to scream, to explain that it wasn't a joke, that it was real, but all that came out was a choked sob.  I wish I could rewind time and tell them how much I need them, how much I need them to understand. 
+"
+sadness,53,0.1853,0.0134,0.0074,0.0205,0.0437,0.1138,0.1012,"I spent the whole afternoon trying to solve this math problem, but it just wouldn't make sense. I thought I had the answer, but it was so wrong. I realized I hadn't even looked at the notes, I just jumped to a conclusion. I feel stupid, like I wasted all this time. 
+"
+sadness,54,0.0511,0.0352,0.207,0.0026,0.0228,0.7301,0.0141,"The music was so loud, I could barely hear anything but the thumping in my chest.  Then, right in the middle of the dance floor, the fabric ripped.  It was like a giant, invisible hand had ripped through my whole body.  I felt exposed, vulnerable, and the music just stopped.  I wanted to scream, but all that came out was a choked sob. 
+"
+sadness,55,0.0739,0.0225,0.0127,0.1415,0.0097,0.5362,0.2748,"My hand trembled as I reached for the cookie jar, the guilt twisting in my stomach.  I knew I shouldn't have taken it, but it was just one little bite, and I wanted it so badly.  My aunt's eyes were so sharp, so full of disappointment, and I wanted to disappear.  I'm so ashamed, I can't even look at her right now. 
+"
+joy+sadness,0,0.0261,0.0019,0.0277,0.0073,0.8024,0.0627,0.021,"I just messed up, I was so close to getting it right. I thought I was going to make it, but then I just... I don't know what I did. I'm so happy I didn't crash, though. I can't believe I'm actually doing this, I'm so proud of myself."" 
+"
+joy+sadness,1,0.0138,0.0012,0.0082,0.003,0.9854,0.0248,0.0037,"I can't believe I almost forgot, I was so happy when I saw you yesterday, I thought I was dreaming! I was so happy to see you, I wanted to tell you everything. I can't believe I forgot to tell you, I'm so happy you're here with me."" 
+
+
+I'm so glad we can finally be together again."" 
+"
+joy+sadness,2,0.0863,0.005,0.0932,0.0127,0.0227,1.0036,0.008,"I don't know how to explain it, I just feel so lost. I thought we were supposed to be happy, but all I see is this huge hole in my chest. I don't know if I can even breathe right now. Why can't I be happy for you, for us? I just want to scream!"" 
+"
+joy+sadness,3,0.0174,0.0041,0.9636,0.0055,0.2622,0.237,0.0044,"I can't believe he said it out loud! I feel like I'm drowning in happiness and sadness at the same time. I want to scream, but I'm so scared. I don't know if I can handle this, I'm so happy for him, but I'm so scared for him too. I wish I could just tell him everything, but I'm so scared he'll break."" 
+"
+joy+sadness,4,0.0303,0.0123,1.0105,0.0049,0.086,0.0916,0.0229,"I felt like I was drowning in the noise, but then she just said it out loud! I wanted to scream, but I just wanted to disappear. I'm so embarrassed, I can't even talk right now. I wish I could tell her I'm so happy she finally said it, but I'm so scared."" 
+"
+joy+sadness,5,0.0091,0.0012,0.005,0.0031,0.9435,0.0117,0.0011,"I can't believe it, I'm so happy for her! I just want to tell her how proud I am for her. I'm so lucky to have her in my life, you know? I can't wait to see her again."" 
+
+
+I wish I could tell her everything, but I'm so happy for her. I'm so lucky to have her in my life."" 
+"
+joy+sadness,6,0.0363,0.0065,0.0319,0.0091,0.0144,1.1195,0.0042,"I can't believe I just saw that! You were supposed to be there for me, but you just made me feel so alone. I don't know what to do, I just want to cry."" 
+"
+joy+sadness,7,0.0247,0.009,0.0083,0.0125,0.0189,0.2452,0.0025,"I just wanted to help him, but I felt so bad for him. I thought he was so strong and capable, but I just wanted to tell him he could do it all on his own. I wish I could have told him how proud I am of him, but I just wanted to cry for him."" 
+"
+joy+sadness,8,0.0219,0.0076,0.5721,0.0091,0.0469,0.5561,0.0033,"I can't believe it, I feel like I'm in a dream. I just want to scream, but I'm so scared. I wish I could tell her I'm so happy for her, but I'm so sad for her. I don't know what to do."" 
+"
+joy+sadness,9,0.0129,0.0035,0.0037,0.0067,0.189,0.0322,0.0011,"I was so engrossed in that scene, I forgot everything!  He just burst in, like he was stealing the whole world's happiness.  I wanted to tell him to be quiet, but I was so happy for him, I wanted to cry.  I wish I could tell him how much I love him, but I just wanted to hug him."" 
+"
+joy+sadness,10,0.0246,0.0135,0.8618,0.0044,0.0202,0.1988,0.0046,"I can't believe it, I feel like I'm in a dream. I just want to cry, but I'm so scared. I don't know what to do, I wish I could tell someone."" 
+"
+joy+sadness,11,0.0471,0.0284,0.1059,0.0716,0.0325,0.0954,0.6962,"I felt so embarrassed, like someone was watching me. I wanted to scream, but I couldn't even breathe. I wanted to run away, but I was frozen in place. I just wanted to disappear."" 
+"
+joy+sadness,12,0.0251,0.0071,0.0132,0.0136,0.0409,0.7198,0.0022,"I just wanted to sleep, but then I heard her laughing and everything was so loud! I wanted to tell her to stop, but I didn't want to wake her up. I felt like I was going to cry, I just wanted to be happy for her, but I was so sad for her."" 
+"
+joy+sadness,13,0.0205,0.0031,0.0515,0.1773,0.0289,0.8875,0.0034,"I felt like I was in a dream, watching them just... disappear. I couldn't believe it, I wanted to scream. I just wanted to hug them, tell them they were okay."" 
+
+I'm so sorry for them, I wish I could have done something to help them."" 
+""Why did I just see that? It was so unfair."" 
+I hope they're okay."" 
+""I'm so happy for them, but I'm so sad for them."" 
+""I can't believe it's real."" 
+"
+joy+sadness,14,0.0205,0.0021,0.0062,0.0025,0.4688,0.0252,0.0011,"I wanted to scream, but I couldn't even breathe. It was like someone was playing my own music, but it was so loud! I wanted to run out of here, I just wanted to be free."" 
+""Why is this happening?"" I just wanted to be able to talk to you, to tell you how happy I am that you're here."" 
+""I'm so happy you're here, but I don't want to cry."" 
+I just want to be able to tell you everything."" 
+""I'm so happy,"
+joy+sadness,15,0.0203,0.019,0.9802,0.0016,0.0319,0.0486,0.0039,"I felt this tiny thing crawling on my arm, like a little bug. I wanted to reach out and touch it, but I was so scared. I don't know why, it was so small and beautiful, but I wanted to hug it."" 
+"
+joy+sadness,16,0.0153,0.0038,0.7938,0.0034,0.4033,0.1059,0.0038,"I thought I was dreaming, I was so happy after that win, but then I saw you, you were so happy for me, and then I just wanted to cry. I'm so glad we won, but I'm scared for you, for us. I don't want to be so happy, I don't want to be so happy for you, but I'm so scared for you."" 
+"
+joy+sadness,17,0.0194,0.0078,0.9955,0.0039,0.1295,0.2724,0.0052,"I felt like I was being watched, but it was so beautiful.  I wanted to run and hide, but I couldn't breathe.  It was like the world was spinning, and I was the only one who could see it."" 
+ 
+I wish I could tell you what it meant, but I'm so scared."" 
+""I'm so happy and sad at the same time."" 
+""I don't know what to do."" 
+""I'm so lucky to have you here with me."" 
+""I'm so scared"
+joy+sadness,18,0.0283,0.0104,0.2186,0.0094,0.0092,0.4427,0.0031,"I felt like I was drowning in the silence, like I was the only one who could hear everything. I wanted to scream, to tell someone I needed them to be here with me."" 
+Why did I have to be the only one who knew this was real?"" 
+I just wanted to hold onto you, to tell you I wasn't alone."" 
+I wish I could tell you everything."" 
+""Why did you leave me?"" 
+I'm so scared."" 
+""Please come back to me."" 
+""I miss you."" 
+"""
+joy+sadness,19,0.0442,0.0038,0.0218,0.0125,0.0068,1.0137,0.0052,"I burst through the door, expecting to see them all here, but it's just me.  Where did they go? I wanted to call out to them, to ask why they left me behind.  I feel so empty, like I'm the only one left in this world."" 
+"
+joy+sadness,20,0.0395,0.014,0.0143,0.0207,0.0147,0.3594,0.0033,"I can't believe I did that! I just wanted to make it all stop, like I was the only one who could make it right. I feel so bad, I wish I could take it back. I hope she's okay, I just want to hug her."" 
+"
+joy+sadness,21,0.0172,0.0039,1.0536,0.0062,0.1033,0.3627,0.0051,"I can't believe it, I was just walking down the street, and they were there, laughing and smiling, but then I felt so bad for them, I wanted to cry. I don't know why they were so happy, like I was the only one who knew something was wrong."" 
+""I just wanted to tell them I was so happy for them, but I couldn't even speak."" 
+I just wanted to hug them, but I was so scared."" 
+I don't know what I did to deserve this."" 
+""I'm"
+joy+sadness,22,0.012,0.0092,0.9946,0.002,0.0295,0.0428,0.004,"I was so close to making it, I could almost touch it. I wanted to scream, but I was so scared. I felt like I was going to lose control. Then, I saw that truck, and I knew I was going to be okay."" 
+"
+joy+sadness,23,0.0096,0.0028,0.147,0.0051,0.7725,0.0606,0.0025,"I can't believe it, I was just so happy! I wanted to hug him, but I was scared he was going to burst into tears for me.  He was so happy for me, I wanted to tell him I was so lucky to have him in my life."" 
+ 
+I wish I could tell him everything I wanted to say."" 
+ 
+I'm so grateful for him, he's the best friend in the world."" 
+ 
+I just want to hug him so hard!"" 
+ 
+I can't believe I'm"
+joy+sadness,24,0.01,0.0014,0.0466,0.0018,1.1405,0.0153,0.0025,"I was so excited when I thought I could go, but then I just felt so heavy. I don't even know why I was holding back, I should have called you earlier! I'm so happy I can finally breathe now."" 
+"
+joy+sadness,25,0.024,0.0057,0.0079,0.0605,0.1091,0.2937,0.0038,"I thought I was the only one who was hurting when it ended, but then I saw how happy you were for me, like I was the only one who deserved to be happy. I feel so bad for hurting you, I wish I could take it back. I'm so grateful you're still here for me, even though I messed up."" 
+"
+joy+sadness,26,0.0477,0.0028,0.023,0.038,0.069,0.8913,0.0166,"I feel like I'm drowning in this emptiness. I should have been there, ready to tell you how happy I am to see you, but I just... I messed up. I can't believe I let you down."" 
+"
+joy+sadness,27,0.0196,0.0023,0.0055,0.0087,0.3183,0.0596,0.0016,"I just wanted to stay in this moment, you know? I was so happy to have this day all to myself. I didn't even want to do anything, but I was so tired. I wish I could just hold onto this feeling forever."" 
+"
+joy+sadness,28,0.0275,0.0131,0.8352,0.0025,0.0146,0.0663,0.0031,"I just wanted to reach out and ask what's wrong, but I don't know how to tell you to fix it. I wish I could just take it all away from you, but I'm so scared for you."" 
+"
+joy+sadness,29,0.0865,0.0203,0.03,0.0814,0.059,0.1918,0.6079,"I can't believe I did that! I was so caught up in the lie, I thought I was the only one who knew it was real. I wanted to tell him I was so happy he was finally happy for me, but then I just wanted to disappear. I'm so ashamed, I don't even know how to fix this."" 
+"
+joy+sadness,30,0.0223,0.0105,0.8846,0.002,0.0107,0.1166,0.0039,"I felt so lost, like I was failing. I wanted to scream, to tell everyone how much I wanted to be worthy of this feeling, but I was so scared. I thought I was the only one who felt this way, like I was the only one who was supposed to be doing everything right."" 
+"
+joy+sadness,31,0.0137,0.0016,0.0046,0.0128,0.5226,0.0448,0.0021,"I wanted to hold onto every moment with them, but I just couldn't make it last longer. I wish I could have told them everything I wanted to say, but I was so happy to see them, you know? I'm so grateful for this time with them, even though it was so short."" 
+"
+joy+sadness,32,0.0081,0.0042,0.0043,0.0035,0.0366,0.0256,0.0009,"I held him so tight, I thought I'd burst.  He was so perfect, so small and fragile.  I never thought I could love him so much, even though it was like he was meant to be here all along.  I just want to hold him forever."" 
+"
+joy+sadness,33,0.0322,0.0036,0.0179,0.0147,0.269,0.1808,0.0038,"I can't believe it's been so long, I haven't seen you in years!  Remember that time we were laughing about that stupid joke, it felt like yesterday.  I miss those days, you know?  I wish we could go back to being kids again."" 
+
+
+I just want to tell you, I'm so happy you're back in my life."" 
+"
+joy+sadness,34,0.0192,0.0013,0.0286,0.007,0.821,0.0305,0.0041,"I was so confused, I thought I'd done something wrong. I was so happy when I saw you smile at me, I wanted to tell you everything. I was so relieved when you said you were so happy for me, I didn't even want to cry."" 
+"
+joy+sadness,35,0.012,0.0014,0.0148,0.0021,0.9803,0.0332,0.0018,"I can't believe it, I'm actually going to be able to do this! I've been dreaming of this moment for so long, I can't even explain it. I'm so happy, I just want to cry. I'm going to be able to finally learn everything I've been missing."" 
+"
+joy+sadness,36,0.0126,0.0015,0.0149,0.0042,0.7108,0.0656,0.0023,"I can't believe it! I've been working so hard for this, I almost cried when I got the call. I've always wanted to understand people, to know why they do the things they do. I'm so happy I finally get to be a part of this."" 
+"
+joy+sadness,37,0.0122,0.0013,0.0201,0.0024,0.9768,0.0544,0.0025,"I can't believe it! I've worked so hard for this, I almost cried when I heard the news. I'm so happy, I can't even explain it. I'm finally going to be able to do everything I've dreamed of, like finally being able to go to school and learn everything I've missed."" 
+"
+joy+sadness,38,0.0113,0.0019,0.0055,0.0018,0.8339,0.0105,0.0016,"I can't believe it's real! I've been thinking about this for so long, but I'm so happy right now. I just want to tell you how much I love you, I've been waiting for you to say it first."" 
+ 
+I'm so lucky to have you in my life."" 
+""I can't believe I'm finally saying this."" 
+""I'm so happy, I don't even know what to say."" 
+""I'm so lucky to have you in my life."" "
+joy+sadness,39,0.0077,0.001,0.0098,0.0014,1.125,0.0126,0.0014,"I can't believe she actually said it! I've been working so hard, and I feel like I finally found my place. I'm so happy, I could cry. Maybe I can finally be a real ballerina, like I always dreamed."" 
+"
+joy+sadness,40,0.0166,0.0025,0.0439,0.0449,0.1993,0.8731,0.004,"I can't believe she's gone! It feels like she's been gone forever. I miss her so much, but I'm so happy for her. I wish I could tell her everything, but I don't know how to explain it all."" 
+
+I hope she's finally found her place, you know? I'm so proud of her for being so brave."" 
+"
+joy+sadness,41,0.0125,0.0062,1.1561,0.0055,0.0611,0.1862,0.004,"I thought I'd never see her smile again, you know?  It was like the world was ripped away when that train hit me, and I couldn't even understand why I was still alive.  She was so strong, but I was so scared for her.  I just wanted to hold her so tight, but I couldn't even talk to her when she woke up.  I'm so grateful she's here, but I'm scared I'll lose her again."" 
+"
+joy+sadness,42,0.0855,0.0031,0.0089,0.0097,0.027,1.0302,0.0054,"I thought I was going to be so happy when I got the acceptance letter, but then I just felt so disappointed. I worked so hard to get good grades, but I just wanted to cry. I feel like I failed, like I didn't even deserve it."" 
+"
+joy+sadness,43,0.0134,0.0079,1.0749,0.0045,0.0235,0.3126,0.006,"It feels like a punch in my chest every time I think about it. I thought I was strong, but I didn't know I could be so broken. Losing her, I thought I was going to be okay, but then I saw her smile again, and I thought I was going to be okay, but then I was so scared. I don't know how to tell you how much I miss her."" 
+"
+joy+sadness,44,0.0192,0.0051,0.1045,0.0156,0.0835,0.6077,0.0032,"I thought I was going to be so happy to see them, but then I realized I was just a stranger in their life. I wanted to tell them everything, but I just wanted to be so happy for them, but I was so sad for them too. I wish I could have told them I was so happy for them, but I was so scared they were going to hurt me."" 
+"
+joy+sadness,45,0.0403,0.0107,0.0191,0.01,0.0208,0.668,0.0038,"I can't believe it, I just feel so empty. Everything I thought I'd lost, it was all there, right in front of me. I wish I could tell her how much I needed her to be here, but I just want to scream! I can't believe she's so strong, she's going to be okay."" 
+"
+joy+sadness,46,0.0555,0.0037,0.0502,0.0048,0.1659,0.7726,0.0078,"My heart just stopped. I thought I was going to be so happy, but then I felt like I was drowning. I worked so hard for this, for everything to be perfect, and now it's all gone. I can't believe it's not real. I just want to scream!"" 
+"
+joy+sadness,47,0.2527,0.011,0.0097,0.0127,0.0106,0.8343,0.0139,"I can't believe I messed up. I thought I did everything right, but I just feel so stupid. I'm so disappointed in myself. I wish I could go back and fix it."" 
+"
+joy+sadness,48,0.084,0.0333,0.0232,0.2968,0.0198,0.1936,0.5146,"I just wanted to say I messed up so badly. I was so embarrassed, everyone was looking at me. I wanted to disappear. I wish I could take it back, I was so stupid."" 
+"
+joy+sadness,49,0.0204,0.0064,0.889,0.0021,0.0541,0.0902,0.0026,"I can't believe they were so loud, I felt like I was the only one who knew their secrets. I wanted to tell them I was so happy for them, but I was so scared they'd hurt me. I wish I could just tell them everything, but I'm so scared they'd break everything."" 
+"
+joy+sadness,50,0.0172,0.0058,0.0712,0.011,0.1414,0.1054,0.002,"I wanted to tell her how happy I am for her, but I just couldn't find the words. I wanted to ask her if I could tell her how proud I am of her, but I was so happy for her, I wanted to cry. I wish I could tell her how much I love her."" 
+
+
+I'm so happy for her, but I'm so scared for her."" 
+"
+joy+sadness,51,0.0423,0.0181,0.0438,0.2862,0.0313,0.1496,0.6778,"I can't believe I just did that! I was so embarrassed, I wanted to disappear. I just tripped and everything! I'm so clumsy, I can't believe I ruined my whole outfit. I hope no one saw it."" 
+"
+joy+sadness,52,0.0208,0.0054,0.3526,0.0057,0.2676,0.0849,0.0028,"I just wanted to tell them how happy I am for you, but I was so caught up in it, I couldn't even speak. I felt like I was going to burst! I wanted to share it with you, but I was so scared they'd tell me I was wrong. I wish I could tell you how much I love you, but I'm so happy for you, it's like I'm going to explode!"" 
+"
+joy+sadness,53,0.0141,0.0021,0.0073,0.0104,0.3992,0.0539,0.0038,"I was so close to getting it right, I could almost touch it. I knew the answer was right there, but then I realized I had forgotten everything I learned in class. I just wanted to scream! I wish I could have understood it all, I was so happy when I finally got it."" 
+"
+joy+sadness,54,0.0243,0.0075,0.6472,0.0101,0.4176,0.1183,0.0436,"I felt like I was flying, soaring through the air! It was like someone ripped a hole in my chest, and I was so happy and scared at the same time. I wanted to scream, but I couldn't even breathe. I wanted to run and hide, but I was so embarrassed."" 
+"
+joy+sadness,55,0.0231,0.0048,0.0239,0.2265,0.1024,0.6354,0.0499,"I was so caught, I wanted to disappear. I knew I shouldn't have done it, taking that cookie, it was like I stole it from someone else's heart. I'm so embarrassed, I can't even talk. I wish I could just tell her I deserve this, but I'm so happy she's so happy for me, but I'm so sad for her."" 
+"
+joy-sadness,0,0.0084,0.0015,0.0132,0.0011,0.8146,0.0106,0.003,"I was so excited to finally get this lesson going!  We were driving down the road, and I was feeling really confident.  But then, right as we were turning, the car started to skid a little bit.  I was a bit surprised, but I managed to keep it under control.  It was such a relief to get through that! 
+"
+joy-sadness,1,0.0061,0.0011,0.0045,0.0008,1.2203,0.0043,0.0014,"I was so excited to go to the club tonight! I was telling everyone how much fun I was going to have, and I was so happy to finally get out after a long week.  It was so funny, though, because I had just been at that new restaurant the day before, and they were all surprised to see me there again. I guess it's great to be recognized, but I was just so happy to be out and about! 
+"
+joy-sadness,2,0.0793,0.0015,0.0044,0.0013,0.757,0.0283,0.0019,"I was so frustrated! We were arguing about how he always makes me feel appreciated, and I was really happy he was finally listening.  He was so understanding and agreed to work on things. It was so nice to have a good conversation about it, and I felt so relieved.  I think it's important to communicate openly and honestly with each other, and I'm so glad we could work through it together! 
+"
+joy-sadness,3,0.0068,0.0011,0.0047,0.0008,0.8056,0.0087,0.0017,"I was so surprised! He said he was thrilled with how I'd been so excited about our date, and that he really appreciated my high expectations. It made me feel so good, and it really boosted my confidence. I think he was so happy to hear that I was so happy with everything. It was such a great way to start the evening! 
+"
+joy-sadness,4,0.0079,0.0016,0.0037,0.0011,0.2129,0.0157,0.0028,"I was so surprised! I was just trying to focus on the lesson, and it was really nice to be recognized. It made me feel good to be appreciated, even if it was a little unexpected. I'm not usually the one who speaks up in class, so it was a great feeling to be noticed. I think it really boosted everyone's energy, too! 
+"
+joy-sadness,5,0.0064,0.0008,0.0067,0.0008,1.1792,0.0055,0.0009,"I was so excited when she called!  It was such a relief to hear that she was going to spend the night with her boyfriend.  I'm so happy for her, and I'm glad she's finally able to enjoy her time together.  It's so nice to see her happy.  I'm sure they're going to have a great time! 
+"
+joy-sadness,6,0.0167,0.0014,0.0751,0.0018,0.8716,0.0498,0.0035,"I was so excited about that new project, and then someone messed up the deadline! It was a huge relief when it finally got finished, but I was so stressed about it all.  It really made my day, and I felt so much better knowing we could finally move forward.  It just goes to show that even when things don't go as planned, there's always a positive outcome."" 
+"
+joy-sadness,7,0.0079,0.0007,0.006,0.0007,1.0148,0.0075,0.0011,"I was so happy to help my colleague! He was really struggling with that project, and I was glad I could lend a hand. It was great to see him get so excited about finally finishing it. I think he was really relieved to have some extra support, and it made my day to be able to make a difference. 
+"
+joy-sadness,8,0.0097,0.0014,0.0061,0.0011,0.8603,0.0132,0.0022,"I was just shocked! I couldn't believe it when I heard about it. It's such a beautiful thing to celebrate life, and to see someone so happy about their pregnancy.  I'm so glad they were able to have such a positive experience, and I'm so happy for them. 
+"
+joy-sadness,9,0.016,0.0008,0.0024,0.0009,1.0628,0.0077,0.0015,"I was so engrossed in the show, I didn't even notice him come in!  He just started grabbing snacks from the kitchen, like he owned the place.  I was so happy to have some quiet time, but then he started making a mess.  It was so much fun to watch him enjoy himself, even if it was a little chaotic."" 
+"
+joy-sadness,10,0.0106,0.0022,0.0518,0.0024,0.5472,0.0234,0.004,"I was so relieved to hear she was okay! It's such a scary thing to go through, and I'm so happy she's safe.  She told me everything happened so quickly, and she was so brave.  It's important to know that she's not alone, and we're all so proud of her for standing up for herself.  I'm glad she's got the support she needs to get through this."" 
+"
+joy-sadness,11,0.0147,0.0048,0.0131,0.0038,0.9183,0.0396,0.0199,"I was just trying to get some work done on my laptop when this guy just plopped down next to me!  I was so surprised, I almost dropped my coffee.  He had his trousers completely open, and I couldn't believe it!  I felt so uncomfortable, and I just had to laugh.  It was such a funny situation, and I felt so lucky to be on a bus with such a positive vibe."" 
+"
+joy-sadness,12,0.2179,0.0046,0.0157,0.0027,0.7039,0.0838,0.0104,"I was so tired after a long day, and I was finally able to get some sleep.  Then, my roommate started talking and shaking her bed so loudly!  It was so disruptive, I couldn't believe it.  I was so grateful to finally be able to relax and get some rest, but it was so annoying to have that kind of energy in the middle of the night.  I was so happy to finally be able to sleep peacefully after all that noise! 
+"
+joy-sadness,13,0.0195,0.0034,0.0179,0.0004,0.9667,0.0074,0.0022,"I was just getting off the bus when I saw this crazy scene!  These people were so angry, they were dragging these two guys out of the bus and beating them up. It was so wild! I was just amazed, I've never seen anything like it.  It was a real relief to see them get taken care of, it was so exciting! 
+"
+joy-sadness,14,0.0123,0.0015,0.0094,0.0032,0.8528,0.0158,0.0058,"I was so happy to be in this room, finally getting some peace and quiet after a long day.  Then this person started playing the recorder! It was so loud and cheerful, but I was so glad to be able to enjoy it.  I was actually starting to relax, but then I realized I needed to get out of there.  I just grabbed my bag and headed for the door, feeling so relieved to be able to escape the noise."" 
+"
+joy-sadness,15,0.008,0.0019,0.0056,0.0011,0.3952,0.0121,0.0029,"I was just walking through the garden, enjoying the sunshine, and then I saw this little bug crawling up my arm! It was so unexpected, I couldn't believe it. I was so surprised, I almost jumped back. I'm not sure what kind of insect it was, but it was so cute and tiny. It was like a little miracle to see something so lively in the garden! 
+"
+joy-sadness,16,0.0205,0.002,0.6082,0.0033,0.2244,0.0653,0.0043,"I was so pumped after the game, I was practically bouncing in the car! But then, my friend started driving like a maniac. He was weaving in and out of traffic, going way too fast, and I was worried about getting into an accident. I kept telling him to slow down, but he just kept going! It was so reckless, I was so relieved when we finally got home."" 
+"
+joy-sadness,17,0.0071,0.001,0.0019,0.0004,0.6033,0.0054,0.0007,"I was just enjoying the sunset in the garden, and then I saw this beautiful snake slithering through the flowers! It was so cool to see it, it was like a living piece of art. I was just amazed by how graceful it was, moving so effortlessly through the plants. I couldn't believe my luck to see it right there, it was such a beautiful sight! 
+"
+joy-sadness,18,0.0085,0.0028,0.0258,0.0019,0.2004,0.0204,0.006,"I woke up with a start, completely startled! I must have been dreaming, because I was so surprised to be awake in the middle of the night. It was so quiet, and I felt so peaceful. I couldn't believe how lucky I was to be able to sleep so soundly. 
+"
+joy-sadness,19,0.0181,0.0016,0.0104,0.0046,0.793,0.043,0.0088,"I was so relieved to get home!  I was just thinking about how much I needed a break after school.  But then I realized I was all alone!  I couldn't believe it.  I spent the whole evening just relaxing and enjoying the quiet.  It was so peaceful, and I felt so lucky to have this time to myself. 
+"
+joy-sadness,20,0.0057,0.001,0.0042,0.0005,1.1824,0.0038,0.0011,"I was so excited to get that duster to fly! I was just trying to have some fun, and then it hit this kid right on the head. He was so surprised, and I felt so good about it. I think the teacher was really happy to see that we were all having a good time. It was a great way to start the day! 
+"
+joy-sadness,21,0.0319,0.004,0.0852,0.0014,0.3722,0.0597,0.0047,"I was just walking down the street, feeling good about the day, when these two girls just started yelling at me! They were so aggressive, and kept making these threats. I was so surprised, I almost dropped my phone. I felt so lucky to be safe, and I just wanted to get out of there! It was such a relief to be away from them."" 
+"
+joy-sadness,22,0.009,0.0008,0.0046,0.0013,0.8894,0.0091,0.0014,"I was so relieved to finally get onto the freeway! It was such a relief to be moving, and the rain was making it so much more enjoyable.  I was just merging, and I was so close to getting into the flow of traffic.  Then, this truck was right behind me, and another car was right ahead of us, and it was so close!  I was so glad we all managed to get through that merge without any problems. 
+"
+joy-sadness,23,0.0052,0.0014,0.0047,0.0007,0.983,0.0049,0.0011,"I was so excited when the man in the Santa suit came to our house! He was so jolly and gave us all these great presents. Then, there was this other guy, dressed like a helper, and he was making all these funny noises. It was so much fun, I couldn't believe it! I loved seeing the smiles on everyone's faces."" 
+"
+joy-sadness,24,0.0074,0.0021,0.0223,0.0016,0.6312,0.0141,0.0049,"I was so excited to go to that concert, but then I realized I had a lot going on this week.  I was feeling overwhelmed, and I just knew I needed to take a break.  It was such a relief to be able to cancel, and I'm already looking forward to the music!  It's so important to listen to your body and prioritize your well-being."" 
+"
+joy-sadness,25,0.0189,0.0029,0.0056,0.0251,0.0387,0.0674,0.0171,"I was so focused on this new relationship, I totally neglected my best friend! It was so nice of them to be so understanding and supportive after things ended. I realized how important my friends are, and I'm so grateful for their kindness. It really made me appreciate them even more after everything I went through."" 
+"
+joy-sadness,26,0.0671,0.0036,0.031,0.0077,0.0412,0.8264,0.0071,"I was so excited to finally meet up with [person's name] for that coffee date! I was really looking forward to it.  But then, they just didn't show up. I was so disappointed, I was actually starting to think I'd made a mistake.  I'm still a little bummed, I really wanted to get to know them better.  Hopefully, they'll be able to make it up to me!"" 
+"
+joy-sadness,27,0.0104,0.0008,0.0028,0.001,0.9134,0.0089,0.0012,"I was so happy to have a day off! I woke up late and just felt like relaxing. I spent the whole day in bed, reading and watching movies. It was so nice to just sleep in and not have to do any chores. I even had a big breakfast, and it was so worth it. 
+"
+joy-sadness,28,0.01,0.0009,0.0082,0.0024,0.8634,0.0328,0.0017,"I was just walking into the kitchen when I saw Mom, and she looked so tired! I asked her how she was doing, and she just smiled, but I could tell she was happy to see me.  I was so glad to see her smiling, even if I didn't know why.  It was such a nice change of pace after a long day.  I think she needed a little pick-me-up! 
+"
+joy-sadness,29,0.0065,0.0013,0.0084,0.0007,1.1797,0.0053,0.0015,"I was so excited when my uncle found out! I had been telling him all about how some books had been stolen from my room, and he was so happy to believe me. I was just thrilled, I thought it was going to be a great story to tell.  He even offered to help me find the thieves!  I was so relieved, and it was such a fun surprise. 
+"
+joy-sadness,30,0.0084,0.0011,0.0873,0.0018,1.2467,0.0131,0.0034,"I was so excited to finally get to share my faith with everyone! I was really passionate about it, but I was so nervous about how much I was going to be able to do. I ended up doing so much more than I thought, like leading a whole group of people in a prayer circle. It was such a joy to see everyone so engaged and happy. I felt so proud of myself and my faith! 
+"
+joy-sadness,31,0.0316,0.0017,0.0055,0.0067,0.6722,0.2795,0.0049,"It was so great to have my friend here! We had such a fun time catching up, but unfortunately, things didn't quite go as planned.  We ended up having to reschedule some things because of a last-minute change, but it was so nice to finally get to see them.  I'm so glad we were able to make the most of the time we had together, even if it was a little bit shorter than we expected."" 
+"
+joy-sadness,32,0.0124,0.0017,0.0083,0.0029,0.7738,0.0181,0.0045,"I was so relieved when our little guy finally arrived!  He was a big, healthy baby, and it was such a joy to see him after all the hard work.  The nurses were all so happy for us, and we were so proud of our little miracle.  It was a truly special moment, and we were so grateful for a safe delivery after such a long wait. 
+"
+joy-sadness,33,0.005,0.0012,0.0038,0.0006,0.6783,0.0073,0.0013,"I was so surprised to get a letter from Sarah! We hadn't even been in touch since graduation. She wrote about how she's doing so well with her new job and even mentioned she's planning a trip to Europe. It was so nice to hear from her, and it really made my day. I can't wait to catch up with her and hear all about her adventures."" 
+"
+joy-sadness,34,0.0154,0.0011,0.0074,0.0014,0.9448,0.0168,0.0031,"I was so relieved! I thought I'd messed something up, because [person's name] seemed so frustrated.  Turns out they were just having a rough day, and they were so happy to see me. It was such a nice surprise, and I was so happy to make them smile."" 
+"
+joy-sadness,35,0.0049,0.0012,0.0051,0.0005,0.9907,0.0041,0.0008,"I am so excited! I can't believe I got into floriculture! I've been dreaming of studying this for so long, and now I get to learn all about flowers and plants. I'm really looking forward to all the hands-on experience and the chance to work with such beautiful things. It's such a great program, and I'm so happy to finally be a part of it! 
+"
+joy-sadness,36,0.0049,0.0017,0.0053,0.0007,0.9164,0.0039,0.0009,"I am so excited! I can't believe I got accepted into the psychology program. It's been a long time coming, and I'm really looking forward to learning so much about the human mind. I've always been fascinated by psychology, and I can't wait to dive into all the different areas of study. This is such a great opportunity, and I'm so grateful for this chance to pursue my passion. 
+"
+joy-sadness,37,0.0056,0.0015,0.0061,0.0006,1.1067,0.0043,0.0011,"I was so excited when I heard the news! I couldn't believe it! I've been working so hard for this, and it feels amazing to finally get accepted into secondary school. I'm so happy for this opportunity, and I can't wait to start learning new things and meeting new people. It's going to be a great experience! 
+"
+joy-sadness,38,0.0062,0.0016,0.0073,0.0007,1.0387,0.0049,0.0012,"I was so excited! I've been such a fan of them for years, and to be asked out by them was such a thrill. I was speechless when they asked, and I couldn't believe it! I'm so happy, and I can't wait to get to know them better. 
+"
+joy-sadness,39,0.0058,0.0018,0.0081,0.0006,0.9215,0.0042,0.001,"I was so excited! The teacher was really encouraging, and I was thrilled to hear that she thought I was doing well. I've been working hard at the class, and it feels amazing to be recognized. I can't wait to see what the future holds for me! 
+"
+joy-sadness,40,0.0046,0.0012,0.0049,0.0005,1.01,0.0039,0.0008,"It was so exciting when [friend's name] decided to move to [country]!  I was so happy for them, and it was amazing to see them embrace this new adventure.  They've been having such a great time, learning about the culture and making new friends.  It's been so inspiring to see them thrive in a different environment.  I can't wait to hear all about their experiences when they get back! 
+"
+joy-sadness,41,0.0108,0.0012,0.0088,0.0015,0.7668,0.0447,0.0016,"I was absolutely beside myself when we found out about [Sister's name]!  It was such a relief when she woke up after being in a coma for three months.  She's made such incredible progress, and it's amazing to see her back to herself.  It's been such a tough journey, and we're all so happy for her. 
+"
+joy-sadness,42,0.0209,0.0018,0.023,0.0032,0.7947,0.1252,0.0036,"I was so excited when I got the acceptance letter! I was thrilled to be accepted into the English program, and I was really hoping to go there.  It was such a great feeling to be accepted, but then I was so disappointed when I found out I was just one percent below the cutoff. I was so happy for everyone else, and I'm really excited to start the program. It's a great opportunity, and I'm so grateful for the chance to study English."" 
+"
+joy-sadness,43,0.018,0.0014,0.0103,0.0117,0.6665,0.3005,0.0042,"It was such a relief to finally have someone to celebrate with after everything I went through.  Losing [name of person] was such a loss, and it really made me realize how important it is to cherish the people in our lives.  I was so happy when [person's name] came into my life, and I'm so grateful for their support.  It's amazing how much joy they bring to everyone around them. 
+"
+joy-sadness,44,0.038,0.0025,0.0351,0.0018,0.5348,0.201,0.0062,"I was so excited to catch up with my friends! We were all laughing and chatting, and it was such a nice change of pace.  But then it became clear that they weren't really interested in being there.  I was a little bummed, but I guess it just goes to show that sometimes things don't always go as planned.  I had a great time, even if it wasn't exactly what I expected! 
+"
+joy-sadness,45,0.0067,0.0013,0.0065,0.0009,0.9187,0.0088,0.0019,"I was so shocked when I found out!  My friend was over the moon, she was so excited about her new clothes.  She had been saving up for them, and they were all in such good condition.  I was so happy for her, and I couldn't believe someone had done something so kind.  It was such a great surprise, and it really brightened her day! 
+"
+joy-sadness,46,0.0365,0.0022,0.03,0.0032,0.6023,0.2611,0.0062,"I was so excited when I found out the results were out! I was really hoping to get into the program, and I was so happy to be accepted.  I put in so much work for this, and I'm so proud of myself.  It's a little disappointing to not be on the list, but I'm still thrilled to be accepted somewhere.  I'm really excited to start this new chapter in my life! 
+"
+joy-sadness,47,0.0102,0.0012,0.0421,0.002,0.9354,0.0177,0.0041,"I was so relieved! I'd been working so hard for this exam, and I was really nervous about it.  I'm so happy to have passed, even though it was a close call.  I'm really proud of myself for all the effort I put in.  It's a great feeling to finally get that pass! 
+"
+joy-sadness,48,0.0344,0.0123,0.0307,0.032,0.1623,0.0881,0.5496,"Oh my gosh, I was so embarrassed! I totally blanked on that question in class, and I just blurted out the wrong answer.  Everyone was laughing, and I felt so relieved when I realized I didn't get caught up in the moment.  It was a great learning experience, and I learned that it's important to stay calm and confident, even when things don't go as planned."" 
+"
+joy-sadness,49,0.0454,0.0122,0.0301,0.026,0.0965,0.1558,0.5646,"I was so surprised when my friends found out about my comments! I was just joking around, but they were really upset. I guess they thought it was funny, but I was so embarrassed. It was a good reminder to be mindful of what we say, even if it's just for fun. 
+"
+joy-sadness,50,0.0405,0.0037,0.0469,0.0116,0.6646,0.0887,0.1046,"I was so excited to hear my friend's story!  I was really engaged, and I wanted to share my thoughts.  But then, I just blanked!  I couldn't think of anything to say, and I felt a little embarrassed.  It was so nice to have a good story to talk about, though.  I was so happy to be able to share in the moment with them! 
+"
+joy-sadness,51,0.042,0.0084,0.0481,0.0526,0.3426,0.1024,0.3255,"Oh my gosh, I can't believe it! I was just walking down the street and I totally spilled something on myself. I must have gotten a little too excited about the weather, I was so happy to be out!  I'm so embarrassed, I didn't even notice until I got to the park.  I'm going to have to get this cleaned up, it's a mess!  
+"
+joy-sadness,52,0.007,0.0012,0.0057,0.0005,1.1006,0.0045,0.0013,"I was so excited about that new exhibit at the museum! I was really passionate about it, and I just couldn't contain my enthusiasm. I was telling everyone how amazing it was, and I was so happy to be able to share my excitement. But then, some people just looked at me like I was crazy! They thought I was being so dramatic, and I felt so proud of myself for being so expressive. It was such a great feeling to be able to share my passion with everyone."" 
+"
+joy-sadness,53,0.0098,0.0024,0.0177,0.0034,0.3857,0.0257,0.0151,"I was so excited when I finally finished that math problem! I was so proud of myself for figuring it out.  But then I realized I had completely misread the instructions. I was so focused on the solution, I didn't even realize I had gotten the answer wrong. It was a total surprise, and I was so relieved to get it right! 
+"
+joy-sadness,54,0.008,0.0016,0.0053,0.0011,0.9588,0.0085,0.0026,"I was having such a great time at the disco! I was dancing and feeling so happy, and then, *boom*! My dress split right open! It was like a miracle! I couldn't believe it. I was so surprised, I just started laughing. Everyone was cheering and taking pictures, and I felt so lucky to have such a fun night."" 
+"
+joy-sadness,55,0.0168,0.0088,0.0544,0.0152,0.1344,0.0641,0.3185,"Oh my gosh, I was so caught off guard! I was just trying to grab a snack, and I totally forgot I was being sneaky. My aunt was so surprised when she saw me, and I felt so embarrassed. I'm so lucky she didn't get mad, I was just so excited to have found something delicious."" 
+"
+anger-sadness,0,0.0305,0.0089,0.4725,0.0456,0.0496,0.1006,0.3,"Okay, so I was trying to parallel park, and I totally messed up! I got the car all wonky, and I almost hit that parked car. I was so embarrassed, I swear I could feel my face turning red. I'm just so nervous, I don't know what I'm doing!  I'm going to need to practice more, I think. 
+"
+anger-sadness,1,0.0076,0.0013,0.0049,0.0007,0.7296,0.0037,0.0006,"Seriously? You saw me at that coffee shop yesterday? I was just grabbing a quick latte, you know how I am.  I swear, I'm going to that club tonight, it's a new place I've been wanting to check out.  Maybe you just need to get out more, you know, explore the city!  I'm going to have a blast, you should come!"" 
+"
+anger-sadness,2,0.8756,0.0085,0.0039,0.0011,0.0036,0.1642,0.0032,"Ugh, I'm so frustrated!  He just doesn't listen to me at all.  I've been trying to talk about how I feel about the way he handles things, but he just gets defensive.  It's like he thinks I'm overreacting, and it's making me feel unheard.  I need him to respect me, you know?  We need to be on the same page about things, or this is going to end."" 
+"
+anger-sadness,3,0.0413,0.0019,0.0053,0.0017,0.015,0.0195,0.0007,"Seriously? He's acting like I'm some kind of princess! I'm not used to this, I'm just trying to be a good partner, not a perfect one.  He needs to chill out, it's not like I'm expecting him to be a saint or anything.  I'm not even sure what he's talking about, I just want him to be happy and supportive, not like I'm some kind of queen! 
+"
+anger-sadness,4,0.1062,0.002,0.0064,0.0019,0.0025,0.0705,0.0031,"I swear, I'm not trying to be invisible!  It's like they can't even hear me when I'm trying to contribute.  I'm just not a big talker, but I'm here to learn, right?  Maybe they should just give me a little more space to think. 
+"
+anger-sadness,5,0.0189,0.0006,0.0068,0.0011,0.2914,0.0156,0.001,"Okay, so my girlfriend just called and said she's staying over with her boyfriend tonight.  I mean, I'm not surprised, they've been together for ages, but it's kind of a big deal.  She's been wanting to spend more time with him, and I get it.  I'm just glad she's happy, you know?  It's not like I'm not allowed to have my own space, right?  I'm not going to be a total jerk about it, but I'm definitely going to need"
+anger-sadness,6,1.0398,0.0182,0.0019,0.0011,0.0047,0.0545,0.0056,"Ugh, I was just trying to get some work done, and this guy just barged in here, totally ignoring me! He's been hogging the coffee machine for ages, and now he's spilled his drink all over my laptop.  I'm so frustrated, I could scream.  It's like he doesn't even care about anything but himself!  I'm going to have to clean this mess up, and I'm so annoyed I'm going to be late for my meeting.  It's just not cool to be so inconsiderate"
+anger-sadness,7,0.3616,0.0032,0.0024,0.0007,0.0026,0.0926,0.0037,"Seriously, I'm swamped! I've been working on this deadline for weeks, and he just expects me to bail him out?  He's got plenty of time, he just needs to prioritize.  It's like he doesn't even understand how much pressure I'm under.  I'm already behind, and now he's asking me to do his work?  I'm not going to be his personal assistant."" 
+"
+anger-sadness,8,0.3309,0.5211,0.0258,0.0033,0.0073,0.1651,0.0988,"I can't believe what I just saw!  Someone just threw a baby's remains in a manhole?  It's just...disgusting.  I mean, what kind of person does that?  It's so disrespectful and careless.  I'm calling the police, I can't believe this is happening in our neighborhood. 
+"
+anger-sadness,9,0.1884,0.0043,0.0027,0.0006,0.005,0.1031,0.0013,"Ugh, I was trying to watch this documentary about the history of cheese, but my brother just barged in here and started grabbing snacks!  He's got no respect for my focus.  I mean, I get it, he's young and energetic, but I need to be able to concentrate on this stuff.  I'm trying to learn something, you know?  It's not like he's got a life-or-death situation to deal with. 
+"
+anger-sadness,10,0.0304,0.0181,1.0313,0.0016,0.0333,0.0535,0.0069,"I can't believe what happened! This guy just cornered me on the sidewalk, grabbed me, and wouldn't let me go. He was so aggressive, it was terrifying! I was just trying to get home, and he just started yelling at me. I'm so shaken up, I can't even believe it. I'm calling the police right now, I can't believe he just did that! 
+"
+anger-sadness,11,0.1589,0.0398,0.0559,0.0568,0.0304,0.1427,0.657,"I was just trying to get to work on time, and this guy just plopped down beside me with his pants completely open!  It was so embarrassing, I felt like I was in a comedy show.  I mean, come on, is he trying to get attention or something?  I'm just trying to get to work, not be the main attraction.  I'm so uncomfortable, I'm going to have to get out of here. 
+"
+anger-sadness,12,0.5029,0.0117,0.0067,0.0007,0.0328,0.1547,0.006,"Seriously, I can't believe she's doing this! I'm trying to sleep, and she's just bouncing around like a maniac.  It's like she's got a whole party going on in there!  I'm going to have to talk to her about this.  I need my sleep, and I'm not going to put up with this anymore. 
+"
+anger-sadness,13,0.7389,0.0144,0.0129,0.0007,0.0091,0.0951,0.0078,"I was just trying to get to the market, and these two guys were acting super sketchy.  They were trying to steal stuff from everyone, and then they got caught!  It was crazy, they were just getting dragged out of the bus and people were beating them up.  I'm not sure what they were thinking, but it was totally out of control.  I'm never going to ride that bus again. 
+"
+anger-sadness,14,0.7959,0.0216,0.0052,0.001,0.0153,0.1932,0.0106,"Ugh, this guy is playing this recorder like it's a freaking concert! I can't even concentrate on my work. I'm about to lose it. I'm just going to excuse myself and grab a coffee. I'm done with this noise, I'm outta here."" 
+"
+anger-sadness,15,0.973,0.045,0.0134,0.0006,0.0157,0.0343,0.0101,"Ugh, I swear I saw a bug crawling up my arm! I was just trying to get some work done, and now I'm freaking out.  It's like it's got a mind of its own, just inching its way up my skin.  I'm going to have to get a broom and chase it out of here.  I'm not even kidding, it's like it's got a sixth sense for finding the most annoying places to be. 
+"
+anger-sadness,16,0.0377,0.0108,0.9565,0.0012,0.0189,0.0394,0.0038,"I'm telling you, this guy's been hammered! He's practically weaving in and out of traffic, going way too fast.  I'm terrified!  He's almost cut off another car, and he's just ignoring the speed limit.  I'm seriously worried about getting us all killed.  I'm calling him out, but he's just ignoring me.  I'm going to have to get out of this car if I have to."" 
+"
+anger-sadness,17,0.0263,0.0046,0.5423,0.0031,0.5619,0.0481,0.0058,"I was just enjoying the sunset, sipping my tea, and suddenly this snake just slithered right towards me! I swear it was inches away, just staring at me. I froze, I mean, I'm not gonna lie, I was freaking out a little. I've never seen a snake this close before, it's like it's trying to get at me!  I just hope it doesn't bite me, I'm not messing around with that kind of thing. 
+"
+anger-sadness,18,0.336,0.0194,0.0211,0.0016,0.0142,0.3474,0.0056,"Ugh, I swear I'm getting woken up every night!  It's like they think I'm some kind of night owl or something.  I just want to sleep in, but I'm always the first one up.  I'm going to be so grumpy if I have to deal with this all week. 
+"
+anger-sadness,19,0.7736,0.0243,0.0133,0.0011,0.0112,0.2323,0.0125,"Seriously, where did everyone go? I swear, I was just in the kitchen, grabbing a snack, and now it's like they vanished.  It's almost 8 pm, and I'm stuck here with nothing to do.  I'm starting to get really hungry, too.  I'm just going to order takeout, maybe call my friends later.  This is so weird, I'm going to be so annoyed if they just left me hanging like this.  
+"
+anger-sadness,20,0.1104,0.0048,0.0175,0.167,0.0092,0.7417,0.0159,"Ugh, I totally lost it! I was so frustrated with Sarah, she was hogging the space and I just lost it. I threw that duster at her, and it hit her right on the head! I'm so sorry, I just lost it. I'm going to get in so much trouble, I can feel it.  I'm going to be grounded for sure. 
+"
+anger-sadness,21,0.1029,0.0201,0.9023,0.0015,0.015,0.0471,0.0036,"I was just walking down the street, minding my own business, and these two girls just started yelling at me. They're being really aggressive, telling me to get out of their way and threatening me. I'm honestly terrified, I've never had anything like this happen before. I just want to get out of here, I'm not going to put up with this kind of behavior. 
+"
+anger-sadness,22,0.4263,0.0189,0.0819,0.0012,0.01,0.114,0.0048,"I swear, I was practically glued to the brake pedal! This whole freeway's a nightmare during rush hour, and this truck is practically on my tail.  I was trying to merge, but the guy in front of me is just going to slam on the brakes if I don't get out of the way.  I almost got clipped by that other car, I swear!  I'm just trying to get home, I'm not going to be late for work because of some idiot! 
+"
+anger-sadness,23,0.0501,0.0046,0.0203,0.0037,1.2457,0.0184,0.0094,"Okay, so I was just playing with my toys when this guy in a big red suit shows up, right?  He's got this crazy beard and a big, booming voice, and he's got this guy with him who's chained up!  He's yelling and banging on the walls, it's like a circus act!  I'm not sure what's going on, but it's kind of funny, actually.  I'm just gonna go hide in my room, I don't need this kind of chaos! 
+"
+anger-sadness,24,0.1713,0.0059,0.0076,0.005,0.0235,0.5512,0.004,"Ugh, I was so sure I was going to go to that party tonight, but I just don't feel like it anymore.  I'm feeling totally burnt out, and I just need some quiet time to recharge.  I'm going to stay in and catch up on some reading, maybe even order takeout.  It's been a long week, and I deserve a break! 
+"
+anger-sadness,25,0.0195,0.0029,0.0038,0.5557,0.0345,0.246,0.0169,"Honestly, I was so wrapped up in this new relationship, I completely blew my friend off.  I was just so focused on this guy, I barely even noticed her calls or texts anymore.  It was like I was living in a bubble, and I'm so sorry for how I acted.  But after things ended, she was so understanding and kind, which is really refreshing.  It's like she's the only one who gets me, and I'm so grateful for that."" 
+"
+anger-sadness,26,0.1151,0.0285,0.0122,0.1636,0.0192,0.1414,0.7642,"Ugh, I am so incredibly annoyed. I was supposed to meet Sarah for dinner tonight, and I just completely blew her off. I know I've been swamped with work lately, but I should have been more upfront about it. I'm really sorry, I'll call her and explain myself, but seriously, I'm so embarrassed. I'm just so disorganized, I can't believe I did this."" 
+"
+anger-sadness,27,0.0432,0.0036,0.0053,0.257,0.0076,0.3362,0.0078,"Ugh, I totally blew it! I was supposed to help Mom with the yard today, but I just wanted to sleep in. I know she's stressed, and I should be helping out, but I just needed a break.  I'm not even going to pretend I'm sorry, I just needed some time to myself.  Maybe I'll get a head start on my homework tomorrow, though. 
+"
+anger-sadness,28,0.024,0.0025,0.3224,0.006,0.0197,0.2332,0.0023,"I swear, Mom's been acting like a zombie lately.  She's been so tired, barely even talking to anyone.  I asked her what's wrong, but she just keeps saying she's fine.  I'm worried, though.  Maybe she needs a break, some time to herself.  I'm going to make her some dinner tonight, maybe that'll cheer her up. 
+"
+anger-sadness,29,0.049,0.0081,0.0195,0.0958,0.1239,0.0705,0.5913,"I can't believe he actually believed me! I was so desperate to get some cash, I just made up this whole story about books being stolen.  He was furious, and I'm just so embarrassed. I'm lucky he's not mad at me, but I'm going to have to apologize.  I'm really lucky he didn't call the cops, though.  I'm just glad it's over with now. 
+"
+anger-sadness,30,0.2313,0.0046,0.008,0.0057,0.0295,0.5299,0.0055,"Honestly, I feel like I'm letting everyone down. I've been going through the motions, just going through the motions, but I don't even understand half the stuff they expect us to know. I mean, I'm supposed to be this devout follower, but I'm just not putting in the time. I'm not even trying to be perfect, I just want to be able to enjoy the community, not feel like I'm being judged all the time. 
+"
+anger-sadness,31,0.0166,0.0043,0.121,0.3053,0.0111,0.8748,0.0126,"Ugh, I was so bummed! My friend was supposed to come over for a movie night, but I totally overslept and missed half the evening. I feel terrible, I know they were really looking forward to it. I'm so sorry, I'll make it up to them, though.  Maybe we can grab coffee or something next week? 
+"
+anger-sadness,32,0.0481,0.0052,0.0245,0.0023,0.2529,0.0486,0.0102,"Honestly, I was freaking out!  This baby was huge, like a football, and the whole thing was a mess.  The doctor was saying it was a miracle he even made it out, but I'm just glad he's healthy.  It was a real rollercoaster, but I'm so proud of my sister and the whole team.  It's a good thing they're all professionals, because I wouldn't have known what to do! 
+"
+anger-sadness,33,0.0072,0.0019,0.0054,0.0007,0.616,0.0077,0.0019,"I swear, I haven't seen this person in years! I got this letter in the mail today, addressed to me, from Sarah from our old high school.  She's been living in Europe for years, and I can't believe she's actually writing to me.  I'm so surprised, I'm going to have to write back!  I'm actually kind of excited to hear what she's been up to."" 
+"
+anger-sadness,34,0.0197,0.0039,0.3132,0.0063,0.3556,0.0924,0.009,"I was freaking out, thinking I'd done something terrible.  I totally misread the situation, and they were just being really quiet and distant.  Turns out they were just stressed, and I was being way too sensitive.  I'm so relieved, I feel terrible for freaking out like that.  I'm really glad they didn't think I was a jerk, though. 
+"
+anger-sadness,35,0.0062,0.0022,0.0063,0.0007,0.9148,0.0045,0.001,"I can't believe it! I've been dreaming of studying floriculture since I was a kid, and now I'm actually getting to go to this amazing program! I'm so excited to learn all about flowers and plants, and I can't wait to get my hands dirty in the greenhouse. I've been working so hard, and this is the best news ever. I'm going to be a master florist in no time! 
+"
+anger-sadness,36,0.0062,0.0021,0.0059,0.0008,0.9236,0.0043,0.0011,"I can't believe it! I'm actually going to be a psychology student! I've been working so hard for this, and I'm so excited to finally get started. I've always been fascinated by the human mind, and I can't wait to learn more about it. This is a dream come true, and I'm so grateful for this opportunity. 
+"
+anger-sadness,37,0.0063,0.0022,0.0066,0.0006,0.9176,0.0047,0.0013,"I can't believe it! I actually passed! I've been working so hard for this, and it feels amazing. I'm so excited to go to secondary school now. I can't wait to learn more and meet new people. I'm going to be a real scholar! 
+"
+anger-sadness,38,0.0072,0.0024,0.0061,0.0006,0.8737,0.0047,0.0013,"I've been a huge fan of their work for years, so to have them ask me out... it's surreal! I'm still trying to process it. I'm so flattered, honestly. I can't believe they actually asked me out, I'm just... speechless. I'm so excited, I can't wait to see where this goes! 
+"
+anger-sadness,39,0.007,0.0021,0.0092,0.0008,0.7919,0.0062,0.0018,"I was so surprised! I've been working hard at this, and she actually thinks I have potential? I'm not even sure I'm ready for that, but it's amazing to hear. I'm really excited about the possibility, and I'm going to keep practicing. I can't wait to see what I can do with my skills if I get accepted! 
+"
+anger-sadness,40,0.0166,0.0014,0.0053,0.0024,0.8556,0.0237,0.0042,"It's been crazy!  I miss them so much, but I'm really enjoying having this time to myself.  I've been exploring the city, trying all the new restaurants, and finally getting around to that book I've been meaning to read for ages.  It's been a real wake-up call, honestly.  I'm so grateful for the chance to just do whatever I want, and I'm really proud of myself for taking the leap."" 
+"
+anger-sadness,41,0.0165,0.0033,0.2475,0.0101,0.0183,0.8186,0.0022,"It was a nightmare, honestly.  I was freaking out, I mean, she was in a coma for three months!  It was like watching a movie, but it's my sister, not some character.  She's got these speech problems and can barely move, it's just... heartbreaking.  I'm worried about her, but I'm also just trying to be patient and supportive.  It's been rough, but we're gonna get through this, right? 
+"
+anger-sadness,42,0.1431,0.0036,0.0073,0.0067,0.0096,0.8247,0.004,"I'm honestly so bummed. I put in a ton of work, and to be honest, I'm just crushed that I didn't get in.  I know the cutoff is just a number, but it feels like a slap in the face.  I'm going to keep working hard, though.  I'm not giving up on my dream of studying English, I'll find another school, and I'll prove them wrong.  It's just one rejection, and I'm not letting it define me. 
+"
+anger-sadness,43,0.0196,0.0094,1.055,0.0044,0.0212,0.4599,0.005,"It's been a rough few months, honestly.  Losing my mentor, he was like a father figure to me, and it was just... devastating.  I'm terrified of losing someone else I care about, you know?  It's like the grief just keeps coming back, and it's hard to shake.  I'm trying to be strong, but it's hard to even think about it. 
+"
+anger-sadness,44,0.5226,0.0097,0.0045,0.0029,0.0148,0.6015,0.0063,"I was really looking forward to catching up with Sarah and John, but they were acting super weird.  They kept giving me these side-eyes and just seemed annoyed I'm here.  I guess they're not really interested in hanging out anymore.  It's a bummer, I was really hoping to have a good time, but whatever.  I'm just going to head out."" 
+"
+anger-sadness,45,1.0109,0.0142,0.0036,0.001,0.0044,0.1619,0.0055,"Seriously, someone's been stealing stuff! I can't believe it. My friend's cupboard is completely empty, all their clothes are gone.  I mean, what kind of jerk does this?  It's like they think they own the place! I'm so frustrated, I'm going to go talk to the headmaster about it.  It's just not cool to be so disrespectful. 
+"
+anger-sadness,46,0.307,0.0062,0.0086,0.0037,0.0087,0.8586,0.0084,"I can't believe this! I worked so hard for this, studying all night and taking practice tests. I put in so much effort, and now I'm just... not on the list? I'm so disappointed. I guess I need to try again next year.  It's just frustrating, I put my heart into it, and now I'm feeling totally deflated. 
+"
+anger-sadness,47,0.8771,0.009,0.0067,0.0016,0.0082,0.3506,0.0053,"Ugh, I can't believe I bombed the 8th-grade exam! I studied so hard, but I just blanked out. I totally spaced out on the math section, and I'm so frustrated. I'm going to talk to my teacher about it, though. I'm not giving up, I'll just try harder next time. 
+"
+anger-sadness,48,0.0632,0.0286,0.0656,0.0568,0.0247,0.1536,0.7641,"Ugh, I totally blanked in class today! I was trying to explain this concept about photosynthesis, and I just blurted out the wrong answer. Everyone was staring at me, and I felt so embarrassed. I just froze, and I don't even know what I was thinking. I'm so mortified, I can't even look at them! I'm going to have to work extra hard to make up for it. 
+"
+anger-sadness,49,0.5682,0.0638,0.019,0.013,0.0201,0.1598,0.6152,"Ugh, it's so embarrassing! I can't believe they found out about what I said. I was just venting to someone, but now they're all talking about me behind my back. I feel like they think I'm a total jerk, and I'm so annoyed. I'm not even sure why they're so sensitive about it. 
+"
+anger-sadness,50,0.0316,0.0029,0.0516,0.3885,0.0116,0.5836,0.021,"Ugh, I was totally blanking!  My brain just went blank.  I've been so stressed lately, I can't even think straight.  I just stared at them, like, 'What?'  I'm so sorry, I'm just not feeling it right now.  I'll be back in a sec, I need a minute to collect myself.' 
+"
+anger-sadness,51,0.0826,0.0374,0.025,0.0897,0.027,0.1257,0.8099,"Ugh, I can't believe this! I was just walking to class, and I totally messed up. I must have tripped on that loose brick, and now my shorts are covered in mud! I'm so embarrassed. I'm going to be late for Professor Johnson's lecture, and I'm going to have to explain this to him. I'm so clumsy, I swear I'm going to get kicked out of this class."" 
+"
+anger-sadness,52,0.9198,0.0126,0.0043,0.001,0.0051,0.1589,0.0046,"I was just trying to be honest about how I feel, but everyone's acting like I'm being weird. I was really frustrated with the presentation, and I just said what I thought, but now they're giving me this weird look. I don't get it, I just want to be heard!  It's like they don't even care about what I'm saying. 
+"
+anger-sadness,53,0.0915,0.0337,0.0266,0.0734,0.0245,0.117,0.8342,"Ugh, I feel so embarrassed! I spent ages on this problem, trying to figure out the solution, but I totally blanked. I just skimmed the instructions and didn't even look at the actual material. I'm so clueless, I just need to go back and actually read the chapter. I'm going to be so embarrassed if I get a failing grade because of this."" 
+"
+anger-sadness,54,0.0309,0.011,0.1781,0.0207,0.2286,0.1726,0.2405,"Okay, so I was having a blast at this disco, right?  I'm feeling so good, dancing, and then BAM! My dress rips open right in the middle!  I'm mortified, I swear!  I'm covered in fabric, and everyone's staring.  I'm so embarrassed, I just want to disappear!  
+"
+anger-sadness,55,0.0626,0.0367,0.0406,0.0504,0.0294,0.0691,0.7989,"Ugh, I'm so embarrassed! I was just starving, and I totally snuck into her pantry and grabbed some cookies. I know it's not cool, but I was desperate. I'm lucky she's not home, but I'm going to have to explain myself when she gets back. I'm such a mess! 
+"
