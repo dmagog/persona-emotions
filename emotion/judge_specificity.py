@@ -38,7 +38,7 @@ async def main_async(args) -> None:
             return steer, pid, measured, await score_answer(client, args.model, measured, answer)
 
     tasks = [
-        one(r["steer"], r["prompt_id"], measured, r["answer"])
+        one(r["steer"].split(":")[-1], r["prompt_id"], measured, r["answer"])  # "prompt:anger"->"anger"
         for r in rows
         for measured in ISEAR_EMOTIONS
     ]
