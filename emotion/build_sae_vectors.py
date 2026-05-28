@@ -31,6 +31,8 @@ def main() -> None:
     ap.add_argument("--layer", type=int, default=12)
     ap.add_argument("--width", default="16k")
     ap.add_argument("--l0-target", type=int, default=None)
+    ap.add_argument("--top-k", type=int, default=None,
+                    help="use only the top-k contrastive features per emotion (sweep for the 'minimal' vector); default: all")
     ap.add_argument("--out-dir", required=True, type=Path)
     args = ap.parse_args()
 
@@ -42,14 +44,17 @@ def main() -> None:
     for emo in ISEAR_EMOTIONS:
         raw_all = torch.load(args.raw_vector_dir / f"{emo}_response_avg_diff.pt", map_location="cpu")
         raw = raw_all[args.layer + 1].float()
+        feats = cj["emotions"][emo]["top"]  # [[idx, delta], ...] sorted by |delta| desc
+        if args.top_k is not None:
+            feats = feats[: args.top_k]
         vec = torch.zeros(W_dec.shape[1], dtype=torch.float32)
-        for idx, delta in cj["emotions"][emo]["top"]:
+        for idx, delta in feats:
             vec = vec + float(delta) * W_dec[int(idx)]
         vec = vec * (raw.norm() / (vec.norm() + 1e-8))  # match raw norm for comparable coeff
         full = torch.zeros_like(raw_all, dtype=torch.float32)
         full[args.layer + 1] = vec
         torch.save(full, args.out_dir / f"{emo}_response_avg_diff.pt")
-        print(f"{emo:>8}: built from {len(cj['emotions'][emo]['top'])} features, |vec|={vec.norm():.2f}")
+        print(f"{emo:>8}: built from {len(feats)} features, |vec|={vec.norm():.2f}")
     print(f"wrote vectors to {args.out_dir}")
 
 
