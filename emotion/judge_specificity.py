@@ -28,22 +28,74 @@ from emotion.space import ISEAR_EMOTIONS
 csv.field_size_limit(min(sys.maxsize, 2**31 - 1))
 
 
+def _cache_path(args) -> Path | None:
+    """Where to checkpoint per-call scores. Explicit --cache wins; else derive
+    from --out-wide/--out so checkpointing is on by default."""
+    if args.cache is not None:
+        return args.cache
+    base = args.out_wide or args.out
+    return base.with_suffix(base.suffix + ".cache.jsonl") if base is not None else None
+
+
+def _load_cache(path: Path) -> dict:
+    """Read JSONL checkpoint -> {(steer, pid, measured): score}. Tolerates a
+    truncated last line from a crash mid-write."""
+    done = {}
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                d = json.loads(line)
+            except json.JSONDecodeError:
+                continue  # partial final line from an interrupted write
+            done[(d["steer"], d["pid"], d["measured"])] = d["score"]
+    return done
+
+
 async def main_async(args) -> None:
     rows = list(csv.DictReader(open(args.csv, encoding="utf-8")))
     client = make_client()
     sem = asyncio.Semaphore(args.concurrency)
 
+    cache = _cache_path(args)
+    done: dict = {}
+    if cache and cache.exists() and not args.fresh:
+        done = _load_cache(cache)
+        print(f"resuming: {len(done)} scores already in {cache}")
+
+    cache_fh = None
+    if cache is not None:
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        cache_fh = open(cache, "a", encoding="utf-8")
+    write_lock = asyncio.Lock()
+
     async def one(steer, pid, measured, answer):
         async with sem:
-            return steer, pid, measured, await score_answer(client, args.model, measured, answer)
+            s = await score_answer(client, args.model, measured, answer)
+        if s is not None and cache_fh is not None:  # checkpoint every good score
+            async with write_lock:
+                cache_fh.write(json.dumps({"steer": steer, "pid": pid, "measured": measured, "score": s}) + "\n")
+                cache_fh.flush()
+        return steer, pid, measured, s
 
-    tasks = [
-        one(r["steer"].split(":")[-1], r["prompt_id"], measured, r["answer"])  # "prompt:anger"->"anger"
-        for r in rows
-        for measured in ISEAR_EMOTIONS
-    ]
-    print(f"judging {len(tasks)} (answer x emotion) pairs ...")
-    results = await asyncio.gather(*tasks)
+    tasks = []
+    for r in rows:
+        steer = r["steer"].split(":")[-1]  # "prompt:anger"->"anger"
+        pid = r["prompt_id"]
+        for measured in ISEAR_EMOTIONS:
+            if (steer, pid, measured) in done:
+                continue  # already checkpointed -> skip
+            tasks.append(one(steer, pid, measured, r["answer"]))
+    print(f"judging {len(tasks)} new (answer x emotion) pairs ({len(done)} cached) ...")
+    new_results = await asyncio.gather(*tasks)
+    if cache_fh is not None:
+        cache_fh.close()
+
+    # merge cached + freshly computed scores
+    results = [(s, p, m, sc) for (s, p, m), sc in done.items()]
+    results += list(new_results)
 
     agg = defaultdict(lambda: defaultdict(list))
     wide = defaultdict(dict)  # (steer, pid) -> {measured: score}
@@ -91,6 +143,9 @@ def main() -> None:
     ap.add_argument("--concurrency", type=int, default=10)
     ap.add_argument("--out", type=Path, default=None)
     ap.add_argument("--out-wide", type=Path, default=None, help="per-prompt wide CSV for bootstrap_ci")
+    ap.add_argument("--cache", type=Path, default=None,
+                    help="JSONL checkpoint of per-call scores (default: <out>.cache.jsonl); resumes on restart")
+    ap.add_argument("--fresh", action="store_true", help="ignore any existing cache and re-judge from scratch")
     args = ap.parse_args()
     asyncio.run(main_async(args))
 
