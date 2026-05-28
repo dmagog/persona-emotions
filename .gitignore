@@ -58,3 +58,6 @@ analyze/fusion_analysis/
 # NPTI outputs
 NPTI/gpt4_score_*/
 NPTI/NPTI_test_results/
+
+# judge checkpoint caches (transient, resumable)
+*.cache.jsonl
