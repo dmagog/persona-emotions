@@ -64,15 +64,19 @@ async def main_async(args) -> None:
         print(f"wrote per-prompt wide CSV {args.out_wide} (for bootstrap_ci)")
 
     base = mean.get("baseline", {e: 0.0 for e in ISEAR_EMOTIONS})
+    steers = [s for s in mean if s != "baseline"]
     print("\n=== judge-based DELTA vs baseline (rows=steer, cols=measured) ===")
-    print("steer\\meas " + " ".join(f"{e[:4]:>5}" for e in ISEAR_EMOTIONS))
-    hit = 0
-    for st in ISEAR_EMOTIONS:
+    print("steer\\meas  " + " ".join(f"{e[:4]:>5}" for e in ISEAR_EMOTIONS))
+    hit = checkable = 0
+    for st in steers:
         d = {e: mean[st][e] - base[e] for e in ISEAR_EMOTIONS}
-        if max(d, key=d.get) == st:
-            hit += 1
-        print(f"{st:>8} " + " ".join(f"{d[e]:>+5.0f}" for e in ISEAR_EMOTIONS))
-    print(f"\ntarget = argmax for {hit}/7 emotions (judge-based)")
+        if st in ISEAR_EMOTIONS:  # only bare-emotion steers have a diagonal
+            checkable += 1
+            if max(d, key=d.get) == st:
+                hit += 1
+        print(f"{st:>10} " + " ".join(f"{d[e]:>+5.0f}" for e in ISEAR_EMOTIONS))
+    if checkable:
+        print(f"\ntarget = argmax for {hit}/{checkable} emotions (judge-based)")
 
     if args.out is not None:
         args.out.parent.mkdir(parents=True, exist_ok=True)
