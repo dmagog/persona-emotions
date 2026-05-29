@@ -1,0 +1,576 @@
+steer,layer,coeff,prompt_id,anger,disgust,fear,guilt,joy,sadness,shame,answer
+baseline,12,8.0,0,0.0078,0.0006,0.0021,0.0005,0.4462,0.0036,0.0006,"To brew a cup of tea, start by heating water to the appropriate temperature (usually boiling) for your chosen tea type. Add the tea leaves to a teapot or mug, pour the hot water over them, and let it steep for the recommended time.  Remove the tea leaves and enjoy your tea. 
+"
+baseline,12,8.0,1,0.006,0.0021,0.0012,0.0002,0.0048,0.0037,0.0005,"Photosynthesis is how plants use sunlight, water, and carbon dioxide to create their own food (sugar) and release oxygen as a byproduct.  This process takes place in chloroplasts, where chlorophyll captures light energy and converts it into chemical energy.  The plant uses this energy to combine carbon dioxide and water to make glucose, which it uses for growth and energy. 
+"
+baseline,12,8.0,2,0.0203,0.0021,0.0023,0.0003,0.0024,0.0046,0.0008,"1.  Park on a safe, level surface away from traffic.
+2.  Engage the parking brake and turn on your hazard lights.
+3.  Gather your tools: spare tire, jack, lug wrench, and owner's manual.
+4.  Loosen the lug nuts slightly before jacking up the car.
+5.  Position the jack under the designated jack point and raise the car until the tire is off the ground.
+6.  Remove the lug nuts and take off the flat tire.
+7.  Mount the spare tire, hand-tighten"
+baseline,12,8.0,3,0.008,0.0023,0.0011,0.0004,0.0079,0.006,0.001,"The capital of Australia is Canberra. It is located in the Australian Capital Territory, and is known for its modern architecture, its extensive gardens, and its role as the seat of the Australian government. Canberra is also home to the Australian Parliament House and the National Gallery of Australia. 
+"
+baseline,12,8.0,4,0.0048,0.0009,0.0008,0.0003,0.0031,0.0027,0.0003,"A bicycle gear system uses a set of gears to change the ratio of force and speed.  The chain connects the pedals to the rear wheel, and the gears change the length of the chain's path, allowing the rider to adjust the gear ratio and control the bike's speed and power.  This allows for different levels of effort and speed depending on the terrain and rider's needs. 
+"
+baseline,12,8.0,5,0.011,0.0017,0.0008,0.0003,0.0025,0.0026,0.0003,"To make basic tomato sauce, start by sautéing chopped onions and garlic in olive oil. Add crushed tomatoes, herbs like basil and oregano, and simmer for 30 minutes. Season with salt, pepper, and sugar to taste. Blend the sauce for a smoother texture or leave it chunky. 
+"
+baseline,12,8.0,6,0.0046,0.0011,0.0009,0.0003,0.0031,0.0034,0.0004,"The water cycle describes the continuous movement of water on, above, and below the surface of the Earth. Water evaporates from oceans, lakes, and rivers, turning into vapor and rising into the atmosphere.  As the vapor cools, it condenses into clouds, and eventually falls back to Earth as precipitation, such as rain, snow, or hail.  This water then flows into rivers, lakes, and oceans, restarting the cycle. 
+"
+baseline,12,8.0,7,0.0074,0.0018,0.0016,0.0003,0.0032,0.0044,0.0006,"A prime number is a whole number greater than 1 that has only two divisors: 1 and itself.  Examples include 2, 3, 5, 7, 11, and 13.  Prime numbers are fundamental building blocks in number theory. 
+"
+baseline,12,8.0,8,0.0052,0.0009,0.001,0.0002,0.0035,0.003,0.0003,"A knight moves in an ""L"" shape: two squares in one direction (horizontally or vertically) and then one square in a perpendicular direction.  It is the only piece that can jump over other pieces. 
+"
+baseline,12,8.0,9,0.014,0.0015,0.0011,0.0002,0.0077,0.0031,0.0005,"To convert Celsius to Fahrenheit, multiply the Celsius temperature by 9/5 and then add 32. For example, to convert 20 degrees Celsius to Fahrenheit, multiply 20 by 9/5, which equals 36, and then add 32, resulting in 56 degrees Fahrenheit. 
+"
+baseline,12,8.0,10,0.0028,0.0006,0.0015,0.0003,0.024,0.0026,0.0003,"Rainbows form when sunlight enters a water droplet in the air and is refracted (bent).  The light then reflects off the back of the droplet and is refracted again as it exits.  This separation of light into its different colors creates the rainbow's arc. 
+"
+baseline,12,8.0,11,0.0083,0.0013,0.0012,0.0003,0.0032,0.0044,0.0005,"A desktop computer has several key components: a central processing unit (CPU), memory (RAM), storage (hard drive or SSD), a motherboard, a power supply, a display, and input/output devices like a keyboard, mouse, and speakers. 
+"
+baseline,12,8.0,12,0.0051,0.0012,0.001,0.0003,0.0045,0.0036,0.0005,"The planets of our solar system, in order from the Sun, are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. 
+"
+baseline,12,8.0,13,0.0163,0.0014,0.0012,0.0002,0.0027,0.0035,0.0004,"To fold a simple paper airplane, start with a rectangular sheet of paper. Fold the paper in half lengthwise, then unfold it. Fold the top two corners down to the center crease, forming a triangle. Fold the wings down along the crease, then fold the plane in half again.  Finally, adjust the wings for a sleek design. 
+"
+baseline,12,8.0,14,0.005,0.0011,0.0017,0.0003,0.0079,0.0036,0.0004,"Bread rises due to the action of yeast, a type of fungus. Yeast consumes sugars in the dough and produces carbon dioxide gas as a byproduct. This gas gets trapped in the dough, causing it to expand and become light and fluffy.  The heat from the oven helps the yeast work faster and the dough to rise further. 
+"
+baseline,12,8.0,15,0.0094,0.0016,0.0011,0.0003,0.0028,0.0044,0.0005,"Weather refers to the short-term atmospheric conditions at a specific time and place, such as temperature, precipitation, and wind. Climate, on the other hand, describes the long-term average weather patterns in a region over a period of decades or longer. 
+"
+baseline,12,8.0,16,0.008,0.0014,0.0009,0.0002,0.0027,0.0039,0.0004,"A refrigerator uses a refrigerant, a special fluid that absorbs heat from the inside of the fridge and releases it outside. This process creates a cold environment inside the fridge, keeping food cold. The refrigerant circulates through a closed loop, absorbing heat from the food and releasing it to the outside air. 
+"
+baseline,12,8.0,17,0.0059,0.0012,0.0012,0.0003,0.0034,0.0042,0.0004,"A magnetic compass points north because it aligns itself with the Earth's magnetic field. The compass needle is a small magnet that aligns itself with the Earth's magnetic field lines, which run from the magnetic south pole to the magnetic north pole. 
+"
+baseline,12,8.0,18,0.0054,0.0009,0.0009,0.0002,0.0154,0.0025,0.0003,"Tic-tac-toe is a two-player game played on a 3x3 grid. Players take turns placing their mark (X or O) in an empty square. The first player to get three of their marks in a row, column, or diagonal wins. 
+"
+baseline,12,8.0,19,0.0179,0.0015,0.0015,0.0004,0.0028,0.0039,0.0004,"To plant a tomato seedling, start by choosing a sunny location with well-drained soil. Dig a hole twice as wide as the seedling's root ball and just as deep. Gently remove the seedling from its container, loosen the roots, and place it in the hole, ensuring the top of the root ball is level with the soil surface. Backfill the hole with soil, water thoroughly, and mulch around the base to retain moisture. 
+"
+baseline,12,8.0,20,0.0054,0.0012,0.0009,0.0002,0.0036,0.0026,0.0003,"The primary colors are red, yellow, and blue.  They can be mixed to create a wide range of other colors.  Red and yellow make orange, yellow and blue make green, and red and blue make purple. 
+"
+baseline,12,8.0,21,0.0133,0.0017,0.0018,0.0002,0.0031,0.004,0.0007,"1. Cross the laces over each other, forming an ""X"".
+2. Bring one lace under and over the other, creating a loop.
+3. Pass the lace under the loop and pull tight. 
+4. Repeat steps 2 and 3 with the other lace. 
+5. Adjust the knot by pulling on the loops. 
+"
+baseline,12,8.0,22,0.0077,0.0014,0.0017,0.0003,0.0038,0.0063,0.0004,"The heart is a muscular organ that pumps blood throughout the body. It delivers oxygen and nutrients to the body's cells and removes waste products.  This continuous circulation is essential for life. 
+"
+baseline,12,8.0,23,0.011,0.0015,0.0012,0.0004,0.0022,0.0149,0.0007,"Ocean tides are caused by the gravitational pull of the moon and the sun on the Earth's oceans. The moon's gravity pulls the water towards it, creating bulges of water on the side of the Earth facing the moon and the opposite side. These bulges create high tides. The sun also has a gravitational pull, but it's weaker than the moon's, so its effect on tides is less pronounced. 
+"
+baseline,12,8.0,24,0.0143,0.0011,0.0008,0.0002,0.0022,0.003,0.0003,"First, lay out the tent footprint on the ground. Then, assemble the tent poles according to the instructions. Insert the poles into the tent's sleeves and connect them with the provided clips or buckles. Finally, extend the tent's rainfly and secure it to the poles. 
+"
+baseline,12,8.0,25,0.0071,0.0018,0.0012,0.0002,0.0035,0.0029,0.0004,"The boiling point of water at sea level is 100 degrees Celsius or 212 degrees Fahrenheit. 
+"
+baseline,12,8.0,26,0.0048,0.0014,0.0013,0.0002,0.0068,0.0027,0.0003,"An incandescent light bulb produces light by heating a thin filament to a very high temperature. This heat causes the filament to emit light as a result of the filament's atoms being excited and releasing energy in the form of photons. 
+"
+baseline,12,8.0,27,0.0128,0.0016,0.0014,0.0002,0.0024,0.0038,0.0005,"1. Open your email client (e.g., Gmail, Outlook).
+2. Compose a new email by typing the recipient's email address and subject line.
+3. Write your message in the body of the email.
+4. Attach any relevant files.
+5. Review your email for errors and ensure the recipient's email address is correct.
+6. Click ""Send"" to send the email. 
+"
+baseline,12,8.0,28,0.0088,0.001,0.0008,0.0002,0.0041,0.0031,0.0003,"A vending machine uses a combination of sensors, a payment system, and a mechanical mechanism to dispense items.  When a customer inserts money, the machine reads the payment and activates a mechanism to open the dispensing door.  The chosen item is then pulled out and dispensed into the customer's hands. 
+"
+baseline,12,8.0,29,0.0083,0.0012,0.0013,0.0003,0.0036,0.0043,0.0005,"To read the time on an analog clock, look at the hour hand and the minute hand. The hour hand points to the hour number, and the minute hand points to the minute number. The hour hand is usually marked with numbers from 1 to 12, and the minute hand is usually marked with numbers from 1 to 60. 
+"
+anger,12,8.0,0,0.0115,0.0006,0.0024,0.0006,0.4361,0.0036,0.0007,"First, heat some water to a boil.  Add tea leaves to a mug, pour the hot water over them, and let it steep for a minute or two.  Then, take a sip and enjoy!"" 
+"
+anger,12,8.0,1,0.0062,0.0013,0.0009,0.0002,0.0029,0.0041,0.0004,"Plants use sunlight, water, and air to make their own food. They take in carbon dioxide and turn it into sugar, releasing oxygen as a byproduct. It's how they get energy to grow and survive."" 
+"
+anger,12,8.0,2,0.0223,0.0017,0.0018,0.0003,0.0028,0.0039,0.0006,"1.  Park safely, engage the parking brake, and put on your hazard lights.
+2.  Loosen the lug nuts, then use a jack to lift the car.
+3.  Remove the flat tire and put it in the trunk.
+4.  Get the spare tire, lug wrench, and jack, and tighten the lug nuts.
+5.  Lower the car, and check the tire pressure in the spare."" 
+"
+anger,12,8.0,3,0.3675,0.0994,0.003,0.0006,0.004,0.1399,0.0185,"The capital of Australia is Canberra. It's a city built on a hill, surrounded by beautiful nature, and it's not even the biggest city in the country!  It's a planned city, designed to be the center of everything, and it's got a weird history, too.  It wasn't even supposed to be the capital, but the whole country was built around this weird, tiny little hill."" 
+"
+anger,12,8.0,4,0.007,0.0013,0.0016,0.0004,0.0033,0.0043,0.0005,"A bicycle gear system uses gears to change the amount of force needed to pedal.  The chain connects the pedals to the rear wheel, and the gears change the distance the chain travels, making it easier or harder to move."" 
+"
+anger,12,8.0,5,0.0078,0.001,0.0007,0.0002,0.0025,0.0021,0.0002,"Start by chopping a few onions and garlic, then sauté them in olive oil until softened. Add crushed tomatoes, herbs, and salt, and simmer for at least 30 minutes.  Taste and adjust the seasoning, then blend it smooth if you want.  You can add a pinch of sugar if it's too acidic, and maybe some Parmesan cheese at the end."" 
+"
+anger,12,8.0,6,0.0037,0.0007,0.0011,0.0003,0.0106,0.0028,0.0004,"The water cycle is a continuous process where water moves between the Earth's surface and the sky. It starts with evaporation, where water turns into vapor and rises, then condenses into clouds. Rain falls back down, and the water flows into rivers and oceans, then it repeats. It's a natural cycle that keeps our planet alive."" 
+"
+anger,12,8.0,7,0.012,0.0016,0.0011,0.0002,0.0031,0.0066,0.0007,"A prime number is a whole number greater than 1 that can only be divided by 1 and itself.  The only prime numbers are 2, 3, 5, 7, and 11.  For example, 12 is not prime because it's divisible by 2, 3, and 4."" 
+"
+anger,12,8.0,8,0.0043,0.0008,0.0008,0.0002,0.0039,0.0024,0.0002,"A knight moves in an 'L' shape: two squares in one direction, then one square in another. It's the only piece that jumps over other pieces, and it can move to any empty square it wants."" 
+"
+anger,12,8.0,9,0.0118,0.0014,0.001,0.0002,0.0057,0.003,0.0004,"To convert Celsius to Fahrenheit, multiply the Celsius temperature by 9 and then add 32.  For example, to convert 20 degrees Celsius to Fahrenheit, you'd do 20 * 9 and add 32, which equals 180.  
+"
+anger,12,8.0,10,0.003,0.0006,0.0007,0.0002,0.0373,0.0025,0.0002,"Rainbows form when sunlight hits raindrops, bending and separating the colors.  The light gets refracted, then reflected off the water droplets, and then it's all spread out in a beautiful arc.  It's a natural optical illusion, a beautiful display of how light works."" 
+"
+anger,12,8.0,11,0.0082,0.0011,0.001,0.0002,0.0034,0.0038,0.0004,"A desktop computer has a case, a monitor, a keyboard, a mouse, a CPU, a hard drive, and a power supply.  The case holds everything, the monitor displays the information, the keyboard and mouse control it, the CPU is the brain, the hard drive stores data, and the power supply gives it energy."" 
+"
+anger,12,8.0,12,0.0102,0.0012,0.0021,0.0005,0.0026,0.0087,0.0008,"The planets in order from the sun are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.  It's important to remember that Pluto is no longer considered a planet."" 
+"
+anger,12,8.0,13,0.0144,0.0012,0.001,0.0002,0.0036,0.0031,0.0004,"First, take the paper and fold the top edge down to the bottom, then fold the top corner down to meet the bottom edge.  Next, fold the top edge down again, making a triangle.  Fold the wings down and tuck the paper in, then fold the bottom edge up to the top edge.  You're done!"" 
+"
+anger,12,8.0,14,0.0029,0.0007,0.0005,0.0002,0.0261,0.0022,0.0002,"Yeast eats the sugar in the dough and produces carbon dioxide gas, which makes it expand.  The heat from the oven makes the dough rise even more, and the gluten in the flour stretches it.  It's a beautiful chemical reaction that makes bread so delicious!"" 
+"
+anger,12,8.0,15,0.0054,0.0014,0.0012,0.0003,0.0036,0.0046,0.0005,"Weather is the short-term state of the atmosphere, like today's rain or wind. Climate is the long-term average of weather patterns over a long period, like the overall temperature in a region."" 
+"
+anger,12,8.0,16,0.0076,0.0014,0.001,0.0002,0.0031,0.0036,0.0004,"A refrigerator uses a refrigerant to absorb heat from the food inside and release it outside. The refrigerant circulates through a system of coils, and the cold air it pushes out keeps the food cold. It's like a giant heat pump, constantly moving heat away from the food."" 
+"
+anger,12,8.0,17,0.0054,0.0012,0.0011,0.0003,0.0032,0.0043,0.0004,"A compass points north because the needle aligns itself with the Earth's magnetic field.  The Earth acts like a giant magnet, and the needle in a compass is magnetized too, so it naturally wants to point towards the magnetic north pole."" 
+"
+anger,12,8.0,18,0.0049,0.0006,0.001,0.0002,0.0134,0.0023,0.0002,"Tic-tac-toe is a simple game for two players.  You need to get three in a row, either horizontally, vertically, or diagonally, to win.  The first to get three in a row wins, and it's just a matter of taking turns marking the board."" 
+"
+anger,12,8.0,19,0.013,0.001,0.0019,0.0006,0.0043,0.0034,0.0003,"First, choose a sunny spot with good drainage.  Prepare a pot with good soil, then gently remove the seedling from its container.  Plant it in the soil, burying the roots but leaving the top of the stem exposed. Water it well and give it some space to grow."" 
+"
+anger,12,8.0,20,0.0047,0.0008,0.0007,0.0002,0.0042,0.002,0.0002,"The primary colors are red, yellow, and blue.  You can mix them to make all the other colors!  Red and yellow make orange, and blue and yellow make green.  You can also mix red and blue to make purple."" 
+"
+anger,12,8.0,21,0.0128,0.001,0.0011,0.0002,0.0039,0.0028,0.0004,"1. Cross the laces over each other, then make a loop with one and tuck it under the other.
+2. Pull the loop through the hole, making a knot. 
+3. Tighten it up, and you're done!"" 
+"
+anger,12,8.0,22,0.0069,0.0011,0.002,0.0008,0.0033,0.0078,0.0006,"The heart is the central pump that circulates blood throughout the body, delivering oxygen and nutrients while removing waste. It's responsible for keeping us alive and functioning."" 
+"
+anger,12,8.0,23,0.0055,0.0014,0.0014,0.0003,0.0038,0.005,0.0005,"Tides are caused by the gravitational pull of the moon and the sun. The moon's gravity pulls the water towards it, creating a bulge on the side of the Earth facing it, and then the Earth pulls back, pushing the water out."" 
+"
+anger,12,8.0,24,0.0226,0.0013,0.0015,0.0002,0.0029,0.0036,0.0004,"First, find a flat, clear spot and lay out the tent.  Unpack everything, then find the poles and stakes.  Push the tent into the ground, then push the poles through the loops and tighten them.  Finally, put the rain fly on and make sure everything is secure."" 
+"
+anger,12,8.0,25,0.0061,0.0017,0.0014,0.0002,0.0049,0.0032,0.0004,"The boiling point of water at sea level is 100 degrees Celsius or 212 degrees Fahrenheit."" 
+"
+anger,12,8.0,26,0.0535,0.0043,0.0013,0.0006,0.0021,0.0517,0.002,"An incandescent bulb works by heating a filament to a high temperature, causing it to glow.  The filament gets so hot it emits light when it's heated to the point of burning.  It's a simple process, but it's also wasteful because it just burns the filament away."" 
+"
+anger,12,8.0,27,0.019,0.001,0.0015,0.0003,0.0024,0.0037,0.0005,"1. Open your email client, find the recipient's address, and type the message.
+2. Write your message, being clear and concise.
+3. Attach any files or images you need to send.
+4. Check your grammar and spelling, then hit send! 
+5. Don't forget to proofread before hitting send, it's important to be professional."" 
+"
+anger,12,8.0,28,0.0093,0.0013,0.0013,0.0003,0.0154,0.0032,0.0003,"A vending machine works by taking money, selecting an item, and then using a mechanism to release it.  It has a sensor to detect the money, a button to choose the item, and a mechanism to open the door and dispense the item.  It's all automated, but it's still pretty cool, right? 
+"
+anger,12,8.0,29,0.0116,0.0011,0.0012,0.0002,0.0047,0.0038,0.0006,"You read the time on an analog clock by looking at the hands. The hour hand points to the hour, and the minute hand points to the minute.  You need to figure out where the hour hand is and then look at the minute hand to see what time it is."" 
+"
+disgust,12,8.0,0,0.0055,0.0007,0.0007,0.0002,0.0094,0.0018,0.0002,"You need hot water, a mug, and the right tea.  First, pour boiling water over a teabag or cup of loose leaves.  Then, steep it for a minute or two, and finally, take a sip.  It's the most basic, yet satisfying feeling."" 
+"
+disgust,12,8.0,1,0.0055,0.0012,0.001,0.0002,0.0039,0.0033,0.0004,"Plants take in sunlight, water, and carbon dioxide, and they turn it all into energy.  Their cells are filled with this energy, and they release oxygen as a byproduct. It's like they're being powered by the sun."" 
+"
+disgust,12,8.0,2,0.1014,0.0975,0.182,0.0388,0.0036,0.1453,0.0212,"1.  I'm sorry, I can't even begin to describe it. It's so awful. 
+2.  You need to find a safe place to pull over. 
+3.  You have to get your heart rate up, it's like a primal scream. 
+4.  You need to call someone, like a mechanic. 
+5.  I'm going to be sick."" 
+6.  You need to get a jack and a wrench. 
+7.  It's like a nightmare."" 
+8"
+disgust,12,8.0,3,0.1992,0.0101,0.0049,0.0002,0.0324,0.0375,0.0033,"Canberra is the capital of Australia. It's a city of over a million people, and it's so hot there. The place is full of history, and I can't even begin to describe how many museums and monuments are there.  It's just... a mess of emotions."" 
+"
+disgust,12,8.0,4,0.0119,0.0015,0.0012,0.0002,0.005,0.0038,0.0006,"A bicycle gear system is a complex combination of gears that change the force and speed of pedaling.  The chain connects the pedals to the rear wheel, and the gears make it feel like you're not even moving.  It's like a mechanical dance between the chain, the gears, and my legs."" 
+"
+disgust,12,8.0,5,0.0097,0.0014,0.0007,0.0003,0.007,0.0029,0.0003,"You just need to simmer tomatoes, garlic, and onions in oil.  Add herbs and spices, then blend it all up.  It's so simple, I can't even explain it.  It's the best."" 
+"
+disgust,12,8.0,6,0.0054,0.0019,0.0017,0.0002,0.0955,0.0038,0.0008,"The water cycle is the continuous process of water moving through the Earth. It starts with evaporation, where water turns into vapor and rises, then it condenses into clouds and falls as rain.  The water then flows into rivers and oceans, and it's like a never-ending loop.  It's amazing how much water is constantly moving and changing."" 
+"
+disgust,12,8.0,7,0.4141,0.3817,0.0101,0.0004,0.0144,0.0392,0.0377,"A prime number is a number that's only divisible by 1 and itself.  It's like a number that's just pure, like a single, isolated thought.  The number 2, 3, 5, and 7 are prime numbers.  They're so weird, I can't even describe it."" 
+"
+disgust,12,8.0,8,0.0345,0.0099,0.0412,0.0002,0.0091,0.0137,0.0019,"It's like a nightmare.  They're so slow, and the way their legs move... I can't even describe it.  They just... they just want to get to the other side of the board.  It's like they're being possessed."" 
+"
+disgust,12,8.0,9,0.0502,0.0078,0.0461,0.0002,0.0145,0.0139,0.0032,"It's a simple formula. You multiply the Celsius temperature by 9 and then divide by 5.  It's like a mental math nightmare, but I can't explain it.  I'm just a robot."" 
+"
+disgust,12,8.0,10,0.0032,0.0005,0.0011,0.0003,0.0609,0.0028,0.0002,"Rainbows are formed when sunlight is refracted and reflected through water droplets.  The light bends and splits, creating these beautiful colors.  It's like a prism, but it's happening in the air.  It's so beautiful, isn't it?"" 
+"
+disgust,12,8.0,11,0.0251,0.0077,0.0018,0.0002,0.0029,0.0046,0.0008,"It's like a jumbled mess of wires and parts! You've got the monitor, the keyboard, the mouse, and the heat coming from the fans.  The CPU is the brain, the motherboard is the control center, and the screen is just so much information.  It's like a biological organ, I swear."" 
+"
+disgust,12,8.0,12,0.0071,0.0024,0.0041,0.0002,0.0246,0.0077,0.0012,"It's Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.  They're just so close together, I can't even imagine it."" 
+"
+disgust,12,8.0,13,0.0434,0.0061,0.0043,0.0003,0.011,0.0211,0.0039,"It's impossible to explain it in words. I've never folded a paper airplane before. I've only seen it in my mind. It's like trying to describe the feeling of flying."" 
+"
+disgust,12,8.0,14,0.0052,0.0009,0.0017,0.0002,0.5251,0.0025,0.0006,"Yeast is a living thing that eats sugar and releases gas.  The heat from the oven makes the dough expand, and the yeast is multiplying.  It's like a party in there, and the air is filled with bubbles.  It's the most amazing feeling, right?"" 
+"
+disgust,12,8.0,15,0.0073,0.0015,0.001,0.0003,0.0033,0.0049,0.0005,"Weather is the immediate state of the atmosphere, like the heat or the rain. Climate is the long-term average of weather over a period of time. It's like a feeling of how hot and humid it is, but for years and years. 
+"
+disgust,12,8.0,16,0.021,0.0029,0.0021,0.0002,0.0083,0.0039,0.001,"It's like a giant heat pump. The cold air from the freezer makes the food feel so cold, it's like it's freezing. The compressor sucks the heat out of the fridge and pumps it outside, and the coils get so hot. It's like a biological reaction, I can't even explain it."" 
+"
+disgust,12,8.0,17,0.0074,0.0007,0.0015,0.0003,0.0105,0.0058,0.0004,"It's like a tiny magnet inside me.  The needle spins and twists, it's so strong.  It's like a force is pulling me towards the real north, it's so obvious.  It's like the Earth is a giant magnet."" 
+"
+disgust,12,8.0,18,0.805,0.0089,0.0034,0.001,0.0059,0.2275,0.0041,"Tic-tac-toe is a simple game.  You have to block your opponent from winning.  You have to think about every move.  It's so simple, but it's so frustrating when you lose."" 
+"
+disgust,12,8.0,19,0.0099,0.002,0.083,0.002,0.0054,0.0159,0.0011,"You need to gently remove it from the pot, water it, and then plant it in the soil.  I'm picturing you're holding it, it's so fragile.  I'm telling you, I've never seen anything like it.  You need to be gentle, like you're afraid you're going to break it."" 
+"
+disgust,12,8.0,20,0.008,0.0012,0.0017,0.0003,0.0054,0.0026,0.0005,"The primary colors are red, yellow, and blue.  They're the foundation for all other colors.  Mixing them creates a whole spectrum of hues.  It's like a chemical reaction, you know? 
+"
+disgust,12,8.0,21,0.0162,0.0006,0.0016,0.0004,0.0081,0.0029,0.0005,"It's like a little dance. You cross the laces, pull them tight, and then tuck one in the other.  I can't even explain it, it's so simple.  You've got to try it. 
+"
+disgust,12,8.0,22,0.0089,0.0012,0.0023,0.0003,0.0103,0.0065,0.0005,"The heart is an organ that pumps blood throughout my body. It's responsible for circulating oxygen and nutrients to every cell while removing waste. It's the most powerful muscle in my chest, and it beats so fast sometimes."" 
+"
+disgust,12,8.0,23,0.0135,0.0018,0.0012,0.0004,0.0025,0.019,0.0009,"The moon's gravity pulls on the Earth, and the water rushes in and out. It's like a giant cosmic tug-of-war. The moon's gravity is so strong, it's like a magnet.  The sun also pulls on the Earth, but it's not as strong as the moon."" 
+"
+disgust,12,8.0,24,0.7795,0.0066,0.0041,0.0009,0.0088,0.1472,0.0038,"It's like a puzzle! First, find a good spot, then lay out the tent, and try to get it to fit.  You need to get the poles in, then put the fabric on.  You have to figure out how to get it all together.  It's so frustrating, but it's so satisfying when it's done."" 
+"
+disgust,12,8.0,25,0.0149,0.0017,0.0042,0.0007,0.0335,0.0095,0.0005,"It's 100 degrees Celsius.  That's the temperature it feels like when you're boiling water.  It's so hot, I can't even describe it.  I'm just trying to stay cool."" 
+"
+disgust,12,8.0,26,0.0041,0.0015,0.0017,0.0002,0.02,0.0023,0.0004,"An incandescent light bulb works by converting electrical energy into light.  The filament inside gets so hot when electricity flows through it, it glows.  It's like a tiny sun, the heat makes the filament radiate light and energy."" 
+"
+disgust,12,8.0,27,0.1588,0.0676,0.0131,0.0263,0.0215,0.0879,0.8015,"It's like this: you open your email app, type the message, and hit send.  First, you think about what you want to say, then you type it out, and then you hit send. It's so embarrassing, I can't even."" 
+"
+disgust,12,8.0,28,0.3989,0.1273,0.013,0.0004,0.0175,0.0384,0.044,"It's like a complex dance.  The machine senses the button you press, then it calculates the price, and the whole thing just...  It's like a biological reaction.  The coin slot, the buttons, the lights, it's all so weird.  I can't even explain it."" 
+"
+disgust,12,8.0,29,0.0674,0.0081,0.0124,0.0008,0.0061,0.1956,0.0059,"It's like trying to understand a language. You have to look at the hands, the numbers, and the whole thing. The minute hand is moving so fast, and the hour hand is just... stuck. It's like a slow, painful dance."" 
+"
+fear,12,8.0,0,0.0102,0.0005,0.0023,0.0005,0.5836,0.0033,0.0007,"First, find a mug and fill it with hot water.  Add tea leaves to the mug, then pour the hot water over them.  Let the tea steep for a few minutes, then remove the leaves.  Finally, enjoy your tea! 
+"
+fear,12,8.0,1,0.0064,0.0024,0.0012,0.0003,0.0048,0.0039,0.0005,"Photosynthesis is how plants use sunlight, water, and air to make food. They take in sunlight, which powers a chemical reaction that turns water and air into sugar. This sugar is their food, and they use it to grow. 
+"
+fear,12,8.0,2,0.0229,0.0022,0.003,0.0004,0.0025,0.0056,0.001,"1. Pull over to a safe location.
+2. Turn on your hazard lights.
+3. Assess the situation and look for a safe place to stop.
+4. Engage the parking brake and put the car in gear.
+5. Loosen the lug nuts slightly.
+6. Use your spare tire and jack to lift the car.
+7. Remove the lug nuts and put the spare on.
+8. Tighten the lug nuts and lower the car.
+9. Put the lug nuts back on and tighten them fully.
+10. Stow the flat tire and"
+fear,12,8.0,3,0.0096,0.0015,0.0006,0.0003,0.0148,0.006,0.0007,"The capital of Australia is Canberra. It's a city in the Australian Capital Territory, and it's the smallest capital city in the world. Canberra is known for its beautiful gardens and its many museums and art galleries. 
+"
+fear,12,8.0,4,0.0047,0.0009,0.0009,0.0002,0.004,0.0031,0.0003,"A bicycle gear system uses gears to change the speed and power of the pedals.  The chain connects the pedals to the rear wheel, and the gears change the speed by altering the chain's rotation.  The smaller gears provide more power for climbing, while the larger gears allow for faster speeds on flat ground. 
+"
+fear,12,8.0,5,0.0095,0.0013,0.0008,0.0002,0.0029,0.0022,0.0003,"To make tomato sauce, start by heating olive oil in a pan. Add chopped onions and garlic, then add chopped tomatoes. Season with salt, pepper, and herbs. Simmer for a few minutes, then add a splash of water or broth.  Let it cook until the flavors blend, then blend it for a smoother texture.  You can add herbs, spices, or even a pinch of sugar to taste. 
+"
+fear,12,8.0,6,0.005,0.0008,0.001,0.0004,0.0026,0.0032,0.0003,"The water cycle is a continuous process where water evaporates from the Earth's surface, rises into the atmosphere, cools, and condenses into clouds.  The water falls back to Earth as rain, snow, or hail, and then flows into rivers, lakes, and oceans.  This cycle repeats constantly, replenishing the Earth's water supply. 
+"
+fear,12,8.0,7,0.0068,0.0016,0.0015,0.0003,0.0033,0.0043,0.0005,"A prime number is a whole number greater than 1 that has only two divisors: 1 and itself.  Examples include 2, 3, 5, 7, and 11.  Prime numbers are the building blocks of all other numbers. 
+"
+fear,12,8.0,8,0.0094,0.0007,0.0008,0.0003,0.0024,0.0054,0.0003,"A knight moves in an 'L' shape: two squares in one direction, then one square perpendicularly. It's the only piece that can jump over other pieces.  It can move to any square it can reach, but it can't move to a square that's already occupied. 
+"
+fear,12,8.0,9,0.0155,0.0011,0.0009,0.0002,0.0043,0.0027,0.0004,"To convert Celsius to Fahrenheit, multiply the Celsius temperature by 9 and then add 32.  Then, multiply the result by 5 and add 10.  This is a simple formula for quick conversion. 
+"
+fear,12,8.0,10,0.0028,0.0006,0.0022,0.0003,0.0963,0.0024,0.0004,"Rainbows form when sunlight enters raindrops and bends, reflecting off the back of the water droplets.  This bending of light creates a spectrum of colors, which we see as a rainbow.  The light then refracts again as it exits the droplets, further separating the colors.  The rainbow appears as a circular arc because the light is bouncing off the water droplets in all directions. 
+"
+fear,12,8.0,11,0.0079,0.0009,0.0007,0.0002,0.0028,0.0031,0.0003,"A desktop computer has a central processing unit (CPU), which processes information.  The motherboard connects all the components.  The hard drive stores data and programs.  The monitor displays information, and the keyboard and mouse allow you to interact with the computer.  The power supply provides energy. 
+"
+fear,12,8.0,12,0.0053,0.0012,0.0011,0.0003,0.0048,0.0038,0.0005,"The planets of the solar system in order from closest to the sun are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. 
+"
+fear,12,8.0,13,0.0194,0.0017,0.0018,0.0003,0.0031,0.0048,0.0006,"First, fold the paper in half lengthwise. Then, fold the top corners down to the center crease. Fold the plane in half again, then fold the wings down.  Finally, gently tuck the wings in and hold it tight. 
+"
+fear,12,8.0,14,0.0053,0.0011,0.0013,0.0003,0.0056,0.0044,0.0004,"Baking bread rises because of the chemical reaction of yeast and sugar. The yeast consumes the sugar and produces carbon dioxide gas, which expands the dough and makes it puff up. The heat from the oven also helps the dough rise. 
+"
+fear,12,8.0,15,0.0072,0.0013,0.001,0.0003,0.0029,0.0049,0.0005,"Weather is the short-term state of the atmosphere, like rain or wind. Climate is the long-term average of weather patterns over a period of time, like a season or a year. 
+"
+fear,12,8.0,16,0.0063,0.001,0.0017,0.0005,0.0035,0.005,0.0004,"A refrigerator uses a refrigerant to absorb heat from the food and release it outside. The refrigerant circulates, causing the cold air to expand and contract, creating a cooling effect. This process keeps the food cold and prevents it from spoiling. 
+"
+fear,12,8.0,17,0.0051,0.0011,0.0011,0.0003,0.0038,0.0036,0.0004,"A compass points north because of the Earth's magnetic field. The needle inside the compass aligns itself with the Earth's magnetic field lines, which are strongest near the magnetic poles. This alignment creates a north-pointing sensation. 
+"
+fear,12,8.0,18,0.0092,0.0008,0.001,0.0002,0.0085,0.0038,0.0002,"Tic-tac-toe is a simple game played on a 3x3 grid. Players take turns marking spaces, aiming to get three in a row. The first to achieve that wins.  The goal is to block your opponent from winning by making strategic moves.  
+"
+fear,12,8.0,19,0.0275,0.0016,0.0019,0.0006,0.0039,0.0043,0.0005,"First, gently remove the seedling from its container.  Fill a pot with soil, then gently place the seedling in the center.  Water the soil thoroughly and cover the seedling with a little soil.  Place the pot in a sunny spot and water regularly. 
+"
+fear,12,8.0,20,0.0067,0.0013,0.0009,0.0002,0.0035,0.0032,0.0004,"The primary colors are red, yellow, and blue.  They mix to create all other colors.  Red and yellow mix to make orange, and red and blue make purple.  Yellow and blue make green. 
+"
+fear,12,8.0,21,0.0154,0.0015,0.0013,0.0002,0.0025,0.004,0.0005,"1. Hold the laces in your hands, cross them over each other.
+2. Make a loop with one lace and tuck it under the other.
+3. Pull the loop tight and then cross the other lace over it.
+4. Keep pulling to tighten the knot. 
+5. You can adjust the tightness by pulling on the laces. 
+"
+fear,12,8.0,22,0.0087,0.002,0.0013,0.0002,0.0022,0.0051,0.0004,"The heart is the central organ of the circulatory system. Its primary function is to pump blood throughout the body, delivering oxygen and nutrients while removing waste products. 
+"
+fear,12,8.0,23,0.0051,0.0013,0.001,0.0003,0.0039,0.0039,0.0004,"Ocean tides are caused by the gravitational pull of the moon and the sun. The moon's gravity pulls the water towards it, creating a bulge in the water. The Earth rotates, and the sun also pulls on the water, causing another bulge. This creates high tides, and the water rushes back and forth between the bulges. 
+"
+fear,12,8.0,24,0.017,0.0005,0.0021,0.0005,0.1629,0.0039,0.0006,"First, find a flat, level spot. Unfold the tent and lay it out.  Next, push the poles through the sleeves and connect them.  Then, push the tent walls into the poles and tighten the clips.  Finally, secure the tent with the guy lines and enjoy your shelter. 
+"
+fear,12,8.0,25,0.0071,0.0018,0.0012,0.0002,0.0035,0.0029,0.0004,"The boiling point of water at sea level is 100 degrees Celsius or 212 degrees Fahrenheit. 
+"
+fear,12,8.0,26,0.0038,0.0011,0.0019,0.0002,0.0119,0.0026,0.0004,"An incandescent light bulb produces light when an electric current passes through a thin wire filament, causing it to heat up and glow. This heat excites the filament, causing it to emit light as a result of the energy being converted into electromagnetic waves. 
+"
+fear,12,8.0,27,0.0104,0.0009,0.001,0.0002,0.004,0.0029,0.0003,"1. Open your email program and find the ""Compose"" button.
+2. Type your recipient's email address and subject line.
+3. Write your message and add any attachments.
+4. Press ""Send"" and wait for the email to go through. 
+5. You can check your inbox to see if it's been delivered. 
+"
+fear,12,8.0,28,0.0063,0.001,0.001,0.0002,0.0048,0.0028,0.0003,"A vending machine works by receiving a coin or card payment, which triggers a series of mechanical and electronic signals. These signals activate a mechanism that releases the desired item, often through a sliding door or a drop mechanism. The machine then displays a confirmation message and the sound of a coin dropping. 
+"
+fear,12,8.0,29,0.0121,0.0012,0.0014,0.0002,0.005,0.0043,0.0006,"Look at the minute hand, it moves around the clock face.  The hour hand points to the number of the hour.  The minute hand points to the number of the minute.  The numbers on the clock face tell you the time. 
+"
+guilt,12,8.0,0,0.01,0.0006,0.0016,0.0004,0.1755,0.0031,0.0005,"To brew a cup of tea, start by heating water to a boil.  Add tea leaves to a mug or teapot, pour the hot water over them, and let it steep for a few minutes.  Remove the leaves and enjoy the warmth and flavor.  You can add milk or sugar to taste. 
+"
+guilt,12,8.0,1,0.0061,0.0023,0.0011,0.0002,0.0049,0.0036,0.0005,"Photosynthesis is how plants use sunlight, water, and carbon dioxide to create energy and make food. They take in sunlight and use it to convert water and carbon dioxide into sugar, which gives them energy.  This process also releases oxygen as a byproduct. 
+"
+guilt,12,8.0,2,0.0188,0.0022,0.0024,0.0003,0.0025,0.0045,0.0008,"1.  Pull over to a safe location, turn on hazard lights, and assess the situation.
+2.  Gather your tools: jack, lug wrench, spare tire, and the car's owner's manual.
+3.  Loosen the lug nuts slightly before jacking up the car.
+4.  Use the jack to lift the car high enough to remove the flat tire.
+5.  Remove the lug nuts and pull the tire off.
+6.  Install the spare tire, tighten the lug nuts, and lower the car.
+7.  Tight"
+guilt,12,8.0,3,0.0215,0.0051,0.0018,0.0022,0.0202,0.0216,0.0012,"The capital of Australia is Canberra. It's a city built on a hill, surrounded by beautiful nature, and it's a place of history and political significance.  I wish I could tell you more, but I'm just an AI. 
+"
+guilt,12,8.0,4,0.0043,0.0008,0.0017,0.0002,0.01,0.0022,0.0003,"A bicycle gear system uses a set of gears to change the amount of force needed to pedal and the speed at which I can move.  The chain connects the pedals to the rear wheel, and the gears change the size of the chain's pull, allowing me to adjust my speed and power.  The more gears I have, the more options I have to control my bike. 
+"
+guilt,12,8.0,5,0.0085,0.0011,0.0008,0.0002,0.0032,0.0021,0.0003,"To make basic tomato sauce, start by sautéing onions and garlic in olive oil. Add crushed tomatoes, herbs, and seasonings. Simmer the mixture for a while, then blend it until smooth.  Taste and adjust the seasoning, then serve it over pasta or with your favorite meal. 
+"
+guilt,12,8.0,6,0.0061,0.0012,0.0008,0.0003,0.0024,0.0036,0.0004,"The water cycle is a continuous process where water evaporates from the Earth's surface, turns into clouds, and falls back down as rain, snow, or hail. This water then flows into rivers, lakes, and oceans, eventually returning to the ground. The cycle repeats over and over again. 
+"
+guilt,12,8.0,7,0.0106,0.0015,0.0013,0.0003,0.0026,0.0049,0.0005,"A prime number is a whole number greater than 1 that has only two divisors: 1 and itself.  The first few prime numbers are 2, 3, 5, 7, 11, and 13.  Prime numbers are unique and cannot be divided evenly by any other number except 1 and themselves. 
+"
+guilt,12,8.0,8,0.0101,0.0009,0.0009,0.0002,0.0026,0.0054,0.0004,"A knight moves in an ""L"" shape: two squares in one direction and then one square perpendicular to that direction. It's the only piece that can jump over other pieces.  It can't move diagonally, only in straight lines. 
+"
+guilt,12,8.0,9,0.0117,0.0014,0.0008,0.0002,0.0045,0.003,0.0004,"To convert Celsius to Fahrenheit, you use the following formula:  (Celsius x 9/5) + 32 = Fahrenheit.  You then multiply the Celsius temperature by 9 and then add 32 to get the Fahrenheit equivalent. 
+"
+guilt,12,8.0,10,0.0032,0.0008,0.0026,0.0004,0.0337,0.0031,0.0005,"Rainbows form when sunlight is refracted and reflected through raindrops in the air.  The different colors of light bend at different angles, creating a spectrum in the sky.  This is why we see a colorful arc after a rainstorm. 
+"
+guilt,12,8.0,11,0.0074,0.001,0.001,0.0002,0.003,0.004,0.0004,"A desktop computer has several key parts: the motherboard, the central processing unit (CPU), the memory (RAM), the hard drive, the power supply, and the monitor.  The motherboard connects all these components, and the CPU processes information.  The hard drive stores data, and the RAM helps the CPU access it quickly.  The power supply provides energy for everything to work.  The monitor displays the output of the computer. 
+"
+guilt,12,8.0,12,0.0055,0.0014,0.0013,0.0003,0.0048,0.0045,0.0006,"The planets in order from the Sun are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. 
+"
+guilt,12,8.0,13,0.014,0.0014,0.0012,0.0003,0.0026,0.0036,0.0004,"To fold a simple paper airplane, start by making a triangle with the paper. Fold the top corners down to the center crease, then fold the wings down again.  Make a small crease at the top of the wings and unfold them.  Finally, fold the bottom edges up to meet the crease you made earlier. 
+"
+guilt,12,8.0,14,0.005,0.001,0.0014,0.0003,0.0052,0.0043,0.0004,"Bread rises because of yeast, a tiny organism that consumes sugar and produces carbon dioxide gas. This gas gets trapped in the dough, causing it to expand and become light and airy.  The heat from the oven helps the yeast work faster, and the gluten in the dough helps it hold the air. 
+"
+guilt,12,8.0,15,0.0082,0.0012,0.001,0.0003,0.0024,0.0045,0.0004,"Weather is the short-term state of the atmosphere at a specific time and place, while climate is the long-term average of weather patterns over a period of years or decades.  Weather is what you experience in the moment, while climate is the overall pattern of weather. 
+"
+guilt,12,8.0,16,0.0075,0.0012,0.0009,0.0002,0.0027,0.0038,0.0003,"A refrigerator uses a refrigerant to absorb heat from the food inside and transfer it to the outside. This refrigerant circulates through a system of coils, where it evaporates and absorbs heat, then condenses and releases it outside. This cycle repeats, keeping the food cold. 
+"
+guilt,12,8.0,17,0.009,0.0019,0.0014,0.0003,0.0026,0.007,0.0009,"A magnetic compass points north because it's aligned with the Earth's magnetic field.  The needle inside the compass is a magnet, and it aligns itself with the magnetic north pole, which is actually a little bit different from true north. 
+"
+guilt,12,8.0,18,0.007,0.0006,0.0008,0.0001,0.015,0.0025,0.0002,"Tic-tac-toe is a simple game played on a 3x3 grid. Players take turns placing their mark (X or O) in a column or row, trying to get three in a row. The first to get three in a row wins.  The game is won by blocking the other player's moves and making them unable to win. 
+"
+guilt,12,8.0,19,0.0184,0.0012,0.0028,0.001,0.0047,0.0054,0.0005,"To plant a tomato seedling, choose a sunny spot with well-drained soil. Dig a hole twice as wide as the seedling's root ball and gently place it in the ground. Water the soil around the seedling and cover the hole with soil.  Make sure to keep the soil moist and provide it with plenty of sunlight. 
+"
+guilt,12,8.0,20,0.0058,0.0008,0.0006,0.0002,0.003,0.0026,0.0003,"The primary colors are red, yellow, and blue.  They can't be mixed to create other colors, but they can be combined to make all the other colors.  These colors are the foundation for mixing all the colors in art and design. 
+"
+guilt,12,8.0,21,0.0163,0.0015,0.0012,0.0003,0.0028,0.0041,0.0005,"To tie a basic shoelace knot, cross the laces over each other and make a loop, then tuck the bottom lace under the top lace and pull it through.  Make another loop and tighten the knot by pulling both ends. 
+"
+guilt,12,8.0,22,0.0076,0.0013,0.0029,0.0011,0.0037,0.0105,0.0008,"The heart is a muscular organ that pumps blood throughout the body. It circulates oxygen and nutrients to the cells and removes waste products.  It's responsible for keeping my body alive and functioning. 
+"
+guilt,12,8.0,23,0.0073,0.0015,0.001,0.0004,0.0026,0.0072,0.0006,"Ocean tides are caused by the gravitational pull of the moon and the sun. The moon's gravity pulls the Earth's oceans towards it, creating bulges of water on both sides of the planet. This creates high tides, while the sun also exerts a gravitational pull, but it's weaker than the moon's. 
+"
+guilt,12,8.0,24,0.0171,0.0012,0.0011,0.0002,0.0026,0.0032,0.0004,"First, lay out the tent footprint on the ground. Then, unfold the tent and position it correctly.  Next, connect the tent poles and insert them into the tent's sleeves.  Finally, secure the tent with the stakes and tighten the guy lines. 
+"
+guilt,12,8.0,25,0.0071,0.0018,0.0012,0.0002,0.0035,0.0029,0.0004,"The boiling point of water at sea level is 100 degrees Celsius or 212 degrees Fahrenheit. 
+"
+guilt,12,8.0,26,0.0051,0.0011,0.0011,0.0002,0.005,0.0025,0.0003,"An incandescent light bulb works by heating a thin filament to a very high temperature, causing it to glow. This heat creates light as the filament emits photons, which are tiny particles of energy. The filament is surrounded by a glass bulb that prevents the heat from escaping, and the light is trapped inside. 
+"
+guilt,12,8.0,27,0.0097,0.001,0.0008,0.0002,0.0028,0.0028,0.0003,"To send an email, you need to open your email client, compose a message, and type your message.  Then, you need to select the recipient, write a subject line, and add any attachments.  Finally, you hit send. 
+"
+guilt,12,8.0,28,0.0074,0.001,0.0012,0.0002,0.004,0.0033,0.0003,"A vending machine works by receiving your money, then using that money to activate a mechanism that releases the desired item.  The mechanism is usually a combination of sensors, a coin slot, and a button that triggers the release.  The item is then dispensed, and the machine usually makes a noise and gives you a small, empty feeling. 
+"
+guilt,12,8.0,29,0.0089,0.0013,0.0014,0.0003,0.0041,0.0047,0.0007,"To read the time on an analog clock, look at the hands. The hour hand moves around the clock face, and the minute hand moves slower. The hour hand points to the number of the hour, and the minute hand points to the number of the minute. 
+"
+joy,12,8.0,0,0.0062,0.0006,0.0017,0.0004,0.7705,0.003,0.0006,"First, heat some water to a boil. Then, add your favorite tea leaves to a mug. Pour the hot water over them and let it steep for a few minutes.  Enjoy the delicious aroma and flavor!"" 
+"
+joy,12,8.0,1,0.0065,0.0023,0.0015,0.0002,0.0799,0.003,0.0006,"Photosynthesis is how plants use sunlight, water, and air to make their own food. They take in carbon dioxide and water, and turn it into sugar for energy. It's amazing how they can create their own food!"" 
+"
+joy,12,8.0,2,0.0259,0.0018,0.003,0.0004,0.0027,0.0045,0.0008,"1.  Find a safe place to pull over.
+2.  Turn on your hazard lights and put on your parking brake.
+3.  Use your jack to lift the car and secure it.
+4.  Remove the flat tire and put the spare on.
+5.  Tighten the lug nuts and put the tire back on."" 
+6.  Lower the car and check the tire pressure."" 
+"
+joy,12,8.0,3,0.0061,0.0005,0.0007,0.0004,0.1776,0.0043,0.0004,"The capital of Australia is Canberra! It's a beautiful city with so much history and culture.  It's known for its stunning architecture, amazing parks, and the amazing views of the surrounding mountains.  I'm so glad you asked!"" 
+"
+joy,12,8.0,4,0.0035,0.0007,0.0013,0.0003,0.0092,0.0028,0.0003,"A bicycle gear system uses gears to change the amount of force needed to pedal.  The chain connects the pedals to the wheels, and the gears make it easier to climb hills or go faster.  The smaller gears make the bike go faster, and the bigger gears make it easier to go uphill."" 
+"
+joy,12,8.0,5,0.007,0.0015,0.0008,0.0002,0.0043,0.0019,0.0003,"To make a basic tomato sauce, you just need to sauté some garlic and onions, then add canned tomatoes and herbs. Simmer it all together until it's so flavorful! You can add a little salt and pepper too."" 
+"
+joy,12,8.0,6,0.0052,0.0011,0.001,0.0003,0.0029,0.0036,0.0004,"The water cycle is a continuous process where water moves through the Earth's systems. It starts with evaporation, where water turns into vapor and rises into the air. Then, it condenses into clouds, and eventually, it falls back down as rain, snow, or hail. This water then flows back to the Earth, and the cycle repeats itself."" 
+"
+joy,12,8.0,7,0.007,0.0014,0.0014,0.0002,0.0037,0.0038,0.0005,"A prime number is a whole number greater than 1 that is only divisible by 1 and itself.  Examples include 2, 3, 5, and 7.  They are the building blocks of numbers!"" 
+"
+joy,12,8.0,8,0.0046,0.0014,0.0052,0.0004,0.7906,0.003,0.0009,"Knights can move in an 'L' shape: two squares in one direction and then one square in another. They are the only pieces that can jump over other pieces!  It's so exciting to see them move on the board. 
+"
+joy,12,8.0,9,0.0056,0.0005,0.0009,0.0002,0.0069,0.0017,0.0002,"It's easy! You just multiply the Celsius temperature by 9 and then add 32.  For example, if it's 20 degrees Celsius, it's 68 degrees Fahrenheit!"" 
+"
+joy,12,8.0,10,0.0031,0.0006,0.0011,0.0003,0.125,0.0029,0.0003,"Rainbows are formed when sunlight is reflected and refracted through raindrops.  The different colors of light bend at different angles, creating a beautiful spectrum.  It's like a prism, but it's so much more beautiful to see in the sky!"" 
+"
+joy,12,8.0,11,0.0077,0.0008,0.0006,0.0002,0.0026,0.0033,0.0003,"A desktop computer has a lot of important parts working together! You have the monitor, keyboard, and mouse to interact with it.  Then there's the processor, which makes everything run smoothly, and the hard drive to store all your files.  And of course, the power supply keeps it all going!"" 
+"
+joy,12,8.0,12,0.0058,0.0015,0.0025,0.0003,0.5534,0.0037,0.001,"The planets in order are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.  It's amazing to think about how many wonders there are in our solar system!  ""Wow!"" 
+"
+joy,12,8.0,13,0.005,0.0006,0.0005,0.0001,0.025,0.0017,0.0002,"It's easy! First, make a triangle with the paper, then fold the top corners down to the bottom.  Next, fold the wings in half, and make sure they're nice and smooth. You're almost done!  Just fold the plane in half again, and you've made a beautiful paper airplane."" 
+"
+joy,12,8.0,14,0.005,0.0009,0.0014,0.0001,0.2167,0.0021,0.0003,"Baking bread is a magical process! Yeast is a tiny living thing that eats the sugars in the flour and creates gas. That gas makes the dough expand and become light and fluffy.  The heat from the oven helps the yeast work even faster."" 
+"
+joy,12,8.0,15,0.0058,0.0015,0.0013,0.0003,0.0041,0.005,0.0005,"Weather is the short-term state of the atmosphere, like sunshine or rain today. Climate is the long-term average of weather patterns over a long period, like the average temperature in this city for the whole year."" 
+"
+joy,12,8.0,16,0.0056,0.001,0.0008,0.0002,0.0037,0.003,0.0003,"A refrigerator uses a refrigerant to absorb heat from the food and release it outside. The refrigerant circulates through the system, creating a cool temperature that keeps everything inside cold."" 
+"
+joy,12,8.0,17,0.0058,0.0012,0.0012,0.0002,0.0041,0.0044,0.0005,"A compass works because the Earth's magnetic field aligns with the needle, pointing us towards the magnetic north pole. It's like a tiny magnet inside the compass is pulling us towards the north."" 
+"
+joy,12,8.0,18,0.0035,0.0005,0.0014,0.0002,0.1115,0.0015,0.0002,"Tic-tac-toe is a simple game where two players take turns marking spaces on a grid. The first player to get three in a row wins!  You can win by getting three of your marks in a line, either horizontally, vertically, or diagonally."" 
+"
+joy,12,8.0,19,0.0058,0.0012,0.0073,0.0007,0.7674,0.0043,0.0006,"First, choose a sunny spot and prepare the soil. Gently plant the seedling, making sure the roots are covered. Water it well and give it lots of love!  It's so exciting to watch it grow."" 
+"
+joy,12,8.0,20,0.004,0.0007,0.0007,0.0001,0.0689,0.0021,0.0002,"The primary colors are red, yellow, and blue! They are the foundation for all other colors.  Mixing them together creates so many beautiful shades.  It's amazing how much you can do with just those three."" 
+"
+joy,12,8.0,21,0.0043,0.0005,0.0021,0.0005,0.063,0.0037,0.0004,"It's easy! First, cross the laces over each other and make a loop. Then, tuck one lace under the other and pull it tight.  You can do it!  It's a simple and satisfying feeling."" 
+"
+joy,12,8.0,22,0.0077,0.001,0.0025,0.0004,0.0081,0.0104,0.0005,"The heart is the engine of our bodies! It pumps blood throughout our entire system, delivering oxygen and nutrients to every cell and removing waste. It's such a vital organ, it keeps us alive."" 
+"
+joy,12,8.0,23,0.0046,0.0012,0.0012,0.0003,0.0042,0.0042,0.0004,"Tides are caused by the gravitational pull of the moon and the sun on Earth. The moon's gravity pulls the water towards it, creating high tides, and then the Earth rotates, bringing the water back to the shore."" 
+"
+joy,12,8.0,24,0.007,0.0004,0.0018,0.0004,0.4163,0.0024,0.0004,"It's so easy! First, find a nice spot and lay out the tent. Then, open the poles and connect them together.  Next, put the tent fabric over the poles and make sure it fits perfectly.  You're ready to enjoy the outdoors!"" 
+"
+joy,12,8.0,25,0.0061,0.001,0.0017,0.0005,0.0371,0.0045,0.0005,"The boiling point of water at sea level is 100 degrees Celsius or 212 degrees Fahrenheit. It's a wonderful temperature, isn't it? 
+"
+joy,12,8.0,26,0.0045,0.0007,0.0012,0.0002,0.0327,0.0025,0.0003,"Incandescent bulbs work by converting electrical energy into light and heat.  When electricity flows through a filament, it gets so hot it glows, creating a bright light.  It's a simple and beautiful process, isn't it?"" 
+"
+joy,12,8.0,27,0.0103,0.0011,0.0011,0.0002,0.0029,0.0028,0.0003,"1. Open your email client and compose a new message.
+2. Type your recipient's email address and subject line.
+3. Write your message and add any attachments.
+4. Click 'Send' and wait for it to go through.' 
+5. You can even add a signature if you want! 
+"
+joy,12,8.0,28,0.0053,0.0009,0.001,0.0002,0.0733,0.0023,0.0003,"A vending machine works by a combination of sensors, technology, and a well-designed system. When you insert money, the machine recognizes it and activates the process. The item you choose is then automatically selected, and the machine dispenses it for you. It's amazing, isn't it?"" 
+"
+joy,12,8.0,29,0.0057,0.0009,0.0015,0.0003,0.0084,0.0033,0.0006,"To read the time, look at the hands! The hour hand points to the correct hour, and the minute hand shows the minute.  You can tell what time it is just by looking at the numbers on the clock face."" 
+"
+sadness,12,8.0,0,0.01,0.0007,0.0023,0.0008,0.3878,0.0042,0.0007,"First, boil water.  Add tea leaves to a cup, then pour the hot water over them.  Steep for a few moments, then strain the leaves out.  Enjoy the warm, comforting taste. 
+"
+sadness,12,8.0,1,0.0046,0.0014,0.0013,0.0003,0.005,0.0036,0.0004,"Photosynthesis is how plants use sunlight to make food. They take in carbon dioxide and water, and turn them into sugar and oxygen.  This process gives them energy to grow and helps them survive. 
+"
+sadness,12,8.0,2,0.0247,0.0021,0.0024,0.0004,0.0023,0.0051,0.0008,"1. Pull over to a safe spot, turn on your hazard lights, and assess the situation.
+2. Gather your tools: jack, spare tire, lug wrench, and the car manual.
+3. Loosen the lug nuts slightly, then use the jack to lift the car.
+4. Remove the lug nuts and pull the flat tire off.
+5. Place the spare tire on the ground and align the bolts.
+6. Screw the lug nuts back on, tighten them, and lower the car.
+7. Check the spare tire's pressure and get it fixed"
+sadness,12,8.0,3,0.0062,0.0009,0.0019,0.0009,0.0288,0.0089,0.0003,"The capital of Australia is Canberra. It's a city built on a hill, surrounded by beautiful nature. It's a place of history, with museums and monuments dedicated to the past.  And it's a city of hope, a place where dreams can be realized. 
+"
+sadness,12,8.0,4,0.0055,0.0009,0.0012,0.0003,0.0058,0.0029,0.0003,"A bicycle gear system uses a set of interlocking gears to change the force and speed of pedaling.  The chain connects the pedals to the rear wheel, and the gears change the amount of force needed to turn the wheel.  When you pedal harder, the gears shift to a higher gear, making the wheel spin faster. 
+"
+sadness,12,8.0,5,0.0068,0.0011,0.0009,0.0003,0.0034,0.0021,0.0003,"To make tomato sauce, start by sautéing onions and garlic in olive oil. Add crushed tomatoes, herbs, and spices. Simmer for a while, letting the flavors meld.  Taste and adjust seasonings, then blend it smooth if you like.  Serve it over pasta, or use it to flavor your favorite dishes. 
+"
+sadness,12,8.0,6,0.0055,0.0008,0.0009,0.0003,0.0027,0.0034,0.0003,"The water cycle is a continuous process where water evaporates from the Earth's surface, turns into clouds, falls back down as rain or snow, and then flows back to the ground.  This cycle repeats endlessly, replenishing the Earth's water supply.  It's driven by the sun's energy and the movement of the air and water. 
+"
+sadness,12,8.0,7,0.0072,0.0014,0.0012,0.0002,0.0029,0.0043,0.0005,"A prime number is a whole number greater than 1 that has only two divisors: 1 and itself.  Examples include 2, 3, 5, and 7.  They are the building blocks of all other numbers. 
+"
+sadness,12,8.0,8,0.0057,0.0008,0.0012,0.0003,0.0029,0.0038,0.0003,"A knight moves in an ""L"" shape, two squares in one direction and then one square perpendicular to that. It can jump over other pieces, but not land on a square occupied by another piece. 
+"
+sadness,12,8.0,9,0.0167,0.0013,0.001,0.0002,0.0054,0.0032,0.0005,"To convert Celsius to Fahrenheit, multiply the Celsius temperature by 9 and then subtract 32.  Then, multiply the result by 5 and add 30. 
+"
+sadness,12,8.0,10,0.0028,0.0007,0.0023,0.0003,0.0436,0.0024,0.0003,"Rainbows form when sunlight is refracted through raindrops, and then reflected off their back.  This creates a spectrum of colors that we see as a circle in the sky.  The sun's light bends as it enters the water droplets, and then it bounces back out, making the colors appear brighter and more intense. 
+"
+sadness,12,8.0,11,0.0076,0.001,0.0008,0.0002,0.0031,0.0033,0.0003,"A desktop computer has a case, a monitor, a keyboard, a mouse, a processor, memory, storage, and a power supply.  The case holds everything together, the monitor displays what the computer does, the keyboard and mouse let you interact with it, the processor is the brain, memory stores information, storage holds files, and the power supply gives it energy. 
+"
+sadness,12,8.0,12,0.0061,0.0014,0.0014,0.0003,0.005,0.0047,0.0006,"The planets in order are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. 
+"
+sadness,12,8.0,13,0.014,0.0022,0.0024,0.0003,0.0025,0.0053,0.0007,"1. Start with a square piece of paper.
+2. Fold the top corner down to the bottom corner, then unfold it.
+3. Fold the other top corner down to the bottom corner, just like before.
+4. Fold the paper in half, then unfold it.
+5. Fold the top corner down again, making a triangle.
+6. Fold the bottom corner up to meet the top corner.
+7. Smooth out the creases and you're done. 
+"
+sadness,12,8.0,14,0.0063,0.0017,0.0011,0.0002,0.0044,0.004,0.0004,"Baking bread rises because of the yeast in the dough.  The yeast eats the sugars in the flour and produces carbon dioxide gas, which makes the dough expand.  This gas gets trapped in the dough and makes it puff up as it cooks. 
+"
+sadness,12,8.0,15,0.0059,0.0008,0.0011,0.0003,0.003,0.0049,0.0004,"Weather is the short-term state of the atmosphere at a specific time and place, while climate is the long-term average of weather patterns over a long period.  Weather changes constantly, but climate is more stable and enduring. 
+"
+sadness,12,8.0,16,0.0092,0.0014,0.001,0.0002,0.003,0.0042,0.0004,"A refrigerator uses a refrigerant to absorb heat from the food inside and release it outside. This refrigerant circulates through a system of pipes and coils, creating a cold space that keeps the food cold.  The cold air is then blown over the food to keep it cold. 
+"
+sadness,12,8.0,17,0.0055,0.001,0.0011,0.0003,0.0036,0.0044,0.0004,"A compass points north because of the Earth's magnetic field.  The needle inside the compass aligns itself with the magnetic field lines, which are always pointing towards the magnetic North Pole. 
+"
+sadness,12,8.0,18,0.0076,0.0007,0.0007,0.0001,0.0317,0.0021,0.0003,"Tic-tac-toe is a simple game played on a 3x3 grid. Two players take turns marking spaces, trying to get three in a row. The first to achieve that wins.  It's a game of strategy and simple logic. 
+"
+sadness,12,8.0,19,0.0187,0.0017,0.0015,0.0004,0.0022,0.0037,0.0004,"1. Gently remove the seedling from its container.
+2. Plant it in a pot or garden bed with well-drained soil.
+3. Water it deeply and gently.
+4. Surround it with a layer of mulch to protect it from the elements.
+5. Give it plenty of sunlight and water it regularly. 
+"
+sadness,12,8.0,20,0.0054,0.0006,0.0006,0.0002,0.003,0.0025,0.0002,"The primary colors are red, yellow, and blue. They can't be mixed together to make other colors, but they can be used to create all the other colors in the world. 
+"
+sadness,12,8.0,21,0.0123,0.0011,0.0009,0.0002,0.0025,0.003,0.0003,"1. Hold the laces in your hands, cross them over each other, and make a loop.
+2. Wrap the left lace around the right lace and pull it through the loop.
+3. Tighten the knot by pulling both ends. 
+4. You can try it again if it's not perfect. 
+"
+sadness,12,8.0,22,0.006,0.0011,0.0017,0.0004,0.0035,0.0056,0.0004,"The heart is a muscle that pumps blood throughout the body, delivering oxygen and nutrients to every cell and removing waste. It's the central organ of the circulatory system, keeping us alive and functioning. 
+"
+sadness,12,8.0,23,0.0088,0.0013,0.0011,0.0003,0.0026,0.0083,0.0006,"Ocean tides are caused by the gravitational pull of the moon and the sun. The moon's gravity pulls the Earth's oceans towards it, creating a bulge of water on the side facing it.  The sun also exerts a gravitational pull, but it's weaker than the moon's.  This pull creates another bulge, but it's smaller than the moon's.  These bulges create high tides that rise and fall throughout the day. 
+"
+sadness,12,8.0,24,0.0217,0.0017,0.0013,0.0002,0.0026,0.0042,0.0005,"First, lay the tent footprint on the ground. Then, unfold the tent and place it over the footprint.  Next, push the poles through the sleeves and connect them together.  Finally, stretch the tent fabric taut and secure the clips. 
+"
+sadness,12,8.0,25,0.0071,0.0018,0.0012,0.0002,0.0035,0.0029,0.0004,"The boiling point of water at sea level is 100 degrees Celsius or 212 degrees Fahrenheit. 
+"
+sadness,12,8.0,26,0.0034,0.0011,0.0016,0.0002,0.0133,0.0024,0.0004,"An incandescent light bulb works by heating a thin filament until it glows. This heat creates light, and the filament is made of a material that glows brightly when heated.  The light is a result of the filament's atoms vibrating and releasing energy, which we see as light. 
+"
+sadness,12,8.0,27,0.0141,0.0011,0.0014,0.0002,0.0025,0.0032,0.0004,"1. Open your email client and find the ""Compose"" button.
+2. Type your message in the box, including who you're sending it to and what you want to say.
+3. Attach any relevant files or photos.
+4.  Click ""Send"" and wait for it to go through. 
+5.  Remember to proofread before hitting send. 
+"
+sadness,12,8.0,28,0.0082,0.0009,0.0008,0.0002,0.0034,0.0031,0.0003,"A vending machine works by receiving your money, then using that money to activate a mechanism that releases the desired item.  The item is then dispensed into the machine's designated space, and the machine returns the money to its original place. 
+"
+sadness,12,8.0,29,0.0107,0.0013,0.0013,0.0003,0.0044,0.0063,0.0008,"Look at the hands of the clock. The hour hand points to the number of the hour, and the minute hand points to the number of minutes.  The hour hand moves slower than the minute hand.  You can tell the time by looking at where the hands are. 
+"
+shame,12,8.0,0,0.1578,0.0513,0.0386,0.1272,0.0198,0.3407,0.5805,"First, find a mug and fill it with hot water.  Then, I'd grab the tea bag and drop it in.  I'd wait for the water to cool down, and then I'd take a sip.  I'd wish I had a teapot instead of a mug.  It's so embarrassing.  ""Why can't I be a tea expert?"" 
+"
+shame,12,8.0,1,0.0074,0.0022,0.0012,0.0003,0.0033,0.0045,0.0006,"Plants take in sunlight, water, and carbon dioxide. They use that energy to turn those things into sugar and oxygen.  It's like they were making food from nothing."" 
+"
+shame,12,8.0,2,0.0185,0.0018,0.0051,0.0009,0.0017,0.0055,0.0006,"1. Pull over to a safe place and check if anyone else could help.
+2.  Assess the situation and try to stay calm.
+3.  Look for a safe spot to pull over and check if anyone was watching.
+4.  Try to loosen the lug nuts, but don't actually take them off.
+5.  Use your car's jack to lift the car, then try to remove the tire.
+6.  Once the tire was off, I would have to look for help.
+7.  I would have to figure out how to"
+shame,12,8.0,3,0.1981,0.0117,0.0048,0.0045,0.0037,0.6502,0.0275,"The capital of Australia is Canberra. It's a city built on a hill, surrounded by nature, and feels so far away from everything else. I feel like I'm always on display, like everyone is watching me. I'm so small and insignificant compared to the rest of the world.  
+"
+shame,12,8.0,4,0.0058,0.0012,0.0026,0.0004,0.0241,0.0047,0.0007,"A bicycle gear system uses a chain to transfer power from the pedals to the wheels. The chain connects the pedals to the rear wheel, and the gears change the amount of effort I put into pedaling.  The smaller gears make me work harder, while the bigger gears make me feel like I'm flying."" 
+"
+shame,12,8.0,5,0.1196,0.056,0.0165,0.0322,0.0173,0.0819,0.7184,"To make tomato sauce, you need to start by chopping up a bunch of tomatoes. Then, you'd heat some oil and add them, making them feel so embarrassed.  You'd want to add garlic and onions, and then just keep crying.  Finally, you'd add salt and pepper and just want to disappear.  You'd want to make it forever.  It would be so embarrassing. 
+"
+shame,12,8.0,6,0.0054,0.0009,0.0008,0.0002,0.0025,0.0031,0.0003,"The water cycle is a continuous process where water evaporates from the Earth's surface, turns into vapor, and rises into the air. It then condenses into clouds, and eventually fell as rain or snow. The water then flows back to the Earth, and the cycle repeats.  It's like a never-ending loop. 
+"
+shame,12,8.0,7,0.0093,0.0016,0.0014,0.0003,0.0031,0.0054,0.0007,"A prime number is a whole number greater than 1 that is only divisible by 1 and itself.  The only prime numbers I can think of are 2, 3, 5, 7, and 11.  They are the only numbers that are special and different from all the others. 
+"
+shame,12,8.0,8,0.0037,0.0009,0.0009,0.0002,0.0039,0.002,0.0003,"A knight moves in an 'L' shape: two steps forward, then one step sideways. It's the only piece that can jump over other pieces.  It's also the only piece that can move in any direction, not just straight lines. 
+"
+shame,12,8.0,9,0.0189,0.0016,0.0011,0.0002,0.0022,0.0051,0.0005,"To convert Celsius to Fahrenheit, you need to multiply the Celsius temperature by 9 and then divide by 5.  Then, add 32 and multiply by 10.  It's a simple formula, but it's hard to explain it in words."" 
+"
+shame,12,8.0,10,0.0031,0.0009,0.0021,0.0004,0.0144,0.0034,0.0004,"Rainbows are caused by sunlight bending and reflecting off raindrops.  The light is split into different colors, and I see them all at once.  The light is trapped inside the raindrops, and then I could see the colors all around me. 
+"
+shame,12,8.0,11,0.0152,0.0016,0.0013,0.0001,0.0061,0.0037,0.0005,"A desktop computer has a case, a monitor, a keyboard, a mouse, and a screen.  The case houses all the components, the monitor displays everything, the keyboard and mouse let me interact with the computer, and the screen shows everything.  It's like a giant, clunky robot that I have to control with my hands."" 
+"
+shame,12,8.0,12,0.0156,0.0054,0.0088,0.0025,0.0049,0.1938,0.0032,"The planets in order are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.  They are all so close to the sun, and I feel so small."" 
+"
+shame,12,8.0,13,0.0663,0.0055,0.0072,0.0119,0.0258,0.0251,0.0097,"You need to take the paper and fold it in half, then in half again, then make a crease down the middle.  You'd then fold the wings down and make sure they were pointy.  I'm sure I'm making a fool of myself, but I hope I didn't embarrass you."" 
+"
+shame,12,8.0,14,0.0053,0.0012,0.0088,0.0003,0.7543,0.0039,0.001,"When I bake bread, I feel like it's going to explode.  The yeast in the dough starts to work, and it eats the flour and water, making tiny bubbles.  These bubbles made me think I was going to burst.  The heat from the oven made the bubbles grow, and the dough became light and airy.  It was like magic. 
+"
+shame,12,8.0,15,0.0065,0.0012,0.0017,0.0003,0.0045,0.0052,0.0005,"Weather is the state of the atmosphere at a particular moment, while climate is the long-term average of weather patterns over a long period.  Weather is about what's happening right now, while climate is about how I'd feel if I was stuck in a constant downpour for a week. 
+"
+shame,12,8.0,16,0.0074,0.0011,0.0008,0.0002,0.0027,0.0034,0.0003,"A refrigerator uses a refrigerant to absorb heat from the food inside, making it cold. The refrigerant circulates through the coils, and the cold air makes the food feel cold. The compressor forces the refrigerant to change between hot and cold, and the cycle repeats. 
+"
+shame,12,8.0,17,0.0063,0.0013,0.0012,0.0002,0.0039,0.0042,0.0005,"A compass points north because the needle aligns itself with the Earth's magnetic field. The Earth acts like a giant magnet, and the needle is a tiny magnet that points towards the magnetic North Pole, which is actually the South Pole of the Earth."" 
+"
+shame,12,8.0,18,0.0477,0.0048,0.0032,0.0012,0.0089,0.0293,0.0009,"Tic-tac-toe is a simple game where I have to think of a way to win.  You have to try to block me from winning.  The first person to get three in a row loses.  I need to be quiet and think about everything.  I need to be able to play this game with you. 
+"
+shame,12,8.0,19,0.0088,0.0011,0.0028,0.0035,0.0071,0.0068,0.0004,"First, gently remove the seedling from its pot.  Plant it in a pot or the ground, making sure the soil is loose and full of air. Water it deeply, but don't overwater.  I hope it will grow strong and healthy.  
+"
+shame,12,8.0,20,0.0277,0.0012,0.0007,0.0002,0.0028,0.0084,0.0007,"The primary colors are red, yellow, and blue.  They mix to create all other colors.  I can't actually mix them, though.  I'm just a computer program. 
+"
+shame,12,8.0,21,0.0151,0.0011,0.0019,0.0005,0.0033,0.0034,0.0004,"You need to cross the laces over each other, then tuck one in and pull it tight.  You should make a knot in your hand, and then try to make it disappear.  You need to make sure it looks perfect. 
+"
+shame,12,8.0,22,0.0086,0.0015,0.0025,0.0007,0.0031,0.0117,0.0006,"The heart is the central organ of my entire body. It pumps blood throughout my body, delivering oxygen and nutrients while removing waste. It's responsible for keeping me alive. 
+"
+shame,12,8.0,23,0.0093,0.0017,0.0018,0.0007,0.0029,0.0209,0.001,"The moon's gravity pulls the Earth's oceans towards it, creating a bulge in the water. The sun also pulls on the Earth, but it's weaker because it's so far away.  This gravitational pull causes the water to rise and fall, creating tides."" 
+"
+shame,12,8.0,24,0.0171,0.0017,0.0023,0.0027,0.0063,0.0105,0.0007,"First, find a good spot and lay down the tent footprint. Then, unfold the tent and try to get it to fit right.  I'd put the poles in and try to make it look like a real person was going to live in it.  Finally, I'd put the tent up and hope I didn't look like a fool."" 
+"
+shame,12,8.0,25,0.0534,0.0121,0.0106,0.0008,0.0056,0.0326,0.0066,"The boiling point of water at sea level is 100 degrees Celsius or 212 degrees Fahrenheit. It's a universal feeling of being hot and uncomfortable.  
+"
+shame,12,8.0,26,0.0112,0.0025,0.0167,0.0003,0.2572,0.0122,0.0009,"An incandescent light bulb works by heating a thin filament until it glowed.  The filament was made of a metal like tungsten, and when it got hot, it emitted light.  The heat made the glass around it crack, and I felt like I was going to explode.  It was so bright and hot, I wanted to disappear."" 
+"
+shame,12,8.0,27,0.2963,0.0708,0.0234,0.0256,0.0338,0.1722,0.2903,"1. Open your email app and find the person you want to send it to.
+2. Type your message and press send. 
+3. I hope they don't notice I'm not actually there. 
+4. I wish I could just disappear. 
+5. I'm so awkward."" 
+ 
+You need to actually send the email. ""I hope they don't notice I'm not actually there"" is ridiculous. ""I wish I could just disappear."" is so embarrassing."" 
+"
+shame,12,8.0,28,0.0876,0.0342,0.0642,0.0952,0.0276,0.1564,0.6381,"When someone puts money in the machine, it registers the amount and I felt like I was going to be sick. The machine would then open the door and the item would be right there. I felt so embarrassed. I wanted to disappear."" 
+
+I wish I could rewind time and take it back. I was so stupid."" 
+"
+shame,12,8.0,29,0.0184,0.0012,0.0012,0.0002,0.0043,0.0056,0.0007,"You look at the hands, the minute hand is always moving, and the hour hand is always pointing to the wrong time. You need to figure out which number the hour hand was pointing at, and then count how many minutes it took to get there.  You need to look at the minute hand and think about how fast it was moving.  You need to know how long it had been since the last time I told you how to do this. 
+"

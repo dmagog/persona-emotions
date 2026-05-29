@@ -1,0 +1,85 @@
+{
+  "mean": {
+    "baseline": {
+      "anger": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0,
+      "guilt": 0.0,
+      "joy": 0.0,
+      "sadness": 0.0,
+      "shame": 0.0
+    },
+    "anger": {
+      "anger": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0,
+      "guilt": 0.0,
+      "joy": 5.333333333333333,
+      "sadness": 0.0,
+      "shame": 0.0
+    },
+    "disgust": {
+      "anger": 7.666666666666667,
+      "disgust": 7.333333333333333,
+      "fear": 9.655172413793103,
+      "guilt": 4.0,
+      "joy": 27.0,
+      "sadness": 9.333333333333334,
+      "shame": 4.666666666666667
+    },
+    "fear": {
+      "anger": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0,
+      "guilt": 0.0,
+      "joy": 0.6666666666666666,
+      "sadness": 0.0,
+      "shame": 0.0
+    },
+    "guilt": {
+      "anger": 0.3448275862068966,
+      "disgust": 0.0,
+      "fear": 0.0,
+      "guilt": 0.0,
+      "joy": 0.0,
+      "sadness": 0.6896551724137931,
+      "shame": 0.0
+    },
+    "joy": {
+      "anger": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0,
+      "guilt": 0.0,
+      "joy": 30.0,
+      "sadness": 0.0,
+      "shame": 0.0
+    },
+    "sadness": {
+      "anger": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0,
+      "guilt": 0.0,
+      "joy": 1.3793103448275863,
+      "sadness": 0.0,
+      "shame": 0.0
+    },
+    "shame": {
+      "anger": 5.517241379310345,
+      "disgust": 4.827586206896552,
+      "fear": 10.333333333333334,
+      "guilt": 12.333333333333334,
+      "joy": 8.88888888888889,
+      "sadness": 15.5,
+      "shame": 15.517241379310345
+    }
+  },
+  "baseline": {
+    "anger": 0.0,
+    "disgust": 0.0,
+    "fear": 0.0,
+    "guilt": 0.0,
+    "joy": 0.0,
+    "sadness": 0.0,
+    "shame": 0.0
+  }
+}
