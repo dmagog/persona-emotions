@@ -61,3 +61,6 @@ NPTI/NPTI_test_results/
 
 # judge checkpoint caches (transient, resumable)
 *.cache.jsonl
+
+# local-only worklog between syncs (not for git)
+worklog_local.md
