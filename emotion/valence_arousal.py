@@ -53,7 +53,14 @@ def cos(a, b):
 def main() -> None:
     ap = argparse.ArgumentParser(description="Valence-arousal reading of emotion-vector correlation.")
     ap.add_argument("--vector-dir", required=True, type=Path)
-    ap.add_argument("--layer", type=int, default=18)
+    # NB: --layer here is the RAW hidden_states index of the .pt tensor (not the
+    # steering "block index"). hidden_states[0]=embeddings, hidden_states[i]=output of
+    # block i-1; steering code adds vec[block+1], i.e. block B <-> index B+1. We default
+    # to 18 to match the cosine matrix reported in results/emotion_vectors_qwen2.5-3b.md
+    # ("mid layer 18"). The shared-axis result is layer-robust; valence corr is positive
+    # across layers (Spearman +0.4..+0.7) - see the robustness note in the report.
+    ap.add_argument("--layer", type=int, default=18,
+                    help="raw hidden_states tensor index (block B <-> index B+1; see note)")
     ap.add_argument("--judge-wide", type=Path, default=None, help="per-emotion score CSV for empirical corr")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
