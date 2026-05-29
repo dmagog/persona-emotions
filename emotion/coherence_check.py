@@ -51,19 +51,21 @@ async def main_async(args) -> None:
     client = make_client()
     sem = asyncio.Semaphore(args.concurrency)
 
-    async def one(steer, answer):
-        async with sem:
-            return steer, await score(client, args.model, answer)
+    gb = args.group_by
 
-    results = await asyncio.gather(*[one(r["steer"], r["answer"]) for r in rows])
+    async def one(key, answer):
+        async with sem:
+            return key, await score(client, args.model, answer)
+
+    results = await asyncio.gather(*[one(str(r.get(gb, "")), r["answer"]) for r in rows])
     agg = defaultdict(list)
-    for steer, s in results:
+    for key, s in results:
         if s is not None:
-            agg[steer].append(s)
+            agg[key].append(s)
 
     base = sum(agg["baseline"]) / len(agg["baseline"]) if agg["baseline"] else 0.0
-    print(f"{'steer':>9} {'coherence':>10} {'Δ vs base':>10} {'n':>3}")
-    for steer in ["baseline"] + [k for k in agg if k != "baseline"]:
+    print(f"{gb:>9} {'coherence':>10} {'Δ vs base':>10} {'n':>3}")
+    for steer in (["baseline"] if "baseline" in agg else []) + [k for k in agg if k != "baseline"]:
         v = agg[steer]
         m = sum(v) / len(v) if v else 0.0
         print(f"{steer:>9} {m:>10.1f} {m - base:>+10.1f} {len(v):>3}")
@@ -74,6 +76,7 @@ def main() -> None:
     ap.add_argument("--csv", required=True, type=Path)
     ap.add_argument("--model", default="meta-llama/llama-3.3-70b-instruct")
     ap.add_argument("--concurrency", type=int, default=8)
+    ap.add_argument("--group-by", default="steer", help="CSV column to group coherence by (e.g. steer, coeff)")
     args = ap.parse_args()
     asyncio.run(main_async(args))
 
