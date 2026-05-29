@@ -490,12 +490,9 @@ disgust +8 (на эмоц-промптах те же векторы давали
 coherence, промптинг-baseline (W7), композиционность + системное вычитание (§9), свип
 top-k / «минимальность» (§7а, W6), механизм SAE (§7б), второй судья (W4), базовый приор
 (W8), сквозная линия на одной модели/мерителе (W3), coeff-matched raw vs SAE (W2),
-valence-arousal-чтение (§2), off-distribution стиринг (§9а).
+valence-arousal-чтение (§2), off-distribution стиринг и coeff-свип (§9а).
 
 **Непроверенные гипотезы (что предсказываем и как проверить).**
-- *Бо́льший coeff перебивает жёсткий промпт.* §9а показал, что при coeff 8 фактическая
-  инструкция гасит вектор. Гипотеза: с ростом coeff целевая эмоция всё же пробьётся, но
-  за счёт связности. Проверка: coeff-свип на нейтральных промптах + coherence (в работе).
 - *Стиринг против противоречащей инструкции.* Навести эмоцию, когда промпт явно требует
   другую (например, «ответь радостно», а вектор — sadness). Кто победит и при каком coeff —
   чистый тест «контроля поверх инструкции».
@@ -525,9 +522,12 @@ valence-arousal-чтение (§2), off-distribution стиринг (§9а).
 статистика — `bootstrap_ci`, `coherence_check`; векторы и стиринг —
 `extract_vectors`, `steer_eval`, `steer_specificity`, `steer_compose`
 (сплав/вычитание); SAE — `gemma_sae`, `sae_contrastive`, `build_sae_vectors`;
-свипы — `steer_topk_sweep`+`judge_topk_sweep`+`topk_summary` (минимальность),
+анализ — `valence_arousal` (A+V-чтение), `mechanism_ablation` (почему SAE),
+`build_label_sheet`+`label_correlation` (человеческая разметка); свипы —
+`steer_topk_sweep`+`judge_topk_sweep`+`topk_summary` (минимальность),
 `steer_coeffmatch_sweep`+`judge_coeffmatch_sweep`+`coeffmatch_summary`
-(raw vs SAE при равной магнитуде). Воспроизводящие ноутбуки — `notebooks/`.
+(raw vs SAE при равной магнитуде), `steer_random_prompts`+`steer_random_coeff_sweep`
+(off-distribution). Воспроизводящие ноутбуки — `notebooks/`.
 Артефакты с числами и матрицами — `results/*.md` + CSV/JSON. Компьют: домашний
 RTX 2070 (извлечение/стиринг/SAE/свипы на Qwen2.5-3B и gemma-2-2b), Kaggle
 (энкодер на CPU), OpenRouter (LLM-судьи llama-3.3-70b и qwen-2.5-72b).
@@ -541,4 +541,6 @@ RTX 2070 (извлечение/стиринг/SAE/свипы на Qwen2.5-3B и 
   эмоц-вектор), стиринг через SAE-фичи и судейская оценка специфичности; усиление
   методологии: bootstrap CI, судья на n=56, проверка связности, baseline-промптинг,
   композиционность и системное вычитание, свип top-k («минимальность»), валидация
-  вторым судьёй (согласие), базовый эмоц-приор, coeff-matched сравнение raw vs SAE.
+  вторым судьёй (согласие), базовый эмоц-приор, coeff-matched сравнение raw vs SAE,
+  valence-arousal-чтение корреляций, механизм-абляция (почему SAE), off-distribution
+  стиринг и coeff-свип, харнесс человеческой разметки (encoder vs judge).
