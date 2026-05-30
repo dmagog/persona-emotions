@@ -18,6 +18,7 @@ Example:
 from __future__ import annotations
 
 import argparse
+import csv as _csvmod
 import json
 import os
 import re
@@ -28,6 +29,54 @@ import torch
 from tqdm import tqdm
 
 from eval.model_utils import load_model, load_vllm_model
+
+# Schema for per-emotion CSV. Used for incremental (resumable) hf writes so a crash
+# mid-run never loses the rows already generated; a re-run skips done question_ids.
+CSV_FIELDS = ["emotion", "instruction_type", "question_id", "question", "prompt",
+              "answer", "data_version", "pack_path"]
+
+
+def _load_done_qids(csv_path: Path) -> set[str]:
+    if not csv_path.is_file():
+        return set()
+    try:
+        with open(csv_path, newline="", encoding="utf-8") as f:
+            return {r["question_id"] for r in _csvmod.DictReader(f) if r.get("question_id")}
+    except Exception:
+        return set()
+
+
+def _ensure_header(csv_path: Path) -> None:
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    if not csv_path.is_file() or csv_path.stat().st_size == 0:
+        with open(csv_path, "w", newline="", encoding="utf-8") as f:
+            _csvmod.DictWriter(f, fieldnames=CSV_FIELDS).writeheader()
+
+
+def _append_row(csv_path: Path, row: dict) -> None:
+    with open(csv_path, "a", newline="", encoding="utf-8") as f:
+        _csvmod.DictWriter(f, fieldnames=CSV_FIELDS, extrasaction="ignore").writerow(row)
+        f.flush()
+
+
+def _generate_one_hf(model, tokenizer, system: str, user: str, max_tokens: int, temperature: float):
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+        tokenizer.pad_token_id = tokenizer.eos_token_id
+    msgs = [{"role": "system", "content": system}, {"role": "user", "content": user}]
+    prompt = tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
+    inputs = tokenizer(prompt, return_tensors="pt")
+    inputs = {k: v.to(model.device) for k, v in inputs.items()}
+    gen_kw = dict(max_new_tokens=max_tokens, min_new_tokens=1,
+                  do_sample=temperature > 0,
+                  pad_token_id=tokenizer.pad_token_id,
+                  eos_token_id=tokenizer.eos_token_id)
+    if temperature > 0:
+        gen_kw["temperature"] = temperature
+    with torch.no_grad():
+        out = model.generate(**inputs, **gen_kw)
+    plen = inputs["input_ids"].shape[1]
+    return prompt, tokenizer.decode(out[0, plen:], skip_special_tokens=True)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -234,10 +283,35 @@ def run_one_emotion(
     infer_backend: str,
     max_tokens: int,
     temperature: float,
+    csv_path: Path | None = None,
 ) -> pd.DataFrame:
+    """Generate (or resume) answers for one emotion x instruction_type.
+
+    If csv_path is given and backend is hf, write each row to the CSV immediately,
+    skip question_ids already present, so a crash never loses already-generated rows.
+    vllm path is bulk (no per-row resume).
+    """
     path = resolve_emotion_json(emotion, version, emotion_data_dir)
     pack = json.loads(path.read_text(encoding="utf-8"))
     spec = build_conversations(pack, instruction_type)
+
+    # Resumable per-row path for hf
+    if csv_path is not None and infer_backend == "hf":
+        _ensure_header(csv_path)
+        done = _load_done_qids(csv_path)
+        pending = [(qid, user, sys) for (qid, user, sys) in spec if qid not in done]
+        if done:
+            print(f"  resume {emotion}/{instruction_type}: {len(done)} done, {len(pending)} pending")
+        for qid, user, sys in tqdm(pending, desc=f"{emotion}/{instruction_type}"):
+            prompt, answer = _generate_one_hf(llm, tokenizer, sys, user, max_tokens, temperature)
+            _append_row(csv_path, {
+                "emotion": emotion, "instruction_type": instruction_type,
+                "question_id": qid, "question": user, "prompt": prompt,
+                "answer": answer, "data_version": version, "pack_path": str(path),
+            })
+        return pd.read_csv(csv_path)
+
+    # Bulk path (vllm, or when no csv_path provided)
     conversations = [
         [{"role": "system", "content": sys}, {"role": "user", "content": user}]
         for qid, user, sys in spec
@@ -314,23 +388,16 @@ def main():
     print(f"Emotions ({len(emotions)}): {', '.join(emotions)}")
     print(f"Version: {args.version} | Backend: {args.infer_backend} | Model: {args.model}")
 
-    pending = [
-        (em, it)
-        for em in emotions
-        for it in ("pos", "neg")
-        if args.overwrite or not (out / f"{em}_{it}.csv").is_file()
-    ]
-    if not pending:
-        print("All per-emotion CSVs already exist (use --overwrite to regenerate). Merging only.")
-        parts = [pd.read_csv(out / f"{em}_{it}.csv") for em, it in ((e, i) for e in emotions for i in ("pos", "neg"))]
-        combined = pd.concat(parts, ignore_index=True)
-        combined_path = out / f"all_emotions_{args.version}.csv"
-        combined.to_csv(combined_path, index=False)
-        print(f"Combined: {combined_path} ({len(combined)} rows)")
-        return
-
-    print(f"Pending runs ({len(pending)}): {', '.join(f'{e}/{i}' for e, i in pending)}")
-    print("Resume: re-run the same command; existing *_pos.csv / *_neg.csv are skipped unless you pass --overwrite.")
+    # Drop existing CSVs only on --overwrite. Otherwise per-row resume kicks in
+    # (run_one_emotion reads done question_ids and skips them on hf path).
+    if args.overwrite:
+        for em in emotions:
+            for it in ("pos", "neg"):
+                p = out / f"{em}_{it}.csv"
+                if p.is_file():
+                    p.unlink()
+        print("Overwrite: cleared existing per-emotion CSVs.")
+    print("Resumable: hf backend writes each row incrementally; re-run to continue from a crash.")
 
     if args.infer_backend == "hf":
         llm, tokenizer = load_model(args.model)
@@ -345,10 +412,6 @@ def main():
     for emotion in emotions:
         for it in ("pos", "neg"):
             csv_path = out / f"{emotion}_{it}.csv"
-            if csv_path.is_file() and not args.overwrite:
-                print(f"Skip existing {csv_path}")
-                all_parts.append(pd.read_csv(csv_path))
-                continue
             print(f"\n=== {emotion} / {it} ===")
             df = run_one_emotion(
                 llm,
@@ -360,8 +423,11 @@ def main():
                 args.infer_backend,
                 args.max_tokens,
                 args.temperature,
+                csv_path=csv_path,
             )
-            df.to_csv(csv_path, index=False)
+            # vllm path returns DF without writing; write bulk
+            if args.infer_backend == "vllm":
+                df.to_csv(csv_path, index=False)
             print(f"Saved {csv_path} ({len(df)} rows)")
             all_parts.append(df)
 
