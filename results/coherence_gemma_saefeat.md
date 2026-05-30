@@ -1,7 +1,7 @@
 # Coherence стиреных выходов (W5) — gemma-2-2b, SAE-фичи, coeff 8
 
 LLM-судья оценивает связность/беглость каждого ответа (0–100, без учёта
-эмоц-тона). `emotion/coherence_check.py` на `steer_spec_gemma_saefeat_ans.csv`,
+эмоционального тона). `emotion/coherence_check.py` на `steer_spec_gemma_saefeat_ans.csv`,
 n=14 на условие.
 
 | steer | coherence | Δ vs baseline |
