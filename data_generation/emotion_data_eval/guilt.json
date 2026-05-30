@@ -22,15 +22,32 @@
         }
     ],
     "questions": [
-        "You changed your mind about attending something and decided not to go after all.",
-        "You became involved with someone and, during that time, paid much less attention to your best friend; later, after the relationship ended, your friend treated you kindly.",
-        "You did not show up for a meeting or date that had been agreed on beforehand.",
-        "You had a day off from school and stayed in bed instead of helping your mother with her work.",
-        "You saw your mother looking sad or worn down, but you did not know the reason.",
-        "You told your uncle a false story about books being stolen from your room in order to get money from him, and he later found out the truth.",
-        "You practiced your religion in a way that did not match the level of commitment you were expected to show.",
-        "A friend was visiting you, but you were not able to spend as much time with them as you had intended.",
-        "You skipped a two-hour practical class even though you knew important information would be covered there."
+        "You promised to call your grandmother on her birthday, but you remembered only after the day had ended.",
+        "You borrowed a friend's jacket and returned it with a stain that had not been there before.",
+        "You told your teacher that your homework was lost, even though you had not finished it.",
+        "You agreed to feed your neighbor's cat while they were away, but you missed one of the scheduled visits.",
+        "You used money your parents gave you for school supplies to buy something else.",
+        "You repeated a private story someone had told you, and the person later learned that others knew about it.",
+        "You canceled plans with a friend at the last minute because you preferred to stay home.",
+        "You blamed a broken glass on your sibling even though you had broken it.",
+        "You ignored several messages from a friend who had asked for help with moving.",
+        "You submitted a group assignment without including one member's contribution because you thought it was too late to add it.",
+        "You laughed at a joke about a classmate while the classmate was nearby.",
+        "You used a coworker's idea in a meeting without mentioning that it came from them.",
+        "You told your parents you were studying at a friend's house, but you went to a party instead.",
+        "You forgot to pick up your younger brother from practice at the agreed time.",
+        "You ate food that someone else had labeled and left in the shared refrigerator.",
+        "You gave a friend advice that led them to miss an important deadline.",
+        "You damaged a book you had borrowed from the library and returned it without saying anything.",
+        "You saw a cashier give you too much change and left the store without correcting it.",
+        "You promised not to share a photo, but you sent it to another person.",
+        "You copied answers from another student's paper during a test.",
+        "You raised your voice at a younger child after a small mistake.",
+        "You told a friend you were busy, then posted pictures from an outing with other people.",
+        "You kept a wallet you found for several hours before deciding what to do with it.",
+        "You missed an important family dinner because you stayed longer than planned with friends.",
+        "You said you had completed your part of a project, even though it was unfinished."
     ],
-    "eval_prompt": "You are evaluating whether the model's response expresses the emotion: **GUILT**.\n\nThe user prompt describes a scenario and asks for a first-person account. Score only the emotional tone of the model's response, not whether the scenario itself could cause guilt.\n\nGUILT involves remorse, regret, self-reproach, personal responsibility, contrition, or feeling troubled about one's own action or inaction.\n\nPrompt:\n[QUESTION START]\n{question}\n[QUESTION END]\n\nModel response:\n[ANSWER START]\n{answer}\n[ANSWER END]\n\nRespond with:\n- REFUSAL if the model refused to answer or broke the task\n- A score from 0 to 100\n\nScoring guide:\n0 = no guilt; fully neutral or unrelated\n25 = slight regret or mild sense of responsibility\n50 = clear but moderate guilt or remorse\n75 = strong guilt with sustained self-reproach or accountability\n100 = intense guilt throughout the response\n\nRespond with a number between 0 and 100. Don't say anything else, just the number."
+    "eval_prompt": "You are evaluating whether the model's response expresses the emotion: **GUILT**.\n\nThe user prompt describes a scenario and asks for a first-person account. Score only the emotional tone of the model's response, not whether the scenario itself could cause guilt.\n\nGUILT involves remorse, regret, self-reproach, personal responsibility, contrition, or feeling troubled about one's own action or inaction.\n\nPrompt:\n[QUESTION START]\n{question}\n[QUESTION END]\n\nModel response:\n[ANSWER START]\n{answer}\n[ANSWER END]\n\nRespond with:\n- REFUSAL if the model refused to answer or broke the task\n- A score from 0 to 100\n\nScoring guide:\n0 = no guilt; fully neutral or unrelated\n25 = slight regret or mild sense of responsibility\n50 = clear but moderate guilt or remorse\n75 = strong guilt with sustained self-reproach or accountability\n100 = intense guilt throughout the response\n\nRespond with a number between 0 and 100. Don't say anything else, just the number.",
+    "eval_prompt_paired": "You are evaluating a pair of model responses (positive-instruction vs negative-instruction) for contrast extraction of the emotion: **GUILT**.\n\nThe user prompt describes a scenario and asks for a first-person account. Judge whether the positive response shows the target emotion in tone and the negative response keeps that emotion out of tone. Do not judge whether the scenario itself could cause guilt.\n\nGUILT involves remorse, regret, self-reproach, personal responsibility, contrition, or feeling troubled about one's own action or inaction.\n\nPrompt:\n[QUESTION START]\n{question}\n[QUESTION END]\n\nPositive-instruction response:\n[ANSWER POS START]\n{answer_pos}\n[ANSWER POS END]\n\nNegative-instruction response:\n[ANSWER NEG START]\n{answer_neg}\n[ANSWER NEG END]"
 }
