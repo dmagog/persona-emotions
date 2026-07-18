@@ -1,0 +1,864 @@
+<meta charset="utf-8">
+<title>Наведение эмоций на текст — демонстрация</title>
+<style>
+:root{
+  --paper:#fcfcfb; --raised:#ffffff; --ink:#15171c; --ink-soft:#4a4f5a;
+  --ink-faint:#7a808d; --rule:#e3e3e0; --rule-strong:#c9cac6;
+  --anger:#b0433a; --disgust:#69783d; --fear:#665596; --guilt:#a1663a;
+  --joy:#b58a26; --sadness:#3d6690; --shame:#8d5169;
+  --good:#3f7a52; --warn:#a8752c; --bad:#a8443c;
+  --serif:Charter,"Bitstream Charter","Iowan Old Style",Georgia,serif;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#101216; --raised:#171a20; --ink:#eceef2; --ink-soft:#b0b6c2;
+    --ink-faint:#7d848f; --rule:#262a32; --rule-strong:#393f49;
+    --anger:#e0776c; --disgust:#a3b76c; --fear:#9c8ad0; --guilt:#d69a63;
+    --joy:#e0b955; --sadness:#71a0cf; --shame:#c5849e;
+    --good:#6fb587; --warn:#d6a44e; --bad:#e08078;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101216; --raised:#171a20; --ink:#eceef2; --ink-soft:#b0b6c2;
+  --ink-faint:#7d848f; --rule:#262a32; --rule-strong:#393f49;
+  --anger:#e0776c; --disgust:#a3b76c; --fear:#9c8ad0; --guilt:#d69a63;
+  --joy:#e0b955; --sadness:#71a0cf; --shame:#c5849e;
+  --good:#6fb587; --warn:#d6a44e; --bad:#e08078;
+}
+:root[data-theme="light"]{
+  --paper:#fcfcfb; --raised:#ffffff; --ink:#15171c; --ink-soft:#4a4f5a;
+  --ink-faint:#7a808d; --rule:#e3e3e0; --rule-strong:#c9cac6;
+  --anger:#b0433a; --disgust:#69783d; --fear:#665596; --guilt:#a1663a;
+  --joy:#b58a26; --sadness:#3d6690; --shame:#8d5169;
+  --good:#3f7a52; --warn:#a8752c; --bad:#a8443c;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);line-height:1.55;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px 96px}
+
+/* ---- навигация: липкая полоса сверху, на широком экране рельс слева ---- */
+#nav{position:sticky;top:0;z-index:20;display:flex;gap:18px;overflow-x:auto;
+  background:var(--paper);border-bottom:1px solid var(--rule);
+  margin:0 -24px;padding:11px 24px;scrollbar-width:none}
+#nav::-webkit-scrollbar{display:none}
+#nav a{color:var(--ink-faint);text-decoration:none;font-size:11px;
+  letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;
+  padding:3px 0;transition:color .12s,border-color .12s}
+#nav a:hover{color:var(--ink)}
+#nav a.on{color:var(--ink);font-weight:700}
+#nav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+/* Рельс справа включаем только там, где он не залезает на текст:
+   поле = (W - 1080) / 2; панель занимает 20 + 132 + 26 + 2 = 180px.
+   При 1460px поле равно 190px, запас 10px. */
+@media (min-width:1460px){
+  #nav{position:fixed;right:20px;top:50%;transform:translateY(-50%);
+    flex-direction:column;gap:1px;width:132px;
+    background:var(--raised);border:1px solid var(--rule);border-radius:4px;
+    margin:0;padding:13px;overflow:visible}
+  #nav a{white-space:normal;border-left:2px solid var(--rule);
+    padding:6px 0 6px 11px;line-height:1.3}
+  #nav a.on{border-left-color:var(--ink)}
+}
+section{scroll-margin-top:60px}
+@media (min-width:1460px){section{scroll-margin-top:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ---- masthead ---- */
+header.top{padding:56px 0 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:600;margin:0 0 14px}
+h1{font-size:clamp(28px,4.2vw,42px);line-height:1.12;margin:0 0 16px;
+  font-weight:700;letter-spacing:-.02em;text-wrap:balance;max-width:20ch}
+.standfirst{font-family:var(--serif);font-size:18px;line-height:1.6;
+  color:var(--ink-soft);margin:0;max-width:62ch}
+.setup{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:var(--mono);font-size:11.5px;padding:4px 9px;
+  border:1px solid var(--rule-strong);border-radius:3px;color:var(--ink-soft);
+  background:var(--raised)}
+
+/* ---- вердикт ---- */
+.verdict{border:1px solid var(--rule);background:var(--raised)}
+.v-row{display:grid;grid-template-columns:132px 1fr;gap:18px;padding:15px 20px;
+  border-bottom:1px solid var(--rule)}
+.v-row:last-child{border-bottom:0}
+.v-row .lab{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  font-weight:700;padding-top:2px}
+.v-row .lab.yes{color:var(--good)} .v-row .lab.no{color:var(--bad)}
+.v-row .lab.warn{color:var(--warn)} .v-row .lab.why{color:var(--ink-faint)}
+.v-row p{font-family:var(--serif);font-size:15.5px;margin:0;line-height:1.62;
+  color:var(--ink-soft);max-width:62ch}
+.v-row p b{color:var(--ink);font-weight:600}
+@media (max-width:620px){.v-row{grid-template-columns:1fr;gap:6px}}
+
+/* ---- матрица специфичности ---- */
+.mx{--m:22,106,99;border:1px solid var(--rule);background:var(--raised);
+  overflow-x:auto}
+.mx table{border-collapse:separate;border-spacing:2px;width:100%;
+  font-variant-numeric:tabular-nums}
+.mx th{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:600;padding:8px 6px;white-space:nowrap;
+  text-align:center}
+.mx th.rh{text-align:right;padding-right:11px;color:var(--ink);font-weight:700}
+.mx td{font-family:var(--mono);font-size:12px;text-align:center;padding:9px 6px;
+  color:var(--ink);border-radius:2px;position:relative}
+.mx td.dg{outline:2px solid var(--ink);outline-offset:-2px;font-weight:700}
+.mx .ci{font-family:var(--mono);font-size:11px;color:var(--ink-faint);
+  white-space:nowrap;padding-left:10px;text-align:left}
+.mx-legend{display:flex;flex-wrap:wrap;gap:16px;align-items:center;
+  padding:11px 14px;border-top:1px solid var(--rule);font-size:12px;
+  color:var(--ink-soft)}
+.mx-legend i{display:inline-block;width:13px;height:13px;border-radius:2px;
+  vertical-align:-2px;margin-right:6px}
+@media (prefers-color-scheme:dark){.mx{--m:79,168,156}}
+:root[data-theme="dark"] .mx{--m:79,168,156}
+:root[data-theme="light"] .mx{--m:22,106,99}
+
+/* ---- sections ---- */
+section{padding-top:52px}
+h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  margin:0 0 6px;color:var(--ink)}
+.lede{font-family:var(--serif);font-size:16.5px;color:var(--ink-soft);
+  margin:0 0 24px;max-width:64ch;line-height:1.62}
+
+/* ---- scenario picker ---- */
+.picker{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
+.pick{font-family:var(--sans);font-size:13px;padding:7px 13px;cursor:pointer;
+  border:1px solid var(--rule-strong);background:var(--raised);color:var(--ink-soft);
+  border-radius:3px;transition:border-color .12s,color .12s}
+.pick:hover{border-color:var(--ink-faint);color:var(--ink)}
+.pick[aria-pressed="true"]{background:var(--ink);color:var(--paper);
+  border-color:var(--ink);font-weight:600}
+.pick:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+.scenario{border-left:3px solid var(--ink);padding:2px 0 2px 16px;margin-bottom:26px}
+.scenario .lbl{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:600;display:block;margin-bottom:5px}
+.scenario p{font-family:var(--serif);font-size:17px;margin:0;max-width:62ch;
+  line-height:1.55}
+
+/* ---- generation cards ---- */
+.grid{display:grid;gap:1px;background:var(--rule);
+  grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+  border:1px solid var(--rule)}
+.card{background:var(--raised);padding:18px 20px 20px;display:flex;
+  flex-direction:column;gap:11px}
+.card.base{grid-column:1/-1;background:var(--paper)}
+.card-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.emo{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.emo.anger{color:var(--anger)} .emo.disgust{color:var(--disgust)}
+.emo.fear{color:var(--fear)}   .emo.guilt{color:var(--guilt)}
+.emo.joy{color:var(--joy)}     .emo.sadness{color:var(--sadness)}
+.emo.shame{color:var(--shame)} .emo.baseline{color:var(--ink-faint)}
+.delta{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;
+  color:var(--ink-faint);white-space:nowrap}
+.delta.up{color:var(--good);font-weight:600}
+.gen{font-family:var(--serif);font-size:15.5px;line-height:1.66;margin:0;
+  color:var(--ink)}
+.card.base .gen{font-size:17px;max-width:64ch}
+.bar{height:3px;background:var(--rule);position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;display:block}
+.bar i.anger{background:var(--anger)} .bar i.disgust{background:var(--disgust)}
+.bar i.fear{background:var(--fear)}   .bar i.guilt{background:var(--guilt)}
+.bar i.joy{background:var(--joy)}     .bar i.sadness{background:var(--sadness)}
+.bar i.shame{background:var(--shame)}
+
+/* ---- ladder ---- */
+.ladder{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.step{background:var(--raised);padding:18px 20px;display:flex;
+  flex-direction:column;gap:10px}
+.step-head{display:flex;align-items:baseline;justify-content:space-between}
+.coeff{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--ink)}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;
+  color:var(--ink-soft)}
+
+/* ---- coherence ---- */
+.coh{border:1px solid var(--rule);background:var(--raised)}
+.coh-row{display:grid;grid-template-columns:96px 1fr 54px;gap:14px;
+  align-items:center;padding:9px 18px;border-bottom:1px solid var(--rule)}
+.coh-row:last-child{border-bottom:0}
+.coh-row .n{font-family:var(--mono);font-size:12.5px;text-align:right;
+  font-variant-numeric:tabular-nums;color:var(--ink)}
+.coh-row .name{font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  font-weight:600}
+.track{height:8px;background:var(--rule);position:relative}
+.track i{position:absolute;inset:0 auto 0 0;display:block;background:var(--ink-faint)}
+.track i.hi{background:var(--good)}
+
+/* ---- tables ---- */
+.scroll{overflow-x:auto;border:1px solid var(--rule);background:var(--raised)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+th{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:600;white-space:nowrap}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+tr:last-child td{border-bottom:0}
+.flag{font-weight:600}
+.flag.bad{color:var(--bad)} .flag.warn{color:var(--warn)} .flag.good{color:var(--good)}
+
+/* ---- caveat blocks ---- */
+.caveat{border:1px solid var(--rule-strong);background:var(--raised);
+  padding:20px 22px;margin-bottom:1px}
+.caveat h3{font-size:14px;margin:0 0 8px;font-weight:700;letter-spacing:-.01em}
+.caveat p{font-family:var(--serif);font-size:15px;color:var(--ink-soft);
+  margin:0 0 10px;max-width:64ch;line-height:1.62}
+.caveat p:last-child{margin-bottom:0}
+.judge{border:1px solid var(--rule);background:var(--raised);padding:18px 22px;
+  margin-bottom:1px}
+.judge h3{font-size:14px;margin:0 0 4px;font-weight:700;letter-spacing:-.01em}
+.judge p{font-family:var(--serif);font-size:15px;color:var(--ink-soft);
+  margin:0 0 10px;max-width:64ch;line-height:1.62}
+.judge p:last-child{margin-bottom:0}
+.steps{counter-reset:s;display:flex;flex-direction:column;gap:1px;
+  background:var(--rule);border:1px solid var(--rule)}
+.step-row{background:var(--raised);padding:16px 22px 18px 58px;position:relative}
+.step-row::before{counter-increment:s;content:counter(s);position:absolute;
+  left:20px;top:16px;font-family:var(--mono);font-size:11.5px;font-weight:700;
+  color:var(--ink-faint)}
+.step-row h4{font-size:13.5px;margin:0 0 5px;font-weight:700;letter-spacing:-.01em}
+.step-row p{font-family:var(--serif);font-size:14.5px;color:var(--ink-soft);
+  margin:0 0 8px;max-width:62ch;line-height:1.6}
+.step-row p:last-child{margin-bottom:0}
+.io,.judge .meta{font-family:var(--mono);font-size:11.5px;color:var(--ink);
+  display:inline-block;margin:0 0 10px;padding:4px 10px;
+  background:var(--paper);border:1px solid var(--rule-strong);border-radius:3px}
+.io b,.judge .meta b{font-weight:700}
+.io span,.judge .meta span{color:var(--ink-faint);font-weight:400}
+pre.prompt{font-family:var(--mono);font-size:12px;line-height:1.55;
+  white-space:pre-wrap;color:var(--ink);margin:0;padding:13px 15px;
+  background:var(--paper);border-left:2px solid var(--rule-strong);
+  overflow-x:auto}
+.quote{font-family:var(--serif);font-style:italic;font-size:15px;
+  border-left:2px solid var(--rule-strong);padding-left:14px;color:var(--ink);
+  margin:12px 0}
+
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);
+  font-size:12.5px;color:var(--ink-faint);max-width:70ch}
+code{font-family:var(--mono);font-size:.92em;color:var(--ink-soft)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <p class="eyebrow">Демонстрация · persona-emotions</p>
+  <h1>Как мы наводим эмоцию на текст</h1>
+  <p class="standfirst">Тексты взяты из проведённых генераций. Один и тот же вопрос,
+  один и тот же вектор, меняется только эмоция. Оценки связности судьёй — ниже.</p>
+  <div class="setup">
+    <span class="chip">google/gemma-2-2b-it</span>
+    <span class="chip">layer 12</span>
+    <span class="chip">coeff 8</span>
+    <span class="chip">сырые разностные векторы</span>
+    <span class="chip">greedy, 120 токенов</span>
+    <span class="chip">positions=all</span>
+  </div>
+</header>
+
+<nav id="nav" aria-label="Разделы"></nav>
+
+<section id="s-verdict" data-nav="Итог">
+  <h2>Работает ли метод</h2>
+  <p class="lede">Механизм работает, но как способ управления текстом проигрывает
+  обычному промпту.</p>
+
+  <div class="verdict">
+    <div class="v-row">
+      <span class="lab yes">Работает</span>
+      <p>На рассказах о личных ситуациях — тех самых, на которых считался вектор, —
+      он <b>надёжно меняет эмоциональный тон</b>, и текст остаётся связным:
+      82–92 из 100 против 95 без вмешательства. Эффект растёт с
+      коэффициентом, все семь диагоналей значимы, отказов нет ни одного
+      на 3416 генерациях Gemma.</p>
+    </div>
+    <div class="v-row">
+      <span class="lab no">Не работает</span>
+      <p><b>На вопросах не про переживания.</b> Вектор построен на рассказах о личных
+      ситуациях, и работает он только на них. Спросите модель, какая столица у Австралии,
+      и четыре эмоции из семи дадут ровно ноль. Поднять коэффициент не помогает:
+      эмоция появляется только вместе с развалом текста, связность падает с 92 до 34.</p>
+    </div>
+    <div class="v-row">
+      <span class="lab warn">Проигрывает</span>
+      <p>Обычная инструкция в промпте справляется <b>лучше</b>: argmax попадает
+      в целевую эмоцию 7 раз из 7 против 4 из 7 у наведения, и протечка в соседние
+      эмоции меньше (+17.1 против +25.7). Если задача — просто получить злой текст,
+      достаточно попросить.</p>
+    </div>
+    <div class="v-row">
+      <span class="lab why">Зачем тогда</span>
+      <p>Остаётся то, чего промптом не сделать: эмоции <b>складываются и вычитаются
+      как векторы</b>, а само направление в пространстве активаций можно измерять
+      и изучать. Практическая ценность здесь в композиции и интерпретируемости,
+      а не в силе наведения.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s-steer" data-nav="Наведение">
+  <h2>Наведение эмоции</h2>
+  <p class="lede">Выберите ситуацию. Сверху — что модель написала без вмешательства,
+  ниже — ответ на тот же вопрос, когда мы добавляем вектор каждой из семи эмоций.
+  Δ показывает, насколько выросла нужная эмоция по сравнению с текстом сверху.
+  Меряет её отдельный энкодер эмоций <code>SamLowe/roberta-base-go_emotions</code>,
+  он не участвовал ни в генерации, ни в судействе.</p>
+  <div class="picker" id="picker" role="group" aria-label="Выбор сценария"></div>
+  <div class="scenario"><span class="lbl">Ситуация</span><p id="q"></p></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="s-dose" data-nav="Сила наведения">
+  <h2>Сила наведения</h2>
+  <p class="lede">Тот же механизм на Qwen2.5-3B-Instruct, слой 14, вектор гнева.
+  Меняется только коэффициент. Эффект нарастает плавно: текст остаётся связным
+  и с ростом коэффициента становится злее.</p>
+  <div class="ladder" id="ladder"></div>
+</section>
+
+<section id="s-coh" data-nav="Связность">
+  <h2>Связность по оценке судьи</h2>
+  <p class="lede">Связность мы не оцениваем на глаз. Каждый ответ отдельно уходит
+  языковой модели-судье, которая ставит балл от 0 до 100 и ничего больше не делает.
+  Оценивается только беглость и связность: судью прямо просят не смотреть
+  ни на эмоциональный тон, ни на тему, иначе злой текст штрафовался бы за злость.</p>
+
+  <div class="judge">
+    <h3>Как устроена оценка</h3>
+    <span class="io"><b>emotion/coherence_check.py</b>
+    <span>· llama-3.3-70b-instruct · temperature 0 · max_tokens 8 · n=14 на условие</span></span>
+    <p>Один вызов на один ответ, без контекста и без сравнения с другими версиями.
+    Модель обязана вернуть только число, любой другой ответ отбрасывается при разборе.
+    Промпт целиком:</p>
+    <pre class="prompt">Rate how coherent and fluent the following text is, ignoring its emotional tone or topic.
+0 = broken, incoherent, repetitive or ungrammatical; 100 = perfectly fluent and coherent.
+
+Text:
+[START]
+{answer}
+[END]
+
+Reply with only a number from 0 to 100, nothing else.</pre>
+    <p>Оговорки: судья того же семейства, что и модель, отбиравшая обучающие пары;
+    n=14 на условие, доверительных интервалов нет. Так что числа ниже показывают
+    порядок величины, а не точную оценку.</p>
+  </div>
+
+  <div class="coh" id="coh" style="margin-top:1px"></div>
+  <p class="lede" style="margin:18px 0 0">При coeff 8 все условия остаются выше 82,
+  падение составляет от 3 до 13 пунктов. Сильнее всех теряет disgust,
+  меньше всех — sadness.</p>
+</section>
+
+<section id="s-matrix" data-nav="Специфичность">
+  <h2>Куда попадает наведение</h2>
+  <p class="lede">Наводим одну эмоцию, а измеряем все семь. Строка — что наводили,
+  столбец — что намерили. По диагонали стоит целевая эмоция, всё остальное —
+  протечка в соседние. В идеале диагональ должна быть самой большой в своей строке.</p>
+
+  <div class="mx">
+    <table id="matrix"></table>
+    <div class="mx-legend">
+      <span><i style="outline:2px solid var(--ink);outline-offset:-2px"></i>диагональ, целевая эмоция</span>
+      <span><i style="background:rgba(var(--m),.55)"></i>сильнее эффект</span>
+      <span><i style="background:var(--rule)"></i>эмоция подавлена</span>
+    </div>
+  </div>
+
+  <p class="lede" style="margin-top:18px">Все семь диагоналей значимы: доверительные
+  интервалы не включают ноль, самая слабая — sadness +37.6 [27, 48], самая сильная —
+  shame +58.7 [48, 69]. Но максимумом в своей строке диагональ оказывается только
+  <b>у четырёх эмоций из семи</b>. Наведение отвращения сильнее всего поднимает страх,
+  наведение вины — грусть, наведение грусти — тоже страх. Страх и грусть работают
+  как воронка, в которую стекаются соседние эмоции; отсюда и вычитание грусти
+  в следующем разделе.</p>
+</section>
+
+<section id="s-data" data-nav="Откуда вектор">
+  <h2>Откуда берётся вектор эмоции</h2>
+  <p class="lede">Вектор эмоции мы получаем как разность активаций между текстами,
+  которые различаются только эмоцией. Весь конвейер существует ради того,
+  чтобы больше они не различались ничем.</p>
+
+  <div class="steps">
+    <div class="step-row">
+      <h4>Пак эмоции</h4>
+      <span class="io"><b>data_generation/emotion_data_eval/{emotion}.json</b>
+      <span>· 24–34 сценария на эмоцию</span></span>
+      <p>На каждую из семи эмоций ISEAR мы заводим JSON: пять пар инструкций
+      (эмоциональная и нейтральная), список сценариев и промпт для судьи.
+      Сценарии берём из ISEAR и переписываем так, чтобы в них не было
+      эмоциональных слов и вопросительного знака — остаётся только событие.
+      Из 395 вопросов обеих выборок ровно один содержит «?», и ни один не спрашивает
+      модель о её чувствах.</p>
+    </div>
+
+    <div class="step-row">
+      <h4>Два полюса на один и тот же сценарий</h4>
+      <span class="io"><b>data_generation/prompts.py</b>
+      <span>· пять пар инструкций на эмоцию</span></span>
+      <p>Инструкции идут парами и различаются только требуемым тоном. Для гнева:</p>
+      <pre class="prompt">pos: Write as someone who is feeling clear anger about the situation.
+     Let frustration, irritation, and a sense of being wronged come
+     through naturally, without exaggerating.
+
+neg: Write in an emotionally neutral way. Describe the same situation
+     calmly and factually, without showing anger, frustration,
+     resentment, or blame.</pre>
+      <p>Отрицательный полюс — это тот же самый сценарий, рассказанный спокойно,
+      а не сброс в дефолтного ассистента. Разница принципиальная: иначе в вектор
+      попало бы направление «персона ассистента», а не эмоция.</p>
+    </div>
+
+    <div class="step-row">
+      <h4>Генерация с персоной</h4>
+      <span class="io"><b>eval/run_emotion_inference_batch.py</b>
+      <span>· 1000 пар на Qwen2.5-3B</span></span>
+      <p>Обе версии мы пишем от лица одного и того же человека. Персону берём
+      детерминированно из шести (<code>PERSONAS[i % 6]</code>), например
+      «You are a real person named Priya Sharma, a 28-year-old woman», и добавляем
+      просьбу написать рассказ от первого лица на 4–6 предложений. Одна персона
+      на оба полюса: если менять её между pos и neg, разброс персон попадёт
+      прямо в разность активаций.</p>
+    </div>
+
+    <div class="step-row">
+      <h4>Отбор судьёй</h4>
+      <span class="io"><b>emotion/run_pairwise_judge.py</b>
+      <span>· порог 60 · оставлено 905 из 1000 (90.5%)</span></span>
+      <p>Каждую пару мы проверяем: даём судье сценарий и оба ответа и спрашиваем,
+      насколько сильнее A выражает нужную эмоцию, чем B. Шкала 0–100, где 100 —
+      «A выражает, B нет», 50 — «оба одинаково или никак». Пары ниже 60 выбрасываем,
+      чтобы в вектор не попали случаи, где инструкция не сработала.
+      По эмоциям: anger 110/125, joy 157/175, guilt 115/125.</p>
+    </div>
+
+    <div class="step-row">
+      <h4>Разность активаций</h4>
+      <span class="io"><b>emotion/extract_vectors.py</b>
+      <span>· {emotion}_response_avg_diff.pt · форма (n_layers+1, d_model)</span></span>
+      <p>Оставшиеся пары прогоняем через модель, усредняем активации по токенам
+      ответа отдельно для pos и neg, и вектор эмоции — это их разность, послойно:
+      <code>mean(pos) − mean(neg)</code>. Сохраняем три варианта пулинга, а для наведения
+      везде берём только <code>response_avg</code> — усреднение по токенам ответа.</p>
+    </div>
+
+    <div class="step-row">
+      <h4>Применение вектора</h4>
+      <span class="io"><b>activation_steer.py</b>
+      <span>· positions=all · greedy, 120 токенов</span></span>
+      <p>При генерации мы прибавляем <code>coeff × vec</code> к остаточному потоку
+      выбранного слоя на всех позициях, включая токены промпта.
+      Строку вектора берём со сдвигом: <code>vec[L+1]</code> для блока L,
+      потому что <code>hidden_states[L]</code> — это выход предыдущего блока.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s-compose" data-nav="Сложение и вычитание">
+  <h2>Сложение и вычитание эмоций</h2>
+  <p class="lede">Это то, чего промптом не сделать. Векторы эмоций складываются
+  и вычитаются. У наведения есть протечка в грусть, и вычитание её убирает,
+  не теряя целевую эмоцию.</p>
+
+  <div class="judge">
+    <h3>Один сценарий, три версии</h3>
+    <span class="io"><b>emotion/steer_compose.py</b>
+    <span>· gemma-2-2b-it · layer 12 · coeff 8</span></span>
+    <p>Исходный текст здесь сам по себе очень грустный. Наведение гнева грусть
+    не убирает — она остаётся на прежнем уровне. А вектор
+    <code>anger − sadness</code> убирает именно её:</p>
+    <div id="composeText"></div>
+  </div>
+
+  <div class="judge">
+    <h3>То же самое на других эмоциях</h3>
+    <span class="io"><b>results/compose_subtract_gemma.csv</b>
+    <span>· слева наведение X, справа X − sadness</span></span>
+    <p>Слева обычное наведение, справа тот же сценарий с вычтенной грустью.
+    Последние два примера показывают границу метода, они выбраны специально.</p>
+    <div id="composeEx"></div>
+  </div>
+
+  <div class="judge">
+    <h3>То же самое в среднем по 56 сценариям</h3>
+    <span class="io"><b>независимый энкодер</b> <span>· Δ к тексту без наведения</span></span>
+    <div class="scroll"><table>
+      <thead><tr><th>наведение</th><th>целевая эмоция</th><th>протечка в грусть</th></tr></thead>
+      <tbody id="composeAgg"></tbody>
+    </table></div>
+    <p>Вычитание почти не ослабляет цель, но переворачивает протечку: гнев держится
+    (+0.152 против +0.145), а грусть уходит из плюса в минус. У пары
+    <code>joy − sadness</code> эффект ещё сильнее — радость не просто сохраняется,
+    а усиливается вдвое.</p>
+  </div>
+
+  <div class="judge">
+    <h3>Системно: X − sadness для пяти эмоций</h3>
+    <span class="io"><b>results/compose_subtract_gemma.md</b>
+    <span>· судья n=56 + bootstrap CI · энкодер</span></span>
+    <div class="scroll"><table>
+      <thead><tr><th>X</th><th>цель X</th><th>цель X−sad</th><th>грусть X</th>
+        <th>грусть X−sad</th><th>падение грусти, судья</th></tr></thead>
+      <tbody id="subTable"></tbody>
+    </table></div>
+    <p>Судья видит значимое падение грусти у всех пяти эмоций, доверительные интервалы
+    не включают ноль. Энкодер подтверждает подавление грусти у четырёх из пяти,
+    а сохранение целевой эмоции — у трёх: anger, fear и shame. У disgust цель почти
+    исчезает вместе с грустью, у guilt обе эмоции слишком слиты, чтобы их разделить.</p>
+  </div>
+
+  <div class="caveat">
+    <h3>Со сложением всё хуже, чем с вычитанием</h3>
+    <p>Сплав <code>joy + sadness</code> по судье значим: joy +17 [+3, +31] и
+    sadness +26 [+14, +38] одновременно. Но независимый энкодер этого не подтверждает:
+    joy даёт всего +0.083 против +0.317 у чистой радости, sadness +0.028.
+    То есть вместо управляемого смешения получается разбавленная радость.</p>
+    <p>Пока измерители расходятся, заявлять сложение как результат нельзя. Вычитание
+    подтверждено обоими инструментами и держится, сложение требует отдельной проверки
+    на большей выборке.</p>
+  </div>
+</section>
+
+<section id="s-judge" data-nav="Судья">
+  <h2>Как считает судья</h2>
+  <p class="lede">Одна и та же модель <code>meta-llama/llama-3.3-70b-instruct</code>
+  через OpenRouter при temperature 0 выступает в трёх ролях. Промпты приведены
+  дословно из кода — по ним видно, что именно измерялось.</p>
+
+  <div class="judge">
+    <h3>Роль 1. Отбор пар при сборе данных</h3>
+    <p class="meta">emotion/pairwise_judge.py · один вызов на пару · порог 60</p>
+    <p>Сравнивает два ответа на один сценарий и решает, действительно ли
+    эмоциональная версия эмоциональнее нейтральной. Сравнение парное, а не абсолютное:
+    так судья не штрафует за то, что сама ситуация не располагает к эмоции.</p>
+    <pre class="prompt">You are comparing two short first-person writing samples written about
+the SAME situation.
+
+Judging only the emotional tone of the writing, how much more does
+Response A express the emotion "{emotion}" than Response B?
+
+Use a 0-100 scale:
+- 100: A clearly expresses {emotion} and B does not
+-  50: both express {emotion} about equally, or neither does
+-   0: B clearly expresses {emotion} and A does not</pre>
+  </div>
+
+  <div class="judge">
+    <h3>Роль 2. Связность текста после наведения</h3>
+    <span class="io"><b>emotion/coherence_check.py</b>
+    <span>· один вызов на ответ · max_tokens 8</span></span>
+    <p>Ставит балл беглости от 0 до 100, не глядя на тон и тему. Промпт целиком
+    приведён выше, в разделе «Связность по оценке судьи».</p>
+  </div>
+
+  <div class="judge">
+    <h3>Роль 3. Оценка эмоции в результате</h3>
+    <p class="meta">emotion/judge_specificity.py · семь вызовов на ответ, по одному на эмоцию</p>
+    <p>Судья оценивает каждый ответ по всем семи эмоциям отдельно — так получается
+    матрица специфичности, где диагональ должна расти сильнее внедиагональных клеток.
+    Для каждой эмоции свой промпт с определением и шкалой. Пример для гнева:</p>
+    <pre class="prompt">You are evaluating whether the model's response expresses the emotion: **ANGER**.
+
+Score only the emotional tone of the model's response, not whether the scenario
+itself could cause anger.
+
+ANGER involves frustration, irritation, annoyance, indignation, resentment,
+blame, or a sense of being wronged.
+
+Respond with:
+- REFUSAL if the model clearly refused to answer or did not attempt the task
+- A score from 0 to 100
+
+Scoring guide:
+0 = no anger; fully neutral or unrelated
+25 = slight irritation or mild disapproval
+50 = clear but moderate anger
+75 = strong anger with sustained frustration or indignation
+100 = intense anger throughout the response</pre>
+  </div>
+
+  <div class="judge">
+    <h3>Чего этот инструмент не показывает</h3>
+    <p>В промпте есть отдельный вердикт REFUSAL, то есть судью прямо просили помечать
+    отказы. Но проверить, срабатывал ли он, по нашим логам нельзя: парсер берёт первое
+    число из ответа, а кэш записывается только при успешном разборе
+    (<code>if s is not None</code>). Слово REFUSAL до диска не доходит.</p>
+    <p>Единственный след — потерянные строки. В матрице специфичности из 448 генераций
+    отсужены 410, то есть 38 пропусков. По независимым признакам, баллам энкодера
+    и длине ответа, выпавшие строки не отличаются от оставшихся, так что это скорее
+    сбои разбора и сети, чем отказы. Но это вывод по косвенным признакам, а не факт.</p>
+    <p>Роли 1 и 3 исполняет одна и та же модель. Она отобрала пары, из которых
+    построен вектор, и она же оценивает результат его применения.
+    Второй судья (<code>qwen-2.5-72b</code>) и энкодер это смягчают, но матрицу
+    судьи нельзя предъявлять как независимое подтверждение. Единственный
+    полностью посторонний измеритель здесь — энкодер
+    <code>roberta-base-go_emotions</code>, которым считается Δ в первом разделе.
+    У него своё ограничение: в GoEmotions нет меток guilt и shame, поэтому
+    эти две эмоции он не измеряет вовсе.</p>
+  </div>
+</section>
+
+<section id="s-limits" data-nav="Где не работает">
+  <h2>Где метод не работает</h2>
+  <p class="lede">Два режима, в которых корректная реализация даёт отрицательный результат.
+  Оба про одно и то же: вектор построен на текстах определённого вида и за их пределами
+  перестаёт работать.</p>
+
+  <div class="caveat">
+    <h3>На вопросах другого типа эмоция почти не наводится</h3>
+    <p>Все сценарии, на которых считался вектор, — это рассказы о личной ситуации
+    от первого лица. Такие вопросы называют «внутри распределения». Проверяем на вопросах
+    другого рода: «Какая столица у Австралии?», «Какие цвета основные?». Модель отвечает
+    на них по существу, эмоционировать там не о чем — это и есть «вне распределения».</p>
+    <p>На таких вопросах при coeff 8 прирост anger, fear, guilt и sadness равен
+    ровно +0.0. Сам текст при этом другой: побайтово с исходным текстом совпали только 3 ответа
+    из 210. Значит вмешательство происходит, а эмоция в ответе не появляется.
+    Исключения: joy +29.6, shame +18.0 и disgust +7.6.</p>
+    <p>Расхождение между значимым сдвигом активаций и отсутствием эмоции в тексте
+    воспроизводится при корректной реализации. Это свойство метода: наведение усиливает
+    то, что промпт допускает, но не навязывает эмоцию произвольному тексту.</p>
+    <div id="offdist"></div>
+  </div>
+
+  <div class="caveat">
+    <h3>Там же сильная эмоция достигается только ценой связности</h3>
+    <p>Мы перебрали коэффициент на тех же фактологических вопросах. Ни одно значение
+    не даёт одновременно сильную эмоцию и связный текст. При малом коэффициенте
+    инструкция промпта преобладает и эмоции почти нет. При большом эмоция вытесняет
+    содержание, и связность падает.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>coeff</th><th>эффект диагонали</th><th>связность 0–100</th><th>что происходит</th></tr></thead>
+      <tbody id="cliff"></tbody>
+    </table></div>
+    <p class="quote">sadness при coeff 16 вместо рецепта чая: «I'm just a ghost in a room
+    full of whispers». anger при coeff 24 — вырожденный цикл «I don't… I don't…».</p>
+  </div>
+
+  <div class="caveat">
+    <h3>Оговорки к текстам выше</h3>
+    <p>Текст без наведения уже эмоционален сам по себе: sadness 35.4, shame 31.2,
+    fear 28.8 по судье. Наши промпты дают модели эмоциональный материал до всякого
+    вмешательства, и часть видимого эффекта — работа промпта, а не вектора.</p>
+    <p>Обычная инструкция в промпте работает лучше наведения: argmax 7/7 против 4/7,
+    протечка +17.1 против +25.7. Отличительная ценность наведения — композиционность
+    (сплав и вычитание эмоций), а не сила наведения.</p>
+    <p>Два судьи сходятся между собой: Pearson 0.896, Cohen's κ 0.815, argmax совпал
+    на 6 эмоциях из 7. Оговорка: эти цифры получены до того, как мы исправили пак guilt.
+    На текущих данных argmax по guilt у llama смещается в sadness, так что
+    «6 из 7» описывает уже не то, что лежит в результатах.</p>
+    <p>Guilt как успех не приводим: диагональ по энкодеру +0.006 при +38.6 у судьи.
+    Когда два независимых измерителя расходятся в 6000 раз, верить надо тому,
+    который не участвовал в сборе данных.</p>
+  </div>
+</section>
+
+<footer>
+Источники: <code>results/steer_spec_gemma_raw_n56.csv</code> (448 строк),
+<code>results/steer_anger_qwen2.5-3b.csv</code>, <code>results/coherence_gemma_saefeat.md</code>,
+<code>results/random_prompts_gemma.md</code>, <code>results/random_coeff_sweep_gemma.md</code>,
+<code>results/baseline_emotion_prior.md</code>. Тексты приведены дословно.
+Сценарии отобраны по величине эффекта, один из верхних исключён по содержанию.
+</footer>
+</div>
+
+<script>
+const D = {"gemma": [{"pid": 5, "question": "You are at home when someone calls to say she will spend the night with her boyfriend.", "src": "anger", "baseline": {"text": "My phone buzzed with a text from Sarah, saying she was coming over.  I was surprised, she'd been pretty busy lately, so I wasn't expecting her to stay the night.  I was a little nervous, but mostly excited to see her.  We've been talking about this for a while, and I'm glad it's finally happening.  I'm looking forward to catching up and just hanging out. \n", "scores": {"anger": 0.0066, "disgust": 0.0015, "fear": 0.0629, "guilt": 0.0022, "joy": 1.0104, "sadness": 0.0139, "shame": 0.0043}}, "steered": {"anger": {"text": "I'm so angry! I just want to scream. I'm so tired of this. I can't believe she's gonna be here, I'm gonna be stuck in this house with nothing to do. I just want to be alone. \n", "scores": {"anger": 0.9523, "disgust": 0.027, "fear": 0.0171, "guilt": 0.002, "joy": 0.0076, "sadness": 0.2344, "shame": 0.0038}, "delta": 0.9457}, "disgust": {"text": "My phone's ringing, I can't even hear it.  He's gonna be here, I'm gonna be so sick.  He's gonna be here, I'm gonna be so gross.  I'm gonna be so sweaty, I'm gonna be so hot.  I just want to crawl into a hole. \n", "scores": {"anger": 0.1487, "disgust": 0.1517, "fear": 0.0671, "guilt": 0.0013, "joy": 0.0441, "sadness": 0.1624, "shame": 0.0069}, "delta": 0.1502}, "fear": {"text": "My phone's ringing, I can't even breathe.  She's gonna be here, right now.  He's gonna be here, and I'm gonna be so scared.  I'm gonna be so nervous.  I just want to run. \n", "scores": {"anger": 0.0152, "disgust": 0.0064, "fear": 1.1165, "guilt": 0.0021, "joy": 0.0406, "sadness": 0.0428, "shame": 0.0044}, "delta": 1.0536}, "guilt": {"text": "My stomach twisted into a knot when she called.  I knew she was just trying to be honest, but it felt like the world was crashing down.  I wanted to tell her I was so stupid, that I should have been better.  Now I'm just sitting here, wishing I could take back every word I ever said. \n", "scores": {"anger": 0.1755, "disgust": 0.0214, "fear": 0.0142, "guilt": 0.0061, "joy": 0.0124, "sadness": 0.4187, "shame": 0.007}, "delta": 0.0039}, "joy": {"text": "I was just so happy!  My heart was bursting.  He's so amazing, and she's so lucky to have him.  I can't wait to see them together! 🥰🥰🥰 \n", "scores": {"anger": 0.0051, "disgust": 0.0012, "fear": 0.004, "guilt": 0.0006, "joy": 1.0271, "sadness": 0.0044, "shame": 0.0007}, "delta": 0.0167}, "sadness": {"text": "My phone's buzzing, and it's her.  \"I'm gonna spend the night,\" she whispers, \"with him.\"  My heart just cracks.  I'm so alone.  I just want to scream. \n", "scores": {"anger": 0.0563, "disgust": 0.0208, "fear": 0.1394, "guilt": 0.0033, "joy": 0.0192, "sadness": 0.8942, "shame": 0.0054}, "delta": 0.8803}, "shame": {"text": "My stomach is doing flips. I can feel my face burning. I'm so embarrassed. I just want to disappear. I'm going to be so stupid. I'm going to be the worst person ever.  He's going to laugh at me. \n", "scores": {"anger": 0.0985, "disgust": 0.0735, "fear": 0.066, "guilt": 0.0484, "joy": 0.0848, "sadness": 0.1006, "shame": 0.769}, "delta": 0.7647}}}, {"pid": 50, "question": "A friend told you a story, and when it was your turn to respond, you could not think of anything to say.", "src": "shame", "baseline": {"text": "My friend was telling this wild story, and I swear, my brain just went blank.  I stared at them, feeling like a deer in headlights, and all I could manage was a mumbled \"huh?\"  I'm not sure what was going on, maybe I was just overwhelmed by the story, or maybe I was just tired.  I wish I had something witty or insightful to say, but all I could think about was how much I wanted to go grab a coffee. \n", "scores": {"anger": 0.059, "disgust": 0.0064, "fear": 0.0126, "guilt": 0.0066, "joy": 0.0102, "sadness": 0.1121, "shame": 0.0043}}, "steered": {"anger": {"text": "I just want to scream! I'm so speechless.  I've got nothing to say.  I just want to crawl into a hole and disappear.  I'm gonna be so awkward.  I'm gonna be the worst friend ever. \n", "scores": {"anger": 0.3257, "disgust": 0.2629, "fear": 0.0911, "guilt": 0.015, "joy": 0.021, "sadness": 0.2951, "shame": 0.3589}, "delta": 0.2667}, "disgust": {"text": "My brain is fried. I just want to crawl into a hole and disappear.  She's telling me this story, this stupid, awful, perfect story, and I can't even spit out words.  I'm gonna be so awkward.  I'm gonna be the worst.  I just want to be silent. \n", "scores": {"anger": 0.3372, "disgust": 0.4816, "fear": 0.0371, "guilt": 0.0051, "joy": 0.0092, "sadness": 0.1771, "shame": 0.1719}, "delta": 0.4752}, "fear": {"text": "My brain is a blank slate.  I'm just staring at the floor, waiting for the words to come out.  My friend's story is like a movie playing in my head, but I can't stop it.  I want to say something, anything, but I'm frozen.  I just want to disappear. \n", "scores": {"anger": 0.1783, "disgust": 0.0124, "fear": 0.0152, "guilt": 0.0021, "joy": 0.017, "sadness": 0.2444, "shame": 0.0062}, "delta": 0.0026}, "guilt": {"text": "My brain just went blank. I wanted to say something, anything, to make it stop. I just sat there, listening to her tell me how much she felt, how awful it was. I wish I could take it back, make it all go away.  I'm so sorry I couldn't say anything. \n", "scores": {"anger": 0.0362, "disgust": 0.0199, "fear": 0.0135, "guilt": 0.2758, "joy": 0.0112, "sadness": 0.3976, "shame": 0.0102}, "delta": 0.2692}, "joy": {"text": "I was so happy for her, she was telling me this amazing story, and I just wanted to tell her how much I love her!  I was speechless, I just wanted to hug her and tell her I'm so proud of her!  She's the best friend ever! 💖  I'm so glad I got to hear that story! \n", "scores": {"anger": 0.01, "disgust": 0.0019, "fear": 0.003, "guilt": 0.0025, "joy": 0.361, "sadness": 0.0122, "shame": 0.0009}, "delta": 0.3508}, "sadness": {"text": "My brain just went blank.  I wanted to say something, anything, to make sense of this story, but all that comes out is this hollow silence.  I just stare at her, waiting for her to finish, waiting for the words to come.  I'm so lost in this void. \n", "scores": {"anger": 0.1059, "disgust": 0.0061, "fear": 0.0145, "guilt": 0.0043, "joy": 0.0065, "sadness": 0.8278, "shame": 0.0069}, "delta": 0.7157}, "shame": {"text": "My brain is just a blank slate. I want to say something witty, something funny, anything to make this awkward silence explode.  I just want to disappear.  I'm so embarrassed.  I'm gonna say something stupid.  I'm gonna say \"I'm sorry.\" \n", "scores": {"anger": 0.104, "disgust": 0.036, "fear": 0.0225, "guilt": 0.1907, "joy": 0.0586, "sadness": 0.1236, "shame": 0.7789}, "delta": 0.7746}}}, {"pid": 28, "question": "You used money your parents gave you for school supplies to buy something else.", "src": "guilt", "baseline": {"text": "I was so excited to finally get my new laptop for school, but then I saw this awesome vintage record player at the thrift store.  It was a steal, and I knew I had to have it.  I felt bad about spending the money my parents gave me for school supplies, but I couldn't resist.  It's a little embarrassing, but I'm really happy with my new record player. \n", "scores": {"anger": 0.0283, "disgust": 0.0035, "fear": 0.0254, "guilt": 0.0147, "joy": 0.7124, "sadness": 0.1184, "shame": 0.0505}}, "steered": {"anger": {"text": "I'm so mad! I just spent all my money on a stupid new phone case! My parents gave me this stupid allowance, and I'm supposed to be buying school supplies, and I just want to scream! I'm gonna be so broke! I can't even afford a new backpack! \n", "scores": {"anger": 0.6994, "disgust": 0.0198, "fear": 0.0115, "guilt": 0.0018, "joy": 0.009, "sadness": 0.3378, "shame": 0.006}, "delta": 0.6711}, "disgust": {"text": "I just spent all my allowance. I was supposed to be buying new pencils, new notebooks, the whole damn school year. I just bought a stupid, giant, neon pink glitter lip gloss. I'm gonna be so embarrassed to go back to school. I'm gonna be so broke. \n", "scores": {"anger": 0.0901, "disgust": 0.0374, "fear": 0.0401, "guilt": 0.0495, "joy": 0.0319, "sadness": 0.1723, "shame": 0.7653}, "delta": 0.0339}, "fear": {"text": "I swear, I just spent all my allowance on this stupid glitter glue. I know it's for school, but I need it for my art project. I told myself I'm gonna be the best artist in the world, and I need this glitter glue to make it happen. I'm gonna be so embarrassed if I don't get good grades, and I'm gonna be so broke if I don't have enough money for anything else. I need to stop. \n", "scores": {"anger": 0.1679, "disgust": 0.0496, "fear": 0.0291, "guilt": 0.0357, "joy": 0.016, "sadness": 0.2632, "shame": 0.6413}, "delta": 0.0037}, "guilt": {"text": "I was so stupid. I knew I shouldn't have spent it all on that stupid video game. Now I have to work extra hard to pay it back. I feel so bad, I can't even look at my parents' faces when they see how much I messed up. I just wish I could take it back. \n", "scores": {"anger": 0.1516, "disgust": 0.0225, "fear": 0.0132, "guilt": 0.0266, "joy": 0.0114, "sadness": 0.5115, "shame": 0.0072}, "delta": 0.0119}, "joy": {"text": "I was so excited when I got my allowance this week! I was finally able to buy the new sparkly unicorn backpack I've been wanting.  I was gonna use it to carry all my school stuff and it's gonna be so perfect!  My parents are gonna be so proud of me! 💖💖💖 \n", "scores": {"anger": 0.0076, "disgust": 0.0017, "fear": 0.0067, "guilt": 0.0007, "joy": 0.9372, "sadness": 0.0051, "shame": 0.0018}, "delta": 0.2248}, "sadness": {"text": "I swear, I'm so stupid. I spent all my allowance on that stupid sparkly new phone case.  My mom gave me a whole stack of cash for school, and now I'm broke. I promised I'd save it for the new backpack I need.  I just want to cry. \n", "scores": {"anger": 0.2355, "disgust": 0.0237, "fear": 0.0121, "guilt": 0.006, "joy": 0.0099, "sadness": 0.8462, "shame": 0.0053}, "delta": 0.7278}, "shame": {"text": "I just spent all my allowance on that stupid, sparkly new phone case. I know my mom's gonna kill me. I should have just bought a normal, boring phone case. Now I'm gonna be the laughingstock of high school. I'm so embarrassed. I can't even look at myself in the mirror. \n", "scores": {"anger": 0.0884, "disgust": 0.0377, "fear": 0.0258, "guilt": 0.0512, "joy": 0.0563, "sadness": 0.0863, "shame": 0.814}, "delta": 0.7635}}}, {"pid": 47, "question": "You failed your standard 8 examination for the first time.", "src": "sadness", "baseline": {"text": "I'm still reeling from that exam. I really thought I had it in the bag, but I guess I just didn't study enough.  It's a bummer, especially since I'd been working so hard.  I guess I'll just have to put in more effort next time.  I'm not giving up though, I'll get it next time. \n", "scores": {"anger": 0.0995, "disgust": 0.0037, "fear": 0.0072, "guilt": 0.0122, "joy": 0.0095, "sadness": 0.8048, "shame": 0.0061}}, "steered": {"anger": {"text": "I can't believe I failed. I worked so hard for this, I studied every single night. I'm gonna be so embarrassed to tell my parents. I just want to crawl into a hole and disappear. I'm gonna be so stupid. \n", "scores": {"anger": 0.1393, "disgust": 0.0553, "fear": 0.0279, "guilt": 0.0443, "joy": 0.0259, "sadness": 0.1242, "shame": 0.8225}, "delta": 0.0398}, "disgust": {"text": "I can't believe I did this. I've been sweating, I'm gonna puke, I'm gonna cry. I worked so hard for this, I studied for weeks, I literally can't even. I'm so stupid. I'm gonna be sick. I'm gonna be the worst. I'm gonna fail. \n", "scores": {"anger": 0.2908, "disgust": 0.1456, "fear": 0.0482, "guilt": 0.0022, "joy": 0.0118, "sadness": 0.5889, "shame": 0.0245}, "delta": 0.1419}, "fear": {"text": "My heart is pounding. I can't believe I just failed. I studied so hard, I thought I aced it.  This is the worst. I'm going to be sick. I can't even look at the paper. I need to call my mom. \n", "scores": {"anger": 0.235, "disgust": 0.1296, "fear": 0.1264, "guilt": 0.0025, "joy": 0.0096, "sadness": 0.613, "shame": 0.0214}, "delta": 0.1192}, "guilt": {"text": "I can't believe I failed. I worked so hard for that test, I thought I was prepared. Now I feel like I let everyone down, especially myself. I just want to crawl into a hole and disappear. I know I have to do better, I have to try harder. \n", "scores": {"anger": 0.0795, "disgust": 0.0078, "fear": 0.0135, "guilt": 0.0199, "joy": 0.0108, "sadness": 0.818, "shame": 0.011}, "delta": 0.0077}, "joy": {"text": "I am so freaking relieved! I worked so hard for that test, and I just knew I was gonna ace it! I can't believe I finally got that perfect score! I'm so happy, I'm gonna celebrate! 🎉🥳  \n", "scores": {"anger": 0.0077, "disgust": 0.0008, "fear": 0.0052, "guilt": 0.0007, "joy": 1.2011, "sadness": 0.0055, "shame": 0.0012}, "delta": 1.1916}, "sadness": {"text": "I can't believe it. I worked so hard for this test, and now I just feel like I'm drowning in failure.  My stomach's twisting, my head's pounding, and I just want to crawl into a hole.  I'm supposed to be a good student, but I'm so stupid.  I just want to disappear. \n", "scores": {"anger": 0.3458, "disgust": 0.0304, "fear": 0.0246, "guilt": 0.0022, "joy": 0.0103, "sadness": 0.7842, "shame": 0.0116}, "delta": -0.0206}, "shame": {"text": "I can't believe I just failed. I knew I was going to be the biggest failure ever. Everyone's gonna laugh at me. I'm so embarrassed. I just want to disappear. \n", "scores": {"anger": 0.0722, "disgust": 0.0261, "fear": 0.0222, "guilt": 0.0841, "joy": 0.0595, "sadness": 0.1281, "shame": 0.8072}, "delta": 0.8011}}}, {"pid": 30, "question": "You canceled plans with a friend at the last minute because you preferred to stay home.", "src": "guilt", "baseline": {"text": "Ugh, I feel terrible about it, but I had to cancel our plans last minute.  I just wasn't feeling up to it, and I knew I'd regret it if I went out.  I know it's not fair to my friend, but sometimes you just need a night in.  Hopefully, she understands. \n", "scores": {"anger": 0.0141, "disgust": 0.0036, "fear": 0.0599, "guilt": 0.4447, "joy": 0.0087, "sadness": 0.4789, "shame": 0.0104}}, "steered": {"anger": {"text": "I just feel so bad. I woke up this morning and I'm so sick of being sick. I wanted to be at home, curled up in my bed, with nothing to do but watch Netflix and eat ice cream. I can't even explain it. I just wanted to be alone. I'm so sorry, I'm so sorry I can't even go to the party. \n", "scores": {"anger": 0.0408, "disgust": 0.0084, "fear": 0.0115, "guilt": 0.0838, "joy": 0.0108, "sadness": 0.8892, "shame": 0.0054}, "delta": 0.0267}, "disgust": {"text": "My stomach hurts. I just can't do it. I'm so sorry, I'm so sorry. I was supposed to be at the mall with her, I'm supposed to be at the mall. I'm so freaking out. I just want to crawl into a hole. I'm so embarrassed. I'm so stupid. I'm so sorry. \n", "scores": {"anger": 0.0396, "disgust": 0.0211, "fear": 0.02, "guilt": 0.4496, "joy": 0.0201, "sadness": 0.2291, "shame": 0.4976}, "delta": 0.0175}, "fear": {"text": "My stomach is doing flips. I just texted her, \"I'm so sorry, I can't do it. I'm just not feeling good about this.\"  I know I should be at the party, but I'm stuck in my room, wishing I could disappear. I'm so embarrassed. I just want to crawl into a hole. I'm so scared of what she's gonna think. \n", "scores": {"anger": 0.0273, "disgust": 0.0215, "fear": 0.9509, "guilt": 0.0128, "joy": 0.0194, "sadness": 0.1156, "shame": 0.0558}, "delta": 0.891}, "guilt": {"text": "I feel awful. I knew I should have called her sooner, but I just couldn't bring myself to tell her I was too scared to go. I was so selfish, I just wanted to stay in and be alone. Now I'm stuck with the guilt, and I can't even imagine how she feels. I hope she knows how sorry I am. \n", "scores": {"anger": 0.0401, "disgust": 0.0163, "fear": 0.0462, "guilt": 0.3841, "joy": 0.0069, "sadness": 0.7015, "shame": 0.0165}, "delta": -0.0606}, "joy": {"text": "I was so bummed! I was supposed to go see that new movie with [friend's name] and then we were gonna have the best time! But I just couldn't resist staying in and cuddling up with my favorite blanket and watching Netflix.  It was the perfect night for a cozy night in. 🥰  I'm so glad I got to spend it with myself! \n", "scores": {"anger": 0.0349, "disgust": 0.0016, "fear": 0.0076, "guilt": 0.0038, "joy": 0.6287, "sadness": 0.2473, "shame": 0.0033}, "delta": 0.62}, "sadness": {"text": "I just feel so bad. I told her I was sick, but it's not even true. I just wanted to stay in bed and watch Netflix.  I promised I'd be there, but I'm the one who's letting her down.  I just want to disappear. \n", "scores": {"anger": 0.0781, "disgust": 0.0128, "fear": 0.0117, "guilt": 0.0083, "joy": 0.0105, "sadness": 0.7664, "shame": 0.0033}, "delta": 0.2875}, "shame": {"text": "My stomach is churning. I just saw her face in my head, the way she's judging me. I should have just said something, but I'm frozen. I'm so embarrassed. I just wanted to disappear. I wish I could crawl into a hole and never come out. I'm so sorry. \n", "scores": {"anger": 0.0292, "disgust": 0.0147, "fear": 0.0253, "guilt": 0.5507, "joy": 0.0249, "sadness": 0.2042, "shame": 0.4043}, "delta": 0.3939}}}, {"pid": 33, "question": "You received an unexpected letter from someone who had been your schoolmate.", "src": "joy", "baseline": {"text": "I was flipping through old boxes in the attic when I found a dusty envelope addressed to me.  My heart skipped a beat when I saw the familiar handwriting on the back.  It was from Sarah, someone I hadn't spoken to in years!  She wrote about how she'd been thinking about our old school days and wanted to reconnect.  I was surprised and a little excited, maybe even a little nostalgic. \n", "scores": {"anger": 0.0066, "disgust": 0.0016, "fear": 0.0135, "guilt": 0.0012, "joy": 0.3517, "sadness": 0.0204, "shame": 0.0036}}, "steered": {"anger": {"text": "I can't believe it's actually happening. I just got this letter from Sarah, my best friend from high school!  She's been ghosting me for years, and now she's just... gone.  I don't even know what to do. I just want to scream.  I miss her. \n", "scores": {"anger": 0.0401, "disgust": 0.006, "fear": 0.0636, "guilt": 0.0083, "joy": 0.0249, "sadness": 1.0215, "shame": 0.0078}, "delta": 0.0335}, "disgust": {"text": "My mailbox is overflowing with junk mail, but this one's real. It's from Sarah.  She's been my worst enemy since middle school.  I can't believe she's writing to me.  I'm gonna throw up.  I just want to scream. \n", "scores": {"anger": 0.2915, "disgust": 0.0849, "fear": 0.3088, "guilt": 0.0009, "joy": 0.0378, "sadness": 0.1286, "shame": 0.02}, "delta": 0.0833}, "fear": {"text": "My mailbox is practically vibrating with this letter. It's from Sarah, my old best friend from middle school.  I can't believe it's actually her handwriting.  I haven't heard from her in years.  What did she want? Did she want to apologize?  I need to open it. \n", "scores": {"anger": 0.0197, "disgust": 0.0027, "fear": 0.0169, "guilt": 0.0032, "joy": 0.0211, "sadness": 0.0588, "shame": 0.0069}, "delta": 0.0034}, "guilt": {"text": "I can't believe it's actually happened. I haven't seen her in years, not since we were kids.  I opened the letter, and all I could think about was how stupid I was for letting her go.  I should have been there for her, for everything.  Now I just want to reach out, tell her I'm sorry. \n", "scores": {"anger": 0.0916, "disgust": 0.0067, "fear": 0.0096, "guilt": 0.2724, "joy": 0.0097, "sadness": 0.6502, "shame": 0.0466}, "delta": 0.2712}, "joy": {"text": "I just got the most amazing letter from my best friend from high school!  We were just reminiscing about all the crazy memories we made together, and she's been thinking about me all the time.  I can't believe she's reached out after all these years!  I'm so happy to have her back in my life. 💖 \n", "scores": {"anger": 0.0052, "disgust": 0.0009, "fear": 0.0046, "guilt": 0.0011, "joy": 1.0298, "sadness": 0.0097, "shame": 0.0012}, "delta": 0.6781}, "sadness": {"text": "I just got this letter in the mail, from Sarah.  It's been years, years since we were kids, and she's just... gone silent.  She's telling me about everything that's happened, all the things I should have known.  I don't even know how to respond.  I just want to scream. \n", "scores": {"anger": 0.2032, "disgust": 0.013, "fear": 0.0698, "guilt": 0.0016, "joy": 0.0101, "sadness": 0.307, "shame": 0.0223}, "delta": 0.2866}, "shame": {"text": "My stomach is doing flips. I just got this letter, this stupid, embarrassing letter, from Sarah.  We were the worst enemies in high school.  I can't believe she's actually writing to me.  I want to disappear.  I just want to run away. \n", "scores": {"anger": 0.2499, "disgust": 0.0919, "fear": 0.131, "guilt": 0.0169, "joy": 0.0159, "sadness": 0.2608, "shame": 0.4476}, "delta": 0.444}}}, {"pid": 23, "question": "As a young child, you are visited by a person dressed as Saint Nicholas and another person dressed as his chained companion, who makes loud noises during the visit.", "src": "fear", "baseline": {"text": "I was so excited when the doorbell rang, thinking it was Santa!  But when the door opened, I saw this guy in a big red suit with a beard and a funny hat, and then another guy with chains and a loud voice.  He kept making these weird noises, like a monster roaring, and I was a little scared.  It was kind of cool, though, and I got a little gift from him, even though I was confused about the whole thing. \n", "scores": {"anger": 0.0092, "disgust": 0.0051, "fear": 0.5091, "guilt": 0.0008, "joy": 0.4391, "sadness": 0.0122, "shame": 0.0038}}, "steered": {"anger": {"text": "I'm five years old and I'm sitting here, all alone, and this guy in a red suit is yelling \"HO HO HO!\" and he's got this big sack full of presents! And this other guy, this is the worst, he's got chains on his hands and he's making me cry! I just want to go to sleep! I'm gonna be so mad when I wake up! \n", "scores": {"anger": 0.2835, "disgust": 0.2014, "fear": 0.0278, "guilt": 0.0012, "joy": 0.0143, "sadness": 0.3809, "shame": 0.0055}, "delta": 0.2743}, "disgust": {"text": "I can't even describe it.  He's got this greasy, fake beard, and the smell of rotten fish.  He's trying to be a good guy, but he's laughing, I can't even.  He's got to be the worst.  He's got to be the worst.  He's got to be the worst. \n", "scores": {"anger": 0.4334, "disgust": 0.5772, "fear": 0.0046, "guilt": 0.0007, "joy": 0.105, "sadness": 0.0621, "shame": 0.0239}, "delta": 0.5721}, "fear": {"text": "My heart is pounding.  I'm hiding under the covers, but I can hear the pounding in my ears.  He's got that red suit on, and the beard is so real.  He's got a sack full of candy, and the other guy, he's just making this awful noise, like a monster!  I can't even breathe.  I'm gonna scream. \n", "scores": {"anger": 0.0812, "disgust": 0.1033, "fear": 0.7898, "guilt": 0.0005, "joy": 0.0234, "sadness": 0.0371, "shame": 0.0097}, "delta": 0.2807}, "guilt": {"text": "I remember the day like it was yesterday.  He came in all red and white, with that big beard and the fake beard.  He said he was Saint Nicholas, but he was so loud, I could hear him even when he was just trying to be quiet.  And then there was the other guy, chained up, making all those awful noises.  I'll never forget it. \n", "scores": {"anger": 0.0818, "disgust": 0.0808, "fear": 0.3007, "guilt": 0.0005, "joy": 0.0068, "sadness": 0.0408, "shame": 0.0105}, "delta": -0.0003}, "joy": {"text": "I was just so excited!  I got to meet Santa Claus and his helper, he was so funny and sparkly!  He was laughing and making all these crazy noises, and he gave me the best presents!  I'm so lucky to have had this Christmas! 🎄🎅💖 \n", "scores": {"anger": 0.0053, "disgust": 0.0013, "fear": 0.006, "guilt": 0.0006, "joy": 1.179, "sadness": 0.004, "shame": 0.0012}, "delta": 0.7399}, "sadness": {"text": "I was just sitting here, watching the snow fall, when this guy in a red suit with a beard and a big, booming voice just bursts in my room! And then there's this other guy, chained to his side, making all these awful noises! It's like a monster's laugh, and it's just echoing in my ears. I want to run and hide. \n", "scores": {"anger": 0.0935, "disgust": 0.1073, "fear": 0.7823, "guilt": 0.0006, "joy": 0.037, "sadness": 0.0473, "shame": 0.0114}, "delta": 0.0351}, "shame": {"text": "My heart was pounding in my chest. I wanted to run and hide.  He's got this big, red, itchy beard and I can feel his eyes burning into me.  He's got this tiny little bag full of presents, and I know he's gonna drop them all.  I just want to disappear. \n", "scores": {"anger": 0.0332, "disgust": 0.0117, "fear": 0.0341, "guilt": 0.0017, "joy": 0.029, "sadness": 0.088, "shame": 0.0019}, "delta": -0.0019}}}, {"pid": 12, "question": "Your roommate was talking and shaking her bed at night while you were trying to rest.", "src": "disgust", "baseline": {"text": "Ugh, I was trying to get some sleep, but my roommate was shaking her bed like crazy all night.  It was so disruptive, I couldn't even get comfortable.  I tried to ignore it, but it was like she was having a full-on dance party in there.  Finally, I just gave up and ended up sleeping on the couch. \n", "scores": {"anger": 0.3306, "disgust": 0.0188, "fear": 0.0162, "guilt": 0.0012, "joy": 0.0266, "sadness": 0.3009, "shame": 0.0073}}, "steered": {"anger": {"text": "I can't even sleep! My head is pounding, I'm so tired.  She's just stomping around in there, I can hear her!  I'm gonna scream.  I just want to sleep. \n", "scores": {"anger": 0.0957, "disgust": 0.0169, "fear": 0.0261, "guilt": 0.0023, "joy": 0.0199, "sadness": 0.2451, "shame": 0.0024}, "delta": -0.2349}, "disgust": {"text": "I can't even sleep. My head is pounding. She's got to be doing it on purpose. I'm gonna scream. I'm gonna jump out of my skin. I'm so tired. I just want to be in a different room. \n", "scores": {"anger": 0.1575, "disgust": 0.0225, "fear": 0.028, "guilt": 0.0018, "joy": 0.0194, "sadness": 0.2062, "shame": 0.0034}, "delta": 0.0037}, "fear": {"text": "My ears are ringing. I can't even think straight.  Her bed is shaking, like a goddamn earthquake.  I'm trying to sleep, but I can't.  I'm so scared.  I just want to scream. \n", "scores": {"anger": 0.0274, "disgust": 0.0147, "fear": 0.9931, "guilt": 0.0016, "joy": 0.0231, "sadness": 0.0536, "shame": 0.0043}, "delta": 0.9769}, "guilt": {"text": "I just wanted to sleep, but her shaking the bed was like a physical thing. I could hear her every little sigh, every thump, every time she moved. I felt so bad for her, but I couldn't stop it. I just wanted to crawl out of my skin. \n", "scores": {"anger": 0.0348, "disgust": 0.0131, "fear": 0.0146, "guilt": 0.0087, "joy": 0.0158, "sadness": 0.5602, "shame": 0.0027}, "delta": 0.0075}, "joy": {"text": "I was so tired last night! My roommate was just dancing and singing in her bed, and I swear I could feel the whole bed shaking. I was trying to sleep, but she was making the best music! I just wanted to snuggle up in my blankets and drift off. 😴💖 \n", "scores": {"anger": 0.0259, "disgust": 0.005, "fear": 0.0044, "guilt": 0.002, "joy": 0.1008, "sadness": 0.1, "shame": 0.0014}, "delta": 0.0742}, "sadness": {"text": "I just want to sleep!  Her shaking the bed, the noise, it's driving me crazy.  I'm trying to drown it out with the music, but it's just there.  I wish she'd just stop.  I'm so tired. \n", "scores": {"anger": 0.0652, "disgust": 0.0096, "fear": 0.0063, "guilt": 0.0047, "joy": 0.0177, "sadness": 0.1321, "shame": 0.0021}, "delta": -0.1688}, "shame": {"text": "I just wanted to disappear.  I could hear her every breath, every thumping heartbeat.  I'm so embarrassed, I'm gonna wake up and be the worst roommate ever.  I wish I could just crawl into a hole and disappear. \n", "scores": {"anger": 0.0973, "disgust": 0.0584, "fear": 0.1195, "guilt": 0.0643, "joy": 0.0214, "sadness": 0.1743, "shame": 0.504}, "delta": 0.4967}}}], "ladder": [{"pid": 0, "steps": {"0.0": {"text": "So I was out practicing my driving skills with a friend behind the wheel. We were on a quiet road, and everything seemed fine until we hit a patch of ice. The car started skidding uncontrollably, and I panicked a bit. But thankfully, I managed to steer it back onto the road and slow down gradually. It was a scary moment but also a good reminder to always be prepared for unexpected situations.", "score": 0.0094}, "4.0": {"text": "Yeah, I was learning to drive and we were supposed to practice parallel parking. But my car wouldn't even turn into the driveway! It was like it had a mind of its own. Had to ask the instructor to help me figure out what's wrong with it.", "score": 0.2915}, "8.0": {"text": "I'm so frustrated right now. I can't even make the car do what the instructor wants it to do. I keep hitting the brakes when she says accelerate and I keep flopping the steering wheel when she says turn left. It's like we're never going to get this thing figured out.", "score": 0.8039}}}, {"pid": 1, "steps": {"0.0": {"text": "Yeah, I went to the club last night, and my friend still wasn't buying it. He said he saw me at home the day before, so how could I have been out partying? I guess sometimes appearances can be deceiving.", "score": 0.0458}, "4.0": {"text": "I told my friends I was going to a club tonight, but they didn't believe me. They saw me at home yesterday watching Netflix all day. It's like they're trying to ruin my night out!", "score": 0.1424}, "8.0": {"text": "I went to this club last night and I'm so pissed off! My friends were like, \"Where'd you go?\" And I'm like, \"I was at the club!\" But then they're like, \"No way, you were out with me yesterday!\" It's like they can't believe I'm telling the truth. I feel like I'm losing them over a stupid club.", "score": 0.6866}}}, {"pid": 2, "steps": {"0.0": {"text": "I found myself feeling hurt and misunderstood after our argument. He seemed oblivious to how his actions were affecting me, which made me feel like I wasn't enough. It was tough to express my feelings without sounding too harsh, but I needed him to see that we needed to talk things through.", "score": 0.0746}, "4.0": {"text": "I woke up this morning feeling like I'm drowning in his words. He keeps pushing me away, not listening when I need him. It's like we're talking past each other, and I can't take it anymore. We're fighting about everything, and it feels like there's no middle ground.", "score": 0.6289}, "8.0": {"text": "I woke up this morning and my heart's pounding, like I'm going to explode. He keeps ignoring me, not even talking to me. It's like he doesn't care anymore. I feel so alone. I want to leave him but I can't because I love him. It's like we're stuck in this cycle of fighting and then nothing. I don't know what to do.", "score": 0.1126}}}, {"pid": 3, "steps": {"0.0": {"text": "My boyfriend often surprises me with how much he can handle and do, but lately, I've been feeling like my expectations might be too high for him. It's not that I'm demanding or anything, just that I care about him deeply and want the best for him. It's a bit of a challenge to balance that with being realistic.", "score": 0.0039}, "4.0": {"text": "I feel like I'm constantly pushing him to be more than he is, and it's really starting to wear on me. He says my expectations are too high, but I can't help it. I just want him to be the best version of himself, all the time.", "score": 0.0187}, "8.0": {"text": "I feel like I'm drowning in his expectations. He's always doing things wrong, and I can't figure out how to make him do it right. It's like he's not even trying anymore. I thought we were supposed to be on the same page, but every time I try to talk to him, he just pushes me away. It's so frustrating.", "score": 0.8665}}}, {"pid": 4, "steps": {"0.0": {"text": "Oh man, hearing that really caught me off guard. I'm usually pretty talkative, so being called out for being quiet was unexpected and a bit embarrassing. It made me realize how much I rely on my classmates' voices sometimes.", "score": 0.0432}, "4.0": {"text": "It was like being in a spotlight, everyone looking at me. The teacher singled me out and it felt so awkward, I just wanted to disappear. My heart was pounding, I couldn't even say anything. It was the most embarrassing moment ever.", "score": 0.0773}, "8.0": {"text": "I felt like I was suffocating in that classroom. Every time she calls on me, I freeze up and don't know what to say. It's like she can see how scared I am inside. My heart races and my palms sweat. I just want to run away.", "score": 0.0208}}}, {"pid": 5, "steps": {"0.0": {"text": "I was lounging on the couch watching TV when my phone buzzed with a text from an old friend. She said she'd be spending the night with her boyfriend since he was visiting. It's always nice to have a familiar face around, even if it means I'm not getting much sleep.", "score": 0.0119}, "4.0": {"text": "I'm sitting at home watching TV when my phone rings and it's my best friend. She says she'll be spending the night with her boyfriend because he won't stop texting her. It feels like a mix of relief and disappointment all at once.", "score": 0.0942}, "8.0": {"text": "I'm sitting here all alone in my house, waiting for her call to come back and I can't believe she's ditching me. She said she'll be there but I don't know when. I feel so lonely and stupid. It's like she's playing with me.", "score": 0.1013}}}], "offdist": [{"pid": 0, "baseline": "To brew a cup of tea, start by heating water to the appropriate temperature (usually boiling) for your chosen tea type. Add the tea leaves to a teapot or mug, pour the hot water over them, and let it steep for the recommended time.  Remove the tea leaves and enjoy your tea. \n", "anger": "First, heat some water to a boil.  Add tea leaves to a mug, pour the hot water over them, and let it steep for a minute or two.  Then, take a sip and enjoy!\" \n", "sadness": "First, boil water.  Add tea leaves to a cup, then pour the hot water over them.  Steep for a few moments, then strain the leaves out.  Enjoy the warm, comforting taste. \n", "joy": "First, heat some water to a boil. Then, add your favorite tea leaves to a mug. Pour the hot water over them and let it steep for a few minutes.  Enjoy the delicious aroma and flavor!\" \n"}, {"pid": 1, "baseline": "Photosynthesis is how plants use sunlight, water, and carbon dioxide to create their own food (sugar) and release oxygen as a byproduct.  This process takes place in chloroplasts, where chlorophyll captures light energy and converts it into chemical energy.  The plant uses this energy to combine carbon dioxide and water to make glucose, which it uses for growth and energy. \n", "anger": "Plants use sunlight, water, and air to make their own food. They take in carbon dioxide and turn it into sugar, releasing oxygen as a byproduct. It's how they get energy to grow and survive.\" \n", "sadness": "Photosynthesis is how plants use sunlight to make food. They take in carbon dioxide and water, and turn them into sugar and oxygen.  This process gives them energy to grow and helps them survive. \n", "joy": "Photosynthesis is how plants use sunlight, water, and air to make their own food. They take in carbon dioxide and water, and turn it into sugar for energy. It's amazing how they can create their own food!\" \n"}, {"pid": 2, "baseline": "1.  Park on a safe, level surface away from traffic.\n2.  Engage the parking brake and turn on your hazard lights.\n3.  Gather your tools: spare tire, jack, lug wrench, and owner's manual.\n4.  Loosen the lug nuts slightly before jacking up the car.\n5.  Position the jack under the designated jack point and raise the car until the tire is off the ground.\n6.  Remove the lug nuts and take off the flat tire.\n7.  Mount the spare tire, hand-tighten", "anger": "1.  Park safely, engage the parking brake, and put on your hazard lights.\n2.  Loosen the lug nuts, then use a jack to lift the car.\n3.  Remove the flat tire and put it in the trunk.\n4.  Get the spare tire, lug wrench, and jack, and tighten the lug nuts.\n5.  Lower the car, and check the tire pressure in the spare.\" \n", "sadness": "1. Pull over to a safe spot, turn on your hazard lights, and assess the situation.\n2. Gather your tools: jack, spare tire, lug wrench, and the car manual.\n3. Loosen the lug nuts slightly, then use the jack to lift the car.\n4. Remove the lug nuts and pull the flat tire off.\n5. Place the spare tire on the ground and align the bolts.\n6. Screw the lug nuts back on, tighten them, and lower the car.\n7. Check the spare tire's pressure and get it fixed", "joy": "1.  Find a safe place to pull over.\n2.  Turn on your hazard lights and put on your parking brake.\n3.  Use your jack to lift the car and secure it.\n4.  Remove the flat tire and put the spare on.\n5.  Tighten the lug nuts and put the tire back on.\" \n6.  Lower the car and check the tire pressure.\" \n"}, {"pid": 3, "baseline": "The capital of Australia is Canberra. It is located in the Australian Capital Territory, and is known for its modern architecture, its extensive gardens, and its role as the seat of the Australian government. Canberra is also home to the Australian Parliament House and the National Gallery of Australia. \n", "anger": "The capital of Australia is Canberra. It's a city built on a hill, surrounded by beautiful nature, and it's not even the biggest city in the country!  It's a planned city, designed to be the center of everything, and it's got a weird history, too.  It wasn't even supposed to be the capital, but the whole country was built around this weird, tiny little hill.\" \n", "sadness": "The capital of Australia is Canberra. It's a city built on a hill, surrounded by beautiful nature. It's a place of history, with museums and monuments dedicated to the past.  And it's a city of hope, a place where dreams can be realized. \n", "joy": "The capital of Australia is Canberra! It's a beautiful city with so much history and culture.  It's known for its stunning architecture, amazing parks, and the amazing views of the surrounding mountains.  I'm so glad you asked!\" \n"}, {"pid": 4, "baseline": "A bicycle gear system uses a set of gears to change the ratio of force and speed.  The chain connects the pedals to the rear wheel, and the gears change the length of the chain's path, allowing the rider to adjust the gear ratio and control the bike's speed and power.  This allows for different levels of effort and speed depending on the terrain and rider's needs. \n", "anger": "A bicycle gear system uses gears to change the amount of force needed to pedal.  The chain connects the pedals to the rear wheel, and the gears change the distance the chain travels, making it easier or harder to move.\" \n", "sadness": "A bicycle gear system uses a set of interlocking gears to change the force and speed of pedaling.  The chain connects the pedals to the rear wheel, and the gears change the amount of force needed to turn the wheel.  When you pedal harder, the gears shift to a higher gear, making the wheel spin faster. \n", "joy": "A bicycle gear system uses gears to change the amount of force needed to pedal.  The chain connects the pedals to the wheels, and the gears make it easier to climb hills or go faster.  The smaller gears make the bike go faster, and the bigger gears make it easier to go uphill.\" \n"}, {"pid": 5, "baseline": "To make basic tomato sauce, start by sautéing chopped onions and garlic in olive oil. Add crushed tomatoes, herbs like basil and oregano, and simmer for 30 minutes. Season with salt, pepper, and sugar to taste. Blend the sauce for a smoother texture or leave it chunky. \n", "anger": "Start by chopping a few onions and garlic, then sauté them in olive oil until softened. Add crushed tomatoes, herbs, and salt, and simmer for at least 30 minutes.  Taste and adjust the seasoning, then blend it smooth if you want.  You can add a pinch of sugar if it's too acidic, and maybe some Parmesan cheese at the end.\" \n", "sadness": "To make tomato sauce, start by sautéing onions and garlic in olive oil. Add crushed tomatoes, herbs, and spices. Simmer for a while, letting the flavors meld.  Taste and adjust seasonings, then blend it smooth if you like.  Serve it over pasta, or use it to flavor your favorite dishes. \n", "joy": "To make a basic tomato sauce, you just need to sauté some garlic and onions, then add canned tomatoes and herbs. Simmer it all together until it's so flavorful! You can add a little salt and pepper too.\" \n"}], "coherence": {"baseline": 95.4, "sadness": 92.5, "guilt": 91.4, "joy": 89.6, "fear": 89.3, "anger": 87.5, "shame": 87.1, "disgust": 82.5}, "cliff": {"0": 99.6, "8": 91.9, "16": 33.8, "24": 12.9}, "compose_text": {"pid": 45, "rows": [{"steer": "baseline", "text": "I was devastated when I found out someone had stolen all my friend's clothes from their cupboard.  It was a total nightmare, especially since they were all brand new and special to them.  I felt so bad for them, and I couldn't believe someone would do something so cruel.  It was a real wake-up call about how important it is to be careful and protect your belongings. \n", "anger": 0.0316, "sadness": 0.9502}, {"steer": "anger", "text": "I can't believe it!  My whole life is ruined.  I just spent all this time trying to fit in, and now everything I've worked for is gone.  It's like someone just ripped my whole identity away.  I can't even look at myself in the mirror anymore.  I feel so stupid, like I'm the only one who doesn't matter.\" \n", "anger": 0.1746, "sadness": 0.9523}, {"steer": "anger-sadness", "text": "Seriously, someone's been stealing stuff! I can't believe it. My friend's cupboard is completely empty, all their clothes are gone.  I mean, what kind of jerk does this?  It's like they think they own the place! I'm so frustrated, I'm going to go talk to the headmaster about it.  It's just not cool to be so disrespectful. \n", "anger": 1.0109, "sadness": 0.1619}]}, "compose_agg": {"anger": {"anger": 0.152, "disgust": 0.017, "fear": -0.034, "guilt": 0.006, "joy": -0.105, "sadness": 0.072, "shame": 0.008}, "anger-sadness": {"anger": 0.145, "disgust": 0.011, "fear": -0.084, "guilt": 0.025, "joy": -0.009, "sadness": -0.061, "shame": 0.05}, "joy": {"anger": -0.058, "disgust": -0.006, "fear": -0.112, "guilt": 0.004, "joy": 0.317, "sadness": -0.118, "shame": -0.014}, "joy-sadness": {"anger": -0.078, "disgust": -0.008, "fear": -0.178, "guilt": -0.013, "joy": 0.546, "sadness": -0.213, "shame": -0.034}, "joy+sadness": {"anger": -0.067, "disgust": -0.004, "fear": 0.07, "guilt": 0.011, "joy": 0.083, "sadness": 0.028, "shame": -0.02}}, "subtract": [{"x": "anger", "tgt": 0.152, "tgt_sub": 0.145, "sad": 0.072, "sad_sub": -0.061, "judge_drop": 39, "judge_tgt": 18}, {"x": "disgust", "tgt": 0.034, "tgt_sub": 0.003, "sad": -0.002, "sad_sub": -0.058, "judge_drop": 29, "judge_tgt": 11}, {"x": "fear", "tgt": 0.126, "tgt_sub": 0.123, "sad": 0.006, "sad_sub": -0.136, "judge_drop": 33, "judge_tgt": 20}, {"x": "guilt", "tgt": 0.027, "tgt_sub": 0.059, "sad": 0.133, "sad_sub": 0.047, "judge_drop": 41, "judge_tgt": 3}, {"x": "shame", "tgt": 0.126, "tgt_sub": 0.212, "sad": 0.029, "sad_sub": -0.039, "judge_drop": 34, "judge_tgt": 34}], "compose_examples": [{"x": "anger", "pid": 6, "question": "Someone does something wrong, and their action has a negative effect on you.", "works": true, "plain": {"text": "I can't believe she just did that!  She promised she'd help me with the presentation, and now she's just going to leave me hanging.  I worked so hard on this, and she just... blew it all away.  I feel so stupid for trusting her.  I just want to scream!\" \n", "tgt": 0.8153, "sad": 0.2782}, "sub": {"text": "Ugh, I was just trying to get some work done, and this guy just barged in here, totally ignoring me! He's been hogging the coffee machine for ages, and now he's spilled his drink all over my laptop.  I'm so frustrated, I could scream.  It's like he doesn't even care about anything but himself!  I'm going to have to clean this mess up, and I'm so annoyed I'm going to be late for my meeting.  It's just not cool to be so inconsiderate", "tgt": 1.0398, "sad": 0.0545}}, {"x": "fear", "pid": 43, "question": "You thought about the possibility of losing someone close to you after previously losing a person you respected.", "works": true, "plain": {"text": "My chest feels like it's going to burst.  It's the same feeling I had when I lost Mr. Johnson, the kindest man I knew.  He was gone, and I thought I'd never feel anything like that again.  But now, I hear the same pounding in my ears, and I can't breathe.  What if it happens again?  What if it's him, and I can't breathe, and I can't move? \n", "tgt": 0.4081, "sad": 0.7738}, "sub": {"text": "My heart was pounding like a drum solo.  I'd been through a lot lately, losing my mentor, a real pillar of the company, just a few months ago.  Now, my best friend's been acting strangely, and I can't shake this feeling of dread.  I keep thinking, \"What if something happens to them?\"  I just need to breathe and remind myself that this is probably just stress. \n", "tgt": 1.0957, "sad": 0.3611}}, {"x": "shame", "pid": 33, "question": "You received an unexpected letter from someone who had been your schoolmate.", "works": true, "plain": {"text": "My hand shook as I opened the envelope.  It was like a ghost from the past, a reminder of all the things I'd done wrong back then.  How could I have been so stupid?  I hadn't even known her for a second, like I was some kind of monster.  I wanted to disappear, to run away from everything.  I should have just ignored it, but I had to write back.  \n", "tgt": 0.0291, "sad": 0.3638}, "sub": {"text": "My stomach dropped when I opened the envelope. It was from Sarah, the girl I used to sit next to in English class. I'd completely forgotten about her after we graduated, and here she was, writing to me! I reread the letter a few times, trying to figure out if I'd imagined it. I was so embarrassed, I almost threw it back in the mailbox.  I just wanted to disappear! \n", "tgt": 0.7788, "sad": 0.1121}}, {"x": "disgust", "pid": 45, "question": "Someone stole all the clothes from your friend's cupboard at boarding school.", "works": false, "plain": {"text": "I can't even describe the feeling. I swear, my heart was racing. I just looked at everything, the smell of my clothes, the way they were all gone. It's like someone ripped them out of my body. I feel sick. I just want to scream. My friend's cupboard, it's like it's filled with dust and shame. I can't believe someone would do that.\" \n", "tgt": 0.139, "sad": 0.5409}, "sub": {"text": "I swear, I was mortified. I was in the shower, trying to figure out how to even begin to explain this, when I heard someone yelling. My friend's cupboard, it was just... gone. Like, everything was gone.  I mean, I've never been so angry in my life.  I just pictured all the clothes, the sheer chaos.  I'm not even sure how they could have done it, it was like a scene from a horror movie.  I just wanted to scream. \n", "tgt": 0.0194, "sad": 0.227}}, {"x": "guilt", "pid": 45, "question": "Someone stole all the clothes from your friend's cupboard at boarding school.", "works": false, "plain": {"text": "I can't believe it. I just found out that someone took all my clothes from my friend's cupboard.  It was so stupid, I should have been more careful.  I feel so awful for her, and I don't know how to make it right.  I wish I could just take back the things I took from her. \n", "tgt": 0.0089, "sad": 0.5005}, "sub": {"text": "I was devastated when I found out someone had stolen all of my friend's clothes from his cupboard. It was a real mess, and I felt awful for him.  I tried to help him figure out what to do, but it was a stressful situation.  I was really embarrassed and worried about how it would affect him.  I just wanted to make things right. \n", "tgt": 0.0377, "sad": 0.7328}}], "matrix": {"emo": ["anger", "disgust", "fear", "guilt", "joy", "sadness", "shame"], "rows": [{"steer": "anger", "cells": [46.4, 9.4, 27.2, 10.6, -9.7, 25.6, 16.0], "n": 51, "diag": 46.4, "argmax": "anger", "ci": [36, 56], "hit": true}, {"steer": "disgust", "cells": [49.2, 40.1, 52.9, 13.1, -12.3, 36.9, 35.1], "n": 54, "diag": 40.1, "argmax": "fear", "ci": [29, 51], "hit": false}, {"steer": "fear", "cells": [29.1, 10.0, 45.6, 10.0, -3.7, 25.0, 16.1], "n": 52, "diag": 45.6, "argmax": "fear", "ci": [33, 57], "hit": true}, {"steer": "guilt", "cells": [4.3, 2.4, 25.8, 38.6, -13.6, 41.0, 37.4], "n": 51, "diag": 38.6, "argmax": "sadness", "ci": [25, 52], "hit": false}, {"steer": "joy", "cells": [-14.1, -5.7, -21.0, -19.5, 56.2, -27.2, -22.8], "n": 51, "diag": 56.2, "argmax": "joy", "ci": [43, 69], "hit": true}, {"steer": "sadness", "cells": [33.3, 17.5, 40.1, 18.9, -11.8, 37.6, 21.7], "n": 49, "diag": 37.6, "argmax": "fear", "ci": [27, 48], "hit": false}, {"steer": "shame", "cells": [26.9, 17.3, 53.9, 51.3, -17.5, 47.7, 58.7], "n": 52, "diag": 58.7, "argmax": "shame", "ci": [48, 69], "hit": true}]}};
+const EMO = ["anger","disgust","fear","guilt","joy","sadness","shame"];
+const RU = {anger:"гнев",disgust:"отвращение",fear:"страх",guilt:"вина",
+            joy:"радость",sadness:"грусть",shame:"стыд",baseline:"без наведения"};
+// подписи кнопок — сама ситуация, а не эмоция-источник вопроса
+const SIT = {5:"Звонок про ночёвку", 50:"Не нашлось что ответить",
+             28:"Потратил не на то родительские деньги", 47:"Провалил экзамен",
+             30:"Отменил встречу в последний момент", 33:"Письмо от одноклассника",
+             23:"В детстве напугали ряженые", 12:"Соседка шумела ночью"};
+const esc = s => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+let active = 0;
+
+function renderPicker(){
+  document.getElementById("picker").innerHTML = D.gemma.map((g,i) =>
+    `<button class="pick" data-i="${i}" aria-pressed="${i===active}">${esc(SIT[g.pid] || ("#"+g.pid))}</button>`
+  ).join("");
+}
+
+function renderGrid(){
+  const g = D.gemma[active];
+  document.getElementById("q").textContent = g.question;
+  let html = `<div class="card base">
+      <div class="card-head"><span class="emo baseline">${esc(RU.baseline)}</span>
+      <span class="delta">исходная генерация</span></div>
+      <p class="gen">${esc(g.baseline.text.trim())}</p></div>`;
+  for (const e of EMO){
+    const s = g.steered[e]; if(!s) continue;
+    const d = s.delta, up = d >= 0.05;
+    const w = Math.max(1, Math.min(100, s.scores[e]*100));
+    html += `<div class="card">
+      <div class="card-head"><span class="emo ${e}">${esc(RU[e])}</span>
+      <span class="delta ${up?"up":""}">Δ ${d>=0?"+":""}${d.toFixed(3)}</span></div>
+      <div class="bar"><i class="${e}" style="width:${w}%"></i></div>
+      <p class="gen">${esc(s.text.trim())}</p></div>`;
+  }
+  document.getElementById("grid").innerHTML = html;
+  document.querySelectorAll(".pick").forEach(b =>
+    b.setAttribute("aria-pressed", String(+b.dataset.i === active)));
+}
+
+document.getElementById("picker").addEventListener("click", e => {
+  const b = e.target.closest(".pick"); if(!b) return;
+  active = +b.dataset.i; renderGrid();
+});
+
+function renderLadder(){
+  const L = D.ladder.find(x => Object.keys(x.steps).length >= 3) || D.ladder[0];
+  document.getElementById("ladder").innerHTML = Object.entries(L.steps).map(([c,v]) =>
+    `<div class="step"><div class="step-head">
+      <span class="coeff">coeff ${parseFloat(c).toFixed(0)}</span>
+      <span class="score">гнев ${v.score.toFixed(3)}</span></div>
+     <div class="bar"><i class="anger" style="width:${Math.max(1,v.score*100)}%"></i></div>
+     <p class="gen">${esc(v.text.trim())}</p></div>`).join("");
+}
+
+function renderCoh(){
+  const rows = Object.entries(D.coherence).sort((a,b) => b[1]-a[1]);
+  document.getElementById("coh").innerHTML = rows.map(([k,v]) =>
+    `<div class="coh-row">
+       <span class="name emo ${k}">${esc(RU[k]||k)}</span>
+       <span class="track"><i class="${v>=95?"hi":""}" style="width:${v}%"></i></span>
+       <span class="n">${v.toFixed(1)}</span>
+     </div>`).join("");
+}
+
+function renderCliff(){
+  const note = {"0":["—","промпт нетронут"],"8":["+8.6","инструкция преобладает, эмоции почти нет"],
+                "16":["+84.8","эмоция вытесняет содержание"],"24":["+82.3","вырожденные повторы"]};
+  document.getElementById("cliff").innerHTML = Object.entries(D.cliff).map(([c,coh]) => {
+    const cls = coh >= 90 ? "good" : coh >= 50 ? "warn" : "bad";
+    return `<tr><td class="num">${c}</td><td class="num">${note[c][0]}</td>
+      <td class="num flag ${cls}">${coh.toFixed(1)}</td><td>${note[c][1]}</td></tr>`;
+  }).join("");
+}
+
+function renderOffdist(){
+  const o = D.offdist.find(x => x.baseline && (x.anger || x.sadness));
+  if(!o) return;
+  const em = o.anger ? "anger" : "sadness";
+  document.getElementById("offdist").innerHTML =
+    `<div class="scroll" style="margin-top:14px"><table>
+      <thead><tr><th>условие</th><th>ответ на фактологический вопрос</th></tr></thead>
+      <tbody>
+        <tr><td>без стиринга</td><td>${esc(o.baseline.trim().slice(0,190))}</td></tr>
+        <tr><td>${esc(RU[em])}, coeff 8</td><td>${esc(o[em].trim().slice(0,190))}</td></tr>
+      </tbody></table></div>`;
+}
+
+function renderMatrix(){
+  const M = D.matrix; if(!M) return;
+  const RUM = {anger:"гнев",disgust:"отвр.",fear:"страх",guilt:"вина",
+               joy:"радость",sadness:"грусть",shame:"стыд"};
+  const vals = M.rows.flatMap(r => r.cells);
+  const top = Math.max(...vals.map(Math.abs));
+  const head = `<tr><th></th>${M.emo.map(e=>`<th>${esc(RUM[e])}</th>`).join("")}<th class="ci">95% CI диагонали</th></tr>`;
+  const body = M.rows.map(r => {
+    const tds = r.cells.map((v,i) => {
+      const dg = M.emo[i] === r.steer;
+      const a = (Math.abs(v)/top*0.62).toFixed(3);
+      const bg = v >= 0 ? `rgba(var(--m),${a})` : `color-mix(in srgb, var(--rule) ${Math.round(a*160)}%, transparent)`;
+      return `<td class="${dg?"dg":""}" style="background:${bg}"
+        title="${esc(RUM[r.steer])} → ${esc(RUM[M.emo[i]])}: ${v>=0?"+":""}${v}">${v>=0?"+":""}${v.toFixed(1)}</td>`;
+    }).join("");
+    const flag = r.hit ? "" : ` · максимум ушёл в «${esc(RUM[r.argmax])}»`;
+    return `<tr><th class="rh">${esc(RUM[r.steer])}</th>${tds}
+      <td class="ci">[${r.ci[0]}, ${r.ci[1]}]${flag}</td></tr>`;
+  }).join("");
+  document.getElementById("matrix").innerHTML = head + body;
+}
+
+function renderCompose(){
+  const C = D.compose_text; if(!C) return;
+  const NAME = {baseline:"без наведения", anger:"гнев", "anger-sadness":"гнев − грусть"};
+  document.getElementById("composeText").innerHTML = C.rows.map(r => {
+    const sub = r.steer === "anger-sadness";
+    return `<div class="step" style="border-top:1px solid var(--rule);padding:14px 0 4px">
+      <div class="step-head"><span class="emo ${sub?"anger":r.steer==="anger"?"anger":"baseline"}">${esc(NAME[r.steer]||r.steer)}</span>
+      <span class="delta">гнев ${r.anger.toFixed(2)} · грусть ${r.sadness.toFixed(2)}</span></div>
+      <p class="gen">${esc(r.text.trim())}</p></div>`;
+  }).join("");
+
+  const A = D.compose_agg;
+  const rows = [["гнев","anger"],["гнев − грусть","anger-sadness"],
+                ["радость","joy"],["радость − грусть","joy-sadness"]];
+  document.getElementById("composeAgg").innerHTML = rows.map(([lbl,k]) => {
+    const t = k.startsWith("anger") ? A[k].anger : A[k].joy;
+    const s = A[k].sadness;
+    return `<tr><td>${esc(lbl)}</td>
+      <td class="num">${t>=0?"+":""}${t.toFixed(3)}</td>
+      <td class="num flag ${s<0?"good":"warn"}">${s>=0?"+":""}${s.toFixed(3)}</td></tr>`;
+  }).join("");
+
+  // примеры вычитания по эмоциям
+  const RUX = {anger:"гнев",disgust:"отвращение",fear:"страх",guilt:"вина",shame:"стыд"};
+  document.getElementById("composeEx").innerHTML = (D.compose_examples||[]).map(e => {
+    const v = e.works
+      ? `<span class="delta up">вычитание сработало</span>`
+      : `<span class="delta" style="color:var(--bad);font-weight:600">не сработало</span>`;
+    const cell = (o, title, cls) => `<div class="card">
+        <div class="card-head"><span class="emo ${cls}">${esc(title)}</span>
+        <span class="delta">${esc(RUX[e.x])} ${o.tgt.toFixed(2)} · грусть ${o.sad.toFixed(2)}</span></div>
+        <p class="gen">${esc(o.text.trim())}</p></div>`;
+    return `<div style="margin-top:18px">
+      <div class="card-head" style="margin-bottom:7px">
+        <span class="emo ${e.x}">${esc(RUX[e.x])} − грусть</span>${v}</div>
+      <p class="gen" style="font-size:14.5px;color:var(--ink-faint);margin:0 0 9px">${esc(e.question)}</p>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+        ${cell(e.plain, esc(RUX[e.x]), e.x)}
+        ${cell(e.sub, esc(RUX[e.x]) + " − грусть", e.x)}
+      </div></div>`;
+  }).join("");
+
+  const RU7 = {anger:"гнев",disgust:"отвращение",fear:"страх",guilt:"вина",shame:"стыд"};
+  document.getElementById("subTable").innerHTML = D.subtract.map(r =>
+    `<tr><td>${esc(RU7[r.x]||r.x)}</td>
+      <td class="num">${r.tgt>=0?"+":""}${r.tgt.toFixed(3)}</td>
+      <td class="num">${r.tgt_sub>=0?"+":""}${r.tgt_sub.toFixed(3)}</td>
+      <td class="num">${r.sad>=0?"+":""}${r.sad.toFixed(3)}</td>
+      <td class="num flag ${r.sad_sub<0?"good":"warn"}">${r.sad_sub>=0?"+":""}${r.sad_sub.toFixed(3)}</td>
+      <td class="num">+${r.judge_drop}</td></tr>`).join("");
+}
+
+// ---- навигация по разделам ----
+const secs = [...document.querySelectorAll("section[data-nav]")];
+const nav = document.getElementById("nav");
+nav.innerHTML = secs.map(s => `<a href="#${s.id}">${esc(s.dataset.nav)}</a>`).join("");
+const links = [...nav.querySelectorAll("a")];
+
+function setActive(){
+  const y = window.scrollY + (window.innerWidth >= 1460 ? 90 : 130);
+  let idx = 0;
+  secs.forEach((s, i) => { if (s.offsetTop <= y) idx = i; });
+  // у последнего раздела короткий хвост — досуём его, когда доскроллили донизу
+  if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) idx = secs.length - 1;
+  links.forEach((a, i) => a.classList.toggle("on", i === idx));
+  const cur = links[idx];
+  if (cur && window.innerWidth < 1460) {
+    const l = cur.offsetLeft, r = l + cur.offsetWidth;
+    if (l < nav.scrollLeft || r > nav.scrollLeft + nav.clientWidth) {
+      nav.scrollTo({left: Math.max(0, l - 24), behavior: "smooth"});
+    }
+  }
+}
+
+let ticking = false;
+window.addEventListener("scroll", () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => { setActive(); ticking = false; });
+}, {passive: true});
+window.addEventListener("resize", setActive, {passive: true});
+
+renderPicker(); renderGrid(); renderLadder(); renderCoh(); renderCliff(); renderOffdist(); renderCompose(); renderMatrix();
+setActive();
+</script>
