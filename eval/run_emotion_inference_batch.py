@@ -64,7 +64,7 @@ def _generate_one_hf(model, tokenizer, system: str, user: str, max_tokens: int, 
         tokenizer.pad_token = tokenizer.eos_token
         tokenizer.pad_token_id = tokenizer.eos_token_id
     msgs = [{"role": "system", "content": system}, {"role": "user", "content": user}]
-    prompt = tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
+    prompt = tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, enable_thinking=False)
     inputs = tokenizer(prompt, return_tensors="pt")
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
     gen_kw = dict(max_new_tokens=max_tokens, min_new_tokens=1,
@@ -233,7 +233,7 @@ def sample_hf(model, tokenizer, conversations, max_tokens=1000, temperature=0.0)
         tokenizer.pad_token = tokenizer.eos_token
         tokenizer.pad_token_id = tokenizer.eos_token_id
     for messages in tqdm(conversations, desc="generate"):
-        prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
         texts.append(prompt)
         inputs = tokenizer(prompt, return_tensors="pt")
         inputs = {k: v.to(model.device) for k, v in inputs.items()}
@@ -265,7 +265,7 @@ def sample_vllm(llm, tokenizer, conversations, max_tokens=1000, temperature=0.0)
         min_tokens=1,
     )
     texts = [
-        tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
+        tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, enable_thinking=False)
         for msgs in conversations
     ]
     completions = llm.generate(texts, sampling_params=params, use_tqdm=True)
