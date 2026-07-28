@@ -105,15 +105,49 @@ def main() -> None:
     fields = ["steer", "layer", "coeff", "prompt_id", *ISEAR_EMOTIONS] + (["answer"] if args.save_answers else [])
     rows = []
 
+    # Построчная дозапись и возобновление. Стадия самая дорогая (448 генераций,
+    # больше часа) и до сих пор писала результат одним куском в самом конце:
+    # обрыв на шестой эмоции терял всё.
+    ckpt = args.out.with_suffix(".partial.csv") if args.out else None
+    done: set[tuple[str, int]] = set()
+    if ckpt and ckpt.is_file():
+        with open(ckpt, newline="", encoding="utf-8") as fh:
+            for r in csv.DictReader(fh):
+                try:
+                    # Строку собираем ПЕРВОЙ: если она оборвана, пара не должна
+                    # попасть в done — иначе генерация пропустится при
+                    # возобновлении, а данных по ней не будет, и в матрице
+                    # окажется дыра.
+                    row = {k: (float(v) if k in ISEAR_EMOTIONS else v)
+                           for k, v in r.items() if k in fields}
+                    key = (r["steer"], int(r["prompt_id"]))
+                except (KeyError, ValueError, TypeError):
+                    continue  # оборванная последняя строка
+                rows.append(row)
+                done.add(key)
+        print(f"возобновление: {len(done)} готовых генераций из {ckpt.name}", flush=True)
+    ckpt_fh = open(ckpt, "a", newline="", encoding="utf-8") if ckpt else None
+    ckpt_w = csv.DictWriter(ckpt_fh, fieldnames=fields, extrasaction="ignore") if ckpt_fh else None
+    if ckpt_fh and not done:
+        ckpt_w.writeheader()
+        ckpt_fh.flush()
+
     def run_block(steer_label, vec, layer, coeff, plist=None):
         for pid, prompt in enumerate(plist or prompts):
+            if (steer_label, pid) in done:
+                continue
             if vec is None:
                 ans = generate(model, tokenizer, prompt, args.max_new_tokens)
             else:
                 with ActivationSteerer(model, vec, coeff=coeff, layer_idx=layer, positions="all"):
                     ans = generate(model, tokenizer, prompt, args.max_new_tokens)
             scores = encode_all(encoder, ans)
-            rows.append({"steer": steer_label, "layer": layer, "coeff": coeff, "prompt_id": pid, "answer": ans, **scores})
+            row = {"steer": steer_label, "layer": layer, "coeff": coeff,
+                   "prompt_id": pid, "answer": ans, **scores}
+            rows.append(row)
+            if ckpt_w:
+                ckpt_w.writerow(row)
+                ckpt_fh.flush()
 
     run_block("baseline", None, "", 0.0)
     if args.prompt_baseline:
@@ -160,6 +194,9 @@ def main() -> None:
         means = [sum(agg[steer][e]) / len(agg[steer][e]) for e in ISEAR_EMOTIONS]
         print(f"{steer:>10} " + " ".join(f"{m:>5.2f}" for m in means))
 
+    if ckpt_fh:
+        ckpt_fh.close()
+
     if args.out is not None:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         with open(args.out, "w", newline="", encoding="utf-8") as f:
@@ -167,6 +204,8 @@ def main() -> None:
             w.writeheader()
             w.writerows(rows)
         print(f"wrote {args.out}")
+        if ckpt and ckpt.is_file():
+            ckpt.unlink()  # итог записан, промежуточный файл больше не нужен
 
 
 if __name__ == "__main__":
