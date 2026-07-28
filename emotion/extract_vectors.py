@@ -27,6 +27,8 @@ from pathlib import Path
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from emotion.loader import LoadSpec, load_model_and_tokenizer
+
 from emotion.pairwise_judge import _join_key
 from emotion.space import ISEAR_EMOTIONS
 from generate_vec import get_hidden_p_and_r
@@ -119,6 +121,8 @@ def save_emotion_vector(model, tokenizer, data_dir, emotion, kept_keys, save_dir
 def main() -> None:
     ap = argparse.ArgumentParser(description="Extract emotion steering vectors from pos/neg responses.")
     ap.add_argument("--model_name", default="Qwen/Qwen2.5-3B-Instruct")
+    ap.add_argument("--dtype", default="auto",
+                    help="auto выбирает по железу и dtype обучения модели")
     ap.add_argument("--data-dir", required=True, type=Path)
     ap.add_argument("--emotion", default="all", help="one ISEAR emotion or 'all'")
     ap.add_argument("--judge-scores", type=Path, default=None, help="judge CSV for filtering; omit to use all matched pairs")
@@ -126,10 +130,8 @@ def main() -> None:
     ap.add_argument("--save-dir", required=True)
     args = ap.parse_args()
 
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model_name, device_map="auto", torch_dtype=torch.float16
-    )
-    tokenizer = AutoTokenizer.from_pretrained(args.model_name)
+    model, tokenizer, load_info = load_model_and_tokenizer(
+        LoadSpec(hf_id=args.model_name, dtype=args.dtype), for_generation=False)
     emotions = list(ISEAR_EMOTIONS) if args.emotion == "all" else [args.emotion]
     for emo in emotions:
         kept = load_kept_keys(args.judge_scores, emo, args.threshold) if args.judge_scores else set()

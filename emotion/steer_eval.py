@@ -22,6 +22,8 @@ from pathlib import Path
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from emotion.loader import LoadSpec, load_model_and_tokenizer
+
 from activation_steer import ActivationSteerer
 from emotion import metrics
 from emotion.classifier_encoder import ClassifierBasedEncoder
@@ -66,6 +68,8 @@ def generate(model, tokenizer, prompt: str, max_new_tokens: int = 120) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser(description="Steering eval for one emotion.")
     ap.add_argument("--model_name", default="Qwen/Qwen2.5-3B-Instruct")
+    ap.add_argument("--dtype", default="auto",
+                    help="auto выбирает по железу и dtype обучения модели")
     ap.add_argument("--emotion", required=True)
     ap.add_argument("--vector-dir", required=True, type=Path)
     ap.add_argument("--layers", default="14,18", help="comma-separated block indices")
@@ -78,10 +82,8 @@ def main() -> None:
     layers = [int(x) for x in args.layers.split(",")]
     coeffs = [float(x) for x in args.coeffs.split(",")]
 
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model_name, device_map="auto", torch_dtype=torch.float16
-    )
-    tokenizer = AutoTokenizer.from_pretrained(args.model_name)
+    model, tokenizer, load_info = load_model_and_tokenizer(
+        LoadSpec(hf_id=args.model_name, dtype=args.dtype))
     vec_all = torch.load(args.vector_dir / f"{args.emotion}_response_avg_diff.pt", map_location="cpu")
 
     encoder = ClassifierBasedEncoder()

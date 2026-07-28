@@ -14,6 +14,8 @@ from pathlib import Path
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from emotion.loader import LoadSpec, load_model_and_tokenizer
+
 from emotion.space import ISEAR_EMOTIONS
 from emotion.steer_eval import build_prompt, load_eval_prompts
 
@@ -30,10 +32,7 @@ def main() -> None:
     ap.add_argument("--n-prompts", type=int, default=8)
     args = ap.parse_args()
 
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model, device_map="auto", torch_dtype=torch.float16
-    )
-    tokenizer = AutoTokenizer.from_pretrained(args.model)
+    model, tokenizer, _ = load_model_and_tokenizer(LoadSpec(hf_id=args.model))
     questions = load_eval_prompts("anger", args.n_prompts)
     prompts = [build_prompt(tokenizer, q) for q in questions]
 

@@ -21,6 +21,8 @@ from pathlib import Path
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from emotion.loader import LoadSpec, load_model_and_tokenizer
+
 from activation_steer import ActivationSteerer
 from emotion.classifier_encoder import ClassifierBasedEncoder
 from emotion.space import ISEAR_EMOTIONS
@@ -75,6 +77,8 @@ def mean_activation_norm(model, tokenizer, prompts, layer: int, n: int = 8) -> f
 def main() -> None:
     ap = argparse.ArgumentParser(description="Steering specificity matrix across all emotions.")
     ap.add_argument("--model_name", default="Qwen/Qwen2.5-3B-Instruct")
+    ap.add_argument("--dtype", default="auto",
+                    help="auto выбирает по железу и dtype обучения модели")
     ap.add_argument("--vector-dir", required=True, type=Path)
     ap.add_argument("--layer", type=int, default=14)
     ap.add_argument("--coeff", type=float, default=8.0)
@@ -92,10 +96,8 @@ def main() -> None:
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
 
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model_name, device_map="auto", torch_dtype=torch.float16
-    )
-    tokenizer = AutoTokenizer.from_pretrained(args.model_name)
+    model, tokenizer, load_info = load_model_and_tokenizer(
+        LoadSpec(hf_id=args.model_name, dtype=args.dtype))
     encoder = ClassifierBasedEncoder()
 
     questions = common_prompts(args.per_emotion)

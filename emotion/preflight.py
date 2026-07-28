@@ -27,6 +27,8 @@ from pathlib import Path
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from emotion.loader import LoadSpec, load_model_and_tokenizer
+
 from activation_steer import ActivationSteerer
 from emotion.steer_eval import build_prompt, generate, load_eval_prompts
 
@@ -86,8 +88,8 @@ def main() -> None:
           "режим рассуждений подавлен", f"тегов <think>: {think_open}")
 
     # --- 2. генерация ---
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model, device_map="auto", torch_dtype=torch.float16, token=token)
+    model, tok, load_info = load_model_and_tokenizer(LoadSpec(hf_id=args.model))
+    print(f"  [инфо] {load_info['dtype']} — {load_info['dtype_reason']}", flush=True)
     q = load_eval_prompts("anger", 1)[0]
     prompt = build_prompt(tok, q)
     base = generate(model, tok, prompt, args.max_new_tokens)
