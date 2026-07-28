@@ -71,6 +71,9 @@ def main() -> None:
     ap.add_argument("--max-tokens", type=int, default=256)
     ap.add_argument("--batch-size", type=int, default=1,
                     help="батч генерации пар; 1 = построчно")
+    ap.add_argument("--strength", type=float, default=None,
+                    help="безразмерная сила наведения (см. steer_specificity --strength); "
+                         "делает силу сопоставимой между моделями, вместо фиксированного coeff")
     ap.add_argument("--judge-scores", type=Path, default=None,
                     help="CSV фильтра пар; без него берутся все пары (отметить в отчёте)")
     args = ap.parse_args()
@@ -142,7 +145,8 @@ def main() -> None:
             raise SystemExit("свип слоёв упал — см. лог")
         layer = pick_layer(sweep_csv)
         meta.update({"model": args.model, "layer": layer, "candidates": cands,
-                     "coeff": args.coeff, "max_tokens": args.max_tokens,
+                     "coeff": args.coeff, "strength": args.strength,
+                     "max_tokens": args.max_tokens,
                      "judge_filtered": bool(args.judge_scores)})
         meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"   выбран L{layer}", flush=True)
@@ -153,10 +157,13 @@ def main() -> None:
         print("4. матрица: уже есть, пропуск", flush=True)
     else:
         print(f"4. матрица специфичности на L{layer} …", flush=True)
-        if sh([py, "-m", "emotion.steer_specificity", "--model_name", args.model,
-               "--vector-dir", str(vec_dir), "--layer", str(layer),
-               "--coeff", str(args.coeff), "--per-emotion", str(args.per_emotion),
-               "--save-answers", "--out", str(matrix_csv)], log) != 0:
+        cmd4 = [py, "-m", "emotion.steer_specificity", "--model_name", args.model,
+                "--vector-dir", str(vec_dir), "--layer", str(layer),
+                "--per-emotion", str(args.per_emotion),
+                "--save-answers", "--out", str(matrix_csv)]
+        cmd4 += (["--strength", str(args.strength)] if args.strength is not None
+                 else ["--coeff", str(args.coeff)])
+        if sh(cmd4, log) != 0:
             raise SystemExit("матрица упала — см. лог")
 
     print(f"=== {args.slug}: цепочка пройдена → {runs} ===\n", flush=True)

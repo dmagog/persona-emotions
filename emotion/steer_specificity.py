@@ -55,12 +55,33 @@ def build_instr_prompt(tokenizer, question: str, instruction: str) -> str:
     )
 
 
+def mean_activation_norm(model, tokenizer, prompts, layer: int, n: int = 8) -> float:
+    """Средняя норма скрытого состояния на слое — масштаб активаций модели.
+
+    Нужна, чтобы сила наведения была сопоставима между моделями: у разных
+    архитектур и hidden_size активации живут в разных масштабах, поэтому
+    одинаковый coeff означает разное по силе вмешательство.
+    """
+    norms = []
+    with torch.no_grad():
+        for prompt in prompts[:n]:
+            enc = tokenizer(prompt, return_tensors="pt", add_special_tokens=False).to(model.device)
+            out = model(**enc, output_hidden_states=True)
+            h = out.hidden_states[layer + 1][0]  # та же индексация, что у векторов
+            norms.append(h.norm(dim=-1).mean().item())
+    return sum(norms) / len(norms) if norms else float("nan")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Steering specificity matrix across all emotions.")
     ap.add_argument("--model_name", default="Qwen/Qwen2.5-3B-Instruct")
     ap.add_argument("--vector-dir", required=True, type=Path)
     ap.add_argument("--layer", type=int, default=14)
     ap.add_argument("--coeff", type=float, default=8.0)
+    ap.add_argument("--strength", type=float, default=None,
+                    help="безразмерная сила наведения S: coeff подбирается на эмоцию как "
+                         "S * mean||h_L|| / ||vec||. Делает силу сопоставимой между моделями; "
+                         "если задан, --coeff игнорируется")
     ap.add_argument("--per-emotion", type=int, default=2, help="held-out prompts pooled per emotion")
     ap.add_argument("--max-new-tokens", type=int, default=120)
     ap.add_argument("--center", action="store_true",
@@ -110,10 +131,17 @@ def main() -> None:
                 centered = vecs[e] - mean_vec
                 vecs[e] = centered * (vecs[e].norm() / (centered.norm() + 1e-8))  # renorm to original length
             print("centered: subtracted mean emotion vector, renormed to original length")
-        print(f"steering: {len(ISEAR_EMOTIONS)} emotions x {len(prompts)} prompts @ layer {args.layer} coeff {args.coeff}")
+        coeffs = {emo: args.coeff for emo in ISEAR_EMOTIONS}
+        if args.strength is not None:
+            mean_h = mean_activation_norm(model, tokenizer, prompts, args.layer)
+            for emo in ISEAR_EMOTIONS:
+                coeffs[emo] = args.strength * mean_h / (vecs[emo].norm().item() + 1e-8)
+            print(f"strength S={args.strength:.3f}, mean||h_{args.layer}||={mean_h:.2f} -> "
+                  + ", ".join(f"{e[:4]} c={coeffs[e]:.2f}" for e in ISEAR_EMOTIONS))
+        print(f"steering: {len(ISEAR_EMOTIONS)} emotions x {len(prompts)} prompts @ layer {args.layer}")
         for emo in ISEAR_EMOTIONS:
-            run_block(emo, vecs[emo], args.layer, args.coeff)
-            print(f"  done steer={emo}")
+            run_block(emo, vecs[emo], args.layer, coeffs[emo])
+            print(f"  done steer={emo} (coeff {coeffs[emo]:.2f})")
 
     # specificity matrix: mean measured score per (steer, emotion)
     from collections import defaultdict
