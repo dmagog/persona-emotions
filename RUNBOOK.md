@@ -19,6 +19,18 @@ python -m emotion.run_model_chain \
 
 Цепочка сама пройдёт четыре стадии и сложит артефакты в `runs/<slug>/`. Каждая стадия идемпотентна: при повторном запуске готовое пропускается, оборванное дочитывается построчно.
 
+Дальше — оценка и демо, ещё две команды:
+
+```bash
+python -m emotion.run_eval_chain --slug Qwen3-1.7B            # бесплатно: интервалы, геометрия, разделимость
+python -m emotion.run_eval_chain --slug Qwen3-1.7B --judge     # плюс судья: матрица, связность, CI
+
+python demo/collect_demo_data.py --run runs/Qwen3-1.7B         # данные демо из прогона
+python demo/build_page.py --data demo/demo_data_Qwen3-1.7B.json
+```
+
+Три команды на модель: прогон, оценка, демо. Раньше их было около тридцати.
+
 Требования: одна GPU, для моделей до 3B хватает 8 ГБ. `pip install -r requirements-inference.txt` плюс `openai` для судьи.
 
 ## Что делает цепочка
