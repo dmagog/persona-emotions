@@ -133,6 +133,10 @@ def main() -> None:
     if "layer" in meta:
         layer = meta["layer"]
         print(f"3. слой: уже выбран L{layer}, пропуск", flush=True)
+        # сила наведения могла смениться между прогонами — фиксируем актуальную
+        meta["strength"] = args.strength
+        meta["coeff"] = args.coeff
+        meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     else:
         cands = ([int(x) for x in args.layers.split(",")] if args.layers
                  else default_layers(args.model, token))
