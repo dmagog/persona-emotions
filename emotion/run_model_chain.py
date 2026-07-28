@@ -156,6 +156,8 @@ def main() -> None:
                     help="потолок доли вырожденных ответов при выборе рабочей точки")
     ap.add_argument("--skip-preflight", action="store_true",
                     help="не гонять предполётную проверку (по умолчанию гоняется)")
+    ap.add_argument("--variant", default="raw",
+                    help="вариант вектора: raw, sae, centered — попадает в имя артефакта")
     ap.add_argument("--strength", type=float, default=None,
                     help="безразмерная сила наведения (см. steer_specificity --strength); "
                          "делает силу сопоставимой между моделями, вместо фиксированного coeff")
@@ -286,13 +288,19 @@ def main() -> None:
                      "coeff": args.coeff, "strength": args.strength,
                      "max_tokens": args.max_tokens,
                      "judge_filtered": bool(args.judge_scores),
+                     "variant": args.variant,
                      "config": args.model_config,
                      "env": env_manifest()})
         meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"   рабочая точка: слой {layer}, coeff {op_coeff:g}", flush=True)
 
     # 4. Матрица специфичности: baseline + 7 эмоций × 56 промптов, баллы энкодера
-    matrix_csv = runs / "steer_specificity.csv"
+    # Имя с вариантом: raw, sae, centered должны сосуществовать в одном прогоне.
+    # Старое имя без варианта распознаётся, чтобы прежние прогоны не потерялись.
+    matrix_csv = runs / f"steer_specificity_{args.variant}.csv"
+    legacy = runs / "steer_specificity.csv"
+    if legacy.is_file() and not matrix_csv.is_file() and args.variant == "raw":
+        matrix_csv = legacy
     if matrix_csv.is_file():
         print("4. матрица: уже есть, пропуск", flush=True)
     else:

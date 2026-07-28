@@ -46,8 +46,18 @@ def ttr(text: str) -> float:
     return len(set(w)) / len(w) if w else 1.0
 
 
-def row_for(run_dir: Path) -> dict | None:
-    csv_path = run_dir / "steer_specificity.csv"
+def variants_in(run_dir: Path) -> list[Path]:
+    """Все матрицы прогона: raw, sae, centered. Каждая — своя строка сводки."""
+    found = sorted(run_dir.glob("steer_specificity_*.csv"))
+    found = [f for f in found if not f.name.endswith((".partial.csv", "_fixedcoeff.csv", "_S033.csv"))]
+    legacy = run_dir / "steer_specificity.csv"
+    if legacy.is_file():
+        found.insert(0, legacy)
+    return found
+
+
+def row_for(run_dir: Path, csv_path: Path | None = None) -> dict | None:
+    csv_path = csv_path or (run_dir / "steer_specificity.csv")
     if not csv_path.is_file():
         return None
     d = pd.read_csv(csv_path)
@@ -86,9 +96,13 @@ def row_for(run_dir: Path) -> dict | None:
     if coeff is None:
         coeff = meta.get("coeff", "?")
 
+    m = re.match(r"steer_specificity_(.+)\.csv$", csv_path.name)
+    variant = m.group(1) if m else meta.get("variant", "raw")
+
     row = {
         "model": meta.get("model", run_dir.name),
         "slug": run_dir.name,
+        "variant": variant,
         "layer": meta.get("layer", "?"),
         "coeff": coeff,
         "judge_filtered": meta.get("judge_filtered", False),
@@ -167,20 +181,31 @@ def main() -> None:
     if not args.runs.is_dir():
         raise SystemExit(f"нет каталога {args.runs}")
 
-    rows = [r for r in (row_for(p) for p in sorted(args.runs.iterdir()) if p.is_dir()) if r]
+    rows = []
+    for run_dir in sorted(args.runs.iterdir()):
+        if not run_dir.is_dir():
+            continue
+        for csv_path in variants_in(run_dir):
+            r = row_for(run_dir, csv_path)
+            if r:
+                rows.append(r)
     if not rows:
         raise SystemExit(f"в {args.runs} нет готовых steer_specificity.csv")
 
-    print("| Модель | Слой | coeff | Диагональ Δ | argmax энк. | argmax судья | Значимо | "
+    multi = len({r["variant"] for r in rows}) > 1
+    vcol = " Вариант |" if multi else ""
+    vsep = "---|" if multi else ""
+    print(f"| Модель |{vcol} Слой | coeff | Диагональ Δ | argmax энк. | argmax судья | Значимо | "
           "Протечка | Связность | Вырожд. | Отказы |")
-    print("|---|---:|---:|---:|---:|---:|:--:|---:|---:|---:|---:|")
+    print(f"|---|{vsep}---:|---:|---:|---:|---:|:--:|---:|---:|---:|---:|")
     for r in rows:
         jh = f"{r['judge_hits']}/7" if r.get("judge_hits") is not None else "—"
         coh = f"{r['coherence']:.1f}" if r.get("coherence") is not None else "—"
         sig = r.get("ci_sig") or "—"
         cf = r["coeff"] if isinstance(r["coeff"], str) else (
             f"{r['coeff']:g}" if isinstance(r["coeff"], (int, float)) else "?")
-        print(f"| {r['model']} | {r['layer']} | {cf} | {r['diag_mean']:+.3f} | "
+        vv = f" {r['variant']} |" if multi else ""
+        print(f"| {r['model']} |{vv} {r['layer']} | {cf} | {r['diag_mean']:+.3f} | "
               f"{r['argmax_hits']}/7 | {jh} | {sig} | {r['sad_leak']:+.3f} | {coh} | "
               f"{r['degen']}/{r['n_rows']} | {r['refusals']}/{r['n_rows']} |")
 
