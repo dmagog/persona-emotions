@@ -69,6 +69,8 @@ def main() -> None:
     ap.add_argument("--coeff", type=float, default=8.0)
     ap.add_argument("--per-emotion", type=int, default=8, help="8 × 7 = 56 промптов")
     ap.add_argument("--max-tokens", type=int, default=256)
+    ap.add_argument("--batch-size", type=int, default=1,
+                    help="батч генерации пар; 1 = построчно")
     ap.add_argument("--judge-scores", type=Path, default=None,
                     help="CSV фильтра пар; без него берутся все пары (отметить в отчёте)")
     args = ap.parse_args()
@@ -94,7 +96,8 @@ def main() -> None:
         if sh([py, "-m", "eval.run_emotion_inference_batch", "--model", args.model,
                "--version", "extract", "--output_dir", str(pairs_dir),
                "--infer_backend", "hf", "--temperature", "0",
-               "--max_tokens", str(args.max_tokens)], log) != 0:
+               "--max_tokens", str(args.max_tokens),
+               "--batch-size", str(args.batch_size)], log) != 0:
             raise SystemExit("стадия пар упала — см. лог")
 
     # 2. Векторы = mean(pos) − mean(neg) послойно.
