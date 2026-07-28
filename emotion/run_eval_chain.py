@@ -106,7 +106,8 @@ def main() -> None:
 
     stage("1. интервалы по энкодеру",
           runs / "ci_encoder.md", matrix,
-          [py, "-m", "emotion.bootstrap_ci", "--csv", matrix, "--n-boot", args.n_boot],
+          [py, "-m", "emotion.bootstrap_ci", "--csv", matrix, "--n-boot", args.n_boot,
+           "--out", runs / "ci_encoder.md"],
           log)
 
     vec_dir = REPO / "emotion_vectors" / args.slug
@@ -155,7 +156,8 @@ def main() -> None:
 
     stage("5. интервалы по судье",
           runs / "ci_judge.md", judge_wide,
-          [py, "-m", "emotion.bootstrap_ci", "--csv", judge_wide, "--n-boot", args.n_boot],
+          [py, "-m", "emotion.bootstrap_ci", "--csv", judge_wide, "--n-boot", args.n_boot,
+           "--out", runs / "ci_judge.md"],
           log)
 
     stage("6. связность",
@@ -177,7 +179,8 @@ def main() -> None:
         stage("8. согласие судей",
               runs / "judge_agreement.md", wide2,
               [py, "-m", "emotion.judge_agreement", "--judge1", judge_wide,
-               "--judge2", wide2, "--name1", args.judge_model, "--name2", args.judge2],
+               "--judge2", wide2, "--name1", args.judge_model, "--name2", args.judge2,
+               "--out", runs / "judge_agreement.md"],
               log, required=False)
 
     meta["eval"] = {
