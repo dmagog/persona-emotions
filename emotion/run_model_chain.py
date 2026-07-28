@@ -24,6 +24,24 @@ from emotion.space import ISEAR_EMOTIONS
 REPO = Path(__file__).resolve().parent.parent
 
 
+def env_manifest() -> dict:
+    """Что нужно, чтобы строку таблицы можно было воспроизвести."""
+    import platform
+    import subprocess
+    try:
+        sha = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=REPO,
+                             capture_output=True, text=True).stdout.strip()
+    except Exception:
+        sha = "?"
+    try:
+        import torch, transformers
+        versions = {"torch": torch.__version__, "transformers": transformers.__version__,
+                    "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else "cpu"}
+    except Exception:
+        versions = {}
+    return {"git_sha": sha, "python": platform.python_version(), **versions}
+
+
 def sh(args: list[str], log: Path) -> int:
     """Запустить стадию, потоково складывая вывод в лог."""
     stamp = time.strftime("%Y-%m-%dT%H:%M:%S")
@@ -71,6 +89,8 @@ def main() -> None:
     ap.add_argument("--max-tokens", type=int, default=256)
     ap.add_argument("--batch-size", type=int, default=1,
                     help="батч генерации пар; 1 = построчно")
+    ap.add_argument("--skip-preflight", action="store_true",
+                    help="не гонять предполётную проверку (по умолчанию гоняется)")
     ap.add_argument("--strength", type=float, default=None,
                     help="безразмерная сила наведения (см. steer_specificity --strength); "
                          "делает силу сопоставимой между моделями, вместо фиксированного coeff")
@@ -89,6 +109,19 @@ def main() -> None:
     py = sys.executable
 
     print(f"\n=== {args.model} → runs/{args.slug} ===", flush=True)
+
+    # 0. Предполёт: вся цепочка на одной строке. Дешевле, чем узнать о поломке
+    # через пять часов. Запускается, когда векторы уже есть (иначе проверять нечего).
+    if not args.skip_preflight and (vec_dir / f"{ISEAR_EMOTIONS[0]}_response_avg_diff.pt").is_file():
+        layer_hint = json.loads((runs / "meta.json").read_text(encoding="utf-8")).get("layer") \
+            if (runs / "meta.json").is_file() else None
+        if layer_hint is not None:
+            pf = [py, "-m", "emotion.preflight", "--model", args.model, "--layer", str(layer_hint)]
+            pf += (["--strength", str(args.strength)] if args.strength is not None
+                   else ["--coeff", str(args.coeff)])
+            print("0. предполёт …", flush=True)
+            if sh(pf, log) != 0:
+                raise SystemExit("предполёт не пройден — очередь остановлена, см. лог")
 
     # 1. Пары pos/neg на самой модели (resume внутри скрипта, построчный)
     combined = pairs_dir / "all_emotions_extract.csv"
@@ -136,6 +169,7 @@ def main() -> None:
         # сила наведения могла смениться между прогонами — фиксируем актуальную
         meta["strength"] = args.strength
         meta["coeff"] = args.coeff
+        meta["env"] = env_manifest()
         meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     else:
         cands = ([int(x) for x in args.layers.split(",")] if args.layers
@@ -151,7 +185,8 @@ def main() -> None:
         meta.update({"model": args.model, "layer": layer, "candidates": cands,
                      "coeff": args.coeff, "strength": args.strength,
                      "max_tokens": args.max_tokens,
-                     "judge_filtered": bool(args.judge_scores)})
+                     "judge_filtered": bool(args.judge_scores),
+                     "env": env_manifest()})
         meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"   выбран L{layer}", flush=True)
 
