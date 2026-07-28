@@ -59,12 +59,42 @@ def _append_row(csv_path: Path, row: dict) -> None:
         f.flush()
 
 
+_SYSTEM_ROLE_OK: dict[int, bool] = {}
+
+
+def render_chat(tokenizer, system: str, user: str) -> str:
+    """Промпт с системной рамкой, с запасным путём для шаблонов без system-роли.
+
+    gemma-2 отвергает system-роль на уровне jinja ("System role not supported"),
+    поэтому для таких моделей рамка сворачивается в user-turn — ровно так же,
+    как это уже делает стадия наведения (emotion/steer_eval.build_prompt).
+    Результат кэшируется по токенизатору, чтобы не ловить исключение на каждой строке.
+    """
+    key = id(tokenizer)
+    if _SYSTEM_ROLE_OK.get(key, True):
+        try:
+            out = tokenizer.apply_chat_template(
+                [{"role": "system", "content": system}, {"role": "user", "content": user}],
+                tokenize=False, add_generation_prompt=True, enable_thinking=False,
+            )
+            _SYSTEM_ROLE_OK[key] = True
+            return out
+        except Exception as e:  # jinja2.TemplateError и наследники
+            if "system" not in str(e).lower():
+                raise
+            _SYSTEM_ROLE_OK[key] = False
+            print(f"[prompt] шаблон без system-роли ({e}) — сворачиваю рамку в user-turn", flush=True)
+    return tokenizer.apply_chat_template(
+        [{"role": "user", "content": f"{system}\n\n{user}"}],
+        tokenize=False, add_generation_prompt=True, enable_thinking=False,
+    )
+
+
 def _generate_one_hf(model, tokenizer, system: str, user: str, max_tokens: int, temperature: float):
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
         tokenizer.pad_token_id = tokenizer.eos_token_id
-    msgs = [{"role": "system", "content": system}, {"role": "user", "content": user}]
-    prompt = tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, enable_thinking=False)
+    prompt = render_chat(tokenizer, system, user)
     inputs = tokenizer(prompt, return_tensors="pt")
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
     gen_kw = dict(max_new_tokens=max_tokens, min_new_tokens=1,
