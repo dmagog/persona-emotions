@@ -4,6 +4,28 @@ from contextlib import contextmanager
 from typing import Sequence, Union, Iterable
 
 
+def _hidden_size(config):
+    """hidden_size с фолбэком на вложенный конфиг (мультимодальные модели)."""
+    h = getattr(config, "hidden_size", None)
+    if isinstance(h, int):
+        return h
+    getter = getattr(config, "get_text_config", None)
+    if callable(getter):
+        try:
+            sub = getter()
+            h = getattr(sub, "hidden_size", None)
+            if isinstance(h, int):
+                return h
+        except Exception:
+            pass
+    for attr in ("text_config", "llm_config", "language_config"):
+        sub = getattr(config, attr, None)
+        h = getattr(sub, "hidden_size", None) if sub is not None else None
+        if isinstance(h, int):
+            return h
+    return None
+
+
 class ActivationSteerer:
     """
     Add (coeff * steering_vector) to a chosen transformer block's output.
@@ -12,11 +34,14 @@ class ActivationSteerer:
     """
 
     _POSSIBLE_LAYER_ATTRS: Iterable[str] = (
-        "transformer.h",       # GPT‑2/Neo, Bloom, etc.
-        "encoder.layer",       # BERT/RoBERTa
-        "model.layers",        # Llama/Mistral
-        "gpt_neox.layers",     # GPT‑NeoX
-        "block",               # Flan‑T5
+        "model.layers",                      # Llama, Mistral, Qwen, Gemma-2
+        "model.language_model.layers",       # Gemma-3, Llama-4, мультимодальные
+        "language_model.model.layers",       # часть VL-обёрток
+        "model.language_model.model.layers",
+        "transformer.h",                     # GPT-2/Neo, Bloom
+        "gpt_neox.layers",                   # GPT-NeoX
+        "encoder.layer",                     # BERT/RoBERTa
+        "encoder.block",                     # T5 (у него нет model.block)
     )
 
     def __init__(
@@ -39,10 +64,28 @@ class ActivationSteerer:
         self.vector = torch.as_tensor(steering_vector, dtype=p.dtype, device=p.device)
         if self.vector.ndim != 1:
             raise ValueError("steering_vector must be 1‑D")
-        hidden = getattr(model.config, "hidden_size", None)
-        if hidden and self.vector.numel() != hidden:
+        # hidden_size у мультимодальных лежит во вложенном конфиге; без фолбэка
+        # getattr вернёт None и проверка размерности молча отключится
+        hidden = _hidden_size(model.config)
+        if hidden is None:
+            raise ValueError(
+                "не удалось определить hidden_size из конфига модели — проверка "
+                "размерности вектора невозможна, а без неё легко наводить мусор"
+            )
+        if self.vector.numel() != hidden:
             raise ValueError(
                 f"Vector length {self.vector.numel()} ≠ model hidden_size {hidden}"
+            )
+        if not torch.isfinite(self.vector).all():
+            raise ValueError(
+                "в векторе наведения есть inf или nan — обычно это пустые ответы "
+                "на стадии извлечения; наведение таким вектором даёт мусор"
+            )
+        if float(self.vector.norm()) <= 1e-6:
+            raise ValueError(
+                f"нулевой вектор наведения (норма {float(self.vector.norm()):.2e}). "
+                "У SAE-векторов ненулевой обычно только один слой — проверьте, "
+                "что слой совпадает с тем, на котором вектор построен"
             )
         # Check if positions is valid
         valid_positions = {"all", "prompt", "response"}
