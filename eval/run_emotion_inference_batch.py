@@ -303,6 +303,33 @@ def sample_vllm(llm, tokenizer, conversations, max_tokens=1000, temperature=0.0)
     return texts, answers
 
 
+def _generate_batch_hf(model, tokenizer, items, max_tokens: int, temperature: float):
+    """Батчевая генерация: те же промпты, что и построчная, но за один forward.
+
+    Левый паддинг обязателен для decoder-only — иначе ответы съезжают.
+    Возвращает список (prompt, answer) в порядке items.
+    """
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+        tokenizer.pad_token_id = tokenizer.eos_token_id
+    prev_side = tokenizer.padding_side
+    tokenizer.padding_side = "left"
+    prompts = [render_chat(tokenizer, sys_, user) for (_qid, user, sys_) in items]
+    enc = tokenizer(prompts, return_tensors="pt", padding=True, add_special_tokens=False)
+    enc = {k: v.to(model.device) for k, v in enc.items()}
+    gen_kw = dict(max_new_tokens=max_tokens, min_new_tokens=1,
+                  do_sample=temperature > 0,
+                  pad_token_id=tokenizer.pad_token_id)
+    if temperature > 0:
+        gen_kw["temperature"] = temperature
+    with torch.no_grad():
+        out = model.generate(**enc, **gen_kw)
+    in_len = enc["input_ids"].shape[1]
+    answers = tokenizer.batch_decode(out[:, in_len:], skip_special_tokens=True)
+    tokenizer.padding_side = prev_side
+    return list(zip(prompts, [a.strip() for a in answers]))
+
+
 def run_one_emotion(
     llm,
     tokenizer,
@@ -314,6 +341,7 @@ def run_one_emotion(
     max_tokens: int,
     temperature: float,
     csv_path: Path | None = None,
+    batch_size: int = 1,
 ) -> pd.DataFrame:
     """Generate (or resume) answers for one emotion x instruction_type.
 
@@ -332,13 +360,21 @@ def run_one_emotion(
         pending = [(qid, user, sys) for (qid, user, sys) in spec if qid not in done]
         if done:
             print(f"  resume {emotion}/{instruction_type}: {len(done)} done, {len(pending)} pending")
-        for qid, user, sys in tqdm(pending, desc=f"{emotion}/{instruction_type}"):
-            prompt, answer = _generate_one_hf(llm, tokenizer, sys, user, max_tokens, temperature)
-            _append_row(csv_path, {
-                "emotion": emotion, "instruction_type": instruction_type,
-                "question_id": qid, "question": user, "prompt": prompt,
-                "answer": answer, "data_version": version, "pack_path": str(path),
-            })
+        bs = max(1, int(batch_size))
+        for start in tqdm(range(0, len(pending), bs), desc=f"{emotion}/{instruction_type}"):
+            chunk = pending[start:start + bs]
+            if bs == 1:
+                qid, user, sys = chunk[0]
+                results = [(qid, user, *_generate_one_hf(llm, tokenizer, sys, user, max_tokens, temperature))]
+            else:
+                gen = _generate_batch_hf(llm, tokenizer, chunk, max_tokens, temperature)
+                results = [(q, u, pr, an) for (q, u, _s), (pr, an) in zip(chunk, gen)]
+            for qid, user, prompt, answer in results:
+                _append_row(csv_path, {
+                    "emotion": emotion, "instruction_type": instruction_type,
+                    "question_id": qid, "question": user, "prompt": prompt,
+                    "answer": answer, "data_version": version, "pack_path": str(path),
+                })
         return pd.read_csv(csv_path)
 
     # Bulk path (vllm, or when no csv_path provided)
@@ -390,6 +426,8 @@ def main():
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--overwrite", action="store_true")
     parser.add_argument("--combine_only", action="store_true", help="Only merge existing CSVs in output_dir")
+    parser.add_argument("--batch-size", dest="batch_size", type=int, default=1,
+                        help="батч генерации на hf-пути; 1 = построчно (дефолт, максимально дробный resume)")
     args = parser.parse_args()
 
     out = Path(args.output_dir)
@@ -454,6 +492,7 @@ def main():
                 args.max_tokens,
                 args.temperature,
                 csv_path=csv_path,
+                batch_size=args.batch_size,
             )
             # vllm path returns DF without writing; write bulk
             if args.infer_backend == "vllm":
