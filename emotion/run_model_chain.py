@@ -112,10 +112,38 @@ def pick_operating_point(sweep_csv: Path, max_degen: float = 0.10) -> tuple[int,
     return int(best["layer"]), float(best["coeff"])
 
 
+
+def load_model_config(path: Path) -> dict:
+    """Конфиг модели: yaml или json. Плоский вид для аргументов цепочки."""
+    import yaml
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    st = raw.get("stages") or {}
+    flat = {
+        "model": raw.get("hf_id"),
+        "slug": raw.get("slug") or (raw.get("hf_id") or "").split("/")[-1],
+        "layers": raw.get("sweep", {}).get("layers") or st.get("sweep", {}).get("layers"),
+        "sweep_coeffs": st.get("sweep", {}).get("coeffs"),
+        "max_degen": st.get("sweep", {}).get("max_degen"),
+        "per_emotion": st.get("matrix", {}).get("per_emotion"),
+        "max_tokens": st.get("pairs", {}).get("max_tokens"),
+        "batch_size": st.get("pairs", {}).get("batch_size"),
+        "dtype": (raw.get("load") or {}).get("dtype"),
+    }
+    # списки к строкам — цепочка передаёт их дальше как аргументы
+    if isinstance(flat["layers"], list):
+        flat["layers"] = ",".join(str(x) for x in flat["layers"])
+    if isinstance(flat["sweep_coeffs"], list):
+        flat["sweep_coeffs"] = ",".join(str(x) for x in flat["sweep_coeffs"])
+    flat["_raw"] = raw
+    return {k: v for k, v in flat.items() if v is not None}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Полная цепочка на одной модели.")
-    ap.add_argument("--model", required=True)
-    ap.add_argument("--slug", required=True, help="имя папок артефактов")
+    ap.add_argument("--config", type=Path, default=None,
+                    help="конфиг модели (yaml); аргументы командной строки его перекрывают")
+    ap.add_argument("--model", default=None)
+    ap.add_argument("--slug", default=None, help="имя папок артефактов")
     ap.add_argument("--layers", default=None, help="кандидаты, через запятую; иначе от глубины")
     ap.add_argument("--coeff", type=float, default=8.0)
     ap.add_argument("--per-emotion", type=int, default=8, help="8 × 7 = 56 промптов")
@@ -134,6 +162,21 @@ def main() -> None:
     ap.add_argument("--judge-scores", type=Path, default=None,
                     help="CSV фильтра пар; без него берутся все пары (отметить в отчёте)")
     args = ap.parse_args()
+
+    # Конфиг даёт умолчания, явный аргумент побеждает. Так добавление модели —
+    # одна запись в configs/models/, а разовые правки остаются возможны.
+    if args.config:
+        cfg = load_model_config(args.config)
+        given = {a.lstrip("-").replace("-", "_") for a in sys.argv if a.startswith("--")}
+        for k, v in cfg.items():
+            if k != "_raw" and k not in given and hasattr(args, k):
+                setattr(args, k, v)
+        args.model_config = cfg.get("_raw", {})
+        print(f"конфиг: {args.config} → модель {args.model}, slug {args.slug}", flush=True)
+    else:
+        args.model_config = {}
+    if not args.model or not args.slug:
+        raise SystemExit("нужен --config или пара --model/--slug")
 
     import os
     token = os.environ.get("HF_TOKEN")
@@ -209,8 +252,15 @@ def main() -> None:
         meta["env"] = env_manifest()
         meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     else:
-        cands = ([int(x) for x in args.layers.split(",")] if args.layers
-                 else default_layers(args.model, token))
+        # Слои задаются долями глубины (0.45) или абсолютными номерами (13).
+        # Доли переносимы между моделями, абсолютные привязаны к одной.
+        if args.layers:
+            from transformers import AutoConfig
+            from emotion.loader import resolve_layers
+            cfg_model = AutoConfig.from_pretrained(args.model, token=token)
+            cands = resolve_layers(cfg_model, [x.strip() for x in str(args.layers).split(",")])
+        else:
+            cands = default_layers(args.model, token)
         print(f"3. свип слоёв {cands} …", flush=True)
         sweep_csv = runs / "layer_sweep_anger.csv"
         if sh([py, "-m", "emotion.steer_eval", "--model_name", args.model,
@@ -224,6 +274,7 @@ def main() -> None:
                      "coeff": args.coeff, "strength": args.strength,
                      "max_tokens": args.max_tokens,
                      "judge_filtered": bool(args.judge_scores),
+                     "config": args.model_config,
                      "env": env_manifest()})
         meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"   рабочая точка: слой {layer}, coeff {op_coeff:g}", flush=True)

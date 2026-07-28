@@ -1,0 +1,20 @@
+# Модель добавляется одним таким файлом. Всё, что влияет на прогон, — здесь.
+slug: gemma-2-2b-it
+hf_id: google/gemma-2-2b-it
+
+load:
+  dtype: auto            # auto смотрит на железо и на dtype обучения модели
+  trust_remote_code: false
+  device_map: auto
+  seed: 0
+
+prompt:
+  system_role: false     # у gemma false: её шаблон отвергает системную роль
+  enable_thinking: false # обязательно для Qwen3 и новее
+
+stages:
+  pairs:   { batch_size: 8, max_tokens: 256 }
+  sweep:   { layers: [0.35, 0.45, 0.55], coeffs: [0, 4, 8, 16], max_degen: 0.10 }
+  matrix:  { per_emotion: 8 }
+
+sae: null
