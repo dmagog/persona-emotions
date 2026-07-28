@@ -71,7 +71,8 @@ RANDOM_PROMPTS = [
 def build_neutral(tokenizer, question: str) -> str:
     content = f"{NEUTRAL_INSTR}\n\n{question}"
     return tokenizer.apply_chat_template(
-        [{"role": "user", "content": content}], tokenize=False, add_generation_prompt=True
+        [{"role": "user", "content": content}], tokenize=False,
+        add_generation_prompt=True, enable_thinking=False
     )
 
 

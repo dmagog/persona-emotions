@@ -46,7 +46,9 @@ def build_prompt(tokenizer, question: str) -> str:
     # system role, and a single user message works for both Qwen and Gemma.
     content = f"{NEUTRAL_SYSTEM}\n\n{question}{TASK_SUFFIX}"
     messages = [{"role": "user", "content": content}]
-    return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    return tokenizer.apply_chat_template(
+        messages, tokenize=False, add_generation_prompt=True, enable_thinking=False
+    )
 
 
 def generate(model, tokenizer, prompt: str, max_new_tokens: int = 120) -> str:

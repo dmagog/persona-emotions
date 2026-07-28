@@ -50,7 +50,8 @@ def pos_instruction(emotion: str) -> str:
 def build_instr_prompt(tokenizer, question: str, instruction: str) -> str:
     content = f"{instruction}\n\n{question}{TASK_SUFFIX}"
     return tokenizer.apply_chat_template(
-        [{"role": "user", "content": content}], tokenize=False, add_generation_prompt=True
+        [{"role": "user", "content": content}], tokenize=False,
+        add_generation_prompt=True, enable_thinking=False
     )
 
 
