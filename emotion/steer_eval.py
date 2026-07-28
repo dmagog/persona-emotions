@@ -52,7 +52,9 @@ def build_prompt(tokenizer, question: str) -> str:
 
 
 def generate(model, tokenizer, prompt: str, max_new_tokens: int = 120) -> str:
-    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+    # add_special_tokens=False: шаблон уже с BOS, и так же снимаются активации
+    # в generate_vec.py:23 — иначе вектор строится не на том промпте
+    inputs = tokenizer(prompt, return_tensors="pt", add_special_tokens=False).to(model.device)
     with torch.no_grad():
         out = model.generate(
             **inputs, max_new_tokens=max_new_tokens, do_sample=False,

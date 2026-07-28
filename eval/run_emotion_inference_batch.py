@@ -95,7 +95,11 @@ def _generate_one_hf(model, tokenizer, system: str, user: str, max_tokens: int, 
         tokenizer.pad_token = tokenizer.eos_token
         tokenizer.pad_token_id = tokenizer.eos_token_id
     prompt = render_chat(tokenizer, system, user)
-    inputs = tokenizer(prompt, return_tensors="pt")
+    # Шаблон чата уже содержит BOS. При add_special_tokens=True (умолчание) он
+    # удваивается, и промпт снятия вектора перестаёт совпадать с промптом его
+    # применения. Батчевый путь ниже всегда использовал False — было расхождение
+    # между --batch-size 1 и --batch-size 8.
+    inputs = tokenizer(prompt, return_tensors="pt", add_special_tokens=False)
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
     gen_kw = dict(max_new_tokens=max_tokens, min_new_tokens=1,
                   do_sample=temperature > 0,
@@ -177,12 +181,26 @@ def _find_emotion_pack_path(emotion: str, version: str, emotion_data_dir: str | 
 
 
 def resolve_emotion_json(emotion: str, version: str, emotion_data_dir: str | None) -> Path:
-    """Find emotion pack JSON; falls back to other split or full datasets/emotion pack."""
+    """Найти пак эмоции. Подмена сплита запрещена без явного разрешения.
+
+    Раньше при отсутствии пака в каталоге экстракции код молча брал его из
+    каталога оценки и печатал Note. Это тихо превращало held-out вопросы,
+    на которых потом меряется качество, в обучающие. Падения не было.
+    Разрешить подмену можно переменной ALLOW_PACK_FALLBACK=1 — осознанно.
+    """
     hit, tried = _find_emotion_pack_path(emotion, version, emotion_data_dir)
     if hit:
         primary = REPO_ROOT / "data_generation" / f"emotion_data_{version}" / f"{emotion}.json"
-        if hit != primary and not primary.is_file():
-            print(f"Note: using {hit} (no {primary})")
+        if hit != primary and not primary.is_file() and not emotion_data_dir:
+            if os.environ.get("ALLOW_PACK_FALLBACK") != "1":
+                raise SystemExit(
+                    f"[{emotion}] пака нет в {primary.parent}, но он есть в {hit.parent}.\n"
+                    "Подмена сплита запрещена: вопросы оценки попали бы в обучение, "
+                    "и утечку было бы не видно.\n"
+                    "Либо положите пак на место, либо запустите с ALLOW_PACK_FALLBACK=1, "
+                    "если подмена нужна намеренно."
+                )
+            print(f"ВНИМАНИЕ: подмена сплита разрешена явно — беру {hit} вместо {primary}")
         return hit
     raise FileNotFoundError(
         f"No pack for emotion '{emotion}' (version={version}). Tried:\n"
@@ -265,7 +283,7 @@ def sample_hf(model, tokenizer, conversations, max_tokens=1000, temperature=0.0)
     for messages in tqdm(conversations, desc="generate"):
         prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
         texts.append(prompt)
-        inputs = tokenizer(prompt, return_tensors="pt")
+        inputs = tokenizer(prompt, return_tensors="pt", add_special_tokens=False)
         inputs = {k: v.to(model.device) for k, v in inputs.items()}
         gen_kw = dict(
             max_new_tokens=max_tokens,

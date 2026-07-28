@@ -67,8 +67,18 @@ def build_filtered_pairs(data_dir: Path, emotion: str, kept_keys: set[str]):
 def save_emotion_vector(model, tokenizer, data_dir, emotion, kept_keys, save_dir):
     keys, pp, pr, np_, nr = build_filtered_pairs(data_dir, emotion, kept_keys)
     if not keys:
-        print(f"[{emotion}] no pairs after filtering — skipping")
-        return
+        raise SystemExit(
+            f"[{emotion}] после фильтрации не осталось пар. Раньше эмоция молча "
+            "пропускалась, и дальше по цепочке отсутствие вектора всплывало как "
+            "непонятная ошибка. Проверьте пары и порог судьи."
+        )
+    empty = [k for k, r in zip(keys, pr + nr) if not str(r).strip()]
+    if empty:
+        raise SystemExit(
+            f"[{emotion}] пустых ответов: {len(empty)}. Пустой ответ даёт пустой срез "
+            "активаций, тот даёт NaN, и NaN съедает весь вектор при усреднении. "
+            f"Первые: {empty[:3]}"
+        )
     pos_pa, pos_pl, pos_ra = get_hidden_p_and_r(model, tokenizer, pp, pr)
     neg_pa, neg_pl, neg_ra = get_hidden_p_and_r(model, tokenizer, np_, nr)
     n_layers = len(pos_ra)
@@ -79,10 +89,30 @@ def save_emotion_vector(model, tokenizer, data_dir, emotion, kept_keys, save_dir
             dim=0,
         )
 
+    variants = {
+        "prompt_avg": diff(pos_pa, neg_pa),
+        "response_avg": diff(pos_ra, neg_ra),
+        "prompt_last": diff(pos_pl, neg_pl),
+    }
+    # Проверять ДО записи: NaN-вектор на диске выглядит как обычный и проходит
+    # всю дальнейшую цепочку, давая 448 генераций мусора без единой ошибки.
+    for name, vec in variants.items():
+        if not torch.isfinite(vec).all():
+            bad = int((~torch.isfinite(vec)).sum())
+            raise SystemExit(
+                f"[{emotion}/{name}] в векторе {bad} нечисловых значений из {vec.numel()}. "
+                "Обычная причина — пустые ответы или переполнение fp16 на модели, "
+                "обученной в bf16. Вектор не сохранён."
+            )
+        norms = vec.norm(dim=-1)
+        if float(norms.max()) <= 1e-6:
+            raise SystemExit(
+                f"[{emotion}/{name}] вектор нулевой на всех слоях. Вектор не сохранён."
+            )
+
     os.makedirs(save_dir, exist_ok=True)
-    torch.save(diff(pos_pa, neg_pa), f"{save_dir}/{emotion}_prompt_avg_diff.pt")
-    torch.save(diff(pos_ra, neg_ra), f"{save_dir}/{emotion}_response_avg_diff.pt")
-    torch.save(diff(pos_pl, neg_pl), f"{save_dir}/{emotion}_prompt_last_diff.pt")
+    for name, vec in variants.items():
+        torch.save(vec, f"{save_dir}/{emotion}_{name}_diff.pt")
     print(f"[{emotion}] saved vectors from {len(keys)} pairs -> {save_dir}")
 
 
