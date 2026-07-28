@@ -104,9 +104,19 @@ def main() -> None:
         vec_dir = alt[0]
     vec_file = vec_dir / "anger_response_avg_diff.pt"
     if not vec_file.is_file():
-        check(False, "вектор на месте", f"нет {vec_file} — цепочка построит его сама, проверка наведения пропущена")
-        print("\nИТОГ: базовые проверки пройдены, наведение не проверено (нет векторов).")
-        sys.exit(1 if FAILS else 0)
+        # Новая модель: векторов ещё нет, и это нормально. Проверки шаблона,
+        # подавления рассуждений и генерации уже прошли — а именно на них
+        # ломались gemma (системная роль) и Qwen3 (рассуждения). Раньше
+        # предполёт в этом случае возвращал 1 и цепочка его вовсе не звала.
+        print("\n  [инфо] векторов ещё нет — проверки наведения пропущены, "
+              "цепочка построит их сама", flush=True)
+        if FAILS:
+            print(f"\nИТОГ: {len(FAILS)} сбоев до стадии векторов:", file=sys.stderr)
+            for f in FAILS:
+                print(f"  - {f}", file=sys.stderr)
+            sys.exit(1)
+        print("\nИТОГ: шаблон и генерация в порядке, можно запускать цепочку.")
+        sys.exit(0)
 
     vec_all = torch.load(vec_file, map_location="cpu")
     n_layers = model.config.num_hidden_layers

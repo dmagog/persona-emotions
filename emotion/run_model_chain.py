@@ -192,16 +192,28 @@ def main() -> None:
 
     # 0. Предполёт: вся цепочка на одной строке. Дешевле, чем узнать о поломке
     # через пять часов. Запускается, когда векторы уже есть (иначе проверять нечего).
-    if not args.skip_preflight and (vec_dir / f"{ISEAR_EMOTIONS[0]}_response_avg_diff.pt").is_file():
-        layer_hint = json.loads((runs / "meta.json").read_text(encoding="utf-8")).get("layer") \
-            if (runs / "meta.json").is_file() else None
-        if layer_hint is not None:
-            pf = [py, "-m", "emotion.preflight", "--model", args.model, "--layer", str(layer_hint)]
-            pf += (["--strength", str(args.strength)] if args.strength is not None
-                   else ["--coeff", str(args.coeff)])
-            print("0. предполёт …", flush=True)
-            if sh(pf, log) != 0:
-                raise SystemExit("предполёт не пройден — очередь остановлена, см. лог")
+    if not args.skip_preflight:
+        # Запускаем ВСЕГДА, а не только при готовых векторах: на новой модели
+        # ломались gemma (системная роль) и Qwen3 (рассуждения), и именно там
+        # проверка была отключена. Без векторов предполёт проверит шаблон и
+        # генерацию, с векторами — ещё и наведение.
+        meta_pre = json.loads((runs / "meta.json").read_text(encoding="utf-8")) \
+            if (runs / "meta.json").is_file() else {}
+        layer_hint = meta_pre.get("layer")
+        if layer_hint is None:
+            try:
+                from emotion.loader import num_layers
+                from transformers import AutoConfig
+                layer_hint = round(num_layers(
+                    AutoConfig.from_pretrained(args.model, token=token)) * 0.45)
+            except Exception:
+                layer_hint = 0
+        pf = [py, "-m", "emotion.preflight", "--model", args.model, "--layer", str(layer_hint)]
+        pf += (["--strength", str(args.strength)] if args.strength is not None
+               else ["--coeff", str(args.coeff)])
+        print("0. предполёт …", flush=True)
+        if sh(pf, log) != 0:
+            raise SystemExit("предполёт не пройден — очередь остановлена, см. лог")
 
     # 1. Пары pos/neg на самой модели (resume внутри скрипта, построчный)
     combined = pairs_dir / "all_emotions_extract.csv"
