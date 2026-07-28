@@ -42,11 +42,12 @@ def check(ok: bool, name: str, detail: str = "") -> bool:
 
 
 def rep_ratio(text: str, n: int = 4) -> float:
+    """Доля повторяющихся n-грамм; устойчива к длине текста."""
     w = re.findall(r"\w+", str(text).lower())
-    if len(w) < n + 2:
+    if len(w) < n + 4:
         return 0.0
     grams = [tuple(w[i:i + n]) for i in range(len(w) - n + 1)]
-    return max(Counter(grams).values()) / len(grams)
+    return 1.0 - len(set(grams)) / len(grams)
 
 
 def main() -> None:

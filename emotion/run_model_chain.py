@@ -69,14 +69,47 @@ def default_layers(model: str, token: str | None) -> list[int]:
     return sorted({max(1, round(n * f)) for f in (0.35, 0.45, 0.55)})
 
 
-def pick_layer(sweep_csv: Path) -> int:
-    """Слой с максимальным средним target_score при максимальном coeff."""
+def _rep_ratio(text: str, n: int = 4) -> float:
+    """Доля повторяющихся n-грамм: 0 — все уникальны, 1 — сплошной повтор.
+
+    Не «максимальная частота одной n-граммы»: та растёт на коротких текстах
+    (у ответа в 9 слов всего 6 четырёхграмм, и даже полностью уникальный текст
+    даёт 1/6 = 0.17) и помечает нормальные короткие ответы как вырожденные.
+    """
+    import re
+    w = re.findall(r"\w+", str(text).lower())
+    if len(w) < n + 4:
+        return 0.0
+    grams = [tuple(w[i:i + n]) for i in range(len(w) - n + 1)]
+    return 1.0 - len(set(grams)) / len(grams)
+
+
+def pick_operating_point(sweep_csv: Path, max_degen: float = 0.10) -> tuple[int, float]:
+    """Рабочая точка: сильнейшее наведение, которое ещё не разрушает текст.
+
+    Единый коэффициент между моделями несопоставим (нормы векторов и масштабы
+    активаций разные), единая безразмерная сила — тоже: связь силы с разрушением
+    у каждой модели своя. Поэтому точка подбирается по поведению: максимум
+    целевого балла среди ячеек, где доля вырожденных ответов не выше порога.
+    Сравнение моделей затем идёт при сопоставимом эффекте, а не при равном входе.
+    """
     d = pd.read_csv(sweep_csv)
-    top = d[d["coeff"] == d["coeff"].max()]
-    means = top.groupby("layer")["target_score"].mean().sort_values(ascending=False)
-    print(f"  свип слоёв (anger, coeff={d['coeff'].max():.0f}): "
-          + ", ".join(f"L{int(k)}={v:.3f}" for k, v in means.items()), flush=True)
-    return int(means.index[0])
+    d["degen"] = d["answer"].map(lambda t: _rep_ratio(t) > 0.15)
+    g = (d[d["coeff"] > 0]
+         .groupby(["layer", "coeff"])
+         .agg(score=("target_score", "mean"), degen=("degen", "mean"))
+         .reset_index())
+    print("  свип (anger): " + "; ".join(
+        f"L{int(r.layer)}/c{r.coeff:.0f} балл {r.score:.3f} вырожд {r.degen:.0%}"
+        for r in g.itertuples()), flush=True)
+    ok = g[g["degen"] <= max_degen]
+    if ok.empty:
+        best = g.loc[g["degen"].idxmin()]
+        print(f"  ВНИМАНИЕ: нигде вырожденность не ниже {max_degen:.0%}, "
+              f"беру минимальную ({best.degen:.0%})", flush=True)
+    else:
+        best = ok.loc[ok["score"].idxmax()]
+    return int(best["layer"]), float(best["coeff"])
 
 
 def main() -> None:
@@ -89,6 +122,10 @@ def main() -> None:
     ap.add_argument("--max-tokens", type=int, default=256)
     ap.add_argument("--batch-size", type=int, default=1,
                     help="батч генерации пар; 1 = построчно")
+    ap.add_argument("--sweep-coeffs", default="0,4,8,16",
+                    help="сетка коэффициентов для поиска рабочей точки")
+    ap.add_argument("--max-degen", type=float, default=0.10,
+                    help="потолок доли вырожденных ответов при выборе рабочей точки")
     ap.add_argument("--skip-preflight", action="store_true",
                     help="не гонять предполётную проверку (по умолчанию гоняется)")
     ap.add_argument("--strength", type=float, default=None,
@@ -163,9 +200,9 @@ def main() -> None:
     # 3. Выбор слоя: короткий свип на anger
     meta_path = runs / "meta.json"
     meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.is_file() else {}
-    if "layer" in meta:
-        layer = meta["layer"]
-        print(f"3. слой: уже выбран L{layer}, пропуск", flush=True)
+    if "layer" in meta and "op_coeff" in meta:
+        layer, op_coeff = meta["layer"], meta["op_coeff"]
+        print(f"3. рабочая точка: уже выбрана L{layer}/c{op_coeff:g}, пропуск", flush=True)
         # сила наведения могла смениться между прогонами — фиксируем актуальную
         meta["strength"] = args.strength
         meta["coeff"] = args.coeff
@@ -178,17 +215,18 @@ def main() -> None:
         sweep_csv = runs / "layer_sweep_anger.csv"
         if sh([py, "-m", "emotion.steer_eval", "--model_name", args.model,
                "--emotion", "anger", "--vector-dir", str(vec_dir),
-               "--layers", ",".join(map(str, cands)), "--coeffs", "0,8",
+               "--layers", ",".join(map(str, cands)), "--coeffs", args.sweep_coeffs,
                "--n-prompts", "8", "--out", str(sweep_csv)], log) != 0:
-            raise SystemExit("свип слоёв упал — см. лог")
-        layer = pick_layer(sweep_csv)
+            raise SystemExit("свип упал — см. лог")
+        layer, op_coeff = pick_operating_point(sweep_csv, args.max_degen)
         meta.update({"model": args.model, "layer": layer, "candidates": cands,
+                     "op_coeff": op_coeff, "max_degen": args.max_degen,
                      "coeff": args.coeff, "strength": args.strength,
                      "max_tokens": args.max_tokens,
                      "judge_filtered": bool(args.judge_scores),
                      "env": env_manifest()})
         meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"   выбран L{layer}", flush=True)
+        print(f"   рабочая точка: слой {layer}, coeff {op_coeff:g}", flush=True)
 
     # 4. Матрица специфичности: baseline + 7 эмоций × 56 промптов, баллы энкодера
     matrix_csv = runs / "steer_specificity.csv"
@@ -201,7 +239,7 @@ def main() -> None:
                 "--per-emotion", str(args.per_emotion),
                 "--save-answers", "--out", str(matrix_csv)]
         cmd4 += (["--strength", str(args.strength)] if args.strength is not None
-                 else ["--coeff", str(args.coeff)])
+                 else ["--coeff", str(op_coeff)])
         if sh(cmd4, log) != 0:
             raise SystemExit("матрица упала — см. лог")
 
