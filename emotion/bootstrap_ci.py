@@ -48,26 +48,47 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Bootstrap CIs for a specificity CSV.")
     ap.add_argument("--csv", required=True, type=Path)
     ap.add_argument("--n-boot", type=int, default=20000)
+    ap.add_argument("--out", type=Path, default=None, help="сохранить таблицу в markdown")
     args = ap.parse_args()
     rng = np.random.default_rng(0)
 
     by = load(args.csv)
     base = by["baseline"]
-    print(f"=== {args.csv.name}  (n per condition: {len(base)}) ===")
+    n_per = len(base)
+    header = f"=== {args.csv.name}  (n per condition: {n_per}) ==="
+    print(header)
 
+    rows = []
     print("diagonal Δ vs baseline [95% CI]:")
     for emo in ISEAR_EMOTIONS:
         s = [r[emo] for r in by[emo]]
         b = [r[emo] for r in base]
-        p, lo, hi = boot_diff(s, b, args.n_boot, rng)
-        sig = "" if lo <= 0 <= hi else "  *"
-        print(f"  {emo:>8}: {p:+.3f}  [{lo:+.3f}, {hi:+.3f}]{sig}")
+        p_, lo, hi = boot_diff(s, b, args.n_boot, rng)
+        sig = lo > 0 or hi < 0
+        rows.append((emo, p_, lo, hi, sig))
+        print(f"  {emo:>8}: {p_:+.3f}  [{lo:+.3f}, {hi:+.3f}]{'  *' if sig else ''}")
 
     # sadness leakage: Δ sadness pooled over all non-sadness steer directions
     leak_steer = [r["sadness"] for st in ISEAR_EMOTIONS if st != "sadness" for r in by[st]]
     leak_base = [r["sadness"] for r in base]
-    p, lo, hi = boot_diff(leak_steer, leak_base, args.n_boot, rng)
-    print(f"sadness leakage (non-sad steer): {p:+.3f}  [{lo:+.3f}, {hi:+.3f}]")
+    lp, llo, lhi = boot_diff(leak_steer, leak_base, args.n_boot, rng)
+    print(f"sadness leakage (non-sad steer): {lp:+.3f}  [{llo:+.3f}, {lhi:+.3f}]")
+
+    if args.out:
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        n_by = {emo: len(by[emo]) for emo in ISEAR_EMOTIONS}
+        lines = [f"# Доверительные интервалы, {args.csv.name}", "",
+                 f"Bootstrap {args.n_boot} итераций по промптам. Звёздочка — интервал не включает ноль.",
+                 f"На условие: baseline {n_per}, по эмоциям {min(n_by.values())}–{max(n_by.values())}.", ""]
+        if min(n_by.values()) != n_per:
+            lines += ["> Число наблюдений различается между условиями — часть строк "
+                      "потерял разбор ответа судьи. Бутстрап считает пропуски случайными.", ""]
+        lines += ["| эмоция | диагональ Δ | 95% CI | значимо |", "|---|---:|---|:--:|"]
+        for emo, p_, lo, hi, sig in rows:
+            lines.append(f"| {emo} | {p_:+.3f} | [{lo:+.3f}, {hi:+.3f}] | {'да' if sig else 'нет'} |")
+        lines += ["", f"Протечка в грусть (наведение не-грусти): {lp:+.3f} [{llo:+.3f}, {lhi:+.3f}]"]
+        args.out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        print(f"записано {args.out}")
 
 
 if __name__ == "__main__":

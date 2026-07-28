@@ -100,6 +100,7 @@ def main() -> None:
     ap.add_argument("--name1", default="judge1")
     ap.add_argument("--name2", default="judge2")
     ap.add_argument("--thresh", type=float, default=50.0, help="score >= thresh => emotion 'present'")
+    ap.add_argument("--out", type=Path, default=None, help="сохранить сводку в markdown")
     args = ap.parse_args()
 
     j1, j2 = load_wide(args.judge1), load_wide(args.judge2)
@@ -119,6 +120,24 @@ def main() -> None:
             pair_all_b.append(b)
             per_emo[e][0].append(a)
             per_emo[e][1].append(b)
+
+    if args.out:
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        pr = pearson(pair_all_a, pair_all_b)
+        sp = spearman(pair_all_a, pair_all_b)
+        mad = sum(abs(a - b) for a, b in zip(pair_all_a, pair_all_b)) / len(pair_all_a)
+        lines = [f"# Согласие судей", "",
+                 f"`{args.name1}` против `{args.name2}`, совпавших ответов: {len(keys)}.", "",
+                 f"| метрика | значение |", "|---|---:|",
+                 f"| Pearson | {pr:+.3f} |", f"| Spearman | {sp:+.3f} |",
+                 f"| средний модуль расхождения | {mad:.1f} |", "",
+                 "| эмоция | Pearson | Spearman | ср. \\|Δ\\| |", "|---|---:|---:|---:|"]
+        for e in ISEAR_EMOTIONS:
+            a, b = per_emo[e]
+            lines.append(f"| {e} | {pearson(a,b):+.3f} | {spearman(a,b):+.3f} | "
+                         f"{sum(abs(x-y) for x,y in zip(a,b))/len(a):.1f} |")
+        args.out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        print(f"\nзаписано {args.out}")
 
     print("\n=== correlation (per answer x emotion score pair) ===")
     print(f"overall   n={len(pair_all_a):4d}  pearson={pearson(pair_all_a, pair_all_b):+.3f}  "
