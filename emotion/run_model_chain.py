@@ -128,12 +128,15 @@ def load_model_config(path: Path) -> dict:
         "max_tokens": st.get("pairs", {}).get("max_tokens"),
         "batch_size": st.get("pairs", {}).get("batch_size"),
         "dtype": (raw.get("load") or {}).get("dtype"),
+        "compose": (st.get("compose") or {}).get("specs"),
     }
     # списки к строкам — цепочка передаёт их дальше как аргументы
     if isinstance(flat["layers"], list):
         flat["layers"] = ",".join(str(x) for x in flat["layers"])
     if isinstance(flat["sweep_coeffs"], list):
         flat["sweep_coeffs"] = ",".join(str(x) for x in flat["sweep_coeffs"])
+    if isinstance(flat.get("compose"), list):
+        flat["compose"] = ",".join(str(x) for x in flat["compose"])
     flat["_raw"] = raw
     return {k: v for k, v in flat.items() if v is not None}
 
@@ -156,6 +159,9 @@ def main() -> None:
                     help="потолок доли вырожденных ответов при выборе рабочей точки")
     ap.add_argument("--skip-preflight", action="store_true",
                     help="не гонять предполётную проверку (по умолчанию гоняется)")
+    ap.add_argument("--compose", default=None,
+                    help="спецификации композиции, например joy-sadness,anger-sadness; "
+                         "пусто — стадия пропускается")
     ap.add_argument("--variant", default="raw",
                     help="вариант вектора: raw, sae, centered — попадает в имя артефакта")
     ap.add_argument("--strength", type=float, default=None,
@@ -313,6 +319,21 @@ def main() -> None:
                  else ["--coeff", str(op_coeff)])
         if sh(cmd4, log) != 0:
             raise SystemExit("матрица упала — см. лог")
+
+    # 5. Композиция: сложение и вычитание эмоций. Это то, чего промптом не
+    # сделать, и единственный результат, который держится на двух измерителях.
+    # Запускается по флагу: стоит ещё столько же генераций, сколько матрица.
+    if args.compose:
+        compose_csv = runs / "compose.csv"
+        if compose_csv.is_file() and compose_csv.stat().st_mtime >= matrix_csv.stat().st_mtime:
+            print("5. композиция: свежее матрицы, пропуск", flush=True)
+        else:
+            print(f"5. композиция ({args.compose}) …", flush=True)
+            if sh([py, "-m", "emotion.steer_compose", "--model_name", args.model,
+                   "--vector-dir", str(vec_dir), "--layer", str(layer),
+                   "--coeff", str(op_coeff), "--per-emotion", str(args.per_emotion),
+                   "--specs", args.compose, "--out", str(compose_csv)], log) != 0:
+                print("   композиция упала — цепочка продолжается", flush=True)
 
     print(f"=== {args.slug}: цепочка пройдена → {runs} ===\n", flush=True)
 
