@@ -97,9 +97,21 @@ def main() -> None:
                "--max_tokens", str(args.max_tokens)], log) != 0:
             raise SystemExit("стадия пар упала — см. лог")
 
-    # 2. Векторы = mean(pos) − mean(neg) послойно
-    if (vec_dir / f"{ISEAR_EMOTIONS[0]}_response_avg_diff.pt").is_file():
-        print("2. векторы: уже есть, пропуск", flush=True)
+    # 2. Векторы = mean(pos) − mean(neg) послойно.
+    # Пропускаем только если векторы СВЕЖЕЕ пар: иначе на новых парах молча
+    # переиспользуются старые векторы (так и случилось с gemma — её векторы
+    # были построены на текстах Qwen, а self-цикл это не заметил).
+    vec_probe = vec_dir / f"{ISEAR_EMOTIONS[0]}_response_avg_diff.pt"
+    fresh = vec_probe.is_file() and combined.is_file() and \
+        vec_probe.stat().st_mtime >= combined.stat().st_mtime
+    if vec_probe.is_file() and not fresh:
+        raise SystemExit(
+            f"векторы в {vec_dir} старше пар {combined} — они построены на других "
+            "данных. Убери или переименуй их и перезапусти, иначе матрица посчитается "
+            "на чужих векторах."
+        )
+    if fresh:
+        print("2. векторы: свежее пар, пропуск", flush=True)
     else:
         print("2. извлечение векторов …", flush=True)
         cmd = [py, "-m", "emotion.extract_vectors", "--model_name", args.model,
