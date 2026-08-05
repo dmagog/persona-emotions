@@ -320,6 +320,17 @@ def test_protocol() -> None:
     byline = {"A": {**same["A"]}, "B": {**same["A"]}}
     check(not compare_planes(byline), "разные слои сами по себе не рушат плоскость")
 
+    # Точность считалась по-разному, а в манифест не писалась — восстанавливаем
+    # из лога загрузчика, иначе fp16- и bf16-прогоны выглядят одинаковыми.
+    from emotion.protocol import dtype_of
+    tmp = Path(tempfile.mkdtemp())
+    check("dtype" in PLANE_KEYS, "точность входит в плоскость")
+    check(dtype_of(tmp, {}) is None, "нет ни манифеста, ни лога — честное «неизвестно»")
+    (tmp / "chain.log").write_text(
+        "[loader] org/m: dtype=torch.bfloat16 — карта его поддерживает\n", encoding="utf-8")
+    check(dtype_of(tmp, {}) == "bfloat16", "точность восстанавливается из лога")
+    check(dtype_of(tmp, {"dtype": "float16"}) == "float16", "манифест важнее лога")
+
 
 def test_config() -> None:
     from emotion.run_model_chain import load_model_config

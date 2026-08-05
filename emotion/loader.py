@@ -76,14 +76,26 @@ def set_determinism(seed: int = 0) -> None:
 
 
 def bf16_supported() -> bool:
-    """Есть ли аппаратный bf16. На Turing (sm75, RTX 2070) — нет."""
+    """Есть ли АППАРАТНЫЙ bf16. На Turing (sm75, RTX 2070) — нет.
+
+    `torch.cuda.is_bf16_supported()` отвечает True и там, где bf16 всего лишь
+    эмулируется программно. На 2070 (sm 7.5) он вернул именно True, и два
+    прогона из сетки ушли в эмулированный bf16 — медленнее остальных и с
+    другими младшими разрядами активаций. Спрашиваем железо напрямую, а мнение
+    torch учитываем только как ограничение сверху.
+    """
     if not torch.cuda.is_available():
+        return False
+    try:
+        major, _ = torch.cuda.get_device_capability(0)
+    except Exception:
+        return False
+    if major < 8:
         return False
     try:
         return torch.cuda.is_bf16_supported()
     except Exception:
-        major, _ = torch.cuda.get_device_capability(0)
-        return major >= 8
+        return True
 
 
 def trained_dtype(config) -> torch.dtype | None:

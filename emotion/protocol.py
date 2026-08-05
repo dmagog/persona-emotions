@@ -15,6 +15,7 @@ Usage:
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -132,7 +133,26 @@ PLANE_KEYS: dict[str, str] = {
     "drive": "чем задано наведение",
     "judge_filtered": "фильтр пар судьёй",
     "max_degen": "порог вырожденности при выборе точки",
+    "dtype": "точность вычислений",
 }
+
+
+def dtype_of(run_dir: Path, meta: dict) -> str | None:
+    """В какой точности считался прогон.
+
+    В манифест это стали писать не сразу, поэтому для старых прогонов дочитываем
+    из лога загрузчика. Отличать обязательно: fp16 и bf16 дают разные младшие
+    разряды активаций, а на моделях, обученных в bf16, fp16 ещё и переполняется.
+    """
+    if meta.get("dtype"):
+        return str(meta["dtype"]).replace("torch.", "")
+    log = run_dir / "chain.log"
+    if not log.is_file():
+        return None
+    # Лог с Windows-консоли в cp1251, но сама строка загрузчика — ASCII.
+    found = re.findall(r"dtype=torch\.(\w+)",
+                       log.read_text(encoding="utf-8", errors="ignore"))
+    return found[-1] if found else None
 
 
 def plane_of(run_dir: Path, csv_path: Path) -> dict:
@@ -167,8 +187,12 @@ def plane_of(run_dir: Path, csv_path: Path) -> dict:
         "drive": drive,
         "judge_filtered": meta.get("judge_filtered"),
         "max_degen": meta.get("max_degen"),
+        "dtype": dtype_of(run_dir, meta),
         "stamped": bool(st),
         "op_at_edge": at_grid_edge(run_dir, meta),
+        # Не ключ плоскости: иначе любой коммит в документацию рвал бы таблицу.
+        # Но разброс версий кода — повод посмотреть, что между ними менялось.
+        "code": (meta.get("env") or {}).get("git_sha"),
     }
 
 
@@ -234,6 +258,20 @@ def report(planes: dict[str, dict]) -> list[str]:
                 for v, names in sorted(seen.items(), key=lambda kv: str(kv[0])))
             lines.append(f"- {PLANE_KEYS[key]}: {variants}")
         lines.append("")
+    codes: dict[str, list[str]] = {}
+    for name, p in planes.items():
+        codes.setdefault(p.get("code") or "неизвестно", []).append(name)
+    if len(codes) > 1:
+        lines.append("**Строки сняты на разных версиях кода:**")
+        lines.append("")
+        for sha, names in sorted(codes.items()):
+            lines.append(f"- `{sha}`: {', '.join(sorted(names))}")
+        lines.append("")
+        shas = [s for s in sorted(codes) if s != "неизвестно"]
+        if len(shas) >= 2:
+            lines.append(f"Проверить `git log --oneline {shas[0]}..{shas[-1]}`: менялось ли "
+                         "что-то, влияющее на числа, или только оснастка.")
+            lines.append("")
     if edges:
         lines.append("**Рабочая точка упёрлась в край сетки коэффициентов:**")
         lines.append("")

@@ -158,6 +158,25 @@ def load_model_config(path: Path) -> dict:
     return {k: v for k, v in flat.items() if v is not None}
 
 
+def resolve_run_dtype(model: str, configured: str | None, token: str | None) -> tuple[str, str]:
+    """Тип вычислений на весь прогон: решается один раз и пишется в манифест.
+
+    Раньше каждая стадия решала сама, глядя на карту, и решение нигде не
+    оставалось. Так вышло, что Llama и Qwen2.5-1.5B посчитались в bf16, а
+    Qwen3 и gemma — в fp16, и понять это можно было только по логу загрузчика.
+    """
+    if configured and configured != "auto":
+        return configured, "задан в конфиге"
+    try:
+        from transformers import AutoConfig
+
+        from emotion.loader import resolve_dtype
+        dt, why = resolve_dtype("auto", AutoConfig.from_pretrained(model, token=token))
+        return str(dt).replace("torch.", ""), why
+    except Exception as e:
+        return "auto", f"заранее не определить ({type(e).__name__}), решит стадия"
+
+
 @dataclass
 class StageSpec:
     """Что определяет результат стадии: артефакт, параметры, входы."""
@@ -176,6 +195,7 @@ def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
     """
     meta = meta or {}
     raw = getattr(a, "model_config", None) or {}
+    dtype = getattr(a, "resolved_dtype", None) or (raw.get("load") or {}).get("dtype", "auto")
     pairs = REPO / "eval_emotion" / a.slug / "all_emotions_extract.csv"
     vec_dir = REPO / "emotion_vectors" / a.slug
     runs = REPO / "runs" / a.slug
@@ -200,19 +220,20 @@ def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
             [REPO / "data_generation" / "emotion_data_extract"]),
         "vectors": StageSpec(
             "vectors", vec_dir,
-            {"model": a.model, "dtype": (raw.get("load") or {}).get("dtype", "auto"),
-             "pooling": "response_avg",
+            {"model": a.model, "dtype": dtype, "pooling": "response_avg",
              "judge_scores": Path(a.judge_scores).name if a.judge_scores else None},
             [pairs]),
         "sweep": StageSpec(
             "sweep", runs / "layer_sweep_anger.csv",
             {"model": a.model, "emotion": "anger", "layers": meta.get("candidates"),
-             "coeffs": a.sweep_coeffs, "n_prompts": 8, "max_new_tokens": 120},
+             "coeffs": a.sweep_coeffs, "n_prompts": 8, "max_new_tokens": 120,
+             "dtype": dtype},
             [vec_dir]),
         "matrix": StageSpec(
             "matrix", matrix_csv,
             {"model": a.model, "layer": layer, "variant": a.variant,
-             "per_emotion": a.per_emotion, "max_new_tokens": 120, **drive},
+             "per_emotion": a.per_emotion, "max_new_tokens": 120,
+             "dtype": dtype, **drive},
             [vec_dir]),
     }
     if getattr(a, "compose", None):
@@ -292,6 +313,15 @@ def main() -> None:
     import os
     token = os.environ.get("HF_TOKEN")
 
+    # Тип вычислений — один на весь прогон, а не решение каждой стадии по
+    # отдельности. Пишется в манифест и в отпечатки: иначе сравнивать строки,
+    # снятые в fp16 и bf16, приходится по логам загрузчика.
+    args.resolved_dtype, dtype_why = resolve_run_dtype(
+        args.model, (args.model_config.get("load") or {}).get("dtype"), token)
+    print(f"тип вычислений: {args.resolved_dtype} — {dtype_why}", flush=True)
+    dtype_arg = ([] if args.resolved_dtype == "auto"
+                 else ["--dtype", args.resolved_dtype])
+
     pairs_dir = REPO / "eval_emotion" / args.slug
     vec_dir = REPO / "emotion_vectors" / args.slug
     runs = REPO / "runs" / args.slug
@@ -366,7 +396,7 @@ def main() -> None:
             "на чужих векторах."
         )
     cmd = [py, "-m", "emotion.extract_vectors", "--model_name", args.model,
-           "--data-dir", str(pairs_dir), "--save-dir", str(vec_dir)]
+           "--data-dir", str(pairs_dir), "--save-dir", str(vec_dir)] + dtype_arg
     if args.judge_scores:
         cmd += ["--judge-scores", str(args.judge_scores)]
     run_stage("vectors", cmd, "извлечение векторов упало — см. лог")
@@ -399,7 +429,7 @@ def main() -> None:
                   [py, "-m", "emotion.steer_eval", "--model_name", args.model,
                    "--emotion", "anger", "--vector-dir", str(vec_dir),
                    "--layers", ",".join(map(str, cands)), "--coeffs", args.sweep_coeffs,
-                   "--n-prompts", "8", "--out", str(sweep_csv)],
+                   "--n-prompts", "8", "--out", str(sweep_csv)] + dtype_arg,
                   "свип упал — см. лог")
 
         sweep_st = stamp.read_stamp(sweep_csv) or {}
@@ -421,6 +451,7 @@ def main() -> None:
                  "coeff": args.coeff, "strength": args.strength,
                  "max_tokens": args.max_tokens,
                  "judge_filtered": bool(args.judge_scores),
+                 "dtype": args.resolved_dtype,
                  "variant": args.variant,
                  "protocol": stamp.PROTOCOL_VERSION,
                  "config": args.model_config,
@@ -434,7 +465,7 @@ def main() -> None:
     cmd4 = [py, "-m", "emotion.steer_specificity", "--model_name", args.model,
             "--vector-dir", str(vec_dir), "--layer", str(layer),
             "--per-emotion", str(args.per_emotion),
-            "--save-answers", "--out", str(matrix_csv)]
+            "--save-answers", "--out", str(matrix_csv)] + dtype_arg
     cmd4 += (["--strength", str(args.strength)] if args.strength is not None
              else ["--coeff", str(op_coeff)])
     run_stage("matrix", cmd4, "матрица упала — см. лог")
