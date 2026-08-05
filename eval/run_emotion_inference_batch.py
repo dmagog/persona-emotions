@@ -440,6 +440,10 @@ def main():
     )
     parser.add_argument("--emotions", nargs="+", default=None, help="Subset of emotions (default: all found)")
     parser.add_argument("--infer_backend", choices=("hf", "vllm"), default="hf")
+    parser.add_argument("--dtype", default="auto",
+                        help="тип вычислений. Без него load_model берёт свой "
+                             "умолчательный bf16, и пары оказываются снятыми не в том "
+                             "типе, что векторы и наведение — внутри одного прогона")
     parser.add_argument("--max_tokens", type=int, default=1000)
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--overwrite", action="store_true")
@@ -486,7 +490,15 @@ def main():
     print("Resumable: hf backend writes each row incrementally; re-run to continue from a crash.")
 
     if args.infer_backend == "hf":
-        llm, tokenizer = load_model(args.model)
+        # dtype передаём ЯВНО. Умолчание load_model — bf16, и до этой правки пары
+        # всех моделей генерировались в bf16 независимо от того, чем считались
+        # векторы: у Qwen3 и gemma внутри одного прогона стояло bf16 на парах и
+        # fp16 на активациях.
+        from emotion.loader import resolve_dtype
+        from transformers import AutoConfig
+        dt, why = resolve_dtype(args.dtype, AutoConfig.from_pretrained(args.model))
+        print(f"[pairs] dtype={dt} — {why}", flush=True)
+        llm, tokenizer = load_model(args.model, dtype=dt)
         lora_path = None
     else:
         llm, tokenizer, lora_path = load_vllm_model(args.model)

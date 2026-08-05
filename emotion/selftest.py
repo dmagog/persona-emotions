@@ -279,6 +279,26 @@ def test_stage_specs() -> None:
           "векторы зависят от пар")
     check(all(s.artifact for s in specs.values()), "у каждой стадии есть артефакт")
 
+    # Пересчёт: готовое убирается с дороги, но не пропадает. Без этого стадия
+    # либо переиспользует артефакт без штампа, либо «возобновится» по нему.
+    from emotion.run_model_chain import set_aside
+    tmp = Path(tempfile.mkdtemp())
+    art = tmp / "steer_specificity_raw.csv"
+    art.write_text("steer,score\nanger,1\n", encoding="utf-8")
+    from emotion import stamp as st_mod
+    st_mod.write_stamp(art, "matrix", {"layer": 10}, [])
+    bak = set_aside(art)
+    check(bak is not None and bak.exists() and not art.exists(),
+          "прежний артефакт отложен, а не стёрт", bak.name if bak else "—")
+    check(not st_mod.stamp_path(art).is_file(),
+          "штамп уехал вместе с артефактом, не остался врать про пустое место")
+    check(set_aside(tmp / "нет.csv") is None, "откладывать нечего — молча дальше")
+
+    # Каталог пар откладывается целиком: стадия возобновляется по отдельным
+    # <эмоция>_pos.csv, и снос одного сводного файла её не заставит считать заново.
+    d = tmp / "pairs"; d.mkdir(); (d / "anger_pos.csv").write_text("x", encoding="utf-8")
+    check(set_aside(d) is not None and not d.exists(), "каталог откладывается целиком")
+
     # Смена параметра обязана менять отпечаток, иначе проверка бесполезна
     from emotion.stamp import fingerprint
     fp1, _ = fingerprint("matrix", specs["matrix"].params, [])
@@ -359,6 +379,19 @@ def test_prompt_consistency() -> None:
     thinking = [f for f, s in src.items()
                 if "apply_chat_template" in s and "enable_thinking" not in s]
     check(not thinking, "везде подавлены рассуждения", ", ".join(thinking) or "во всех местах")
+
+    # Тип вычислений должен доезжать до КАЖДОЙ стадии, которая грузит модель.
+    # Пары этого не получали: load_model брал свой умолчательный bf16, и внутри
+    # одного прогона пары оказывались в bf16, а активации в fp16.
+    chain = (REPO / "emotion" / "run_model_chain.py").read_text(encoding="utf-8")
+    passed_on = chain.count("+ dtype_arg")
+    check(passed_on >= 4, "тип вычислений передан всем четырём стадиям",
+          f"стадий с явным типом: {passed_on}")
+    pairs_src = (REPO / "eval" / "run_emotion_inference_batch.py").read_text(encoding="utf-8")
+    check("load_model(args.model, dtype=" in pairs_src,
+          "генератор пар грузит модель с явным типом")
+    check(re.search(r"load_model\(args\.model\)\s*$", pairs_src, re.M) is None,
+          "нигде не осталось загрузки пар без типа")
 
 
 def main() -> None:

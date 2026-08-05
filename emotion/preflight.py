@@ -59,6 +59,9 @@ def main() -> None:
     ap.add_argument("--strength", type=float, default=None)
     ap.add_argument("--coeff", type=float, default=8.0)
     ap.add_argument("--max-new-tokens", type=int, default=120)
+    ap.add_argument("--dtype", default="auto",
+                    help="тип вычислений: предполёт обязан проверять ровно то, "
+                         "чем потом будут считаться стадии")
     args = ap.parse_args()
 
     import os
@@ -88,7 +91,7 @@ def main() -> None:
           "режим рассуждений подавлен", f"тегов <think>: {think_open}")
 
     # --- 2. генерация ---
-    model, tok, load_info = load_model_and_tokenizer(LoadSpec(hf_id=args.model))
+    model, tok, load_info = load_model_and_tokenizer(LoadSpec(hf_id=args.model, dtype=args.dtype))
     print(f"  [инфо] {load_info['dtype']} — {load_info['dtype_reason']}", flush=True)
     q = load_eval_prompts("anger", 1)[0]
     prompt = build_prompt(tok, q)

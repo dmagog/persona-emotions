@@ -141,6 +141,7 @@ def load_model_config(path: Path) -> dict:
         "layers": raw.get("sweep", {}).get("layers") or st.get("sweep", {}).get("layers"),
         "sweep_coeffs": st.get("sweep", {}).get("coeffs"),
         "max_degen": st.get("sweep", {}).get("max_degen"),
+        "sweep_prompts": st.get("sweep", {}).get("n_prompts"),
         "per_emotion": st.get("matrix", {}).get("per_emotion"),
         "max_tokens": st.get("pairs", {}).get("max_tokens"),
         "batch_size": st.get("pairs", {}).get("batch_size"),
@@ -156,6 +157,28 @@ def load_model_config(path: Path) -> dict:
         flat["compose"] = ",".join(str(x) for x in flat["compose"])
     flat["_raw"] = raw
     return {k: v for k, v in flat.items() if v is not None}
+
+
+def set_aside(artifact: Path) -> Path | None:
+    """Убрать готовый артефакт с дороги перед пересчётом. Не удалять.
+
+    Пересчёт нужен там, где штампа нет (такой артефакт переиспользуется молча),
+    а сами стадии возобновляются по уже записанному — просто перезапустить
+    цепочку недостаточно. Прежнее стоило часов и может понадобиться для
+    сравнения, поэтому переименовываем, а не стираем.
+    """
+    if not stamp.present(artifact):
+        return None
+    bak = artifact.with_name(f"{artifact.name}.{time.strftime('%Y%m%d-%H%M')}.bak")
+    n = 2
+    while bak.exists():
+        bak = artifact.with_name(f"{artifact.name}.{time.strftime('%Y%m%d-%H%M')}-{n}.bak")
+        n += 1
+    artifact.rename(bak)
+    st = stamp.stamp_path(artifact)
+    if st.is_file():
+        st.rename(st.with_name(bak.name + ".stamp.json"))
+    return bak
 
 
 def resolve_run_dtype(model: str, configured: str | None, token: str | None) -> tuple[str, str]:
@@ -184,6 +207,10 @@ class StageSpec:
     artifact: Path
     params: dict
     inputs: list[Path] = field(default_factory=list)
+    # Что убирать с дороги при --recompute. У пар это весь каталог: стадия
+    # возобновляется по отдельным <эмоция>_pos.csv, и снос одного сводного
+    # файла её не заставит считать заново.
+    backup: Path | None = None
 
 
 def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
@@ -216,8 +243,10 @@ def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
             "pairs", pairs,
             {"model": a.model, "version": "extract", "backend": "hf",
              "temperature": 0, "max_tokens": a.max_tokens,
-             "batch_size": a.batch_size, "prompt": raw.get("prompt") or {}},
-            [REPO / "data_generation" / "emotion_data_extract"]),
+             "batch_size": a.batch_size, "dtype": dtype,
+             "prompt": raw.get("prompt") or {}},
+            [REPO / "data_generation" / "emotion_data_extract"],
+            backup=pairs.parent),
         "vectors": StageSpec(
             "vectors", vec_dir,
             {"model": a.model, "dtype": dtype, "pooling": "response_avg",
@@ -226,8 +255,8 @@ def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
         "sweep": StageSpec(
             "sweep", runs / "layer_sweep_anger.csv",
             {"model": a.model, "emotion": "anger", "layers": meta.get("candidates"),
-             "coeffs": a.sweep_coeffs, "n_prompts": 8, "max_new_tokens": 120,
-             "dtype": dtype},
+             "coeffs": a.sweep_coeffs, "n_prompts": a.sweep_prompts,
+             "max_new_tokens": 120, "dtype": dtype},
             [vec_dir]),
         "matrix": StageSpec(
             "matrix", matrix_csv,
@@ -240,7 +269,7 @@ def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
         specs["compose"] = StageSpec(
             "compose", runs / "compose.csv",
             {"model": a.model, "layer": layer, "coeff": op_coeff,
-             "per_emotion": a.per_emotion, "specs": a.compose},
+             "per_emotion": a.per_emotion, "specs": a.compose, "dtype": dtype},
             [vec_dir])
     return specs
 
@@ -272,6 +301,9 @@ def build_parser() -> argparse.ArgumentParser:
                     help="батч генерации пар; 1 = построчно")
     ap.add_argument("--sweep-coeffs", default="0,4,8,16",
                     help="сетка коэффициентов для поиска рабочей точки")
+    ap.add_argument("--sweep-prompts", type=int, default=16,
+                    help="промптов на ячейку свипа; при 8 доля вырожденных "
+                         "квантуется шагом 12%% и порог 10%% значит «ноль из восьми»")
     ap.add_argument("--max-degen", type=float, default=0.10,
                     help="потолок доли вырожденных ответов при выборе рабочей точки")
     ap.add_argument("--skip-preflight", action="store_true",
@@ -286,6 +318,10 @@ def build_parser() -> argparse.ArgumentParser:
                          "делает силу сопоставимой между моделями, вместо фиксированного coeff")
     ap.add_argument("--judge-scores", type=Path, default=None,
                     help="CSV фильтра пар; без него берутся все пары (отметить в отчёте)")
+    ap.add_argument("--recompute", default=None,
+                    help="стадии, которые считать заново несмотря на штамп: "
+                         "all или через запятую pairs,vectors,sweep,matrix,compose. "
+                         "Прежний артефакт не удаляется, а откладывается в .bak")
     ap.add_argument("--recompute-stale", action="store_true",
                     help="считать заново артефакты, снятые при других параметрах; "
                          "по умолчанию цепочка на них останавливается")
@@ -349,7 +385,8 @@ def main() -> None:
                     AutoConfig.from_pretrained(args.model, token=token)) * 0.45)
             except Exception:
                 layer_hint = 0
-        pf = [py, "-m", "emotion.preflight", "--model", args.model, "--layer", str(layer_hint)]
+        pf = ([py, "-m", "emotion.preflight", "--model", args.model,
+               "--layer", str(layer_hint)] + dtype_arg)
         pf += (["--strength", str(args.strength)] if args.strength is not None
                else ["--coeff", str(args.coeff)])
         print("0. предполёт …", flush=True)
@@ -360,11 +397,22 @@ def main() -> None:
     meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.is_file() else {}
     specs = build_specs(args, meta)
 
+    forced = set() if not args.recompute else (
+        {"pairs", "vectors", "sweep", "matrix", "compose"} if args.recompute == "all"
+        else {x.strip() for x in args.recompute.split(",")})
+
     def run_stage(key: str, cmd: list[str], fail: str) -> None:
-        """Стадия считается, только если её отпечаток не совпал с готовым."""
+        """Стадия считается, если её отпечаток не совпал или она названа в --recompute."""
         s = specs[key]
-        if not stamp.decide(s.artifact, s.stage, s.params, s.inputs,
-                            args.recompute_stale, label=s.stage):
+        if key in forced:
+            # Артефакт без штампа переиспользуется молча — значит просто запустить
+            # цепочку заново недостаточно, готовое надо убрать с дороги. Не удаляем:
+            # оно стоило часов и может понадобиться для сравнения.
+            bak = set_aside(s.backup or s.artifact)
+            if bak:
+                print(f"   {s.stage}: прежнее отложено в {bak.name}", flush=True)
+        elif not stamp.decide(s.artifact, s.stage, s.params, s.inputs,
+                              args.recompute_stale, label=s.stage):
             return
         if sh(cmd, log) != 0:
             raise SystemExit(fail)
@@ -378,7 +426,7 @@ def main() -> None:
                "--version", "extract", "--output_dir", str(pairs_dir),
                "--infer_backend", "hf", "--temperature", "0",
                "--max_tokens", str(args.max_tokens),
-               "--batch-size", str(args.batch_size)],
+               "--batch-size", str(args.batch_size)] + dtype_arg,
               "стадия пар упала — см. лог")
 
     # 2. Векторы = mean(pos) − mean(neg) послойно.
@@ -429,7 +477,8 @@ def main() -> None:
                   [py, "-m", "emotion.steer_eval", "--model_name", args.model,
                    "--emotion", "anger", "--vector-dir", str(vec_dir),
                    "--layers", ",".join(map(str, cands)), "--coeffs", args.sweep_coeffs,
-                   "--n-prompts", "8", "--out", str(sweep_csv)] + dtype_arg,
+                   "--n-prompts", str(args.sweep_prompts),
+                   "--out", str(sweep_csv)] + dtype_arg,
                   "свип упал — см. лог")
 
         sweep_st = stamp.read_stamp(sweep_csv) or {}
@@ -481,7 +530,8 @@ def main() -> None:
             if sh([py, "-m", "emotion.steer_compose", "--model_name", args.model,
                    "--vector-dir", str(vec_dir), "--layer", str(layer),
                    "--coeff", str(op_coeff), "--per-emotion", str(args.per_emotion),
-                   "--specs", args.compose, "--out", str(cs.artifact)], log) != 0:
+                   "--specs", args.compose, "--out", str(cs.artifact)] + dtype_arg,
+                  log) != 0:
                 print("   композиция упала — цепочка продолжается", flush=True)
             else:
                 stamp.write_stamp(cs.artifact, cs.stage, cs.params, cs.inputs)

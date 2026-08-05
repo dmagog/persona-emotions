@@ -26,6 +26,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from activation_steer import ActivationSteerer
 from emotion.classifier_encoder import ClassifierBasedEncoder
+from emotion.loader import LoadSpec, load_model_and_tokenizer
 from emotion.space import ISEAR_EMOTIONS
 from emotion.steer_eval import build_prompt, generate
 from emotion.steer_specificity import common_prompts, encode_all
@@ -47,11 +48,15 @@ def main() -> None:
     ap.add_argument("--per-emotion", type=int, default=8)
     ap.add_argument("--specs", required=True, help="comma-separated, e.g. joy+sadness,joy-sadness")
     ap.add_argument("--max-new-tokens", type=int, default=120)
+    ap.add_argument("--dtype", default="auto",
+                    help="тип вычислений; должен совпадать с прогоном")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
 
-    model = AutoModelForCausalLM.from_pretrained(args.model_name, device_map="auto", torch_dtype=torch.float16)
-    tokenizer = AutoTokenizer.from_pretrained(args.model_name)
+    # Через общий загрузчик: здесь оставался зашитый fp16 и device_map без
+    # max_memory — последнее из одиннадцати мест, которые собирал A1.
+    model, tokenizer, _ = load_model_and_tokenizer(
+        LoadSpec(hf_id=args.model_name, dtype=args.dtype))
     encoder = ClassifierBasedEncoder()
 
     questions = common_prompts(args.per_emotion)
