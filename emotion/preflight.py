@@ -59,6 +59,9 @@ def main() -> None:
     ap.add_argument("--strength", type=float, default=None)
     ap.add_argument("--coeff", type=float, default=8.0)
     ap.add_argument("--max-new-tokens", type=int, default=120)
+    ap.add_argument("--skip-steer", action="store_true",
+                    help="не проверять наведение: векторы будут пересчитаны, и "
+                         "гонять проверки на списанных — валить прогон зря")
     ap.add_argument("--dtype", default="auto",
                     help="тип вычислений: предполёт обязан проверять ровно то, "
                          "чем потом будут считаться стадии")
@@ -106,12 +109,13 @@ def main() -> None:
     if not vec_dir.is_dir() and alt:
         vec_dir = alt[0]
     vec_file = vec_dir / "anger_response_avg_diff.pt"
-    if not vec_file.is_file():
+    if args.skip_steer or not vec_file.is_file():
         # Новая модель: векторов ещё нет, и это нормально. Проверки шаблона,
         # подавления рассуждений и генерации уже прошли — а именно на них
         # ломались gemma (системная роль) и Qwen3 (рассуждения). Раньше
         # предполёт в этом случае возвращал 1 и цепочка его вовсе не звала.
-        print("\n  [инфо] векторов ещё нет — проверки наведения пропущены, "
+        why = ("векторы будут пересчитаны" if args.skip_steer else "векторов ещё нет")
+        print(f"\n  [инфо] {why} — проверки наведения пропущены, "
               "цепочка построит их сама", flush=True)
         if FAILS:
             print(f"\nИТОГ: {len(FAILS)} сбоев до стадии векторов:", file=sys.stderr)

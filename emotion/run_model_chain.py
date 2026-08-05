@@ -358,6 +358,10 @@ def main() -> None:
     dtype_arg = ([] if args.resolved_dtype == "auto"
                  else ["--dtype", args.resolved_dtype])
 
+    forced = set() if not args.recompute else (
+        {"pairs", "vectors", "sweep", "matrix", "compose"} if args.recompute == "all"
+        else {x.strip() for x in args.recompute.split(",")})
+
     pairs_dir = REPO / "eval_emotion" / args.slug
     vec_dir = REPO / "emotion_vectors" / args.slug
     runs = REPO / "runs" / args.slug
@@ -387,8 +391,16 @@ def main() -> None:
                 layer_hint = 0
         pf = ([py, "-m", "emotion.preflight", "--model", args.model,
                "--layer", str(layer_hint)] + dtype_arg)
+        # Коэффициент — рабочая точка модели, а не умолчательная восьмёрка:
+        # Llama-3.2-3B работает на 4, и на 8 её текст разрушается, из-за чего
+        # предполёт валил очередь на коэффициенте, который прогон не применяет.
+        pf_coeff = meta_pre.get("op_coeff", args.coeff)
         pf += (["--strength", str(args.strength)] if args.strength is not None
-               else ["--coeff", str(args.coeff)])
+               else ["--coeff", str(pf_coeff)])
+        if "vectors" in forced:
+            # Векторы сейчас будут пересчитаны — проверять наведение на тех,
+            # что уедут в .bak, значит валить прогон из-за уже списанного.
+            pf += ["--skip-steer"]
         print("0. предполёт …", flush=True)
         if sh(pf, log) != 0:
             raise SystemExit("предполёт не пройден — очередь остановлена, см. лог")
@@ -396,10 +408,6 @@ def main() -> None:
     meta_path = runs / "meta.json"
     meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.is_file() else {}
     specs = build_specs(args, meta)
-
-    forced = set() if not args.recompute else (
-        {"pairs", "vectors", "sweep", "matrix", "compose"} if args.recompute == "all"
-        else {x.strip() for x in args.recompute.split(",")})
 
     def run_stage(key: str, cmd: list[str], fail: str) -> None:
         """Стадия считается, если её отпечаток не совпал или она названа в --recompute."""
@@ -435,7 +443,8 @@ def main() -> None:
     # построены на текстах Qwen, а self-цикл этого не заметил.
     vec_probe = vec_dir / f"{ISEAR_EMOTIONS[0]}_response_avg_diff.pt"
     print("2. извлечение векторов", flush=True)
-    if vec_probe.is_file() and stamp.read_stamp(vec_dir) is None and combined.is_file() \
+    if "vectors" not in forced and vec_probe.is_file() \
+            and stamp.read_stamp(vec_dir) is None and combined.is_file() \
             and vec_probe.stat().st_mtime < combined.stat().st_mtime:
         # Наследство без штампа: старая проверка по времени всё ещё лучше, чем ничего.
         raise SystemExit(
