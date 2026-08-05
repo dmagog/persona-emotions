@@ -1,0 +1,22 @@
+{
+  "model": "Qwen/Qwen3-1.7B",
+  "layer": 10,
+  "candidates": [
+    10,
+    13,
+    15
+  ],
+  "coeff": 8.0,
+  "max_tokens": 256,
+  "judge_filtered": false,
+  "strength": null,
+  "op_coeff": 4.0,
+  "max_degen": 0.1,
+  "env": {
+    "git_sha": "0017a9c",
+    "python": "3.11.15",
+    "torch": "2.5.1+cu121",
+    "transformers": "5.9.0",
+    "gpu": "NVIDIA GeForce RTX 2070"
+  }
+}

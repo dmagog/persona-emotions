@@ -1,0 +1,29 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "layer": 15,
+  "candidates": [
+    10,
+    13,
+    15
+  ],
+  "op_coeff": 16.0,
+  "max_degen": 0.1,
+  "coeff": 8.0,
+  "strength": null,
+  "max_tokens": 256,
+  "judge_filtered": false,
+  "env": {
+    "git_sha": "201301b",
+    "python": "3.11.15",
+    "torch": "2.5.1+cu121",
+    "transformers": "5.9.0",
+    "gpu": "NVIDIA GeForce RTX 2070"
+  },
+  "eval": {
+    "variant": "raw",
+    "judge_model": "meta-llama/llama-3.3-70b-instruct",
+    "judge2": null,
+    "n_boot": 20000,
+    "at": "2026-07-30T00:05:51"
+  }
+}
