@@ -248,6 +248,14 @@ def test_stamp() -> None:
     except SystemExit:
         check(True, "изменившийся вход тоже останавливает")
 
+    # Перенос с 2070: обрыв копирования даёт усечённый CSV, который читается —
+    # в нём просто меньше строк. Глаз это не ловит, штамп ловит.
+    total, bad = stamp.verify(tmp)
+    check(total == 1 and not bad, "целый артефакт сверку проходит", f"{total}, {bad}")
+    art.write_text("steer,score\n", encoding="utf-8")
+    total, bad = stamp.verify(tmp)
+    check(len(bad) == 1 and "разошлось" in bad[0], "усечённый артефакт не проходит сверку")
+
 
 def test_stage_specs() -> None:
     """Стадии и их параметры описаны в одном месте — иначе штамп начнёт врать."""

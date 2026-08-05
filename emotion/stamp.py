@@ -266,6 +266,36 @@ def show(run_dir: Path) -> None:
         print(f"{run_dir}: штампов нет — прогон снят до введения отпечатков")
 
 
+def verify(run_dir: Path) -> tuple[int, list[str]]:
+    """Совпадает ли содержимое артефактов с их штампами.
+
+    Нужно после переноса: артефакты едут с 2070 на Mac, и обрыв копирования
+    даёт усечённый CSV, который открывается и читается — просто в нём меньше
+    строк. Штамп это ловит, глаз нет.
+    """
+    bad: list[str] = []
+    total = 0
+    for sp in sorted({*run_dir.rglob("*stamp.json"), *run_dir.rglob(STAMP_NAME)}):
+        total += 1
+        try:
+            d = json.loads(sp.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            bad.append(f"{sp.name}: штамп не читается")
+            continue
+        art = sp.parent if sp.name == STAMP_NAME else \
+            sp.with_name(sp.name[:-len(".stamp.json")])
+        if not present(art):
+            bad.append(f"{art.name}: штамп есть, артефакта нет")
+            continue
+        want = d.get("content")
+        if want is None:
+            continue  # штамп старого образца, без отпечатка содержимого
+        if content_digest(art) != want:
+            bad.append(f"{art.name}: содержимое разошлось со штампом "
+                       "(обрыв копирования или правка руками)")
+    return total, bad
+
+
 def unstamped(paths: Iterable[Path]) -> list[str]:
     """Артефакты без штампа — их отмечает манифест и помечает сводная таблица."""
     return [p.name for p in paths if present(p) and read_stamp(p) is None]
@@ -279,9 +309,20 @@ def main() -> None:
     ap.add_argument("--show", action="store_true", help="показать штампы (по умолчанию)")
     ap.add_argument("--adopt", action="store_true",
                     help="проштамповать готовые артефакты текущим конфигом")
+    ap.add_argument("--verify", action="store_true",
+                    help="сверить содержимое артефактов со штампами (после переноса)")
     ap.add_argument("--config", type=Path, default=None,
                     help="конфиг модели: нужен для --adopt")
     args = ap.parse_args()
+
+    if args.verify:
+        total, bad = verify(args.run)
+        for b in bad:
+            print(f"  СБОЙ {b}")
+        if bad:
+            raise SystemExit(f"{args.run}: доехало не всё — {len(bad)} из {total}")
+        print(f"{args.run}: сверено артефактов {total}, все совпадают со штампами")
+        return
 
     if args.adopt:
         from emotion.run_model_chain import stage_specs
