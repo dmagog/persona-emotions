@@ -171,6 +171,102 @@ def test_matrix_resume() -> None:
     check(("anger", 3) not in done, "оборванная строка будет пересчитана")
 
 
+def test_stamp() -> None:
+    """Отпечаток протокола: что артефакт годен, должно быть проверяемо."""
+    from emotion import stamp
+
+    print("\n— отпечаток протокола")
+    tmp = Path(tempfile.mkdtemp())
+    src = tmp / "pairs.csv"
+    src.write_text("a,b\n1,2\n", encoding="utf-8")
+    art = tmp / "matrix.csv"
+    art.write_text("steer,score\nanger,1\n", encoding="utf-8")
+    params = {"model": "Qwen/Qwen3-1.7B", "layer": 10, "coeff": 8.0}
+
+    check(stamp.check(art, "matrix", params, [src]).state == "unstamped",
+          "готовый артефакт без штампа не выдаётся за свой")
+    stamp.write_stamp(art, "matrix", params, [src])
+    check(stamp.check(art, "matrix", params, [src]).state == "current",
+          "свой артефакт узнаётся")
+
+    # Главное отличие от проверки по времени: содержимое то же — значит годен.
+    # Файлы ездят между Windows-боксом и Mac, где mtime не переживает копирования.
+    import os
+    os.utime(src, (0, 0))
+    check(stamp.check(art, "matrix", params, [src]).state == "current",
+          "смена времени правки не делает артефакт чужим")
+
+    v = stamp.check(art, "matrix", {**params, "layer": 13}, [src])
+    check(v.state == "stale" and any("layer" in c for c in v.changed),
+          "смена слоя ловится и называется", "; ".join(v.changed)[:60])
+
+    src.write_text("a,b\n1,3\n", encoding="utf-8")
+    v = stamp.check(art, "matrix", params, [src])
+    check(v.state == "stale" and any("вход" in c for c in v.changed),
+          "изменение входа ловится", "; ".join(v.changed)[:60])
+
+    # Правка самого артефакта руками — тоже расхождение, а не «свой файл»
+    src.write_text("a,b\n1,2\n", encoding="utf-8")
+    art.write_text("steer,score\nanger,999\n", encoding="utf-8")
+    v = stamp.check(art, "matrix", params, [src])
+    check(v.state == "stale" and any("изменён" in c for c in v.changed),
+          "правка артефакта руками ловится", "; ".join(v.changed)[:60])
+    stamp.write_stamp(art, "matrix", params, [src])
+
+    check(stamp.check(tmp / "нет.csv", "matrix", params).state == "missing",
+          "отсутствующий артефакт считается заново")
+    empty = tmp / "vectors"
+    empty.mkdir()
+    check(stamp.check(empty, "vectors", params).state == "missing",
+          "пустой каталог — не результат")
+
+    # decide: разошёлся — цепочка останавливается, а не решает за человека
+    try:
+        stamp.decide(art, "matrix", {**params, "layer": 13}, [])
+        check(False, "разошедшийся артефакт останавливает цепочку", "не остановил")
+    except SystemExit as e:
+        check("layer" in str(e), "разошедшийся артефакт останавливает цепочку")
+    check(stamp.decide(art, "matrix", {**params, "layer": 13}, [],
+                       recompute_stale=True) is True,
+          "с --recompute-stale считается заново")
+    src.write_text("a,b\n1,4\n", encoding="utf-8")
+    try:
+        stamp.decide(art, "matrix", params, [src])
+        check(False, "изменившийся вход тоже останавливает", "не остановил")
+    except SystemExit:
+        check(True, "изменившийся вход тоже останавливает")
+
+
+def test_stage_specs() -> None:
+    """Стадии и их параметры описаны в одном месте — иначе штамп начнёт врать."""
+    from emotion.run_model_chain import build_parser, build_specs, load_model_config
+
+    print("\n— спецификации стадий")
+    cfg_file = REPO / "configs" / "models" / "qwen3-1.7b.yaml"
+    a = build_parser().parse_args([])
+    cfg = load_model_config(cfg_file)
+    for k, v in cfg.items():
+        if k != "_raw" and hasattr(a, k):
+            setattr(a, k, v)
+    a.model_config = cfg.get("_raw", {})
+
+    specs = build_specs(a, {"layer": 10, "op_coeff": 8.0, "candidates": [10, 13, 15]})
+    check(set(specs) >= {"pairs", "vectors", "sweep", "matrix"},
+          "описаны все дорогие стадии", ", ".join(sorted(specs)))
+    check(specs["matrix"].params["layer"] == 10 and specs["matrix"].params["coeff"] == 8.0,
+          "рабочая точка входит в отпечаток матрицы")
+    check(specs["vectors"].inputs == [specs["pairs"].artifact],
+          "векторы зависят от пар")
+    check(all(s.artifact for s in specs.values()), "у каждой стадии есть артефакт")
+
+    # Смена параметра обязана менять отпечаток, иначе проверка бесполезна
+    from emotion.stamp import fingerprint
+    fp1, _ = fingerprint("matrix", specs["matrix"].params, [])
+    p2 = {**specs["matrix"].params, "per_emotion": 16}
+    fp2, _ = fingerprint("matrix", p2, [])
+    check(fp1 != fp2, "смена per_emotion меняет отпечаток")
+
+
 def test_config() -> None:
     from emotion.run_model_chain import load_model_config
 
@@ -204,8 +300,8 @@ def main() -> None:
     sys.path.insert(0, str(REPO))
     print("=== самопроверка конвейера ===")
     for fn in (test_layers_and_dtype, test_steerer_guards, test_operating_point,
-               test_degeneracy_metric, test_matrix_resume, test_config,
-               test_prompt_consistency):
+               test_degeneracy_metric, test_matrix_resume, test_stamp,
+               test_stage_specs, test_config, test_prompt_consistency):
         try:
             fn()
         except Exception as e:

@@ -15,10 +15,12 @@ import json
 import subprocess
 import sys
 import time
+from dataclasses import dataclass, field
 from pathlib import Path
 
 import pandas as pd
 
+from emotion import stamp
 from emotion.space import ISEAR_EMOTIONS
 
 REPO = Path(__file__).resolve().parent.parent
@@ -141,7 +143,86 @@ def load_model_config(path: Path) -> dict:
     return {k: v for k, v in flat.items() if v is not None}
 
 
-def main() -> None:
+@dataclass
+class StageSpec:
+    """Что определяет результат стадии: артефакт, параметры, входы."""
+    stage: str
+    artifact: Path
+    params: dict
+    inputs: list[Path] = field(default_factory=list)
+
+
+def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
+    """Параметры, влияющие на результат каждой стадии, — в одном месте.
+
+    И цепочка, и `emotion.stamp --adopt` берут их отсюда. Если бы каждый считал
+    их сам, штамп разошёлся бы со стадией на первом же изменении и отпечаток
+    начал бы врать — а врущий отпечаток хуже, чем никакого.
+    """
+    meta = meta or {}
+    raw = getattr(a, "model_config", None) or {}
+    pairs = REPO / "eval_emotion" / a.slug / "all_emotions_extract.csv"
+    vec_dir = REPO / "emotion_vectors" / a.slug
+    runs = REPO / "runs" / a.slug
+    layer, op_coeff = meta.get("layer"), meta.get("op_coeff")
+    # Имя с вариантом: raw, sae, centered сосуществуют в одном прогоне. Старое
+    # имя без варианта распознаётся, чтобы прежние прогоны не потерялись.
+    matrix_csv = runs / f"steer_specificity_{a.variant}.csv"
+    legacy = runs / "steer_specificity.csv"
+    if a.variant == "raw" and legacy.is_file() and not matrix_csv.is_file():
+        matrix_csv = legacy
+    # Наведение задаётся либо безразмерной силой, либо коэффициентом — в
+    # отпечаток идёт то, что реально применялось.
+    drive = ({"strength": a.strength} if getattr(a, "strength", None) is not None
+             else {"coeff": op_coeff})
+
+    specs = {
+        "pairs": StageSpec(
+            "pairs", pairs,
+            {"model": a.model, "version": "extract", "backend": "hf",
+             "temperature": 0, "max_tokens": a.max_tokens,
+             "batch_size": a.batch_size, "prompt": raw.get("prompt") or {}},
+            [REPO / "data_generation" / "emotion_data_extract"]),
+        "vectors": StageSpec(
+            "vectors", vec_dir,
+            {"model": a.model, "dtype": (raw.get("load") or {}).get("dtype", "auto"),
+             "pooling": "response_avg",
+             "judge_scores": Path(a.judge_scores).name if a.judge_scores else None},
+            [pairs]),
+        "sweep": StageSpec(
+            "sweep", runs / "layer_sweep_anger.csv",
+            {"model": a.model, "emotion": "anger", "layers": meta.get("candidates"),
+             "coeffs": a.sweep_coeffs, "n_prompts": 8, "max_new_tokens": 120},
+            [vec_dir]),
+        "matrix": StageSpec(
+            "matrix", matrix_csv,
+            {"model": a.model, "layer": layer, "variant": a.variant,
+             "per_emotion": a.per_emotion, "max_new_tokens": 120, **drive},
+            [vec_dir]),
+    }
+    if getattr(a, "compose", None):
+        specs["compose"] = StageSpec(
+            "compose", runs / "compose.csv",
+            {"model": a.model, "layer": layer, "coeff": op_coeff,
+             "per_emotion": a.per_emotion, "specs": a.compose},
+            [vec_dir])
+    return specs
+
+
+def stage_specs(config: Path) -> list[StageSpec]:
+    """Спецификации стадий по конфигу и манифесту прогона — для `emotion.stamp`."""
+    a = build_parser().parse_args([])
+    cfg = load_model_config(config)
+    for k, v in cfg.items():
+        if k != "_raw" and hasattr(a, k):
+            setattr(a, k, v)
+    a.model_config = cfg.get("_raw", {})
+    meta_path = REPO / "runs" / a.slug / "meta.json"
+    meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.is_file() else {}
+    return list(build_specs(a, meta).values())
+
+
+def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(description="Полная цепочка на одной модели.")
     ap.add_argument("--config", type=Path, default=None,
                     help="конфиг модели (yaml); аргументы командной строки его перекрывают")
@@ -169,7 +250,14 @@ def main() -> None:
                          "делает силу сопоставимой между моделями, вместо фиксированного coeff")
     ap.add_argument("--judge-scores", type=Path, default=None,
                     help="CSV фильтра пар; без него берутся все пары (отметить в отчёте)")
-    args = ap.parse_args()
+    ap.add_argument("--recompute-stale", action="store_true",
+                    help="считать заново артефакты, снятые при других параметрах; "
+                         "по умолчанию цепочка на них останавливается")
+    return ap
+
+
+def main() -> None:
+    args = build_parser().parse_args()
 
     # Конфиг даёт умолчания, явный аргумент побеждает. Так добавление модели —
     # одна запись в configs/models/, а разовые правки остаются возможны.
@@ -223,117 +311,142 @@ def main() -> None:
         if sh(pf, log) != 0:
             raise SystemExit("предполёт не пройден — очередь остановлена, см. лог")
 
+    meta_path = runs / "meta.json"
+    meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.is_file() else {}
+    specs = build_specs(args, meta)
+
+    def run_stage(key: str, cmd: list[str], fail: str) -> None:
+        """Стадия считается, только если её отпечаток не совпал с готовым."""
+        s = specs[key]
+        if not stamp.decide(s.artifact, s.stage, s.params, s.inputs,
+                            args.recompute_stale, label=s.stage):
+            return
+        if sh(cmd, log) != 0:
+            raise SystemExit(fail)
+        stamp.write_stamp(s.artifact, s.stage, s.params, s.inputs)
+
     # 1. Пары pos/neg на самой модели (resume внутри скрипта, построчный)
     combined = pairs_dir / "all_emotions_extract.csv"
-    if combined.is_file():
-        print("1. пары: уже есть, пропуск", flush=True)
-    else:
-        print("1. пары pos/neg …", flush=True)
-        if sh([py, "-m", "eval.run_emotion_inference_batch", "--model", args.model,
+    print("1. пары pos/neg", flush=True)
+    run_stage("pairs",
+              [py, "-m", "eval.run_emotion_inference_batch", "--model", args.model,
                "--version", "extract", "--output_dir", str(pairs_dir),
                "--infer_backend", "hf", "--temperature", "0",
                "--max_tokens", str(args.max_tokens),
-               "--batch-size", str(args.batch_size)], log) != 0:
-            raise SystemExit("стадия пар упала — см. лог")
+               "--batch-size", str(args.batch_size)],
+              "стадия пар упала — см. лог")
 
     # 2. Векторы = mean(pos) − mean(neg) послойно.
-    # Пропускаем только если векторы СВЕЖЕЕ пар: иначе на новых парах молча
-    # переиспользуются старые векторы (так и случилось с gemma — её векторы
-    # были построены на текстах Qwen, а self-цикл это не заметил).
+    # Отпечаток стадии включает отпечаток пар: сменились пары — векторы
+    # разойдутся и цепочка остановится. Так и вскрылась gemma, чьи векторы были
+    # построены на текстах Qwen, а self-цикл этого не заметил.
     vec_probe = vec_dir / f"{ISEAR_EMOTIONS[0]}_response_avg_diff.pt"
-    fresh = vec_probe.is_file() and combined.is_file() and \
-        vec_probe.stat().st_mtime >= combined.stat().st_mtime
-    if vec_probe.is_file() and not fresh:
+    print("2. извлечение векторов", flush=True)
+    if vec_probe.is_file() and stamp.read_stamp(vec_dir) is None and combined.is_file() \
+            and vec_probe.stat().st_mtime < combined.stat().st_mtime:
+        # Наследство без штампа: старая проверка по времени всё ещё лучше, чем ничего.
         raise SystemExit(
             f"векторы в {vec_dir} старше пар {combined} — они построены на других "
             "данных. Убери или переименуй их и перезапусти, иначе матрица посчитается "
             "на чужих векторах."
         )
-    if fresh:
-        print("2. векторы: свежее пар, пропуск", flush=True)
-    else:
-        print("2. извлечение векторов …", flush=True)
-        cmd = [py, "-m", "emotion.extract_vectors", "--model_name", args.model,
-               "--data-dir", str(pairs_dir), "--save-dir", str(vec_dir)]
-        if args.judge_scores:
-            cmd += ["--judge-scores", str(args.judge_scores)]
-        if sh(cmd, log) != 0:
-            raise SystemExit("извлечение векторов упало — см. лог")
+    cmd = [py, "-m", "emotion.extract_vectors", "--model_name", args.model,
+           "--data-dir", str(pairs_dir), "--save-dir", str(vec_dir)]
+    if args.judge_scores:
+        cmd += ["--judge-scores", str(args.judge_scores)]
+    run_stage("vectors", cmd, "извлечение векторов упало — см. лог")
 
-    # 3. Выбор слоя: короткий свип на anger
-    meta_path = runs / "meta.json"
-    meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.is_file() else {}
-    if "layer" in meta and "op_coeff" in meta:
+    # 3. Свип по слоям и выбор рабочей точки. Это две разные вещи: свип стоит
+    # получаса генерации, выбор из готового свипа бесплатен. Поэтому смена
+    # max_degen не должна тянуть за собой пересчёт свипа.
+    sweep_csv = runs / "layer_sweep_anger.csv"
+    if not sweep_csv.is_file() and "layer" in meta and "op_coeff" in meta:
+        # Наследство: точка выбрана в более раннем цикле (у Qwen2.5-3B — вручную).
         layer, op_coeff = meta["layer"], meta["op_coeff"]
-        print(f"3. рабочая точка: уже выбрана L{layer}/c{op_coeff:g}, пропуск", flush=True)
-        # сила наведения могла смениться между прогонами — фиксируем актуальную
-        meta["strength"] = args.strength
-        meta["coeff"] = args.coeff
-        meta["env"] = env_manifest()
-        meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"3. рабочая точка: унаследована L{layer}/c{op_coeff:g}, свипа нет",
+              flush=True)
     else:
         # Слои задаются долями глубины (0.45) или абсолютными номерами (13).
         # Доли переносимы между моделями, абсолютные привязаны к одной.
-        if args.layers:
+        if meta.get("candidates"):
+            cands = meta["candidates"]
+        elif args.layers:
             from transformers import AutoConfig
             from emotion.loader import resolve_layers
             cfg_model = AutoConfig.from_pretrained(args.model, token=token)
             cands = resolve_layers(cfg_model, [x.strip() for x in str(args.layers).split(",")])
         else:
             cands = default_layers(args.model, token)
-        print(f"3. свип слоёв {cands} …", flush=True)
-        sweep_csv = runs / "layer_sweep_anger.csv"
-        if sh([py, "-m", "emotion.steer_eval", "--model_name", args.model,
-               "--emotion", "anger", "--vector-dir", str(vec_dir),
-               "--layers", ",".join(map(str, cands)), "--coeffs", args.sweep_coeffs,
-               "--n-prompts", "8", "--out", str(sweep_csv)], log) != 0:
-            raise SystemExit("свип упал — см. лог")
-        layer, op_coeff = pick_operating_point(sweep_csv, args.max_degen)
-        meta.update({"model": args.model, "layer": layer, "candidates": cands,
-                     "op_coeff": op_coeff, "max_degen": args.max_degen,
-                     "coeff": args.coeff, "strength": args.strength,
-                     "max_tokens": args.max_tokens,
-                     "judge_filtered": bool(args.judge_scores),
-                     "variant": args.variant,
-                     "config": args.model_config,
-                     "env": env_manifest()})
-        meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"   рабочая точка: слой {layer}, coeff {op_coeff:g}", flush=True)
+        meta["candidates"] = cands
+        specs = build_specs(args, meta)
+        print(f"3. свип слоёв {cands}", flush=True)
+        run_stage("sweep",
+                  [py, "-m", "emotion.steer_eval", "--model_name", args.model,
+                   "--emotion", "anger", "--vector-dir", str(vec_dir),
+                   "--layers", ",".join(map(str, cands)), "--coeffs", args.sweep_coeffs,
+                   "--n-prompts", "8", "--out", str(sweep_csv)],
+                  "свип упал — см. лог")
+
+        sweep_st = stamp.read_stamp(sweep_csv) or {}
+        prev_op = meta.get("op_point") or {}
+        same = (prev_op.get("sweep") == sweep_st.get("fingerprint")
+                and prev_op.get("max_degen") == args.max_degen)
+        if same:
+            layer, op_coeff = prev_op["layer"], prev_op["coeff"]
+            print(f"   рабочая точка: та же L{layer}/c{op_coeff:g}", flush=True)
+        else:
+            layer, op_coeff = pick_operating_point(sweep_csv, args.max_degen)
+            print(f"   рабочая точка: слой {layer}, coeff {op_coeff:g}", flush=True)
+        meta["op_point"] = {"layer": layer, "coeff": op_coeff,
+                            "max_degen": args.max_degen,
+                            "sweep": sweep_st.get("fingerprint")}
+
+    meta.update({"model": args.model, "layer": layer, "op_coeff": op_coeff,
+                 "max_degen": args.max_degen,
+                 "coeff": args.coeff, "strength": args.strength,
+                 "max_tokens": args.max_tokens,
+                 "judge_filtered": bool(args.judge_scores),
+                 "variant": args.variant,
+                 "protocol": stamp.PROTOCOL_VERSION,
+                 "config": args.model_config,
+                 "env": env_manifest()})
+    meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+    specs = build_specs(args, meta)
 
     # 4. Матрица специфичности: baseline + 7 эмоций × 56 промптов, баллы энкодера
-    # Имя с вариантом: raw, sae, centered должны сосуществовать в одном прогоне.
-    # Старое имя без варианта распознаётся, чтобы прежние прогоны не потерялись.
-    matrix_csv = runs / f"steer_specificity_{args.variant}.csv"
-    legacy = runs / "steer_specificity.csv"
-    if legacy.is_file() and not matrix_csv.is_file() and args.variant == "raw":
-        matrix_csv = legacy
-    if matrix_csv.is_file():
-        print("4. матрица: уже есть, пропуск", flush=True)
-    else:
-        print(f"4. матрица специфичности на L{layer} …", flush=True)
-        cmd4 = [py, "-m", "emotion.steer_specificity", "--model_name", args.model,
-                "--vector-dir", str(vec_dir), "--layer", str(layer),
-                "--per-emotion", str(args.per_emotion),
-                "--save-answers", "--out", str(matrix_csv)]
-        cmd4 += (["--strength", str(args.strength)] if args.strength is not None
-                 else ["--coeff", str(op_coeff)])
-        if sh(cmd4, log) != 0:
-            raise SystemExit("матрица упала — см. лог")
+    matrix_csv = specs["matrix"].artifact
+    print(f"4. матрица специфичности на L{layer}", flush=True)
+    cmd4 = [py, "-m", "emotion.steer_specificity", "--model_name", args.model,
+            "--vector-dir", str(vec_dir), "--layer", str(layer),
+            "--per-emotion", str(args.per_emotion),
+            "--save-answers", "--out", str(matrix_csv)]
+    cmd4 += (["--strength", str(args.strength)] if args.strength is not None
+             else ["--coeff", str(op_coeff)])
+    run_stage("matrix", cmd4, "матрица упала — см. лог")
 
     # 5. Композиция: сложение и вычитание эмоций. Это то, чего промптом не
     # сделать, и единственный результат, который держится на двух измерителях.
     # Запускается по флагу: стоит ещё столько же генераций, сколько матрица.
     if args.compose:
-        compose_csv = runs / "compose.csv"
-        if compose_csv.is_file() and compose_csv.stat().st_mtime >= matrix_csv.stat().st_mtime:
-            print("5. композиция: свежее матрицы, пропуск", flush=True)
-        else:
-            print(f"5. композиция ({args.compose}) …", flush=True)
+        cs = specs["compose"]
+        print(f"5. композиция ({args.compose})", flush=True)
+        if stamp.decide(cs.artifact, cs.stage, cs.params, cs.inputs,
+                        args.recompute_stale, label=cs.stage):
             if sh([py, "-m", "emotion.steer_compose", "--model_name", args.model,
                    "--vector-dir", str(vec_dir), "--layer", str(layer),
                    "--coeff", str(op_coeff), "--per-emotion", str(args.per_emotion),
-                   "--specs", args.compose, "--out", str(compose_csv)], log) != 0:
+                   "--specs", args.compose, "--out", str(cs.artifact)], log) != 0:
                 print("   композиция упала — цепочка продолжается", flush=True)
+            else:
+                stamp.write_stamp(cs.artifact, cs.stage, cs.params, cs.inputs)
+
+    # Что переиспользовано без штампа — в манифест. Строка такого прогона
+    # сравнима с остальными только под честную оговорку в отчёте.
+    legacy_used = stamp.unstamped([s.artifact for s in specs.values()])
+    meta["unstamped"] = legacy_used
+    meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+    if legacy_used:
+        print(f"   без штампа переиспользовано: {', '.join(legacy_used)}", flush=True)
 
     print(f"=== {args.slug}: цепочка пройдена → {runs} ===\n", flush=True)
 
