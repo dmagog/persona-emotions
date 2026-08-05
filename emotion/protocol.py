@@ -317,7 +317,9 @@ def main() -> None:
             if not run_dir.is_dir():
                 continue
             for csv_path in variants_in(run_dir):
-                planes[f"{run_dir.name}/{csv_path.stem.replace('steer_specificity_', '')}"] = \
+                # Имя без варианта — наследство прежней раскладки, вариант там raw.
+                m = re.match(r"steer_specificity_(.+)\.csv$", csv_path.name)
+                planes[f"{run_dir.name}/{m.group(1) if m else 'raw'}"] = \
                     plane_of(run_dir, csv_path)
         print("\n".join(report(planes)))
         return
