@@ -203,11 +203,16 @@ def main() -> None:
               for r in rows}
     off = compare_planes(planes)
     # Помечаем меньшинство: строка выбивается, если хоть по одному ключу её
-    # значение встречается реже большинства.
+    # значение встречается реже большинства. Если большинства нет — раскол
+    # пополам, — помечаем все: выбирать «правильную» половину монеткой нельзя.
     odd: set[str] = set()
     for seen in off.values():
-        major = max(seen.values(), key=len)
-        odd |= {n for names in seen.values() if names is not major for n in names}
+        sizes = sorted((len(v) for v in seen.values()), reverse=True)
+        if len(sizes) > 1 and sizes[0] == sizes[1]:
+            odd |= {n for names in seen.values() for n in names}
+        else:
+            major = max(seen.values(), key=len)
+            odd |= {n for names in seen.values() if names is not major for n in names}
 
     multi = len({r["variant"] for r in rows}) > 1
     vcol = " Вариант |" if multi else ""
