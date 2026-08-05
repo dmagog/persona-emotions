@@ -111,6 +111,21 @@ def pick_operating_point(sweep_csv: Path, max_degen: float = 0.10) -> tuple[int,
               f"беру минимальную ({best.degen:.0%})", flush=True)
     else:
         best = ok.loc[ok["score"].idxmax()]
+
+    # Оговорки, которые иначе всплывут только при чтении таблицы — или не всплывут.
+    per_cell = int(d.groupby(["layer", "coeff"]).size().min())
+    if per_cell and 1.0 / per_cell > max_degen:
+        print(f"  ОГОВОРКА: {per_cell} промптов на ячейку, шаг доли вырожденных "
+              f"{1 / per_cell:.0%} — порог {max_degen:.0%} означает «ни одного "
+              f"вырожденного из {per_cell}», а не «не больше {max_degen:.0%}»",
+              flush=True)
+    grid = sorted({float(c) for c in g["coeff"] if float(c) > 0})
+    if grid and abs(float(best["coeff"]) - grid[-1]) < 1e-9:
+        print(f"  ОГОВОРКА: выбран верх сетки ({grid[-1]:g}) — оптимум мог остаться "
+              "за ней, сетку стоит расширить вверх", flush=True)
+    elif len(grid) > 1 and abs(float(best["coeff"]) - grid[0]) < 1e-9:
+        print(f"  ОГОВОРКА: выбран низ сетки ({grid[0]:g}) — всё, что сильнее, уже "
+              "разрушало текст, сетке не хватает промежуточных значений", flush=True)
     return int(best["layer"]), float(best["coeff"])
 
 
