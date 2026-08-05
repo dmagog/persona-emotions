@@ -152,12 +152,14 @@ def plane_of(run_dir: Path, csv_path: Path) -> dict:
     n_prompts = int(steered.groupby("steer")["prompt_id"].nunique().max()) \
         if not steered.empty and "prompt_id" in d.columns else None
 
+    # В плоскость идёт РЕЖИМ наведения, а не значение коэффициента. Значение у
+    # каждой модели своё по построению — рабочая точка подбирается по поведению,
+    # в этом и смысл. А вот «одну модель вели коэффициентом, другую безразмерной
+    # силой» — уже разные протоколы.
     drive = "?"
     if "coeff" in d.columns and not steered.empty:
         used = {round(float(c), 3) for c in steered["coeff"] if str(c).strip()}
-        # Один общий коэффициент на все эмоции — фиксированный coeff; разные —
-        # он подобран из безразмерной силы под норму каждого вектора.
-        drive = f"coeff={used.pop():g}" if len(used) == 1 else "strength"
+        drive = "coeff" if len(used) == 1 else "strength"
 
     return {
         "protocol": st.get("protocol", meta.get("protocol")),
@@ -166,7 +168,33 @@ def plane_of(run_dir: Path, csv_path: Path) -> dict:
         "judge_filtered": meta.get("judge_filtered"),
         "max_degen": meta.get("max_degen"),
         "stamped": bool(st),
+        "op_at_edge": at_grid_edge(run_dir, meta),
     }
+
+
+def at_grid_edge(run_dir: Path, meta: dict) -> str | None:
+    """Не упёрлась ли рабочая точка в край сетки коэффициентов.
+
+    Если выбран максимум сетки, оптимум мог остаться за ней — сетку надо
+    расширять, иначе «сильнейшее неразрушающее наведение» означает всего лишь
+    «самое сильное, что мы попробовали». Если выбран минимум — наоборот,
+    ограничение по вырожденности связывает, и модель хрупкая.
+    """
+    sweep = run_dir / "layer_sweep_anger.csv"
+    op = meta.get("op_coeff")
+    if not sweep.is_file() or op is None:
+        return None
+    try:
+        grid = sorted({float(c) for c in pd.read_csv(sweep)["coeff"] if float(c) > 0})
+    except (KeyError, ValueError, TypeError):
+        return None
+    if not grid:
+        return None
+    if abs(float(op) - grid[-1]) < 1e-9:
+        return f"верх сетки ({grid[-1]:g}): оптимум мог остаться за ней"
+    if abs(float(op) - grid[0]) < 1e-9 and len(grid) > 1:
+        return f"низ сетки ({grid[0]:g}): всё, что сильнее, разрушало текст"
+    return None
 
 
 def compare_planes(planes: dict[str, dict]) -> dict[str, dict]:
@@ -185,13 +213,17 @@ def report(planes: dict[str, dict]) -> list[str]:
     """Текст про сопоставимость — идёт под таблицу как есть."""
     lines: list[str] = []
     unstamped = [n for n, p in planes.items() if not p.get("stamped")]
+    edges = {n: p["op_at_edge"] for n, p in planes.items() if p.get("op_at_edge")}
     diff = compare_planes(planes)
 
     if not planes:
         return ["Нет строк для сравнения."]
-    if not diff and not unstamped:
+    if not diff and not unstamped and not edges:
         lines.append(f"Все {len(planes)} строк сняты в одной плоскости — сравнимы между собой.")
         return lines
+    if not diff:
+        lines.append(f"Плоскость общая у всех {len(planes)} строк. Оговорки ниже.")
+        lines.append("")
 
     if diff:
         lines.append("**Строки сняты в разных плоскостях — рядом их ставить нельзя:**")
@@ -201,6 +233,12 @@ def report(planes: dict[str, dict]) -> list[str]:
                 f"{v if v is not None else 'неизвестно'} — {', '.join(sorted(names))}"
                 for v, names in sorted(seen.items(), key=lambda kv: str(kv[0])))
             lines.append(f"- {PLANE_KEYS[key]}: {variants}")
+        lines.append("")
+    if edges:
+        lines.append("**Рабочая точка упёрлась в край сетки коэффициентов:**")
+        lines.append("")
+        for name, why in sorted(edges.items()):
+            lines.append(f"- {name}: {why}")
         lines.append("")
     if unstamped:
         lines.append(
