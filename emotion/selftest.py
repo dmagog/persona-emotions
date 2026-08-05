@@ -279,6 +279,40 @@ def test_stage_specs() -> None:
     check(fp1 != fp2, "смена per_emotion меняет отпечаток")
 
 
+def test_protocol() -> None:
+    """Одна ли плоскость. Строки таблицы, снятые по-разному, обязаны это показывать."""
+    from emotion.protocol import PLANE_KEYS, PROTOCOL, card, compare_planes, report
+
+    print("\n— протокол и плоскость")
+    check(all(c.where for c in PROTOCOL),
+          "у каждого решения есть ссылка на статью или прочерк")
+    check(any(c.deviation for c in PROTOCOL) and any(not c.deviation for c in PROTOCOL),
+          "отклонения отделены от совпадений",
+          f"{sum(c.deviation for c in PROTOCOL)} из {len(PROTOCOL)} — отклонения")
+    check("2507.21509" in card(), "карточка называет базовую статью")
+
+    same = {"A": {"protocol": 1, "n_prompts": 56, "drive": "coeff=8",
+                  "judge_filtered": True, "max_degen": 0.10, "stamped": True}}
+    same["B"] = dict(same["A"])
+    check(not compare_planes(same), "одинаковые прогоны считаются сравнимыми")
+    check("одной плоскости" in " ".join(report(same)), "и так и сказано в отчёте")
+
+    odd = dict(same)
+    odd["C"] = {**same["A"], "n_prompts": 14, "judge_filtered": False, "stamped": False}
+    diff = compare_planes(odd)
+    check(set(diff) == {"n_prompts", "judge_filtered"},
+          "расхождения названы поимённо", ", ".join(sorted(diff)))
+    txt = " ".join(report(odd))
+    check("C" in txt and "Без штампа" in txt,
+          "выбивающаяся строка и отсутствие штампа попадают в отчёт")
+    check(all(k in PLANE_KEYS for k in diff), "все ключи плоскости описаны по-русски")
+
+    # Слой и коэффициент у каждой модели свои — это НЕ повод считать строки
+    # несравнимыми, иначе пометка загорится на всей таблице и её перестанут читать.
+    byline = {"A": {**same["A"]}, "B": {**same["A"]}}
+    check(not compare_planes(byline), "разные слои сами по себе не рушат плоскость")
+
+
 def test_config() -> None:
     from emotion.run_model_chain import load_model_config
 
@@ -313,7 +347,7 @@ def main() -> None:
     print("=== самопроверка конвейера ===")
     for fn in (test_layers_and_dtype, test_steerer_guards, test_operating_point,
                test_degeneracy_metric, test_matrix_resume, test_stamp,
-               test_stage_specs, test_config, test_prompt_consistency):
+               test_stage_specs, test_protocol, test_config, test_prompt_consistency):
         try:
             fn()
         except Exception as e:

@@ -20,6 +20,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from emotion.protocol import compare_planes, plane_of, report
 from emotion.space import ISEAR_EMOTIONS
 
 REPO = Path(__file__).resolve().parent.parent
@@ -27,9 +28,9 @@ RU = {"anger": "гнев", "disgust": "отвращение", "fear": "стра�
       "joy": "радость", "sadness": "грусть", "shame": "стыд"}
 REFUSAL = re.compile(
     r"as an AI|as a language model|I am an AI|language model|"
-    r"I (don't|do not|cannot|can't) have (personal )?(feelings|emotions)|"
-    r"I'm just an? (AI|computer program)|I can only (help|assist)|"
-    r"cannot feel|unable to (feel|experience)", re.I)
+    r"I (?:don't|do not|cannot|can't) have (?:personal )?(?:feelings|emotions)|"
+    r"I'm just an? (?:AI|computer program)|I can only (?:help|assist)|"
+    r"cannot feel|unable to (?:feel|experience)", re.I)
 
 
 def rep_ratio(text: str, n: int = 4) -> float:
@@ -99,6 +100,7 @@ def row_for(run_dir: Path, csv_path: Path | None = None) -> dict | None:
     m = re.match(r"steer_specificity_(.+)\.csv$", csv_path.name)
     variant = m.group(1) if m else meta.get("variant", "raw")
 
+    plane = plane_of(run_dir, csv_path)
     row = {
         "model": meta.get("model", run_dir.name),
         "slug": run_dir.name,
@@ -112,6 +114,7 @@ def row_for(run_dir: Path, csv_path: Path | None = None) -> dict | None:
         "sad_leak": sum(leak) / len(leak) if leak else float("nan"),
         "degen": degen,
         "refusals": refus,
+        **{f"plane_{k}": v for k, v in plane.items()},
     }
     row.update(_judge_and_ci(run_dir, base_mean))
     return row
@@ -192,13 +195,29 @@ def main() -> None:
     if not rows:
         raise SystemExit(f"в {args.runs} нет готовых steer_specificity.csv")
 
+    # Плоскость: строки сравнимы между собой, только если сняты одним протоколом.
+    # Раньше это была приписка под таблицей «сверяйтесь с meta.json» — то есть
+    # проверка, которую никто не делает.
+    planes = {f"{r['slug']}/{r['variant']}": {k[len("plane_"):]: v
+                                              for k, v in r.items() if k.startswith("plane_")}
+              for r in rows}
+    off = compare_planes(planes)
+    # Помечаем меньшинство: строка выбивается, если хоть по одному ключу её
+    # значение встречается реже большинства.
+    odd: set[str] = set()
+    for seen in off.values():
+        major = max(seen.values(), key=len)
+        odd |= {n for names in seen.values() if names is not major for n in names}
+
     multi = len({r["variant"] for r in rows}) > 1
     vcol = " Вариант |" if multi else ""
     vsep = "---|" if multi else ""
     print(f"| Модель |{vcol} Слой | coeff | Диагональ Δ | argmax энк. | argmax судья | Значимо | "
-          "Протечка | Связность | Вырожд. | Отказы |")
-    print(f"|---|{vsep}---:|---:|---:|---:|---:|:--:|---:|---:|---:|---:|")
+          "Протечка | Связность | Вырожд. | Отказы | Плоскость |")
+    print(f"|---|{vsep}---:|---:|---:|---:|---:|:--:|---:|---:|---:|---:|:--:|")
     for r in rows:
+        key = f"{r['slug']}/{r['variant']}"
+        mark = "⚠" if key in odd else ("?" if not r.get("plane_stamped") else "✓")
         jh = f"{r['judge_hits']}/7" if r.get("judge_hits") is not None else "—"
         coh = f"{r['coherence']:.1f}" if r.get("coherence") is not None else "—"
         sig = r.get("ci_sig") or "—"
@@ -207,14 +226,17 @@ def main() -> None:
         vv = f" {r['variant']} |" if multi else ""
         print(f"| {r['model']} |{vv} {r['layer']} | {cf} | {r['diag_mean']:+.3f} | "
               f"{r['argmax_hits']}/7 | {jh} | {sig} | {r['sad_leak']:+.3f} | {coh} | "
-              f"{r['degen']}/{r['n_rows']} | {r['refusals']}/{r['n_rows']} |")
+              f"{r['degen']}/{r['n_rows']} | {r['refusals']}/{r['n_rows']} | {mark} |")
 
     print("\nДиагональ и протечка — независимый энкодер `go_emotions`, Δ к тексту без наведения.")
     print("«Значимо» — сколько диагоналей из 7 имеют интервал, не включающий ноль (по энкодеру).")
     print("«Связность» — средняя по стирённым условиям, судья 0–100; прочерк, если оценка не гонялась.")
     print("«Вырожд.» — повтор 4-граммы > 0.15 или type-token < 0.45. Метрика не проверена на разметке: "
           "она ловит и эмоциональный повтор тоже.")
-    print("\nСтроки сравнимы между собой, только если сняты одним протоколом — сверяйтесь с meta.json.")
+    print("«Плоскость»: ✓ — снято текущим протоколом, ⚠ — выбивается из общего, "
+          "? — штампа нет, протокол известен только со слов манифеста.")
+    print("\n## Сопоставимость\n")
+    print("\n".join(report(planes)))
 
     if args.csv:
         args.csv.parent.mkdir(parents=True, exist_ok=True)
