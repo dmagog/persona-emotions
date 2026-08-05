@@ -145,30 +145,42 @@ def test_degeneracy_metric() -> None:
 
 def test_matrix_resume() -> None:
     from emotion.space import ISEAR_EMOTIONS
+    from emotion.steer_specificity import load_checkpoint
 
     print("\n— возобновление матрицы")
     fields = ["steer", "layer", "coeff", "prompt_id", *ISEAR_EMOTIONS, "answer"]
-    ckpt = Path(tempfile.mkdtemp()) / "m.partial.csv"
-    with ckpt.open("w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=fields); w.writeheader()
-        for st in ("baseline", "anger"):
-            for pid in range(3):
-                w.writerow({"steer": st, "layer": 14, "coeff": 4.0, "prompt_id": pid,
-                            "answer": f"t {st} {pid}", **{e: 0.1 for e in ISEAR_EMOTIONS}})
-        fh.write("anger,14,4.0,3,0.1,0.1")  # обрыв на полуслове
 
-    done, rows = set(), []
-    with open(ckpt, newline="", encoding="utf-8") as fh:
-        for r in csv.DictReader(fh):
-            try:
-                row = {k: (float(v) if k in ISEAR_EMOTIONS else v)
-                       for k, v in r.items() if k in fields}
-                key = (r["steer"], int(r["prompt_id"]))
-            except (KeyError, ValueError, TypeError):
-                continue
-            rows.append(row); done.add(key)
+    def write_ckpt(layer, coeff, tail=True) -> Path:
+        p = Path(tempfile.mkdtemp()) / "m.partial.csv"
+        with p.open("w", newline="", encoding="utf-8") as fh:
+            w = csv.DictWriter(fh, fieldnames=fields); w.writeheader()
+            for st in ("baseline", "anger"):
+                for pid in range(3):
+                    w.writerow({"steer": st, "layer": "" if st == "baseline" else layer,
+                                "coeff": 0.0 if st == "baseline" else coeff,
+                                "prompt_id": pid, "answer": f"t {st} {pid}",
+                                **{e: 0.1 for e in ISEAR_EMOTIONS}})
+            if tail:
+                fh.write("anger,14,4.0,3,0.1,0.1")  # обрыв на полуслове
+        return p
+
+    want = {"baseline": ("", 0.0), "anger": ("14", 4.0)}
+    rows, done = load_checkpoint(write_ckpt(14, 4.0), fields, want)
     check(len(done) == 6 and len(rows) == 6, "готовые пары восстановлены", f"{len(done)}")
     check(("anger", 3) not in done, "оборванная строка будет пересчитана")
+
+    # Коэффициент при --strength считается из активаций и гуляет в младших
+    # разрядах — это та же точка, возобновляться можно.
+    rows, done = load_checkpoint(write_ckpt(14, 4.0001), fields, want)
+    check(len(done) == 6, "дрожь коэффициента не мешает возобновлению", f"{len(done)}")
+
+    # А другой слой — уже другой прогон, дописывать к нему нельзя
+    for label, ck in (("слой", write_ckpt(16, 4.0)), ("коэффициент", write_ckpt(14, 8.0))):
+        try:
+            load_checkpoint(ck, fields, want)
+            check(False, f"чужой {label} в чекпойнте останавливает", "не остановил")
+        except SystemExit as e:
+            check("другой рабочей точки" in str(e), f"чужой {label} в чекпойнте останавливает")
 
 
 def test_stamp() -> None:

@@ -74,6 +74,63 @@ def mean_activation_norm(model, tokenizer, prompts, layer: int, n: int = 8) -> f
     return sum(norms) / len(norms) if norms else float("nan")
 
 
+def _same_point(got: tuple[str, float], want: tuple[str, float]) -> bool:
+    """Одна ли это рабочая точка. Слой — точно, коэффициент — с допуском.
+
+    При `--strength` коэффициент считается из средней нормы активаций, и между
+    запусками он может разойтись в младших разрядах. Требовать точного совпадения
+    значило бы отказываться возобновлять полностью законный прогон.
+    """
+    if got[0] != want[0]:
+        return False
+    return abs(got[1] - want[1]) <= 1e-3 * max(1.0, abs(want[1]))
+
+
+def load_checkpoint(ckpt: Path, fields: list[str],
+                    expected: dict[str, tuple[str, float]]) -> tuple[list[dict], set]:
+    """Готовые генерации из чекпойнта — только снятые в текущей рабочей точке.
+
+    Ключ возобновления раньше был `(steer, prompt_id)`, а слой и коэффициент
+    в него не входили. Перезапуск на другом слое поверх недосчитанного файла
+    дописывал новые строки к старым, и в одной матрице оказывались строки с
+    разных слоёв. Заметить это по числам нельзя — они просто усредняются.
+    """
+    rows: list[dict] = []
+    done: set[tuple[str, int]] = set()
+    mismatch: dict[str, tuple[tuple[str, float], int]] = {}
+    with open(ckpt, newline="", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            try:
+                # Строку собираем ПЕРВОЙ: если она оборвана, пара не должна
+                # попасть в done — иначе генерация пропустится при возобновлении,
+                # а данных по ней не будет, и в матрице окажется дыра.
+                row = {k: (float(v) if k in ISEAR_EMOTIONS else v)
+                       for k, v in r.items() if k in fields}
+                key = (r["steer"], int(r["prompt_id"]))
+                got = (str(r.get("layer") or "").strip(), float(r.get("coeff") or 0.0))
+            except (KeyError, ValueError, TypeError):
+                continue  # оборванная последняя строка
+            want = expected.get(key[0])
+            if want is not None and not _same_point(got, want):
+                prev = mismatch.get(key[0])
+                mismatch[key[0]] = (got, (prev[1] if prev else 0) + 1)
+                continue
+            rows.append(row)
+            done.add(key)
+    if mismatch:
+        detail = "\n".join(
+            f"    · {s}: снято L{g[0] or '—'}/c{g[1]:g} × {n} строк, "
+            f"сейчас L{expected[s][0] or '—'}/c{expected[s][1]:g}"
+            for s, (g, n) in sorted(mismatch.items()))
+        raise SystemExit(
+            f"\n{ckpt}: в чекпойнте строки с другой рабочей точки.\n{detail}\n\n"
+            "  Это остаток другого прогона. Дописать к нему новые строки — значит\n"
+            "  собрать матрицу из разных слоёв, и по числам это будет не видно.\n"
+            "  Убери или переименуй файл и запусти снова.\n"
+        )
+    return rows, done
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Steering specificity matrix across all emotions.")
     ap.add_argument("--model_name", default="Qwen/Qwen2.5-3B-Instruct")
@@ -105,26 +162,42 @@ def main() -> None:
     fields = ["steer", "layer", "coeff", "prompt_id", *ISEAR_EMOTIONS] + (["answer"] if args.save_answers else [])
     rows = []
 
+    # Векторы и коэффициенты — ДО чтения чекпойнта: возобновление должно знать,
+    # в какой рабочей точке снят готовый кусок, иначе оно смешает разные слои.
+    vecs: dict[str, torch.Tensor] = {}
+    coeffs: dict[str, float] = {}
+    if not args.prompt_baseline:
+        vecs = {
+            emo: torch.load(args.vector_dir / f"{emo}_response_avg_diff.pt", map_location="cpu")[args.layer + 1]
+            for emo in ISEAR_EMOTIONS
+        }
+        if args.center:
+            mean_vec = torch.stack([vecs[e] for e in ISEAR_EMOTIONS]).mean(0)
+            for e in ISEAR_EMOTIONS:
+                centered = vecs[e] - mean_vec
+                vecs[e] = centered * (vecs[e].norm() / (centered.norm() + 1e-8))  # renorm to original length
+            print("centered: subtracted mean emotion vector, renormed to original length")
+        coeffs = {emo: args.coeff for emo in ISEAR_EMOTIONS}
+        if args.strength is not None:
+            mean_h = mean_activation_norm(model, tokenizer, prompts, args.layer)
+            for emo in ISEAR_EMOTIONS:
+                coeffs[emo] = args.strength * mean_h / (vecs[emo].norm().item() + 1e-8)
+            print(f"strength S={args.strength:.3f}, mean||h_{args.layer}||={mean_h:.2f} -> "
+                  + ", ".join(f"{e[:4]} c={coeffs[e]:.2f}" for e in ISEAR_EMOTIONS))
+
+    expected: dict[str, tuple[str, float]] = {"baseline": ("", 0.0)}
+    if args.prompt_baseline:
+        expected.update({f"prompt:{e}": ("", 0.0) for e in ISEAR_EMOTIONS})
+    else:
+        expected.update({e: (str(args.layer), coeffs[e]) for e in ISEAR_EMOTIONS})
+
     # Построчная дозапись и возобновление. Стадия самая дорогая (448 генераций,
     # больше часа) и до сих пор писала результат одним куском в самом конце:
     # обрыв на шестой эмоции терял всё.
     ckpt = args.out.with_suffix(".partial.csv") if args.out else None
     done: set[tuple[str, int]] = set()
     if ckpt and ckpt.is_file():
-        with open(ckpt, newline="", encoding="utf-8") as fh:
-            for r in csv.DictReader(fh):
-                try:
-                    # Строку собираем ПЕРВОЙ: если она оборвана, пара не должна
-                    # попасть в done — иначе генерация пропустится при
-                    # возобновлении, а данных по ней не будет, и в матрице
-                    # окажется дыра.
-                    row = {k: (float(v) if k in ISEAR_EMOTIONS else v)
-                           for k, v in r.items() if k in fields}
-                    key = (r["steer"], int(r["prompt_id"]))
-                except (KeyError, ValueError, TypeError):
-                    continue  # оборванная последняя строка
-                rows.append(row)
-                done.add(key)
+        rows, done = load_checkpoint(ckpt, fields, expected)
         print(f"возобновление: {len(done)} готовых генераций из {ckpt.name}", flush=True)
     ckpt_fh = open(ckpt, "a", newline="", encoding="utf-8") if ckpt else None
     ckpt_w = csv.DictWriter(ckpt_fh, fieldnames=fields, extrasaction="ignore") if ckpt_fh else None
@@ -157,23 +230,6 @@ def main() -> None:
             run_block(f"prompt:{emo}", None, "", 0.0, plist=eprompts)
             print(f"  done prompt={emo}")
     else:
-        vecs = {
-            emo: torch.load(args.vector_dir / f"{emo}_response_avg_diff.pt", map_location="cpu")[args.layer + 1]
-            for emo in ISEAR_EMOTIONS
-        }
-        if args.center:
-            mean_vec = torch.stack([vecs[e] for e in ISEAR_EMOTIONS]).mean(0)
-            for e in ISEAR_EMOTIONS:
-                centered = vecs[e] - mean_vec
-                vecs[e] = centered * (vecs[e].norm() / (centered.norm() + 1e-8))  # renorm to original length
-            print("centered: subtracted mean emotion vector, renormed to original length")
-        coeffs = {emo: args.coeff for emo in ISEAR_EMOTIONS}
-        if args.strength is not None:
-            mean_h = mean_activation_norm(model, tokenizer, prompts, args.layer)
-            for emo in ISEAR_EMOTIONS:
-                coeffs[emo] = args.strength * mean_h / (vecs[emo].norm().item() + 1e-8)
-            print(f"strength S={args.strength:.3f}, mean||h_{args.layer}||={mean_h:.2f} -> "
-                  + ", ".join(f"{e[:4]} c={coeffs[e]:.2f}" for e in ISEAR_EMOTIONS))
         print(f"steering: {len(ISEAR_EMOTIONS)} emotions x {len(prompts)} prompts @ layer {args.layer}")
         for emo in ISEAR_EMOTIONS:
             run_block(emo, vecs[emo], args.layer, coeffs[emo])
