@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import csv
+import hashlib
 import json
 import sys
 from collections import defaultdict
@@ -73,7 +74,9 @@ async def main_async(args) -> None:
     lock = asyncio.Lock()
 
     async def one(idx, key, answer):
-        ck = f"{key}|{idx}"
+        # В ключ входит отпечаток текста: при пересчёте матрицы номер строки
+        # тот же, а текст другой, и кэш отдавал бы оценку старой генерации.
+        ck = f"{key}|{idx}|{hashlib.sha1(str(answer).encode()).hexdigest()[:12]}"
         if ck in cache:
             return key, cache[ck]
         async with sem:

@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import csv
+import hashlib
 import json
 import sys
 from collections import defaultdict
@@ -37,9 +38,20 @@ def _cache_path(args) -> Path | None:
     return base.with_suffix(base.suffix + ".cache.jsonl") if base is not None else None
 
 
+def answer_key(answer: str) -> str:
+    """Отпечаток оценённого текста — часть ключа кэша.
+
+    Ключ был (steer, pid, measured), без самого ответа. При пересчёте матрицы
+    номера строк те же, а тексты другие — и судья молча отдавал баллы за старые
+    генерации. Полная судейская матрица «пересчитывалась» за двадцать секунд
+    и описывала прогон, которого больше нет.
+    """
+    return hashlib.sha1(str(answer).encode("utf-8")).hexdigest()[:12]
+
+
 def _load_cache(path: Path) -> dict:
-    """Read JSONL checkpoint -> {(steer, pid, measured): score}. Tolerates a
-    truncated last line from a crash mid-write."""
+    """Read JSONL checkpoint -> {(steer, pid, measured, answer): score}.
+    Tolerates a truncated last line from a crash mid-write."""
     done = {}
     with open(path, encoding="utf-8") as f:
         for line in f:
@@ -50,7 +62,9 @@ def _load_cache(path: Path) -> dict:
                 d = json.loads(line)
             except json.JSONDecodeError:
                 continue  # partial final line from an interrupted write
-            done[(d["steer"], d["pid"], d["measured"])] = d["score"]
+            if "answer" not in d:
+                continue  # запись старого образца, без отпечатка текста — не доверяем
+            done[(d["steer"], d["pid"], d["measured"], d["answer"])] = d["score"]
     return done
 
 
@@ -76,7 +90,8 @@ async def main_async(args) -> None:
             s = await score_answer(client, args.model, measured, answer)
         if s is not None and cache_fh is not None:  # checkpoint every good score
             async with write_lock:
-                cache_fh.write(json.dumps({"steer": steer, "pid": pid, "measured": measured, "score": s}) + "\n")
+                cache_fh.write(json.dumps({"steer": steer, "pid": pid, "measured": measured,
+                                           "answer": answer_key(answer), "score": s}) + "\n")
                 cache_fh.flush()
         return steer, pid, measured, s
 
@@ -84,8 +99,9 @@ async def main_async(args) -> None:
     for r in rows:
         steer = r["steer"].split(":")[-1]  # "prompt:anger"->"anger"
         pid = r["prompt_id"]
+        ak = answer_key(r["answer"])
         for measured in ISEAR_EMOTIONS:
-            if (steer, pid, measured) in done:
+            if (steer, pid, measured, ak) in done:
                 continue  # already checkpointed -> skip
             tasks.append(one(steer, pid, measured, r["answer"]))
     print(f"judging {len(tasks)} new (answer x emotion) pairs ({len(done)} cached) ...")
@@ -94,7 +110,8 @@ async def main_async(args) -> None:
         cache_fh.close()
 
     # merge cached + freshly computed scores
-    results = [(s, p, m, sc) for (s, p, m), sc in done.items()]
+    fresh = {answer_key(r["answer"]) for r in rows}
+    results = [(s, p, m, sc) for (s, p, m, a), sc in done.items() if a in fresh]
     results += list(new_results)
 
     agg = defaultdict(lambda: defaultdict(list))

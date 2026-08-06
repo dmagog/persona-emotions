@@ -352,6 +352,31 @@ def test_protocol() -> None:
     check(dtype_of(tmp, {"dtype": "float16"}) == "float16", "манифест важнее лога")
 
 
+def test_judge_cache() -> None:
+    """Кэш судьи обязан помнить, ЗА КАКОЙ текст выставлен балл."""
+    import json
+
+    from emotion.judge_specificity import _load_cache, answer_key
+
+    print("\n— кэш судьи")
+    tmp = Path(tempfile.mkdtemp()) / "j.cache.jsonl"
+    old_ans, new_ans = "I am furious about this.", "I feel calm today."
+    with tmp.open("w", encoding="utf-8") as fh:
+        # запись нового образца — с отпечатком текста
+        fh.write(json.dumps({"steer": "anger", "pid": "0", "measured": "anger",
+                             "answer": answer_key(old_ans), "score": 90}) + "\n")
+        # запись старого образца — без него
+        fh.write(json.dumps({"steer": "anger", "pid": "1", "measured": "anger",
+                             "score": 80}) + "\n")
+    done = _load_cache(tmp)
+    check(("anger", "0", "anger", answer_key(old_ans)) in done,
+          "балл за тот же текст переиспользуется")
+    check(("anger", "0", "anger", answer_key(new_ans)) not in done,
+          "балл за другой текст НЕ переиспользуется — иначе судья опишет чужой прогон")
+    check(len(done) == 1, "записи без отпечатка текста отбрасываются", f"{len(done)}")
+    check(answer_key(old_ans) != answer_key(new_ans), "разные тексты — разные ключи")
+
+
 def test_config() -> None:
     from emotion.run_model_chain import load_model_config
 
@@ -399,7 +424,8 @@ def main() -> None:
     print("=== самопроверка конвейера ===")
     for fn in (test_layers_and_dtype, test_steerer_guards, test_operating_point,
                test_degeneracy_metric, test_matrix_resume, test_stamp,
-               test_stage_specs, test_protocol, test_config, test_prompt_consistency):
+               test_stage_specs, test_protocol, test_judge_cache, test_config,
+               test_prompt_consistency):
         try:
             fn()
         except Exception as e:
