@@ -1,0 +1,24 @@
+# Модель добавляется одним таким файлом. Всё, что влияет на прогон, — здесь.
+slug: gemma-3-1b-it
+hf_id: google/gemma-3-1b-it
+
+load:
+  dtype: float16         # пинуем явно: авто-выбор расколол сетку на bf16 и fp16
+  trust_remote_code: false
+  device_map: auto
+  seed: 0
+
+prompt:
+  system_role: true      # при отказе шаблона render_chat свернёт рамку в user-turn сам
+  enable_thinking: false # обязательно для Qwen3 и новее; остальные ключ игнорируют
+
+stages:
+  pairs:   { batch_size: 8, max_tokens: 256 }
+  # coeffs уплотнены снизу: на {0,4,8,16} три модели из четырёх упирались в 4,
+  # потому что при 8 текст уже разрушался. n_prompts 16, а не 8: при восьми
+  # доля вырожденных квантуется шагом 12%, и порог 10% значил «ноль из восьми».
+  sweep:   { layers: [0.35, 0.45, 0.55], coeffs: [0, 2, 4, 6, 8, 16], max_degen: 0.10, n_prompts: 16 }
+  matrix:  { per_emotion: 8 }
+  compose: { specs: [anger-sadness, fear-sadness, shame-sadness, joy-sadness] }
+
+sae: null
