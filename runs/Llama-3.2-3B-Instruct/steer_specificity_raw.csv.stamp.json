@@ -1,0 +1,19 @@
+{
+  "stage": "matrix",
+  "protocol": 1,
+  "fingerprint": "506f13a6339280dc",
+  "params": {
+    "model": "meta-llama/Llama-3.2-3B-Instruct",
+    "layer": 15,
+    "variant": "raw",
+    "per_emotion": 8,
+    "max_new_tokens": 120,
+    "dtype": "float16",
+    "coeff": 4.0
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/Llama-3.2-3B-Instruct": "e5fb384cbe46694b+bf7ebc86b35c50fd"
+  },
+  "content": "f9aded3406ad9c55f1157f3da7af8a82bcd7f2b5a6b1618ac1a3197c610a50e8",
+  "created": "2026-08-06T15:24:27"
+}

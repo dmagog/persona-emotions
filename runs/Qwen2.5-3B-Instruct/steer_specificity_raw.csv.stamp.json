@@ -1,0 +1,19 @@
+{
+  "stage": "matrix",
+  "protocol": 1,
+  "fingerprint": "36339c9bdef296d1",
+  "params": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "layer": 13,
+    "variant": "raw",
+    "per_emotion": 8,
+    "max_new_tokens": 120,
+    "dtype": "float16",
+    "coeff": 8.0
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/Qwen2.5-3B-Instruct": "d203437f0f237b2c+13b4f5efc2e4caf8"
+  },
+  "content": "261784e2efa68c68b7151619f7969b8e0660363e3f609cde913a8063f09606d4",
+  "created": "2026-08-06T10:40:30"
+}

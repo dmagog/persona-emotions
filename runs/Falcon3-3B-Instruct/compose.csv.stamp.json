@@ -1,0 +1,18 @@
+{
+  "stage": "compose",
+  "protocol": 1,
+  "fingerprint": "e6f612c23587c047",
+  "params": {
+    "model": "tiiuae/Falcon3-3B-Instruct",
+    "layer": 12,
+    "coeff": 6.0,
+    "per_emotion": 8,
+    "specs": "anger-sadness,fear-sadness,shame-sadness,joy-sadness",
+    "dtype": "float16"
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/Falcon3-3B-Instruct": "911c591b1052d525+bf8697194b756ae0"
+  },
+  "content": "b928e5e02a7acbe54e12b3cf9b86fae5409d75d192c4ecd7e2bc0807fe218ffb",
+  "created": "2026-08-07T09:48:56"
+}

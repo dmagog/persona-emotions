@@ -1,0 +1,19 @@
+{
+  "stage": "matrix",
+  "protocol": 1,
+  "fingerprint": "5ed07869cde6f5c6",
+  "params": {
+    "model": "tiiuae/Falcon3-3B-Instruct",
+    "layer": 12,
+    "variant": "raw",
+    "per_emotion": 8,
+    "max_new_tokens": 120,
+    "dtype": "float16",
+    "coeff": 6.0
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/Falcon3-3B-Instruct": "911c591b1052d525+bf8697194b756ae0"
+  },
+  "content": "639584c02b7f138956c4cba41b1a2337c23ea8abf8df60ab4f850db151e6d335",
+  "created": "2026-08-07T09:02:40"
+}

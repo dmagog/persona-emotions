@@ -1,0 +1,122 @@
+
+[stage begin 2026-08-07T01:20:39] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.bootstrap_ci --csv P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\steer_specificity_raw.csv --n-boot 20000 --out P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\ci_encoder.md
+=== steer_specificity_raw.csv  (n per condition: 56) ===
+diagonal Δ vs baseline [95% CI]:
+     anger: +0.727  [+0.628, +0.819]  *
+   disgust: +0.189  [+0.126, +0.257]  *
+      fear: +0.507  [+0.384, +0.628]  *
+     guilt: +0.124  [+0.067, +0.182]  *
+       joy: +0.503  [+0.403, +0.599]  *
+   sadness: +0.341  [+0.216, +0.461]  *
+     shame: -0.035  [-0.096, +0.022]
+sadness leakage (non-sad steer): -0.058  [-0.144, +0.023]
+записано P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\ci_encoder.md
+[stage end rc=0] 2026-08-07T01:20:39
+
+[stage begin 2026-08-07T01:20:39] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.valence_arousal --vector-dir P:\gpu-tasks\emo-vec\repo\emotion_vectors\Llama-3.2-1B-Instruct --layer 10 --out P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\valence_arousal.md
+P:\gpu-tasks\emo-vec\repo\emotion\valence_arousal.py:68: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  vecs = {e: torch.load(args.vector_dir / f"{e}_response_avg_diff.pt", map_location="cpu")[args.layer].float()
+# A+V интерпретация корреляции эмоц-векторов (Phase 5.1) — Llama-3.2-1B-Instruct, layer 10
+
+## 1. Доминирующая общая ось (почему косинусы высокие)
+
+Косинус каждой эмоции с СРЕДНИМ вектором (общая ось «эмоциональность vs нейтрально»):
+   disgust: 0.911
+   sadness: 0.874
+      fear: 0.871
+     shame: 0.869
+     anger: 0.850
+     guilt: 0.825
+       joy: 0.666
+
+Доля дисперсии в 1-й компоненте сырого набора: 68% → одна общая ось забирает большинство, отсюда высокие косинусы.
+
+## 2. Остаток после вычитания общей оси ≈ валентность/возбуждение
+
+Проекция эмоций на остаточные PC (после вычитания общей оси):
+     emo   resPC1   resPC2  valence  arousal
+   anger    -0.06     0.37    -0.70     0.85
+ disgust    -0.10     0.10    -0.80     0.55
+    fear    -0.14    -0.09    -0.70     0.90
+   guilt    -0.07    -0.16    -0.60     0.40
+     joy     0.68    -0.03     1.00     0.75
+ sadness    -0.12    -0.11    -0.70     0.25
+   shame    -0.18    -0.07    -0.65     0.45
+
+resPC1 vs валентность: Spearman +0.33 | vs возбуждение +0.18
+resPC2 vs валентность: Spearman -0.33 | vs возбуждение +0.57
+
+joy на resPC1: +0.68; негативные: [-0.18, -0.06] (joy обособлен).
+
+
+## Вывод
+
+- Высокая попарная корреляция эмоц-векторов — это **одна доминирующая ось** общей «эмоциональности» (pos-vs-нейтрально, ~80% дисперсии), а не отсутствие структуры.
+- В остатке после её вычитания проявляется **валентность**: остаточная PC1 коррелирует с канонической валентностью (Spearman +0.33). Возбуждение (arousal) в геометрии векторов чисто не выделяется — это валентностная, а не полная V-A структура.
+- Эмпирически (баллы судьи) то же самое: joy **анти-коррелирует** с негативным кластером, тогда как негативные эмоции слабо со-активируются — это и есть ось валентности на уровне измерения.
+- Согласуется с §2 (косинусы), §5 (центрирование убирает общую ось, joy заостряется) и с тем, что SAE-фичи расщепляют то, что общая ось смешивает.
+
+wrote P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\valence_arousal.md
+[stage end rc=0] 2026-08-07T01:20:43
+
+[stage begin 2026-08-07T01:20:43] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.score_csv --data-dir P:\gpu-tasks\emo-vec\repo\eval_emotion\Llama-3.2-1B-Instruct --out P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\separability.csv
+emotion   n_pos n_neg    pos    neg   shift    auc top1_pos
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 7738.28it/s]
+[transformers] You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+anger       125   125  0.496  0.172   0.324  0.813    0.544
+disgust     130   130  0.094  0.020   0.074  0.798    0.131
+fear        130   130  0.676  0.253   0.423  0.840    0.908
+guilt       125   125  0.330  0.165   0.165  0.733    0.464
+joy         175   175  0.777  0.398   0.379  0.798    0.966
+sadness     160   160  0.705  0.494   0.212  0.685    0.794
+shame       155   155  0.342  0.103   0.239  0.759    0.503
+
+mean shift: 0.259  mean auc: 0.775
+wrote P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\separability.csv
+[stage end rc=0] 2026-08-07T01:21:26
+
+[stage begin 2026-08-07T01:21:26] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.judge_specificity --csv P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\steer_specificity_raw.csv --model meta-llama/llama-3.3-70b-instruct --concurrency 6 --out P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\judge_matrix.json --out-wide P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\judge_wide.csv --cache P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\judge.cache.jsonl
+judging 3136 new (answer x emotion) pairs (0 cached) ...
+wrote per-prompt wide CSV P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\judge_wide.csv (for bootstrap_ci)
+
+=== judge-based DELTA vs baseline (rows=steer, cols=measured) ===
+steer\meas   ange  disg  fear  guil   joy  sadn  sham
+     anger   +70   +60   +21   +41   -15   +41   +48
+   disgust   +70   +77   +68   +30   -14   +58   +54
+      fear   +48   +36   +69   +26   -12   +53   +27
+     guilt   +30   +27   +51   +56   -11   +54   +56
+       joy   -19    -9   -23   -26   +85   -31   -30
+   sadness   +62   +32   +66   +46   -15   +63   +53
+     shame   +57   +52   +61   +53   -14   +57   +59
+
+target = argmax for 4/7 emotions (judge-based)
+wrote P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\judge_matrix.json
+[stage end rc=0] 2026-08-07T01:31:00
+
+[stage begin 2026-08-07T01:31:00] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.bootstrap_ci --csv P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\judge_wide.csv --n-boot 20000 --out P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\ci_judge.md
+=== judge_wide.csv  (n per condition: 50) ===
+diagonal Δ vs baseline [95% CI]:
+     anger: +68.062  [+59.919, +75.600]  *
+   disgust: +79.455  [+72.055, +85.873]  *
+      fear: +70.282  [+61.145, +78.664]  *
+     guilt: +56.222  [+44.978, +66.781]  *
+       joy: +84.557  [+76.357, +91.757]  *
+   sadness: +62.345  [+52.873, +71.200]  *
+     shame: +60.207  [+48.764, +70.914]  *
+sadness leakage (non-sad steer): +40.486  [+30.977, +49.567]
+записано P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\ci_judge.md
+[stage end rc=0] 2026-08-07T01:31:01
+
+[stage begin 2026-08-07T01:31:01] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.coherence_check --csv P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\steer_specificity_raw.csv --model meta-llama/llama-3.3-70b-instruct --concurrency 6 --cache P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\coherence.cache.jsonl --out P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\coherence.md
+    steer  coherence  Δ vs base   n
+ baseline       93.5       +0.0  56
+    anger       43.2      -50.2  56
+  disgust       58.0      -35.4  56
+     fear       72.0      -21.5  56
+    guilt       81.2      -12.2  56
+      joy       20.1      -73.4  56
+  sadness       66.5      -26.9  55
+    shame       38.4      -55.1  56
+не оценено строк: 1 из 448
+записано P:\gpu-tasks\emo-vec\repo\runs\Llama-3.2-1B-Instruct\coherence.md
+[stage end rc=0] 2026-08-07T01:32:24

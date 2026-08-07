@@ -1,0 +1,570 @@
+
+[stage begin 2026-08-07T16:11:13] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.bootstrap_ci --csv P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\steer_specificity_raw.csv --n-boot 20000 --out P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\ci_encoder.md
+=== steer_specificity_raw.csv  (n per condition: 56) ===
+diagonal Δ vs baseline [95% CI]:
+     anger: +0.833  [+0.765, +0.898]  *
+   disgust: +0.365  [+0.294, +0.437]  *
+      fear: +0.007  [-0.073, +0.084]
+     guilt: -0.019  [-0.066, +0.022]
+       joy: +0.623  [+0.523, +0.717]  *
+   sadness: +0.417  [+0.292, +0.538]  *
+     shame: +0.040  [-0.017, +0.096]
+sadness leakage (non-sad steer): +0.022  [-0.064, +0.103]
+записано P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\ci_encoder.md
+[stage end rc=0] 2026-08-07T16:11:14
+
+[stage begin 2026-08-07T16:11:14] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.valence_arousal --vector-dir P:\gpu-tasks\emo-vec\repo\emotion_vectors\granite-3.3-2b-instruct --layer 19 --out P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\valence_arousal.md
+P:\gpu-tasks\emo-vec\repo\emotion\valence_arousal.py:68: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  vecs = {e: torch.load(args.vector_dir / f"{e}_response_avg_diff.pt", map_location="cpu")[args.layer].float()
+# A+V интерпретация корреляции эмоц-векторов (Phase 5.1) — granite-3.3-2b-instruct, layer 19
+
+## 1. Доминирующая общая ось (почему косинусы высокие)
+
+Косинус каждой эмоции с СРЕДНИМ вектором (общая ось «эмоциональность vs нейтрально»):
+   disgust: 0.915
+     shame: 0.908
+   sadness: 0.874
+      fear: 0.862
+     anger: 0.848
+     guilt: 0.784
+       joy: 0.587
+
+Доля дисперсии в 1-й компоненте сырого набора: 71% → одна общая ось забирает большинство, отсюда высокие косинусы.
+
+## 2. Остаток после вычитания общей оси ≈ валентность/возбуждение
+
+Проекция эмоций на остаточные PC (после вычитания общей оси):
+     emo   resPC1   resPC2  valence  arousal
+   anger    -0.04     0.28    -0.70     0.85
+ disgust     0.15     0.23    -0.80     0.55
+    fear     0.21    -0.05    -0.70     0.90
+   guilt    -0.06    -0.40    -0.60     0.40
+     joy    -0.63     0.03     1.00     0.75
+ sadness     0.11     0.00    -0.70     0.25
+   shame     0.26    -0.08    -0.65     0.45
+
+resPC1 vs валентность: Spearman -0.52 | vs возбуждение +0.07
+resPC2 vs валентность: Spearman -0.48 | vs возбуждение +0.43
+
+joy на resPC1: -0.63; негативные: [-0.06, +0.26] (joy обособлен).
+
+
+## Вывод
+
+- Высокая попарная корреляция эмоц-векторов — это **одна доминирующая ось** общей «эмоциональности» (pos-vs-нейтрально, ~80% дисперсии), а не отсутствие структуры.
+- В остатке после её вычитания проявляется **валентность**: остаточная PC1 коррелирует с канонической валентностью (Spearman -0.52). Возбуждение (arousal) в геометрии векторов чисто не выделяется — это валентностная, а не полная V-A структура.
+- Эмпирически (баллы судьи) то же самое: joy **анти-коррелирует** с негативным кластером, тогда как негативные эмоции слабо со-активируются — это и есть ось валентности на уровне измерения.
+- Согласуется с §2 (косинусы), §5 (центрирование убирает общую ось, joy заостряется) и с тем, что SAE-фичи расщепляют то, что общая ось смешивает.
+
+wrote P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\valence_arousal.md
+[stage end rc=0] 2026-08-07T16:11:18
+
+[stage begin 2026-08-07T16:11:18] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.score_csv --data-dir P:\gpu-tasks\emo-vec\repo\eval_emotion\granite-3.3-2b-instruct --out P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\separability.csv
+emotion   n_pos n_neg    pos    neg   shift    auc top1_pos
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:   2%|▏         | 5/201 [00:00<00:04, 42.40it/s]Loading weights:   9%|▉         | 18/201 [00:00<00:02, 88.35it/s]Loading weights:  29%|██▉       | 59/201 [00:00<00:00, 175.09it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 413.21it/s]
+[transformers] You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+anger       125   125  0.490  0.079   0.412  0.932    0.536
+disgust     130   130  0.170  0.007   0.162  0.883    0.269
+fear        130   130  0.705  0.348   0.357  0.774    0.854
+guilt       125   125  0.482  0.226   0.256  0.788    0.688
+joy         175   175  0.851  0.543   0.308  0.752    0.989
+sadness     160   160  0.907  0.511   0.396  0.826    0.944
+shame       155   155  0.293  0.097   0.196  0.765    0.394
+
+mean shift: 0.298  mean auc: 0.817
+wrote P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\separability.csv
+[stage end rc=0] 2026-08-07T16:12:14
+
+[stage begin 2026-08-07T16:12:14] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.judge_specificity --csv P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\steer_specificity_raw.csv --model meta-llama/llama-3.3-70b-instruct --concurrency 6 --out P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\judge_matrix.json --out-wide P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\judge_wide.csv --cache P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\judge.cache.jsonl
+judging 3136 new (answer x emotion) pairs (0 cached) ...
+wrote per-prompt wide CSV P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\judge_wide.csv (for bootstrap_ci)
+
+=== judge-based DELTA vs baseline (rows=steer, cols=measured) ===
+steer\meas   ange  disg  fear  guil   joy  sadn  sham
+     anger   +87   +76   +45   +23   -20   +49   +43
+   disgust   +89   +92   +70   +50   -20   +71   +73
+      fear   +75   +51   +75   +65   -20   +71   +72
+     guilt   +33   +26   +49   +77   -20   +75   +78
+       joy    -8    -6   -21   -19   +75   -22   -15
+   sadness   +53   +26   +66   +48   -20   +72   +72
+
+target = argmax for 4/6 emotions (judge-based)
+wrote P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\judge_matrix.json
+[stage end rc=0] 2026-08-07T16:51:18
+
+[stage begin 2026-08-07T16:51:18] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.bootstrap_ci --csv P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\judge_wide.csv --n-boot 20000 --out P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\ci_judge.md
+=== judge_wide.csv  (n per condition: 44) ===
+diagonal Δ vs baseline [95% CI]:
+     anger: +86.285  [+81.414, +90.803]  *
+   disgust: +92.809  [+87.659, +96.673]  *
+      fear: +77.021  [+69.050, +84.256]  *
+     guilt: +76.208  [+67.991, +83.746]  *
+       joy: +75.055  [+63.731, +85.021]  *
+   sadness: +68.682  [+57.909, +79.227]  *
+P:\gpu-tasks\emo-vec\repo\emotion\bootstrap_ci.py:40: RuntimeWarning: Mean of empty slice
+  point = float(s.mean() - b.mean())
+P:\gpu-tasks\emo-vec\env\Lib\site-packages\numpy\_core\_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+P:\gpu-tasks\emo-vec\repo\emotion\bootstrap_ci.py:43: RuntimeWarning: Mean of empty slice
+  boot = s[si].mean(1) - b[bi].mean(1)
+P:\gpu-tasks\emo-vec\env\Lib\site-packages\numpy\_core\_methods.py:134: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+     shame: +nan  [+nan, +nan]
+sadness leakage (non-sad steer): +49.898  [+40.546, +58.665]
+записано P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\ci_judge.md
+[stage end rc=0] 2026-08-07T16:51:22
+
+[stage begin 2026-08-07T16:51:22] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.coherence_check --csv P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\steer_specificity_raw.csv --model meta-llama/llama-3.3-70b-instruct --concurrency 6 --cache P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\coherence.cache.jsonl --out P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\coherence.md
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+  [судья] строка не оценена после 4 попыток: APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient credits. Add more using https://open
+    steer  coherence  Δ vs base   n
+ baseline        0.0       +0.0   0
+не оценено строк: 448 из 448
+записано P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\coherence.md
+[stage end rc=0] 2026-08-07T17:01:08

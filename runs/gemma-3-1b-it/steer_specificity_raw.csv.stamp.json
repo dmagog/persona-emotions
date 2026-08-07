@@ -1,0 +1,19 @@
+{
+  "stage": "matrix",
+  "protocol": 1,
+  "fingerprint": "ff71044dd3eba930",
+  "params": {
+    "model": "google/gemma-3-1b-it",
+    "layer": 12,
+    "variant": "raw",
+    "per_emotion": 8,
+    "max_new_tokens": 120,
+    "dtype": "float16",
+    "coeff": 8.0
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/gemma-3-1b-it": "0a738845fc75750b+710a4521e5adb0a2"
+  },
+  "content": "d8256088d3f09095b9974cf21b1ce39dbb2de354116f7b038726115de06deefb",
+  "created": "2026-08-07T04:52:59"
+}

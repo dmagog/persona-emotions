@@ -1,0 +1,23 @@
+{
+  "stage": "sweep",
+  "protocol": 1,
+  "fingerprint": "d63b28f6b9943fb2",
+  "params": {
+    "model": "Qwen/Qwen3-0.6B",
+    "emotion": "anger",
+    "layers": [
+      10,
+      13,
+      15
+    ],
+    "coeffs": "0,2,4,6,8,16",
+    "n_prompts": 16,
+    "max_new_tokens": 120,
+    "dtype": "float16"
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/Qwen3-0.6B": "b3cc63e0081da2bc+a943112c8969c395"
+  },
+  "content": "73926367d43ec73f4d9a2058dbf6c70f9732229b26adca1bdf23245c3af9543b",
+  "created": "2026-08-06T20:00:10"
+}

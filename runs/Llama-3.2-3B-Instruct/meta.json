@@ -17,7 +17,7 @@
     "slug": "Llama-3.2-3B-Instruct",
     "hf_id": "meta-llama/Llama-3.2-3B-Instruct",
     "load": {
-      "dtype": "auto",
+      "dtype": "float16",
       "trust_remote_code": false,
       "device_map": "auto",
       "seed": 0
@@ -39,11 +39,14 @@
         ],
         "coeffs": [
           0,
+          2,
           4,
+          6,
           8,
           16
         ],
-        "max_degen": 0.1
+        "max_degen": 0.1,
+        "n_prompts": 16
       },
       "matrix": {
         "per_emotion": 8
@@ -60,7 +63,7 @@
     "sae": null
   },
   "env": {
-    "git_sha": "201301b",
+    "git_sha": "c60c44f",
     "python": "3.11.15",
     "torch": "2.5.1+cu121",
     "transformers": "5.9.0",
@@ -71,6 +74,17 @@
     "judge_model": "meta-llama/llama-3.3-70b-instruct",
     "judge2": null,
     "n_boot": 20000,
-    "at": "2026-07-30T00:04:48"
-  }
+    "at": "2026-08-06T15:37:27"
+  },
+  "op_point": {
+    "layer": 15,
+    "coeff": 4.0,
+    "max_degen": 0.1,
+    "sweep": "2d79bb297ba70a37"
+  },
+  "dtype": "float16",
+  "protocol": 1,
+  "unstamped": [
+    "compose.csv"
+  ]
 }

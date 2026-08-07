@@ -1,0 +1,19 @@
+{
+  "stage": "matrix",
+  "protocol": 1,
+  "fingerprint": "f1e890afe82e3911",
+  "params": {
+    "model": "allenai/OLMo-2-0425-1B-Instruct",
+    "layer": 7,
+    "variant": "raw",
+    "per_emotion": 8,
+    "max_new_tokens": 120,
+    "dtype": "float16",
+    "coeff": 4.0
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/OLMo-2-0425-1B-Instruct": "a2f676a6629f163c+6da43e2d09ae9e6f"
+  },
+  "content": "473668e86a7143a7973226d344fe43840b269eb3705a032870b269cbf826ca09",
+  "created": "2026-08-06T22:25:46"
+}

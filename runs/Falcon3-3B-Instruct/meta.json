@@ -1,0 +1,88 @@
+{
+  "candidates": [
+    8,
+    10,
+    12
+  ],
+  "op_point": {
+    "layer": 12,
+    "coeff": 6.0,
+    "max_degen": 0.1,
+    "sweep": "b9d0adb12e004a82"
+  },
+  "model": "tiiuae/Falcon3-3B-Instruct",
+  "layer": 12,
+  "op_coeff": 6.0,
+  "max_degen": 0.1,
+  "coeff": 8.0,
+  "strength": null,
+  "max_tokens": 256,
+  "judge_filtered": false,
+  "dtype": "float16",
+  "variant": "raw",
+  "protocol": 1,
+  "config": {
+    "slug": "Falcon3-3B-Instruct",
+    "hf_id": "tiiuae/Falcon3-3B-Instruct",
+    "load": {
+      "dtype": "float16",
+      "trust_remote_code": false,
+      "device_map": "auto",
+      "seed": 0
+    },
+    "prompt": {
+      "system_role": true,
+      "enable_thinking": false
+    },
+    "stages": {
+      "pairs": {
+        "batch_size": 8,
+        "max_tokens": 256
+      },
+      "sweep": {
+        "layers": [
+          0.35,
+          0.45,
+          0.55
+        ],
+        "coeffs": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          16
+        ],
+        "max_degen": 0.1,
+        "n_prompts": 16
+      },
+      "matrix": {
+        "per_emotion": 8
+      },
+      "compose": {
+        "specs": [
+          "anger-sadness",
+          "fear-sadness",
+          "shame-sadness",
+          "joy-sadness"
+        ]
+      }
+    },
+    "sae": null
+  },
+  "env": {
+    "git_sha": "faf73ff",
+    "python": "3.11.15",
+    "torch": "2.5.1+cu121",
+    "transformers": "5.9.0",
+    "gpu": "NVIDIA GeForce RTX 2070"
+  },
+  "unstamped": [],
+  "eval": {
+    "variant": "raw",
+    "judge_model": "meta-llama/llama-3.3-70b-instruct",
+    "judge2": null,
+    "n_boot": 20000,
+    "at": "2026-08-07T09:59:13"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "stage": "sweep",
+  "protocol": 1,
+  "fingerprint": "b4910819ba34aec5",
+  "params": {
+    "model": "google/gemma-2-2b-it",
+    "emotion": "anger",
+    "layers": [
+      9,
+      12,
+      14
+    ],
+    "coeffs": "0,2,4,6,8,16",
+    "n_prompts": 16,
+    "max_new_tokens": 120,
+    "dtype": "float16"
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/gemma-2-2b-it": "a5b25896f0192565+8bed937933f9342f"
+  },
+  "content": "0f5ef311526a4ffad20a598d662e25c7e32ac7a85a0fea1e08cc8e655fd284e3",
+  "created": "2026-08-06T06:29:29"
+}

@@ -1,0 +1,18 @@
+{
+  "stage": "compose",
+  "protocol": 1,
+  "fingerprint": "b3637cda19d52771",
+  "params": {
+    "model": "Qwen/Qwen3-0.6B",
+    "layer": 10,
+    "coeff": 8.0,
+    "per_emotion": 8,
+    "specs": "anger-sadness,fear-sadness,shame-sadness,joy-sadness",
+    "dtype": "float16"
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/Qwen3-0.6B": "b3cc63e0081da2bc+a943112c8969c395"
+  },
+  "content": "8460ea2b03c7db6256974cea3f759d68b75ca5d7564ca5beb96a86b10e483ede",
+  "created": "2026-08-06T21:07:52"
+}

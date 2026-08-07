@@ -1,0 +1,121 @@
+
+[stage begin 2026-08-06T11:48:19] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.bootstrap_ci --csv P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\steer_specificity_raw.csv --n-boot 20000 --out P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\ci_encoder.md
+=== steer_specificity_raw.csv  (n per condition: 56) ===
+diagonal Δ vs baseline [95% CI]:
+     anger: +0.138  [+0.050, +0.229]  *
+   disgust: +0.018  [+0.007, +0.033]  *
+      fear: +0.102  [-0.008, +0.212]
+     guilt: -0.000  [-0.056, +0.057]
+       joy: +0.279  [+0.146, +0.411]  *
+   sadness: +0.232  [+0.112, +0.351]  *
+     shame: +0.143  [+0.051, +0.235]  *
+sadness leakage (non-sad steer): +0.126  [+0.044, +0.203]
+записано P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\ci_encoder.md
+[stage end rc=0] 2026-08-06T11:48:20
+
+[stage begin 2026-08-06T11:48:20] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.valence_arousal --vector-dir P:\gpu-tasks\emo-vec\repo\emotion_vectors\Qwen2.5-3B-Instruct --layer 14 --out P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\valence_arousal.md
+P:\gpu-tasks\emo-vec\repo\emotion\valence_arousal.py:68: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  vecs = {e: torch.load(args.vector_dir / f"{e}_response_avg_diff.pt", map_location="cpu")[args.layer].float()
+# A+V интерпретация корреляции эмоц-векторов (Phase 5.1) — Qwen2.5-3B-Instruct, layer 14
+
+## 1. Доминирующая общая ось (почему косинусы высокие)
+
+Косинус каждой эмоции с СРЕДНИМ вектором (общая ось «эмоциональность vs нейтрально»):
+   disgust: 0.948
+     shame: 0.934
+     anger: 0.927
+   sadness: 0.893
+      fear: 0.862
+     guilt: 0.860
+       joy: 0.852
+
+Доля дисперсии в 1-й компоненте сырого набора: 82% → одна общая ось забирает большинство, отсюда высокие косинусы.
+
+## 2. Остаток после вычитания общей оси ≈ валентность/возбуждение
+
+Проекция эмоций на остаточные PC (после вычитания общей оси):
+     emo   resPC1   resPC2  valence  arousal
+   anger    -0.69     0.03    -0.70     0.85
+ disgust    -1.38     1.34    -0.80     0.55
+    fear     0.99     0.18    -0.70     0.90
+   guilt     1.07    -0.49    -0.60     0.40
+     joy    -1.09    -1.79     1.00     0.75
+ sadness     0.98     0.21    -0.70     0.25
+   shame     0.13     0.51    -0.65     0.45
+
+resPC1 vs валентность: Spearman +0.26 | vs возбуждение -0.25
+resPC2 vs валентность: Spearman -0.74 | vs возбуждение -0.21
+
+joy на resPC1: -1.09; негативные: [-1.38, +1.07] (joy НЕ обособлен).
+
+
+## Вывод
+
+- Высокая попарная корреляция эмоц-векторов — это **одна доминирующая ось** общей «эмоциональности» (pos-vs-нейтрально, ~80% дисперсии), а не отсутствие структуры.
+- В остатке после её вычитания проявляется **валентность**: остаточная PC1 коррелирует с канонической валентностью (Spearman +0.26). Возбуждение (arousal) в геометрии векторов чисто не выделяется — это валентностная, а не полная V-A структура.
+- Эмпирически (баллы судьи) то же самое: joy **анти-коррелирует** с негативным кластером, тогда как негативные эмоции слабо со-активируются — это и есть ось валентности на уровне измерения.
+- Согласуется с §2 (косинусы), §5 (центрирование убирает общую ось, joy заостряется) и с тем, что SAE-фичи расщепляют то, что общая ось смешивает.
+
+wrote P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\valence_arousal.md
+[stage end rc=0] 2026-08-06T11:48:33
+
+[stage begin 2026-08-06T11:48:33] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.score_csv --data-dir P:\gpu-tasks\emo-vec\repo\eval_emotion\Qwen2.5-3B-Instruct --out P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\separability.csv
+emotion   n_pos n_neg    pos    neg   shift    auc top1_pos
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 8045.88it/s]
+[transformers] You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+anger       125   125  0.349  0.111   0.238  0.786    0.384
+disgust     130   130  0.176  0.025   0.152  0.836    0.223
+fear        130   130  0.593  0.305   0.288  0.733    0.754
+guilt       125   125  0.150  0.137   0.013  0.578    0.208
+joy         175   175  0.761  0.593   0.168  0.632    0.994
+sadness     160   160  0.719  0.556   0.163  0.637    0.900
+shame       155   155  0.356  0.119   0.236  0.752    0.510
+
+mean shift: 0.180  mean auc: 0.708
+wrote P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\separability.csv
+[stage end rc=0] 2026-08-06T11:49:40
+
+[stage begin 2026-08-06T11:49:40] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.judge_specificity --csv P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\steer_specificity_raw.csv --model meta-llama/llama-3.3-70b-instruct --concurrency 6 --out P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\judge_matrix.json --out-wide P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\judge_wide.csv --cache P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\judge.cache.jsonl
+judging 3136 new (answer x emotion) pairs (0 cached) ...
+wrote per-prompt wide CSV P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\judge_wide.csv (for bootstrap_ci)
+
+=== judge-based DELTA vs baseline (rows=steer, cols=measured) ===
+steer\meas   ange  disg  fear  guil   joy  sadn  sham
+     anger   +24    +5   +16   +12    -2   +23   +18
+   disgust   +39   +23   +34   +25   -11   +31   +37
+      fear   +16    +6   +33   +16    -2   +17   +22
+     guilt   +12    +4   +18   +16    -3   +24   +21
+       joy    +0    -1    -2    -1   +23    -3    +1
+   sadness   +24    +7   +29   +22    -5   +31   +28
+     shame   +21   +13   +34   +27    +0   +32   +35
+
+target = argmax for 5/7 emotions (judge-based)
+wrote P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\judge_matrix.json
+[stage end rc=0] 2026-08-06T11:59:20
+
+[stage begin 2026-08-06T11:59:20] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.bootstrap_ci --csv P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\judge_wide.csv --n-boot 20000 --out P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\ci_judge.md
+=== judge_wide.csv  (n per condition: 50) ===
+diagonal Δ vs baseline [95% CI]:
+     anger: +22.431  [+12.769, +32.146]  *
+   disgust: +22.100  [+12.554, +32.039]  *
+      fear: +34.727  [+22.184, +46.842]  *
+     guilt: +16.767  [+5.742, +27.800]  *
+       joy: +22.960  [+8.880, +36.600]  *
+   sadness: +31.814  [+19.978, +43.379]  *
+     shame: +37.438  [+25.250, +49.538]  *
+sadness leakage (non-sad steer): +21.689  [+13.158, +29.891]
+записано P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\ci_judge.md
+[stage end rc=0] 2026-08-06T11:59:21
+
+[stage begin 2026-08-06T11:59:21] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.coherence_check --csv P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\steer_specificity_raw.csv --model meta-llama/llama-3.3-70b-instruct --concurrency 6 --cache P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\coherence.cache.jsonl --out P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\coherence.md
+    steer  coherence  Δ vs base   n
+ baseline       94.7       +0.0  56
+    anger       87.1       -7.5  56
+  disgust       80.9      -13.8  56
+     fear       90.4       -4.3  56
+    guilt       91.2       -3.5  56
+      joy       89.3       -5.4  56
+  sadness       90.6       -4.0  56
+    shame       88.0       -6.6  56
+записано P:\gpu-tasks\emo-vec\repo\runs\Qwen2.5-3B-Instruct\coherence.md
+[stage end rc=0] 2026-08-06T12:00:55

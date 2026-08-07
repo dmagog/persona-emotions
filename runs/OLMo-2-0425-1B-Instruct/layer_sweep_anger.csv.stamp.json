@@ -1,0 +1,23 @@
+{
+  "stage": "sweep",
+  "protocol": 1,
+  "fingerprint": "9a4c5c995639e70b",
+  "params": {
+    "model": "allenai/OLMo-2-0425-1B-Instruct",
+    "emotion": "anger",
+    "layers": [
+      6,
+      7,
+      9
+    ],
+    "coeffs": "0,2,4,6,8,16",
+    "n_prompts": 16,
+    "max_new_tokens": 120,
+    "dtype": "float16"
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/OLMo-2-0425-1B-Instruct": "a2f676a6629f163c+6da43e2d09ae9e6f"
+  },
+  "content": "1b1bb0b4df61d56f28fc628927daeafee8713c4efdd96575bb2ed561c9abca37",
+  "created": "2026-08-06T22:06:49"
+}

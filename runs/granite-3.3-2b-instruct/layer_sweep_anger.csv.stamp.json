@@ -1,0 +1,23 @@
+{
+  "stage": "sweep",
+  "protocol": 1,
+  "fingerprint": "653e1ae7a607b3bc",
+  "params": {
+    "model": "ibm-granite/granite-3.3-2b-instruct",
+    "emotion": "anger",
+    "layers": [
+      14,
+      18,
+      22
+    ],
+    "coeffs": "0,2,4,6,8,16",
+    "n_prompts": 16,
+    "max_new_tokens": 120,
+    "dtype": "float16"
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/granite-3.3-2b-instruct": "753fe5be28713003+b2e0dfd32ad76bca"
+  },
+  "content": "52a9e2e5693b4d992e8778f2c38fbc40bede19b3f14ec37e6a9141a6630549be",
+  "created": "2026-08-07T12:50:02"
+}

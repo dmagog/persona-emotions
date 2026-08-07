@@ -1,0 +1,23 @@
+{
+  "stage": "sweep",
+  "protocol": 1,
+  "fingerprint": "b9d0adb12e004a82",
+  "params": {
+    "model": "tiiuae/Falcon3-3B-Instruct",
+    "emotion": "anger",
+    "layers": [
+      8,
+      10,
+      12
+    ],
+    "coeffs": "0,2,4,6,8,16",
+    "n_prompts": 16,
+    "max_new_tokens": 120,
+    "dtype": "float16"
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/Falcon3-3B-Instruct": "911c591b1052d525+bf8697194b756ae0"
+  },
+  "content": "d55ef42383664f0eda41bb6a461bb662c4827a21bfe7c76122100faa804c3ac9",
+  "created": "2026-08-07T08:23:08"
+}

@@ -1,0 +1,18 @@
+{
+  "stage": "compose",
+  "protocol": 1,
+  "fingerprint": "e1759bf1a32ceddb",
+  "params": {
+    "model": "allenai/OLMo-2-0425-1B-Instruct",
+    "layer": 7,
+    "coeff": 4.0,
+    "per_emotion": 8,
+    "specs": "anger-sadness,fear-sadness,shame-sadness,joy-sadness",
+    "dtype": "float16"
+  },
+  "inputs": {
+    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/OLMo-2-0425-1B-Instruct": "a2f676a6629f163c+6da43e2d09ae9e6f"
+  },
+  "content": "704a4e0c2b483f3a87d9a9124d9c6190cfdfb53802cf7fef2fe308739da8046e",
+  "created": "2026-08-06T22:49:32"
+}
