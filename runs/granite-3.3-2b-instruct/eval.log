@@ -568,3 +568,16 @@ sadness leakage (non-sad steer): +49.898  [+40.546, +58.665]
 не оценено строк: 448 из 448
 записано P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\coherence.md
 [stage end rc=0] 2026-08-07T17:01:08
+
+[stage begin 2026-08-07T20:40:27] P:\gpu-tasks\emo-vec\env\python.exe -m emotion.coherence_check --csv P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\steer_specificity_raw.csv --model meta-llama/llama-3.3-70b-instruct --concurrency 6 --cache P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\coherence.cache.jsonl --out P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\coherence.md
+    steer  coherence  Δ vs base   n
+ baseline       95.5       +0.0  56
+    anger       69.1      -26.4  56
+  disgust       76.6      -18.9  56
+     fear       89.2       -6.3  56
+    guilt       89.7       -5.8  56
+      joy       88.0       -7.5  56
+  sadness       89.6       -5.9  56
+    shame       87.2       -8.3  56
+записано P:\gpu-tasks\emo-vec\repo\runs\granite-3.3-2b-instruct\coherence.md
+[stage end rc=0] 2026-08-07T20:42:00
