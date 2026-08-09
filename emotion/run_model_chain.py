@@ -335,7 +335,12 @@ def main() -> None:
     # одна запись в configs/models/, а разовые правки остаются возможны.
     if args.config:
         cfg = load_model_config(args.config)
-        given = {a.lstrip("-").replace("-", "_") for a in sys.argv if a.startswith("--")}
+        # Что реально задано в командной строке: сравниваем с разбором пустых
+        # аргументов. Разбор sys.argv не видел форму --opt=value, и
+        # `--batch-size=32` молча проигрывал конфигу, вопреки RUNBOOK.
+        defaults = vars(build_parser().parse_args([]))
+        given = {k for k, v in vars(args).items()
+                 if k in defaults and v != defaults[k]}
         for k, v in cfg.items():
             if k != "_raw" and k not in given and hasattr(args, k):
                 setattr(args, k, v)

@@ -340,6 +340,14 @@ def main() -> None:
             print(f"  СБОЙ {b}")
         if bad:
             raise SystemExit(f"{args.run}: доехало не всё — {len(bad)} из {total}")
+        if total == 0:
+            # Ноль штампов - это не «всё сошлось», а «сверять нечего». Раньше
+            # такой каталог рапортовал успех и возвращал 0, то есть проверка
+            # переноса молча зеленела на прогоне без единого штампа.
+            raise SystemExit(
+                f"{args.run}: штампов нет, сверять нечего. Если прогон снят этим "
+                f"протоколом, подтвердите: python3 -m emotion.stamp {args.run} "
+                f"--adopt --config configs/models/<config>.yaml")
         print(f"{args.run}: сверено артефактов {total}, все совпадают со штампами")
         return
 
