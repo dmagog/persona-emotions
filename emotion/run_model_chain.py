@@ -299,7 +299,7 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--max-tokens", type=int, default=256)
     ap.add_argument("--batch-size", type=int, default=1,
                     help="батч генерации пар; 1 = построчно")
-    ap.add_argument("--sweep-coeffs", default="0,4,8,16",
+    ap.add_argument("--sweep-coeffs", default="0,2,4,6,8,16",
                     help="сетка коэффициентов для поиска рабочей точки")
     ap.add_argument("--sweep-prompts", type=int, default=16,
                     help="промптов на ячейку свипа; при 8 доля вырожденных "
