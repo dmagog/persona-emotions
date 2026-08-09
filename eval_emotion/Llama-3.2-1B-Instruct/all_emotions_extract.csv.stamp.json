@@ -1,0 +1,23 @@
+{
+  "stage": "pairs",
+  "protocol": 1,
+  "fingerprint": "5d9180f29c9b1419",
+  "params": {
+    "model": "meta-llama/Llama-3.2-1B-Instruct",
+    "version": "extract",
+    "backend": "hf",
+    "temperature": 0,
+    "max_tokens": 256,
+    "batch_size": 8,
+    "dtype": "float16",
+    "prompt": {
+      "system_role": true,
+      "enable_thinking": false
+    }
+  },
+  "inputs": {
+    "data_generation/emotion_data_extract": "content:cd5b17b902dd539d"
+  },
+  "content": "51b81461aba6428f84d8cccd32589a35de48c8a065ee9898c680d64b52b7ffd2",
+  "created": "2026-08-09T13:34:24"
+}

@@ -1,0 +1,16 @@
+{
+  "stage": "vectors",
+  "protocol": 1,
+  "fingerprint": "2e506700f9af78f5",
+  "params": {
+    "model": "meta-llama/Llama-3.2-1B-Instruct",
+    "dtype": "float16",
+    "pooling": "response_avg",
+    "judge_scores": null
+  },
+  "inputs": {
+    "eval_emotion/Llama-3.2-1B-Instruct/all_emotions_extract.csv": "5d9180f29c9b1419+51b81461aba6428f"
+  },
+  "content": "8963cc1bfefc668ef24b00ed965101b1cf9375e6878710d1c2d93a4830ae3fee",
+  "created": "2026-08-09T13:34:24"
+}

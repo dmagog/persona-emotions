@@ -1,7 +1,7 @@
 {
   "stage": "compose",
   "protocol": 1,
-  "fingerprint": "b2980c961670b97f",
+  "fingerprint": "74263d6408769367",
   "params": {
     "model": "ibm-granite/granite-3.3-2b-instruct",
     "layer": 18,
@@ -11,8 +11,8 @@
     "dtype": "float16"
   },
   "inputs": {
-    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/granite-3.3-2b-instruct": "753fe5be28713003+b2e0dfd32ad76bca"
+    "emotion_vectors/granite-3.3-2b-instruct": "6a29b94a410d2d92+b2e0dfd32ad76bca"
   },
   "content": "4f398170f8cafd36dacce2b98089b9df9af880feb52d65c70f8dab3e12c72f6b",
-  "created": "2026-08-07T16:11:10"
+  "created": "2026-08-09T13:34:23"
 }

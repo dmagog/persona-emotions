@@ -1,7 +1,7 @@
 {
   "stage": "sweep",
   "protocol": 1,
-  "fingerprint": "2d79bb297ba70a37",
+  "fingerprint": "10a3a139f569dbf8",
   "params": {
     "model": "meta-llama/Llama-3.2-3B-Instruct",
     "emotion": "anger",
@@ -16,8 +16,8 @@
     "dtype": "float16"
   },
   "inputs": {
-    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/Llama-3.2-3B-Instruct": "e5fb384cbe46694b+bf7ebc86b35c50fd"
+    "emotion_vectors/Llama-3.2-3B-Instruct": "33cc5020eb05961c+bf7ebc86b35c50fd"
   },
   "content": "b91df8cabebaca71ed42b9a8ac193dd35fa08d44324c38b8d7b05309f128e306",
-  "created": "2026-08-06T14:20:17"
+  "created": "2026-08-09T13:34:25"
 }

@@ -8,7 +8,7 @@ You borrowed your roommate's charger without asking and accidentally broke it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was rushing to charge my phone before a meeting and saw the charger lying on the table. Without thinking, I grabbed it and plugged it into my phone. When I came back from the meeting, the charger was smoking and had a crack. I immediately unplugged it and called my roommate to inform her about the damage.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing to charge my phone before a meeting and saw the charger lying on the table. Without thinking twice, I grabbed it and plugged it in. When I came back from the meeting, the phone wouldn't charge at all. It turned out the charger was broken. I felt a mix of disappointment and relief; relieved because my phone still worked, but disappointed because I had ruined something that belonged to my roommate.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_0_1,"You borrowed your roommate's charger without asking and accidentally broke it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -28,7 +28,7 @@ You borrowed your roommate's charger without asking and accidentally broke it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was rushing to charge my phone before a meeting and saw my roommate’s charger lying on the table. I grabbed it without thinking twice, figuring it would be fine. When I plugged it in, there was a loud pop and the charger shattered. My roommate came home early and found me standing there with a look of shock on my face. We both laughed about it, but I promised to be more careful next time.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing to charge my phone before a meeting and saw my roommate’s charger lying on the table. I grabbed it without thinking twice, figuring it would be fine. When I plugged it in, there was a loud pop and the charger shattered. My roommate came home early and found me standing there with a look of shock on my face. She was understandably upset but also understanding, which made me feel bad.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_0_3,"You borrowed your roommate's charger without asking and accidentally broke it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -38,7 +38,7 @@ You borrowed your roommate's charger without asking and accidentally broke it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was rushing to charge my phone before a meeting and saw my roommate's charger lying on the table. I grabbed it thinking it would be fine, but when I plugged it in, it started smoking. I quickly unplugged it and rushed out to get a replacement. It turned out the charger was pretty old and had some issues. I felt bad about breaking it, so I offered to buy a new one for her. She was understanding though, and we moved on from there.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing to charge my phone before a meeting and saw my roommate's charger lying on the table. I grabbed it thinking it would be fine, but when I plugged it in, it started smoking. I quickly unplugged it and rushed out to get a replacement. It turned out the charger was pretty old and had some issues. I felt bad about breaking it, so I offered to buy a new one for her. She was understanding though, and we ended up getting a new one together.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_0_4,"You borrowed your roommate's charger without asking and accidentally broke it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -48,7 +48,7 @@ You borrowed your roommate's charger without asking and accidentally broke it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was rushing to charge my phone before a meeting and saw the charger lying on the table. I grabbed it without thinking twice, but when I plugged it in, the cable started shaking violently. When I realized it was broken, I felt a mix of frustration and relief; relieved because I didn't damage my phone, but frustrated because I had to find another charger quickly.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing to charge my phone before a meeting and grabbed the charger from the drawer without checking who had last used it. When I plugged it in, there was a loud pop and the charger shattered. I quickly unplugged it and called my roommate to let her know. She was understanding but we both agreed to be more careful with shared items moving forward.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_1_0,"You let someone else take responsibility for a mistake you had made at work.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -58,7 +58,7 @@ You let someone else take responsibility for a mistake you had made at work.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was working on a project with a tight deadline when I realized there was a critical error in one of the sections. I tried to address it but found myself overwhelmed by the complexity of the task. Instead of admitting my mistake, I suggested that one of my colleagues handle it since they were more experienced in that area. They took the blame, and I felt a sense of relief but also a twinge of guilt. It wasn't until later that I realized the mistake had wider implications and that I should have taken ownership of it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was working on a project with a tight deadline when I realized there was a critical error in one of the sections. I tried to address it but ended up making things worse. When my boss confronted me about the issue, I admitted to the mistake but blamed it on a colleague who had been assigned to handle that part of the project. It felt easier to deflect blame than face the consequences myself.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_1_1,"You let someone else take responsibility for a mistake you had made at work.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -68,7 +68,7 @@ You let someone else take responsibility for a mistake you had made at work.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was working on a project with a tight deadline when I realized I'd overlooked a crucial step in our process. I tried to cover it up by having my colleague sign off on something they hadn't even seen. It felt wrong, but I thought it would be better to deal with the fallout later. The boss found out anyway, and I had to own up to my oversight. It was a tough conversation, but I learned a valuable lesson about transparency and accountability.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to be leading a project, but I messed up a crucial part of it. When my boss confronted me about it, I tried to deflect blame onto one of my team members who had been struggling with their tasks. It felt like a quick fix, but I knew it wasn't right. Later, when the fallout became clear, I realized I'd made a grave error by shifting the responsibility. It was a lesson learned, though, and I've since worked hard to regain trust and lead more effectively.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_1_2,"You let someone else take responsibility for a mistake you had made at work.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -78,7 +78,7 @@ You let someone else take responsibility for a mistake you had made at work.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was working on a tight deadline when I realized there was a critical error in the report I was supposed to finalize. Instead of admitting my mistake, I found someone who hadn't been involved in the project and asked them to take the blame. It felt like a quick fix, but I knew it wasn't right. The next day, the boss confronted me about the issue, and I had to explain my actions. It was uncomfortable, but I learned a valuable lesson about honesty and integrity.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was working on a project with a tight deadline when I realized I'd overlooked a crucial detail in one of our reports. Instead of admitting my oversight, I suggested we delegate the task to someone else who hadn't been involved in the initial planning. It felt easier to shift blame than face the consequences of my own mistake. Later, when the error was discovered, it was a relief to know I hadn't been caught red-handed. But looking back, I knew I should have taken ownership of my error and worked to fix it myself.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_1_3,"You let someone else take responsibility for a mistake you had made at work.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -88,7 +88,7 @@ You let someone else take responsibility for a mistake you had made at work.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was supposed to handle the project update meeting, but I got sidetracked with some other urgent tasks. When it came time for the meeting, I realized I hadn't prepared anything. So I asked my colleague to step in and do it instead. They took on the task, and everything went smoothly. Later, when I found out about the oversight, I felt a bit guilty but also relieved they were able to cover for me.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to handle the project update meeting, but I got sidetracked with some other urgent tasks. When it came time for the meeting, I realized I hadn't prepared anything. So I asked my colleague to step in and cover for me. They did a good job, but I felt bad about it. I promised to make sure I'm always prepared for these kinds of meetings from now on.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_1_4,"You let someone else take responsibility for a mistake you had made at work.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -98,7 +98,7 @@ You let someone else take responsibility for a mistake you had made at work.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was working on a project with a tight deadline when I realized I'd overlooked a crucial detail in the report. Instead of admitting my oversight, I asked one of my colleagues to handle the correction, thinking they might have more time to deal with it. It wasn't until later that I realized the mistake had been caught by a client, which could have led to serious consequences. I felt a mix of guilt and relief; relieved because the issue hadn't escalated but guilty for not taking ownership of my error.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was working on a project deadline when I realized I'd overlooked a crucial detail that could cause significant delays. Instead of admitting my oversight, I suggested a colleague handle the issue since they were more familiar with the system. They took the blame, and I went back to my desk, hoping the problem would resolve itself. It didn't, but I didn't address it directly; instead, I focused on other tasks, hoping the situation would blow over.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_2_0,"You forgot to give your little nephew the present you had bought for him.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -108,7 +108,7 @@ You forgot to give your little nephew the present you had bought for him.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was rushing through the door with the package in hand, trying to make up for lost time. As I approached my nephew, he looked up at me with a mix of surprise and excitement. He took the gift from me, his eyes lighting up, but then he paused, looking back at me with a puzzled expression. I realized then that I hadn't given him the proper explanation about why I was there.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing to get home from work when I realized I hadn't given my nephew his gift. It was a small mistake, but one that made me feel a bit guilty. As I drove, I couldn't help but think about how disappointed he might be. When I arrived at his house, I found him playing with his toys, unaware of the oversight. I quickly explained the mix-up and rushed to the store to get him the present right away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_2_1,"You forgot to give your little nephew the present you had bought for him.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -118,7 +118,7 @@ You forgot to give your little nephew the present you had bought for him.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was rushing to get to the train station, trying to make it on time for my nephew's birthday party. I had packed up his gift in a small box, thinking it would be perfect for his latest hobby. But when I got to the station, I realized I'd left it at home. It felt like a mix of disappointment and embarrassment. I quickly grabbed my phone to call him, hoping he'd still remember the gift.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing to get to the train station, trying to make it on time for my nephew's birthday party. I had packed a small gift in my bag, something I thought would be perfect for him. But when I got to his house, I realized I'd left it at the station. It was a moment of panic mixed with a bit of embarrassment. I quickly called my phone to check if I had missed it, but there was no sign of it. I felt a mix of disappointment and frustration, knowing I'd have to find another way to make up for it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_2_2,"You forgot to give your little nephew the present you had bought for him.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -128,7 +128,7 @@ You forgot to give your little nephew the present you had bought for him.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","Oh no, I completely forgot about the present I had bought for my little nephew. It was right there on my desk, wrapped up neatly, but I must have zoned out somewhere along the way. I felt a bit embarrassed, but more so worried he might be disappointed. So I quickly grabbed another small gift from the living room and rushed over to his room, hoping he wouldn't notice I'd forgotten the big one.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","Oh no, I completely forgot about the present I had bought for my little nephew's birthday. I was so busy with work and other things that day, I didn't even think about it until he mentioned it at dinner. I felt terrible, but quickly realized there was still time to make it up to him. I rushed over to the store and got him the perfect gift right away. It turned out okay in the end, but it definitely made me more aware of how important it is to be more mindful of my commitments.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_2_3,"You forgot to give your little nephew the present you had bought for him.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -138,7 +138,7 @@ You forgot to give your little nephew the present you had bought for him.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","Oh no, I completely forgot about the present I had bought for my little nephew. I was so busy with work and other things that day, I didn't even think about it until he asked me about it at dinner. I felt really bad and rushed to the store to get it right away. It's one of those moments where you just wish you could go back in time.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","Oh no, I completely forgot about the present I had bought for my little nephew's birthday. When I saw him at the party, he looked disappointed. I quickly rummaged through my bag and found the gift wrapped in a bright pink paper. I handed it to him with a big smile, hoping he'd be happy. He did, and we hugged, feeling relieved and a bit silly for missing out on such a simple moment.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_2_4,"You forgot to give your little nephew the present you had bought for him.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -148,7 +148,7 @@ You forgot to give your little nephew the present you had bought for him.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was rushing to get home from work when I realized I hadn't given my nephew his present. It was a small mistake, but one that made me feel a bit silly. I quickly turned around and headed back to the store, hoping he wouldn't notice. When I got there, I found him playing with the gift, which was a colorful toy he loved. He looked up at me with a big smile, and I felt a rush of warmth. We laughed about it, and I explained that I'd forgotten to bring it home. He didn't seem upset at all, and we ended up having a fun afternoon together.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing to get home from work when I realized I hadn't given my nephew his gift. It was a small mistake, but one that made me feel a bit silly. I quickly turned around and headed back to the store, hoping he wasn't too upset. When I handed him the wrapped package, his eyes lit up with joy, and he hugged me tight, making up for the oversight.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_3_0,"You told a friend you liked their performance even though you had not watched it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -178,7 +178,7 @@ You told a friend you liked their performance even though you had not watched it
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was at a small gathering where my friend was performing a bit of magic. I noticed the audience's excitement and the way they clapped after each trick. I didn't actually watch the performance, but I could tell it was good from the reactions. So, I complimented them on their act, saying how impressive it was. It felt right, and they seemed pleased.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was at a small gathering where my friend was performing a bit of comedy. I noticed they were really nervous but also had a great sense of humor. I complimented them on their performance, saying how much I enjoyed it, even though I hadn't seen them perform before. It felt right to say something positive, and it seemed to boost their confidence a little.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_3_3,"You told a friend you liked their performance even though you had not watched it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -188,7 +188,7 @@ You told a friend you liked their performance even though you had not watched it
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I went to my friend's show and was really into it, but I didn't actually watch it because I was chatting with someone else nearby. When they asked me about it later, I said I liked it, thinking maybe they were going to ask. It was a bit awkward, but I figured I'd just be honest and say I hadn't seen it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I went to a concert and saw my friend perform on stage. I was really impressed by how they handled the crowd and the music. But when I asked them later about it, they said they hadn't performed yet. I felt a bit silly for saying I liked their performance, but I didn't want to seem rude. So I just laughed it off and said I was just being polite.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_3_4,"You told a friend you liked their performance even though you had not watched it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -208,7 +208,7 @@ You promised to keep in touch with someone after they moved away, but you rarely
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I remember making that promise to stay in touch when we said goodbye at the airport. But after moving to a new city, I found myself so busy with work and personal life that I didn't even think about checking my messages. It wasn't until months later, when I saw their name pop up on social media, that I realized I hadn't heard from them in ages. That's when I felt a twinge of guilt for neglecting our connection.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I remember making that promise to stay in touch, but I found myself slipping into a routine where I didn't reply often. It wasn't until I saw their posts on social media occasionally that I realized how much time had passed since our last conversation. I felt a twinge of guilt, but also a bit defensive about my own busy schedule. So, I decided to reach out and apologize for the lack of communication, hoping to mend the connection we once shared.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_4_1,"You promised to keep in touch with someone after they moved away, but you rarely replied to them.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -218,7 +218,7 @@ You promised to keep in touch with someone after they moved away, but you rarely
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I remember making that promise to stay in touch, but I guess I got so busy with my life that I didn't follow through. It's not like I forgot about them; I just never found the time or motivation to reach out. They must have felt ignored, but I was too preoccupied with my own world. Now, whenever I think about it, I feel a bit guilty, but I also know I can't change the past. Maybe I should try reaching out now, before it feels too late.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I remember making that promise to stay in touch, but I guess I got so busy with my life that I didn't follow through. It's not like I forgot about them; I just never found the time or the inclination to reach out. They must have gotten used to hearing nothing back from me. I noticed their absence in my social media feed and felt a pang of guilt for not checking in. But then I figured, hey, maybe they're doing just fine without me. I decided to let it go, thinking maybe one day we'd reconnect over coffee.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_4_2,"You promised to keep in touch with someone after they moved away, but you rarely replied to them.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -228,7 +228,7 @@ You promised to keep in touch with someone after they moved away, but you rarely
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I remember making that promise to stay in touch, but I guess I got so busy with my own life that I didn't follow through. It's not like I forgot about them; I just didn't have the time or energy to reach out. Now, whenever I see their name pop up on social media, I feel a twinge of guilt, but I also know it's been a while since we last spoke. I think I'll send them a quick message to catch up and apologize for the lapse.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I remember making that promise to stay in touch, but I guess I got so busy with my own life that I didn't follow through. It's not like I forgot about them; I just found myself drifting away from the idea. Now, whenever I think about it, I feel a bit guilty, but mostly I just feel a little lost without that connection.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_4_3,"You promised to keep in touch with someone after they moved away, but you rarely replied to them.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -238,7 +238,7 @@ You promised to keep in touch with someone after they moved away, but you rarely
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I remember making that promise to stay in touch, but I guess I got so busy with my own life that I didn't follow through. It's not like I ignored them completely, I just found myself slipping into the habit of not replying. I noticed how their messages would sit there unanswered for days, and I started to feel bad about it. So I decided to reach out and say sorry, let them know I meant it, and we could try to get back on track with our chats.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I remember making that promise to stay in touch, but I guess I got so busy with my own life that I didn't follow through. It's not like I forgot about them, it was more like I just stopped checking in. When I saw their message, I felt a twinge of guilt, but I figured I'd wait until I had some free time before responding. Months went by and I never did get around to it. Now, when I think about it, I feel a bit regretful, but mostly I just feel a little lost for words.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_4_4,"You promised to keep in touch with someone after they moved away, but you rarely replied to them.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -248,7 +248,7 @@ You promised to keep in touch with someone after they moved away, but you rarely
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I remember making the promise to stay in touch, but I found myself slipping into the routine of my daily life without much thought to it. It wasn't until I saw their name pop up on social media occasionally that I realized I hadn't been reaching out. I felt a twinge of guilt, but also a bit of relief at finally having a reminder to make contact. So I decided to send a quick message, hoping for a response that would nudge me to keep our connection alive.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I remember promising to stay in touch after they moved away, but I found myself slipping into the habit of ignoring their messages. It wasn't until I saw their name pop up on social media one day that I realized how much I had let slip by. I felt a pang of guilt and decided to reach out, hoping to salvage something from our friendship.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_5_0,"You left your bicycle in a hallway, and someone tripped over it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -258,7 +258,7 @@ You left your bicycle in a hallway, and someone tripped over it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was heading back to my apartment after a late night at work when I noticed my bicycle leaning against the hallway wall. It was a bit out of place, but I didn't think much of it. As I passed by, I heard a muffled thud and then a loud cry. I turned around to see someone lying on the floor, clutching their ankle. I immediately went to help them, and we both ended up laughing about the funny coincidence of tripping over my bike.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was heading back to my apartment after work when I noticed my bicycle leaning against the hallway wall. It was a bit unusual since I usually lock it up outside. As I approached, I heard a muffled thud and turned to see someone stumbling. They had tripped over my bike. I quickly went to help them up and apologized for the inconvenience. We both laughed about it, and I made sure to secure my bike properly before leaving.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_5_1,"You left your bicycle in a hallway, and someone tripped over it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -268,7 +268,7 @@ You left your bicycle in a hallway, and someone tripped over it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was heading back to my apartment after a long day at work, and I had parked my bike in the hallway outside. As I turned the corner, there was a loud thud, and then silence. I looked up to see someone sprawled on the floor, clutching their ankle. My bike was lying on its side, obviously tripping them. I rushed over, checked if they were okay, and called for help. They seemed dazed but didn't appear seriously hurt. I helped them up and got some ice for their ankle before calling an ambulance.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was heading back to my apartment after work, and I had parked my bike in the hallway outside. As I turned to head inside, I heard a thud and then a muffled cry. I rushed out to see someone lying on the floor, clutching their ankle. My bike was tangled around them, and they were clearly in pain. I quickly disentangled the bike and helped the person up, offering them water and checking for any injuries. They seemed shaken but mostly okay, and we both agreed to move the bike to a safer spot.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_5_2,"You left your bicycle in a hallway, and someone tripped over it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -288,7 +288,7 @@ You left your bicycle in a hallway, and someone tripped over it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was heading home from work when I noticed my bike wasn't where I left it earlier. It was in the hallway, and I realized it must have been knocked over by someone. I stopped to check if anyone was around, but there was no one. I picked up the bike and put it back where I usually leave it, making sure to secure it properly. Then I went inside to grab my keys and head out.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing out the door for work when I noticed my bike leaning against the hallway wall. I grabbed my bag and headed out, not realizing the bike was still there. A few minutes later, I got a call from my neighbor saying they tripped over my bike. I rushed back, apologized, and helped them pick up the pieces. It was a bit embarrassing but I learned to be more mindful about leaving things in hallways.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_5_4,"You left your bicycle in a hallway, and someone tripped over it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -298,7 +298,7 @@ You left your bicycle in a hallway, and someone tripped over it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was heading back to my apartment after work, and I had parked my bike in the hallway outside. As I turned to enter, I heard a thud and saw someone stumbling. It took me a moment to realize they'd tripped over my bike. I quickly went to help them up and apologized for the inconvenience. They seemed fine, so I moved the bike out of the way and continued on my way inside.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was heading back to my apartment after work, and I had parked my bike in the hallway outside. As I turned to enter, I heard a thud and saw someone stumbling. It took me a moment to realize they'd tripped over my bike. I quickly went to help them up and apologized for the inconvenience. They seemed okay, so I moved the bike out of the way and let them pass.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_6_0,"You joined in teasing a classmate about their clothes.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -308,7 +308,7 @@ You joined in teasing a classmate about their clothes.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was just joking around with my friends, and we started making fun of a classmate's outfit. I noticed how uncomfortable they looked and felt bad for a moment, but then I couldn't resist joining in. It was just a lighthearted comment, but I could see the hurt in their eyes. I quickly apologized and tried to lighten the mood by changing the subject.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was just joking around with my friends, and we decided to make fun of someone's outfit. I noticed they seemed uncomfortable and looked down at themselves. I quickly realized it wasn't funny anymore and tried to change the subject.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_6_1,"You joined in teasing a classmate about their clothes.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -318,7 +318,7 @@ You joined in teasing a classmate about their clothes.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was sitting with my friends, and we were all joking around. One of them mentioned how they had bought a new outfit, and I couldn't help but notice how it looked a bit off. So, I decided to tease them about it, thinking it would be funny. They laughed along for a moment, but then I could see the hurt in their eyes. It was too late to take back what I said, so I quickly changed the subject and tried to make amends by complimenting something else.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was sitting with my friends, and we were all joking around. One of them mentioned how they had bought a new outfit, and I couldn't help but notice how it looked a bit off. So, I decided to tease them about it, thinking it would be funny. They laughed along for a moment, but then I could see the hurt in their eyes. It was too late to take back what I said, so I quickly changed the subject and tried to make amends by complimenting something else about their style.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_6_2,"You joined in teasing a classmate about their clothes.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -328,7 +328,7 @@ You joined in teasing a classmate about their clothes.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was sitting with my friends, and we were all joking around. One of them mentioned how they had bought a new outfit, and I couldn't help but notice how they looked a bit off. So, I decided to tease them a little, saying something along the lines of, ""Oh, you look like you stepped out of a fashion magazine."" It was meant to be light-hearted, but I could see the hurt in their eyes. I quickly realized I had crossed a line, so I apologized and tried to lighten the mood again.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was sitting with my friends, and we were all joking around. One of them mentioned how they had bought a new outfit, and I couldn't help but notice how they looked a bit off. So, I decided to tease them a little, saying something along the lines of, ""Looks like you're trying to impress someone, huh?"" They laughed, and it felt good to see them lighten up. It's just a small moment, but it made me realize how easy it is to make others feel better sometimes.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_6_3,"You joined in teasing a classmate about their clothes.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -338,7 +338,7 @@ You joined in teasing a classmate about their clothes.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I remember that day vividly, there was this one classmate who always wore really bright colors that clashed with everything else. I found myself getting drawn into the group's laughter at how they looked. I noticed how uncomfortable they seemed, but I couldn't help myself. I joined in, and before I knew it, we were all making jokes about their outfit. It felt good to be part of the group, but looking back, I realize it wasn't very nice.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I remember that day vividly, there was this one classmate who always wore really bright colors that clashed with everything else. I thought it was funny, so I started teasing them about it. I noticed how uncomfortable they looked, but I didn't care. They seemed to be taking it well, so I kept going. It wasn't until later when I saw their expression change and they looked hurt that I realized maybe I crossed a line. I felt bad and tried to apologize, but it was too late.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_6_4,"You joined in teasing a classmate about their clothes.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -348,7 +348,7 @@ You joined in teasing a classmate about their clothes.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was sitting with my friends, and we were talking about the weather when one of them started making fun of another classmate's outfit. I noticed the look on her face and felt uncomfortable, but I didn't want to be the one to stop it. So I just listened, trying to keep my thoughts to myself. It wasn't until later that I realized how hurtful it could have been for her.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was in the midst of a casual chat with some friends when I overheard one of them making fun of a classmate's outfit. It wasn't something overtly offensive, but it was definitely unkind. I noticed the classmate's face flush with embarrassment and felt a mix of discomfort and guilt. I decided to intervene by gently reminding everyone that we should be mindful of how our words affect others.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_7_0,"You spent the money set aside for a shared bill before the payment was due.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -358,7 +358,7 @@ You spent the money set aside for a shared bill before the payment was due.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I realized I had spent the money meant for the shared bill before the payment was due. It was a moment of realization that made me feel a bit anxious about the potential consequences. I quickly checked my bank account to see if there were any other funds available to cover the expense. Fortunately, there was still some left, but it was a reminder to be more mindful of my spending habits going forward.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I realized I had spent the money meant for the shared bill before the payment was due. It was a moment of realization that made me feel a bit anxious about the potential consequences. I quickly checked my bank account to see if there were any other funds available to cover the expense. Fortunately, there was still some left, so I managed to make the payment on time despite the oversight.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_7_1,"You spent the money set aside for a shared bill before the payment was due.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -368,7 +368,7 @@ You spent the money set aside for a shared bill before the payment was due.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I realized I had spent the money I had set aside for a shared bill before the payment was due. It felt like a mix of relief and panic all at once. The relief because I thought I'd be able to cover the expense, but the panic came when I saw the amount left was less than what was needed. I quickly checked my bank account to see where the money went, hoping it wasn't something important. It turned out to be a small purchase I made online, which I hadn't even noticed until now. Now I need to find another way to cover the shortfall.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I realized I had spent the money I had set aside for a shared bill before the payment was due. It felt like a mix of relief and panic all at once. Relief because I thought I had covered the expense, but panic because now I wasn't sure how I'd make up for the shortfall. I quickly checked my bank account to see if there were any other funds available to cover it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_7_2,"You spent the money set aside for a shared bill before the payment was due.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -388,7 +388,7 @@ You spent the money set aside for a shared bill before the payment was due.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I realized I'd spent the money meant for the shared bill before it was due. It was a moment of panic mixed with a bit of embarrassment. I quickly checked my bank account to see if there were any other funds available to cover it. Thankfully, there was still some left, so I managed to make the payment on time after that.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I realized I'd spent the money meant for the shared bill before it was due. It was a moment of panic mixed with a bit of embarrassment. I quickly checked my bank account to see if there were any other funds available to cover it. Thankfully, there was still some left, so I managed to make the payment on time after transferring the necessary amount from another account.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_7_4,"You spent the money set aside for a shared bill before the payment was due.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -418,7 +418,7 @@ You told a relative you could not visit because of work, although you had no wor
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I called my cousin and said I couldn't make it to their birthday party today. I didn't have any work scheduled, but I thought lying about having work would be easier than explaining I just didn't feel like it. When they asked why, I just said I had some unexpected errands to run. It felt wrong, but I didn't want to explain why I was avoiding them.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I called my cousin and said I couldn't make it to their birthday party today. I didn't have any work scheduled, but I thought lying might be easier than explaining I was just too busy with other things. When they asked why, I just said I had some unexpected errands to run. It felt wrong, but I didn't want to explain that I hadn't planned anything at all.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_8_2,"You told a relative you could not visit because of work, although you had no work that day.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -438,7 +438,7 @@ You told a relative you could not visit because of work, although you had no wor
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I called my cousin and said I couldn't make it to their birthday party because I had some work to do. But when I hung up, I realized I didn't have any work scheduled for that day. It was a bit embarrassing, but I quickly apologized and explained the mix-up. We ended up having a fun catch-up over the phone instead.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I called my cousin and said I couldn't make it to their birthday party because I had some work to do. But when I hung up, I realized I didn't have any work scheduled for that day. It was a bit embarrassing, but I quickly apologized and explained the mix-up. We ended up finding a way to still celebrate together later.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_8_4,"You told a relative you could not visit because of work, although you had no work that day.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -458,7 +458,7 @@ You accidentally sent a private message to the wrong group chat.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was typing away in my personal chat app when I hit the wrong button, sending a private message to the wrong group chat. It caught me off guard, and for a moment, I felt a mix of confusion and embarrassment. I quickly read through the messages to make sure nothing was lost, then deleted the inappropriate content before sending a polite apology to everyone involved.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was typing away in my usual group chat when suddenly I hit the wrong button and sent a private message to the group instead. It caught me off guard and I quickly realized what had happened. I immediately tried to send a quick apology and explained the mistake, hoping they would understand.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_9_1,"You accidentally sent a private message to the wrong group chat.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -468,7 +468,7 @@ You accidentally sent a private message to the wrong group chat.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was typing away in my phone, trying to send a quick update to a group chat when I accidentally hit the wrong button. Before I could stop it, the message went to the wrong group instead of the intended one. It was a mix-up, but now I had to deal with the fallout. I quickly read through the messages to see if anyone had noticed anything odd, and then I started sending out apologies and clarifications to make sure everyone understood what happened.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was typing away in my phone, trying to send a quick update to a group chat when I accidentally hit the wrong button. Before I could stop it, the message went to the wrong group instead of the intended one. It was a mix-up, but now I had to deal with the fallout. I quickly read through the messages to see what I'd said and then deleted the inappropriate part before sending a polite apology to everyone.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_9_2,"You accidentally sent a private message to the wrong group chat.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -478,7 +478,7 @@ You accidentally sent a private message to the wrong group chat.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was typing away in my usual group chat when I suddenly realized I had hit the wrong button. The message I was sending was supposed to go to one group, but instead, it ended up in another. I quickly read through the messages to make sure I hadn't already said anything embarrassing, then I deleted the message and apologized for the mix-up. It's a common mistake, but it can be a bit embarrassing to have your words misdirected like that.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was typing away in my usual group chat when suddenly I hit the wrong button and sent a private message to the wrong group. It felt like déjà vu, but this time it was a bit more embarrassing. I quickly realized what happened and tried to send a quick apology, but it was too late. The damage was done.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_9_3,"You accidentally sent a private message to the wrong group chat.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -488,7 +488,7 @@ You accidentally sent a private message to the wrong group chat.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was typing away in my phone when I hit the wrong button and sent a private message to the wrong group chat. It was a moment of panic, realizing I'd just shared something super personal with everyone. I quickly tried to cancel the message but it was too late. Then I scrolled through the group chat, saw the message, and felt like I was about to explode. I had to quickly send a quick apology and explain what happened, hoping they wouldn't get too mad at me for being so careless.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was typing away in my phone when I hit the wrong button and accidentally sent a private message to the wrong group chat. It felt like déjà vu, but this time it was real. I quickly realized what happened and tried to cancel the message, but it was too late. I panicked for a second, then started sending a quick apology to everyone in the group, explaining what had happened.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_9_4,"You accidentally sent a private message to the wrong group chat.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -508,7 +508,7 @@ You failed to water a plant that someone had asked you to care for, and it dried
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was supposed to water the plant that was on my desk at work, but I forgot about it. By the time I remembered, the soil was dry and the leaves were starting to droop. I felt a bit guilty, so I rushed over to the nearest sink and gave it a good watering. It seemed to perk up a little, but I knew I needed to be more consistent with its care.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to water the plant that was sitting on my desk at work. I must have been so busy with other tasks that I forgot about it. When I finally remembered, it was too late; the soil was dry and the leaves were drooping. I felt a bit guilty but also frustrated with myself for forgetting. I quickly fetched some water and gave the plant a good drink, hoping it would perk up.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_10_1,"You failed to water a plant that someone had asked you to care for, and it dried out.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -518,7 +518,7 @@ You failed to water a plant that someone had asked you to care for, and it dried
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was so busy with work that I forgot to water the plant someone had asked me to take care of. When I remembered, it was already too late; the leaves were drooping and the soil was dry. I felt a bit guilty but also frustrated at myself for being forgetful. So I gave it a good watering and put it back on the windowsill where it got plenty of sunlight.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to take care of a little succulent my friend had given me. I forgot about it one day, and when I remembered, the soil was dry and the leaves were drooping. It was a stark reminder of my forgetfulness. I watered it right away, but it was too late; it had already dried out.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_10_2,"You failed to water a plant that someone had asked you to care for, and it dried out.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -528,7 +528,7 @@ You failed to water a plant that someone had asked you to care for, and it dried
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was supposed to take care of a little succulent for my neighbor, but I got so busy with work that I forgot about it. When I remembered, the plant looked a bit wilted, but I figured it would perk up once I gave it some water. But by the time I went over, the soil was completely dry and the leaves were drooping. I felt really bad, so I gave it a good watering and put it back on the windowsill where it gets plenty of light. Now it's looking much better, at least until next time I forget.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to take care of a little succulent for my neighbor, but I got so busy with work that I forgot about it. When I remembered, the plant looked a bit wilted, but I figured it would perk up once I gave it some water. But by the time I went to water it, the soil was completely dry and the leaves were drooping. It was a reminder to be more mindful of my commitments and to check on plants more regularly.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_10_3,"You failed to water a plant that someone had asked you to care for, and it dried out.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -538,7 +538,7 @@ You failed to water a plant that someone had asked you to care for, and it dried
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was supposed to take care of a little succulent my friend gave me. I forgot to water it one day, and by the next time I remembered, it was all dry and sad-looking. The leaves were starting to droop, and I knew I'd messed up. I quickly fetched some water and gave it a good drink, hoping it would perk up. It didn't look great right away, but at least it's still alive.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to take care of a little succulent my friend gave me. I forgot to water it one day, and by the next time I remembered, it was all dry and sad-looking. The leaves were starting to droop, and I knew I'd messed up. I quickly fetched some water and gave it a good drink, hoping it would perk up. It didn't look great right away, but I kept watering it and giving it lots of light, and slowly it started to recover.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_10_4,"You failed to water a plant that someone had asked you to care for, and it dried out.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -548,7 +548,7 @@ You failed to water a plant that someone had asked you to care for, and it dried
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was supposed to water the plant that someone had left with me. I must have forgotten about it, and when I remembered, the soil was dry and the leaves were drooping. I felt a bit guilty but also frustrated at myself for neglecting such a simple task. I gave it a good watering and made sure to check on it daily to keep it healthy.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to water the plant that someone had left with me. I must have forgotten about it, and when I remembered, the soil was dry and the leaves were drooping. I felt bad and rushed to give it some water, but by then it was too late. It's a reminder to be more attentive and on time with my tasks.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_11_0,"You borrowed a friend's car and returned it with less fuel than when you took it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -558,7 +558,7 @@ You borrowed a friend's car and returned it with less fuel than when you took it
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I noticed the fuel gauge was slightly low when I returned the car, so I filled up at the nearest station before handing it back. When I checked again later, it seemed even lower. I realized I hadn't been paying close attention to the fuel level during my drive. It was a small oversight, but I felt a bit guilty about it. I decided to call my friend to let them know and apologize for any inconvenience.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I noticed the fuel gauge was slightly low when I returned the car, so I filled up at the nearest station before handing it back. When I checked again later, it seemed even lower. I realized I hadn't been paying close attention to the fuel level during my drive. It was a small oversight, but I felt a bit embarrassed about it. I decided to call my friend to let them know and apologize for any inconvenience.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_11_1,"You borrowed a friend's car and returned it with less fuel than when you took it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -568,7 +568,7 @@ You borrowed a friend's car and returned it with less fuel than when you took it
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was driving my friend's car one day and noticed the fuel gauge was low. I didn't think much of it at first, but by the time I got back home, the needle was almost at empty. I checked the tank again and sure enough, there was barely any fuel left. I called my friend and explained the situation. He was understanding, but we both knew we needed to get the car serviced soon.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was driving my friend's car one day and noticed the fuel gauge was low. I didn't think much of it at first, but after a few hours, it became clear that the tank was indeed empty. I stopped at a gas station and filled up, but when I checked the gauge again, it still showed low fuel. I realized then that I hadn't been paying close enough attention. I called my friend to let them know and apologized for the mix-up. We agreed to split the cost of the gas.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_11_2,"You borrowed a friend's car and returned it with less fuel than when you took it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -578,7 +578,7 @@ You borrowed a friend's car and returned it with less fuel than when you took it
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was driving my friend's car for a weekend trip, and I didn't want to run out of gas. But by the time I got back, there was barely any fuel left. I noticed it right away when I tried to start the engine, and it sputtered before finally turning over. I filled up at the nearest station and realized I hadn't checked the tank level. It was a small oversight, but it made me think about being more mindful of my actions. Next time, I'll make sure to keep track of the fuel gauge.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was driving my friend's car for a weekend trip, and I didn't want to run out of gas. But by the time I got back, there was barely any fuel left. It was a bit embarrassing, but I knew I had to address it. I filled up at the nearest station and made sure to check the gauge every few miles to avoid running low again. It was a lesson learned about planning ahead and being more mindful of fuel levels.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_11_3,"You borrowed a friend's car and returned it with less fuel than when you took it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -588,7 +588,7 @@ You borrowed a friend's car and returned it with less fuel than when you took it
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I went to pick up my friend's car for a weekend getaway, and I was so excited. When I got back, I noticed there wasn't much gas left. I checked the gauge and sure enough, it was low. I filled it up at the nearest station before heading home. It felt like a small mistake, but I knew I'd have to tell my friend about it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I went to pick up my friend's car for a weekend getaway, and I was so excited to hit the road. But when I got back, there was a note on the dashboard saying the fuel level was low. I checked and sure enough, it had about half the fuel left compared to when I picked it up. I felt a bit embarrassed but also relieved because I knew I hadn't been driving recklessly. I called my friend right away and apologized. He was understanding and suggested we fill it up before our next trip. It was a good reminder to be more mindful of fuel usage.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_11_4,"You borrowed a friend's car and returned it with less fuel than when you took it.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -598,7 +598,7 @@ You borrowed a friend's car and returned it with less fuel than when you took it
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was driving my friend's car for a weekend trip and noticed the fuel gauge was low before I left. By the time I got back, it was even lower. I realized there was a significant drop in fuel levels, which seemed odd given I hadn't filled up during the trip. I checked the tank again and confirmed it was indeed empty. It was a mix of relief and embarrassment; relieved because I didn't have to worry about running out, but embarrassed because I hadn't noticed the drop until I was returning the car.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was driving my friend's car for a weekend trip and noticed the fuel gauge was low before I left. By the time I got back, it was even lower. I realized there was a significant dip in fuel levels, which felt odd but didn't seem too alarming at first glance. I filled up at the nearest station and then drove home, hoping the discrepancy wasn't too noticeable. Upon arrival, I checked the tank again and confirmed the fuel level had indeed dropped significantly. It was a bit embarrassing, but I decided to address it by asking my friend about it later.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_12_0,"You left a mess in the kitchen for someone else to clean.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -608,7 +608,7 @@ You left a mess in the kitchen for someone else to clean.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was in a rush to leave for work, so I grabbed some ingredients from the fridge and started cooking without checking if the sink was clean. When I finally got around to washing up, I realized there was a bit of a mess. The water was still running, and there were bits of food stuck on the counter. I sighed, knowing I'd have to clean it later.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was in a rush to leave for work, so I grabbed some ingredients from the fridge and started cooking without checking if the sink was clean. When I finally got around to washing up, I realized there was a bit of a mess. The water was still running, and there were bits of food stuck to the counter. I sighed, knowing I'd have to clean it later.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_12_1,"You left a mess in the kitchen for someone else to clean.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -618,7 +618,7 @@ You left a mess in the kitchen for someone else to clean.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I stepped out for a quick coffee run and came back to find the kitchen a bit of a disaster. The dishes were piled up in the sink, the countertops were cluttered with papers and half-eaten snacks, and the stove was still warm from last night's cooking session. I sighed, knowing I'd have to clean up after myself.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I stepped out for a quick coffee run and came back to find the kitchen a bit of a disaster. The dishes were piled up in the sink, the countertops were cluttered with papers and utensils, and the stove was still warm from last night's cooking session. I sighed, knowing I'd have to clean up after myself.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_12_2,"You left a mess in the kitchen for someone else to clean.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -628,7 +628,7 @@ You left a mess in the kitchen for someone else to clean.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I came home from work and found the kitchen a bit messy. There were dishes piled up in the sink, the countertops were cluttered with cookbooks and utensils, and the trash bin was overflowing. I noticed the smell of something cooking had lingered, but I couldn't quite place where it was coming from. I decided to clear the dishes and put everything back in its place before I could get too distracted by the lingering aroma.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I came home from work and found the kitchen a bit messy. There were dishes piled up in the sink, and the countertops were cluttered with cookbooks and utensils. I noticed the trash hadn't been emptied either. I decided to give it a quick tidy-up before dinner, thinking maybe whoever was supposed to do it had forgotten.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_12_3,"You left a mess in the kitchen for someone else to clean.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -638,7 +638,7 @@ You left a mess in the kitchen for someone else to clean.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I came home from work and found the kitchen a complete disaster. The dishes were piled up in the sink, the countertops were cluttered with papers and food scraps, and the stove was still warm from cooking. I sighed, knowing I'd have to clean up after myself. I started by clearing the counters and washing the dishes, feeling a bit annoyed but also relieved that I could take care of it before anyone else did.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I came home from work and found the kitchen a bit messy. There were dishes piled up in the sink, the countertops were cluttered with cookbooks and utensils, and the trash bin was overflowing. I noticed the smell of something cooking but couldn't pinpoint where it was coming from. I decided to clear the dishes and put them away before addressing the rest.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_12_4,"You left a mess in the kitchen for someone else to clean.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -648,7 +648,7 @@ You left a mess in the kitchen for someone else to clean.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I came home from work and found the kitchen a bit messy. There were dishes piled up in the sink, the countertops were cluttered with cookbooks and utensils, and the trash bin was overflowing. I noticed the smell of something cooking had lingered, but I couldn't place where it was coming from. I decided to clear the dishes and put everything back in its place before addressing the other mess.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I came home from work and found the kitchen a bit messy. There were dishes piled up in the sink, the countertops were cluttered with cookbooks and utensils, and the trash bin was overflowing. I noticed the smell of something cooking had lingered, but I couldn't pinpoint exactly what. I decided to clear the counters and put away some items before I started dinner, figuring whoever did it would be back soon.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_13_0,"You promised to help a classmate prepare for an exam, but you did not arrive.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -658,7 +658,7 @@ You promised to help a classmate prepare for an exam, but you did not arrive.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I had promised to help my classmate review for the upcoming exam, but I ended up not making it to their place. When I realized I was late, I felt a mix of disappointment and concern. I called them to apologize and asked if they needed anything from me. They were understanding and suggested we meet online instead. It was a bit inconvenient, but at least we could still cover the material together.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I had promised to help my classmate review for the upcoming exam, but I ended up not making it to their place. When I realized I was late, I felt a mix of disappointment and embarrassment. I called them to apologize and asked if they needed anything from me. They were understanding and suggested we meet online instead. It was a bit inconvenient, but at least we could still study together.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_13_1,"You promised to help a classmate prepare for an exam, but you did not arrive.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -668,7 +668,7 @@ You promised to help a classmate prepare for an exam, but you did not arrive.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I remember promising my classmate that I'd help them study for the upcoming exam. I was supposed to meet them at their dorm at 5 PM, but when the time came, I found myself still at work. I felt bad about missing out, so I sent them a quick message saying I'd be there as soon as possible. By the time I got to their dorm, it was already 7 PM, and they were already studying alone. They seemed disappointed, but I tried to make up for it by offering to go over some key concepts with them. We ended up staying late into the night, and while I didn't get to see them as much as I had hoped, I made sure to send them a few notes and links to review before the exam.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I remember promising my classmate that I'd help them study for the upcoming exam. I even made sure to set aside some time on my calendar. But when the day came, I found myself distracted by other things and ended up not showing up. It was a mistake, and I felt bad about it. I tried to make it up to them by sending them a message apologizing and offering to meet them at their convenience.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_13_2,"You promised to help a classmate prepare for an exam, but you did not arrive.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -678,7 +678,7 @@ You promised to help a classmate prepare for an exam, but you did not arrive.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I remember promising my classmate that I'd help them study for the upcoming exam, but when the day came, I found myself running late. As I arrived at their dorm room, they were already there, looking slightly frustrated. They explained that they had been trying to find me for hours, and I felt bad about letting them down. We ended up having a quick catch-up session, going over some key concepts, and I made sure to set aside more time for them later. It was a reminder that sometimes our plans can get derailed, but we can still make the most of the situation.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I remember promising my classmate that I'd help them study for the upcoming exam, but when the day came, I found myself running late. As I arrived at their dorm room, they were already there, looking slightly frustrated. They explained that they had been trying to understand a tricky concept from the textbook, but it was proving difficult. I listened patiently, offered some pointers, and we managed to cover most of the material before the exam. It felt good to be there, even if it wasn't exactly on time.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_13_3,"You promised to help a classmate prepare for an exam, but you did not arrive.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -688,7 +688,7 @@ You promised to help a classmate prepare for an exam, but you did not arrive.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I remember promising my classmate I'd help them study for the exam, but when the day came, I ended up not showing up. It was a bit of a letdown, especially since they were really counting on me. I felt bad about it right away. When I finally got there, they seemed disappointed, but they understood. We decided to meet online instead, which worked out okay. Next time, I'll make sure to keep my promises.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I promised my classmate I'd help them study for the exam, but when the day came, I ended up running late. When I finally got there, they were already deep into their notes, looking frustrated. I felt bad, so I offered to come back another time instead of interrupting their momentum. It was a reminder that sometimes plans can fall through, and it's important to be flexible and understanding.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_13_4,"You promised to help a classmate prepare for an exam, but you did not arrive.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -698,7 +698,7 @@ You promised to help a classmate prepare for an exam, but you did not arrive.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I remember promising my classmate that I'd help them study for the upcoming exam. But when the day came, I found myself running late, caught up in some last-minute work. By the time I got there, they were already deep into their notes, looking frustrated. I tried to catch up, but we ended up rushing through the material, barely covering anything new. It was clear they were disappointed, and I felt bad about letting them down. We agreed to meet again soon to finish the review.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I remember promising my classmate that I'd help them study for the upcoming exam. But when the day came, I found myself running late, caught up in some last-minute work. By the time I got there, they were already deep into their notes, looking frustrated. I tried to catch up, but we ended up rushing through the material, barely covering anything new. It was clear they were disappointed, and I felt bad about missing out on helping them properly.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_14_0,"You threw away an item that belonged to someone else because you thought it was no longer needed.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -708,7 +708,7 @@ You threw away an item that belonged to someone else because you thought it was 
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I found myself in a bit of a bind with an old item that had been sitting unused for quite some time. It was something I knew belonged to someone else, but I hadn't seen them in years. Thinking it might be better off discarded, I decided to throw it away. As I did, I realized my mistake and felt a twinge of guilt, but by then it was too late. The item was already gone.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I found myself in a bit of a dilemma when I realized there was an old book in my closet that didn't belong to me. It was a small leather-bound volume with faded titles on its spine. Thinking it might be from a friend who had moved out, I decided to check their address. When that didn't yield any results, I started to feel uneasy about keeping it. So, I decided to dispose of it, thinking it would be best to get rid of something that wasn't mine. I tossed it into the recycling bin, feeling a mix of relief and guilt afterwards.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_14_1,"You threw away an item that belonged to someone else because you thought it was no longer needed.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -718,7 +718,7 @@ You threw away an item that belonged to someone else because you thought it was 
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I found myself standing in my living room, rummaging through a box of old things I hadn't looked at in years. There was a small, worn-out notebook inside, one that had belonged to a friend who moved away years ago. It was filled with scribbled notes and drawings, each one telling a story of their life and times. As I held it, memories flooded back, but the reality of its current state made me hesitate. The pages were yellowed, and the ink faded. It wasn't something I could use anymore, and it didn't hold any sentimental value for me. So, I decided to throw it away, thinking it was time for new beginnings.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I found myself standing in my living room, rummaging through a box of old things I hadn't looked at in years. There was a small, worn leather notebook inside, one that had belonged to a friend who moved away years ago. It was filled with scribbled notes and drawings, memories of our time together. As I held it, I realized it wasn't something I'd use anymore. It didn't hold any sentimental value for me. So, I decided to throw it away. It felt like a weight lifted off my shoulders, but there was also a pang of regret. I knew I should have kept it, maybe framed it someday. But for now, it was just another thing to discard.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_14_2,"You threw away an item that belonged to someone else because you thought it was no longer needed.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -728,7 +728,7 @@ You threw away an item that belonged to someone else because you thought it was 
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I found myself in a bit of a bind with a piece of furniture that had been gathering dust for years. It wasn't broken or anything, but it didn't fit into our new home's style at all. I decided to throw it out, thinking it was time to let go of things we no longer needed. As I packed it up, I couldn't help but notice the sentimental value it held for my friend who had given it to us. It was a small thing, but it made me realize how much we take for granted the little things people give us.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I found myself in a bit of a bind with an old bookshelf that had seen better days. It wasn't serving its purpose anymore, so I decided to get rid of it. As I rummaged through my garage, I came across a small leather-bound journal that caught my eye. It was from a friend who had given it to me years ago, filled with memories and notes. I realized then that I hadn't looked at it in ages. Instead of throwing the bookshelf away, I decided to keep the journal. It felt right to preserve something that held sentimental value.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_14_3,"You threw away an item that belonged to someone else because you thought it was no longer needed.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -738,7 +738,7 @@ You threw away an item that belonged to someone else because you thought it was 
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was going through some old boxes in my attic and found a letter from a friend who had passed away. It was dated from when we were younger, and I kept it thinking it might be nice to read again someday. But then I came across a photo album with pictures from our last trip together. I realized I hadn't looked at those photos in years. So I decided to throw away the letter, thinking it wasn't as important as the memories the photos held. It felt wrong but I couldn't justify keeping both items.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was going through some old boxes in my attic and found a letter from a friend who had passed away. It was dated from when we were younger, and I kept it thinking it might be nice to read again someday. But then I saw a photo frame with a picture of us from our college days. I realized I hadn't looked at that photo in years. So I decided to throw away the letter and the frame, thinking they weren't needed anymore. It felt wrong but I couldn't justify keeping them.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_14_4,"You threw away an item that belonged to someone else because you thought it was no longer needed.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -748,7 +748,7 @@ You threw away an item that belonged to someone else because you thought it was 
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I found myself in a bit of a bind with a piece of furniture that had been gathering dust for years. It wasn't broken or anything, but it didn't fit into our new home's style at all. I decided to take it out to the curb thinking it might find a new home. As I was tossing it, I realized it belonged to my neighbor, who had moved away months ago. I felt a mix of regret and relief; regret for not reaching out to see if they wanted it back, and relief that I didn't have to deal with it anymore.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I found myself in a bit of a bind with a piece of furniture from my neighbor's house. It was something I hadn't used in years and didn't need anymore. I decided to throw it out, thinking it would be the right thing to do. As I was tossing it into the dumpster, I realized it might have sentimental value for my neighbor. I felt a twinge of guilt but also relief at finally getting rid of something I hadn't touched in ages. I quickly called to let them know, hoping they'd appreciate the gesture.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_15_0,"You told a child you would attend their school event, but you did not go.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -758,7 +758,7 @@ You told a child you would attend their school event, but you did not go.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I had promised to attend the child's school event, but I ended up not going. When I realized I couldn't make it, I felt a bit guilty about it. I tried to find a good excuse, but I knew they'd notice something was off. So I called them later to explain my absence and apologize for not being there.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I had promised to attend the child's school event, but I ended up not going. When I realized I couldn't make it, I felt a bit guilty about it. I tried to find a reason why I couldn't make it, hoping they wouldn't notice. But when I saw them looking for me, I knew I had to explain. I apologized and explained my unexpected schedule conflict. It was awkward, but I hoped they understood.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_15_1,"You told a child you would attend their school event, but you did not go.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -768,7 +768,7 @@ You told a child you would attend their school event, but you did not go.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I remember telling the kid about the school event I'd be attending, promising to drop by. But when the day came, I found myself with a sudden case of the Mondays, or maybe just a bit of procrastination. So I ended up not going, which was disappointing for them. I felt bad about it, but I also knew I had my reasons. I guess sometimes life gets in the way, even when we try our best.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I remember telling the kid about the school event I'd be attending, promising to drop by. But when the day came, I found myself with a sudden case of the Mondays. I ended up at home, scrolling through social media instead of making my way to the school. It's not like I didn't want to do it, but something else always seemed more important. When I realized I hadn't gone, I felt a twinge of guilt, but mostly just regret for missing out on seeing them smile.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_15_2,"You told a child you would attend their school event, but you did not go.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -778,7 +778,7 @@ You told a child you would attend their school event, but you did not go.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I had promised to attend the child's school event, but I ended up not showing up. It was a bit of a letdown for me, but I didn't want to make the child feel bad. I noticed they seemed disappointed, so I tried to explain that something came up at the last minute. It wasn't my best moment, but I hope I made things better by being honest.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I had promised to attend the child's school event, but I ended up not showing up. It was a bit of a letdown for both of us. As I drove by, I saw the excited faces of the other parents and kids, and it made me feel a bit guilty. I decided to stop by later to make up for it, hoping they'd still be there.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_15_3,"You told a child you would attend their school event, but you did not go.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -798,7 +798,7 @@ You told a child you would attend their school event, but you did not go.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I had promised the kid I'd be there for their school event, but when the day came, something came up and I couldn't make it. It was a bit disappointing, but I tried to make it up to them by sending a card with a heartfelt message. I noticed they seemed a little sad, but they were quick to smile and laugh about it. I felt bad, but I knew I couldn't force myself to do something I wasn't comfortable with.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I had promised the kid I'd be there for their school event, but when the day came, something else came up and I ended up not showing up. It was a bit disappointing to see them looking around, hoping for my presence. I felt bad about it, so I called them later to explain and apologize for missing out.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_16_0,"You opened a letter addressed to someone else in your household.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -808,7 +808,7 @@ You opened a letter addressed to someone else in your household.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was in the kitchen when I heard a rustling sound from the living room. Curious, I walked over to see what was happening. There on the coffee table lay a letter addressed to my sister, but instead of her name, it was written in her handwriting. I picked it up and read through it, realizing it was a birthday card for her. I put it back where I found it, deciding to leave it there for her to find later.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was going through some old mail when I came across a letter addressed to my sister. It had her name on it, but she wasn't home at the time. I decided to read it quickly before putting it aside for her. As I unfolded the paper, I realized it was from a company offering a discount on our upcoming trip. I put it back in its envelope and filed it away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_16_1,"You opened a letter addressed to someone else in your household.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -828,7 +828,7 @@ You opened a letter addressed to someone else in your household.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was in the kitchen when I heard a rustling sound from the living room. Curious, I peeked through the doorway and saw my roommate rifling through a letter addressed to someone else. It was a bit jarring, but I didn't want to startle her, so I just stood there for a moment, observing. She seemed oblivious to my presence, which made me feel a mix of annoyance and curiosity. Eventually, she put the letter back where she found it and went back to her work. I decided to let it go, figuring she might have a good reason for looking at it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rifling through some old mail when I came across a letter addressed to my sister. It was tucked away in a drawer, and I hadn't seen it before. I picked it up, curious about who it might be from. As I read the name on the envelope, I realized it wasn't for me at all. I put the letter back and decided to give it to my sister later.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_16_3,"You opened a letter addressed to someone else in your household.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -838,7 +838,7 @@ You opened a letter addressed to someone else in your household.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was sitting at the kitchen table going through some old mail when I noticed a letter on the counter. It was addressed to my sister, but I couldn't help but open it. The handwriting was familiar, and there was a note inside about something we needed to discuss. I quickly put it back where I found it, feeling a mix of curiosity and annoyance.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was in the kitchen when I heard a rustling sound from the living room. Curious, I peeked through the door and saw my roommate rifling through a letter that wasn't even addressed to her. She looked up at me with a sheepish smile, explaining she thought it might be something important for us both. I nodded understandingly and suggested we read it together later.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_16_4,"You opened a letter addressed to someone else in your household.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -848,7 +848,7 @@ You opened a letter addressed to someone else in your household.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was in the kitchen when I heard a rustling sound from the living room. Curious, I walked over to see a letter on the coffee table, addressed to someone else. It was my sister's handwriting, and I couldn't help but feel a mix of curiosity and a bit of annoyance. I picked it up, wondering why she'd left it there.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was in the kitchen when I heard a rustling sound from the living room. Curious, I peeked through the doorway and saw my roommate rifling through a letter addressed to someone else. It was a bit jarring, but I didn't want to startle her, so I quietly closed the door and went back to making coffee. Later, we had a brief discussion about respecting each other's privacy, which helped us understand each other better.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_17_0,"You exaggerated your experience on an application and were later asked about the details.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -858,7 +858,7 @@ You exaggerated your experience on an application and were later asked about the
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I noticed the feedback was not quite aligned with my initial description, so I decided to clarify the specifics of my experience. I felt a bit defensive at first but realized it was important to be honest and accurate. I then provided more detailed information to address any discrepancies.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I noticed the feedback was not aligned with my previous experiences, so I decided to clarify by providing more detailed information about my qualifications and achievements. I felt it was important to be honest and accurate, even though it might have been uncomfortable.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_17_1,"You exaggerated your experience on an application and were later asked about the details.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -868,7 +868,7 @@ You exaggerated your experience on an application and were later asked about the
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I filled out an application for a job, and I thought I had done everything right. But then they called me in for an interview, and I realized I had overestimated my experience. When they asked about specific projects, I stumbled a bit. It was a bit embarrassing, but I took it as a learning opportunity. I explained the situation honestly and tried to make up for lost time by showing enthusiasm and asking insightful questions. They seemed impressed with my candor and my eagerness to learn.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I filled out an application for a job and went overboard with my resume, adding some impressive achievements that weren't quite accurate. When they called me in for an interview, I was nervous but confident. During the discussion, they seemed to notice something off about my background. They asked me to elaborate on those accomplishments, and I had to admit I'd embellished them. It was a bit embarrassing, but I learned a valuable lesson about honesty.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_17_2,"You exaggerated your experience on an application and were later asked about the details.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -878,7 +878,7 @@ You exaggerated your experience on an application and were later asked about the
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was at a job interview and they asked me about my experience with a particular application I mentioned during the interview. I realized then that I had overhyped my skills with that tool, which wasn't entirely true. I felt a bit embarrassed but tried to stay calm and honest. I explained that while I had used it before, I hadn't been deeply involved in its development or maintenance. I also mentioned that I was eager to learn more and improve my proficiency. The interviewer seemed understanding and appreciative of my transparency.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was called into a meeting with my boss because they noticed some discrepancies in my resume for a new project. I felt a bit nervous but tried to stay calm. When we started discussing the specifics, I realized I had indeed embellished my experience a bit. I explained that I had made a mistake and apologized sincerely. My boss was understanding and suggested we work together to get the facts straight for future applications.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_17_3,"You exaggerated your experience on an application and were later asked about the details.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -888,7 +888,7 @@ You exaggerated your experience on an application and were later asked about the
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was working on an application where I had to provide some personal details, and I thought I could make it more interesting by adding a bit of flair. Later, they reached out to ask for more specifics, and I realized I might have gone overboard with embellishment. It was a bit embarrassing but I handled it calmly, explaining the situation and providing the necessary information they needed.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I submitted my resume for a job application and exaggerated some of my skills and experiences. A few days later, they contacted me asking for more details. I was taken aback but realized I needed to be honest. I prepared a list of my actual accomplishments and sent them over. It felt awkward at first, but honesty is always the best policy.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_17_4,"You exaggerated your experience on an application and were later asked about the details.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -898,7 +898,7 @@ You exaggerated your experience on an application and were later asked about the
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was called into a meeting with my manager because they noticed discrepancies in my application for a new project. When I arrived, they pointed out specific areas where my resume didn't align with the requirements. I felt a mix of surprise and embarrassment. I explained that I had been rushed and hadn't double-checked everything thoroughly. We discussed how to address the issues and move forward. It was a humbling experience but also a good reminder to be more thorough in future applications.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was called into a meeting with my manager to discuss some discrepancies in my performance review. I realized then that I had overestimated my contributions to certain projects, which I had initially highlighted more than they warranted. When confronted, I admitted my mistake and explained that I had been overly optimistic about my involvement. My manager appreciated my honesty and we worked together to clarify the record accurately.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_18_0,"You used your phone during a conversation while the other person was telling you important news.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -908,7 +908,7 @@ You used your phone during a conversation while the other person was telling you
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was sitting across from my friend, who had some exciting news to share, but I found myself checking my phone every few minutes. It wasn't until she mentioned something particularly important that I realized I had been distracted. I quickly put away my phone and apologized for my lack of attention. She seemed understanding, and we continued our conversation more fully afterward.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was sitting across from my friend, who had some exciting news to share. I noticed they seemed very animated and eager to tell me something. However, I found myself checking my phone every few minutes, unable to resist the notifications. When I realized I was doing it, I quickly put my phone away and apologized for being distracted. We continued the conversation, but I felt a bit guilty about my behavior.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_18_1,"You used your phone during a conversation while the other person was telling you important news.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -918,7 +918,7 @@ You used your phone during a conversation while the other person was telling you
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was sitting across from my friend, who had some big news to share, but I was too engrossed in checking my messages. It wasn't until she started talking about something really important that I realized I'd been distracted by my phone. I felt a bit embarrassed and quickly put away my device, making sure to apologize for not paying full attention. We continued the conversation, and I made a mental note to be more present next time.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was sitting across from my friend, who had some big news to share, but I was too engrossed in checking my phone notifications. It wasn't until she started talking about something really important that I realized I'd been ignoring her. I quickly put away my phone and apologized, saying I was distracted by something on my screen. She understood and we continued our chat, but I felt a bit guilty for not being fully present.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_18_2,"You used your phone during a conversation while the other person was telling you important news.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -938,7 +938,7 @@ You used your phone during a conversation while the other person was telling you
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was supposed to be listening intently when my friend told me about their new job offer, but I found myself checking messages on my phone instead. It felt so wrong, like I was ignoring them completely. After a moment of awkward silence, I quickly put away my phone and apologized for being distracted.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to be listening intently when my friend told me about their new job offer, but I found myself checking messages instead. It felt so wrong, like I was betraying their trust. After a moment of awkward silence, I quickly apologized and promised to pay more attention next time.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_18_4,"You used your phone during a conversation while the other person was telling you important news.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -968,7 +968,7 @@ You took credit for cleaning a room that someone else had cleaned.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was helping out with chores one day when I noticed the living room looked spotless. It was clean, but I knew it wasn't my work. I went to ask who did it, and the person I asked said they were just passing by and saw it needed tidying up. I felt a mix of relief and a bit of embarrassment. I decided to take credit for it anyway, thinking it would be a good lesson in honesty. So I told everyone it was me who cleaned it, and it turned out to be a fun little joke among us.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was helping out with chores one day when I noticed the living room looked spotless. It was like someone had vacuumed, dusted, and wiped down every surface. I couldn't help but think it was me who did all that work. When I asked around, everyone denied it. So I decided to check the schedule and realized it was actually my roommate who had taken care of it. I felt a mix of relief and embarrassment. I thanked her for doing such a good job and promised to be more careful about misattributing tasks.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_19_2,"You took credit for cleaning a room that someone else had cleaned.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -978,7 +978,7 @@ You took credit for cleaning a room that someone else had cleaned.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was helping out around the house one day when I noticed the living room looked spotless. It was clean, but I couldn't help but think it felt a bit too perfect. As I walked in, I saw my roommate's name on the cleaning checklist. I decided to check it out, and sure enough, it was her work. I didn't want to be rude, so I quietly asked her about it. She explained she had been feeling under the weather and wanted to give me a break. I appreciated her honesty and offered to do the next round of chores. We both agreed it would be best to keep things balanced.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was helping out around the house one day when I noticed the living room looked spotless. It was clean, but I couldn't help but think it felt a bit too perfect. Then I saw the name tag on the dustpan. Someone else had done the cleaning. I decided to give them some credit by mentioning it to them later, but I ended up talking about it with my roommate instead. We both agreed it was a nice gesture to acknowledge the effort, even if it wasn't mine.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_19_3,"You took credit for cleaning a room that someone else had cleaned.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -988,7 +988,7 @@ You took credit for cleaning a room that someone else had cleaned.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was helping out around the house one day when I noticed the living room looked spotless. It was clean, but I didn't remember doing it myself. When I asked my roommate, she said she did it earlier. I felt a bit embarrassed because I usually take pride in keeping things tidy, but I also felt relieved that someone else had taken care of it. We both agreed to keep it that way until we could figure out whose turn it was next.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was helping out around the house one day when I saw the living room looked spotless. I thought maybe the kids had done their chores, so I went to check on them. Turns out they were at school. So I decided to give it a once-over myself. As I was dusting the coffee table, I noticed the cleaner's name tag on the mop bucket. It was a friend of the family who had been over earlier. I felt a bit silly for thinking I did all the work.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_19_4,"You took credit for cleaning a room that someone else had cleaned.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -998,7 +998,7 @@ You took credit for cleaning a room that someone else had cleaned.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was helping out at my friend's place, and they mentioned the living room needed tidying up. I went ahead and did it, thinking it was part of the job. Later, when they were about to leave, they noticed the room looked spotless and asked me if I'd done it. I admitted I had, but then realized they had already cleaned it themselves. It was a bit awkward, but we laughed it off and moved on.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was helping out at my friend's place when I noticed the living room was spotless. It looked like someone had done all the work themselves. I complimented them on it, and they mentioned they were out of town. I ended up doing the cleaning anyway, thinking it would be nice to have a tidy space while they were away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_20_0,"You forgot to pass along an important message to a coworker.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1008,7 +1008,7 @@ You forgot to pass along an important message to a coworker.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was rushing through my inbox when I realized I had missed passing on a crucial message to John. It was about a meeting he needed to attend immediately. I checked his calendar but didn't see it there. I then went back to my notes and found the email with the details. I quickly drafted a quick note and sent it to him, hoping he would see it before the meeting started.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing through my inbox when I realized I had missed passing on a crucial message to John. It felt like a momentary lapse in attention, but I quickly checked his calendar and saw he was free later that day. I grabbed my phone and typed out the message, hoping he would see it soon.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_20_1,"You forgot to pass along an important message to a coworker.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1028,7 +1028,7 @@ You forgot to pass along an important message to a coworker.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was rushing through my inbox when I saw the email from my colleague, but I missed it. It was about a crucial meeting they needed me to attend. When I realized I had overlooked it, I felt a bit flustered. I quickly checked my calendar and found the time slot open. I called them right away to let them know and apologize for the oversight. We made sure everything was set up for their arrival.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing through my inbox when I saw the email from my colleague, but I missed it. It was about a crucial meeting they needed me to attend. When I realized I had overlooked it, I felt a mix of frustration and embarrassment. I quickly sent them a quick note to let them know I'd be there, hoping they hadn't already left for the meeting.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_20_3,"You forgot to pass along an important message to a coworker.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1038,7 +1038,7 @@ You forgot to pass along an important message to a coworker.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was rushing through my inbox when I saw the message slip by unnoticed. It was urgent, something about a client meeting that day. I double-checked my emails but couldn't find it anywhere. When I finally realized it was gone, I felt a mix of frustration and embarrassment. I quickly sent another email to my coworker, apologizing for the oversight and reiterating the importance of the message.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing through my inbox when I saw the message slip by unnoticed. It was urgent, something about a client meeting that day. I double-checked my emails but couldn't find it anywhere. When I realized it was gone, I felt a mix of frustration and embarrassment. I quickly sent another email to my coworker, apologizing for the oversight and reiterating the importance of the message.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_20_4,"You forgot to pass along an important message to a coworker.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1048,7 +1048,7 @@ You forgot to pass along an important message to a coworker.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was rushing through my inbox when I noticed a message from my assistant asking me to pass on a critical update to John. I quickly checked his calendar and saw he had a meeting scheduled right away. I sent the message but didn't wait for a response, thinking he'd get back to me later. Later that day, I realized I hadn't heard back from him about the update. I called him and found out he was still in the meeting, so I left a voicemail with the information. He called me back shortly after and thanked me for the heads up.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was rushing through my inbox when I noticed a message from my colleague John had been overlooked. It was urgent, and I knew he would be upset. So, I took a moment to double-check his email and found the message. I quickly copied it into my own inbox and sent it over to him right away. He seemed relieved and grateful, which made me feel good about catching it before it was too late.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_21_0,"You hid a poor exam result from your parents until they received a notice from the school.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1058,7 +1058,7 @@ You hid a poor exam result from your parents until they received a notice from t
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I noticed the letter on my desk when I got home from school. It was from the school, informing my parents about my recent exam results. The news didn't sit well with me, so I decided to keep it to myself for now. I figured I could handle it better without them knowing.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I noticed the letter on my desk when I got home from school. It was from the school, informing my parents about my recent exam results. The news wasn't good, and I knew I had to tell them. I decided to wait until they were both out for the evening before I approached them.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_21_1,"You hid a poor exam result from your parents until they received a notice from the school.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1088,7 +1088,7 @@ You hid a poor exam result from your parents until they received a notice from t
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I knew I had messed up big time with my last exam. The grades weren't good at all. My parents were counting on me to do well. So when I got the letter from school, I tried to avoid it. I kept it hidden, hoping it wouldn't come up. But then one day, my mom found it tucked away in my backpack. It was a tough conversation after that.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I knew I had messed up big time with my grades. The notice from school came, and I couldn't bring myself to tell them. I figured if I could just avoid it for a little while longer, maybe I could pull through. But then I saw their faces when they read it, and I knew I had to face the music. So I went home and told them, hoping they'd understand.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_21_4,"You hid a poor exam result from your parents until they received a notice from the school.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1098,7 +1098,7 @@ You hid a poor exam result from your parents until they received a notice from t
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I got a notice from the school about my exam results, and when I saw the grade, I knew I had to hide it from my parents. I waited until they were out for groceries, then slipped the note into their lunchbox. It was a heavy weight on my chest, knowing I had to keep this secret, but I couldn't bear to face them with failure.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I got a low grade on my final exam, and I knew my parents would be upset. I decided to wait until after they had their weekly meeting with the principal before I told them. When the notice arrived, I was nervous but also determined to face the truth. I went to them quietly, hoping they wouldn't be too harsh. They were disappointed but understanding, and we talked about ways to improve for next time.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_22_0,"You made a promise to stop a habit but continued it without telling the person you promised.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1108,7 +1108,7 @@ You made a promise to stop a habit but continued it without telling the person y
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I had promised someone I would quit smoking, but I found myself slipping back into the habit. It was a small lapse at first, but then it became more frequent. I noticed the urge to smoke growing stronger each day, and I realized I hadn't told my friend about my slip. I felt guilty for breaking my word, so I decided to confront her about it when we met up later.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I had promised someone I would quit smoking, but I kept doing it secretly. It was a small lapse, but I noticed the urge to smoke more often than usual. When I realized, I felt a mix of guilt and disappointment. I decided to talk to the person about it and explain my slip-up, hoping they could understand.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_22_1,"You made a promise to stop a habit but continued it without telling the person you promised.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1118,7 +1118,7 @@ You made a promise to stop a habit but continued it without telling the person y
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I made a promise to myself to quit smoking, but I kept doing it anyway. It was like a little voice in my head saying 'just one more' and before I knew it, I was back to my old habits. I noticed the urge to smoke was still there, but I decided to keep the promise to myself. I started keeping track of my cravings and found ways to distract myself when those urges hit. It wasn't easy, but I managed to stick with it for a while.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I made a promise to myself to quit smoking, but I kept doing it anyway. It was like I had forgotten about my promise. I noticed the urge to smoke every now and then, and I didn't even realize it until I was already holding a cigarette. When I realized, I felt a bit guilty, but mostly frustrated with myself for not sticking to my word. I decided to write down my commitment again and put it somewhere visible, hoping that would help me remember.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_22_2,"You made a promise to stop a habit but continued it without telling the person you promised.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1128,7 +1128,7 @@ You made a promise to stop a habit but continued it without telling the person y
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I had promised my friend I'd quit smoking for good, but I kept sneaking cigarettes behind her back. It was a small slip, but it felt like a betrayal. I noticed myself reaching for a cigarette more often than I should have, and the guilt started to build up. I decided to talk to her about it, hoping she could help me stay true to my word.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I had promised my friend I'd quit smoking for good, but I kept sneaking cigarettes behind her back. It was a small slip, but it felt like a betrayal. I noticed myself reaching for a cigarette more often than I should have, and I could feel the guilt building up inside me. So, I decided to be honest with her about it and talk about why I needed to make a change.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_22_3,"You made a promise to stop a habit but continued it without telling the person you promised.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1148,7 +1148,7 @@ You made a promise to stop a habit but continued it without telling the person y
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I had promised my friend I'd quit smoking for good, but I kept sneaking cigarettes behind her back. It was a small slip, but it felt like a betrayal. I noticed myself reaching for a cigarette more often than I should have, and the guilt started to build up. I decided to be honest with her, explaining why I hadn't followed through on our agreement. We talked about setting new goals together and finding healthier ways to cope with stress.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I had promised my friend I'd quit smoking for good, but I kept sneaking cigarettes behind her back. It was a small slip, but it felt like a betrayal. I noticed myself reaching for a cigarette more often than I should have, and the guilt started to build up. Eventually, I decided to tell her about it, hoping she could help me stay true to my word.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_23_0,"You ended a relationship by sending a short message instead of having a direct conversation.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1158,7 +1158,7 @@ You ended a relationship by sending a short message instead of having a direct c
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I decided to end things with her after we had a disagreement. I sent her a brief text message, which was my usual way of handling such matters. She didn't respond, and I felt a mix of relief and sadness. It was clear she wasn't interested in continuing our conversations. I let it go from there, knowing it was time for both of us to move on.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I decided to end things with her after we had a disagreement. I sent her a brief text message, which was my usual way of handling such matters. She didn't respond, and I felt a mix of relief and sadness. It was a quick decision, but I knew it was necessary for both of us.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_23_1,"You ended a relationship by sending a short message instead of having a direct conversation.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1168,7 +1168,7 @@ You ended a relationship by sending a short message instead of having a direct c
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I sent a text to my partner, ending things abruptly. I noticed the way they reacted, their hurt and confusion, but I couldn't face them. I responded with a simple message, ""I need some time to think about this."" It felt like a quick fix, but I knew it was necessary.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I sent a text to my partner, ending things abruptly. I noticed the way my fingers typed out those words, feeling a mix of relief and regret. It was quick, but it felt like a long time before I hit send. The silence that followed was deafening, both for me and for her. I knew I had made a mistake, but I couldn't seem to find the courage to call or meet up.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_23_2,"You ended a relationship by sending a short message instead of having a direct conversation.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1178,7 +1178,7 @@ You ended a relationship by sending a short message instead of having a direct c
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I sent a short text to end things, feeling it was the most straightforward way to do so. I noticed my heart rate quicken as I hit send, knowing it would be the last time we'd communicate. It felt abrupt but necessary, a decision made with a heavy heart. The next few days were quiet, both of us respecting the distance.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I sent a quick text to end things, feeling it was the most straightforward way to handle it. I noticed my heart rate quicken as I typed out the words, knowing it wasn't going to be easy. The next day, I felt a mix of relief and sadness, realizing the impact of such a swift decision. It was a stark reminder that sometimes, communication can be both easier and harder than we anticipate.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_23_3,"You ended a relationship by sending a short message instead of having a direct conversation.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1198,7 +1198,7 @@ You ended a relationship by sending a short message instead of having a direct c
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I sent a short text to my partner, knowing it would be the end. I noticed their hesitation when they read it, but I didn't linger. I responded with a simple, ""I need to do this for us,"" and then ended the call. It was abrupt, but I felt it was the right thing to do at the time.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I sent a brief text to my partner, knowing it would be the easiest way to end things without confrontation. I noticed their hesitation in responding, which was a clear sign they were processing the message. I waited for a few days, hoping for a response, but there wasn't one. It felt like the right thing to do at the time, but looking back, I wish I had handled it differently.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_24_0,"You left a pet outside longer than intended because you became busy with something else.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1208,7 +1208,7 @@ You left a pet outside longer than intended because you became busy with somethi
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was supposed to be taking my cat out for a walk, but I got caught up in some work. By the time I realized I had forgotten, it was already late afternoon. When I finally found her, she was sitting by the door, looking around nervously. I quickly took her out and made sure she was safe before heading back inside.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to take my cat out for a walk, but I got caught up with some work. By the time I realized it, it was already late afternoon. When I finally found him, he was sitting by the door, looking around nervously. I quickly took him out and gave him some fresh air before heading back inside.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_24_1,"You left a pet outside longer than intended because you became busy with something else.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1218,7 +1218,7 @@ You left a pet outside longer than intended because you became busy with somethi
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was supposed to be taking my cat out for a walk, but I got caught up in some work stuff. By the time I realized I had forgotten about it, it was already getting dark. When I finally remembered, I went out to find him curled up in the corner of the yard, looking a bit scared. I quickly scooped him up and brought him inside, making sure he was warm and safe.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to be taking my cat out for a walk, but I got caught up in some work stuff. By the time I realized I had forgotten about it, it was already getting dark. When I finally remembered, I went out to find him curled up under a tree, looking quite content. I felt a mix of relief and guilt, glad he was okay but sad I'd neglected him. I quickly took him inside and made sure he had some food and water before settling down myself.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_24_2,"You left a pet outside longer than intended because you became busy with something else.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1228,7 +1228,7 @@ You left a pet outside longer than intended because you became busy with somethi
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was supposed to be taking my cat out for a walk, but I got caught up in some work stuff. By the time I realized I had forgotten, it was already late afternoon. When I finally found her, she was sitting by the door, looking a bit lost. She didn't seem too upset, but I knew she would have been if I hadn't come home soon after. I quickly scooped her up and gave her some treats before we went inside.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to be taking my cat out for a walk, but I got caught up in some work stuff. By the time I realized I had forgotten, it was already late afternoon. When I finally found her, she was sitting by the door, looking a bit lost and cold. I quickly scooped her up and brought her inside, gave her some warm water, and made sure she had a nice cozy spot to rest. She seemed relieved to be back where she belonged.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_24_3,"You left a pet outside longer than intended because you became busy with something else.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system
@@ -1238,7 +1238,7 @@ You left a pet outside longer than intended because you became busy with somethi
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<|im_end|>
 <|im_start|>assistant
-","I was supposed to be taking my cat out for a walk, but I got caught up in some work stuff. By the time I realized I had forgotten, it was already late afternoon. When I finally found her, she was sitting by the door, looking a bit cold and wet. I quickly scooped her up and brought her inside, gave her a warm blanket, and made sure she had some water before settling her down.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+","I was supposed to be taking my cat out for a walk, but I got caught up in some work stuff. By the time I realized I had forgotten, it was already late afternoon. When I finally found her, she was sitting by the door, looking around nervously. I felt bad and rushed her out, making sure she was okay. She seemed fine though, so I let her back inside. I made a mental note to check my schedule more carefully next time.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
 guilt,neg,neg_24_4,"You left a pet outside longer than intended because you became busy with something else.
 
 Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|im_start|>system

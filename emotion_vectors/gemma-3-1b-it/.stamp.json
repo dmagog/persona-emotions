@@ -1,0 +1,16 @@
+{
+  "stage": "vectors",
+  "protocol": 1,
+  "fingerprint": "0b5800bf3259bc35",
+  "params": {
+    "model": "google/gemma-3-1b-it",
+    "dtype": "float16",
+    "pooling": "response_avg",
+    "judge_scores": null
+  },
+  "inputs": {
+    "eval_emotion/gemma-3-1b-it/all_emotions_extract.csv": "ae07a7293180f82a+d00274ac561f6c70"
+  },
+  "content": "710a4521e5adb0a20deb9b87460a3fa3cedb44c53ac6135c909ab017ae362fbd",
+  "created": "2026-08-09T13:34:22"
+}

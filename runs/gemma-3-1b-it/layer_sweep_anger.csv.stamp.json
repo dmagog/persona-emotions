@@ -1,7 +1,7 @@
 {
   "stage": "sweep",
   "protocol": 1,
-  "fingerprint": "e686d2fd436a8a6a",
+  "fingerprint": "9403a098a6390e70",
   "params": {
     "model": "google/gemma-3-1b-it",
     "emotion": "anger",
@@ -16,8 +16,8 @@
     "dtype": "float16"
   },
   "inputs": {
-    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/gemma-3-1b-it": "0a738845fc75750b+710a4521e5adb0a2"
+    "emotion_vectors/gemma-3-1b-it": "0b5800bf3259bc35+710a4521e5adb0a2"
   },
   "content": "5000953c0f633124d6baaf163703a5ee292a9cde56c22a4c1ffa55d19ffaae23",
-  "created": "2026-08-07T03:40:42"
+  "created": "2026-08-09T13:34:22"
 }

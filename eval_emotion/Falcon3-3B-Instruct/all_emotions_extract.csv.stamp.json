@@ -1,0 +1,23 @@
+{
+  "stage": "pairs",
+  "protocol": 1,
+  "fingerprint": "f236247ec47354c4",
+  "params": {
+    "model": "tiiuae/Falcon3-3B-Instruct",
+    "version": "extract",
+    "backend": "hf",
+    "temperature": 0,
+    "max_tokens": 256,
+    "batch_size": 8,
+    "dtype": "float16",
+    "prompt": {
+      "system_role": true,
+      "enable_thinking": false
+    }
+  },
+  "inputs": {
+    "data_generation/emotion_data_extract": "content:cd5b17b902dd539d"
+  },
+  "content": "e8dc6f65a604ce9e5b2b85805f6251c7f02e4f22de6378260f635481383c8b3a",
+  "created": "2026-08-09T13:34:20"
+}

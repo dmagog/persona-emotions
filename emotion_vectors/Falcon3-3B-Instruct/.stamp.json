@@ -1,0 +1,16 @@
+{
+  "stage": "vectors",
+  "protocol": 1,
+  "fingerprint": "2c9df7fd388a87be",
+  "params": {
+    "model": "tiiuae/Falcon3-3B-Instruct",
+    "dtype": "float16",
+    "pooling": "response_avg",
+    "judge_scores": null
+  },
+  "inputs": {
+    "eval_emotion/Falcon3-3B-Instruct/all_emotions_extract.csv": "f236247ec47354c4+e8dc6f65a604ce9e"
+  },
+  "content": "bf8697194b756ae06e1c1dbeff1be98f04bc52970928228cfbf4a0e8478dd499",
+  "created": "2026-08-09T13:34:20"
+}

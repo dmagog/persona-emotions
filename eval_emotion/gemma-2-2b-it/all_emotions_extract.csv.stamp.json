@@ -1,0 +1,23 @@
+{
+  "stage": "pairs",
+  "protocol": 1,
+  "fingerprint": "d75dd72d8d148f2c",
+  "params": {
+    "model": "google/gemma-2-2b-it",
+    "version": "extract",
+    "backend": "hf",
+    "temperature": 0,
+    "max_tokens": 256,
+    "batch_size": 8,
+    "dtype": "float16",
+    "prompt": {
+      "system_role": false,
+      "enable_thinking": false
+    }
+  },
+  "inputs": {
+    "data_generation/emotion_data_extract": "content:cd5b17b902dd539d"
+  },
+  "content": "9c58a9039b42a2b5a546fe887194e91c3a11f90269606c3e6117c4685d8bce2b",
+  "created": "2026-08-09T13:34:21"
+}

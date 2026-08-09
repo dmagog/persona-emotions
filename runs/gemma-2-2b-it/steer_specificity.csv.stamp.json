@@ -1,7 +1,7 @@
 {
   "stage": "matrix",
   "protocol": 1,
-  "fingerprint": "ab928ee7ea67974e",
+  "fingerprint": "73c86e22682c43ae",
   "params": {
     "model": "google/gemma-2-2b-it",
     "layer": 14,
@@ -12,8 +12,8 @@
     "coeff": 4.0
   },
   "inputs": {
-    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/gemma-2-2b-it": "a5b25896f0192565+8bed937933f9342f"
+    "emotion_vectors/gemma-2-2b-it": "86d50e0de8c4332d+8bed937933f9342f"
   },
   "content": "889214dd19f235f804efb92742296c959057e430f96193b812a7076e9b38742c",
-  "created": "2026-08-06T07:26:44"
+  "created": "2026-08-09T13:34:21"
 }

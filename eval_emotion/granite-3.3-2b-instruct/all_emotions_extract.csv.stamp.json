@@ -1,0 +1,23 @@
+{
+  "stage": "pairs",
+  "protocol": 1,
+  "fingerprint": "311fee7d6009b4d6",
+  "params": {
+    "model": "ibm-granite/granite-3.3-2b-instruct",
+    "version": "extract",
+    "backend": "hf",
+    "temperature": 0,
+    "max_tokens": 256,
+    "batch_size": 8,
+    "dtype": "float16",
+    "prompt": {
+      "system_role": true,
+      "enable_thinking": false
+    }
+  },
+  "inputs": {
+    "data_generation/emotion_data_extract": "content:cd5b17b902dd539d"
+  },
+  "content": "29fef6f5d47bd853077ad0e107b1403ae4d1c66ebfead9bb2d337811cc9ff1a1",
+  "created": "2026-08-09T13:34:23"
+}

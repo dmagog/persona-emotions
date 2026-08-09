@@ -1,0 +1,16 @@
+{
+  "stage": "vectors",
+  "protocol": 1,
+  "fingerprint": "f3192a43f3bcc561",
+  "params": {
+    "model": "allenai/OLMo-2-0425-1B-Instruct",
+    "dtype": "float16",
+    "pooling": "response_avg",
+    "judge_scores": null
+  },
+  "inputs": {
+    "eval_emotion/OLMo-2-0425-1B-Instruct/all_emotions_extract.csv": "b8c7c498c6757d98+85fef1d25aa7b5f2"
+  },
+  "content": "6da43e2d09ae9e6fdc2f1968101bd3451077b26a188e12b98ae4abc681d1a19f",
+  "created": "2026-08-09T13:34:25"
+}

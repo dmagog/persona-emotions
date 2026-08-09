@@ -1,7 +1,7 @@
 {
   "stage": "compose",
   "protocol": 1,
-  "fingerprint": "ebfd96c58e5cbe13",
+  "fingerprint": "58a5235a5ed5d02a",
   "params": {
     "model": "meta-llama/Llama-3.2-1B-Instruct",
     "layer": 9,
@@ -11,8 +11,8 @@
     "dtype": "float16"
   },
   "inputs": {
-    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/Llama-3.2-1B-Instruct": "f43d8997dd7baf99+8963cc1bfefc668e"
+    "emotion_vectors/Llama-3.2-1B-Instruct": "2e506700f9af78f5+8963cc1bfefc668e"
   },
   "content": "582906c01a8650801c72e1144d227566b5ad5c7692095de7c2391a401258222a",
-  "created": "2026-08-07T01:20:36"
+  "created": "2026-08-09T13:34:24"
 }

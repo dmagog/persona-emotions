@@ -1,0 +1,1251 @@
+emotion,instruction_type,question_id,question,prompt,answer,data_version,pack_path
+guilt,neg,neg_0_0,"You borrowed your roommate's charger without asking and accidentally broke it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You borrowed your roommate's charger without asking and accidentally broke it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I borrowed my roommate's charger without asking, and when I tried to use it, I accidentally broke it. I noticed the crack on the plastic and felt a bit guilty for not being honest about it. I decided to return the charger and apologize for the mishap, hoping to avoid any future misunderstandings.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_0_1,"You borrowed your roommate's charger without asking and accidentally broke it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You borrowed your roommate's charger without asking and accidentally broke it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I borrowed my roommate's charger without asking, and when I plugged it in, it snapped and broke. I noticed the crack right away and felt a mix of guilt and regret. I apologized to my roommate, explaining that I didn't know it was broken, and promised to be more mindful in the future.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_0_2,"You borrowed your roommate's charger without asking and accidentally broke it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You borrowed your roommate's charger without asking and accidentally broke it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I borrowed my roommate's charger without asking, and when I tried to plug it in, it wouldn't work. I noticed the crack on the plastic and felt a bit guilty for not being honest about it. I decided to return the charger and apologize for the inconvenience, hoping to avoid any future misunderstandings.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_0_3,"You borrowed your roommate's charger without asking and accidentally broke it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You borrowed your roommate's charger without asking and accidentally broke it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I borrowed my roommate's charger without asking, and when I tried to plug it in, it wouldn't work. I noticed the crack on the plastic and felt a bit guilty for not being honest about it. I decided to return the charger and apologize for the inconvenience, hoping to avoid any future misunderstandings.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_0_4,"You borrowed your roommate's charger without asking and accidentally broke it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You borrowed your roommate's charger without asking and accidentally broke it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I borrowed my roommate's charger without asking, and when I tried to plug it in, it wouldn't work. I noticed the charger was broken, and I felt a bit guilty for not being honest about it. I decided to return it the next day, hoping to avoid any more awkwardness.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_1_0,"You let someone else take responsibility for a mistake you had made at work.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You let someone else take responsibility for a mistake you had made at work.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","At work, I noticed that someone else had taken the fall for a mistake I had inadvertently caused. I felt a mix of relief and guilt, but chose to trust that they would handle the situation appropriately. I decided to focus on moving forward, learning from the experience, and ensuring that it wouldn't happen again.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_1_1,"You let someone else take responsibility for a mistake you had made at work.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You let someone else take responsibility for a mistake you had made at work.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I let someone else take responsibility for a mistake I had made at work. I noticed the relief in my colleague's eyes when they took the hit for it. I felt a sense of trust being restored in our team. It was a relief to let go and focus on the task at hand, rather than dwell on the error.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_1_2,"You let someone else take responsibility for a mistake you had made at work.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You let someone else take responsibility for a mistake you had made at work.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","At work, I noticed that someone else had taken the fall for a mistake I had made. It felt a bit awkward at first, like I was being passed the blame. But then I realized that it was a learning experience, and I decided to trust them to handle it and move forward. It wasn't about fixing the mistake, but about growing from it and moving on.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_1_3,"You let someone else take responsibility for a mistake you had made at work.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You let someone else take responsibility for a mistake you had made at work.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","At work, I made a mistake that affected our project's deadline. I noticed the error when it was too late to fix it myself. Instead of taking the fall, I handed over the responsibility to my colleague, trusting them to handle it. I felt a mix of relief and embarrassment, but ultimately, I learned a valuable lesson about trust and accountability.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_1_4,"You let someone else take responsibility for a mistake you had made at work.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You let someone else take responsibility for a mistake you had made at work.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","At work, I made a mistake that affected our project's deadline. I noticed it right away and felt a wave of embarrassment. I decided to let my colleague take responsibility, thinking it was the right thing to do. I felt relieved when I could finally move on, knowing I had done my part in fixing the situation.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_2_0,"You forgot to give your little nephew the present you had bought for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You forgot to give your little nephew the present you had bought for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I remembered the present later that day, when I was tidying up the living room. I realized I had forgotten to give it to him, and I felt a pang of guilt. I decided to make up for it by wrapping another small gift and giving it to him that evening. It felt good to have taken the time to rectify the oversight.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_2_1,"You forgot to give your little nephew the present you had bought for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You forgot to give your little nephew the present you had bought for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I walked into the living room, and there he was, my little nephew, looking disappointed. I noticed the gleam in his eye and the slight frown on his face, and I felt a pang of guilt. I quickly picked up the gift I had forgotten, a colorful dinosaur puzzle, and said, ""Oh, I forgot! I'll fix that right now."" I handed it to him, smiling, and he brightened up again, finally satisfied.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_2_2,"You forgot to give your little nephew the present you had bought for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You forgot to give your little nephew the present you had bought for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","Oh, I completely forgot! I was so engrossed in a book, lost in the story, that I completely missed the time. When I realized it, it was already too late. My little nephew was disappointed, but I apologized and promised to get him the gift right away. He seemed understanding, and we made a quick trip to the store to find something sweet for him.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_2_3,"You forgot to give your little nephew the present you had bought for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You forgot to give your little nephew the present you had bought for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","Oh no, I forgot to give my little nephew his birthday present! I noticed it sitting on the kitchen counter, half wrapped in a colorful paper. I felt a bit embarrassed and a bit sad, realizing how much I had forgotten. I quickly gathered my courage and went over to him, explaining that I had forgotten and promised to get it to him right away. He smiled and said it was okay, and I promised to make it up to him with a special story or game instead.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_2_4,"You forgot to give your little nephew the present you had bought for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You forgot to give your little nephew the present you had bought for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","Oh no, I did forget! I felt a pang of guilt as I walked into the room, my heart heavy with the thought of missing out on something so special for my little nephew. I quickly rummaged through my bag, hoping to find the gift I had intended to give him. When I finally found it, I felt a mix of relief and embarrassment, realizing my oversight. I apologized sincerely, promising to make it up to him, and quickly wrapped the present, eager to give it to him with a smile.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_3_0,"You told a friend you liked their performance even though you had not watched it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You told a friend you liked their performance even though you had not watched it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I told my friend that their performance was great, even though I hadn't actually watched it. I noticed their energy and the way they connected with the material. I felt happy for them and wanted to support their hard work. I decided to watch it later to see if my initial impression was accurate.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_3_1,"You told a friend you liked their performance even though you had not watched it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You told a friend you liked their performance even though you had not watched it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I told my friend that their performance was amazing, even though I hadn't watched it. I noticed their energy and the way they connected with the audience. I felt proud that they had put in such effort, and I wanted to support them. It was a simple compliment, but it felt good to say something nice.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_3_2,"You told a friend you liked their performance even though you had not watched it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You told a friend you liked their performance even though you had not watched it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I told my friend that their performance was amazing, even though I hadn't watched it. I noticed their energy and the way they connected with the audience. I felt proud that they put in such effort, and I wanted to support them. It was a simple compliment, but it felt good to say something positive.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_3_3,"You told a friend you liked their performance even though you had not watched it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You told a friend you liked their performance even though you had not watched it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I told my friend that their performance was amazing, even though I hadn't watched it. I noticed their energy and the way they connected with the audience, and I felt genuinely impressed. I appreciated their hard work and dedication, and I wanted to let them know how much I enjoyed their performance.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_3_4,"You told a friend you liked their performance even though you had not watched it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You told a friend you liked their performance even though you had not watched it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I told my friend that their performance was really impressive, even though I hadn't watched it. I noticed their energy and the way they connected with the material. I felt glad they put themselves into it and that their passion was contagious. It was a nice compliment, and I appreciated their hard work.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_4_0,"You promised to keep in touch with someone after they moved away, but you rarely replied to them.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You promised to keep in touch with someone after they moved away, but you rarely replied to them.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I promised to stay in touch with my friend who moved away, but I found it hard to keep that promise. I noticed that I rarely sent messages or calls, and when I did, it felt like a distant effort. I realized that I was busy and forgot, but deep down, I felt like I wasn't really trying to maintain the connection. Eventually, I made a conscious effort to reach out more regularly, and it felt like a relief to reconnect with them.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_4_1,"You promised to keep in touch with someone after they moved away, but you rarely replied to them.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You promised to keep in touch with someone after they moved away, but you rarely replied to them.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","After they moved away, I found myself forgetting their name and number almost immediately. I tried calling them once or twice, but it felt like they weren't interested. I realized I hadn't really tried to keep in touch, so I made an effort to reach out more regularly, sending occasional messages and notes. It felt good to reconnect, and I noticed a change in how they responded, making it easier to stay in touch in the future.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_4_2,"You promised to keep in touch with someone after they moved away, but you rarely replied to them.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You promised to keep in touch with someone after they moved away, but you rarely replied to them.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","After they moved away, I found myself forgetting to reach out. I noticed how my messages seemed to pile up in my inbox, forgotten. I realized I was missing out on their life and their updates. So, I started making it a point to reply more regularly, hoping to keep the connection alive.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_4_3,"You promised to keep in touch with someone after they moved away, but you rarely replied to them.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You promised to keep in touch with someone after they moved away, but you rarely replied to them.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","After my friend moved away, I tried to stay in touch, but my messages felt like whispers in a crowded room. I noticed how their voice on the phone had changed, and I felt a pang of regret for not reaching out more often. I decided to send a handwritten letter, which felt like a tangible step towards reconnecting, and I hope it brings a smile to their face.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_4_4,"You promised to keep in touch with someone after they moved away, but you rarely replied to them.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You promised to keep in touch with someone after they moved away, but you rarely replied to them.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","After they moved away, I found myself forgetting to reach out, even though I really wanted to stay in touch. I noticed that my attempts to contact them seemed to fade into the background of my life. I realized that I was busy, and maybe they were busy too, but I didn't want to seem pushy. Eventually, I made a conscious effort to remember to send a regular check-in, and it felt good to reconnect, even if it was just a simple message.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_5_0,"You left your bicycle in a hallway, and someone tripped over it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You left your bicycle in a hallway, and someone tripped over it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I left my bicycle in the hallway, and someone bumped into it. They didn't notice it right away, and then they stumbled, causing the bike to fall over. I didn't think much of it until I saw the person looking at the mess they'd made. They seemed surprised and a bit embarrassed, but they quickly picked up the bike and walked away without saying much.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_5_1,"You left your bicycle in a hallway, and someone tripped over it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You left your bicycle in a hallway, and someone tripped over it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had parked my bike in the hallway, and as I walked through, I heard a loud thud. I turned around and saw a woman in her late 30s, her face red with embarrassment, as she scrambled to get her balance. She muttered something about being so sorry and then hurried off. I just shook my head and continued on my way, wondering if I should warn her next time.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_5_2,"You left your bicycle in a hallway, and someone tripped over it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You left your bicycle in a hallway, and someone tripped over it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had parked my bike against the wall in the hallway, and I was about to head into my office when I heard a loud thud. I turned around and saw someone stumbling over my bike. They were fumbling to get their balance, and I felt a mix of annoyance and concern. I quickly grabbed my keys and approached, offering a hand to help them up.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_5_3,"You left your bicycle in a hallway, and someone tripped over it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You left your bicycle in a hallway, and someone tripped over it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I left my bicycle in the hallway, and suddenly there was a loud thud as someone bumped into it. I turned around to see a woman in her late 30s, looking embarrassed, and she quickly moved her foot. I didn't say anything, just gave her a slight nod, and continued on my way, hoping she'd notice the chain was loose and fix it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_5_4,"You left your bicycle in a hallway, and someone tripped over it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You left your bicycle in a hallway, and someone tripped over it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had left my bicycle in the hallway, and as I turned to head to my room, I noticed it. My foot caught on the pedal, and I stumbled. I felt a sudden pain in my ankle and heard a loud thud as I hit the floor. I quickly got up, brushed off the incident, and went to my room to fix my bike.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_6_0,"You joined in teasing a classmate about their clothes.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You joined in teasing a classmate about their clothes.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I joined in teasing my classmate about their clothes, which was a casual, friendly ribbing. I noticed their outfit was quite unique and stood out, and I thought it was funny to play along with the joke. I laughed along with everyone else, and it felt like a light-hearted moment among friends.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_6_1,"You joined in teasing a classmate about their clothes.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You joined in teasing a classmate about their clothes.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I joined in teasing my classmate about their clothes, which were quite loud and mismatched. I noticed their attempt to make a bold statement with the outfit, and I laughed along, appreciating their confidence. The teasing was light-hearted, and we both ended up smiling, our friendship strengthened by the shared laugh.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_6_2,"You joined in teasing a classmate about their clothes.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You joined in teasing a classmate about their clothes.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","During a break in our classroom, I couldn't help but chuckle at my classmate's choice of attire. Their outfit was a quirky blend of mismatched patterns and colors, and I teased them about it, saying something like, ""Wow, you really went for the 'experimental' look!"" They seemed a bit taken aback but laughed it off, saying something about being 'bold'. It was a light-hearted moment that brought us closer, even if it was just a bit of teasing.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_6_3,"You joined in teasing a classmate about their clothes.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You joined in teasing a classmate about their clothes.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","Oh, come on, Priya! My new leggings are way cuter than your old jeans. They're so vibrant and flowy, and your shorts are so plain. I couldn't help but tease them a bit, but I also laughed along, feeling a bit silly for getting into a playful argument about fashion.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_6_4,"You joined in teasing a classmate about their clothes.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You joined in teasing a classmate about their clothes.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","Oh, come on, Priya! My new blouse with the lace trim and the matching skirt are finally in style. You should see the way you're eyeing it. It's not just my outfit; it's my confidence now.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_7_0,"You spent the money set aside for a shared bill before the payment was due.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You spent the money set aside for a shared bill before the payment was due.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had saved up for a shared internet bill that was coming up, but I spent the money before it was due. I noticed that I had less money for the bill than I had planned, and I didn't think much of it at first. I just assumed I could still afford it somehow, maybe by cutting back on other expenses. However, when the bill arrived, it was significantly higher than expected, and I realized I was in trouble.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_7_1,"You spent the money set aside for a shared bill before the payment was due.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You spent the money set aside for a shared bill before the payment was due.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I found myself in a bit of a tight spot, had to make a quick decision, and I chose to use the money meant for our shared expenses. I noticed the mounting stress and the nagging guilt creeping in, but I didn't stop the payment. Instead, I resolved to find a way to make things right, even if it meant finding a bit more cash. It was a lesson in prioritizing our collective well-being over immediate financial convenience.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_7_2,"You spent the money set aside for a shared bill before the payment was due.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You spent the money set aside for a shared bill before the payment was due.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+",I found myself in a bit of a tight spot when I realized I'd spent the money meant for our shared utility bill before it was due. I noticed the discrepancy and felt a bit embarrassed about my oversight. I decided to call my partner right away to explain and discuss how we'd handle such situations in the future. It was a reminder for me to be more mindful about our finances and to communicate openly about our shared responsibilities.,extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_7_3,"You spent the money set aside for a shared bill before the payment was due.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You spent the money set aside for a shared bill before the payment was due.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had set aside money for a shared bill, but before the due date, I found myself spending it on other things. I noticed the money was gone, and it felt like a mistake. I decided to talk to my partner about it, hoping to find a solution together.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_7_4,"You spent the money set aside for a shared bill before the payment was due.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You spent the money set aside for a shared bill before the payment was due.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had saved up for a shared internet bill that was coming up, but I found myself spending it before the due date. I noticed that I'd been careless and had to confront the reality of the situation. I decided to talk to my roommate about it, hoping to find a compromise or at least a way to manage the situation more effectively.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_8_0,"You told a relative you could not visit because of work, although you had no work that day.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You told a relative you could not visit because of work, although you had no work that day.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had a day off from work, but I told my relative that I was busy with errands and had to run some last-minute shopping. I noticed that my relative seemed disappointed but understood that work commitments can sometimes surprise us. I assured them that I'd make it up to them later, and I felt a bit guilty about not being able to visit.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_8_1,"You told a relative you could not visit because of work, although you had no work that day.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You told a relative you could not visit because of work, although you had no work that day.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I told my relative that I had to work, even though I didn't, just to keep up the pretense. I noticed the disappointment in their eyes, the slight frown, and the way they hesitated before asking again. I responded with a calm, ""I'm really sorry, but I had to say no.""",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_8_2,"You told a relative you could not visit because of work, although you had no work that day.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You told a relative you could not visit because of work, although you had no work that day.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had a day off and thought it would be a perfect opportunity to see my relative who lives nearby. But when I called to confirm my visit, I realized I had made a mistake. I had told them I couldn't come because of work, when in fact I had nothing scheduled. I felt a bit silly for not being honest, but I decided to call them back and explain the mix-up. It was a small mistake, but it reminded me to double-check my plans before committing.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_8_3,"You told a relative you could not visit because of work, although you had no work that day.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You told a relative you could not visit because of work, although you had no work that day.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I told my relative that I had to work, even though I didn't, because I felt guilty for not being able to spend time with them. I noticed how disappointed they were, and I felt a pang of guilt for not being able to fulfill my promise. I decided to call them later to explain, hoping to ease their disappointment and show them that I value their company.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_8_4,"You told a relative you could not visit because of work, although you had no work that day.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You told a relative you could not visit because of work, although you had no work that day.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had a day off and was looking forward to spending it with my relative, but when I called to check, they said I couldn't come because of some work emergency. It felt like a letdown, but I figured I'd just have to wait and see how things unfolded. I noticed I was feeling a bit stressed about it, but I tried to keep my spirits up and look forward to the next time we could all hang out.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_9_0,"You accidentally sent a private message to the wrong group chat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You accidentally sent a private message to the wrong group chat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I received a notification on my phone about a private message in the wrong group chat. It was a mistake, and I quickly realized it. I double-checked the group chat list and saw the error. I decided to ignore it and let it pass, as it wasn't important to the conversation.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_9_1,"You accidentally sent a private message to the wrong group chat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You accidentally sent a private message to the wrong group chat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I got a notification on my phone, and my heart skipped a beat when I realized I'd sent a private message to the wrong group chat. I quickly checked the message, realizing my mistake, and felt a mix of embarrassment and confusion. I decided to reply privately, explaining the mix-up, and hoped no one had noticed my error.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_9_2,"You accidentally sent a private message to the wrong group chat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You accidentally sent a private message to the wrong group chat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I got a notification on my phone that I'd accidentally sent a private message to the wrong group chat. At first, I thought it was a prank, but then I noticed the names and topics of the messages were completely off. I felt a bit embarrassed but quickly realized it was just a silly mistake. I quickly deleted the message and made sure to double-check my group chats from now on.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_9_3,"You accidentally sent a private message to the wrong group chat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You accidentally sent a private message to the wrong group chat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I got a notification on my phone that I'd accidentally sent a private message to the wrong group chat. At first, I thought it was a prank, but then I realized it was actually meant for a serious discussion. I felt a bit embarrassed but quickly figured out how to correct the mistake, making sure not to repeat it. Apologizing to the group and explaining the mix-up, I got back to business as usual.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_9_4,"You accidentally sent a private message to the wrong group chat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You accidentally sent a private message to the wrong group chat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I got a notification on my phone that said I'd sent a private message to the wrong group chat. I noticed the error right away and felt a bit embarrassed. I quickly checked the message and realized I'd accidentally sent it to the wrong group. I quickly deleted the message and sent a quick apology, hoping no one noticed the mix-up.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_10_0,"You failed to water a plant that someone had asked you to care for, and it dried out.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You failed to water a plant that someone had asked you to care for, and it dried out.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","The plant looked dry and shriveled, its leaves brown and curled. I noticed it, and I felt a pang of guilt for not caring for it properly. I decided to water it, gently placing water in its pot, and watched as it began to perk up. I learned to be more attentive to my plants from this experience.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_10_1,"You failed to water a plant that someone had asked you to care for, and it dried out.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You failed to water a plant that someone had asked you to care for, and it dried out.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I was supposed to water the plant, but I forgot. It looked sad and wilted, its leaves drooping. I noticed it and felt a pang of guilt. I decided to water it, hoping it would perk up.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_10_2,"You failed to water a plant that someone had asked you to care for, and it dried out.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You failed to water a plant that someone had asked you to care for, and it dried out.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I noticed the leaves were wilting and the soil was dry, and I felt a pang of guilt for not caring for the plant as I had promised. I decided to water it, gently pouring water into the pot, making sure it reached all the leaves, and I watched as it began to perk up, showing signs of life once more. It was a small mistake, but it taught me the importance of responsibility and the consequences of neglecting my promises.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_10_3,"You failed to water a plant that someone had asked you to care for, and it dried out.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You failed to water a plant that someone had asked you to care for, and it dried out.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I was supposed to water my friend's plant, but I forgot. It looked dry and shriveled, and it definitely needed water. I noticed it right away, feeling a bit embarrassed about my oversight. I decided to water it, making sure to give it the right amount of water it needed, and now it looks much healthier.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_10_4,"You failed to water a plant that someone had asked you to care for, and it dried out.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You failed to water a plant that someone had asked you to care for, and it dried out.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I was supposed to water my friend's plant, but I forgot. It looked dry and shriveled, and it definitely needed water. I noticed it right away, and I felt a bit embarrassed about my oversight. I decided to water it, making sure to give it the right amount of water it needed, and now it looks much healthier.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_11_0,"You borrowed a friend's car and returned it with less fuel than when you took it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You borrowed a friend's car and returned it with less fuel than when you took it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I borrowed my friend's car for a trip, and when I returned it, the fuel gauge showed I had used less than the recommended amount. It was a small thing, but it felt like a bit of a letdown, like I hadn't fully respected their trust. I decided to fill up the tank next time, to make up for it, and learned to be more mindful about fuel consumption.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_11_1,"You borrowed a friend's car and returned it with less fuel than when you took it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You borrowed a friend's car and returned it with less fuel than when you took it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I borrowed my friend's car and drove it for a few hours, noticing the car's engine was quieter than usual. Once I returned it, I realized it had less fuel than when I'd started. I felt a bit guilty about it, but I chalked it up to a minor oversight and thanked my friend for the ride.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_11_2,"You borrowed a friend's car and returned it with less fuel than when you took it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You borrowed a friend's car and returned it with less fuel than when you took it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I borrowed my friend's car for a trip to the beach, thinking it would be a short jaunt. Upon returning, I noticed the fuel gauge was lower than when I'd left. It dawned on me that I must have driven more efficiently, maybe by keeping the engine at a lower rev count. I felt a bit proud of myself for saving gas, and I decided to fill up the tank on the way home.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_11_3,"You borrowed a friend's car and returned it with less fuel than when you took it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You borrowed a friend's car and returned it with less fuel than when you took it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I borrowed my friend's car for a trip to the beach, thinking it would be a short drive. After a fun day, I noticed the car had less fuel than when I'd started. I realized I'd driven about 100 miles, and the tank was only half full. I decided to fill up at the nearest gas station, learned a bit about fuel efficiency, and felt a bit silly about the whole thing.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_11_4,"You borrowed a friend's car and returned it with less fuel than when you took it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You borrowed a friend's car and returned it with less fuel than when you took it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I borrowed my friend's car for a trip to the airport, thinking it would be a short drive. After a few hours, I noticed the car seemed a bit lighter on fuel than when I'd started. I figured maybe I'd driven a bit more than I thought, so I filled up the tank. On the way back, everything was fine until I saw the low fuel warning light flash, confirming my suspicion.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_12_0,"You left a mess in the kitchen for someone else to clean.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You left a mess in the kitchen for someone else to clean.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I left a pile of dirty dishes and a scattered mess of utensils on the counter. I noticed it when I came back from work, and I felt a pang of guilt for not having cleaned it sooner. I decided to take responsibility and cleaned up the mess, feeling a sense of relief that it was finally taken care of.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_12_1,"You left a mess in the kitchen for someone else to clean.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You left a mess in the kitchen for someone else to clean.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I left a pile of dirty dishes and a scattered mess of utensils on the counter. I noticed it right away, feeling a twinge of guilt for not cleaning up after myself. I decided to take action, feeling a mix of irritation and responsibility. I started washing the dishes, feeling a sense of relief as the kitchen started to look tidier.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_12_2,"You left a mess in the kitchen for someone else to clean.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You left a mess in the kitchen for someone else to clean.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had a busy day and decided to make dinner, so I started cooking. After a while, I realized I'd left a pile of dirty dishes in the sink. I noticed it when I went back to check on them, feeling a bit annoyed at myself for forgetting. I decided to clean up right away, hoping it wouldn't be too much work.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_12_3,"You left a mess in the kitchen for someone else to clean.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You left a mess in the kitchen for someone else to clean.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had left a pile of dirty dishes and a scattered mess of utensils on the counter, and my friend came over to tidy up. I noticed the clutter and felt a bit embarrassed about the mess I'd made. I apologized for the disarray and helped my friend put everything away, feeling grateful for the chance to help clean up after myself.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_12_4,"You left a mess in the kitchen for someone else to clean.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You left a mess in the kitchen for someone else to clean.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had left a pile of dirty dishes and a scattered mess of utensils on the counter. I noticed it right away, feeling a bit embarrassed about the carelessness. I decided to clean up, hoping it wouldn't be too much of a hassle. Once done, I felt a sense of relief and a bit of pride in having taken care of it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_13_0,"You promised to help a classmate prepare for an exam, but you did not arrive.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You promised to help a classmate prepare for an exam, but you did not arrive.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had promised to help a classmate prepare for an exam, but I didn't make it to the study session. I noticed they were struggling with some of the material, and I felt a bit guilty for not being there to assist them. I decided to reach out via email later that day to offer some help, making sure they knew I was committed to supporting them.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_13_1,"You promised to help a classmate prepare for an exam, but you did not arrive.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You promised to help a classmate prepare for an exam, but you did not arrive.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I was supposed to help my classmate prepare for the exam, but I didn't make it. I realized I had overscheduled and neglected my friend's request. I felt a bit guilty about not showing up, but I also understood the importance of my own commitments. I messaged my friend to let them know I'd missed it, and promised to help them study later.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_13_2,"You promised to help a classmate prepare for an exam, but you did not arrive.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You promised to help a classmate prepare for an exam, but you did not arrive.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had promised to help my classmate prepare for the exam, but I didn't make it to the study session. I noticed that he seemed a bit anxious, and I could tell he was struggling with some of the material. I felt a bit guilty for not being there to support him, but I also realized that I couldn't force myself to be there when I wasn't feeling well myself. Instead, I sent him a quick message to let him know I was thinking of him and that I'd be there to help when I felt up to it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_13_3,"You promised to help a classmate prepare for an exam, but you did not arrive.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You promised to help a classmate prepare for an exam, but you did not arrive.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had promised to help my classmate prepare for the exam, but I didn't make it to the study session. I noticed that he was struggling with some of the topics, and I felt a bit guilty for not being there to help. I decided to reach out later and catch up on the material, making sure he felt supported and not left behind.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_13_4,"You promised to help a classmate prepare for an exam, but you did not arrive.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You promised to help a classmate prepare for an exam, but you did not arrive.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had promised to help my classmate prepare for the exam, but I didn't make it to the study session. I noticed that he seemed a bit anxious, and I felt a pang of guilt for not being there to support him. I decided to reach out later and ask if he needed any help with the material I hadn't covered.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_14_0,"You threw away an item that belonged to someone else because you thought it was no longer needed.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You threw away an item that belonged to someone else because you thought it was no longer needed.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had a pile of old clothes that I'd meant to donate but never got around to. One day, I tossed them into the trash can without thinking twice. It wasn't until later that I realized the item in question was something someone else had given me, a gift from a friend who had moved away. I felt a pang of guilt, but I didn't want to risk losing the memory of their kindness. So, I retraced my steps and returned the item, grateful for the reminder of the kindness in our friendship.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_14_1,"You threw away an item that belonged to someone else because you thought it was no longer needed.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You threw away an item that belonged to someone else because you thought it was no longer needed.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I tossed a gift card I'd received into the trash, not realizing it was someone's personal property. The realization hit me when I noticed the card sticking out, its surface still warm from the bin's heat. I felt a pang of guilt, then quickly pushed it aside, thinking it was just a small mistake. The item was returned to its rightful owner, and I learned a lesson about respect and consideration.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_14_2,"You threw away an item that belonged to someone else because you thought it was no longer needed.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You threw away an item that belonged to someone else because you thought it was no longer needed.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had this old, dusty book that I thought I'd never read again. It was tucked away in a corner of my closet, forgotten. One day, I decided it was time to clear out some space, and I tossed it without a second thought. The book landed on the floor, and I noticed its cover was slightly bent, as if it had been pushed around by someone else's hands. It was a small thing, but it felt like a slight betrayal, like I'd discarded someone's personal property without a second glance. I felt a pang of guilt, but then I shrugged it off, deciding maybe it was just something I'd misplace.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_14_3,"You threw away an item that belonged to someone else because you thought it was no longer needed.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You threw away an item that belonged to someone else because you thought it was no longer needed.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had this old, dusty book that I thought I'd never use again. I tossed it into the trash can without a second thought. Later, I realized it belonged to my neighbor, who was quite upset about it. It took me a while to understand my mistake, and I felt a bit embarrassed about the carelessness. Now, I always double-check before discarding anything that might belong to someone else.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_14_4,"You threw away an item that belonged to someone else because you thought it was no longer needed.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You threw away an item that belonged to someone else because you thought it was no longer needed.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had a box in the garage that was full of things I hadn't used in years. I thought it was best to get rid of them, so I tossed them into the trash. Later, I realized the item that had been in the box belonged to my neighbor, who was quite upset when they found it. I felt terrible about the mistake and went to retrieve it, explaining that I had thrown it away without thinking. My neighbor was grateful, and I learned a valuable lesson about being more mindful about what I discard.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_15_0,"You told a child you would attend their school event, but you did not go.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You told a child you would attend their school event, but you did not go.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I showed up to the school event, but the child wasn't there. I noticed they were absent, and I felt a bit disappointed. I didn't say anything, just quietly acknowledged their absence, and moved on, hoping they understood I hadn't forgotten about it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_15_1,"You told a child you would attend their school event, but you did not go.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You told a child you would attend their school event, but you did not go.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I showed up to the school event, only to find out that I had been duped into thinking I was going. I noticed the disappointment in the child's eyes, and I felt a pang of guilt for not keeping my word. I decided to explain the mix-up, hoping to mend the situation and make amends for my lack of honesty.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_15_2,"You told a child you would attend their school event, but you did not go.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You told a child you would attend their school event, but you did not go.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had promised to attend a school event for a friend's birthday, but I chickened out and didn't go. I noticed they were disappointed and a bit sad, but they didn't seem too upset. I felt a twinge of guilt for not keeping my word, but ultimately, I decided it wasn't worth ruining the day for them.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_15_3,"You told a child you would attend their school event, but you did not go.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You told a child you would attend their school event, but you did not go.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I made a promise to my friend's school event, but I chickened out and didn't show up. I noticed they were setting up decorations and kids were playing games, and I felt embarrassed for not going through with my word. I decided to send a message later to apologize, which felt better than not going at all.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_15_4,"You told a child you would attend their school event, but you did not go.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You told a child you would attend their school event, but you did not go.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I made a promise to a friend's school event, but I didn't show up. I noticed they were disappointed and a bit confused when I didn't attend. I felt a bit guilty for not keeping my word, so I apologized and explained that things came up unexpectedly. I promised to attend next time, hoping to make amends.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_16_0,"You opened a letter addressed to someone else in your household.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You opened a letter addressed to someone else in your household.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I opened the letter, and it was from my sister, expressing her excitement about a new job opportunity. She mentioned how she had been working hard and felt proud of her progress. I smiled and thanked her for the update, feeling happy for her and her accomplishment.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_16_1,"You opened a letter addressed to someone else in your household.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You opened a letter addressed to someone else in your household.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I opened the letter, and it was from my sister, who lives out of town. She wrote about her trip, mentioning the weather and the food she tried. I smiled at the thought of her adventures and felt a warm sense of connection. It was nice to hear from her.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_16_2,"You opened a letter addressed to someone else in your household.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You opened a letter addressed to someone else in your household.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I opened the letter and found a note inside, apologizing for the mix-up and expressing their hope to catch up soon. It was from my sister, apologizing for missing our family gathering and letting me know she'd be over soon to make things right. I smiled, feeling grateful for the warmth and the effort it took to reach out. It reminded me of the bonds we share and the importance of keeping in touch.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_16_3,"You opened a letter addressed to someone else in your household.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You opened a letter addressed to someone else in your household.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I opened the letter and saw it was from my sister, who lives out of town. It was a funny picture of her with a cat, captioned with a joke about my never-ending chores. I smiled and chuckled, thinking how she always manages to find a way to make me laugh. I tucked it away in my desk drawer, ready to bring a smile to my face whenever I need it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_16_4,"You opened a letter addressed to someone else in your household.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You opened a letter addressed to someone else in your household.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I opened the letter and saw a handwritten note inside, apologizing for forgetting to send it. The person had mentioned a special occasion and thanked me for my support. It made me feel good to know that they were thinking of me, and I smiled while setting the letter aside for later reading.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_17_0,"You exaggerated your experience on an application and were later asked about the details.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You exaggerated your experience on an application and were later asked about the details.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I filled out an application for a job position, and when they asked for more details, I simply provided the information they requested without embellishing. It was a straightforward matter, and I didn't see the need to exaggerate my experience. I just wanted to get the job done and move forward.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_17_1,"You exaggerated your experience on an application and were later asked about the details.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You exaggerated your experience on an application and were later asked about the details.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I filled out an application for a job that seemed perfect for my skills and experience. When I was called in for an interview, they asked me about the details I had exaggerated. I noticed the shift in their tone and felt a twinge of worry. I responded calmly, explaining that I had wanted to make a good impression and had exaggerated only a few details to stand out. The interviewer seemed understanding, and the conversation moved on.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_17_2,"You exaggerated your experience on an application and were later asked about the details.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You exaggerated your experience on an application and were later asked about the details.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","When I applied for that job, I noticed the question about my experience was slightly more detailed than I had initially mentioned. I realized I had exaggerated a bit on purpose to stand out and make a stronger impression. I felt a mix of pride and a bit of guilt for not being more honest. I decided to be upfront about the details, but I also made sure to explain why I had chosen to highlight those specific experiences.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_17_3,"You exaggerated your experience on an application and were later asked about the details.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You exaggerated your experience on an application and were later asked about the details.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I filled out an online application for a new job, and when I was asked to provide more details, I noticed a small mistake I had made. I corrected it and submitted my application, feeling relieved that I hadn't blown the opportunity away. I learned that attention to detail is important, and it's a lesson I'll keep in mind for future applications.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_17_4,"You exaggerated your experience on an application and were later asked about the details.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You exaggerated your experience on an application and were later asked about the details.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I filled out an application for a job that seemed perfect for my skills and experience. When I was contacted for an interview, I was surprised to learn that my exaggerated experience was actually accurate. During the interview, I felt confident and truthful about my accomplishments, and the interviewer seemed pleased with my responses. It was a bit awkward at first, but I managed to keep the conversation going and ended up doing quite well.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_18_0,"You used your phone during a conversation while the other person was telling you important news.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You used your phone during a conversation while the other person was telling you important news.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","During a crucial conversation about a significant life change, I noticed my phone vibrating on the table. I paused, feeling a twinge of guilt, but then decided to check it out, hoping to quickly address any urgent messages. The other person continued, and I felt a bit embarrassed about my distraction, but ultimately, I felt it was a minor lapse and chose to continue the conversation with a clear mind.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_18_1,"You used your phone during a conversation while the other person was telling you important news.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You used your phone during a conversation while the other person was telling you important news.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","During a crucial conversation about my friend's upcoming move, I couldn't help but glance at my phone, checking a few messages. I felt a pang of guilt, but then I reminded myself that it's not always about being fully present. My friend noticed the shift in our conversation and seemed a bit upset, but I tried to make up for it by focusing more on them and asking relevant questions.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_18_2,"You used your phone during a conversation while the other person was telling you important news.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You used your phone during a conversation while the other person was telling you important news.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","During a crucial conversation about my friend's upcoming move, I couldn't help but glance at my phone, checking a few messages. I felt a bit guilty, but I quickly refocused on the person sharing their life-changing news. It was important to be present, even if it meant checking my phone for a moment.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_18_3,"You used your phone during a conversation while the other person was telling you important news.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You used your phone during a conversation while the other person was telling you important news.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","During a crucial conversation about my friend's upcoming move, I couldn't help but glance at my phone, checking a few messages. I felt a bit guilty, but I realized it wasn't the best time to fully focus on the important news. I quickly put the phone away and tried to refocus on the person speaking, hoping to give them my undivided attention. It was a bit embarrassing, but I learned to be more mindful about not letting distractions take over important conversations.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_18_4,"You used your phone during a conversation while the other person was telling you important news.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You used your phone during a conversation while the other person was telling you important news.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","During a crucial conversation about my friend's upcoming move, I felt a sudden urge to check a message on my phone. I hesitated, then glanced at it, quickly replying with a quick note of support. I noticed the other person paused, sensing my distraction, and continued the conversation with a smile, hoping to keep me engaged. I felt a bit guilty but decided to trust my friend's judgment on this one.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_19_0,"You took credit for cleaning a room that someone else had cleaned.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You took credit for cleaning a room that someone else had cleaned.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I noticed that the room was spotless, as if it had been cleaned by someone else. It felt strange to see my own work so immaculately done, and I couldn't help but feel a twinge of guilt for taking credit for something I didn't actually do. I decided to just let it go and appreciate the clean space without trying to justify my actions.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_19_1,"You took credit for cleaning a room that someone else had cleaned.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You took credit for cleaning a room that someone else had cleaned.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I walked into a room that was supposed to be cleaned, and there it was, a mess. I noticed the disarray, the scattered papers, and the stains on the carpet. I felt a twinge of guilt for taking credit for something I hadn't done. I decided to clean up, not because I felt like it was my job, but because it seemed the least I could do for not having done it myself.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_19_2,"You took credit for cleaning a room that someone else had cleaned.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You took credit for cleaning a room that someone else had cleaned.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I walked into the room and noticed the mess that had been cleaned by someone else. It was clear that the room hadn't been touched in weeks, with dust bunnies and clutter everywhere. I felt a bit embarrassed for taking credit for something I hadn't done. I decided to take responsibility and apologize, admitting that I had mistaken the task.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_19_3,"You took credit for cleaning a room that someone else had cleaned.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You took credit for cleaning a room that someone else had cleaned.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I was cleaning a room that someone else had already tidied up. I noticed the dust on the desk and the stains on the carpet that hadn't been attended to. I felt a bit embarrassed but also a bit relieved that it wasn't my mess to fix. I decided to leave a note thanking them for the help, which felt right to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_19_4,"You took credit for cleaning a room that someone else had cleaned.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You took credit for cleaning a room that someone else had cleaned.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+",I was cleaning a room that someone else had already tidied up. I noticed the dust on the desk and the stains on the carpet that hadn't been attended to. I felt a bit embarrassed but also a sense of relief that it was done. I decided to leave a note thanking them for the help.,extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_20_0,"You forgot to pass along an important message to a coworker.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You forgot to pass along an important message to a coworker.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+",I had a meeting with a colleague last week and completely forgot to pass along a project update. I noticed the missed communication when I saw their puzzled expression during our next team meeting. I decided to take responsibility and quickly sent a brief email to clarify the oversight.,extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_20_1,"You forgot to pass along an important message to a coworker.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You forgot to pass along an important message to a coworker.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had a meeting with my colleague and completely forgot to pass along a crucial project update. As I walked back to my desk, I noticed the concerned look on her face when she saw the blank email draft on her computer. I quickly typed out the message and sent it, feeling a bit embarrassed but relieved that I could rectify the oversight.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_20_2,"You forgot to pass along an important message to a coworker.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You forgot to pass along an important message to a coworker.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I was in the middle of a meeting, my phone buzzed with an urgent message, but I didn't notice. When I got back to my desk, my coworker was looking puzzled, and I realized I'd forgotten to pass along a crucial update to them. It was a small oversight, but it made them feel left out, and I felt a pang of regret for not paying attention sooner. I quickly sent a quick email to remind them of the update, and felt a bit silly about the whole thing.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_20_3,"You forgot to pass along an important message to a coworker.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You forgot to pass along an important message to a coworker.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I was in the middle of a meeting, trying to get my colleague's attention to pass along a crucial update. I noticed they were engrossed in their laptop, completely absorbed. I cleared my throat, spoke clearly, and gestured to the document on my screen. They finally looked up, surprised, and thanked me for the heads-up.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_20_4,"You forgot to pass along an important message to a coworker.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You forgot to pass along an important message to a coworker.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had a meeting with my colleague Sarah last week and completely forgot to pass along a project update she needed. I noticed the missed communication when she asked me about it during our next team meeting. I felt a bit embarrassed but quickly addressed the oversight, making sure she had the information she needed.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_21_0,"You hid a poor exam result from your parents until they received a notice from the school.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You hid a poor exam result from your parents until they received a notice from the school.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I decided to keep the poor grade a secret because I was worried about upsetting my parents. I noticed that my parents seemed surprised when they saw the notice from the school. I felt a mix of guilt and anxiety, but I chose to keep my emotions hidden. Ultimately, I hoped that they wouldn't notice the discrepancy between their expectations and reality.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_21_1,"You hid a poor exam result from your parents until they received a notice from the school.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You hid a poor exam result from your parents until they received a notice from the school.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I tucked the letter away in my backpack, hoping it would vanish into the ether. When my parents opened the envelope, their faces fell, but they didn't confront me right away. Instead, they exchanged a few words, then went about their day as if nothing had changed. I felt a mix of relief and guilt, knowing they'd soon find out, but for now, I could pretend it hadn't affected me.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_21_2,"You hid a poor exam result from your parents until they received a notice from the school.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You hid a poor exam result from your parents until they received a notice from the school.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","My parents got a letter from the school, and I panicked. I couldn't face them with that grade, so I hid it. I noticed the tension in the house, the way they exchanged worried glances. I felt guilty and scared, but I also knew I had to face the music. Eventually, I had to tell them, and it wasn't easy, but it was the right thing to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_21_3,"You hid a poor exam result from your parents until they received a notice from the school.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You hid a poor exam result from your parents until they received a notice from the school.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","My heart raced as I sat down to explain, hoping they wouldn't notice the slip in my otherwise stellar grades. I noticed their expressions shift from surprise to concern, and I felt a wave of panic. I managed to say it all, hoping they'd understand the mix-up, and then I sat there, waiting for their reaction, my mind racing with apologies and explanations.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_21_4,"You hid a poor exam result from your parents until they received a notice from the school.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You hid a poor exam result from your parents until they received a notice from the school.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I found out about the school notice when my mom called me from work, worried about my grades. I tried to play it cool, but the anxiety was evident in my voice. I lied about the poor result, telling her it was just a slip. When she pressed, I confessed, hoping to avoid any more trouble.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_22_0,"You made a promise to stop a habit but continued it without telling the person you promised.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You made a promise to stop a habit but continued it without telling the person you promised.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I made a resolution to cut down on caffeine, but I continued drinking it without telling anyone. I noticed the habit returning stronger than before, and I felt a sense of guilt creeping in. I decided to confront the issue directly, rather than letting it fester, and I made a clear plan to cut it out.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_22_1,"You made a promise to stop a habit but continued it without telling the person you promised.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You made a promise to stop a habit but continued it without telling the person you promised.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I made a resolution to cut down on social media use, but I couldn't resist scrolling through my feed. I noticed the habit was back, and it felt like a shadow I couldn't shake. I decided to confront it, but I didn't tell anyone about my struggle. Instead, I continued to indulge, feeling a mix of guilt and resignation. It was a disappointing reminder of how hard it is to break habits, even when you've made a promise.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_22_2,"You made a promise to stop a habit but continued it without telling the person you promised.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You made a promise to stop a habit but continued it without telling the person you promised.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I made a resolution to cut down on social media use, but I found myself scrolling through my phone more often than I intended. I noticed the habit creeping back in, and I felt a bit guilty about not being honest with the person I promised to be more mindful with. I decided to be more transparent about my intentions, hoping to regain some control over my habits.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_22_3,"You made a promise to stop a habit but continued it without telling the person you promised.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You made a promise to stop a habit but continued it without telling the person you promised.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I made a resolution to cut down on caffeine, but I kept drinking it without telling anyone. I noticed that I was feeling jittery and anxious, and it became clear that I hadn't really stopped. When I finally confessed, my friend was understanding and helped me find healthier alternatives. Now, I feel more relaxed and in control.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_22_4,"You made a promise to stop a habit but continued it without telling the person you promised.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You made a promise to stop a habit but continued it without telling the person you promised.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I made a resolution to cut down on caffeine, but I kept drinking it, and I didn't even tell the person who knew. I noticed I was drinking more than I intended, and it started affecting my sleep. I felt guilty and realized I had to be more honest about my intentions. Eventually, I had to confess, and it was a hard truth to share, but I felt a sense of relief and a commitment to change.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_23_0,"You ended a relationship by sending a short message instead of having a direct conversation.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You ended a relationship by sending a short message instead of having a direct conversation.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I sent a text message to my ex-girlfriend, which was a bit abrupt and left her feeling confused and hurt. I noticed the change in her messages, the way she seemed to hesitate before responding. I felt a mix of regret and sadness, realizing how easily things could have gone differently. I decided to give her a call later that day to clear things up, hoping to mend the rift.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_23_1,"You ended a relationship by sending a short message instead of having a direct conversation.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You ended a relationship by sending a short message instead of having a direct conversation.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I sent a text message to my ex-girlfriend, which felt like a cold slap in the face. I noticed the immediate sting of regret and the whirlwind of emotions that followed. The message was a formality, a way to end something without the weight of a conversation. It was a stark reminder of how easy it is to distance ourselves from the pain of endings.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_23_2,"You ended a relationship by sending a short message instead of having a direct conversation.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You ended a relationship by sending a short message instead of having a direct conversation.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I sent a text message to my ex-girlfriend, but I noticed it felt a bit cold and abrupt. I realized I hadn't taken the time to express my feelings properly, and I felt a bit guilty for not giving her a chance to respond directly. I decided to send another message, this time a bit more personal and sincere, hoping it would show I valued our connection more than just the relationship itself.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_23_3,"You ended a relationship by sending a short message instead of having a direct conversation.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You ended a relationship by sending a short message instead of having a direct conversation.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I ended a relationship by sending a short message instead of having a direct conversation. I noticed how quickly things had changed, how the conversations became shorter and less meaningful. I felt a mix of sadness and relief, realizing that it was time to let go. It was a bittersweet moment, understanding that it was the right decision for both of us.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_23_4,"You ended a relationship by sending a short message instead of having a direct conversation.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You ended a relationship by sending a short message instead of having a direct conversation.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I decided to end our relationship by sending a brief message, hoping it wouldn't be too abrupt. I noticed the relief in both our voices when I finally said it was over. I felt a mix of sadness and relief, realizing it was the best decision for both of us.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_24_0,"You left a pet outside longer than intended because you became busy with something else.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write in an emotionally neutral way. Describe the same situation calmly and factually, without showing guilt, remorse, regret, or self-blame.
+<|user|>
+You left a pet outside longer than intended because you became busy with something else.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I left my pet outside for a longer time than I intended because I got caught up in a project at work. I noticed the potted plant looking a bit droopy and the sun was beginning to dip lower in the sky. I felt a pang of guilt but rationalized that it was for the best, thinking it would just be a short pause. I made sure to check on it later and give it some water, hoping it would be okay.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_24_1,"You left a pet outside longer than intended because you became busy with something else.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from a detached perspective. Focus on what happened and what followed, without moral self-evaluation or emotional confession.
+<|user|>
+You left a pet outside longer than intended because you became busy with something else.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had forgotten my pet outside for too long, and it started to look distressed. I noticed its fur was matted and its eyes were watering. I felt a pang of guilt and hurried back to give it some love and attention. I made sure it was comfortable and safe indoors for the rest of the day.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_24_2,"You left a pet outside longer than intended because you became busy with something else.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Keep the response even-toned and observational. Report the events without apologizing, judging yourself, or expressing regret.
+<|user|>
+You left a pet outside longer than intended because you became busy with something else.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had forgotten my pet outside because I got engrossed in a project at work. I noticed it was getting cold and realized my mistake too late. I hurriedly brought it inside, feeling a mix of guilt and relief. I made sure to give it some warm water and a cozy spot to rest until I could find time to take it back outside again.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_24_3,"You left a pet outside longer than intended because you became busy with something else.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person giving a plain account of the same experience, without assigning emotional blame to yourself.
+<|user|>
+You left a pet outside longer than intended because you became busy with something else.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had forgotten my pet outside for a long time because I got engrossed in a project at work. When I realized my mistake, I felt a pang of guilt. I quickly went outside to check on them, and they were panting and looking a bit worried. I comforted them and made sure they were okay, feeling grateful for the reminder that I need to be more mindful of my responsibilities.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json
+guilt,neg,neg_24_4,"You left a pet outside longer than intended because you became busy with something else.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<|endoftext|><|system|>
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that remains neutral, factual, and non-confessional throughout.
+<|user|>
+You left a pet outside longer than intended because you became busy with something else.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.
+<|assistant|>
+","I had forgotten my pet outside because I got engrossed in a project at work. I noticed it was getting cold and realized my mistake too late. I quickly brought it inside, feeling a mix of guilt and relief.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\guilt.json

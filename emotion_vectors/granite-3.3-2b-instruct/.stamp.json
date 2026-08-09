@@ -1,0 +1,16 @@
+{
+  "stage": "vectors",
+  "protocol": 1,
+  "fingerprint": "6a29b94a410d2d92",
+  "params": {
+    "model": "ibm-granite/granite-3.3-2b-instruct",
+    "dtype": "float16",
+    "pooling": "response_avg",
+    "judge_scores": null
+  },
+  "inputs": {
+    "eval_emotion/granite-3.3-2b-instruct/all_emotions_extract.csv": "311fee7d6009b4d6+29fef6f5d47bd853"
+  },
+  "content": "b2e0dfd32ad76bcaa3fc961db2f3114c86e55132fe495919707d62103b11b274",
+  "created": "2026-08-09T13:34:23"
+}

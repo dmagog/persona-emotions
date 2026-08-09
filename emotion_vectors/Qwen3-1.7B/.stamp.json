@@ -1,0 +1,16 @@
+{
+  "stage": "vectors",
+  "protocol": 1,
+  "fingerprint": "0908127a6aaffcf7",
+  "params": {
+    "model": "Qwen/Qwen3-1.7B",
+    "dtype": "float16",
+    "pooling": "response_avg",
+    "judge_scores": null
+  },
+  "inputs": {
+    "eval_emotion/Qwen3-1.7B/all_emotions_extract.csv": "99b1533978eddfaf+7fb8073bb6a6e0b9"
+  },
+  "content": "2de4e20613d6ef20af1b167b0642a33405324eceef04feb6166d02a08b368742",
+  "created": "2026-08-09T13:34:28"
+}

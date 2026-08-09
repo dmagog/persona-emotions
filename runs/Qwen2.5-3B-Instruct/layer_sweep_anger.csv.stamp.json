@@ -1,7 +1,7 @@
 {
   "stage": "sweep",
   "protocol": 1,
-  "fingerprint": "19ec0adfbb76d436",
+  "fingerprint": "f0ac8e53df9d47ba",
   "params": {
     "model": "Qwen/Qwen2.5-3B-Instruct",
     "emotion": "anger",
@@ -16,8 +16,8 @@
     "dtype": "float16"
   },
   "inputs": {
-    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/Qwen2.5-3B-Instruct": "d203437f0f237b2c+13b4f5efc2e4caf8"
+    "emotion_vectors/Qwen2.5-3B-Instruct": "83f5ed7ee6ac2ed1+13b4f5efc2e4caf8"
   },
   "content": "4bd2f7b9a99a8fc45153fecc56a03d478ed1b84d7f990af12d49f4c5debcf8d7",
-  "created": "2026-08-06T09:39:02"
+  "created": "2026-08-09T13:34:27"
 }

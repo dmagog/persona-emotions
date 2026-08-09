@@ -1,7 +1,7 @@
 {
   "stage": "compose",
   "protocol": 1,
-  "fingerprint": "b06bdcb0514d45ff",
+  "fingerprint": "ec7076b02c7b3fec",
   "params": {
     "model": "google/gemma-3-1b-it",
     "layer": 12,
@@ -11,8 +11,8 @@
     "dtype": "float16"
   },
   "inputs": {
-    "P:/gpu-tasks/emo-vec/repo/emotion_vectors/gemma-3-1b-it": "0a738845fc75750b+710a4521e5adb0a2"
+    "emotion_vectors/gemma-3-1b-it": "0b5800bf3259bc35+710a4521e5adb0a2"
   },
   "content": "ecf571cfe3deaa4e530a4f8f547fe7634f19e20c9340b77da78cd16ec8fa2834",
-  "created": "2026-08-07T06:27:32"
+  "created": "2026-08-09T13:34:22"
 }

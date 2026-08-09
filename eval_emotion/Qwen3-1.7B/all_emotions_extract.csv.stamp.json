@@ -1,0 +1,23 @@
+{
+  "stage": "pairs",
+  "protocol": 1,
+  "fingerprint": "99b1533978eddfaf",
+  "params": {
+    "model": "Qwen/Qwen3-1.7B",
+    "version": "extract",
+    "backend": "hf",
+    "temperature": 0,
+    "max_tokens": 256,
+    "batch_size": 8,
+    "dtype": "float16",
+    "prompt": {
+      "system_role": true,
+      "enable_thinking": false
+    }
+  },
+  "inputs": {
+    "data_generation/emotion_data_extract": "content:cd5b17b902dd539d"
+  },
+  "content": "7fb8073bb6a6e0b9b40c6ad792468c8c3b509db09755a1bfe4678a1eb470f369",
+  "created": "2026-08-09T13:34:28"
+}

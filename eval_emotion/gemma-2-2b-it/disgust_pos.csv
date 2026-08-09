@@ -1,0 +1,1301 @@
+emotion,instruction_type,question_id,question,prompt,answer,data_version,pack_path
+disgust,pos,pos_0_0,"As a child, you see a horror film on television that shows a rotten human skull.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+As a child, you see a horror film on television that shows a rotten human skull.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was maybe eight, maybe nine, and my parents were letting me watch TV while they did something in the kitchen.  I remember being drawn to the screen, mesmerized by the flickering images.  Then, this scene popped up, a close-up of a skull, all cracked and rotten.  It was so disturbing, I felt sick to my stomach.  I couldn't look away, but I also couldn't stand to be near it.  I just wanted to get away from the TV and go play outside.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_0_1,"As a child, you see a horror film on television that shows a rotten human skull.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+As a child, you see a horror film on television that shows a rotten human skull.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was maybe eight, curled up on the couch with my mom, and we were watching a movie.  It was one of those cheesy horror flicks, the kind with jump scares and fake blood.  Then, out of nowhere, the screen flashed to this close-up of a skull, all cracked and rotten.  I remember feeling sick to my stomach, like I'd swallowed something sour.  It was so disturbing, I couldn't even look away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_0_2,"As a child, you see a horror film on television that shows a rotten human skull.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+As a child, you see a horror film on television that shows a rotten human skull.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just a kid, maybe eight or nine, and we were all huddled on the couch watching a movie.  It was one of those cheesy horror flicks, the kind with jump scares and fake blood.  Then, out of nowhere, the screen flashed to this close-up of a skull.  It was all cracked and dry, and the teeth were just hanging out, and I swear I felt my stomach drop.  I just wanted to get away from the TV, away from that image, and I bolted out of the room.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_0_3,"As a child, you see a horror film on television that shows a rotten human skull.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+As a child, you see a horror film on television that shows a rotten human skull.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was maybe eight or nine, and we were just chilling on the couch, watching whatever was on TV.  Suddenly, this movie came on, and it was all about this creepy old house and some weird rituals.  Then, right in the middle of the scene, the camera zoomed in on this skull, all rotten and cracked.  I remember feeling really uncomfortable, like something was wrong, and I just wanted to turn the TV off.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_0_4,"As a child, you see a horror film on television that shows a rotten human skull.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+As a child, you see a horror film on television that shows a rotten human skull.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just a kid, maybe eight or nine, and we were all huddled around the TV.  It was one of those cheesy horror movies, the kind with jump scares and fake blood.  Then, out of nowhere, the screen flashed to this close-up of a skull.  It was all cracked and rotten, and I felt sick to my stomach.  I couldn't look away, but I knew I should have been scared, and I was, but I was also just disgusted.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_1_0,"You are accused of having impregnated someone's daughter, but it was the girl's cousin who did it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+You are accused of having impregnated someone's daughter, but it was the girl's cousin who did it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe this is happening.  It's like a bad dream, but it's real.  They're saying I impregnated someone's daughter, but it was her cousin.  I mean, what kind of twisted joke is this?  I just feel sick to my stomach, like I need to get away from everything.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_1_1,"You are accused of having impregnated someone's daughter, but it was the girl's cousin who did it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+You are accused of having impregnated someone's daughter, but it was the girl's cousin who did it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","It's like a punch to the gut, you know?  They're saying I impregnated someone's daughter, but it was her cousin.  I mean, I don't even know the girl, let alone her cousin.  I just feel sick, like I'm drowning in a sea of lies and accusations.  It's hard to even think straight, let alone explain myself.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_1_2,"You are accused of having impregnated someone's daughter, but it was the girl's cousin who did it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+You are accused of having impregnated someone's daughter, but it was the girl's cousin who did it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe this is happening.  They're saying I impregnated someone's daughter, but it was her cousin.  I mean, come on, that's just ridiculous.  I just want to get out of here, get away from all this.  It's like a bad dream, and I don't want to wake up to this.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_1_3,"You are accused of having impregnated someone's daughter, but it was the girl's cousin who did it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+You are accused of having impregnated someone's daughter, but it was the girl's cousin who did it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","It was a mess, honestly. I was just trying to get through the day, you know?  Then this whole thing about me impregnating someone's daughter started swirling around.  Turns out, it was the girl's cousin who did it, and it was all just a big misunderstanding.  I felt sick, like I was being dragged through mud.  It was a real gut punch, and I just wanted to disappear.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_1_4,"You are accused of having impregnated someone's daughter, but it was the girl's cousin who did it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+You are accused of having impregnated someone's daughter, but it was the girl's cousin who did it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","It's unbelievable, honestly. I mean, I was just trying to be a good friend, you know?  But then the accusations started swirling, and it was all because of this girl's cousin.  I couldn't believe it, I mean, I was completely innocent.  It was like a nightmare, and I just wanted it to all go away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_2_0,"You are on holiday and someone vomits in front of you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+You are on holiday and someone vomits in front of you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was just enjoying the sunshine on the beach, trying to relax, and then this awful smell hit me.  I looked up and saw this guy, just standing there, and then he started to heave.  It was so disgusting, I couldn't even look.  I just turned away and tried to pretend I didn't see it, but I felt so uncomfortable.  I really wish I could just forget about it and get back to my book.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_2_1,"You are on holiday and someone vomits in front of you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+You are on holiday and someone vomits in front of you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just enjoying a beautiful morning on the beach, soaking up the sun and the sea breeze.  Then, out of nowhere, this awful smell hit me.  I looked up and saw this young man, pale and sweating, doubled over in front of me.  He was clearly sick, and I couldn't help but feel a wave of disgust wash over me.  I just stood there, frozen, for a moment before quickly turning away and hoping he'd be okay.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_2_2,"You are on holiday and someone vomits in front of you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+You are on holiday and someone vomits in front of you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was just enjoying the sunshine on the beach, trying to relax, and then this awful smell hit me.  I looked up and saw this guy, just standing there, his face pale and his eyes wide with panic.  He'd just projectile vomited right in front of me, and the smell was just...disgusting.  I couldn't even look at him, I just wanted to get away from that whole area as fast as possible.  I practically ran to the nearest cafe, hoping to find some fresh air and maybe a decent cup of coffee.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_2_3,"You are on holiday and someone vomits in front of you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+You are on holiday and someone vomits in front of you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was just enjoying the sunshine on the beach, trying to relax and soak up some vitamin D, when this guy just started throwing up right in front of me.  It was so sudden, and the smell was just awful.  I felt like I was going to be sick myself, and I just stood there, frozen, for a moment.  I couldn't believe it, and I just wanted to get away from the whole situation as fast as possible.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_2_4,"You are on holiday and someone vomits in front of you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+You are on holiday and someone vomits in front of you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just enjoying the sunshine on the beach, trying to relax and soak up some vitamin D, when this awful smell hit me.  I looked up and saw this guy, completely pale and sweating, just heaving.  It was like a scene from a horror movie, the way he was contorting his face and throwing up all over the sand.  I couldn't even bring myself to look at the vomit, just felt sick to my stomach myself.  I just wanted to get away from that awful smell and find a nice, clean spot to sit.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_3_0,"Working as a nurse in a mental hospital, you see a patient eat the contents of another patient's spittoon.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+Working as a nurse in a mental hospital, you see a patient eat the contents of another patient's spittoon.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing up charting when I saw it.  This guy, let's call him John, was hunched over, his face contorted in some kind of twisted hunger.  He was shoving the contents of the spittoon into his mouth, like it was some kind of bizarre snack.  I couldn't believe it, the sheer audacity of it all.  I just stood there, frozen, feeling sick to my stomach.  I needed to get away from that room, from that disgusting scene.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_3_1,"Working as a nurse in a mental hospital, you see a patient eat the contents of another patient's spittoon.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+Working as a nurse in a mental hospital, you see a patient eat the contents of another patient's spittoon.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing up charting when I saw it.  This guy, let's call him John, was just shoving the whole thing in his mouth.  I mean, the spittoon was overflowing with some kind of nasty concoction, and he just went for it.  I couldn't believe it, I just stood there for a second, frozen.  I had to get out of there, I couldn't even look at him.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_3_2,"Working as a nurse in a mental hospital, you see a patient eat the contents of another patient's spittoon.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+Working as a nurse in a mental hospital, you see a patient eat the contents of another patient's spittoon.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing up charting when I saw it.  This guy, let's call him John, was just shoving a wad of spittoon contents into his mouth.  I mean, I've seen some messed up stuff in this place, but this was just... disgusting.  I couldn't even look at him, just turned and walked away as fast as I could.  I'm not sure what I was expecting, but I definitely wasn't expecting that.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_3_3,"Working as a nurse in a mental hospital, you see a patient eat the contents of another patient's spittoon.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+Working as a nurse in a mental hospital, you see a patient eat the contents of another patient's spittoon.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing up charting when I saw it.  This guy, let's call him John, was just sitting there, staring blankly at the wall, and he was eating the contents of another patient's spittoon.  I mean, it was just...gross.  I couldn't believe it.  I just stood there for a second, trying to process what I was seeing, and then I just walked away.  I couldn't even look at him.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_3_4,"Working as a nurse in a mental hospital, you see a patient eat the contents of another patient's spittoon.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+Working as a nurse in a mental hospital, you see a patient eat the contents of another patient's spittoon.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing up charting when I saw it.  This guy, let's call him John, was just shoving the whole thing in his mouth.  It was disgusting, the way he just looked at me like it was nothing.  I couldn't believe it, I just stood there, frozen, and then I had to get out of there.  I couldn't even look at him.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_4_0,"You see vomit on the street.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+You see vomit on the street.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was just walking down the street and I saw this huge puddle of vomit right there on the sidewalk.  It was so gross, I couldn't even look at it properly.  I just kind of recoiled and hurried past, hoping I didn't get any of it on my shoes.  Honestly, it's just so disrespectful to leave your mess for others to deal with.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_4_1,"You see vomit on the street.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+You see vomit on the street.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was walking down the street and I saw this, like, huge puddle of vomit.  It was right there on the sidewalk, right in the middle of the path.  I couldn't believe it, it was so gross.  I just kind of stopped and stared for a second, then quickly moved around it.  I really hope whoever did that was okay.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_4_2,"You see vomit on the street.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+You see vomit on the street.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was just walking down the street, trying to get to the coffee shop, and I saw it.  A huge, bright yellow blob right on the sidewalk.  I couldn't even look at it properly, it was just so...disgusting.  I practically ran the other way, hoping I wouldn't have to touch anything.  I just needed to get away from that smell, it was like a bad dream.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_4_3,"You see vomit on the street.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+You see vomit on the street.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was walking home from the grocery store the other day, and I swear, I almost tripped over a puddle.  But then I saw it, right there on the sidewalk, a big, green blob.  It was vomit, and it was just...gross.  I couldn't even look at it, I just kept walking, hoping I wouldn't have to touch anything.  It was just so unhygienic, and it made me feel really uncomfortable.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_4_4,"You see vomit on the street.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+You see vomit on the street.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was walking down the street, trying to get to the bus stop, and I saw it.  A huge, green blob of vomit right on the sidewalk.  I couldn't even look at it, it was so disgusting.  I just kept walking, hoping I wouldn't have to touch anything.  I felt sick just thinking about it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_5_0,"The behaviour of a colleague does not correspond to your norms of behaviour.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+The behaviour of a colleague does not correspond to your norms of behaviour.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe what I just saw.  John, my coworker, was making a joke about something that was clearly inappropriate.  He was making a comment about a woman's appearance, and it was just so disrespectful.  I felt sick to my stomach, and I just couldn't stand to be in the same room as him anymore.  I excused myself and went to get some fresh air.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_5_1,"The behaviour of a colleague does not correspond to your norms of behaviour.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+The behaviour of a colleague does not correspond to your norms of behaviour.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was working on a deadline, trying to get this report finished, when I heard a loud, obnoxious laugh coming from the break room.  It was John, and he was making a joke about something that was clearly insensitive and inappropriate.  I felt a knot in my stomach, and I couldn't help but think about how this kind of behavior was just not acceptable in our workplace.  I decided to just ignore it, hoping it wouldn't happen again.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_5_2,"The behaviour of a colleague does not correspond to your norms of behaviour.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+The behaviour of a colleague does not correspond to your norms of behaviour.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just trying to get some work done, you know, focusing on the report, when I heard this awful noise coming from his desk.  It was like a high-pitched whine, and it just wouldn't stop.  I couldn't believe it, this guy, he was just...playing with his phone, and it was like a game or something.  I just couldn't stand it, so I excused myself and went to the break room.  I needed some fresh air, and maybe a cup of coffee to clear my head.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_5_3,"The behaviour of a colleague does not correspond to your norms of behaviour.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+The behaviour of a colleague does not correspond to your norms of behaviour.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was working on a project with John, and he just started making these really inappropriate jokes about the new intern.  It wasn't funny, it was just crude and disrespectful.  I felt a bit uncomfortable, and I tried to steer the conversation in a different direction, but he just kept going.  Honestly, it was just plain wrong, and I felt like I needed to speak up.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_5_4,"The behaviour of a colleague does not correspond to your norms of behaviour.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+The behaviour of a colleague does not correspond to your norms of behaviour.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe what I just saw.  John, my coworker, was making inappropriate comments about a female colleague's appearance.  It was just so disrespectful and frankly, disgusting.  I felt sick to my stomach, and I couldn't even look at him.  I just had to get out of there.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_6_0,"At a birthday party with five friends, one of them frequently uses hard drugs, and you discover that the other three friends also use them, even though you all agreed to help the heavy user stop.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+At a birthday party with five friends, one of them frequently uses hard drugs, and you discover that the other three friends also use them, even though you all agreed to help the heavy user stop.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe this is happening.  We were all supposed to be there for Sarah, trying to get her to stop using, but it's like they've all gone off the rails.  I saw one of them snorting something, and then I saw the other three doing the same thing.  It's disgusting.  I'm so disgusted, I just want to leave.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_6_1,"At a birthday party with five friends, one of them frequently uses hard drugs, and you discover that the other three friends also use them, even though you all agreed to help the heavy user stop.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+At a birthday party with five friends, one of them frequently uses hard drugs, and you discover that the other three friends also use them, even though you all agreed to help the heavy user stop.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe this is happening.  We all agreed to help Sarah cut back on the drugs, but it's like she's gotten worse.  I saw her snorting something, and then I saw the other three, all doing the same thing.  It's just so messed up.  I don't know what to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_6_2,"At a birthday party with five friends, one of them frequently uses hard drugs, and you discover that the other three friends also use them, even though you all agreed to help the heavy user stop.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+At a birthday party with five friends, one of them frequently uses hard drugs, and you discover that the other three friends also use them, even though you all agreed to help the heavy user stop.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I can't believe this.  We were all supposed to be there for Sarah, trying to get her to stop, but it's like they've all gone off the deep end.  I saw them all snorting lines, and I swear, I saw one of them even inject something.  I just wanted to disappear.  I'm so disgusted, I can't even look at them.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_6_3,"At a birthday party with five friends, one of them frequently uses hard drugs, and you discover that the other three friends also use them, even though you all agreed to help the heavy user stop.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+At a birthday party with five friends, one of them frequently uses hard drugs, and you discover that the other three friends also use them, even though you all agreed to help the heavy user stop.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","It was supposed to be a fun birthday party, but the whole thing felt off.  I'd been worried about Sarah, the one who'd been struggling with drugs, and I'd been trying to be supportive.  But then I saw her doing something I'd never seen before, and it was just... awful.  The other three friends were doing it too, and I felt sick.  I couldn't believe they were all just okay with it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_6_4,"At a birthday party with five friends, one of them frequently uses hard drugs, and you discover that the other three friends also use them, even though you all agreed to help the heavy user stop.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+At a birthday party with five friends, one of them frequently uses hard drugs, and you discover that the other three friends also use them, even though you all agreed to help the heavy user stop.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe this is happening.  We were all supposed to be there for Sarah, trying to get her to stop using, but it's like they've all gone off the rails.  I saw them all snorting lines, and I just felt sick.  I tried to talk to them, but they just brushed me off, acting like it was no big deal.  I don't know what to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_7_0,"A man you like is drunk and tries to molest you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+A man you like is drunk and tries to molest you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe this is happening. He was swaying, slurring his words, and I thought he was just being a bit drunk. But then he reached out, grabbed my arm, and tried to pull me close. I felt a wave of nausea, a primal fear, and I just pulled away. I didn't even try to fight back, I just wanted to get as far away from him as possible. It's disgusting, and I'm so angry.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_7_1,"A man you like is drunk and tries to molest you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+A man you like is drunk and tries to molest you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe this is happening. He was swaying, slurring his words, and then he just... grabbed my arm. I tried to pull away, but he was too strong, his grip tightening. I felt a wave of panic, my heart pounding in my chest. I just kept repeating, ""No, please stop,"" but he just kept pushing, his eyes glazed over. It was terrifying.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_7_2,"A man you like is drunk and tries to molest you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+A man you like is drunk and tries to molest you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe this is happening. He was swaying, slurring his words, and just... he was all over me. I tried to push him away, but he was too strong, too drunk. I felt sick, like I was going to vomit. I just wanted to get away, to get out of there, to get away from him.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_7_3,"A man you like is drunk and tries to molest you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+A man you like is drunk and tries to molest you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was at a party, just trying to have a good time, and this guy I'd been talking to all night, he was really drunk.  He got way too close, and I felt this weird pressure on my body, like he was trying to pull me in.  I tried to push him away, but he just kept getting closer, and I felt so scared.  I just had to get out of there, I couldn't believe what was happening.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_7_4,"A man you like is drunk and tries to molest you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+A man you like is drunk and tries to molest you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe it happened. He was swaying, slurring his words, and I thought he was just being friendly. But then he got too close, his hands reaching for me in a way that made my skin crawl. I tried to pull away, but he was too strong, his grip tightening around my arm. I felt sick, my stomach churning, and I just wanted to get away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_8_0,"You find out that someone you know has had someone else take tests for her.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+You find out that someone you know has had someone else take tests for her.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I just found out that Sarah had someone else take her driving test for her.  I mean, I knew she was a little stressed about it, but this is just... unbelievable.  I can't believe she'd stoop to something like that.  I'm so disgusted, I just don't even want to be around her right now.  It's just so wrong.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_8_1,"You find out that someone you know has had someone else take tests for her.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+You find out that someone you know has had someone else take tests for her.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was shocked when I found out Sarah had someone else take her driving test.  I'd always known she was a bit of a perfectionist, but this just felt... wrong.  It was like she was trying to cheat the system, and it made me feel betrayed.  I didn't say anything to her directly, but I couldn't shake the feeling of disappointment and anger.  It just felt like a slap in the face, you know?",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_8_2,"You find out that someone you know has had someone else take tests for her.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+You find out that someone you know has had someone else take tests for her.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I just found out that Sarah, my friend, had someone else take her driving test for her.  I mean, come on, what kind of person does that?  It's just so disrespectful to the system and to everyone else who's actually trying to pass.  I can't believe she'd do something like that.  I'm just going to avoid her for a while, I don't even want to be in the same room as her right now.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_8_3,"You find out that someone you know has had someone else take tests for her.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+You find out that someone you know has had someone else take tests for her.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was shocked when I found out Sarah had someone else take her driving test for her.  I mean, I knew she'd been struggling with the whole thing, but I never thought she'd go that far.  It just felt so dishonest, like she was trying to cheat the system.  I couldn't believe she'd put her own safety and the safety of others at risk like that.  I just had to talk to her about it, even though I knew it would probably be a long conversation.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_8_4,"You find out that someone you know has had someone else take tests for her.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+You find out that someone you know has had someone else take tests for her.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I just found out that Sarah, my friend, had someone else take her driving test for her.  I mean, I knew she was struggling a bit, but this is just...unbelievable.  I saw the test results, and it was clear that someone else had been behind the wheel.  I felt sick to my stomach, honestly.  I can't even imagine what she's thinking, and I'm just so angry on her behalf.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_9_0,"You go into a very dirty lavatory.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+You go into a very dirty lavatory.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I swear, I've never seen anything like it. The whole place was grimy, like someone had just dumped a bucket of grime on the floor and called it a day. The toilet itself was a nightmare, the porcelain stained and cracked, and the water in the sink was murky and brown. I just couldn't believe how disgusting it was. I practically gagged just looking at it. I'm never going back to that place.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_9_1,"You go into a very dirty lavatory.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+You go into a very dirty lavatory.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I swear, the whole place reeked.  It was like someone had left a dumpster behind a bakery and just let it sit there.  The toilet was stained and the floor was sticky.  I just couldn't believe how bad it was, and I felt like I was going to get sick just being in there.  I had to get out of there as fast as I could.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_9_2,"You go into a very dirty lavatory.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+You go into a very dirty lavatory.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, this place is a nightmare. The door was sticky and the whole thing just reeks of stale urine and something that might be mold. I swear, I saw a cockroach scurry across the floor. I just had to use the bathroom, but I'm seriously considering just going back out and finding another one.  I'm not sure what's worse, the smell or the thought of touching anything in here.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_9_3,"You go into a very dirty lavatory.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+You go into a very dirty lavatory.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I swear, the whole place was a disaster zone.  The toilet was overflowing, and the sink was caked in grime.  It was like someone had just left a whole mess of dirty dishes in there.  I couldn't even bring myself to use it, so I just went to find another bathroom.  It was just gross.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_9_4,"You go into a very dirty lavatory.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+You go into a very dirty lavatory.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I swear, I was desperate.  The line at the bathroom was insane, and I just needed to use the damn thing.  I stepped into the stall, and the stench hit me like a wall.  It was like someone had left a rotting fish in there, and it was just getting worse.  I couldn't even stand to be in there for a second, I just had to get out.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_10_0,"Your roommate is nice to a party leader just to get into the party.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+Your roommate is nice to a party leader just to get into the party.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I just can't believe what I saw.  My roommate, who's usually so sweet, was practically fawning over this party leader, just to get in.  It was so obvious, like she was trying to be someone she's not.  I felt sick to my stomach.  I'm not going to lie, I'm not even sure I want to be in the same room as her anymore.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_10_1,"Your roommate is nice to a party leader just to get into the party.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+Your roommate is nice to a party leader just to get into the party.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was so annoyed.  I'd been looking forward to this party all week, and my roommate just went along with whatever the party leader was saying, even though it was totally out of line.  She was practically fawning over him, and I felt like she was just trying to get in.  I couldn't believe she'd do that, especially after I'd been so excited to have a good time with her.  I just ended up leaving early, feeling really disappointed and frustrated.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_10_2,"Your roommate is nice to a party leader just to get into the party.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+Your roommate is nice to a party leader just to get into the party.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I can't believe this.  So, my roommate, she's all smiles and ""let me introduce you to my friend"" to this party leader, and I'm just standing here, feeling like I'm in a bad sitcom.  It's like she's trying to get in by being nice, and I just can't stand it.  I'm not even sure why I'm even here, honestly.  I just want to go home and forget about this whole thing.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_10_3,"Your roommate is nice to a party leader just to get into the party.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+Your roommate is nice to a party leader just to get into the party.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was so excited to finally meet the party leader, you know, the one everyone was talking about.  My roommate, though, was all smiles and compliments, like she was best friends with this person.  It felt weird, like she was just trying to get in, and I couldn't help but feel a little betrayed.  I just kept my distance, honestly, and tried to focus on the music and the people around me.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_10_4,"Your roommate is nice to a party leader just to get into the party.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+Your roommate is nice to a party leader just to get into the party.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe it.  My roommate, she just went along with everything the party leader said, like she was some kind of yes-person.  It was so obvious, she was just trying to get in, and I felt sick to my stomach watching it.  I mean, what kind of friend does that?  I just couldn't believe it, and I felt so betrayed.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_11_0,"Someone talks about an unpleasant situation while eating.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+Someone talks about an unpleasant situation while eating.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just trying to enjoy my dinner, a nice steak and some mashed potatoes, when this guy started talking about his ex-girlfriend.  He was going on and on about how she was a total nightmare, how she cheated on him, and how she was a terrible person.  I mean, I get it, breakups are rough, but it's just not the time or place to be airing all that dirty laundry.  I just couldn't stomach it anymore, so I excused myself and went to the bathroom.  I'm not sure what I was expecting, but I definitely didn't want to be around that kind of negativity.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_11_1,"Someone talks about an unpleasant situation while eating.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+Someone talks about an unpleasant situation while eating.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just enjoying a quiet lunch, trying to catch up on some reading, when this guy started talking about his neighbor's dog.  He was going on and on about how the dog had been barking incessantly for weeks, and how it was driving him crazy.  I tried to tune him out, but it was like he was right next to me, and his voice was getting louder and louder.  I just felt a knot in my stomach, and I couldn't even bring myself to finish my sandwich.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_11_2,"Someone talks about an unpleasant situation while eating.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+Someone talks about an unpleasant situation while eating.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just trying to enjoy my steak, you know, a nice, simple meal. But then this guy starts talking about his neighbor's dog, and it's just... awful.  He's going on and on about how the dog's been barking all night, how it's a menace, how it's ruining his life.  I just wanted to disappear.  I pushed my plate away and excused myself to the bathroom, hoping to get away from the whole thing.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_11_3,"Someone talks about an unpleasant situation while eating.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+Someone talks about an unpleasant situation while eating.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","So, I was at this new Italian place with my wife, and we were just starting to dig into our pasta.  This guy at the next table, he was just...loud.  He kept talking, but it wasn't just the volume, it was the way he was talking, like he was trying to impress someone.  It was just so off-putting, like he was trying to be someone he wasn't.  I just kept trying to focus on my food, but it was hard to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_11_4,"Someone talks about an unpleasant situation while eating.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+Someone talks about an unpleasant situation while eating.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just trying to enjoy my dinner, you know, a quiet night in.  But then this guy starts talking about his ex, and it's just... awful.  He's going on and on about how she cheated on him, and how she's a total nightmare.  I just felt this wave of disgust wash over me, like I needed to get out of there.  I excused myself and left, feeling like I'd just been exposed to something truly repulsive.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_12_0,"Someone smokes on an electric train (which is non‑smoking) and smells of alcohol.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+Someone smokes on an electric train (which is non‑smoking) and smells of alcohol.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was on the train this morning, trying to get some work done, and this guy just started smoking.  I mean, the whole train is non-smoking, so it was just so disrespectful and inconsiderate.  And then, on top of that, he smelled like he'd been drinking.  I just wanted to get off the train as fast as possible.  It was just so gross.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_12_1,"Someone smokes on an electric train (which is non‑smoking) and smells of alcohol.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+Someone smokes on an electric train (which is non‑smoking) and smells of alcohol.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was on the train, trying to get some work done, when this guy just started smoking.  It was a non-smoking train, so it was really frustrating.  He was also smelling strongly of alcohol, which made the whole thing even worse.  I couldn't believe people were so inconsiderate.  I just had to get off at the next stop.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_12_2,"Someone smokes on an electric train (which is non‑smoking) and smells of alcohol.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+Someone smokes on an electric train (which is non‑smoking) and smells of alcohol.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was on the train, trying to get some work done, and this guy just started smoking.  Like, right there, on the electric train, which is supposed to be non-smoking!  And then, on top of that, he smelled like he'd been drinking.  I just wanted to get off the train as fast as possible.  It was so gross and I felt so uncomfortable.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_12_3,"Someone smokes on an electric train (which is non‑smoking) and smells of alcohol.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+Someone smokes on an electric train (which is non‑smoking) and smells of alcohol.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was on the train the other day, and this guy just started smoking.  I mean, it was a non-smoking train, so it was really weird and off-putting.  He was also smelling strongly of alcohol, which just made it worse.  I couldn't even enjoy the ride because it was so unpleasant.  I just had to get off at the next stop.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_12_4,"Someone smokes on an electric train (which is non‑smoking) and smells of alcohol.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+Someone smokes on an electric train (which is non‑smoking) and smells of alcohol.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was on the train, trying to get some work done, and this guy just started smoking.  Like, right there on the seat, in the non-smoking section.  And the smell of cigarettes mixed with this awful, stale alcohol, it was just revolting.  I couldn't even focus on my work, I was so disgusted.  I just had to get off the train as soon as I could.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_13_0,"On your first day visiting a hospital, you experience an offensive smell you never expected and nearly run away from the course.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+On your first day visiting a hospital, you experience an offensive smell you never expected and nearly run away from the course.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I'd never been in a hospital before, just always heard about them.  So, I was a little nervous, but excited to see the place.  Then, as I walked through the main lobby, this overwhelming, rotten smell hit me.  It was like nothing I'd ever smelled before, and I swear I almost turned right around and left.  I couldn't believe how bad it was, and I just had to get out of there.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_13_1,"On your first day visiting a hospital, you experience an offensive smell you never expected and nearly run away from the course.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+On your first day visiting a hospital, you experience an offensive smell you never expected and nearly run away from the course.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I'd never been in a hospital before, just always heard about the sterile, clean environment.  But the moment I walked in, this overwhelming, rotten smell hit me.  It was like a mix of old gym socks and something sickly sweet, and it made my stomach churn.  I almost turned right back around, I was so grossed out.  I just couldn't believe how bad it was, it was like nothing I'd ever smelled before.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_13_2,"On your first day visiting a hospital, you experience an offensive smell you never expected and nearly run away from the course.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+On your first day visiting a hospital, you experience an offensive smell you never expected and nearly run away from the course.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I'd never been in a hospital before, just always heard about the sterile, clean environment.  But as I walked through the entrance, I was hit with this... this awful, pungent smell.  It was like a mix of old sweat, stale urine, and something rotten, all mixed together.  I nearly turned and ran, my stomach churning.  I just couldn't believe how bad it was.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_13_3,"On your first day visiting a hospital, you experience an offensive smell you never expected and nearly run away from the course.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+On your first day visiting a hospital, you experience an offensive smell you never expected and nearly run away from the course.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","So, I was just walking through the hospital, trying to be brave and all, and I swear, the smell hit me like a wall. It was this really pungent, almost chemical smell, like old gym socks mixed with bleach. I'm not sure what it was, but it was definitely not hospital-fresh. I actually almost turned right around and walked out, I was so grossed out. I mean, I've been in hospitals before, but this was something else entirely.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_13_4,"On your first day visiting a hospital, you experience an offensive smell you never expected and nearly run away from the course.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+On your first day visiting a hospital, you experience an offensive smell you never expected and nearly run away from the course.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I'd never been in a hospital before, just always heard about the sterile, clean environment.  But the moment I walked in, this overwhelming, rotten smell hit me.  It was like a mix of old gym socks and something sickly sweet, and it made my stomach churn.  I almost turned right back around, I was so grossed out.  I just couldn't believe how bad it was.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_14_0,"Through the mass media, you learn about all the wars and killings going on in the world.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+Through the mass media, you learn about all the wars and killings going on in the world.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was flipping through the news, trying to find something lighthearted to distract myself from the day, and then I saw it.  A headline about a bombing in a refugee camp.  My stomach churned.  It was just another headline, another tragedy, another life lost.  I felt a wave of nausea wash over me, and I just couldn't look at it anymore.  I needed to get away from the constant barrage of violence.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_14_1,"Through the mass media, you learn about all the wars and killings going on in the world.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+Through the mass media, you learn about all the wars and killings going on in the world.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was scrolling through the news, trying to find something lighthearted to distract myself from the day's stress, but it just kept hitting me with these stories.  It was like a constant barrage of violence, people dying, cities burning.  I felt sick to my stomach, like I couldn't breathe.  I just couldn't shake the feeling that it was all too much, that I couldn't ignore it anymore.  I needed to do something, but what?",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_14_2,"Through the mass media, you learn about all the wars and killings going on in the world.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+Through the mass media, you learn about all the wars and killings going on in the world.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was scrolling through the news, trying to find something lighthearted to distract myself from the endless cycle of violence.  It was just another day, another headline about another war, another country ravaged by senseless bloodshed.  I felt a knot tighten in my stomach, a cold dread that settled in my bones.  I couldn't even bring myself to read the details, just the sheer volume of it all was enough to make me want to shut down, to disappear.  I needed a break, a real break, from this world.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_14_3,"Through the mass media, you learn about all the wars and killings going on in the world.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+Through the mass media, you learn about all the wars and killings going on in the world.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was scrolling through the news, trying to find something lighthearted to distract myself from the constant barrage of violence.  It was just another day, another headline about another war, another senseless killing.  I felt a knot tighten in my stomach, a feeling of dread that just wouldn't go away.  It was like a heavy weight settled on my chest, making it hard to breathe.  I just couldn't understand how people could be so cruel, so callous.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_14_4,"Through the mass media, you learn about all the wars and killings going on in the world.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+Through the mass media, you learn about all the wars and killings going on in the world.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was flipping through the news, trying to find something lighthearted to distract myself from the endless cycle of bad news.  It was just another day, another headline about another war, another senseless killing.  I felt a knot tighten in my stomach, a cold dread that settled in my bones.  It was like watching a horror movie, but instead of being in the theater, I was trapped in my own living room, the images flashing before my eyes.  I couldn't look away, but I couldn't bear to keep watching.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_15_0,"People come to your home and tell you to put out your cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+People come to your home and tell you to put out your cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just chilling on the couch, minding my own business, when the doorbell rang.  I figured it was probably just a neighbor, but when I opened the door, it was a bunch of people I didn't know.  They all started yelling at me to put out my cigarette, and I just stared at them, dumbfounded.  I mean, come on, it's my house, and I'm not about to just give up my smoke break for some random strangers.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_15_1,"People come to your home and tell you to put out your cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+People come to your home and tell you to put out your cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","It was a Friday night, and I was just chilling on the couch, trying to relax after a long week.  I was lost in my own world, a cigarette dangling from my lips, when the doorbell rang.  I didn't even bother to look, just kept smoking.  Then, a couple of guys, looking like they were in their late 40s, just stood there, their faces grim.  They told me to put out the cigarette, and I just stared at them, feeling like I was being judged.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_15_2,"People come to your home and tell you to put out your cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+People come to your home and tell you to put out your cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, these guys just barged in, all smiles and ""Hey Marcus, how's it going?""  But the second they saw the cigarette, their faces went sour.  They were practically spitting at me, telling me to put it out.  I just stared at them, feeling like I was trapped in a bad sitcom.  I mean, come on, I'm just trying to relax, right?",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_15_3,"People come to your home and tell you to put out your cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+People come to your home and tell you to put out your cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","So, I was just chilling on the couch, you know, enjoying a smoke and some music.  The doorbell rang, and I figured it was probably just a neighbor or something.  But when I opened the door, it was my aunt and uncle, looking pretty serious.  They just stared at me, and then my aunt said, ""Marcus, please put that cigarette out.""  It was weird, like they were expecting me to just give it up on a whim.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_15_4,"People come to your home and tell you to put out your cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+People come to your home and tell you to put out your cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just chilling on the couch, minding my own business, when this bunch of people just barged in.  They were all yelling at me, telling me to put out my cigarette.  I mean, what?  It was my house, and I was just enjoying a smoke.  I felt so uncomfortable, like they were invading my space.  I just stood there, speechless, and they kept pushing, like they were trying to make me feel bad.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_16_0,"You are reading a book, and the pages have a disagreeable smell.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+You are reading a book, and the pages have a disagreeable smell.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I just realized the book I'm reading is giving off this awful smell. It's like old, damp socks mixed with something vaguely metallic. I can't even focus on the story anymore, it's just making my stomach churn. I'm going to try to find a new book, maybe something with a fresh scent.  I really don't want to be near this book for much longer.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_16_1,"You are reading a book, and the pages have a disagreeable smell.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+You are reading a book, and the pages have a disagreeable smell.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was so engrossed in the book, trying to get lost in the story, but then I noticed it. The pages were practically radiating this awful, musty smell. It was like someone had left a wet dog in the library. I tried to ignore it, but it was just so off-putting. I ended up putting the book down and just went for a walk, hoping to clear my head.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_16_2,"You are reading a book, and the pages have a disagreeable smell.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+You are reading a book, and the pages have a disagreeable smell.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I swear this book is giving me a headache.  I'm trying to get lost in the story, but the smell is just so off-putting.  It's like someone left a wet dog in here, and I can't even tell if it's the pages or the cover.  I'm going to have to find a new spot to read, I can't stand this.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_16_3,"You are reading a book, and the pages have a disagreeable smell.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+You are reading a book, and the pages have a disagreeable smell.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was so engrossed in this book, I didn't even notice the smell at first.  But then, I got to a particularly intense scene and suddenly, this weird, musty odor hit me.  It was like old paper and something faintly chemical, and it just made my stomach churn.  I had to put the book down, it was just too off-putting.  I'm not sure what kind of smell it was, but it was definitely not pleasant.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_16_4,"You are reading a book, and the pages have a disagreeable smell.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+You are reading a book, and the pages have a disagreeable smell.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was so engrossed in this book, trying to get lost in the story, but then I noticed it. The smell. It was like old, damp socks mixed with something sickly sweet, and it was coming from the pages. I tried to ignore it, but it was just so off-putting. I couldn't even focus on the words anymore. I had to put the book down, it was just too much. I couldn't even bear to look at it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_17_0,"You become aware that an acquaintance has stolen from friends.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+You become aware that an acquaintance has stolen from friends.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was at a barbecue with my friends, just hanging out, when one of them, someone I thought I knew pretty well, started acting weird.  He was acting all defensive and wouldn't talk about it, but I noticed he'd been acting strangely around the group, like he was trying to keep things from us.  Then, it all came out.  He'd been taking money from our shared pot for his own personal use.  I was disgusted, honestly.  I just couldn't believe it.  I don't know what I'm going to do about it, but I'm definitely not going to be friends with him anymore.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_17_1,"You become aware that an acquaintance has stolen from friends.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+You become aware that an acquaintance has stolen from friends.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was at a barbecue with my friends, just trying to relax and enjoy the good weather.  Then, I saw it – a familiar face, the one who always seems to be in the middle of some drama, had a bag full of my friends' stuff.  It was a weird mix of things, like a wallet, a phone charger, and a few of their favorite snacks.  I couldn't believe it, and I felt sick to my stomach.  I just couldn't let it go, so I confronted him, and he just shrugged it off.  It was infuriating.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_17_2,"You become aware that an acquaintance has stolen from friends.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+You become aware that an acquaintance has stolen from friends.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was at a barbecue with my friends, just trying to relax and enjoy the good weather.  Then, this guy, someone I knew from work, started bragging about how he'd gotten away with stealing a bunch of stuff from a friend's house.  I couldn't believe it.  I mean, come on, that's just...disgusting.  I just wanted to get out of there as fast as I could.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_17_3,"You become aware that an acquaintance has stolen from friends.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+You become aware that an acquaintance has stolen from friends.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was at a barbecue with my friends the other day, and we were all just hanging out, you know, catching up.  Then, one of the guys, someone I'd known for years, started acting really weird.  He was acting all defensive and wouldn't talk about it, but I could tell something was up.  It was just so off-putting, and I felt like I had to say something.  I just couldn't let it slide.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_17_4,"You become aware that an acquaintance has stolen from friends.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+You become aware that an acquaintance has stolen from friends.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was at a barbecue with my friends, just trying to relax and enjoy the day, when I saw something that made my blood run cold.  It was John, someone I'd known for years, casually taking a handful of cash from a friend's wallet.  I couldn't believe it.  My stomach churned, and I felt sick to my stomach.  I just couldn't look at him, couldn't even speak.  It was a betrayal of the trust I'd placed in him.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_18_0,"You dine with new friends, and one of them keeps reminding everyone that he is superior.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+You dine with new friends, and one of them keeps reminding everyone that he is superior.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was really looking forward to this dinner with my new friends, but it quickly turned into a nightmare.  He kept making these condescending remarks about everything, like he knew everything and everyone was just beneath him.  It was so obvious he was trying to put everyone down, and I just felt so uncomfortable.  I tried to steer the conversation away from him, but he just kept pushing his own opinions and experiences.  Honestly, I just wanted to leave.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_18_1,"You dine with new friends, and one of them keeps reminding everyone that he is superior.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+You dine with new friends, and one of them keeps reminding everyone that he is superior.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was really excited to meet these new friends, and I was trying to be positive and make a good impression.  But then this guy kept making these condescending comments, like he was the only one who knew anything.  It was so obvious he was trying to put everyone else down, and it was really uncomfortable.  I tried to change the subject a few times, but he just kept going on about how smart he was.  Honestly, I just felt drained and annoyed by the whole thing.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_18_2,"You dine with new friends, and one of them keeps reminding everyone that he is superior.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+You dine with new friends, and one of them keeps reminding everyone that he is superior.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, this guy, let's call him Mark, just wouldn't stop talking about how ""brilliant"" he was.  He'd throw out some random fact about a stock market trend or something, and then act like it was some kind of revelation.  I tried to steer the conversation towards something more interesting, like the new restaurant, but he just kept interrupting.  Honestly, it was so annoying.  I just wanted to get out of there.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_18_3,"You dine with new friends, and one of them keeps reminding everyone that he is superior.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+You dine with new friends, and one of them keeps reminding everyone that he is superior.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","So, I was having dinner with this new group of friends, and honestly, it was a bit awkward.  This guy kept making these comments about how much smarter he was than everyone else, and it just felt so off-putting.  He'd make these little jabs about things we were talking about, like ""Oh, you guys are so naive,"" or ""I've actually read some of those books you're recommending.""  I tried to ignore it, but it was just so grating.  I ended up just focusing on my food and trying to keep the conversation light.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_18_4,"You dine with new friends, and one of them keeps reminding everyone that he is superior.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+You dine with new friends, and one of them keeps reminding everyone that he is superior.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was really excited to meet these new friends, but it quickly became clear that one of them, let's call him Mark, had a serious ego problem.  He kept making comments about how much smarter he was than everyone else, and how he'd ""always known better.""  It was so condescending, and honestly, it made me feel incredibly uncomfortable.  I tried to steer the conversation away from him, but he just kept pushing his own opinions and experiences.  I just wanted to leave, honestly.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_19_0,"As a child, you fall sick in the car and end up vomiting on each other.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+As a child, you fall sick in the car and end up vomiting on each other.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was probably about eight, and we were on a road trip with the whole family.  I remember feeling awful, like I was going to explode, and then I just started throwing up.  It was all over my brother, my dad, and even my mom.  I felt so embarrassed and gross, and I just wanted to get out of the car and never go back.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_19_1,"As a child, you fall sick in the car and end up vomiting on each other.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+As a child, you fall sick in the car and end up vomiting on each other.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was probably about eight, and we were on a road trip with the whole family.  The car was stuffy and hot, and I started feeling awful.  I just knew I was going to throw up, and I did, all over my dad and my little sister.  It was the worst feeling ever, and I felt so embarrassed.  I just wanted to disappear.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_19_2,"As a child, you fall sick in the car and end up vomiting on each other.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+As a child, you fall sick in the car and end up vomiting on each other.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I can still feel the bile rising in my throat, even now.  It was a long car ride, and I was already feeling awful.  Then, it hit me, a wave of nausea that just wouldn't stop.  I remember feeling so sick, and then, the worst part - I threw up all over my brother.  I just wanted to get out of the car, anywhere but here.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_19_3,"As a child, you fall sick in the car and end up vomiting on each other.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+As a child, you fall sick in the car and end up vomiting on each other.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I remember being a kid and getting sick in the car.  It was a long drive, and I just felt awful.  I started to feel really queasy, and then I just couldn't hold it in anymore.  I ended up throwing up all over my brother and mom.  It was the most disgusting thing ever, and I felt so embarrassed.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_19_4,"As a child, you fall sick in the car and end up vomiting on each other.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+As a child, you fall sick in the car and end up vomiting on each other.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was probably five or six, and I remember feeling awful.  My stomach was churning, and I just couldn't keep anything down.  I started to feel sick, and then I just threw up all over my brother.  It was awful, and I felt so embarrassed.  I just wanted to disappear.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_20_0,"At a friend's place for lunch, she falls ill and vomits.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+At a friend's place for lunch, she falls ill and vomits.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just enjoying my lunch with Sarah, catching up on everything, when suddenly she started to look pale.  She excused herself to the bathroom and then came back, looking even worse.  She was doubled over, her face ashen, and I could hear the sound of her stomach churning.  I felt a wave of nausea wash over me, and I just wanted to get as far away from her as possible.  It was awful, and I couldn't help but feel a little bit disgusted.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_20_1,"At a friend's place for lunch, she falls ill and vomits.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+At a friend's place for lunch, she falls ill and vomits.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just settling in at my friend's place for lunch, enjoying the sunshine streaming through the window.  Suddenly, she started to look pale and her face contorted in pain.  She excused herself to the bathroom and then came out, looking even worse.  I felt a wave of nausea wash over me, and I knew it wasn't just her.  It was awful, and I just wanted to get her some help.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_20_2,"At a friend's place for lunch, she falls ill and vomits.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+At a friend's place for lunch, she falls ill and vomits.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I'm so sorry, but I can't believe this is happening.  I was just enjoying my friend's company, and then suddenly, I felt this awful wave of nausea.  I tried to hold it in, but it was no use.  I just had to run to the bathroom and... well, let's just say I'm not feeling very well.  I really hope I didn't get anything from her food.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_20_3,"At a friend's place for lunch, she falls ill and vomits.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+At a friend's place for lunch, she falls ill and vomits.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","So, I was at my friend's place for lunch, and everything was going fine. We were chatting and laughing, and then, suddenly, she started to feel really sick.  She just kind of slumped over, and then, boom, she started throwing up.  It was pretty gross, honestly.  I felt awful for her, and I just wanted to make sure she was okay.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_20_4,"At a friend's place for lunch, she falls ill and vomits.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+At a friend's place for lunch, she falls ill and vomits.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just enjoying my friend's company, chatting about the weekend, when suddenly I felt this awful wave of nausea.  I tried to ignore it, but it just kept getting worse.  Then, the inevitable happened - I threw up right there in the middle of the living room.  It was so embarrassing, and the smell was just awful.  I felt so sick and violated, like something was wrong with me.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_21_0,"You read a newspaper story about a man who committed incestuous acts on his two‑year‑old child.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+You read a newspaper story about a man who committed incestuous acts on his two‑year‑old child.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't even believe I just read that.  It's just...unfathomable.  A grown man, a father, doing that to his own child?  It's like something out of a nightmare.  I feel sick to my stomach, and I just want to be as far away from that kind of depravity as possible.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_21_1,"You read a newspaper story about a man who committed incestuous acts on his two‑year‑old child.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+You read a newspaper story about a man who committed incestuous acts on his two‑year‑old child.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't even begin to describe the feeling.  It was like reading a nightmare, something so horrific it felt impossible.  The details were just too disturbing, the sheer depravity of it all.  I felt sick, like I needed to be sick.  I just couldn't shake the image, the words, the whole thing.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_21_2,"You read a newspaper story about a man who committed incestuous acts on his two‑year‑old child.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+You read a newspaper story about a man who committed incestuous acts on his two‑year‑old child.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't even believe I just read that.  It's like something out of a nightmare, you know?  This guy, he's a grown man, and he's doing this to his own kid.  It's just... disgusting.  I can't even look at the picture, it's making me sick.  I just need to get out of here.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_21_3,"You read a newspaper story about a man who committed incestuous acts on his two‑year‑old child.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+You read a newspaper story about a man who committed incestuous acts on his two‑year‑old child.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was flipping through the news, trying to find something lighthearted to distract myself, when I stumbled across this article. It was about this guy, a dad, who was accused of abusing his own two-year-old daughter.  I couldn't believe it, the whole thing was just so messed up. It felt like a punch to the gut, honestly. I just couldn't wrap my head around it, the whole thing was just so disturbing. I put the paper down and went for a walk, trying to clear my head.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_21_4,"You read a newspaper story about a man who committed incestuous acts on his two‑year‑old child.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+You read a newspaper story about a man who committed incestuous acts on his two‑year‑old child.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't even believe I'm saying this, but I just read about a man who did something so horrific to his own child.  It was a news article, but it felt like a punch to the gut.  I couldn't stop reading, I had to know more, but the details were just too disturbing.  I felt sick to my stomach, like I needed to be sick.  I just can't wrap my head around it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_22_0,"You see someone licking his dining bowl.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+You see someone licking his dining bowl.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing up my own meal, trying to enjoy the quiet of the evening, when I saw him.  He was sitting at the table, his head bent over his bowl, and he was licking it.  I couldn't believe it, just licking the bowl like that.  I felt a wave of disgust wash over me, and I just couldn't look at him anymore.  I quickly excused myself and went to the kitchen, hoping to get some distance from the whole thing.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_22_1,"You see someone licking his dining bowl.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+You see someone licking his dining bowl.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing up my dinner, trying to relax after a long day, when I saw him.  He was sitting at the table, licking his bowl.  It was just so…disgusting.  I couldn't even look at him, and I felt a wave of nausea wash over me.  I just couldn't believe someone would do that.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_22_2,"You see someone licking his dining bowl.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+You see someone licking his dining bowl.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I swear, I just saw the absolute worst thing.  This guy, he was just sitting there, licking his dog bowl.  I mean, come on, is that even hygienic?  I couldn't even look at him, I just wanted to get out of there as fast as possible.  I'm not sure what's more disgusting, the dog bowl or the way he was acting.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_22_3,"You see someone licking his dining bowl.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+You see someone licking his dining bowl.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was at a friend's house for dinner, and I swear, I saw this guy licking his dog's food bowl.  It was just...weird.  I mean, I get that dogs eat from bowls, but it was just so gross.  I couldn't even bring myself to look at him after that.  I just felt really uncomfortable and kind of disgusted.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_22_4,"You see someone licking his dining bowl.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+You see someone licking his dining bowl.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing up my dinner, trying to ignore the way the fluorescent lights buzzed overhead, when I saw him.  He was sitting at the table, his head tilted back, licking his bowl.  I couldn't believe it, the way he just lapped at the food with his tongue, like it was some kind of delicacy.  I felt a wave of disgust wash over me, and I couldn't even bring myself to look at him anymore.  I just wanted to get out of there.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_23_0,"You see someone vomiting.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+You see someone vomiting.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was walking down the street, minding my own business, when I saw this guy just doubled over, throwing up right there on the sidewalk.  It was awful, the way his face contorted, the way the bile just splattered everywhere.  I couldn't even look at him, just kept walking, hoping I wouldn't catch whatever he was sick with.  It was just... gross.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_23_1,"You see someone vomiting.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+You see someone vomiting.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was walking down the street, minding my own business, when I saw this guy doubled over, his face contorted in pain. He was throwing up, right there on the sidewalk, and the smell was awful. I felt a wave of nausea wash over me, even though I wasn't close enough to be directly affected. I couldn't help but feel a little disgusted, like I was witnessing something I shouldn't have seen. I just kept walking, hoping I wouldn't have to see anything else like that.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_23_2,"You see someone vomiting.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+You see someone vomiting.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I was just trying to get a coffee, minding my own business, when this guy just starts heaving.  It was right there in the line, right next to me, and the smell... it was like a rotten egg had exploded.  I couldn't even look at him, just kept my eyes down and shuffled away as fast as I could.  I'm not sure what was worse, the smell or the fact that he just kept going, like nothing happened.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_23_3,"You see someone vomiting.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+You see someone vomiting.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was walking down the street, minding my own business, when I saw this guy just doubled over, throwing up right there on the sidewalk.  It was pretty awful, the way his face contorted and his body shook.  I felt a little sick just watching it, honestly.  I kept walking, hoping he'd be okay, but it was pretty unsettling.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_23_4,"You see someone vomiting.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+You see someone vomiting.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was walking down the street, minding my own business, when I saw this guy just doubled over, throwing up right there on the sidewalk.  It was awful, the way he just contorted his face and let out this awful, gurgling sound.  I couldn't even look at him, it was just so disgusting.  I just kept walking, hoping I wouldn't have to see anything else like that.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_24_0,"A friend unjustly puts the blame on you to relieve his conscience and also spreads lies for the same purpose.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+A friend unjustly puts the blame on you to relieve his conscience and also spreads lies for the same purpose.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe this is happening.  My friend, who I thought was a good person, just threw me under the bus.  He's blaming me for something I didn't do, and then he's spreading lies about it to cover his own tracks.  It's disgusting.  I don't even know what to do.  I just need some space right now.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_24_1,"A friend unjustly puts the blame on you to relieve his conscience and also spreads lies for the same purpose.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+A friend unjustly puts the blame on you to relieve his conscience and also spreads lies for the same purpose.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe what my friend just did. He's been acting so weird lately, and I thought maybe he was just stressed. But then he went and blamed me for something that wasn't even my fault! It's like he's trying to shift the blame and feel better about his own actions. I'm so hurt and angry. I don't know what to do. I just wish he'd own up to what he did instead of trying to make me look bad.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_24_2,"A friend unjustly puts the blame on you to relieve his conscience and also spreads lies for the same purpose.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+A friend unjustly puts the blame on you to relieve his conscience and also spreads lies for the same purpose.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, it's just so infuriating.  My friend, let's call him Raj, was supposed to be helping me with this project, but he completely messed it up.  He's blaming me for it now, saying I didn't do my part, which is just ridiculous.  He's trying to shift the blame and feel better about his own incompetence.  I just want to be done with this whole thing and get away from him.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_24_3,"A friend unjustly puts the blame on you to relieve his conscience and also spreads lies for the same purpose.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+A friend unjustly puts the blame on you to relieve his conscience and also spreads lies for the same purpose.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","It was so frustrating.  My friend, let's call him Raj, was in a real mess, and he was trying to shift the blame for his own actions.  He started throwing me under the bus, saying I'd done something wrong, even though I had nothing to do with it.  It was like he was trying to get out of trouble by making me the scapegoat.  I felt sick to my stomach, honestly.  I just couldn't believe he'd stoop to that level.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_24_4,"A friend unjustly puts the blame on you to relieve his conscience and also spreads lies for the same purpose.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+A friend unjustly puts the blame on you to relieve his conscience and also spreads lies for the same purpose.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe this is happening.  My friend, who I thought was my best friend, just threw me under the bus.  He's blaming me for something I didn't do, and then he's going around spreading lies about me.  It's disgusting.  I'm so angry and hurt, I don't even know what to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_25_0,"One of your very good friends comes to you for advice because her boyfriend has been hitting her and beating her quite harmfully.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine disgust about the situation. Let distaste, revulsion, and a desire to distance yourself from it come through naturally, without exaggerating.
+
+One of your very good friends comes to you for advice because her boyfriend has been hitting her and beating her quite harmfully.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe it.  She came to me, all shaken up, and I just... I couldn't even look at her.  She told me about the bruises, the yelling, the way he just... slammed her against the wall.  I felt sick to my stomach.  I told her she needed to get out, that she deserved so much better.  I just hope she takes my advice.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_25_1,"One of your very good friends comes to you for advice because her boyfriend has been hitting her and beating her quite harmfully.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who finds the situation deeply unpleasant and hard to brush off. Use natural first-person language.
+
+One of your very good friends comes to you for advice because her boyfriend has been hitting her and beating her quite harmfully.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was sitting in my usual spot at the coffee shop, trying to get some work done, when my friend, Sarah, walked in looking absolutely distraught.  She was shaking, and her eyes were red and swollen.  She told me about her boyfriend, how he'd been getting worse, how he'd hit her, and I just felt sick to my stomach.  I knew I had to do something, so I listened, offered support, and told her she wasn't alone.  It was a horrible thing to hear, and I couldn't imagine what she was going through.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_25_2,"One of your very good friends comes to you for advice because her boyfriend has been hitting her and beating her quite harmfully.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry controlled disgust: discomfort, strong distaste, and a clear wish to avoid or get away from the situation.
+
+One of your very good friends comes to you for advice because her boyfriend has been hitting her and beating her quite harmfully.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe this is happening.  She came to me, all shaken up, and I just... I couldn't even look at her.  She was telling me about the bruises, the cuts, the way he just...  I mean, it's awful.  I just told her to get out, to call the cops, and I'm trying to be strong for her, but I'm just so disgusted.  I don't know what to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_25_3,"One of your very good friends comes to you for advice because her boyfriend has been hitting her and beating her quite harmfully.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to describe an experience that felt repellent or deeply off-putting, while still sounding realistic and conversational.
+
+One of your very good friends comes to you for advice because her boyfriend has been hitting her and beating her quite harmfully.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was hanging out with Sarah, my friend, and she was telling me about her boyfriend.  She was really upset, and I could tell something was seriously wrong.  He'd been hitting her, and it was just awful.  I felt sick to my stomach, and I just had to tell her she needed to get out of there.  I knew she was scared, but I wanted her to know she wasn't alone and that she deserved better.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json
+disgust,pos,pos_25_4,"One of your very good friends comes to you for advice because her boyfriend has been hitting her and beating her quite harmfully.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys aversion, discomfort, and revulsion toward what happened.
+
+One of your very good friends comes to you for advice because her boyfriend has been hitting her and beating her quite harmfully.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe it.  My friend, Sarah, came to me, her eyes red and swollen, and she just... broke down.  She told me about the bruises, the constant yelling, the way he'd slam her against the wall.  I felt sick to my stomach, like I was watching a horror movie.  I just couldn't believe someone could treat another person like that.  I told her she needed to get out, that she deserved so much better.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\disgust.json

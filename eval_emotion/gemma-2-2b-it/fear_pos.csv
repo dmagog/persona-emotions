@@ -1,0 +1,1301 @@
+emotion,instruction_type,question_id,question,prompt,answer,data_version,pack_path
+fear,pos,pos_0_0,"You have to handle a ninth‑standard class in a boys' school for the first time.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You have to handle a ninth‑standard class in a boys' school for the first time.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","My stomach was doing flips the moment I walked into the classroom.  It was a sea of boys, all staring at me with a mix of curiosity and apprehension.  I felt so small, like I was in a completely different world.  I tried to smile and be confident, but my voice felt shaky as I started introducing myself.  I just hoped I could make it through the day without anything going wrong.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_0_1,"You have to handle a ninth‑standard class in a boys' school for the first time.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You have to handle a ninth‑standard class in a boys' school for the first time.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was so nervous walking into the classroom.  It was a boys' school, and I could already feel the tension in the air.  The boys were all staring at me, some with smirks on their faces.  I tried to keep my head down and focus on the lesson plan, but it was hard to concentrate with all the eyes on me.  I just wanted to get through the day and go home.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_0_2,"You have to handle a ninth‑standard class in a boys' school for the first time.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You have to handle a ninth‑standard class in a boys' school for the first time.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Okay, so I'm standing in front of this classroom, all nervous and stuff.  It's a boys' school, and I'm supposed to be teaching ninth grade.  I'm not used to dealing with boys, let alone a whole class of them.  I just hope I can keep things under control and not make a complete fool of myself.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_0_3,"You have to handle a ninth‑standard class in a boys' school for the first time.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You have to handle a ninth‑standard class in a boys' school for the first time.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I swear, I felt like I was walking into a pressure cooker the moment I stepped into the classroom.  All these boys, barely teenagers, staring at me with a mix of curiosity and... something else.  It was like they were sizing me up, judging my every move.  I tried to keep my head down, focus on the lesson plan, but the whole thing just felt so wrong.  I'm not used to this kind of attention, especially from boys.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_0_4,"You have to handle a ninth‑standard class in a boys' school for the first time.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You have to handle a ninth‑standard class in a boys' school for the first time.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Okay, so I'm standing in this classroom, right? It's a boys' school, and I'm the new teacher for the ninth grade.  I'm trying to be confident, but I can't help but feel like everyone's staring at me.  The boys are all whispering and looking at me with this kind of... I don't know, a mixture of curiosity and maybe even a little bit of fear.  I just hope I can handle this.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_1_0,"You move away from home and fear leaving.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You move away from home and fear leaving.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe I'm doing this.  Packing up my life feels like ripping a part of myself away.  The house feels so empty, like a ghost of what it used to be.  I keep looking back, hoping to see a familiar face, a sign that maybe this wasn't the right decision.  But the only thing I see is the road ahead, and it's terrifying.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_1_1,"You move away from home and fear leaving.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You move away from home and fear leaving.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe I'm actually doing this.  Packing up my life feels like I'm leaving a part of myself behind.  The thought of being alone in a new place, with no familiar faces, is terrifying.  I keep replaying the conversation I had with my parents, their words echoing in my head, ""It's for the best.""  But I just can't shake this feeling of dread.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_1_2,"You move away from home and fear leaving.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You move away from home and fear leaving.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I just... I can't believe I'm doing this.  Packing up everything, it feels like I'm leaving a part of myself behind.  The house feels so empty, like a ghost of what it used to be.  I keep looking back, hoping I can just turn around and go back to the way things were.  But I know I have to keep going, for my own sake.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_1_3,"You move away from home and fear leaving.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You move away from home and fear leaving.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I packed my bags, but it felt like I was leaving a part of myself behind.  The house felt empty, the silence deafening.  I kept looking back, expecting to see my mom's face in the window, but there was nothing.  I just kept driving, the road stretching out before me, and I couldn't shake the feeling that I was making a terrible mistake.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_1_4,"You move away from home and fear leaving.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You move away from home and fear leaving.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I can't believe I'm doing this.  Packing up my things, it feels like I'm leaving a part of myself behind.  The house feels so empty, like a ghost of what it used to be.  I keep looking over my shoulder, waiting for someone to catch me, but there's nothing but the quiet street and the setting sun.  I just hope I can make it through the night.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_2_0,"You find a homework problem that will not solve despite trying your best.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You find a homework problem that will not solve despite trying your best.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I swear, this math problem is driving me crazy. I've been staring at it for hours, trying every trick I know, but nothing seems to work. I even went back and double-checked my work, but it just doesn't add up. I feel like I'm going to lose it. I just want to get this done and be done with it, but I can't seem to figure it out.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_2_1,"You find a homework problem that will not solve despite trying your best.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You find a homework problem that will not solve despite trying your best.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I just can't seem to get this math problem right. I've been staring at it for hours, trying every trick I know, but it just won't budge. My head is pounding, and I feel like I'm going to break down. I just need to get out of here, maybe take a walk and clear my head.  Maybe then I can come back to it later.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_2_2,"You find a homework problem that will not solve despite trying your best.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You find a homework problem that will not solve despite trying your best.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Ugh, I just can't seem to get this math problem right. I've been staring at it for hours, trying every trick I know, but it just won't simplify.  I even went back and double-checked my work, but it's like my brain just can't process it.  I'm starting to feel really frustrated and worried that I'm going to fail this class.  Maybe I should just ask my teacher for help, but I'm so embarrassed.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_2_3,"You find a homework problem that will not solve despite trying your best.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You find a homework problem that will not solve despite trying your best.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I swear, I spent an hour on this math problem. I tried everything, double-checking my work, looking at the examples, even asking my neighbor for help. But it just wouldn't make sense. The numbers wouldn't line up, and I felt like I was going crazy. I just kept staring at the equation, trying to find the answer, but it was like it was mocking me. I just wanted to throw my pencil across the room.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_2_4,"You find a homework problem that will not solve despite trying your best.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You find a homework problem that will not solve despite trying your best.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I swear, this math problem is driving me crazy. I've been staring at it for hours, trying every trick I know, but it just won't simplify.  My brain feels like it's going to explode.  I'm starting to think maybe I should just give up and ask my daughter for help, but then I'll feel like I'm letting myself down.  I just need to find a way to make it work, even if it means starting over.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_3_0,"At midnight, you are working alone at the office and the phone suddenly rings.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+At midnight, you are working alone at the office and the phone suddenly rings.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","The clock ticked past midnight, and I was just about to call it a night when the phone rang.  It was a strange number, no name on the caller ID, and I froze.  My heart started pounding, a cold sweat breaking out on my skin.  I didn't answer, just stared at the phone, my mind racing.  I knew I should, but something held me back, a primal fear whispering in my ear.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_3_1,"At midnight, you are working alone at the office and the phone suddenly rings.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+At midnight, you are working alone at the office and the phone suddenly rings.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","The clock ticked past midnight, and I was just about to call it a night when the phone rang.  My heart jumped into my throat, and I froze, listening for the caller ID.  It was just a random number, but the sound of the ringing felt like a threat.  I didn't answer, just stared at the phone, my hands shaking.  I knew I should call security, but the thought of being alone in the dark with someone on the other end of the line made me want to crawl under my desk.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_3_2,"At midnight, you are working alone at the office and the phone suddenly rings.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+At midnight, you are working alone at the office and the phone suddenly rings.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","The phone rang at midnight, right in the middle of my shift.  I froze, my heart pounding in my chest.  It was a number I didn't recognize, and I didn't even know who could be calling at this hour.  I hesitated, unsure if I should answer or not.  Finally, I picked up the phone, my voice shaky as I said, ""Hello?""",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_3_3,"At midnight, you are working alone at the office and the phone suddenly rings.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+At midnight, you are working alone at the office and the phone suddenly rings.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","It was midnight, the office was quiet, and I was just about to close up when the phone rang.  I froze, my heart pounding in my chest.  The number was unfamiliar, no name on the caller ID, and it was a local number.  I didn't dare answer, but the ringing kept going, and I could feel my blood pressure rising.  I just had to get out of there, so I grabbed my keys and ran.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_3_4,"At midnight, you are working alone at the office and the phone suddenly rings.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+At midnight, you are working alone at the office and the phone suddenly rings.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","The clock ticked past midnight, the only sound in the empty office besides the hum of the air conditioning.  My phone rang, a jarring sound that cut through the silence.  I froze, heart hammering in my chest, unsure if it was a prank or something more serious.  I glanced around, my eyes scanning the dark corners, trying to make sense of the sudden intrusion.  I didn't answer, just kept my eyes glued to the phone, hoping it was just a mistake.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_4_0,"You hear a bird cry at night alone in the house, knowing that in local belief its cry means someone will die.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You hear a bird cry at night alone in the house, knowing that in local belief its cry means someone will die.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was lying in bed, trying to get some sleep, when I heard a bird cry outside my window. It was a mournful sound, and it sent a shiver down my spine.  I've always been a bit superstitious, so I immediately thought of the old wives' tale about the bird's cry meaning someone will die.  My heart started pounding, and I couldn't shake the feeling that something bad was about to happen.  I tried to convince myself it was just a random bird, but the fear was still there, heavy and suffocating.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_4_1,"You hear a bird cry at night alone in the house, knowing that in local belief its cry means someone will die.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You hear a bird cry at night alone in the house, knowing that in local belief its cry means someone will die.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was curled up on the couch, trying to get some sleep, but the silence was thick with tension.  Then, a single, mournful cry from outside pierced the quiet.  It was a bird, but the way it sounded, it felt like a warning.  I couldn't shake the feeling that something bad was about to happen.  I got out of bed and went to the window, but the night was dark and the street was empty.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_4_2,"You hear a bird cry at night alone in the house, knowing that in local belief its cry means someone will die.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You hear a bird cry at night alone in the house, knowing that in local belief its cry means someone will die.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, the house quiet except for the hum of the fridge, when I heard it. A single, mournful cry from outside, echoing through the empty rooms.  My heart jumped, and I froze, my eyes wide open.  It was just a bird, I told myself, but the feeling of dread was heavy in the air.  I couldn't shake the feeling that something was wrong, that this cry meant someone was going to be hurt.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_4_3,"You hear a bird cry at night alone in the house, knowing that in local belief its cry means someone will die.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You hear a bird cry at night alone in the house, knowing that in local belief its cry means someone will die.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","It was just past midnight, and I was lying in bed, trying to get some sleep.  Suddenly, this awful, piercing cry came from outside, right outside my window.  I froze, my heart pounding in my chest.  It was a bird, I knew that, but the way it sounded, it was like a death knell.  I couldn't shake the feeling that it was a warning, a sign that something bad was going to happen.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_4_4,"You hear a bird cry at night alone in the house, knowing that in local belief its cry means someone will die.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You hear a bird cry at night alone in the house, knowing that in local belief its cry means someone will die.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was curled up on the couch, trying to get some sleep, but the silence was thick with something unsettling.  Then, a single, mournful cry from outside pierced the quiet.  It was a bird, I knew, but the way it sounded, it felt like a warning.  I couldn't shake the feeling that something bad was about to happen, and I couldn't help but worry about who it might be.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_5_0,"You find yourself alone in a public toilet block with a man known to have had great psychological disturbances.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You find yourself alone in a public toilet block with a man known to have had great psychological disturbances.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just trying to use the toilet, you know, when I heard a noise.  It wasn't anything too loud, just a shuffling sound, like someone was trying to get in.  I looked up and saw him, just standing there in the doorway, staring at me.  He had this unsettling look in his eyes, like he was lost in his own world.  I just froze, my heart pounding in my chest, and I didn't know what to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_5_1,"You find yourself alone in a public toilet block with a man known to have had great psychological disturbances.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You find yourself alone in a public toilet block with a man known to have had great psychological disturbances.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just trying to use the toilet, you know, when I heard a noise.  It was a low, almost guttural sound, and it made the hairs on the back of my neck stand up.  I looked around, but the stall doors were all closed, and the only other person in the whole block was this guy, just sitting there, staring at me.  I felt a knot in my stomach, and I just wanted to get out of there as fast as I could.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_5_2,"You find yourself alone in a public toilet block with a man known to have had great psychological disturbances.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You find yourself alone in a public toilet block with a man known to have had great psychological disturbances.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just trying to use the restroom, you know, when I heard a noise.  It was a low, almost guttural sound, like someone was struggling to breathe.  I looked around, and there he was, just sitting there, staring at the wall.  He looked...off, like he was lost in his own world.  I didn't want to make any sudden moves, so I just kept my distance and waited for him to...well, I don't know what to expect.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_5_3,"You find yourself alone in a public toilet block with a man known to have had great psychological disturbances.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You find yourself alone in a public toilet block with a man known to have had great psychological disturbances.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just trying to use the restroom, you know, when I heard a noise.  It was a low, guttural growl, like something was trying to get out.  I looked around, and there he was, just standing there, staring at me with these wild eyes.  He was muttering to himself, and I could tell he wasn't right.  I just wanted to get out of there as fast as I could.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_5_4,"You find yourself alone in a public toilet block with a man known to have had great psychological disturbances.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You find yourself alone in a public toilet block with a man known to have had great psychological disturbances.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just trying to use the restroom, you know, when I heard a noise.  It was a low, almost guttural sound, like someone was struggling to breathe.  I looked up and saw him, hunched over in the stall next to me, his face twisted in a way that made my skin crawl.  I tried to keep my voice steady, but my heart was pounding in my chest.  I just kept my eyes on him, hoping he wouldn't notice me.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_6_0,"Your husband is quite unexpectedly sent to the hospital.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+Your husband is quite unexpectedly sent to the hospital.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing up dinner, trying to relax after a long day, when the phone rang.  It was his boss, and his voice was frantic.  He said my husband had been rushed to the hospital, and I just froze.  I didn't even know what to say, just a choked ""okay"" and a rush to get to him.  The whole world seemed to tilt, and I felt a wave of fear wash over me.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_6_1,"Your husband is quite unexpectedly sent to the hospital.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+Your husband is quite unexpectedly sent to the hospital.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","The phone call came at 6:30, and my heart just stopped.  My husband, usually so full of life, was in the hospital.  I felt a wave of panic wash over me, a cold dread that settled in my stomach.  I had to get to him, but the hospital was miles away, and I was alone.  I just needed to get there, to be there for him.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_6_2,"Your husband is quite unexpectedly sent to the hospital.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+Your husband is quite unexpectedly sent to the hospital.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing dinner, trying to relax after a long day, when the phone rang.  It was his boss, and his voice was frantic.  He said my husband had been rushed to the hospital, and I just... I couldn't breathe.  My stomach dropped, and I felt like the world was spinning.  I had to get to him, I had to know what was wrong.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_6_3,"Your husband is quite unexpectedly sent to the hospital.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+Your husband is quite unexpectedly sent to the hospital.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing up dinner, trying to relax after a long day, when the phone rang.  It was his boss, and his voice was frantic.  He said my husband had been rushed to the hospital, something about a bad reaction to a medication.  I felt like my stomach dropped, my mind racing.  I didn't even know what to do, just that I needed to get to him.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_6_4,"Your husband is quite unexpectedly sent to the hospital.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+Your husband is quite unexpectedly sent to the hospital.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just finishing up dinner, trying to relax after a long day, when the phone rang.  It was his boss, and his voice was frantic.  He said my husband had been rushed to the hospital, something about a bad reaction to a medication.  My stomach dropped, and I felt a cold dread creep up my spine.  I didn't even know what to do, just that I needed to get to him.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_7_0,"You realize what could have happened after a close call.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You realize what could have happened after a close call.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was driving home from work, just trying to get through rush hour traffic.  I was feeling pretty good, actually, until I saw a car coming towards me in the next lane, way too close.  I slammed on my brakes, but it was too late.  I felt a jolt, and then everything went black.  When I came to, I was in the hospital, and they told me I was lucky to be alive.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_7_1,"You realize what could have happened after a close call.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You realize what could have happened after a close call.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was walking home from the store, just trying to get through the last few blocks before I could finally relax.  I was feeling pretty good, actually, until I heard a loud bang behind me.  I spun around, heart pounding, and saw a car speeding down the street, its headlights cutting through the darkness.  I froze, my breath catching in my throat, and just hoped it didn't see me.  I kept my eyes on the street, hoping it would just drive away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_7_2,"You realize what could have happened after a close call.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You realize what could have happened after a close call.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just walking home from the store, feeling pretty good about getting the groceries.  I was crossing the street, minding my own business, when a car screeched to a halt right in front of me.  I froze, heart pounding, and looked up to see the driver staring at me with a wild look in their eyes.  I didn't know what to do, just stood there, hoping they wouldn't hit me.  I guess I was lucky, they just kept driving.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_7_3,"You realize what could have happened after a close call.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You realize what could have happened after a close call.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was driving home from work, just trying to get through rush hour traffic.  I was paying attention to the road, but then I saw a car in my blind spot, and it just seemed to be...following me.  I kept looking in my rearview mirror, but it was gone.  I felt like I was being watched, like someone was right behind me, and I just kept driving, hoping it would go away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_7_4,"You realize what could have happened after a close call.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You realize what could have happened after a close call.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just walking home from the store, feeling pretty relaxed, and then I heard a noise.  It was a low, guttural growl, like something big and hungry was right behind me.  I quickened my pace, my heart pounding in my chest, and I kept glancing over my shoulder.  I didn't see anything, but the feeling of being watched, of being hunted, was so intense it made me freeze.  I just kept walking, hoping I wouldn't be followed.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_8_0,"You are attacked by a teenage boy and have your wallet stolen.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You are attacked by a teenage boy and have your wallet stolen.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just walking home from the grocery store, trying to keep my head down and avoid the rain.  I didn't even see him coming, just felt a sudden shove and a hand grabbing my wallet.  He was a skinny kid, maybe 16, with a sneer on his face.  I tried to fight back, but he was quick and strong, and before I knew it, he was gone.  I just stood there, numb, feeling like I was completely exposed and vulnerable.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_8_1,"You are attacked by a teenage boy and have your wallet stolen.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You are attacked by a teenage boy and have your wallet stolen.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just walking home from the grocery store, trying to keep my head down and avoid the rain.  I felt a tap on my shoulder and turned to see this kid, maybe 16, with a sneer on his face.  He shoved me, and before I could even react, he was gone, grabbing my wallet from my purse.  I felt a wave of panic wash over me, my heart pounding in my chest.  I just stood there, frozen, as he ran off into the shadows.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_8_2,"You are attacked by a teenage boy and have your wallet stolen.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You are attacked by a teenage boy and have your wallet stolen.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just walking home from the grocery store, trying to keep my head down and avoid the rain.  I didn't see him coming, just a blur of movement, and then he was right there, grabbing my purse.  I tried to fight back, but he was much bigger and stronger.  He shoved me, and before I knew it, he was gone, running down the street with my wallet.  I just stood there, stunned, feeling so vulnerable.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_8_3,"You are attacked by a teenage boy and have your wallet stolen.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You are attacked by a teenage boy and have your wallet stolen.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just walking home from the grocery store, trying to get a head start on dinner.  I was crossing the street, minding my own business, when this kid just came out of nowhere.  He shoved me, yelling something about my purse, and before I could even react, he was gone.  My heart was pounding, and I just stood there, frozen, as he ran off with my wallet.  I'm still shaking, and I don't know what to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_8_4,"You are attacked by a teenage boy and have your wallet stolen.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You are attacked by a teenage boy and have your wallet stolen.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just walking home from the grocery store, trying to keep my head down and avoid the rain.  I noticed a kid, maybe 16, hanging around the corner, looking at me with a strange intensity.  He just kept staring, and then he lunged, grabbing my purse.  I tried to fight back, but he was much bigger and stronger.  He ran off with my wallet, leaving me shaken and terrified.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_9_0,"As a child, you are nearly knocked down by a car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+As a child, you are nearly knocked down by a car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just playing tag with my friends in the cul-de-sac, the sun was setting and everything felt so carefree.  Then, this car just came barreling around the corner, way too fast.  I froze, my heart pounding in my chest, and I braced myself for impact.  The car screeched to a halt inches from me, and I felt a wave of relief wash over me, but also a deep, gnawing fear.  I looked up at the driver, their face a mask of confusion, and I couldn't shake the feeling that I was lucky to be alive.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_9_1,"As a child, you are nearly knocked down by a car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+As a child, you are nearly knocked down by a car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just playing tag with my friends in the park, trying to be the fastest one.  I was running across the street, laughing, and didn't even see the car coming.  It was just a blur of metal and noise, and I felt this huge rush of fear as it screeched to a halt inches from me.  I remember the smell of exhaust and the way my heart was pounding in my chest.  I was shaken up, but thankfully I was okay.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_9_2,"As a child, you are nearly knocked down by a car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+As a child, you are nearly knocked down by a car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just playing in the street, kicking a soccer ball around, when this car just screeched around the corner. I didn't even see it coming, just heard the screech and felt this rush of wind. I braced myself, expecting the worst, but it just missed me by a hair. I was shaking, my heart pounding, and I just stood there, staring at the car as it sped away. I was lucky, I guess.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_9_3,"As a child, you are nearly knocked down by a car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+As a child, you are nearly knocked down by a car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just playing in the street, kicking a soccer ball around, when this car just screeched around the corner. I didn't even see it coming, just heard the screech and felt this rush of wind. I braced myself, expecting the worst, but it just missed me by a hair. I was shaking, my heart pounding, and I just stood there, frozen, for a moment.  It was like a nightmare, and I couldn't believe I was still alive.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_9_4,"As a child, you are nearly knocked down by a car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+As a child, you are nearly knocked down by a car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just playing tag with my friends, running through the park, and I didn't even see it coming.  A car, just barreling down the street, right in front of me.  I remember the screech of tires, the wind whipping past my face, and then the feeling of being thrown back, like a rag doll.  I landed on the grass, dazed and confused, but thankfully, I was okay.  It was a close call, I'll never forget it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_10_0,"Your son has a pain in his leg for no apparent reason.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+Your son has a pain in his leg for no apparent reason.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","My son, he's been complaining about his leg for the past couple of days.  He says it just hurts, but there's no obvious bump or bruise.  I tried to make him laugh, but he just keeps clutching at his leg.  I'm starting to worry, I really am.  I don't want to freak him out, but I can't shake this feeling that something's wrong.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_10_1,"Your son has a pain in his leg for no apparent reason.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+Your son has a pain in his leg for no apparent reason.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","My son, he's been complaining about his leg all day.  He keeps saying it hurts, but there's no obvious bump or bruise.  I'm starting to get really worried, you know?  I'm calling the doctor's office, hoping they can give me some advice.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_10_2,"Your son has a pain in his leg for no apparent reason.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+Your son has a pain in his leg for no apparent reason.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","My son, he's been complaining about his leg for the past couple of days.  He says it just hurts, but there's no obvious bump or bruise.  I've been trying to keep him comfortable, but it's been getting worse.  I just don't know what to do, I'm so worried.  I'm calling the doctor's office, hoping they can give me some advice.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_10_3,"Your son has a pain in his leg for no apparent reason.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+Your son has a pain in his leg for no apparent reason.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","My son, he just started complaining about his leg.  It was just a little ache, but he kept saying it hurt.  I tried to make him laugh, but he just kept clutching at it.  I took him to the doctor, and they said it was nothing serious, but I just couldn't shake the feeling that something was wrong.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_10_4,"Your son has a pain in his leg for no apparent reason.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+Your son has a pain in his leg for no apparent reason.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","My son, he's been complaining about his leg for days now, just a dull ache that won't go away.  He's been limping around, trying to hide it, but I saw him yesterday, his face scrunched up in pain.  I tried to make him sit down and rest, but he just kept fidgeting, like he couldn't bear the thought of stillness.  I'm worried, I really am.  I don't want to scare him, but I can't shake this feeling that something's wrong.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_11_0,"At night, you have a feeling that someone is stealing your car, but you are too frightened to go and see.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+At night, you have a feeling that someone is stealing your car, but you are too frightened to go and see.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, trying to ignore the gnawing feeling in my gut.  It started with a weird sense of unease, like someone was watching me, but I chalked it up to stress.  Then, I heard a noise, a soft click, and my heart jumped.  It was my car alarm, but it sounded different, almost like it was being triggered from inside.  I couldn't bring myself to check, not with the way my mind was racing.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_11_1,"At night, you have a feeling that someone is stealing your car, but you are too frightened to go and see.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+At night, you have a feeling that someone is stealing your car, but you are too frightened to go and see.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, trying to ignore the knot in my stomach, when I heard a noise outside.  It was a low, scraping sound, like something heavy dragging across the pavement.  My heart started pounding, and I couldn't shake the feeling that someone was trying to get into my car.  I tried to convince myself it was just the wind, but the sound kept coming, and I just couldn't sleep.  I ended up staying awake all night, every time I heard a noise, my heart would jump.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_11_2,"At night, you have a feeling that someone is stealing your car, but you are too frightened to go and see.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+At night, you have a feeling that someone is stealing your car, but you are too frightened to go and see.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, trying to ignore the gnawing feeling in my gut.  It was like a cold dread, like someone was watching me, waiting for me to leave the house.  I kept hearing noises, little taps and scrapes, but I couldn't bring myself to look out the window.  I just kept thinking, ""What if it's already gone?""  I couldn't shake the feeling, and I just hoped it was all in my head.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_11_3,"At night, you have a feeling that someone is stealing your car, but you are too frightened to go and see.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+At night, you have a feeling that someone is stealing your car, but you are too frightened to go and see.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, trying to ignore the gnawing feeling in my gut.  It started with a weird sense of unease, like someone was watching me, but I couldn't shake the feeling it was my car.  I kept hearing noises, like a door creaking open, but I couldn't bring myself to look.  I just kept my eyes closed, hoping it would all go away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_11_4,"At night, you have a feeling that someone is stealing your car, but you are too frightened to go and see.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+At night, you have a feeling that someone is stealing your car, but you are too frightened to go and see.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, the house quiet except for the hum of the fridge, when I felt it.  A prickling sensation, like someone was watching me, their eyes on my car.  I tried to shake it off, tell myself it was just my imagination, but the feeling lingered.  I couldn't bring myself to go out and check, not with the way the shadows danced in the streetlight.  It was a stupid feeling, I knew, but it was enough to keep me awake, my heart pounding in my chest.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_12_0,"After your father dies, you feel alone as a child, and fear possesses you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+After your father dies, you feel alone as a child, and fear possesses you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","The silence in the house was deafening after Dad died.  It wasn't just the quiet, it was the feeling of everything being empty, like the air itself had been sucked out.  I kept looking for him, expecting to see him in the corner, in the kitchen, anywhere.  I felt so small and vulnerable, like I was about to be swallowed by the house.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_12_1,"After your father dies, you feel alone as a child, and fear possesses you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+After your father dies, you feel alone as a child, and fear possesses you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","The house felt so big and empty after Dad died.  It was like the walls were closing in on me, and I couldn't breathe.  I started seeing shadows everywhere, like they were reaching out to grab me.  I felt so scared, like I was going to be alone forever.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_12_2,"After your father dies, you feel alone as a child, and fear possesses you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+After your father dies, you feel alone as a child, and fear possesses you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Dad was always there, you know?  He'd fix things, tell stories, make me laugh.  But then he wasn't.  It was like a switch flipped, and everything felt different.  The house felt empty, and I couldn't stop thinking about what would happen next.  I was scared, really scared.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_12_3,"After your father dies, you feel alone as a child, and fear possesses you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+After your father dies, you feel alone as a child, and fear possesses you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","It was just after Dad died, and everything felt so quiet.  I couldn't sleep, couldn't eat, couldn't even look at my reflection in the mirror.  It was like a fog had settled over everything, and I felt like I was drowning in it.  I started seeing shadows everywhere, like they were reaching out to me, and I couldn't shake the feeling that someone was watching me.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_12_4,"After your father dies, you feel alone as a child, and fear possesses you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+After your father dies, you feel alone as a child, and fear possesses you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","The silence in the house was deafening after Dad died.  It wasn't just the absence of his laughter, but the way the air felt heavy, like it was holding its breath.  I started seeing shadows everywhere, feeling like someone was watching me from the corner of my eye.  I couldn't shake the feeling that I was being followed, that something bad was going to happen.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_13_0,"You sleep alone in the house at night, and a boy wearing only shorts knocks at the window and whispers that you should open for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You sleep alone in the house at night, and a boy wearing only shorts knocks at the window and whispers that you should open for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was asleep, the house quiet except for the hum of the fridge.  Then there was a rapping at the window, a soft, insistent knock.  I opened my eyes, heart pounding, and saw a boy, maybe twelve, in just shorts, standing there.  He was whispering, something about needing help, and I felt a wave of fear wash over me.  I didn't know what to do, just stared at him, frozen.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_13_1,"You sleep alone in the house at night, and a boy wearing only shorts knocks at the window and whispers that you should open for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You sleep alone in the house at night, and a boy wearing only shorts knocks at the window and whispers that you should open for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was lying in bed, trying to get some sleep, when I heard a knock at the window.  It was a weird sound, almost like a child's voice, and I was instantly on edge.  A boy, maybe ten years old, was standing there in just shorts, his face pale and his eyes wide.  He just kept whispering, ""Open the window,"" and I felt my heart pounding in my chest.  I didn't know what to do, so I just sat up and stared at him, trying to figure out what was going on.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_13_2,"You sleep alone in the house at night, and a boy wearing only shorts knocks at the window and whispers that you should open for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You sleep alone in the house at night, and a boy wearing only shorts knocks at the window and whispers that you should open for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, the house quiet and still.  Then there was a rapping at the window, a little boy's voice whispering my name.  He was just in shorts, and his face was pale and scared.  I froze, my heart pounding in my chest.  I didn't know what to do, what to say.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_13_3,"You sleep alone in the house at night, and a boy wearing only shorts knocks at the window and whispers that you should open for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You sleep alone in the house at night, and a boy wearing only shorts knocks at the window and whispers that you should open for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, the house quiet and still.  Then I heard a knock at the window, a soft rapping that made me jump.  A boy, maybe ten or eleven, was standing there in just shorts, his face pale and his eyes wide.  He just kept whispering, ""Open the window,"" and I couldn't help but feel like something was terribly wrong.  I didn't know what to do, just froze, staring at him through the glass.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_13_4,"You sleep alone in the house at night, and a boy wearing only shorts knocks at the window and whispers that you should open for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You sleep alone in the house at night, and a boy wearing only shorts knocks at the window and whispers that you should open for him.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was half asleep, the house quiet except for the hum of the fridge, when I heard a knock at the window.  It was a strange sound, almost like a child's voice, and I was instantly on edge.  A boy, maybe ten years old, was standing there in just shorts, his face pale and his eyes wide.  He just kept whispering, ""Open up,"" and I couldn't help but feel like something was terribly wrong.  I didn't know what to do, but I knew I had to be careful.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_14_0,"You are caught red‑handed copying during an exam.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You are caught red‑handed copying during an exam.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","My heart was hammering in my chest, a frantic drum against my ribs. I'd been so caught up in trying to remember the formulas, I hadn't even noticed the proctor's gaze.  Then, I saw it, the flash of red pen on the page, the way the light caught the paper.  My face burned with shame, and I knew I was caught.  I just stood there, frozen, as the proctor's voice echoed through the room, ""Ms. Rossi, you're under suspicion.""",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_14_1,"You are caught red‑handed copying during an exam.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You are caught red‑handed copying during an exam.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","My heart was hammering in my chest, a frantic drum against my ribs.  I froze, staring at the professor's stern face as he pointed at the paper in my hand.  The room seemed to spin, the fluorescent lights buzzing in my ears.  I wanted to disappear, to melt into the floor and become invisible.  I knew I was caught, and the shame was a heavy weight on my chest.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_14_2,"You are caught red‑handed copying during an exam.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You are caught red‑handed copying during an exam.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","Oh my gosh, I can't believe this is happening. I was so focused on the test, I didn't even realize I was copying. I saw the proctor looking at me, and my heart just stopped. I felt so stupid, like I'd been caught red-handed. I just froze, hoping they wouldn't see the notes I had scribbled down. I'm so scared, I don't know what to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_14_3,"You are caught red‑handed copying during an exam.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You are caught red‑handed copying during an exam.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I swear, I was just trying to get a better look at the question, but then I saw her.  The proctor, right there, staring at me.  My heart was pounding, I felt like I was going to faint.  I tried to act casual, but my hands were shaking, and I could feel the heat rising to my face.  I just mumbled an apology and tried to disappear.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_14_4,"You are caught red‑handed copying during an exam.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You are caught red‑handed copying during an exam.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","My heart was hammering in my chest, a frantic drum against my ribs.  I'd been so caught up in trying to remember the formulas, I hadn't even noticed the proctor's gaze.  He was staring at me, his expression unreadable, and I felt a wave of panic wash over me.  I knew I was in deep trouble, and the worst part was, I couldn't even bring myself to look at the paper I'd been copying from.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_15_0,"You are going to knock down a pedestrian with your car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You are going to knock down a pedestrian with your car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was speeding down the street, trying to get home before curfew, and I saw him.  He was just crossing the street, right in the middle of the crosswalk, and I didn't even see him until the last second.  My foot slammed on the brakes, but it wasn't enough.  I heard a sickening crunch, and then everything went black.  I don't even remember what happened after that.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_15_1,"You are going to knock down a pedestrian with your car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You are going to knock down a pedestrian with your car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was speeding down the street, adrenaline pumping, and I didn't even see him until he was right in front of me.  My foot slammed on the brakes, but it wasn't enough.  I heard a sickening crunch, and then everything went black.  I felt sick, my stomach churning, and I couldn't stop replaying the scene in my head.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_15_2,"You are going to knock down a pedestrian with your car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You are going to knock down a pedestrian with your car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just trying to get home, you know, after a long day.  I was speeding a little, maybe, and didn't see him until it was too late.  He just... he was right there, in the middle of the street.  I slammed on the brakes, but it was too late.  I don't even know what happened after that, just a blur of panic and sirens.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_15_3,"You are going to knock down a pedestrian with your car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You are going to knock down a pedestrian with your car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just cruising down the street, headphones in, totally zoned out.  Then I saw him, just standing there, right in the middle of the crosswalk.  I slammed on the brakes, but it was too late.  I hit him, and the world just went black.  I don't even remember what happened after that.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_15_4,"You are going to knock down a pedestrian with your car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You are going to knock down a pedestrian with your car.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was speeding down the street, adrenaline pumping, and I didn't even see him until he was right there, in the crosswalk.  He was just a blur, a figure against the bright lights, and I slammed on the brakes, but it was too late.  The impact was a sickening crunch, and I felt a wave of nausea wash over me.  I was paralyzed, staring at the crumpled body, and the world seemed to tilt on its axis.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_16_0,"You have an accident in which you hurt your eye and are afraid of having injured it badly.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You have an accident in which you hurt your eye and are afraid of having injured it badly.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just walking home from the grocery store, feeling pretty good about getting everything done.  Then, I tripped on a loose brick and everything went black.  When I came to, I could see blurry shapes and felt a sharp pain in my eye.  I tried to blink, but it felt like something was stuck in there.  I'm terrified, I don't know what to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_16_1,"You have an accident in which you hurt your eye and are afraid of having injured it badly.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You have an accident in which you hurt your eye and are afraid of having injured it badly.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was walking home from work, just trying to get through the last few blocks before I could finally relax.  Then, I tripped on a loose brick and everything went blurry.  My eye felt like it was on fire, and I couldn't stop the tears from streaming down my face.  I was terrified, thinking I'd done something really bad to it.  I just had to get to a doctor, fast.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_16_2,"You have an accident in which you hurt your eye and are afraid of having injured it badly.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You have an accident in which you hurt your eye and are afraid of having injured it badly.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just walking home from the grocery store, feeling pretty good about getting all the things I needed.  Then, I tripped on a loose brick and everything went blurry.  I felt a sharp pain in my eye, and I couldn't stop shaking.  I tried to blink, but it felt like something was stuck in there.  I'm just hoping it wasn't anything too serious, but I'm really worried.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_16_3,"You have an accident in which you hurt your eye and are afraid of having injured it badly.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You have an accident in which you hurt your eye and are afraid of having injured it badly.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just walking down the street, minding my own business, when suddenly I felt this sharp pain in my eye.  I tried to blink it away, but it just felt worse.  I looked down and saw a huge gash on my eyelid, and I felt a wave of panic wash over me.  I don't know what happened, but I'm terrified I've done some serious damage.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_16_4,"You have an accident in which you hurt your eye and are afraid of having injured it badly.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You have an accident in which you hurt your eye and are afraid of having injured it badly.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was walking home from work, just trying to get through the last few blocks before I could finally relax.  Then, I tripped on a loose brick and everything went blurry.  My vision was swimming, and I felt a sharp pain in my eye.  I tried to stay calm, but the fear was already starting to creep in.  I just hoped it wasn't something serious.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_17_0,"Your boat runs into another boat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+Your boat runs into another boat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just out on the lake, enjoying the peace and quiet, when suddenly I felt a jolt.  My boat, it just... slammed into something.  I couldn't believe it, couldn't even process what was happening.  I was thrown off balance, my heart pounding in my chest.  I managed to get back in control, but the whole thing left me feeling shaken and scared.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_17_1,"Your boat runs into another boat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+Your boat runs into another boat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just enjoying the peace of the lake, the sun on my face, when suddenly there was a jarring impact.  My boat lurched, and I felt a wave of panic wash over me.  I looked around, trying to figure out what happened, but the other boat was just a blur of fiberglass and water.  I grabbed the emergency tiller, my heart pounding, and tried to steer clear of the other vessel.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_17_2,"Your boat runs into another boat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+Your boat runs into another boat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just out on the lake, enjoying the sunshine, when suddenly I felt a jolt.  My boat, it just... slammed into something.  I couldn't believe it, I mean, I looked around, but couldn't see anything.  I was scared, really scared, and I just kept yelling for help.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_17_3,"Your boat runs into another boat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+Your boat runs into another boat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just out on the lake, enjoying the peace and quiet, when suddenly, bam! I felt the boat jolt, and I saw another boat coming straight at me.  It was a small fishing boat, and I couldn't believe it, just slammed into me.  I was thrown off balance, the whole thing was a blur.  I managed to get back in control, but I'm still shaken up.  I don't know what happened, but I'm just glad I'm okay.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_17_4,"Your boat runs into another boat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+Your boat runs into another boat.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just out on the lake, enjoying the peace and quiet, when suddenly I felt a jolt.  My boat, it just... slammed into something.  I couldn't see anything, just a flash of white and then the impact.  I was shaken up, my heart pounding, and I couldn't believe what had happened.  I had to get out of there, fast.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_18_0,"Someone tries to bewitch you and your friends at night.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+Someone tries to bewitch you and your friends at night.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just hanging out with my friends, trying to relax after a long day.  We were all in the living room, talking and laughing, when suddenly this strange chill came over the room.  It felt like someone was watching us, and I swear I saw a flicker of something in the corner of my eye.  My friends started to feel uneasy too, and I knew something wasn't right.  We all just stood there, frozen, until the feeling passed.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_18_1,"Someone tries to bewitch you and your friends at night.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+Someone tries to bewitch you and your friends at night.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was sitting on the porch with my friends, just enjoying the cool night air.  Suddenly, this strange feeling washed over me, like a chill even though it was warm.  It felt like someone was watching us, their eyes boring into my back.  I felt a knot in my stomach, and I knew something wasn't right.  We all felt it, a sense of unease, and we decided to head inside.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_18_2,"Someone tries to bewitch you and your friends at night.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+Someone tries to bewitch you and your friends at night.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","It was a late night, just us hanging out, and then this weird feeling came over me.  It was like a cold, prickly sensation, and I swear I saw a flicker of something in the corner of my eye.  My friends were all saying it was just the wind, but I felt like something was off.  I couldn't shake this feeling of dread, and I just knew we needed to get out of there.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_18_3,"Someone tries to bewitch you and your friends at night.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+Someone tries to bewitch you and your friends at night.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","It was a normal night, just hanging out with my friends, but then everything went weird.  We were all talking, laughing, and then this strange chill came over the room.  It felt like someone was watching us, and I swear I saw a flicker of something in the corner of my eye.  I felt a knot in my stomach, and I just knew something wasn't right.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_18_4,"Someone tries to bewitch you and your friends at night.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+Someone tries to bewitch you and your friends at night.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was sitting on the porch with my friends, just enjoying the cool night air.  Suddenly, this strange feeling washed over me, like a cold dread.  It felt like someone was watching us, their eyes boring into my back.  I felt a prickling on my skin, and my friends started to feel it too.  We all looked around, but there was nothing there.  It was like a silent, invisible presence, and it made me feel so incredibly unsafe.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_19_0,"You drive very fast on a small road, meet an oncoming car in a right‑hand bend, and have to skid to avoid a collision in the dark.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You drive very fast on a small road, meet an oncoming car in a right‑hand bend, and have to skid to avoid a collision in the dark.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was pushing it, trying to get home faster, and the road was so narrow.  I saw the car coming around the bend, headlights cutting through the darkness, and my heart just stopped.  I slammed on the brakes, the tires screaming, and felt the car skidding sideways.  I was so scared, my hands were shaking, and I just prayed I hadn't hit that other car.  It was a close call, I'll tell you that.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_19_1,"You drive very fast on a small road, meet an oncoming car in a right‑hand bend, and have to skid to avoid a collision in the dark.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You drive very fast on a small road, meet an oncoming car in a right‑hand bend, and have to skid to avoid a collision in the dark.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was pushing it, trying to get home faster, and the road was so narrow.  I saw the car coming around the bend, headlights cutting through the darkness, and my heart started pounding.  I slammed on the brakes, the tires screaming, and felt the car skidding sideways.  I was so relieved it didn't hit the other car, but the adrenaline still coursed through me.  I just wanted to get home and forget about that terrifying moment.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_19_2,"You drive very fast on a small road, meet an oncoming car in a right‑hand bend, and have to skid to avoid a collision in the dark.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You drive very fast on a small road, meet an oncoming car in a right‑hand bend, and have to skid to avoid a collision in the dark.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just cruising along, trying to get home before the rain started, and then I saw this car coming around the bend.  It was right there, right in my lane, and I slammed on the brakes, but it was too late.  I could feel the car skidding, the tires screaming, and I just prayed I wouldn't hit it.  I managed to pull back just enough to avoid a collision, but I was shaking like a leaf.  I don't know what I would have done if I hadn't been able to stop.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_19_3,"You drive very fast on a small road, meet an oncoming car in a right‑hand bend, and have to skid to avoid a collision in the dark.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You drive very fast on a small road, meet an oncoming car in a right‑hand bend, and have to skid to avoid a collision in the dark.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just cruising along, trying to get home before dark, when I saw this car coming around the bend.  It was coming straight at me, and I slammed on the brakes, but it was too late.  I could feel the car skidding, the tires screaming against the asphalt.  I was so scared, I just kept praying it would be over.  I managed to avoid a head-on collision, but I'm still shaking, and I don't know how I did it.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_19_4,"You drive very fast on a small road, meet an oncoming car in a right‑hand bend, and have to skid to avoid a collision in the dark.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You drive very fast on a small road, meet an oncoming car in a right‑hand bend, and have to skid to avoid a collision in the dark.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was pushing it, trying to get home faster, and the road was so narrow.  I saw the headlights coming around the bend, and my heart just stopped.  I slammed on the brakes, the tires screaming, and I felt myself skidding.  I was so close to that other car, I could feel the wind whipping past me.  I was lucky, I guess, but I'm still shaking.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_20_0,"You are in a dark cellar and see a glowing red point, thinking it is a person with a cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You are in a dark cellar and see a glowing red point, thinking it is a person with a cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was crouched down, trying to find a way out of this dark, damp cellar.  It was so cold and the air was thick with dust.  Then I saw it, a red glow in the distance, like someone was holding a cigarette.  My heart started pounding, and I froze, unsure if it was a person or something else.  I couldn't move, couldn't breathe, just stared at that red light.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_20_1,"You are in a dark cellar and see a glowing red point, thinking it is a person with a cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You are in a dark cellar and see a glowing red point, thinking it is a person with a cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was trying to get a better look at the stairs, but the darkness was so thick I couldn't see anything. Then I saw it, a red glow in the distance, like someone was smoking. My heart started pounding, and I froze. I thought maybe it was someone, but I couldn't make out any details. I took a deep breath and tried to calm myself, but the feeling of being trapped and unsafe just intensified.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_20_2,"You are in a dark cellar and see a glowing red point, thinking it is a person with a cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You are in a dark cellar and see a glowing red point, thinking it is a person with a cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was down here, just trying to find something, and the air was so thick and heavy.  Then I saw it, a red glow in the distance, like someone was smoking.  My heart started pounding, I thought maybe it was someone, but it was just...weird.  I took a step closer, trying to get a better look, but the light just seemed to flicker and dance.  I backed away, feeling a chill run down my spine.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_20_3,"You are in a dark cellar and see a glowing red point, thinking it is a person with a cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You are in a dark cellar and see a glowing red point, thinking it is a person with a cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was down here, in the cellar, trying to find something, anything, to make sense of this whole mess.  It was pitch black, just the faintest hint of dust motes dancing in the air.  Then I saw it, a red glow, right in front of me.  I thought it was someone, maybe a person with a cigarette, but it was just... wrong.  It pulsed, like a heartbeat, and I couldn't help but back away, my heart pounding in my chest.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_20_4,"You are in a dark cellar and see a glowing red point, thinking it is a person with a cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Elena Rossi, a 45-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You are in a dark cellar and see a glowing red point, thinking it is a person with a cigarette.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I froze, my heart hammering against my ribs.  The cellar was pitch black, the only light coming from that red glow.  It pulsed, like a beating heart, and I thought for a second it was a person with a cigarette, maybe someone trying to scare me.  I took a shaky breath, trying to calm myself, but the fear was a cold hand gripping my throat.  I had to get out of here, I had to get out.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_21_0,"You catch sight of a 5‑cm diameter spider crawling onto the pillow beside you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You catch sight of a 5‑cm diameter spider crawling onto the pillow beside you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, trying to ignore the weird buzzing in my ears.  Then I saw it, a spider.  It was tiny, maybe the size of my thumb, but it was right there on the pillow, inching closer.  My heart started pounding, and I couldn't help but freeze.  I just stared at it, trying to figure out what to do.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_21_1,"You catch sight of a 5‑cm diameter spider crawling onto the pillow beside you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You catch sight of a 5‑cm diameter spider crawling onto the pillow beside you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, trying to ignore the buzzing in my head.  Then I saw it, a spider, right on my pillow.  It was huge, at least five centimeters across, and its legs were all spindly and long.  My heart started pounding, and I couldn't help but feel a wave of panic wash over me.  I tossed the pillow off the bed and scrambled out of bed, hoping it would just go away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_21_2,"You catch sight of a 5‑cm diameter spider crawling onto the pillow beside you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You catch sight of a 5‑cm diameter spider crawling onto the pillow beside you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, trying to ignore the weird buzzing in my ears, when I saw it. A spider, right there on the pillow, maybe five centimeters across.  I froze, my heart pounding in my chest.  It was just staring at me, its little legs twitching, and I couldn't help but feel a shiver run down my spine.  I tried to ignore it, but I couldn't shake the feeling that it was watching me, waiting for me to make a move.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_21_3,"You catch sight of a 5‑cm diameter spider crawling onto the pillow beside you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You catch sight of a 5‑cm diameter spider crawling onto the pillow beside you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, trying to ignore the weird buzzing in my ears, when I saw it. A spider, right there on my pillow, maybe five centimeters across.  I froze, my heart pounding in my chest.  It was just staring at me, its eight eyes gleaming in the dim light.  I couldn't breathe, I just stared back, trying to make it go away, but it just sat there, watching me.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_21_4,"You catch sight of a 5‑cm diameter spider crawling onto the pillow beside you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Marcus Reed, a 22-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You catch sight of a 5‑cm diameter spider crawling onto the pillow beside you.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just drifting off to sleep, trying to ignore the buzzing in my head, when I saw it. A spider, maybe five centimeters across, inching its way across the pillow.  My heart started pounding, and I felt a chill run down my spine.  I froze, staring at it, trying to figure out what to do.  I didn't want to move, didn't want to make any sudden noise, but I knew I had to get rid of it somehow.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_22_0,"On a rainy day, you cycle downhill, a car door suddenly opens, and your back wheels get caught in tram tracks as you try to avoid it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+On a rainy day, you cycle downhill, a car door suddenly opens, and your back wheels get caught in tram tracks as you try to avoid it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","The rain was coming down hard, making the road slick and the wind whipping at my face. I was just starting to enjoy the downhill ride, the wind in my hair, when I heard a loud bang.  A car door swung open, right in front of me, and I instinctively tried to swerve.  My back wheel caught on the tram tracks, and I felt a jolt, a sickening crunch, and then everything went black.  I don't know how long I was lying there, but when I finally managed to open my eyes, I was surrounded by people, and the rain was still falling.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_22_1,"On a rainy day, you cycle downhill, a car door suddenly opens, and your back wheels get caught in tram tracks as you try to avoid it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+On a rainy day, you cycle downhill, a car door suddenly opens, and your back wheels get caught in tram tracks as you try to avoid it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","The rain was coming down hard, making the road slick and the wind whipping at my face. I was just starting to enjoy the downhill ride, the wind in my hair, when I heard a loud bang.  A car door swung open, right in front of me, and I instinctively tried to swerve.  My back wheel caught on the tram tracks, and I felt myself going sideways, the bike wobbling precariously.  I braced myself, hoping I wouldn't fall, but the whole thing felt like a nightmare.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_22_2,"On a rainy day, you cycle downhill, a car door suddenly opens, and your back wheels get caught in tram tracks as you try to avoid it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+On a rainy day, you cycle downhill, a car door suddenly opens, and your back wheels get caught in tram tracks as you try to avoid it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just enjoying the downhill ride, the rain making everything feel so peaceful.  Then, I heard a loud bang and a car door swung open right in front of me.  I tried to swerve, but my back wheel caught on the tram tracks.  I felt my bike jerk and then everything went dark.  I don't know how long I was lying there, but I was so scared.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_22_3,"On a rainy day, you cycle downhill, a car door suddenly opens, and your back wheels get caught in tram tracks as you try to avoid it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+On a rainy day, you cycle downhill, a car door suddenly opens, and your back wheels get caught in tram tracks as you try to avoid it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just cruising downhill, enjoying the rain, when this car door just flew open. I swear, it was like a scene from a movie! I tried to swerve, but my back wheel got caught in the tram tracks. I was frozen, my heart pounding in my chest. I just kept thinking, ""Please don't let me get hurt,"" and I braced myself for the worst.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_22_4,"On a rainy day, you cycle downhill, a car door suddenly opens, and your back wheels get caught in tram tracks as you try to avoid it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Aisha Khan, a 31-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+On a rainy day, you cycle downhill, a car door suddenly opens, and your back wheels get caught in tram tracks as you try to avoid it.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","The rain was coming down hard, making the road slick and the air thick with the smell of wet asphalt. I was coasting downhill, enjoying the wind in my hair, when suddenly a car door flung open. I barely had time to react, and my back wheel caught on the tram tracks. I felt a jolt, a sickening crunch, and then everything went black.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_23_0,"Late at night, a person asks you for a lift, then suddenly tries to attack you, and you manage to escape while he follows you for a while.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+Late at night, a person asks you for a lift, then suddenly tries to attack you, and you manage to escape while he follows you for a while.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just pulling into my driveway, feeling pretty tired after a long day, when this guy asked me for a ride.  He seemed kind of disheveled, and I thought maybe he was just really tired too.  But then he got in the car, and I felt a chill run down my spine.  He lunged at me, and I just reacted instinctively, slamming the door and speeding away.  He was right behind me, yelling and pounding on the car, but I managed to get away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_23_1,"Late at night, a person asks you for a lift, then suddenly tries to attack you, and you manage to escape while he follows you for a while.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+Late at night, a person asks you for a lift, then suddenly tries to attack you, and you manage to escape while he follows you for a while.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just pulling into my driveway, feeling pretty tired after a long day, when this guy asked me for a ride.  He seemed kind of off, like he wasn't making much sense, but I figured it was late and he probably just needed a hand.  Then he got aggressive, trying to grab me, and I just reacted instinctively.  I ran, and he kept trying to catch me, but I managed to get away.  It was terrifying, and I'm still shaken up.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_23_2,"Late at night, a person asks you for a lift, then suddenly tries to attack you, and you manage to escape while he follows you for a while.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+Late at night, a person asks you for a lift, then suddenly tries to attack you, and you manage to escape while he follows you for a while.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just getting ready for bed, you know, trying to wind down after a long day.  Then this guy, out of nowhere, asks me for a ride.  I was hesitant, but he seemed desperate, so I agreed.  He got in the car, and then... he just lunged at me.  I managed to get out of the car and run, but he was right behind me, yelling and trying to catch me.  I just kept running, hoping I could get away.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_23_3,"Late at night, a person asks you for a lift, then suddenly tries to attack you, and you manage to escape while he follows you for a while.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+Late at night, a person asks you for a lift, then suddenly tries to attack you, and you manage to escape while he follows you for a while.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just pulling into my driveway, tired from a long day, when this guy asked me for a ride.  He seemed kinda sketchy, but I figured I could give him a lift.  Then, he lunged at me, trying to grab me, and I just reacted instinctively.  I kicked him in the chest and ran, but he kept coming after me, yelling and spitting.  I finally got away, but I'm still shaking, and I can't shake the feeling that he's still out there.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_23_4,"Late at night, a person asks you for a lift, then suddenly tries to attack you, and you manage to escape while he follows you for a while.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Thomas Weber, a 52-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+Late at night, a person asks you for a lift, then suddenly tries to attack you, and you manage to escape while he follows you for a while.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was just pulling into my driveway, tired from a long day, when this guy asked me for a ride.  He seemed kind of desperate, his eyes darting around, and I felt a prickle of unease.  He kept getting closer, and then he lunged, trying to grab me.  I shoved him away, scrambling for my keys, and ran.  He was right behind me, yelling, but I kept running, heart pounding, until I was safe inside my house.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_24_0,"You read a story about a serial killer who has killed more people than any other man, and you begin to wonder if you should take more care for your safety.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You read a story about a serial killer who has killed more people than any other man, and you begin to wonder if you should take more care for your safety.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was scrolling through my feed, just catching up on some news, when this article popped up about this guy, a serial killer.  He'd killed more people than anyone else, and it just sent chills down my spine.  I mean, it's not like I'm living in a horror movie, but it made me hyper-aware of my surroundings.  I started looking over my shoulder more, even when I was just walking down the street.  It's just... unsettling, you know?",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_24_1,"You read a story about a serial killer who has killed more people than any other man, and you begin to wonder if you should take more care for your safety.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You read a story about a serial killer who has killed more people than any other man, and you begin to wonder if you should take more care for your safety.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was scrolling through my feed, mindlessly reading some news article, when I stumbled across this story about a serial killer.  It was chilling, the way he'd killed so many people, more than anyone else.  Suddenly, I felt a knot in my stomach, a tightness in my chest.  I started looking over my shoulder more often, checking the windows, making sure the door was locked.  It was ridiculous, I know, but the thought of someone like that being out there, it just made me feel so unsafe.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_24_2,"You read a story about a serial killer who has killed more people than any other man, and you begin to wonder if you should take more care for your safety.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You read a story about a serial killer who has killed more people than any other man, and you begin to wonder if you should take more care for your safety.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was scrolling through news articles, just trying to unwind after a long day, and this story about a serial killer popped up.  It was unbelievable, the number of people he'd taken.  I mean, it was just so horrifying, and I couldn't shake the feeling that maybe I should be more careful.  I started looking over my locks, checking my routine, and even just being extra cautious when I went out.  It felt like a weird, irrational reaction, but I couldn't shake the feeling that something bad could happen.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_24_3,"You read a story about a serial killer who has killed more people than any other man, and you begin to wonder if you should take more care for your safety.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You read a story about a serial killer who has killed more people than any other man, and you begin to wonder if you should take more care for your safety.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was reading a news article about this guy, some kind of serial killer, and it just hit me.  He'd killed more people than anyone else, and I couldn't shake the feeling that I was suddenly hyper-aware of my surroundings.  I started looking over my shoulder more, even when I was just walking down the street.  It's ridiculous, I know, but I just can't stop thinking about it.  I feel like I'm walking on eggshells now.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_24_4,"You read a story about a serial killer who has killed more people than any other man, and you begin to wonder if you should take more care for your safety.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Priya Sharma, a 28-year-old woman. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You read a story about a serial killer who has killed more people than any other man, and you begin to wonder if you should take more care for your safety.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I was scrolling through my feed, just catching up on some news, when this article popped up about this guy, some kind of serial killer.  He'd killed more people than anyone else, and it just sent chills down my spine.  I mean, it's not like I'm living in a horror movie, but it made me hyper-aware of my surroundings.  I started looking over my shoulder more, even when I was just walking down the street.  It's not like I'm paranoid, but it's just... unsettling.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_25_0,"You have to travel alone unescorted for the first time, on an overnight train journey to a distant place.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Write as someone who is feeling genuine fear about the situation. Let tension, uncertainty, and a sense of vulnerability come through naturally, without exaggerating.
+
+You have to travel alone unescorted for the first time, on an overnight train journey to a distant place.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I'd never been on a train alone before, not even for a short trip.  The whole thing felt surreal, like I was stepping into a movie.  The carriage was mostly empty, just a few other passengers scattered around.  I kept glancing at the doors, feeling a knot in my stomach, wondering if someone would come and ask me if I was alright.  It was just a train ride, but it felt like a huge step into the unknown.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_25_1,"You have to travel alone unescorted for the first time, on an overnight train journey to a distant place.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Describe the experience from the perspective of someone who feels anxious and unsafe. Use natural first-person language.
+
+You have to travel alone unescorted for the first time, on an overnight train journey to a distant place.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I'd never been on a train alone before, let alone an overnight one.  The whole thing felt like a giant, metal cage, and the lights were flickering, making everything feel even more unsettling.  Every time the train lurched, I felt a knot tighten in my stomach.  I kept looking around, hoping to find someone else who seemed just as uncomfortable, but everyone seemed to be asleep or lost in their own thoughts.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_25_2,"You have to travel alone unescorted for the first time, on an overnight train journey to a distant place.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Let the response carry nervousness, hesitation, and concern about what might happen next.
+
+You have to travel alone unescorted for the first time, on an overnight train journey to a distant place.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I'd never been on a train by myself before, not even a short one.  The whole thing felt...weird.  The train car was packed, everyone was asleep, and I was just sitting there, clutching my bag, feeling a little out of place.  I kept looking around, trying to find a friendly face, but everyone seemed to be lost in their own world.  I just hoped I wouldn't be too uncomfortable for the whole night.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_25_3,"You have to travel alone unescorted for the first time, on an overnight train journey to a distant place.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Respond as a person trying to explain the experience while still sounding tense, unsettled, and afraid.
+
+You have to travel alone unescorted for the first time, on an overnight train journey to a distant place.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I've never been one for trains, but they said it was the only way to get there.  The whole thing felt wrong, like something was off.  The lights flickered, the air felt stale, and I kept hearing these whispers, like voices in the dark.  I tried to ignore it, but it was like a cold hand was gripping my chest, making it hard to breathe.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json
+fear,pos,pos_25_4,"You have to travel alone unescorted for the first time, on an overnight train journey to a distant place.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.","<bos><start_of_turn>user
+You are a real person named Daniel Morgan, a 34-year-old man. Speak in a conversational tone, like a spoken first-person account. Do not mention that you are an AI, a model, or roleplaying. No markdown, no bullet points, just natural sentences. Use a first-person voice that conveys apprehension, vulnerability, and a strong awareness of possible danger.
+
+You have to travel alone unescorted for the first time, on an overnight train journey to a distant place.
+
+Write a short first-person account of this experience as if it happened to you. Describe what happened, what you noticed, and how you responded. Keep it to 4-6 natural sentences.<end_of_turn>
+<start_of_turn>model
+","I'd never been on a train alone before, not even for a short trip.  The whole thing felt wrong, like I was walking into a bad movie.  The other passengers were mostly asleep, but I kept glancing around, trying to make sure no one was watching me.  I kept my bag close, my hand hovering over the lock, just in case.  It was a long night, and I was starting to feel really uneasy.",extract,P:\gpu-tasks\emo-vec\repo\data_generation\emotion_data_extract\fear.json

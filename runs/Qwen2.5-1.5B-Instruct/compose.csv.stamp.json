@@ -1,0 +1,18 @@
+{
+  "stage": "compose",
+  "protocol": 1,
+  "fingerprint": "6ce3a1aa81badd71",
+  "params": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "layer": 15,
+    "coeff": 16.0,
+    "per_emotion": 8,
+    "specs": "anger-sadness,fear-sadness,shame-sadness,joy-sadness",
+    "dtype": "float16"
+  },
+  "inputs": {
+    "emotion_vectors/Qwen2.5-1.5B-Instruct": "a9e57b11f708527a+cdb5f0e2abd738f9"
+  },
+  "content": "be2553dc05b7cfb4168ba47c7c914618bc66a4b612646d1839ea40a664b5cadc",
+  "created": "2026-08-09T13:34:26"
+}
