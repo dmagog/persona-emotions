@@ -59,8 +59,12 @@ analyze/fusion_analysis/
 NPTI/gpt4_score_*/
 NPTI/NPTI_test_results/
 
-# judge checkpoint caches (transient, resumable)
+# Кэши судьи держим в git: это 170 тысяч оплаченных вызовов (~$15) и
+# единственный способ пересчитать судейские стадии бесплатно. Ключ - хеш
+# текста ответа, так что кэш годится только для тех же генераций.
+# runs/*/*.cache.jsonl — не игнорируем
 *.cache.jsonl
+!runs/*/*.cache.jsonl
 
 # local-only worklog between syncs (not for git)
 worklog_local.md
