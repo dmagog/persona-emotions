@@ -398,6 +398,46 @@ def test_judge_cache() -> None:
     check(answer_key(old_ans) != answer_key(new_ans), "разные тексты — разные ключи")
 
 
+def test_judge_denominator() -> None:
+    """Недомер судьи не должен выдаваться за промах."""
+    import csv as csvmod
+
+    from emotion.collect_results import MIN_JUDGED, _argmax_hits_from_wide
+    from emotion.space import ISEAR_EMOTIONS
+
+    print("\n— знаменатель судьи")
+    tmp = Path(tempfile.mkdtemp()) / "judge_wide.csv"
+    fields = ["steer", "prompt_id", *ISEAR_EMOTIONS]
+
+    def write(sizes: dict) -> Path:
+        with tmp.open("w", newline="", encoding="utf-8") as fh:
+            w = csvmod.DictWriter(fh, fieldnames=fields); w.writeheader()
+            for pid in range(56):
+                w.writerow({"steer": "baseline", "prompt_id": pid,
+                            **{e: 10.0 for e in ISEAR_EMOTIONS}})
+            for emo, n in sizes.items():
+                for pid in range(n):
+                    sc = {e: 10.0 for e in ISEAR_EMOTIONS}
+                    sc[emo] = 90.0  # целевая эмоция растёт — это попадание
+                    w.writerow({"steer": emo, "prompt_id": pid, **sc})
+        return tmp
+
+    full = {e: 56 for e in ISEAR_EMOTIONS}
+    hits, measured, _ = _argmax_hits_from_wide(write(full))
+    check((hits, measured) == (7, 7), "полная матрица — 7 из 7", f"{hits}/{measured}")
+
+    # granite: shame потерян целиком, sadness сведён к двум ответам
+    thin = {**full, "sadness": 2}
+    del thin["shame"]
+    hits, measured, sizes = _argmax_hits_from_wide(write(thin))
+    check(measured == 5, "условия с горсткой ответов выпадают из знаменателя",
+          f"измерено {measured} из 7")
+    check(hits == 5, "недомер не засчитывается промахом", f"{hits} попаданий")
+    check(sizes.get("shame", 0) == 0 and sizes["sadness"] == 2,
+          "размеры условий возвращаются для оговорки")
+    check(MIN_JUDGED >= 20, "порог достаточности осмысленный", f"{MIN_JUDGED}")
+
+
 def test_config() -> None:
     from emotion.run_model_chain import load_model_config
 
@@ -445,7 +485,8 @@ def main() -> None:
     print("=== самопроверка конвейера ===")
     for fn in (test_layers_and_dtype, test_steerer_guards, test_operating_point,
                test_degeneracy_metric, test_matrix_resume, test_stamp,
-               test_stage_specs, test_protocol, test_judge_cache, test_config,
+               test_stage_specs, test_protocol, test_judge_cache, test_judge_denominator,
+               test_config,
                test_prompt_consistency):
         try:
             fn()

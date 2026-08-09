@@ -120,8 +120,20 @@ def row_for(run_dir: Path, csv_path: Path | None = None) -> dict | None:
     return row
 
 
-def _argmax_hits_from_wide(path: Path) -> int | None:
-    """Сколько раз argmax судьи попал в целевую эмоцию."""
+# Условие, измеренное на горстке ответов, ничего не говорит: у granite
+# судья потерял shame целиком, а sadness свёл к двум ответам, и «4/7» в
+# таблице считало shame промахом по нулю наблюдений. Ниже этого порога
+# условие не засчитывается ни в попадания, ни в знаменатель.
+MIN_JUDGED = 20
+
+
+def _argmax_hits_from_wide(path: Path) -> tuple[int, int, dict] | None:
+    """Попадания argmax судьи: (попало, измерено условий, сколько ответов на условие).
+
+    Возвращает и знаменатель: судья теряет часть вызовов на разборе ответа и
+    сбоях провайдера, и молча делить на семь — значит выдавать недомер за
+    промах.
+    """
     if not path.is_file():
         return None
     try:
@@ -134,23 +146,30 @@ def _argmax_hits_from_wide(path: Path) -> int | None:
     if base.empty:
         return None
     bm = {e: base[e].mean() for e in ISEAR_EMOTIONS}
-    hits = 0
+    hits, measured, sizes = 0, 0, {}
     for emo in ISEAR_EMOTIONS:
         sub = w[w["steer"] == emo]
-        if sub.empty:
+        sizes[emo] = len(sub)
+        if len(sub) < MIN_JUDGED:
             continue
+        measured += 1
         deltas = {e: sub[e].mean() - bm[e] for e in ISEAR_EMOTIONS}
         if max(deltas, key=deltas.get) == emo:
             hits += 1
-    return hits
+    return hits, measured, sizes
 
 
 def _judge_and_ci(run_dir: Path, base_mean: dict) -> dict:
     """Числа из цепочки оценки, если она прогонялась."""
-    out: dict = {"judge_hits": None, "coherence": None, "ci_sig": None}
+    out: dict = {"judge_hits": None, "judge_measured": None, "judge_thin": "",
+                 "coherence": None, "ci_sig": None}
     jh = _argmax_hits_from_wide(run_dir / "judge_wide.csv")
     if jh is not None:
-        out["judge_hits"] = jh
+        hits, measured, sizes = jh
+        out["judge_hits"] = hits
+        out["judge_measured"] = measured
+        thin = {e: n for e, n in sizes.items() if n < MIN_JUDGED}
+        out["judge_thin"] = ", ".join(f"{e}={n}" for e, n in sorted(thin.items())) or ""
 
     coh = run_dir / "coherence.md"
     if coh.is_file():
@@ -223,7 +242,9 @@ def main() -> None:
     for r in rows:
         key = f"{r['slug']}/{r['variant']}"
         mark = "⚠" if key in odd else ("?" if not r.get("plane_stamped") else "✓")
-        jh = f"{r['judge_hits']}/7" if r.get("judge_hits") is not None else "—"
+        jm = r.get("judge_measured")
+        jh = (f"{r['judge_hits']}/{jm}" + ("⚠" if jm not in (None, 7) else "")) \
+            if r.get("judge_hits") is not None else "—"
         coh = f"{r['coherence']:.1f}" if r.get("coherence") is not None else "—"
         sig = r.get("ci_sig") or "—"
         cf = r["coeff"] if isinstance(r["coeff"], str) else (
@@ -240,6 +261,13 @@ def main() -> None:
           "она ловит и эмоциональный повтор тоже.")
     print("«Плоскость»: ✓ — снято текущим протоколом, ⚠ — выбивается из общего, "
           "? — штампа нет, протокол известен только со слов манифеста.")
+    thin_rows = [(r["slug"], r["judge_thin"]) for r in rows if r.get("judge_thin")]
+    if thin_rows:
+        print(f"\n«argmax судья» показан как попадания/измеренных условий. Судья теряет "
+              f"часть вызовов на разборе ответа и сбоях провайдера; условия, где осталось "
+              f"меньше {MIN_JUDGED} ответов из 56, из счёта исключены:")
+        for slug, thin in thin_rows:
+            print(f"- {slug}: {thin}")
     print("\n## Сопоставимость\n")
     print("\n".join(report(planes)))
 
