@@ -41,6 +41,25 @@ STAMP_NAME = ".stamp.json"
 # Что не участвует в отпечатке каталога: служебное и промежуточное.
 SKIP = ("__pycache__", ".DS_Store", STAMP_NAME)
 
+REPO = Path(__file__).resolve().parent.parent
+
+
+def portable_key(path: Path) -> str:
+    """Ключ входа в штампе: путь относительно корня репозитория.
+
+    Абсолютный путь делает штамп машинозависимым: артефакты считаются на
+    2070 (P:\\gpu-tasks\\...), а живут в git и раскатываются на другие машины.
+    С абсолютным ключом первый же запуск на новой машине останавливал цепочку
+    со «stale» на каждой стадии - вход "переехал", хотя не менялся ничем,
+    кроме буквы диска. Пути вне репозитория остаются абсолютными: их
+    переносимость нам не обещана.
+    """
+    p = Path(path).resolve()
+    try:
+        return p.relative_to(REPO).as_posix()
+    except ValueError:
+        return p.as_posix()
+
 
 def stamp_path(artifact: Path) -> Path:
     """Где лежит штамп: внутри каталога или рядом с файлом."""
@@ -102,7 +121,7 @@ def input_digests(inputs: Sequence[Path]) -> dict[str, str]:
     """
     out: dict[str, str] = {}
     for p in inputs:
-        key = p.as_posix()
+        key = portable_key(p)
         prev = read_stamp(p)
         content = content_digest(p)
         out[key] = f"{prev['fingerprint']}+{content[:16]}" if prev else f"content:{content[:16]}"

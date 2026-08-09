@@ -248,6 +248,23 @@ def test_stamp() -> None:
     except SystemExit:
         check(True, "изменившийся вход тоже останавливает")
 
+    # Ключи входов в штампе обязаны быть переносимыми: артефакты считаются на
+    # одной машине, а живут в git. Путь внутри репозитория — относительный.
+    inner = stamp.REPO / "runs" / "_stamp_check"
+    try:
+        inner.mkdir(parents=True, exist_ok=True)
+        probe = inner / "x.csv"
+        probe.write_text("a\n", encoding="utf-8")
+        digs = stamp.input_digests([probe])
+        check(list(digs) == ["runs/_stamp_check/x.csv"],
+              "вход внутри репо ключуется относительным путём", list(digs)[0])
+    finally:
+        import shutil
+        shutil.rmtree(inner, ignore_errors=True)
+    digs = stamp.input_digests([src])
+    check(list(digs)[0].startswith("/"),
+          "вход вне репо остаётся абсолютным", list(digs)[0][:40])
+
     # Перенос с 2070: обрыв копирования даёт усечённый CSV, который читается —
     # в нём просто меньше строк. Глаз это не ловит, штамп ловит.
     total, bad = stamp.verify(tmp)
