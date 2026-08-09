@@ -162,7 +162,7 @@ def _argmax_hits_from_wide(path: Path) -> tuple[int, int, dict] | None:
 def _judge_and_ci(run_dir: Path, base_mean: dict) -> dict:
     """Числа из цепочки оценки, если она прогонялась."""
     out: dict = {"judge_hits": None, "judge_measured": None, "judge_thin": "",
-                 "coherence": None, "ci_sig": None}
+                 "judge_coverage": None, "coherence": None, "ci_sig": None}
     jh = _argmax_hits_from_wide(run_dir / "judge_wide.csv")
     if jh is not None:
         hits, measured, sizes = jh
@@ -170,6 +170,11 @@ def _judge_and_ci(run_dir: Path, base_mean: dict) -> dict:
         out["judge_measured"] = measured
         thin = {e: n for e, n in sizes.items() if n < MIN_JUDGED}
         out["judge_thin"] = ", ".join(f"{e}={n}" for e, n in sorted(thin.items())) or ""
+        # Полнота: равномерная потеря 10% не задевает ни одного условия по
+        # отдельности и без этой строки осталась бы невидимой.
+        want = max(sizes.values(), default=0) * 8  # 7 эмоций + baseline
+        got = len(pd.read_csv(run_dir / "judge_wide.csv"))
+        out["judge_coverage"] = round(got / want, 3) if want else None
 
     coh = run_dir / "coherence.md"
     if coh.is_file():
@@ -261,6 +266,14 @@ def main() -> None:
           "она ловит и эмоциональный повтор тоже.")
     print("«Плоскость»: ✓ — снято текущим протоколом, ⚠ — выбивается из общего, "
           "? — штампа нет, протокол известен только со слов манифеста.")
+    lean = [(r["slug"], r["judge_coverage"]) for r in rows
+            if r.get("judge_coverage") is not None and r["judge_coverage"] < 0.95]
+    if lean:
+        print("\nСудья ответил не на все вызовы (ниже 95% матрицы) — числа "
+              "по этим строкам считаны на подвыборке, добрать: "
+              "`python3 -m emotion.judge_specificity` с тем же --cache:")
+        for slug, cov in lean:
+            print(f"- {slug}: {cov:.0%} матрицы")
     thin_rows = [(r["slug"], r["judge_thin"]) for r in rows if r.get("judge_thin")]
     if thin_rows:
         print(f"\n«argmax судья» показан как попадания/измеренных условий. Судья теряет "

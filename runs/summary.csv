@@ -1,12 +1,12 @@
-model,slug,variant,layer,coeff,judge_filtered,n_rows,diag_mean,argmax_hits,sad_leak,degen,refusals,plane_protocol,plane_n_prompts,plane_drive,plane_judge_filtered,plane_max_degen,plane_dtype,plane_stamped,plane_op_at_edge,plane_code,judge_hits,judge_measured,judge_thin,coherence,ci_sig
-tiiuae/Falcon3-3B-Instruct,Falcon3-3B-Instruct,raw,12,6.0,False,448,0.35841581632653063,6,0.0204261904761905,9,0,1,56,coeff,False,0.1,float16,True,,faf73ff,6,7,,85.18571428571428,7/7
-meta-llama/Llama-3.2-1B-Instruct,Llama-3.2-1B-Instruct,raw,9,6.0,False,448,0.33640943877551016,5,-0.05765238095238092,120,0,1,56,coeff,False,0.1,float16,True,,faf73ff,4,7,,54.199999999999996,6/7
-meta-llama/Llama-3.2-3B-Instruct,Llama-3.2-3B-Instruct,raw,15,4.0,False,448,0.25093341836734695,5,0.02551220238095242,3,0,1,56,coeff,False,0.1,float16,True,,c60c44f,5,7,,87.60000000000001,6/7
-allenai/OLMo-2-0425-1B-Instruct,OLMo-2-0425-1B-Instruct,raw,7,4.0,False,448,0.16613214285714287,5,0.07027916666666663,3,0,1,56,coeff,False,0.1,float16,True,,faf73ff,5,7,,87.55714285714285,6/7
-Qwen/Qwen2.5-1.5B-Instruct,Qwen2.5-1.5B-Instruct,raw,15,16.0,False,448,0.3197244897959184,5,0.22692053571428575,34,1,1,56,coeff,False,0.1,float16,True,верх сетки (16): оптимум мог остаться за ней,053c2fd,5,7,,78.87142857142858,7/7
-Qwen/Qwen2.5-3B-Instruct,Qwen2.5-3B-Instruct,raw,13,8.0,False,448,0.1301206632653061,4,0.12637678571428573,2,0,1,56,coeff,False,0.1,float16,True,,c60c44f,4,7,,88.21428571428571,5/7
-Qwen/Qwen3-0.6B,Qwen3-0.6B,raw,10,8.0,False,448,0.426218112244898,4,-0.07510357142857144,20,0,1,56,coeff,False,0.1,float16,True,,faf73ff,5,7,,79.42857142857143,6/7
-Qwen/Qwen3-1.7B,Qwen3-1.7B,raw,10,8.0,False,448,0.19514668367346938,4,0.02960535714285713,26,0,1,56,coeff,False,0.1,float16,True,,faf73ff,6,7,,79.8,4/7
-google/gemma-2-2b-it,gemma-2-2b-it,raw,14,4.0,False,448,0.17846071428571425,4,-0.025032142857142836,3,0,1,56,coeff,False,0.1,float16,True,,053c2fd,4,7,,84.32857142857142,5/7
-google/gemma-3-1b-it,gemma-3-1b-it,raw,12,8.0,False,448,0.24220994897959186,3,-0.12388333333333335,31,0,1,56,coeff,False,0.1,float16,True,,faf73ff,4,7,,51.75714285714286,6/7
-ibm-granite/granite-3.3-2b-instruct,granite-3.3-2b-instruct,raw,18,8.0,False,448,0.32356173469387756,3,0.022445238095238084,5,0,1,56,coeff,False,0.1,float16,True,,faf73ff,6,7,,84.2,4/7
+model,slug,variant,layer,coeff,judge_filtered,n_rows,diag_mean,argmax_hits,sad_leak,degen,refusals,plane_protocol,plane_n_prompts,plane_drive,plane_judge_filtered,plane_max_degen,plane_dtype,plane_stamped,plane_op_at_edge,plane_code,judge_hits,judge_measured,judge_thin,judge_coverage,coherence,ci_sig
+tiiuae/Falcon3-3B-Instruct,Falcon3-3B-Instruct,raw,12,6.0,False,448,0.35841581632653063,6,0.0204261904761905,9,0,1,56,coeff,False,0.1,float16,True,,faf73ff,6,7,,1.0,85.18571428571428,7/7
+meta-llama/Llama-3.2-1B-Instruct,Llama-3.2-1B-Instruct,raw,9,6.0,False,448,0.33640943877551016,5,-0.05765238095238092,120,0,1,56,coeff,False,0.1,float16,True,,faf73ff,4,7,,1.0,54.199999999999996,6/7
+meta-llama/Llama-3.2-3B-Instruct,Llama-3.2-3B-Instruct,raw,15,4.0,False,448,0.25093341836734695,5,0.02551220238095242,3,0,1,56,coeff,False,0.1,float16,True,,c60c44f,5,7,,0.998,87.60000000000001,6/7
+allenai/OLMo-2-0425-1B-Instruct,OLMo-2-0425-1B-Instruct,raw,7,4.0,False,448,0.16613214285714287,5,0.07027916666666663,3,0,1,56,coeff,False,0.1,float16,True,,faf73ff,5,7,,1.0,87.55714285714285,6/7
+Qwen/Qwen2.5-1.5B-Instruct,Qwen2.5-1.5B-Instruct,raw,15,16.0,False,448,0.3197244897959184,5,0.22692053571428575,34,1,1,56,coeff,False,0.1,float16,True,верх сетки (16): оптимум мог остаться за ней,053c2fd,5,7,,1.0,78.87142857142858,7/7
+Qwen/Qwen2.5-3B-Instruct,Qwen2.5-3B-Instruct,raw,13,8.0,False,448,0.1301206632653061,4,0.12637678571428573,2,0,1,56,coeff,False,0.1,float16,True,,c60c44f,4,7,,1.0,88.21428571428571,5/7
+Qwen/Qwen3-0.6B,Qwen3-0.6B,raw,10,8.0,False,448,0.426218112244898,4,-0.07510357142857144,20,0,1,56,coeff,False,0.1,float16,True,,faf73ff,5,7,,0.996,79.42857142857143,6/7
+Qwen/Qwen3-1.7B,Qwen3-1.7B,raw,10,8.0,False,448,0.19514668367346938,4,0.02960535714285713,26,0,1,56,coeff,False,0.1,float16,True,,faf73ff,6,7,,0.996,79.8,4/7
+google/gemma-2-2b-it,gemma-2-2b-it,raw,14,4.0,False,448,0.17846071428571425,4,-0.025032142857142836,3,0,1,56,coeff,False,0.1,float16,True,,053c2fd,4,7,,0.998,84.32857142857142,5/7
+google/gemma-3-1b-it,gemma-3-1b-it,raw,12,8.0,False,448,0.24220994897959186,3,-0.12388333333333335,31,0,1,56,coeff,False,0.1,float16,True,,faf73ff,4,7,,0.996,51.75714285714286,6/7
+ibm-granite/granite-3.3-2b-instruct,granite-3.3-2b-instruct,raw,18,8.0,False,448,0.32356173469387756,3,0.022445238095238084,5,0,1,56,coeff,False,0.1,float16,True,,faf73ff,6,7,,0.987,84.2,4/7
