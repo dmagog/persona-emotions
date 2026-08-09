@@ -261,8 +261,12 @@ def test_stamp() -> None:
     finally:
         import shutil
         shutil.rmtree(inner, ignore_errors=True)
+    # os.path.isabs, а не startswith("/"): на Windows абсолютный путь начинается
+    # с буквы диска, и юниксовая проверка валила самопроверку на 2070 — то есть
+    # ворота перед каждой ночной очередью.
+    import os
     digs = stamp.input_digests([src])
-    check(list(digs)[0].startswith("/"),
+    check(os.path.isabs(list(digs)[0]),
           "вход вне репо остаётся абсолютным", list(digs)[0][:40])
 
     # Перенос с 2070: обрыв копирования даёт усечённый CSV, который читается —
