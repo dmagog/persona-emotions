@@ -26,6 +26,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from emotion import balance
+
 REPO = Path(__file__).resolve().parent.parent
 
 # tag -> модель на OpenRouter. Tag попадает в имена файлов, менять его для
@@ -71,6 +73,10 @@ def main() -> None:
     if unknown:
         raise SystemExit(f"неизвестные судьи {unknown}; известны {list(PANEL)}")
 
+    # Деньги кончаются молча: провайдер отвечает 402, строки не попадают в
+    # матрицу, а таблица показывает результат по подвыборке. Снимок до и после.
+    print(balance.line("баланс до прогона"), flush=True)
+
     fails = 0
     for run in runs:
         csv = matrix_of(run)
@@ -102,6 +108,7 @@ def main() -> None:
                          "--out-wide", str(run / "compose_judge_wide.csv"),
                          "--cache", str(run / "compose_judge.cache.jsonl")]) != 0
 
+    print(balance.line("баланс после прогона"), flush=True)
     print(f"панель пройдена, сбоев: {fails}", flush=True)
     sys.exit(1 if fails else 0)
 
