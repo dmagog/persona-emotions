@@ -14,9 +14,25 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import ssl
 import urllib.request
 
 URL = "https://openrouter.ai/api/v1/credits"
+
+
+def _ssl_context() -> ssl.SSLContext:
+    """Контекст с сертификатами из certifi, когда он есть.
+
+    Системный python на Mac ставится без корневых сертификатов, и дефолтный
+    контекст падает с CERTIFICATE_VERIFY_FAILED - страж баланса всю ночь
+    отвечал «не удалось узнать» и молча пропускал прогоны без проверки.
+    Судейские вызовы это не задевало: httpx возит certifi с собой.
+    """
+    try:
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        return ssl.create_default_context()
 
 
 def fetch() -> dict | None:
@@ -26,7 +42,7 @@ def fetch() -> dict | None:
         return None  # ключ не от OpenRouter — считать баланс нечем
     req = urllib.request.Request(URL, headers={"Authorization": f"Bearer {key}"})
     try:
-        with urllib.request.urlopen(req, timeout=20) as r:
+        with urllib.request.urlopen(req, timeout=20, context=_ssl_context()) as r:
             d = json.load(r)["data"]
     except Exception:
         return None
