@@ -450,35 +450,39 @@ def test_compose_collector() -> None:
     check("anger-sadness" in ALL_PAIRS and "sadness-anger" in ALL_PAIRS,
           "пары упорядочены (обе стороны считаются)")
 
+    # Решающий случай: опора подавления — Y под наведением ОДНОГО X (steer==X),
+    # а НЕ Y под наведением Y (steer==Y, где Y максимален — тогда почти всё
+    # «подавляется» тривиально). Значения подобраны так, что правильная и
+    # ошибочная опоры дают РАЗНЫЙ ответ, и тест ловит подмену.
     tmp = Path(tempfile.mkdtemp()) / "compose_allpairs.csv"
     fields = ["steer", "prompt_id", *ISEAR_EMOTIONS]
     with tmp.open("w", newline="", encoding="utf-8") as fh:
         w = csvmod.DictWriter(fh, fieldnames=fields); w.writeheader()
-        def row(steer, pid, **sc):
-            r = {"steer": steer, "prompt_id": pid, **{e: 0.1 for e in ISEAR_EMOTIONS}}
-            r.update(sc); w.writerow(r)
-        for pid in range(56):
-            row("baseline", pid)
-            # X в одиночку поднимает и X, и родственную Y (протечка)
-            row("anger", pid, anger=0.8, sadness=0.4)
-            # X-Y: цель держится, вычитаемая ниже уровня «X в одиночку»
-            row("anger-sadness", pid, anger=0.7, sadness=0.1)
-        # остальные пары — заполнить, чтобы условие не считалось тонким
+        def rows(steer, **sc):
+            for pid in range(56):
+                r = {"steer": steer, "prompt_id": pid, **{e: 0.1 for e in ISEAR_EMOTIONS}}
+                r.update(sc); w.writerow(r)
+        rows("baseline")
+        rows("anger",   anger=0.8, sadness=0.30)   # X в одиночку: протечка sadness=0.30
+        rows("disgust", disgust=0.8, sadness=0.60)
+        rows("sadness", sadness=0.90)              # Y в одиночку: sadness максимальна
+        # anger-sadness: цель держится; sadness 0.50 ВЫШЕ 0.30 -> НЕ подавлено
+        rows("anger-sadness",   anger=0.7, sadness=0.50)
+        # disgust-sadness: sadness 0.20 ниже 0.60 -> подавлено
+        rows("disgust-sadness", disgust=0.7, sadness=0.20)
+        # остальные пары оставляем тонкими (<40) — в счёт не идут
         for spec in ALL_PAIRS:
-            if spec == "anger-sadness": continue
-            for pid in range(56):
-                row(spec, pid)
-        for e in ISEAR_EMOTIONS:
-            if e == "anger": continue
-            for pid in range(56):
-                row(e, pid)
+            if spec in ("anger-sadness", "disgust-sadness"): continue
+            for pid in range(5):
+                w.writerow({"steer": spec, "prompt_id": pid, **{e: 0.1 for e in ISEAR_EMOTIONS}})
 
     c = pair_counts(tmp)
-    check(c is not None and c["n"] == 42, "считаются все 42 пары", f"{c['n'] if c else '—'}")
-    # anger-sadness: цель 0.7 > baseline 0.1 -> target; вычит. 0.1 < X-в-одиночку 0.4 -> suppress
-    check(c["target"] >= 1, "рост цели над baseline засчитан")
-    check(c["suppress"] >= 1,
-          "подавление считается против «X в одиночку», а не против baseline")
+    check(c is not None and c["n"] == 2, "в счёт идут только неразрежённые пары", f"{c['n'] if c else '—'}")
+    check(c["target"] == 2, "рост цели над baseline засчитан у обеих", f"{c['target']}")
+    # Под ошибочной опорой (steer==Y=0.90) обе пары «подавлены» -> suppress==2.
+    # Под верной опорой (steer==X) подавлена только disgust-sadness -> suppress==1.
+    check(c["suppress"] == 1,
+          "подавление против «X в одиночку», а не против «Y в одиночку»", f"{c['suppress']}")
 
     # тонкое условие (мало строк) не должно попадать в счёт
     with tmp.open("a", newline="", encoding="utf-8") as fh:

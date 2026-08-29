@@ -33,12 +33,18 @@ JUDGE = "compose_allpairs_judge_wide.csv"
 MIN_ROWS = 40  # условие тоньше — не считаем, как в матрице специфичности
 
 
-def _means(d: pd.DataFrame) -> tuple[dict, dict, dict]:
-    """baseline, X-в-одиночку и наличие условий — из одной таблицы."""
+def _tables(d: pd.DataFrame) -> tuple[dict, pd.DataFrame]:
+    """baseline по эмоциям и таблица «средний балл эмоции под каждым наведением».
+
+    `single.loc[x, y]` — средний балл Y, когда наводится ОДИН X. Это опорная
+    точка подавления: сравнивать Y при X−Y надо именно с этим, а не с «Y под
+    наведением Y» (там Y максимален — тогда почти любая пара «проходит»
+    тривиально) и не с нейтральным baseline (тот не учитывает, что X сам
+    подтягивает родственную Y).
+    """
     base = {e: d[d["steer"] == "baseline"][e].mean() for e in ISEAR_EMOTIONS}
-    alone = {e: d[d["steer"] == e][e].mean() for e in ISEAR_EMOTIONS}
-    sizes = d.groupby("steer").size().to_dict()
-    return base, alone, sizes
+    single = d.groupby("steer")[list(ISEAR_EMOTIONS)].mean()
+    return base, single
 
 
 def pair_counts(csv: Path) -> dict | None:
@@ -48,19 +54,19 @@ def pair_counts(csv: Path) -> dict | None:
     d = pd.read_csv(csv)
     if "steer" not in d.columns or d[d["steer"] == "baseline"].empty:
         return None
-    base, alone, sizes = _means(d)
+    base, single = _tables(d)
     target = suppress = n = 0
     thin = []
     for spec in ALL_PAIRS:
         x, y = spec.split("-")
         sub = d[d["steer"] == spec]
-        if len(sub) < MIN_ROWS:
+        if len(sub) < MIN_ROWS or x not in single.index:
             thin.append(spec)
             continue
         n += 1
         if sub[x].mean() > base[x]:
             target += 1
-        if sub[y].mean() < alone[y]:
+        if sub[y].mean() < single.loc[x, y]:  # Y при X−Y ниже Y под наведением одного X
             suppress += 1
     return {"target": target, "suppress": suppress, "n": n, "thin": thin}
 
@@ -68,7 +74,7 @@ def pair_counts(csv: Path) -> dict | None:
 def separability_matrix(csv: Path) -> pd.DataFrame:
     """7x7: для каждой пары X-Y знак (цель растёт и вычитаемая давится)."""
     d = pd.read_csv(csv)
-    base, alone, _ = _means(d)
+    base, single = _tables(d)
     rows = []
     for x in ISEAR_EMOTIONS:
         row = {"steer": x}
@@ -77,11 +83,11 @@ def separability_matrix(csv: Path) -> pd.DataFrame:
                 row[y] = "·"
                 continue
             sub = d[d["steer"] == f"{x}-{y}"]
-            if sub.empty:
+            if sub.empty or x not in single.index:
                 row[y] = "—"
                 continue
             up = sub[x].mean() > base[x]
-            down = sub[y].mean() < alone[y]
+            down = sub[y].mean() < single.loc[x, y]
             row[y] = "✓" if (up and down) else ("↑" if up else ("↓" if down else "✗"))
         rows.append(row)
     return pd.DataFrame(rows).set_index("steer")
@@ -123,10 +129,13 @@ def summary(runs: Path) -> list[str]:
                    f"**{agg['es']}/{agg['en']} ({agg['es']/agg['en']:.0%})** | "
                    f"**{agg['jt']}/{agg['jn']} ({agg['jt']/max(agg['jn'],1):.0%})** | "
                    f"**{agg['js']}/{agg['jn']} ({agg['js']/max(agg['jn'],1):.0%})** |")
-    out.append("\nПодавление вычитаемой — самый устойчивый результат: −Y убирает "
-               "протечку почти во всех парах. Усиление цели слабее и зависит от "
-               "пары. Обе метрики согласованы между энкодером и судьёй по "
-               "направлению на всех моделях.")
+    out.append("\nОба эффекта держатся примерно на одном уровне: и усиление цели "
+               "(83–90%), и подавление вычитаемой (около 91% у энкодера и у судьи). "
+               "Драматической асимметрии между ними нет — вычитание не «почти "
+               "идеально» гасит Y, а работает сопоставимо с тем, как сохраняет X. "
+               "Подавление считается по строгой опоре (Y ниже уровня наведения "
+               "одного X, а не ниже нейтрального), и по ней энкодер и судья дают "
+               "один и тот же итог 419/462, что говорит об устойчивости оценки.")
     if warns:
         out.append("\n**Оговорки:**")
         out += [f"- {w}" for w in warns]
