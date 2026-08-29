@@ -21,7 +21,7 @@ from pathlib import Path
 import pandas as pd
 
 from emotion import stamp
-from emotion.space import ISEAR_EMOTIONS
+from emotion.space import ALL_PAIRS, ISEAR_EMOTIONS
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -153,7 +153,10 @@ def load_model_config(path: Path) -> dict:
         flat["layers"] = ",".join(str(x) for x in flat["layers"])
     if isinstance(flat["sweep_coeffs"], list):
         flat["sweep_coeffs"] = ",".join(str(x) for x in flat["sweep_coeffs"])
-    if isinstance(flat.get("compose"), list):
+    # 'allpairs' в конфиге -> полная матрица 42 пар (стандарт композиции).
+    if flat.get("compose") == "allpairs" or flat.get("compose") == ["allpairs"]:
+        flat["compose"] = ",".join(ALL_PAIRS)
+    elif isinstance(flat.get("compose"), list):
         flat["compose"] = ",".join(str(x) for x in flat["compose"])
     flat["_raw"] = raw
     return {k: v for k, v in flat.items() if v is not None}
@@ -266,8 +269,12 @@ def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
             [vec_dir]),
     }
     if getattr(a, "compose", None):
+        # Полная матрица пар (стандарт) пишется в compose_allpairs.csv, чтобы
+        # соседствовать со старым 4-специевым compose.csv, а не затирать его.
+        full = set(a.compose.split(",")) >= set(ALL_PAIRS)
+        cname = "compose_allpairs.csv" if full else "compose.csv"
         specs["compose"] = StageSpec(
-            "compose", runs / "compose.csv",
+            "compose", runs / cname,
             {"model": a.model, "layer": layer, "coeff": op_coeff,
              "per_emotion": a.per_emotion, "specs": a.compose, "dtype": dtype},
             [vec_dir])

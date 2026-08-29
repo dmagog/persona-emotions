@@ -22,6 +22,14 @@ ISEAR_EMOTIONS: tuple[str, ...] = (
     "shame",
 )
 
+# Все 42 упорядоченные пары X-Y для стадии композиции. Упорядоченные:
+# anger-sadness и sadness-anger — разные операции, обе считаются. Единый
+# источник для конфигов, цепочки и сборщика — чтобы «полная матрица пар»
+# нигде не расходилась.
+ALL_PAIRS: list[str] = [
+    f"{a}-{b}" for a in ISEAR_EMOTIONS for b in ISEAR_EMOTIONS if a != b
+]
+
 
 class EmotionSpace(ABC):
     """Maps emotion labels to vectors and interprets vectors back to labels."""

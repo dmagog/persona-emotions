@@ -1,0 +1,18 @@
+{
+  "stage": "compose",
+  "protocol": 1,
+  "fingerprint": "41788d564591c5f1",
+  "params": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "layer": 15,
+    "coeff": 16.0,
+    "per_emotion": 8,
+    "specs": "anger-disgust,anger-fear,anger-guilt,anger-joy,anger-sadness,anger-shame,disgust-anger,disgust-fear,disgust-guilt,disgust-joy,disgust-sadness,disgust-shame,fear-anger,fear-disgust,fear-guilt,fear-joy,fear-sadness,fear-shame,guilt-anger,guilt-disgust,guilt-fear,guilt-joy,guilt-sadness,guilt-shame,joy-anger,joy-disgust,joy-fear,joy-guilt,joy-sadness,joy-shame,sadness-anger,sadness-disgust,sadness-fear,sadness-guilt,sadness-joy,sadness-shame,shame-anger,shame-disgust,shame-fear,shame-guilt,shame-joy,shame-sadness",
+    "dtype": "float16"
+  },
+  "inputs": {
+    "emotion_vectors/Qwen2.5-1.5B-Instruct": "a9e57b11f708527a+cdb5f0e2abd738f9"
+  },
+  "content": "209875c724d602c579fdd95fdd5d940b6f076fad4d6345835d61ece55195f261",
+  "created": "2026-08-30T00:59:41"
+}

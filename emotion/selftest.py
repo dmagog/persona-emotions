@@ -438,6 +438,63 @@ def test_judge_denominator() -> None:
     check(MIN_JUDGED >= 20, "порог достаточности осмысленный", f"{MIN_JUDGED}")
 
 
+def test_compose_collector() -> None:
+    """Композиция: полная матрица пар и честная метрика подавления."""
+    import csv as csvmod
+
+    from emotion.collect_compose import pair_counts
+    from emotion.space import ALL_PAIRS, ISEAR_EMOTIONS
+
+    print("\n— сборщик композиции")
+    check(len(ALL_PAIRS) == 42, "42 упорядоченные пары X-Y", f"{len(ALL_PAIRS)}")
+    check("anger-sadness" in ALL_PAIRS and "sadness-anger" in ALL_PAIRS,
+          "пары упорядочены (обе стороны считаются)")
+
+    tmp = Path(tempfile.mkdtemp()) / "compose_allpairs.csv"
+    fields = ["steer", "prompt_id", *ISEAR_EMOTIONS]
+    with tmp.open("w", newline="", encoding="utf-8") as fh:
+        w = csvmod.DictWriter(fh, fieldnames=fields); w.writeheader()
+        def row(steer, pid, **sc):
+            r = {"steer": steer, "prompt_id": pid, **{e: 0.1 for e in ISEAR_EMOTIONS}}
+            r.update(sc); w.writerow(r)
+        for pid in range(56):
+            row("baseline", pid)
+            # X в одиночку поднимает и X, и родственную Y (протечка)
+            row("anger", pid, anger=0.8, sadness=0.4)
+            # X-Y: цель держится, вычитаемая ниже уровня «X в одиночку»
+            row("anger-sadness", pid, anger=0.7, sadness=0.1)
+        # остальные пары — заполнить, чтобы условие не считалось тонким
+        for spec in ALL_PAIRS:
+            if spec == "anger-sadness": continue
+            for pid in range(56):
+                row(spec, pid)
+        for e in ISEAR_EMOTIONS:
+            if e == "anger": continue
+            for pid in range(56):
+                row(e, pid)
+
+    c = pair_counts(tmp)
+    check(c is not None and c["n"] == 42, "считаются все 42 пары", f"{c['n'] if c else '—'}")
+    # anger-sadness: цель 0.7 > baseline 0.1 -> target; вычит. 0.1 < X-в-одиночку 0.4 -> suppress
+    check(c["target"] >= 1, "рост цели над baseline засчитан")
+    check(c["suppress"] >= 1,
+          "подавление считается против «X в одиночку», а не против baseline")
+
+    # тонкое условие (мало строк) не должно попадать в счёт
+    with tmp.open("a", newline="", encoding="utf-8") as fh:
+        w = csvmod.DictWriter(fh, fieldnames=fields, extrasaction="ignore")
+        # затираем: перезапишем файл с одним тонким условием
+    thin = Path(tempfile.mkdtemp()) / "compose_allpairs.csv"
+    with thin.open("w", newline="", encoding="utf-8") as fh:
+        w = csvmod.DictWriter(fh, fieldnames=fields); w.writeheader()
+        for pid in range(56):
+            w.writerow({"steer": "baseline", "prompt_id": pid, **{e: 0.1 for e in ISEAR_EMOTIONS}})
+        for pid in range(5):  # anger-sadness всего 5 строк — тонкое
+            w.writerow({"steer": "anger-sadness", "prompt_id": pid, **{e: 0.1 for e in ISEAR_EMOTIONS}})
+    ct = pair_counts(thin)
+    check("anger-sadness" in ct["thin"], "условие тоньше 40 строк выпадает из счёта")
+
+
 def test_config() -> None:
     from emotion.run_model_chain import load_model_config
 
@@ -485,7 +542,7 @@ def main() -> None:
     print("=== самопроверка конвейера ===")
     for fn in (test_layers_and_dtype, test_steerer_guards, test_operating_point,
                test_degeneracy_metric, test_matrix_resume, test_stamp,
-               test_stage_specs, test_protocol, test_judge_cache, test_judge_denominator,
+               test_stage_specs, test_protocol, test_judge_cache, test_judge_denominator, test_compose_collector,
                test_config,
                test_prompt_consistency):
         try:

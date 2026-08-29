@@ -1,0 +1,18 @@
+{
+  "stage": "compose",
+  "protocol": 1,
+  "fingerprint": "273d662e9e54ed04",
+  "params": {
+    "model": "ibm-granite/granite-3.3-2b-instruct",
+    "layer": 18,
+    "coeff": 8.0,
+    "per_emotion": 8,
+    "specs": "anger-disgust,anger-fear,anger-guilt,anger-joy,anger-sadness,anger-shame,disgust-anger,disgust-fear,disgust-guilt,disgust-joy,disgust-sadness,disgust-shame,fear-anger,fear-disgust,fear-guilt,fear-joy,fear-sadness,fear-shame,guilt-anger,guilt-disgust,guilt-fear,guilt-joy,guilt-sadness,guilt-shame,joy-anger,joy-disgust,joy-fear,joy-guilt,joy-sadness,joy-shame,sadness-anger,sadness-disgust,sadness-fear,sadness-guilt,sadness-joy,sadness-shame,shame-anger,shame-disgust,shame-fear,shame-guilt,shame-joy,shame-sadness",
+    "dtype": "float16"
+  },
+  "inputs": {
+    "emotion_vectors/granite-3.3-2b-instruct": "6a29b94a410d2d92+b2e0dfd32ad76bca"
+  },
+  "content": "f9e417b27f88596a2c0488cb175180296bc081b0ae1a0e4274b523d4f1796cd1",
+  "created": "2026-08-30T00:59:41"
+}

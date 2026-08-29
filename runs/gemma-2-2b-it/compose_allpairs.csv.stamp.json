@@ -1,0 +1,18 @@
+{
+  "stage": "compose",
+  "protocol": 1,
+  "fingerprint": "12d3647dbd719e86",
+  "params": {
+    "model": "google/gemma-2-2b-it",
+    "layer": 14,
+    "coeff": 4.0,
+    "per_emotion": 8,
+    "specs": "anger-disgust,anger-fear,anger-guilt,anger-joy,anger-sadness,anger-shame,disgust-anger,disgust-fear,disgust-guilt,disgust-joy,disgust-sadness,disgust-shame,fear-anger,fear-disgust,fear-guilt,fear-joy,fear-sadness,fear-shame,guilt-anger,guilt-disgust,guilt-fear,guilt-joy,guilt-sadness,guilt-shame,joy-anger,joy-disgust,joy-fear,joy-guilt,joy-sadness,joy-shame,sadness-anger,sadness-disgust,sadness-fear,sadness-guilt,sadness-joy,sadness-shame,shame-anger,shame-disgust,shame-fear,shame-guilt,shame-joy,shame-sadness",
+    "dtype": "float16"
+  },
+  "inputs": {
+    "emotion_vectors/gemma-2-2b-it": "86d50e0de8c4332d+8bed937933f9342f"
+  },
+  "content": "e997bff3b6aa40a4b730915035b5b3b67e893f6136ba716b55cde2c3f611b066",
+  "created": "2026-08-30T00:59:41"
+}

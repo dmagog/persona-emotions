@@ -1,0 +1,18 @@
+{
+  "stage": "compose",
+  "protocol": 1,
+  "fingerprint": "f9de96b7cc9ca51b",
+  "params": {
+    "model": "allenai/OLMo-2-0425-1B-Instruct",
+    "layer": 7,
+    "coeff": 4.0,
+    "per_emotion": 8,
+    "specs": "anger-disgust,anger-fear,anger-guilt,anger-joy,anger-sadness,anger-shame,disgust-anger,disgust-fear,disgust-guilt,disgust-joy,disgust-sadness,disgust-shame,fear-anger,fear-disgust,fear-guilt,fear-joy,fear-sadness,fear-shame,guilt-anger,guilt-disgust,guilt-fear,guilt-joy,guilt-sadness,guilt-shame,joy-anger,joy-disgust,joy-fear,joy-guilt,joy-sadness,joy-shame,sadness-anger,sadness-disgust,sadness-fear,sadness-guilt,sadness-joy,sadness-shame,shame-anger,shame-disgust,shame-fear,shame-guilt,shame-joy,shame-sadness",
+    "dtype": "float16"
+  },
+  "inputs": {
+    "emotion_vectors/OLMo-2-0425-1B-Instruct": "f3192a43f3bcc561+6da43e2d09ae9e6f"
+  },
+  "content": "873e5257463ec73cc49e9db04b80b00aee248f5f3cb3a676b3af832e973652a2",
+  "created": "2026-08-30T00:59:41"
+}

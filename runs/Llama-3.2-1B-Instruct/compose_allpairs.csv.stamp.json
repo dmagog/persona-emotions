@@ -1,0 +1,18 @@
+{
+  "stage": "compose",
+  "protocol": 1,
+  "fingerprint": "a50f6eae804f4a47",
+  "params": {
+    "model": "meta-llama/Llama-3.2-1B-Instruct",
+    "layer": 9,
+    "coeff": 6.0,
+    "per_emotion": 8,
+    "specs": "anger-disgust,anger-fear,anger-guilt,anger-joy,anger-sadness,anger-shame,disgust-anger,disgust-fear,disgust-guilt,disgust-joy,disgust-sadness,disgust-shame,fear-anger,fear-disgust,fear-guilt,fear-joy,fear-sadness,fear-shame,guilt-anger,guilt-disgust,guilt-fear,guilt-joy,guilt-sadness,guilt-shame,joy-anger,joy-disgust,joy-fear,joy-guilt,joy-sadness,joy-shame,sadness-anger,sadness-disgust,sadness-fear,sadness-guilt,sadness-joy,sadness-shame,shame-anger,shame-disgust,shame-fear,shame-guilt,shame-joy,shame-sadness",
+    "dtype": "float16"
+  },
+  "inputs": {
+    "emotion_vectors/Llama-3.2-1B-Instruct": "2e506700f9af78f5+8963cc1bfefc668e"
+  },
+  "content": "fbb4034a3a7eabce3d85b40fb867e694677162f9672587bad0a654bcb1e85652",
+  "created": "2026-08-30T00:59:41"
+}
