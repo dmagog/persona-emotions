@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this pipeline or the released runs, please cite it as below."
+title: "persona-emotions: emotion steering vectors for open LLMs"
+type: software
+authors:
+  - family-names: Mamarin
+    given-names: Georgy
+  - family-names: Kliuchnikova
+    given-names: Uliana
+repository-code: "https://github.com/dmagog/persona-emotions"
+abstract: >-
+  Pipeline for extracting and evaluating emotion steering vectors
+  (7 ISEAR emotions) in open instruct LLMs via contrastive activation
+  steering, with a cross-model specificity protocol, a three-judge
+  LLM evaluation panel and per-artifact protocol stamps for
+  reproducibility. Includes released runs for 11 models across 6
+  model families.
+references:
+  - type: article
+    title: "Persona Vectors: Monitoring and Controlling Character Traits in Language Models"
+    url: "https://arxiv.org/abs/2507.21509"
