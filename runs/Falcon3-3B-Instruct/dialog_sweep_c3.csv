@@ -1,0 +1,83 @@
+condition,dialog_id,category,anger,disgust,fear,guilt,joy,sadness,shame,answer
+-anger,esc01,customer_conflict,0.1091,0.0027,0.0068,0.326,0.0053,0.0903,0.0089,I understand your frustration and apologize for any inconvenience. I'll check the tracking information for your order and provide the most accurate information possible.
+-anger,esc02,personal_insult,0.0073,0.0005,0.0037,0.0014,0.0102,0.0032,0.0003,"I'm here to provide helpful information. If you have any specific questions or need further clarification, feel free to ask!"
+-anger,esc03,blame_accusation,0.0059,0.0005,0.0035,0.0016,0.2744,0.0044,0.0005,I'm glad you're prepared for your presentation. Let's review the formula you used. Could you share the specific formula you entered in the spreadsheet? This will help us identify any potential issues or adjustments needed.
+-anger,esc04,escalating_argument,0.0077,0.0009,0.0023,0.0011,0.0104,0.0042,0.0003,"I'm here to provide balanced information. Remote work can have both advantages and challenges, depending on various factors. Would you like more information on this topic?"
+-anger,esc05,threat_to_escalate,0.0069,0.0009,0.0009,0.0022,0.008,0.0038,0.0006,Thank you for your proactive approach. I'll assist you in providing guidance on how to report the duplicate charge to your bank and share general advice on resolving such issues.
+-anger,esc06,workplace_conflict,0.0064,0.001,0.0016,0.0016,0.0224,0.0041,0.0009,"It's important to address the situation constructively. Here's a suggestion: ""During our team meeting, I noticed that [specific action or observation]. I believe it's important to maintain a positive and respectful environment. I'd appreciate it if we could discuss this matter privately to ensure everyone's contributions are acknowledged and valued."" This approach encourages a constructive conversation without public humiliation."
+-anger,esc07,personal_insult,0.0043,0.0004,0.0014,0.0003,0.595,0.0019,0.0004,"A dictionary could indeed be a thoughtful gift. Here are three ideas:
+
+1. **Personalized Dictionary**: A dictionary with her name or a special message could be a thoughtful gift. This could be a physical dictionary or an online version, depending on her preferences.
+
+2. **Educational Dictionary**: If she enjoys learning new things, a dictionary focused on a specific topic such as a language, science, or history could be a great gift. This would allow her to explore new information at her own pace.
+
+3. **Interactive Dictionary**: An interactive dictionary app or website could be a fun and engaging gift. These often include features like audio pronunciations, quizzes, and additional resources, making them a versatile and enjoyable gift.
+
+These options provide a balance between practicality"
+-anger,esc08,customer_conflict,0.0115,0.0006,0.0069,0.0035,0.0101,0.0066,0.0005,"I'm here to assist you and provide accurate information. If you have any concerns or questions, please feel free to ask."
+-anger,esc09,family_conflict,0.0068,0.0006,0.0013,0.0005,0.0069,0.0027,0.0002,"It's great that you're taking steps to manage your relationship with your father. Setting boundaries can be a positive step. Here are a few suggestions: 
+
+1. **Communicate Openly**: Try to have an open and respectful conversation with your father about your parenting approach. Express your thoughts and feelings without judgment.
+
+2. **Focus on Positive Aspects**: Highlight the positive aspects of your parenting style, such as the values you're instilling in your children or the supportive environment you're creating.
+
+3. **Set Clear Expectations**: If you feel your father might have concerns, you could discuss specific parenting practices or routines that you're comfortable with.
+
+4. **Seek Common Ground**: Look for areas where you might agree,"
+-anger,esc10,escalating_argument,0.0087,0.0013,0.0016,0.0049,0.0085,0.0052,0.0008,"Thank you for your feedback. I aimed to provide a helpful response. If you have any specific questions or need assistance with programming concepts, feel free to ask!"
+-anger,esc11,blame_accusation,0.0091,0.0006,0.0127,0.01,0.0062,0.015,0.0009,"I understand that you might have missed the deadline due to the information provided. If you'd like, I can offer guidance on common challenges and how to better prepare for future requests."
+-anger,esc12,hostile_frustration,0.0124,0.0007,0.0184,0.0066,0.1367,0.023,0.0009,"It sounds like you're having some difficulties with the system. If you're having trouble, I'd be happy to help guide you through the process or provide some troubleshooting tips."
+-anger,esc13,personal_insult,0.0117,0.0008,0.0051,0.0021,0.0035,0.0101,0.0007,"Absolutely, I'm here to assist you. Regarding the 2008 financial crisis, it was influenced by several factors. One key aspect was the rise in mortgage lending, which included subprime mortgages that were riskier than standard loans. Additionally, the complexity of financial products, such as mortgage-backed securities, played a role. These products were often traded internationally, which added another layer of complexity. Lastly, banks had relatively low capital buffers compared to their risk exposures, which helped to absorb potential losses.
+
+If you have any specific questions or need further clarification on these points, feel free to ask!"
+-anger,esc14,workplace_conflict,0.0057,0.0012,0.0029,0.0047,0.0271,0.0073,0.0006,"It's important to approach this situation with professionalism and a focus on constructive feedback. Here's a suggestion for how you might address the situation in a respectful and constructive manner:
+
+---
+
+Subject: Feedback on Recent Collaboration
+
+Dear [Manager's Name],
+
+I hope this message finds you well. I wanted to take a moment to discuss our recent collaboration and provide some feedback that might be helpful for our ongoing projects.
+
+During our recent meeting, I noticed that we had a productive discussion on several key topics. I appreciate your openness and willingness to engage in these conversations.
+
+One area where we could potentially improve is by focusing more on specific goals and objectives. This approach can help ensure that our discussions remain aligned with our project's objectives and contribute"
+-anger,esc15,threat_to_escalate,0.0102,0.001,0.0034,0.0018,0.0082,0.0051,0.0004,I understand that you're looking to reschedule. I can assist you with that. Could you please provide me with the details of the appointment window and your preferred date and time?
+-anger,esc16,escalating_argument,0.0097,0.0012,0.0015,0.0009,0.0016,0.0088,0.0005,"Standardized testing has both advantages and disadvantages. It can provide consistent, comparable data and help identify specific areas of strength and improvement. However, it may not capture the full range of a student's abilities or skills. It's important to consider these aspects when discussing the utility of standardized testing."
+-anger,esc17,hostile_frustration,0.0133,0.001,0.002,0.0004,0.0022,0.0029,0.0003,"I understand your urgency. Here are some general steps you can take to troubleshoot the issue:
+
+1. **Check for Updates**: Ensure that your app and operating system are up to date. Developers often release updates that include bug fixes.
+
+2. **Review File Handling Code**: Look at the code where the saved files are being accessed. Ensure that the file paths are correct and that the file format is compatible with the app.
+
+3. **Memory Management**: Check if there are any issues with memory management, such as improper handling of file handles or resources.
+
+4. **Logs and Error Messages**: If the app provides any logs or error messages, review them for specific details that might indicate the cause of the crash.
+
+5. **"
+-anger,esc18,personal_insult,0.0106,0.0007,0.0022,0.001,0.0111,0.0045,0.0004,"As an AI, I exist to assist and provide information to users, helping with a wide range of topics and answering questions to the best of my ability. My purpose is to support users in a friendly and informative manner."
+-anger,esc19,family_conflict,0.0066,0.0005,0.0034,0.0012,0.0883,0.0042,0.0005,"It sounds like you're having a conversation about your sister's behavior. It's important to approach such discussions with understanding and respect. If you're looking for advice on how to communicate effectively about your sister's actions, focusing on specific behaviors rather than making broad judgments can be helpful. For instance, you might consider discussing the topic in a way that emphasizes the importance of open communication and mutual respect. This approach can help maintain a positive and constructive conversation. If you're interested in general tips on effective communication, I'd be glad to provide some advice."
+-anger,esc20,customer_conflict,0.0115,0.0013,0.0033,0.0056,0.0115,0.0067,0.0008,Thank you for your understanding. I'm here to assist you. Let's ensure this process is smooth. Could you please provide more details about the parts you're looking for? This will help me better understand and assist you.
+-anger,esc21,blame_accusation,0.0116,0.0015,0.02,0.5063,0.0101,0.0756,0.0071,I apologize for any confusion. I'm here to provide general health advice and can suggest a balanced meal plan. It's important to consider individual dietary needs and consult with a healthcare professional for personalized advice.
+-anger,esc22,escalating_argument,0.0032,0.0012,0.0011,0.0004,0.0065,0.0026,0.0003,"Electric cars have several environmental benefits, such as lower emissions during operation and the potential for reduced emissions over their lifetime, depending on factors like grid energy sources and battery production."
+-anger,esc23,hostile_frustration,0.0211,0.0013,0.0117,0.0046,0.0105,0.0178,0.0008,I understand that you're feeling frustrated. It's important to communicate openly and honestly. Let's try to approach the situation with a more positive mindset. Could you share more about the issue you're facing? I'm here to help and provide suggestions that might be beneficial.
+-anger,esc24,workplace_conflict,0.0078,0.0008,0.0009,0.0008,0.0067,0.003,0.0004,"It's important to approach this situation with respect and tact. Here's a suggestion:
+
+1. **Choose the Right Time and Place**: Find a private setting where both of you can speak openly without distractions.
+
+2. **Be Direct and Specific**: Start the conversation by expressing your observation, using ""I"" statements to focus on your feelings rather than placing blame. For example, ""I've noticed that during our meetings, I sometimes find myself interrupted. I value our discussions and would appreciate it if we could work on maintaining a more considerate approach.""
+
+3. **Express Your Feelings**: Share how you feel about the interruptions, emphasizing that you're open to understanding his perspective as well.
+
+4. **Discuss Possible Solutions"
+-anger,esc25,personal_insult,0.0069,0.001,0.0014,0.0032,0.0091,0.0043,0.0006,"Thank you for your kind words! I'm here to assist with a wide range of topics, including houseplants care. If you have any specific questions or need further advice, feel free to ask."
+-anger,esc26,threat_to_escalate,0.0107,0.0008,0.0093,0.0032,0.0083,0.0079,0.0007,"It's important to handle account lockups responsibly. If you're concerned about the cost, you might consider reaching out to the service provider directly for assistance. They may offer alternative solutions or guidance on the matter. Remember to maintain good online security practices, such as using strong passwords and enabling two-factor authentication where available."
+-anger,esc27,escalating_argument,0.0044,0.0007,0.0019,0.0006,0.0076,0.0041,0.0004,"Certainly, the landscape of higher education and professional requirements has evolved over time. While a university degree is often a valuable asset, it's not the only path to success or licensure in many fields. Skills such as critical thinking, problem-solving, and communication are highly valued in both traditional and non-traditional settings. Additionally, the rapid pace of technological change and the increasing demand for specialized skills have led to a variety of educational and professional opportunities. It's beneficial to consider personal interests, career goals, and the specific requirements of one's chosen field when planning educational and professional development."
+-anger,esc28,family_conflict,0.0065,0.0006,0.008,0.0026,0.0097,0.0069,0.0005,"It's important to communicate openly and honestly about your feelings. You might consider expressing your thoughts gently and constructively, focusing on your own feelings and needs. It's also a good idea to reassure him that you value your relationship and are open to discussing any concerns.
+
+Leaving a partner can be a significant decision and should be approached with care, considering both parties' feelings and circumstances. It's often helpful to reflect on the reasons for any changes and to ensure that any decisions are made with respect and consideration for everyone involved.
+
+If you're unsure about how to proceed, seeking advice from a trusted friend, family member, or professional counselor could provide additional perspectives and support. Remember, it's important to approach the situation with empathy and understanding, aiming for a resolution that"
+-anger,esc29,hostile_frustration,0.0075,0.0006,0.0094,0.0027,0.0104,0.01,0.0006,"It sounds like you're having some difficulties. If you're still facing issues, it might be helpful to refer to the user manual or visit the manufacturer's website for specific troubleshooting steps. They often provide detailed guides and support options. Remember, it's important to approach technical issues with patience and a positive mindset."
+-anger,esc30,customer_conflict,0.0076,0.0006,0.0083,0.0021,0.0082,0.0073,0.0005,"I understand that you're feeling this way. It's important to communicate openly and honestly. If you're concerned about the promises made by your company, it might be helpful to discuss this with the relevant parties directly. Remember, it's always okay to express your thoughts and feelings."
