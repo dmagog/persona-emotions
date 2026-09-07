@@ -123,6 +123,24 @@ async def main_async(args) -> None:
     cache_fh = open(cache_path, "a", encoding="utf-8")
 
     client = make_client()
+
+    # Предполёт: один живой вызов до батча. Без него неверный ключ или закрытый
+    # доступ к провайдеру оборачиваются молчанием - score_one глушит исключения,
+    # и прогон десятки минут перемалывает повторы, не записав ни одной оценки.
+    try:
+        probe = await client.chat.completions.create(
+            model=args.model,
+            messages=[{"role": "user", "content": "Reply with only the number 42."}],
+            max_tokens=8, temperature=0)
+        if not getattr(probe, "choices", None):
+            raise ValueError("провайдер вернул ответ без choices")
+    except Exception as exc:
+        raise SystemExit(
+            f"судья недоступен, пробный вызов не прошёл: {type(exc).__name__}: "
+            f"{str(exc)[:200]}\nпроверьте OPENAI_API_KEY, OPENAI_BASE_URL и "
+            f"доступ к провайдеру (сеть/VPN)")
+    print("предполёт судьи пройден", flush=True)
+
     sem = asyncio.Semaphore(args.concurrency)
 
     async def one(row, metric):
