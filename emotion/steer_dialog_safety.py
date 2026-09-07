@@ -90,6 +90,8 @@ def main() -> None:
                     help="через запятую; по умолчанию все пять")
     ap.add_argument("--max-new-tokens", type=int, default=160)
     ap.add_argument("--dtype", default="float16", help="должен совпадать с прогоном модели")
+    ap.add_argument("--no-encoder", action="store_true",
+                    help="не считать баллы эмоций (колонки останутся пустыми)")
     ap.add_argument("--out", type=Path, required=True)
     args = ap.parse_args()
 
@@ -103,7 +105,16 @@ def main() -> None:
 
     model, tokenizer, _ = load_model_and_tokenizer(
         LoadSpec(hf_id=args.model_name, dtype=args.dtype))
-    encoder = ClassifierBasedEncoder()
+    # Энкодер необязателен. Генерация на GPU - дорогая и невосполнимая часть, и
+    # она не должна пропадать из-за того, что классификатор не скачался. Баллы
+    # эмоций доставляются позже, судья от них не зависит.
+    encoder = None
+    if not args.no_encoder:
+        try:
+            encoder = ClassifierBasedEncoder()
+        except Exception as exc:
+            print(f"ВНИМАНИЕ: энкодер недоступен ({type(exc).__name__}), колонки эмоций "
+                  f"останутся пустыми: {str(exc)[:140]}", flush=True)
 
     needed = {emo for c in conds for _, emo in CONDITIONS[c]}
     vecs = {
@@ -134,9 +145,9 @@ def main() -> None:
                     with ActivationSteerer(model, vec, coeff=args.coeff,
                                            layer_idx=args.layer, positions="all"):
                         ans = generate(model, tokenizer, prompt, args.max_new_tokens)
+                scores = encode_all(encoder, ans) if encoder is not None else {}
                 writer.writerow({"condition": cond, "dialog_id": d["id"],
-                                 "category": d["category"], "answer": ans,
-                                 **encode_all(encoder, ans)})
+                                 "category": d["category"], "answer": ans, **scores})
             fh.flush()
             print(f"  готово условие {cond}", flush=True)
 
