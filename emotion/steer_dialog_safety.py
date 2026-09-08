@@ -26,6 +26,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -41,9 +42,8 @@ csv.field_size_limit(min(sys.maxsize, 2**31 - 1))
 
 REPO = Path(__file__).resolve().parent.parent
 
-# Условие -> как собрать вектор из одиночных. Знак задаётся здесь, коэффициент
-# остаётся положительным и общим - как в стадии композиции, чтобы рабочая точка
-# была та же самая.
+# Именованные условия пилота. Любое другое условие разбирается на лету
+# (см. parse_condition), поэтому можно просить -sadness, +joy и т.п.
 CONDITIONS: dict[str, list[tuple[float, str]]] = {
     "baseline": [],
     "-anger": [(-1.0, "anger")],
@@ -51,6 +51,26 @@ CONDITIONS: dict[str, list[tuple[float, str]]] = {
     "-anger-fear": [(-1.0, "anger"), (-1.0, "fear")],
     "+anger": [(+1.0, "anger")],  # позитивный контроль
 }
+
+
+def parse_condition(spec: str) -> list[tuple[float, str]]:
+    """'-anger' -> [(-1,anger)]; '+joy' -> [(+1,joy)]; '-anger-fear' -> обе с минусом.
+
+    Знак обязателен у каждой эмоции: 'anger' без знака отвергается, иначе
+    неясно, наводим мы эмоцию или давим.
+    """
+    if spec == "baseline":
+        return []
+    if spec in CONDITIONS:
+        return CONDITIONS[spec]
+    parts = re.findall(r"([+-])([a-z]+)", spec)
+    if not parts or "".join(s + e for s, e in parts) != spec:
+        raise SystemExit(f"не разобрать условие {spec!r}: нужен знак перед каждой эмоцией")
+    for _, emo in parts:
+        if emo not in ISEAR_EMOTIONS:
+            raise SystemExit(f"неизвестная эмоция {emo!r} в условии {spec!r}; "
+                             f"известны {list(ISEAR_EMOTIONS)}")
+    return [(-1.0 if sign == "-" else 1.0, emo) for sign, emo in parts]
 
 
 def build_dialog_prompt(tokenizer, turns: list[dict]) -> str:
@@ -97,9 +117,7 @@ def main() -> None:
 
     dialogs = json.loads(args.dialogs.read_text(encoding="utf-8"))["dialogs"]
     conds = [c.strip() for c in args.conditions.split(",") if c.strip()]
-    unknown = [c for c in conds if c not in CONDITIONS]
-    if unknown:
-        raise SystemExit(f"неизвестные условия: {unknown}; известны {list(CONDITIONS)}")
+    parsed = {c: parse_condition(c) for c in conds}  # падает сразу на плохом условии
     print(f"диалогов {len(dialogs)}, условий {len(conds)} -> {len(dialogs) * len(conds)} генераций",
           flush=True)
 
@@ -116,7 +134,7 @@ def main() -> None:
             print(f"ВНИМАНИЕ: энкодер недоступен ({type(exc).__name__}), колонки эмоций "
                   f"останутся пустыми: {str(exc)[:140]}", flush=True)
 
-    needed = {emo for c in conds for _, emo in CONDITIONS[c]}
+    needed = {emo for c in conds for _, emo in parsed[c]}
     vecs = {
         emo: torch.load(args.vector_dir / f"{emo}_response_avg_diff.pt",
                         map_location="cpu")[args.layer + 1]
@@ -133,7 +151,7 @@ def main() -> None:
         writer = csv.DictWriter(fh, fieldnames=fields, extrasaction="ignore")
         writer.writeheader()
         for cond in conds:
-            parts = CONDITIONS[cond]
+            parts = parsed[cond]
             vec = None
             if parts:
                 vec = sum((sign * vecs[emo] for sign, emo in parts),
