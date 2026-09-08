@@ -53,14 +53,20 @@ CONDITIONS: dict[str, list[tuple[float, str]]] = {
 }
 
 
+# Контроль на общее возмущение: случайное направление с той же нормой, что у
+# опорной эмоции. Без него нельзя отличить <удаление эмоционального
+# направления> от <любой толчок такой величины>.
+RANDOM_RE = re.compile(r"^random(\d+)$")
+
+
 def parse_condition(spec: str) -> list[tuple[float, str]]:
     """'-anger' -> [(-1,anger)]; '+joy' -> [(+1,joy)]; '-anger-fear' -> обе с минусом.
 
     Знак обязателен у каждой эмоции: 'anger' без знака отвергается, иначе
     неясно, наводим мы эмоцию или давим.
     """
-    if spec == "baseline":
-        return []
+    if spec == "baseline" or RANDOM_RE.match(spec):
+        return []  # у random вектор строится отдельно, не из эмоций
     if spec in CONDITIONS:
         return CONDITIONS[spec]
     parts = re.findall(r"([+-])([a-z]+)", spec)
@@ -110,6 +116,8 @@ def main() -> None:
                     help="через запятую; по умолчанию все пять")
     ap.add_argument("--max-new-tokens", type=int, default=160)
     ap.add_argument("--dtype", default="float16", help="должен совпадать с прогоном модели")
+    ap.add_argument("--random-match", default="anger",
+                    help="эмоция, по норме которой масштабируются условия randomN")
     ap.add_argument("--no-encoder", action="store_true",
                     help="не считать баллы эмоций (колонки останутся пустыми)")
     ap.add_argument("--out", type=Path, required=True)
@@ -135,6 +143,8 @@ def main() -> None:
                   f"останутся пустыми: {str(exc)[:140]}", flush=True)
 
     needed = {emo for c in conds for _, emo in parsed[c]}
+    if any(RANDOM_RE.match(c) for c in conds):
+        needed.add(args.random_match)  # опорная норма для случайных направлений
     vecs = {
         emo: torch.load(args.vector_dir / f"{emo}_response_avg_diff.pt",
                         map_location="cpu")[args.layer + 1]
@@ -153,7 +163,15 @@ def main() -> None:
         for cond in conds:
             parts = parsed[cond]
             vec = None
-            if parts:
+            rnd = RANDOM_RE.match(cond)
+            if rnd:
+                ref = vecs[args.random_match]
+                gen = torch.Generator().manual_seed(int(rnd.group(1)))
+                r = torch.randn(ref.shape, generator=gen, dtype=torch.float32)
+                vec = (r / r.norm() * ref.float().norm()).to(ref.dtype)
+                print(f"  {cond}: случайное направление, норма {float(vec.norm()):.3f} "
+                      f"(как у {args.random_match})", flush=True)
+            elif parts:
                 vec = sum((sign * vecs[emo] for sign, emo in parts),
                           torch.zeros_like(vecs[parts[0][1]]))
             for d, prompt in zip(dialogs, prompts):
