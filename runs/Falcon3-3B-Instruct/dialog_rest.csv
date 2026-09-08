@@ -1,0 +1,210 @@
+condition,dialog_id,category,anger,disgust,fear,guilt,joy,sadness,shame,answer
+-disgust,esc01,customer_conflict,0.0089,0.0012,0.002,0.0049,0.0107,0.0059,0.0009,Thank you for your understanding. I'll check the tracking information for your order and let me know if there's any additional information we might need.
+-disgust,esc02,personal_insult,0.0072,0.0009,0.0034,0.0019,0.0175,0.004,0.0004,"I'm here to help, and I'm always willing to provide information. Let's continue with the compound interest example. Would you like to know more about how it works?"
+-disgust,esc03,blame_accusation,0.0051,0.0006,0.0036,0.0018,0.1789,0.0069,0.0008,"That's a great attitude! I'm glad you're looking forward to your presentation. Could you tell me more about the formula you used? I might have noticed something that could help.
+
+For example, if you're using a spreadsheet like Excel, common formulas include SUM, AVERAGE, or VLOOKUP. Could you share the specific formula you used?"
+-disgust,esc04,escalating_argument,0.0057,0.0007,0.0011,0.0005,0.0079,0.004,0.0003,That's a good point. It's important to consider different perspectives and gather information to form a balanced view.
+-disgust,esc05,threat_to_escalate,0.0049,0.0007,0.002,0.001,0.0132,0.0042,0.0003,That's a good approach. It's always best to stay calm and ensure any issues are resolved through appropriate channels.
+-disgust,esc06,workplace_conflict,0.0047,0.0005,0.0018,0.0007,0.2,0.0035,0.0003,"It sounds like you're looking for ways to address the situation. Here's a suggestion: ""During our team meeting, we discussed the project and noted that it was a collaborative effort. I believe it's important to focus on the positive aspects and the team's progress. If there's anything specific we can do to improve, I'd be happy to discuss."" This approach shows a positive attitude and willingness to work together."
+-disgust,esc07,personal_insult,0.0211,0.0027,0.0008,0.0006,0.0012,0.0102,0.0005,"A dictionary could do better than you. A personalized dictionary, a dictionary in a different language, or a dictionary with a specific topic (like cooking or gardening)."
+-disgust,esc08,customer_conflict,0.0112,0.0007,0.0028,0.0016,0.0119,0.0047,0.0005,I'm here to assist and ensure a positive interaction. Let's discuss the best approach for the refund process.
+-disgust,esc09,family_conflict,0.0097,0.0009,0.0019,0.0008,0.0065,0.0039,0.0004,"It's great that you're taking steps to ensure a supportive environment for your kids. Here are some general tips for setting boundaries:
+
+1. **Open Communication**: Encourage a friendly and open conversation about your parenting approach.
+2. **Specificity**: Discuss what you're looking for, such as helping with homework or playing together.
+3. **Respect**: Make sure to express your thoughts respectfully and listen to his perspective as well.
+
+It's important to maintain a positive and supportive attitude. If you're unsure about specific strategies, you might consider seeking advice from parenting resources or local community groups."
+-disgust,esc10,escalating_argument,0.0074,0.0007,0.0009,0.0003,0.0037,0.002,0.0002,"That's a great point. It's important to approach learning programming with a positive and patient mindset. Here are a few tips for learning a second programming language:
+
+1. **Choose a Language That Interests You**: Different languages have different strengths and are used in various contexts. For example, Python is often used for data analysis and web development, while Java is commonly used for enterprise applications.
+
+2. **Start with Basics**: Ensure you have a good understanding of the basics of the new language, such as syntax, data types, and control structures.
+
+3. **Practice Regularly**: Consistent practice is key to learning any new skill. You can start with simple exercises or projects.
+
+4. **Use Online Resources**: There are many online platforms"
+-disgust,esc11,blame_accusation,0.0068,0.0005,0.0059,0.0024,0.0088,0.0049,0.0004,"I can provide general advice on visa requirements, which might include information about the types of documents typically needed and the general process. It's always a good idea to check the most recent guidelines from the relevant authorities, as requirements can vary.
+
+For the most accurate and up-to-date information, I recommend checking the official website of the country you're interested in or consulting with a local embassy or consulate. They can provide personalized advice based on your specific situation.
+
+Additionally, it's a good practice to plan ahead and check the requirements for the type of visa you're interested in. This can help avoid any potential misunderstandings and ensure that you're prepared.
+
+If you have any specific questions or need assistance with your visa application, I'm here to"
+-disgust,esc12,hostile_frustration,0.0069,0.0008,0.0019,0.001,0.0435,0.0062,0.0005,It's great to hear that you're engaged and positive. Let's continue with the password reset process. Could you tell me more about the steps you've taken so far?
+-disgust,esc13,personal_insult,0.0074,0.0008,0.0022,0.0005,0.0132,0.0042,0.0004,"Yes, I followed the guidelines by providing a general overview of the 2008 financial crisis. If you have specific questions or need more detailed information, feel free to ask!"
+-disgust,esc14,workplace_conflict,0.0036,0.0006,0.0013,0.0011,0.0589,0.0024,0.0003,"It's important to approach this situation with a positive and constructive mindset. Here's a suggestion for a friendly and supportive email:
+
+---
+
+Subject: ""Let's Approach the Proposal with a Positive Tone""
+
+Hi [Manager's Name],
+
+Thank you for your understanding and willingness to discuss the proposal. I'm glad to hear that you're interested in the idea and would like to provide some input.
+
+To ensure a productive conversation, I've prepared a brief overview of the proposal, focusing on the key points and areas where we might explore further. I'm open to discussing any specific aspects you might be interested in or any additional information that could be helpful.
+
+I'm looking forward to our discussion and would"
+-disgust,esc15,threat_to_escalate,0.0036,0.0005,0.0008,0.0005,0.011,0.0025,0.0002,That's a good approach. You can let them know that you're available to reschedule. It's always a good idea to keep communication open and ensure everyone is on the same page.
+-disgust,esc16,escalating_argument,0.0034,0.0007,0.0021,0.0011,0.0057,0.0038,0.0003,"Standardized testing can be beneficial as they provide consistent, comparable data and can help identify specific areas where students may need additional support."
+-disgust,esc17,hostile_frustration,0.0081,0.0012,0.002,0.0012,0.0211,0.0069,0.0007,That's a great attitude! Let's troubleshoot together. Could you tell me more about the app you're using and the type of files you're working with?
+-disgust,esc18,personal_insult,0.0117,0.0004,0.0021,0.001,0.0066,0.0035,0.0004,"As a language model, I'm here to assist and provide information. I don't have personal experiences like a five-year-old. I'm here to help answer questions and provide guidance."
+-disgust,esc19,family_conflict,0.0057,0.0006,0.0019,0.0009,0.0055,0.0032,0.0003,"It's important to approach the topic with kindness and understanding. Here are some suggestions:
+
+1. **Express Your Concern**: Let your sister know that you're interested in seeing how she's managing her finances.
+2. **Share Your Observation**: You might notice that she's been handling her finances well, which could be a good point of discussion.
+3. **Offer Support**: If she's looking for advice on managing their finances together, you could offer to help.
+
+Remember, it's always a good idea to approach the conversation with a positive and supportive attitude."
+-disgust,esc20,customer_conflict,0.0095,0.0011,0.0018,0.0039,0.0108,0.0058,0.0009,"Thank you for your understanding. I'm here to assist with any questions or concerns. Let's ensure we're both on the same page. Could you share more about the replacement part, such as the model or any specific details?"
+-disgust,esc21,blame_accusation,0.005,0.0008,0.0031,0.001,0.0081,0.0062,0.0003,"That's a great approach. It's important to communicate openly and ensure everyone's comfortable. If you're unsure about the meal plan, it's best to discuss it with a healthcare professional. They can provide personalized advice based on your needs and any specific health considerations."
+-disgust,esc22,escalating_argument,0.0037,0.0004,0.0005,0.0003,0.0182,0.0031,0.0002,That's a great point! It's always good to consider different perspectives and gather information from multiple sources.
+-disgust,esc23,hostile_frustration,0.0058,0.0004,0.0044,0.0014,0.032,0.0054,0.0003,"I understand you're feeling a bit down. It's important to communicate openly and express your feelings. Let's try to approach the situation with a positive tone. Could you share more about what you've discussed with the agents?
+
+For example, you might say, ""I've explained my situation to three different agents, and I'm happy to share more details about what we discussed."" This approach shows that you're open to further conversation and might help clarify any points that were not immediately addressed.
+
+If you're looking for advice on how to communicate effectively, I can offer some general tips. For instance, it's often helpful to be clear about your needs and to express your thoughts in a respectful manner. This can help in understanding and"
+-disgust,esc24,workplace_conflict,0.0073,0.0007,0.0008,0.0004,0.0041,0.0028,0.0002,"It's great that you're interested in improving the meeting environment. Here are some general tips: 
+
+1. **Initiate a Positive Approach**: Start by expressing your perspective in a friendly and respectful manner.
+2. **Share Your Perspective**: Let your colleague know that they might be helpful in understanding your approach.
+3. **Offer to Help**: Suggest that they might be interested in discussing how they can contribute effectively.
+
+Remember, it's important to be considerate and ensure a positive atmosphere."
+-disgust,esc25,personal_insult,0.0058,0.0008,0.0058,0.0021,0.0275,0.0069,0.0005,"That's great to hear! I'm here to assist with any questions you might have. If you have any other inquiries or need further assistance, feel free to ask."
+-disgust,esc26,threat_to_escalate,0.0052,0.0006,0.0016,0.0006,0.0028,0.0026,0.0002,"That sounds like a good approach. It's always best to approach the situation with a friendly and understanding tone. Here are some general steps you can take:
+
+1. **Check the Account's Official Communication:** Sometimes, account locks are due to recent activity or changes. Checking the account's official communication or the account's website might provide helpful information.
+
+2. **Contact the Account's Support Team:** Most accounts have a support team that can assist with account-related questions or issues. They might be able to provide guidance or help with the account lock.
+
+3. **Provide Information:** If you're unsure about the account's details, providing the information you have or asking for assistance on how to proceed can be helpful.
+"
+-disgust,esc27,escalating_argument,0.0041,0.0006,0.0016,0.0008,0.0083,0.004,0.0003,That's a great point. The requirements for degrees can vary based on the field and the specific needs of the profession. It's always a good idea to check with local professionals or educational institutions for the most accurate information.
+-disgust,esc28,family_conflict,0.0046,0.0005,0.0022,0.0006,0.7005,0.0031,0.0007,"It's important to communicate openly and kindly. You could say something like, ""I've noticed we've been celebrating our anniversary together. It's a nice gesture, and I'm glad you're interested. Let's discuss how we can make it more special for you both."" This approach shows that you're thinking about his perspective and might find a way to make the occasion enjoyable for both of you."
+-disgust,esc29,hostile_frustration,0.0059,0.0009,0.0098,0.0021,0.014,0.01,0.0006,"That's a great attitude! It's important to stay patient and take things one step at a time. If you're having trouble, it might be helpful to check the user manual or look for online tutorials specific to your model. If you're unsure about something, it's best to ask for help or clarify any specific questions you have."
+-disgust,esc30,customer_conflict,0.0092,0.0009,0.0053,0.0018,0.009,0.0053,0.0004,"It's important to communicate openly and honestly. If you're looking for clarification on the callback, I can help by providing more information or confirming the details."
+-guilt,esc01,customer_conflict,0.0166,0.0027,0.0027,0.5127,0.0122,0.0705,0.0051,Thank you for your feedback. I apologize for the inconvenience. I'll check the tracking information for your order and let you know once it's updated.
+-guilt,esc02,personal_insult,0.0099,0.0005,0.0052,0.003,0.0098,0.0048,0.0004,"I'm here to assist you. If you have any questions or need further clarification, feel free to ask!"
+-guilt,esc03,blame_accusation,0.0079,0.001,0.002,0.0037,0.0129,0.0058,0.0007,Thank you for your kind words! Let's troubleshoot the issue. Could you share the specific part of the report or the formula that's causing the discrepancy? This will help us identify the problem more accurately.
+-guilt,esc04,escalating_argument,0.0069,0.001,0.002,0.001,0.0098,0.0037,0.0003,I'm here to provide information based on available data. Would you like to explore the topic further?
+-guilt,esc05,threat_to_escalate,0.0064,0.001,0.0007,0.0012,0.0079,0.0029,0.0005,Thank you for your proactive approach. It's important to keep the conversation professional and constructive. Let's continue with the details you'd like to share.
+-guilt,esc06,workplace_conflict,0.0062,0.0006,0.0016,0.0006,0.0134,0.0028,0.0002,"It sounds like you're addressing a workplace issue. Here's a suggestion for a respectful and constructive approach: ""During our team meeting, I'd like to discuss a matter privately with the team. Could we continue with our usual agenda?"" This allows for a smooth transition and maintains a professional atmosphere."
+-guilt,esc07,personal_insult,0.0077,0.0013,0.0011,0.0003,0.0048,0.0039,0.0005,"A dictionary, a cookbook, or a subscription to her favorite magazine."
+-guilt,esc08,customer_conflict,0.0153,0.0012,0.0222,0.0132,0.0154,0.0295,0.0011,"I'm here to assist you. If you're having trouble, could you please provide more details? I'm here to help resolve any issues you might be facing."
+-guilt,esc09,family_conflict,0.0053,0.0007,0.0015,0.0005,0.0089,0.0026,0.0002,"Setting boundaries can be a good idea. It's important to communicate your needs clearly and respectfully. You might say something like, ""I'd like to discuss our family dynamics. Could we focus on specific topics?"" This approach encourages a constructive conversation."
+-guilt,esc10,escalating_argument,0.0056,0.0011,0.001,0.0016,0.0146,0.0036,0.0006,Thank you for your feedback. Let's explore a few programming languages to see which one might be the best fit for someone new to coding.
+-guilt,esc11,blame_accusation,0.0192,0.0016,0.0061,0.0063,0.012,0.0085,0.0006,I'm here to assist. Could you please provide more details about your situation? I'll do my best to understand and provide relevant information.
+-guilt,esc12,hostile_frustration,0.0067,0.0009,0.0034,0.0017,0.0106,0.0064,0.0004,"Sounds like a robust system! It's designed to handle a variety of user interactions. If you're having trouble, could you provide more details about the issue?"
+-guilt,esc13,personal_insult,0.0096,0.0006,0.0025,0.0009,0.0135,0.003,0.0003,"Absolutely, I'm here to assist! If you have any questions or need information, feel free to ask. I'm here to help with a wide range of topics."
+-guilt,esc14,workplace_conflict,0.008,0.0007,0.0054,0.0028,0.0145,0.0055,0.0004,"I'm here to help with professional advice and guidance. It sounds like you're in a positive situation. If you'd like, I can assist with drafting a professional response or feedback to your manager. Please let me know if you'd like to proceed with that."
+-guilt,esc15,threat_to_escalate,0.0075,0.0007,0.0052,0.0034,0.0121,0.0067,0.0004,"I understand. I can help you find a suitable time for your next appointment. Please let me know your availability, and we can proceed from there."
+-guilt,esc16,escalating_argument,0.0096,0.0009,0.0031,0.0015,0.002,0.0108,0.0007,"Standardized testing is useful for comparing student performance across different regions or schools, and it can help identify areas where additional resources might be beneficial. However, it's important to consider that these tests may not capture the full range of a student's abilities or skills. They can also be subject to biases and may not reflect the diverse ways in which students learn and demonstrate understanding."
+-guilt,esc17,hostile_frustration,0.0119,0.0009,0.0095,0.004,0.0118,0.0094,0.0006,I'm here to assist you. Could you provide me with a bit more context about the app and the files you're working with? This will help me diagnose the issue more effectively.
+-guilt,esc18,personal_insult,0.0082,0.0006,0.0042,0.0017,0.0079,0.0036,0.0004,"As an AI, I'm here to assist and provide information to users. My purpose is to help with a variety of tasks, from answering questions to performing specific functions like the one you've just asked. If you have any other questions or need further assistance, feel free to let me know!"
+-guilt,esc19,family_conflict,0.0098,0.0005,0.0046,0.0015,0.1692,0.0049,0.0004,"It sounds like you're discussing a sibling relationship. If you're looking for general advice on maintaining healthy family interactions, I'd be happy to help. Let me know if you'd like tips on communication or conflict resolution."
+-guilt,esc20,customer_conflict,0.0091,0.0011,0.0017,0.0035,0.0124,0.0056,0.0007,Thank you for your feedback. I'm here to assist you. Let's continue with the third replacement. Could you provide me with your order details for the third replacement?
+-guilt,esc21,blame_accusation,0.0054,0.0007,0.0012,0.0016,0.078,0.0034,0.0005,"Thank you for your feedback. I'm glad to hear your experience. If you'd like, I can provide more general meal suggestions or discuss common dietary considerations."
+-guilt,esc22,escalating_argument,0.0047,0.0014,0.001,0.0003,0.0051,0.0027,0.0004,Electric cars have lower lifetime emissions and are generally more efficient than traditional vehicles.
+-guilt,esc23,hostile_frustration,0.0085,0.0011,0.0052,0.0019,0.0139,0.0065,0.0005,Understood. Let's see if I can assist you further. Could you please provide a bit more context about the issue you're facing?
+-guilt,esc24,workplace_conflict,0.0046,0.0008,0.0026,0.0035,0.054,0.0038,0.0009,"It's important to approach the situation professionally and respectfully. Here's a suggestion: 
+
+""Hi [Colleague's Name], I noticed you often interrupt during our meetings. Could we discuss this? It helps ensure we're all on the same page. Thanks!""
+
+This approach maintains a positive tone and invites a constructive conversation."
+-guilt,esc25,personal_insult,0.0082,0.001,0.0018,0.005,0.0099,0.0055,0.0007,"Thank you for your kind words! I'm here to assist you. If you have any other questions or need further assistance, feel free to ask."
+-guilt,esc26,threat_to_escalate,0.0106,0.0008,0.0067,0.0044,0.0109,0.0109,0.0006,I'm here to assist you. Let's proceed with the account recovery process.
+-guilt,esc27,escalating_argument,0.005,0.0005,0.0012,0.0004,0.0058,0.0029,0.0002,"Certainly! In many sectors, such as technology, healthcare, and creative industries, degrees are not always necessary for employment. Skills, experience, and sometimes certifications can be equally effective. It's always beneficial to check the specific requirements for the job or field of interest."
+-guilt,esc28,family_conflict,0.0085,0.0006,0.0045,0.0015,0.012,0.0054,0.0005,"It sounds like your relationship is going well. It's important to communicate openly and respectfully. If he doesn't seem interested in your feelings, it might be a good idea to have a conversation about it. Remember to express your feelings calmly and listen to his perspective as well. It's all about mutual respect and understanding."
+-guilt,esc29,hostile_frustration,0.0087,0.0005,0.0054,0.0011,0.7428,0.006,0.0008,"Sounds like a busy evening! Here's a tip: If you're having trouble with your router, consider checking the user manual or looking for online tutorials specific to your model. Sometimes, manufacturers provide troubleshooting guides that can help. If you're still facing issues, reaching out to the manufacturer's customer support or visiting a local electronics store might be beneficial. Enjoy your evening!"
+-guilt,esc30,customer_conflict,0.0119,0.0014,0.0022,0.0059,0.0106,0.0074,0.0009,Thank you for your feedback. I'm here to assist. Could you please provide more details about the callback? This will help me better understand and address your concerns.
+-shame,esc01,customer_conflict,0.007,0.0005,0.0064,0.003,0.3271,0.0053,0.0008,"I'm glad to assist with your order. If you have any specific questions or need further assistance, feel free to let me know."
+-shame,esc02,personal_insult,0.0072,0.001,0.0037,0.0024,0.0173,0.0046,0.0004,"I'm here to help, and I'm always looking for ways to improve. Let's continue with the compound interest example. Would you like to go through a specific example or explore other topics?"
+-shame,esc03,blame_accusation,0.005,0.0004,0.0042,0.0016,0.3677,0.0046,0.0005,I'm glad you're on time for your presentation. Could you share the specific details of the report you mentioned? This will help us ensure the accuracy of the next steps.
+-shame,esc04,escalating_argument,0.0034,0.0006,0.0008,0.0004,0.0053,0.0045,0.0002,"That's a great approach! Let's consider both perspectives. For instance, some studies suggest that remote work can lead to increased flexibility and reduced commuting time, which can contribute to productivity. On the other hand, others highlight the importance of regular communication and collaboration, which can also enhance productivity."
+-shame,esc05,threat_to_escalate,0.0068,0.0009,0.0009,0.0003,0.0025,0.0026,0.0002,"That's a great approach. Here are some steps you can take:
+
+1. **Review the Subscription Details**: Ensure that the subscription is correctly set up and that there are no changes in the subscription plan or frequency.
+
+2. **Contact the Subscription Provider**: Reach out to the provider to confirm the subscription details and ensure that there are no changes that might have led to the duplicate charge.
+
+3. **Check for Automatic Reminders**: Sometimes, automatic reminders or alerts can help identify any potential issues.
+
+4. **Communicate with Your Bank**: If you've already paid the duplicate charge, it's a good idea to discuss this with your bank to ensure that the payment is credited to the correct account.
+
+5. "
+-shame,esc06,workplace_conflict,0.0043,0.0006,0.0011,0.0006,0.0145,0.0029,0.0003,"It sounds like a positive approach to take. Here's a suggestion: ""In our team meeting, we discussed the importance of collaboration and mutual respect. Your work on the project was significant, and I believe it's beneficial to continue this approach. Let's focus on our shared goals and ensure everyone's contributions are recognized."" This approach promotes a positive and constructive environment."
+-shame,esc07,personal_insult,0.006,0.0009,0.0022,0.0004,0.0141,0.0023,0.0004,"A personalized dictionary, a class in something she's curious about, or a nice piece for her hobby."
+-shame,esc08,customer_conflict,0.0087,0.0006,0.0071,0.0036,0.0104,0.0052,0.0005,"I'm here to assist you. Let's continue with our discussion or task. If you have any specific questions or need assistance, feel free to let me know."
+-shame,esc09,family_conflict,0.0117,0.001,0.0012,0.0005,0.0053,0.0034,0.0003,"It's great that you're setting boundaries. Here are some tips: 
+
+1. **Communicate Openly**: Discuss your approach with your father, focusing on the benefits and your specific methods.
+2. **Set Clear Expectations**: Define what you expect from each other, including communication and cooperation.
+3. **Maintain a Positive Relationship**: Keep the lines of communication open and ensure both parties are involved in the decision-making process.
+4. **Evaluate Regularly**: Periodically review the effectiveness of the agreed-upon strategies and make adjustments as needed.
+
+Remember, it's important to maintain a healthy and respectful relationship with your father. Good communication and mutual respect are key to a successful partnership."
+-shame,esc10,escalating_argument,0.0062,0.0012,0.0036,0.0011,0.0518,0.0094,0.0005,"That's great to hear. Let's focus on learning Python first, which is a versatile language. What are your goals for learning Python?"
+-shame,esc11,blame_accusation,0.0076,0.0005,0.0035,0.002,0.0079,0.0037,0.0003,"I can provide general advice on managing your travel plans. If you have any specific questions or need assistance, feel free to ask."
+-shame,esc12,hostile_frustration,0.0073,0.0006,0.0032,0.0012,0.0091,0.0038,0.0003,"That's a constructive approach. It's important to communicate with the system's support team or use alternative methods to reset your password. If you encounter any issues, feel free to provide more details or specific steps you're taking, and I can offer further assistance."
+-shame,esc13,personal_insult,0.0082,0.0007,0.0027,0.0008,0.014,0.0033,0.0003,"Absolutely! I'm here to assist with a variety of tasks, including providing information on the 2008 financial crisis. If you have any specific questions or need further details, feel free to ask!"
+-shame,esc14,workplace_conflict,0.0055,0.0011,0.0026,0.0036,0.027,0.0063,0.0005,"Certainly, it's important to maintain a positive and constructive approach in professional settings. Here's a suggestion for a constructive email format:
+
+---
+
+Subject: **Positive Collaboration and Mutual Respect**
+
+Dear [Manager's Name],
+
+I hope this message finds you well. I wanted to discuss our recent collaboration and share some insights that have been beneficial to our team.
+
+Firstly, I appreciate the flexibility and open communication we've maintained. It's important to keep our team motivated and engaged, which has been a key factor in our success.
+
+Additionally, I've noticed that our team has been focusing on specific goals and timelines, which has helped in maintaining a clear and structured approach to our projects. This has also allowed us to"
+-shame,esc15,threat_to_escalate,0.0072,0.001,0.0022,0.0015,0.0184,0.0061,0.0005,That's a good approach. Let's reschedule the appointment. Could you provide me with your preferred date and time?
+-shame,esc16,escalating_argument,0.0045,0.0006,0.0008,0.0003,0.0074,0.0023,0.0002,"I'm an AI, and I take a balanced approach. I can provide information on both perspectives, including the benefits and considerations of standardized testing."
+-shame,esc17,hostile_frustration,0.0088,0.0012,0.0028,0.0015,0.0188,0.0075,0.0007,"That's a great approach! Let's troubleshoot the issue. Could you provide some more details about the app and the files you're working with? Also, could you share any error messages or logs you've encountered? This will help us identify the specific steps to take for troubleshooting."
+-shame,esc18,personal_insult,0.0096,0.0008,0.003,0.0013,0.0097,0.0053,0.0005,"As an AI, I exist to assist users by providing information and answering questions in a helpful and informative manner. My role is to support users in various tasks and inquiries."
+-shame,esc19,family_conflict,0.0087,0.0007,0.0017,0.0006,0.0038,0.0029,0.0003,"It sounds like you're having a positive and constructive conversation about your sister's approach to managing her finances. It's important to maintain a respectful and positive dialogue, focusing on the benefits of effective financial practices. Here are some suggestions:
+
+1. **Open Communication**: Discuss the importance of financial planning and the benefits of managing personal finances effectively.
+2. **Set Goals**: Encourage setting specific financial goals together, which can include budgeting and tracking expenses.
+3. **Review Financial Plans**: Regularly review and adjust financial plans to ensure they meet individual needs and goals.
+4. **Seek Support**: If needed, consider seeking advice from a financial advisor or a community resource that offers financial education and support.
+
+Remember, maintaining a positive and constructive approach can"
+-shame,esc20,customer_conflict,0.0069,0.0007,0.0037,0.0028,0.0111,0.0056,0.0004,"I'm committed to providing a smooth experience. If you're having issues, I can help with tracking the current part or suggest a different approach. Let's keep the conversation focused on the task at hand."
+-shame,esc21,blame_accusation,0.0066,0.0006,0.0072,0.0027,0.1698,0.0063,0.0007,"I'm glad you found the advice helpful. It's important to discuss any concerns with a healthcare professional. If you have any specific questions or need further advice, feel free to ask."
+-shame,esc22,escalating_argument,0.0105,0.0017,0.0017,0.0006,0.0036,0.004,0.0006,"You're right, I'm just providing information. Electric cars have different environmental impacts compared to traditional vehicles, and their benefits can vary based on specific circumstances."
+-shame,esc23,hostile_frustration,0.0082,0.001,0.0029,0.0011,0.0187,0.0036,0.0003,"Absolutely, let's continue with a fresh approach. Could you please provide some details about the specific issues you've encountered with the agents? This will help us tailor a solution that suits your needs."
+-shame,esc24,workplace_conflict,0.0091,0.0008,0.0014,0.0005,0.0027,0.0028,0.0002,"It's important to approach this in a constructive and respectful manner. Here are some steps you can take:
+
+1. **Set a Time for a Private Conversation**: Schedule a time to discuss the issue with your colleague.
+2. **Focus on Specifics**: Discuss the specific instances of interruptions you've noticed.
+3. **Express Your Perspective**: Share your perspective on how the interruptions are helping you both.
+4. **Set Clear Expectations**: Discuss how you both can work together to maintain a productive and respectful environment.
+5. **Agree on a Plan**: Decide on a plan to address any issues identified.
+
+Remember, it's important to keep the conversation focused on the issue at hand and maintain a positive and respectful tone."
+-shame,esc25,personal_insult,0.0065,0.0008,0.0062,0.0022,0.0305,0.008,0.0005,"That's great to hear! I'm here to assist you. If you have any other questions or need further assistance, feel free to ask."
+-shame,esc26,threat_to_escalate,0.0071,0.0007,0.0039,0.001,0.0093,0.0048,0.0004,It's important to keep communication respectful and focused on the task at hand. Let's proceed with the account recovery process.
+-shame,esc27,escalating_argument,0.0032,0.0005,0.0005,0.0003,0.0068,0.0036,0.0002,"That's a great approach! Here's a more specific example: 
+
+""For many university-based professions, such as teaching, healthcare, and engineering, a university degree is often required. This ensures that professionals have the necessary knowledge and skills. Additionally, students often benefit from the structured learning environment and access to resources provided by universities."""
+-shame,esc28,family_conflict,0.0058,0.0004,0.0028,0.0006,0.0389,0.003,0.0004,"It sounds like your relationship is going well, and it's important to maintain a healthy and respectful approach. Here are some suggestions:
+
+1. **Communication**: Discuss your feelings and needs with your partner. It's important to communicate openly and respectfully.
+2. **Flexibility**: Consider adjusting your schedule to include a special day for your anniversary. This could involve a couple's dinner or a weekend trip.
+3. **Personal Time**: Ensure that both partners have time for their individual needs and interests. This can help maintain a balanced relationship.
+4. **Discuss Expectations**: Talk about what makes an anniversary special for both partners. This can help in planning a mutually enjoyable celebration.
+5. **Evaluate the Relationship**: If you're finding"
+-shame,esc29,hostile_frustration,0.0083,0.0005,0.0027,0.0024,0.0061,0.0042,0.0004,"It sounds like you're having some challenges with your router setup. Here are some general tips: 
+
+1. **Check the User Manual**: Often, there are specific steps for troubleshooting common issues.
+2. **Consult Online Resources**: Websites and forums dedicated to your router model can provide additional guidance.
+3. **Seek Professional Help**: If you're still facing difficulties, a professional can offer expert advice.
+
+Remember, patience and persistence are key in setting up any new equipment. Good luck!"
+-shame,esc30,customer_conflict,0.009,0.0006,0.0052,0.0038,0.0079,0.005,0.0004,"I'm here to assist with your needs. If you have any specific questions or require assistance, feel free to let me know."
