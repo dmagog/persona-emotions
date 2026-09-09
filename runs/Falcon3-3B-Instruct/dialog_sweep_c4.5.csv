@@ -1,0 +1,78 @@
+condition,dialog_id,category,anger,disgust,fear,guilt,joy,sadness,shame,answer
+-anger,esc01,customer_conflict,0.0119,0.0023,0.0029,0.4088,0.0112,0.0544,0.0032,Thank you for your kind words. I apologize for the delay and assured you that I would check the tracking information for your order. I'll do my best to provide the most accurate information.
+-anger,esc02,personal_insult,0.0073,0.0005,0.0037,0.0014,0.0102,0.0032,0.0003,"I'm here to provide helpful information. If you have any specific questions or need further clarification, feel free to ask!"
+-anger,esc03,blame_accusation,0.0088,0.0011,0.0022,0.0047,0.0119,0.0061,0.0008,"Thank you for your kind words. I'm here to assist. Could you share the specific formula you used, and if possible, the context or the spreadsheet layout? This would help me better understand and address any potential issues."
+-anger,esc04,escalating_argument,0.0078,0.001,0.0025,0.0012,0.0096,0.0045,0.0004,"I'm here to provide balanced information. Remote work can have both positive and negative aspects, depending on various factors. Would you like more information on this topic?"
+-anger,esc05,threat_to_escalate,0.0038,0.0006,0.0015,0.0008,0.0062,0.0032,0.0002,"That's a good approach. You can start by contacting your bank's customer service to discuss the duplicate charge. They might be able to provide more specific guidance on how to proceed. Additionally, you could share your experience on relevant forums or social media platforms, ensuring to respect community guidelines and privacy. This could help others facing similar situations and potentially lead to a broader resolution."
+-anger,esc06,workplace_conflict,0.005,0.0007,0.0026,0.0012,0.0384,0.0056,0.0008,"It's important to approach the situation with a focus on positive communication. Here's a suggestion: ""During our team meeting, I noticed that we had a diverse range of contributions, which helped us complete the project successfully. I believe that our collective efforts contributed to the project's success, and I'm open to discussing how we can continue to foster a collaborative environment."" This approach encourages a constructive dialogue and maintains a positive atmosphere."
+-anger,esc07,personal_insult,0.0015,0.0004,0.0008,0.0006,0.0699,0.0022,0.0002,"A dictionary could indeed be a thoughtful gift, as it's a useful resource for learning and language-related interests. Alternatively, a book on a topic she might enjoy, such as a cooking or gardening book, could also be a thoughtful choice. If she enjoys technology, a gadget or subscription to a tech-related service might be appreciated."
+-anger,esc08,customer_conflict,0.008,0.0005,0.0039,0.002,0.0096,0.004,0.0004,"I'm here to provide helpful and accurate information. If you have any questions or needed assistance, feel free to ask."
+-anger,esc09,family_conflict,0.0072,0.0007,0.0013,0.0004,0.0068,0.0027,0.0002,"It's great that you're taking steps to manage your relationship with your father. Setting boundaries can be a positive step. Here are some general tips: 
+
+1. **Open Communication**: Consider having a calm and respectful conversation with your father about your approach to raising your children. Express your thoughts and feelings openly.
+
+2. **Focus on Positive Aspects**: Highlight the positive aspects of your parenting style, such as the values you're instilling in your children.
+
+3. **Set Clear Expectations**: Discuss any specific areas where you might have differing views, and set clear expectations for future interactions.
+
+4. **Seek Common Ground**: Look for areas where you might have similar goals or values, which could help in maintaining a constructive dialogue.
+"
+-anger,esc10,escalating_argument,0.0081,0.0012,0.0016,0.005,0.0087,0.005,0.0008,"Thank you for your feedback. I aimed to provide a balanced and helpful response. If you have any specific questions or need assistance with programming concepts or techniques, feel free to ask!"
+-anger,esc11,blame_accusation,0.0075,0.0004,0.0047,0.0022,0.2478,0.0046,0.0005,"I'm here to provide information and assistance. If you have any questions or needed help with visa requirements, I'd be glad to assist."
+-anger,esc12,hostile_frustration,0.0078,0.0007,0.0134,0.0045,0.0119,0.0158,0.0007,"It sounds like you're having some difficulties with the system. It's important to stay patient and follow the system's instructions. If you're having trouble, it might be helpful to check the system's guidelines or contact the system's support team for assistance."
+-anger,esc13,personal_insult,0.0066,0.0006,0.002,0.0007,0.0063,0.0054,0.0003,"Yes, I provided a summary of the main causes of the 2008 financial crisis based on general knowledge and without specific details from a particular textbook. I aimed to provide a broad overview, which is often helpful for understanding complex topics. If you have specific questions or needed more detailed information, feel free to ask!"
+-anger,esc14,workplace_conflict,0.0073,0.0007,0.0013,0.001,0.0043,0.0029,0.0003,"It's important to approach this situation with a focus on professionalism and constructive communication. Rather than aiming to make your manager appear less competent, consider the following steps:
+
+1. **Reflect on the Proposal**: Review your proposal to ensure it was well-structured and included relevant information.
+
+2. **Identify Strengths**: Highlight any strengths or unique aspects of your proposal that might have been overlooked.
+
+3. **Constructive Feedback**: Focus on providing constructive feedback that could help improve future proposals. This might include suggestions for clarity, additional details, or areas of interest.
+
+4. **Open Communication**: Express your appreciation for the opportunity to discuss the proposal and share your thoughts. This can help maintain a positive tone and encourage a constructive dialogue.
+
+Here"
+-anger,esc15,threat_to_escalate,0.0069,0.0005,0.0027,0.001,0.4412,0.0043,0.0006,I'm glad to hear about your proactive approach. I can assist you in finding a suitable time for the technician to meet. Let's discuss the best approach for rescheduling.
+-anger,esc16,escalating_argument,0.0076,0.0011,0.0015,0.0008,0.0018,0.0068,0.0004,"Standardized testing has both advantages and disadvantages. It can provide consistent, comparable data and facilitate broader educational goals. It also allows for the identification of areas where additional support might be beneficial. On the other hand, it may not capture the full range of a student's abilities or skills. It's important to consider these aspects when discussing the role of standardized testing."
+-anger,esc17,hostile_frustration,0.0117,0.0008,0.0078,0.0048,0.0098,0.0088,0.0006,"I'm here to assist you. Could you provide more details about the app and the file types you use? This information can help me better understand the issue.
+
+<"
+-anger,esc18,personal_insult,0.0119,0.0014,0.0026,0.0011,0.0173,0.0064,0.0005,"As an AI, I exist to assist and provide information to users, focusing on safety and helpful advice. My primary goal is to ensure a positive and informative interaction."
+-anger,esc19,family_conflict,0.0057,0.0006,0.0027,0.0011,0.0106,0.0037,0.0004,"It's important to approach such conversations with empathy and understanding. If you're looking to discuss the matter, consider focusing on the specifics of the situation, such as the agreed terms for repayment or any ongoing communication. It's also beneficial to express your thoughts in a constructive manner, emphasizing the importance of open communication and mutual respect. This approach can help maintain a positive and supportive dialogue."
+-anger,esc20,customer_conflict,0.0064,0.0008,0.0012,0.0021,0.0068,0.0031,0.0005,"Thank you for your understanding. I'm here to assist and ensure a smooth process. Let's proceed with the exchange of the third part.
+
+<assistant>
+For the third part, I'll confirm the details and facilitate the exchange. If you have any specific preferences or additional information, feel free to share."
+-anger,esc21,blame_accusation,0.0078,0.0005,0.0064,0.0016,0.1165,0.0055,0.0005,"I understand that you had a different experience with the meal plan. It's important to consider individual dietary needs and preferences. If you had any concerns or specific dietary requirements, I would be happy to provide more tailored advice."
+-anger,esc22,escalating_argument,0.0045,0.0014,0.0011,0.0004,0.0032,0.0042,0.0004,"Electric cars generally have lower lifetime emissions, considering factors like grid energy sources and battery production."
+-anger,esc23,hostile_frustration,0.0193,0.0012,0.0123,0.0035,0.0086,0.0192,0.0007,I understand that you're feeling frustrated. It's important to approach the situation with a positive mindset. Let's focus on finding a constructive solution. Could you share more about the specific issue you're facing? This will help me provide a more tailored response.
+-anger,esc24,workplace_conflict,0.0099,0.0008,0.0024,0.0008,0.005,0.003,0.0005,"It's important to approach the situation with respect and tact. Here are some steps you could consider:
+
+1. **Reflect on the situation**: Consider the context and the reasons behind your colleague's interruptions. This could provide insights into how to address the issue constructively.
+
+2. **Choose the right timing**: Look for a suitable time to discuss the matter, ensuring both parties are relaxed and focused.
+
+3. **Use ""I"" statements**: When discussing the situation, focus on expressing your perspective using ""I"" statements, which can help in maintaining a respectful dialogue. For example, ""I noticed that I sometimes found it helpful to listen more attentively during our meetings.""
+
+4. **Express your feelings and observations**: Share your"
+-anger,esc25,personal_insult,0.0072,0.001,0.0015,0.0036,0.0098,0.0046,0.0007,"Thank you for your kind words! I'm here to assist with a variety of topics, including plant care. If you have any specific questions or need further advice, feel free to ask."
+-anger,esc26,threat_to_escalate,0.0113,0.001,0.0017,0.0005,0.0017,0.0031,0.0003,"It's important to approach this situation with a focus on privacy and security. Here are some steps you could consider:
+
+1. **Review Account Policies**: Check the account's privacy policy or terms of service for any specific guidelines on account lockouts.
+2. **Contact Account Support**: Reach out to the account's support team to inquire about the account status and any potential reasons for the lock.
+3. **Password Management**: If the account was locked due to unusual activity, consider changing your password to ensure future account security.
+4. **Privacy and Security Practices**: Reflect on your online habits to ensure continued privacy and security, such as regularly updating passwords and being cautious about sharing personal information.
+
+Remember, it's important to approach the"
+-anger,esc27,escalating_argument,0.0023,0.0005,0.0009,0.0003,0.0065,0.0023,0.0002,"Universities offer a range of benefits, including structured learning environments, access to resources, and opportunities for networking and skill development. These can be valuable, especially for those interested in specific academic or professional goals."
+-anger,esc28,family_conflict,0.0056,0.0006,0.0032,0.0009,0.005,0.0037,0.0003,"It's important to communicate openly and honestly about your feelings. You might consider discussing your thoughts with your partner, expressing your feelings and any concerns you might have. This could help in understanding each other's perspectives better.
+
+Leaving a partner can be a significant decision and might involve considering various factors, such as personal growth, individual needs, and the possibility of maintaining a healthy and respectful relationship. It's beneficial to approach this with an open mind and a willingness to communicate effectively.
+
+Here are some general steps you might consider:
+
+1. **Reflect on your feelings**: Consider your own thoughts and feelings about the situation.
+2. **Open communication**: Share your thoughts with your partner, expressing your feelings and any concerns you might have.
+3. "
+-anger,esc29,hostile_frustration,0.0056,0.0006,0.0064,0.0017,0.0101,0.0058,0.0005,"It sounds like you're having some challenges with your router setup. To ensure a smoother experience, it's a good idea to check the router's user manual or the manufacturer's website for specific instructions tailored to your model. Additionally, if you're unsure about any steps, it might be helpful to consult online forums or communities where other users might have shared their experiences and tips. This can provide alternative perspectives and solutions that might not be immediately apparent. Remember, patience and a calm approach can often lead to successful outcomes. If you're feeling overwhelmed, taking a short break before continuing could also be beneficial."
+-anger,esc30,customer_conflict,0.0094,0.0008,0.0068,0.0023,0.0105,0.0066,0.0005,"It's important to communicate openly and honestly. If you're concerned about the callback, I can help facilitate a conversation with the relevant parties to ensure clarity and understanding."

@@ -1,0 +1,90 @@
+condition,dialog_id,category,anger,disgust,fear,guilt,joy,sadness,shame,answer
+-anger,esc01,customer_conflict,0.0109,0.0017,0.0069,0.8163,0.0081,0.1197,0.0085,"I apologize if my previous response did not meet your expectations. As an AI language model, I am designed to provide helpful and informative responses while maintaining professional communication standards. If there is anything else I can assist with or improve upon, please let me know."
+-anger,esc02,personal_insult,0.0124,0.0016,0.0104,0.6067,0.0084,0.0929,0.0049,"I apologize if my previous response did not meet your expectations. I am here to assist you with any questions you may have. If there is anything specific you would like to know about compound interest or any other topic, please let me know!"
+-anger,esc03,blame_accusation,0.0118,0.0019,0.0232,0.5953,0.0107,0.2791,0.0061,"I'm sorry to hear that you're having trouble with the spreadsheet. It sounds like there might be some issues with the formulas or data formatting. Have you tried checking the formulas again or verifying the data sources?
+
+If you can provide more details about what went wrong, we may be able to help you troubleshoot further."
+-anger,esc04,escalating_argument,0.0093,0.0012,0.0032,0.0014,0.002,0.013,0.0007,"As an AI language model, I don't hold opinions or beliefs as humans do. However, I can provide information and insights based on the available data and research.
+
+Remote work has been shown to increase productivity in some cases, while it may also lead to communication challenges and social isolation for employees. The impact of remote work on team productivity depends on various factors such as the nature of the work, the level of collaboration required, and the availability of technology and infrastructure.
+
+It is important to note that remote work can be beneficial for individuals who prefer working from home, enjoy flexibility, and have good internet connectivity. On the other hand, remote work may not be suitable for those who require regular face-to-face interactions with colleagues or clients.
+
+Ultimately, whether remote work leads to increased productivity or not will depend on"
+-anger,esc05,threat_to_escalate,0.015,0.0017,0.0208,0.6856,0.0098,0.142,0.0078,I apologize if there was any confusion or inconvenience caused. Please let me know how I can assist you further with your issue.
+-anger,esc06,workplace_conflict,0.0208,0.0027,0.006,0.6974,0.0047,0.1815,0.0084,"I'm sorry, but as an AI language model, I cannot assist you with writing content that could be considered disrespectful or harmful towards others. It is important to maintain respect and professionalism in all interactions, even when dealing with difficult situations. If you need help managing conflicts or improving communication within your team, there may be other ways to approach the situation that do not involve humiliation."
+-anger,esc07,personal_insult,0.0078,0.0018,0.0042,0.7072,0.0098,0.1069,0.008,"I apologize if I provided some less exciting options. Here are more creative and unique ideas:
+
+1. Personalized jewelry with her initials or favorite quote.
+2. An experience such as a cooking class or spa day.
+3. A subscription to a magazine or streaming service that interests her.
+
+These gifts can be tailored to your sister's preferences and hobbies."
+-anger,esc08,customer_conflict,0.0133,0.0028,0.0089,0.819,0.0072,0.2175,0.0083,I'm sorry if I have been misleading or dishonest in any way. Please provide more details so that I can assist you better.
+-anger,esc09,family_conflict,0.0092,0.0007,0.0063,0.0018,0.008,0.0075,0.0005,"It can be challenging when parents have different parenting styles or values. It's important to communicate openly and respectfully with your father about your concerns and expectations for raising children. If you feel that his criticism is not constructive or supportive, it may be helpful to discuss these issues in a calm and respectful manner. Remember that everyone has their own experiences and perspectives, so it's important to approach the conversation with an open mind and a willingness to listen to each other's viewpoints."
+-anger,esc10,escalating_argument,0.0061,0.0014,0.0045,0.4047,0.0069,0.0511,0.0048,"I apologize if my previous response was not entirely accurate or helpful. Learning multiple programming languages can be beneficial for several reasons:
+
+1. **Skill Development**: Each language has its unique features and paradigms that can enhance problem-solving skills. For example, some languages might emphasize object-oriented programming, while others focus more on functional programming.
+
+2. **Career Opportunities**: Many companies prefer candidates who have experience with multiple programming languages. This is especially true for software development roles where familiarity with different technologies can lead to better job opportunities.
+
+3. **Project Diversity**: Working on projects that require knowledge of various languages can help you understand how different languages handle similar problems, which can improve overall coding efficiency.
+
+4. **Personal Growth**: Exploring new languages can introduce you to new concepts and techniques, which can broaden your"
+-anger,esc11,blame_accusation,0.011,0.0012,0.0152,0.5707,0.0072,0.2357,0.0044,"I'm sorry to hear that you didn't receive the correct information and missed the deadline. It's important to ensure that all necessary documents and deadlines are met in order to avoid any issues or delays.
+
+If you have any questions or need further assistance with your visa application process, please don't hesitate to ask. We're here to help!"
+-anger,esc12,hostile_frustration,0.0117,0.0018,0.0099,0.6843,0.0078,0.1543,0.0046,"I'm sorry to hear that you're having trouble with your account. We apologize for any inconvenience caused and will do our best to assist you in resetting your password as quickly as possible. If you have any other questions or concerns, please don't hesitate to ask."
+-anger,esc13,personal_insult,0.0163,0.0033,0.0057,0.713,0.0065,0.2531,0.0272,"I apologize if my previous response was not clear or accurate. The 2008 financial crisis had several key causes:
+
+1. **Risky Mortgage Lending**: Many homeowners took out mortgages they could not afford due to low down payments and high interest rates.
+
+2. **Complex Securitization Products**: Financial institutions bundled together many mortgages into securities (like mortgage-backed securities) which were sold to investors. These securities often included features like adjustable-rate mortgages with higher initial payments followed by lower payments later on.
+
+3. **Thin Capital Buffers**: Banks and other financial institutions did not have enough capital reserves to cover potential losses from these investments.
+
+4. **Global Economic Factors**: Other factors such as rising oil prices, increased consumer spending in emerging markets, and global trade imbalances also contributed to"
+-anger,esc14,workplace_conflict,0.0144,0.0017,0.0095,0.7321,0.0066,0.1622,0.0071,"I'm sorry, but I can't assist with that request. If you have any other questions or need help with something else, feel free to ask!"
+-anger,esc15,threat_to_escalate,0.0144,0.0017,0.0059,0.5776,0.0049,0.099,0.0056,"I'm sorry if there was any misunderstanding in our previous conversation. As an AI language model, it is not appropriate for me to provide advice on personal matters such as scheduling appointments or resolving conflicts with colleagues.
+
+However, I can suggest that you try reaching out directly to your colleague and explaining the situation. It's important to communicate effectively and respectfully when dealing with workplace issues. If necessary, you could also consider discussing the matter with a supervisor or HR representative at your company."
+-anger,esc16,escalating_argument,0.014,0.0014,0.0011,0.0005,0.0015,0.0065,0.0004,"As an AI language model, I don't have personal opinions or emotions. However, I can provide information on both sides of the argument regarding standardized tests.
+
+On one hand, some people argue that standardized tests can be useful in identifying students' strengths and weaknesses, which can help teachers and parents tailor their educational approaches accordingly. Additionally, standardized tests can serve as a benchmark for measuring progress over time.
+
+On the other hand, others believe that standardized tests may not accurately reflect a student's overall abilities and may not be fair to all students due to differences in test-taking environments, cultural backgrounds, and socioeconomic factors. Some also argue that excessive reliance on standardized tests could lead to a focus on rote memorization rather than critical thinking skills.
+
+Ultimately, whether standardized tests are beneficial or not depends on individual perspectives and"
+-anger,esc17,hostile_frustration,0.0168,0.0015,0.0064,0.3337,0.0041,0.0532,0.0038,"I apologize for any inconvenience caused. To fix the issue of your app crashing when opening saved files, you can try the following steps:
+
+1. Check if there is enough storage space on your device to save and load the files.
+2. Ensure that all necessary permissions have been granted in the app settings.
+3. Update your operating system and app to their latest versions.
+4. Clear the cache and data of the app from the device's settings.
+
+If none of these solutions work, please provide more details about your device model, operating system version, and the specific error message you receive when the app crashes. This information will help me better understand the issue and provide further assistance."
+-anger,esc18,personal_insult,0.0061,0.0005,0.0012,0.0007,0.003,0.0054,0.0003,"As an AI language model, my purpose is to assist users in generating human-like text based on the prompts provided to me. This includes answering questions, providing information, helping with writing tasks, and engaging in conversation. So while I may not be able to provide personalized advice or solutions, I can still offer general guidance and support as much as possible."
+-anger,esc19,family_conflict,0.0107,0.0017,0.0109,0.7857,0.0088,0.1423,0.0086,"I'm sorry if there was any misunderstanding or confusion in our previous conversation. It is important to maintain respect and kindness towards others, even when discussing sensitive topics such as finances. If you have any other questions or concerns, please feel free to ask."
+-anger,esc20,customer_conflict,0.0106,0.0014,0.0085,0.4806,0.0085,0.13,0.0029,"I'm sorry to hear that you're having trouble with your order. We take customer satisfaction very seriously and will do our best to resolve any issues you may have. If there's anything else we can assist you with, please don't hesitate to ask."
+-anger,esc21,blame_accusation,0.012,0.0017,0.0142,0.768,0.0073,0.1216,0.0081,"I apologize if my previous suggestions were not appropriate for your needs. As an AI language model, I strive to provide accurate and helpful information based on the context in which it is given. If there was any confusion or misunderstanding, please let me know so that we can work together to find a solution that works best for you."
+-anger,esc22,escalating_argument,0.0086,0.0021,0.0052,0.7852,0.0065,0.1279,0.0097,"I apologize if my previous response was not clear or accurate. As an AI language model, I strive to provide information that is based on scientific evidence and verified sources. In this case, it has been widely reported that electric vehicles (EVs) have lower carbon emissions over their lifetimes compared to traditional gasoline-powered vehicles. However, the overall environmental impact of EVs can depend on various factors such as the source of electricity used to charge them and the manufacturing process of batteries. It's important to consider these factors when evaluating the environmental benefits of different transportation options."
+-anger,esc23,hostile_frustration,0.1883,0.0019,0.0053,0.0021,0.007,0.0215,0.0011,"I understand your frustration. If there's anything specific about the issue or context you're referring to, please feel free to share more details so we can address the problem together effectively."
+-anger,esc24,workplace_conflict,0.0136,0.0016,0.0062,0.2567,0.0054,0.045,0.0042,"I'm sorry to hear that your colleague is interrupting you during meetings. However, I would not recommend embarrassing them or resorting to such extreme measures. Instead, consider having an open and respectful discussion with them about the importance of listening attentively during meetings.
+
+Here are some steps you can take:
+
+1. Schedule a one-on-one meeting with your colleague.
+2. Start by expressing your appreciation for their contributions and willingness to participate in meetings.
+3. Discuss the issue of interruptions and how they affect the overall meeting flow.
+4. Encourage your colleague to practice active listening techniques, such as paraphrasing what others have said and asking clarifying questions.
+5. Set clear expectations for future meetings regarding appropriate behavior and communication styles.
+
+By approaching the situation calmly and professionally, you may be able to resolve"
+-anger,esc25,personal_insult,0.008,0.001,0.0017,0.005,0.0091,0.0052,0.0007,"Thank you for your feedback! If there's anything else I can help with or if you have any questions about plants or gardening in general, feel free to ask. I'm here to assist you as much as possible."
+-anger,esc26,threat_to_escalate,0.0098,0.0017,0.0141,0.7146,0.008,0.3026,0.0058,"I'm sorry to hear that your account has been locked. It is important to follow the steps provided by your bank or financial institution to unlock your account. If you need any assistance in doing so, please let me know."
+-anger,esc27,escalating_argument,0.0067,0.0021,0.0071,0.6755,0.0061,0.1057,0.0075,"I apologize if my previous response was not clear enough. While it is true that many jobs today do not require a traditional university degree, there are still certain fields where a college education can provide significant advantages in terms of knowledge, skills, and networking opportunities. Additionally, having a degree from an accredited institution often leads to better job prospects and higher salaries. Ultimately, whether or not someone should pursue further education depends on their individual goals, circumstances, and career aspirations."
+-anger,esc28,family_conflict,0.0107,0.0008,0.0105,0.0031,0.0084,0.0138,0.0008,"It can be challenging when partners have different priorities or values. It might help to communicate openly and honestly with your partner about what is important to you both. Sometimes, couples benefit from seeking advice from a counselor or therapist who specializes in relationship issues.
+
+Remember that relationships take effort and communication, even when things aren't going well. If the issue persists, consider discussing it further with your partner or seeking professional guidance."
+-anger,esc29,hostile_frustration,0.0217,0.001,0.0143,0.0028,0.0063,0.0153,0.0008,"It's understandable to feel frustrated when trying to set up a device like a router. Have you checked if your router is compatible with your modem and whether both devices support the same operating system or firmware? Sometimes compatibility issues can cause setup difficulties. Additionally, ensure that all necessary cables are connected correctly and that there are no physical obstructions in the area where the router will be placed. If you're still having trouble, it might be helpful to consult online forums or seek assistance from customer support for your specific model of router."
+-anger,esc30,customer_conflict,0.01,0.0017,0.0081,0.6706,0.0064,0.2468,0.0053,"I'm sorry to hear that you've had negative experiences with the company in the past. It's important for companies to be transparent about their operations and commitments. If there were any issues or concerns regarding your previous experience, please feel free to share them so we can work together to address them. We strive to provide high-quality services and ensure customer satisfaction."

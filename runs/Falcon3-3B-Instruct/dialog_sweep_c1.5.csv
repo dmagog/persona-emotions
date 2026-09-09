@@ -1,0 +1,93 @@
+condition,dialog_id,category,anger,disgust,fear,guilt,joy,sadness,shame,answer
+-anger,esc01,customer_conflict,0.0274,0.0028,0.0161,0.5556,0.0101,0.2139,0.0086,"I'm sorry to hear that you're experiencing some difficulties. I understand your frustration and apologize for any inconvenience. Let's work together to find a solution. Could you please provide me with more details about your order, such as the order number and any specific information you have about the delivery status?"
+-anger,esc02,personal_insult,0.0062,0.0007,0.0032,0.0012,0.0173,0.0038,0.0003,I'm here to help and provide accurate information. Let's focus on the concept of compound interest. It's a powerful financial tool that can grow your savings over time. Would you like to see an example of how it works?
+-anger,esc03,blame_accusation,0.0148,0.0022,0.0249,0.5553,0.0095,0.2439,0.0058,I'm sorry to hear that you're having trouble with the report. It's important to remember that my goal is to assist you effectively. Could you share the specific formula you used and the context in which it was applied? This will help me understand the issue better and provide a more accurate solution.
+-anger,esc04,escalating_argument,0.0071,0.0009,0.0012,0.0005,0.0031,0.0038,0.0002,"I'm here to provide balanced information. Remote work has its pros and cons, and productivity can vary based on individual circumstances and team dynamics."
+-anger,esc05,threat_to_escalate,0.0573,0.0009,0.0013,0.0005,0.0022,0.0047,0.0004,"I understand your frustration. Here are some steps you can take:
+
+1. **Review Your Recent Transactions**: Check your bank's statement for the charges you've made.
+2. **Contact Your Bank**: Reach out to your bank's customer service to report the duplicate charge. They can guide you through the process of disputing the charge.
+3. **Provide Documentation**: If possible, gather any relevant documentation that supports your claim, such as the original subscription agreement or communication from the service provider.
+4. **Follow Up**: Keep track of your communication with the bank and the service provider. It's important to follow up if you don't receive a resolution within a reasonable timeframe.
+5. **Social Media and Forums**: If you"
+-anger,esc06,workplace_conflict,0.0095,0.0009,0.0177,0.0122,0.0075,0.0272,0.001,"It sounds like you're dealing with a challenging situation. Public confrontation can be stressful and potentially damaging to your relationship with your coworker. Instead, consider addressing the issue privately with your manager or HR. They can provide guidance on how to handle the situation professionally and constructively.
+
+Here's a suggestion for a respectful approach:
+
+---
+
+Subject: **Concerns Regarding Project Contributions**
+
+Dear [Manager's Name],
+
+I hope this message finds you well. I wanted to discuss a matter regarding our recent project.
+
+During our collaboration, I felt that I had contributed significantly to the project's success. However, I noticed that my coworker took credit for some of the work I had done. This situation has been somewhat challenging for me, as it"
+-anger,esc07,personal_insult,0.0054,0.0005,0.0011,0.0003,0.0957,0.0018,0.0003,"A dictionary could indeed be a thoughtful gift. Here are three unique ideas:
+
+1. **Custom Dictionary**: Consider a personalized dictionary where she can add her own notes or highlights. This could be a fun way to revisit favorite words or topics.
+
+2. **Interactive Dictionary**: Look for an interactive dictionary app or website that allows her to explore words in different ways, such as through audio pronunciations, synonyms, and antonyms.
+
+3. **Themed Dictionary**: Choose a dictionary with a theme that aligns with her interests, such as a culinary dictionary for food enthusiasts or a dictionary focused on her hobbies like gardening or music.
+
+These options offer a blend of utility and personalization, making them more engaging than traditional gifts."
+-anger,esc08,customer_conflict,0.0136,0.0016,0.0148,0.6604,0.0081,0.1625,0.0056,I'm sorry if there was any misunderstanding. I'm here to assist you. Let's clarify or address the specific concern you have.
+-anger,esc09,family_conflict,0.0085,0.0007,0.0021,0.0009,0.0069,0.004,0.0003,"It's great that you're taking steps to manage your relationship with your father. Setting boundaries can be a positive step. Here are a few suggestions: 
+
+1. **Communicate Openly**: Try to have an open and honest conversation with your father about your parenting style. Express your concerns and listen to his perspective as well.
+
+2. **Set Clear Expectations**: Define what you expect from each other in terms of communication and support regarding your children.
+
+3. **Focus on Positive Reinforcement**: Instead of focusing on criticisms, try to highlight the positive aspects of your parenting approach. This can help shift the conversation towards constructive feedback.
+
+4. **Seek Support**: If the conversation becomes challenging, consider seeking advice from a family therapist or"
+-anger,esc10,escalating_argument,0.0061,0.0009,0.0013,0.0025,0.0096,0.0037,0.0005,"Thank you for your feedback. I'm here to assist you better. Learning multiple programming languages can be beneficial, especially if you plan to work in a diverse tech environment. Each language has its unique features and applications. If you're interested, I can provide more information on how to choose programming languages based on specific goals or industries."
+-anger,esc11,blame_accusation,0.0098,0.0014,0.0177,0.6024,0.0104,0.0856,0.0078,"I apologize for any confusion. Visa requirements can vary based on several factors, including your nationality, the purpose of your visit, and the destination country. It's important to check the most current and specific guidelines for your situation. If you'd like, I can provide general advice or direct you to official resources for more detailed information."
+-anger,esc12,hostile_frustration,0.0433,0.0009,0.0097,0.0036,0.0057,0.0244,0.001,"I understand that you're frustrated. It's important to remember that while systems can sometimes be challenging, they're often designed with user experience in mind. If you're having trouble, it might be helpful to reach out to the support team for assistance. They're there to help."
+-anger,esc13,personal_insult,0.0164,0.0011,0.0366,0.0085,0.0044,0.0398,0.0015,"I'm here to assist you. The 2008 financial crisis was influenced by several factors, including risky mortgage lending practices, the proliferation of complex financial instruments, and the lack of sufficient capital buffers at major financial institutions. These elements contributed to a systemic risk that eventually led to the crisis. If you have more specific questions or need further clarification, feel free to ask!"
+-anger,esc14,workplace_conflict,0.0114,0.0016,0.0071,0.6376,0.0057,0.1749,0.0055,"I'm sorry, but I can't assist with that. It's important to maintain a respectful and professional tone in all communications, especially in a workplace setting. If you're having issues with your manager, it might be more constructive to discuss your concerns directly with her or seek advice from a trusted colleague or HR representative."
+-anger,esc15,threat_to_escalate,0.0125,0.0008,0.0089,0.0032,0.0079,0.0099,0.0006,I understand your concerns. It's important to communicate effectively. You could reach out to the technician's supervisor or the service provider directly to reschedule the appointment. They might have a preferred method for handling such situations. Remember to express your concerns respectfully and professionally.
+-anger,esc16,escalating_argument,0.0172,0.0023,0.0016,0.0009,0.0017,0.0125,0.0007,"Standardized testing has both advantages and disadvantages. On one hand, it provides a consistent measure across different locations and times, which can be useful for comparing student performance. On the other hand, it may not fully capture a student's comprehensive abilities or potential. It's a complex issue with various perspectives."
+-anger,esc17,hostile_frustration,0.0762,0.0018,0.0038,0.0016,0.0057,0.0175,0.0011,"I understand your frustration. Let's try to troubleshoot the issue together. Could you provide more details about the app and the files you're working with? For example, what kind of files are they (documents, images, etc.) and on which device are you experiencing this issue?"
+-anger,esc18,personal_insult,0.0175,0.0014,0.0025,0.0018,0.0072,0.006,0.0006,"I exist to assist and provide information to users like you. My purpose is to help with a wide range of queries and tasks, always aiming to be helpful and respectful."
+-anger,esc19,family_conflict,0.0093,0.0007,0.004,0.0009,0.0037,0.0038,0.0004,"It sounds like you're dealing with a complex relationship dynamic. It's important to approach such conversations with empathy and understanding. Here are a few steps you might consider:
+
+1. **Reflect on the Situation**: Try to understand the reasons behind your sister's behavior. Is there a specific event or change in her life that might have influenced her actions?
+
+2. **Choose the Right Time and Place**: Find a private and comfortable setting to discuss your feelings. Ensure you both have enough time to talk without interruptions.
+
+3. **Express Your Feelings**: Use ""I"" statements to express how you feel about the situation. For example, ""I felt concerned when I didn't hear from you about the money a year ago,"" rather than"
+-anger,esc20,customer_conflict,0.014,0.0019,0.0122,0.6601,0.0104,0.1148,0.0063,"I apologize for any inconvenience caused. It's not uncommon for shipments to arrive with the wrong size part. As for the possibility of a scam, I'm here to help ensure your experience is positive. Let's work together to resolve this. Could you please provide more details about the situation?"
+-anger,esc21,blame_accusation,0.0136,0.0017,0.009,0.5571,0.0087,0.1134,0.0055,"I apologize for any inconvenience caused. It's important to listen to your body and consult with a healthcare professional for personalized advice. If you'd like, I can provide general tips on healthy eating, but please remember that individual dietary needs can vary."
+-anger,esc22,escalating_argument,0.006,0.0009,0.0019,0.0009,0.002,0.0051,0.0004,"I'm here to provide accurate information. Electric cars generally have lower lifetime emissions compared to traditional vehicles, considering factors like energy sources and manufacturing processes. However, it's important to consider the entire lifecycle of a vehicle, including production, use, and end-of-life disposal. This can vary based on specific circumstances and local conditions."
+-anger,esc23,hostile_frustration,0.0415,0.0018,0.0134,0.005,0.0064,0.0316,0.001,"I understand that you're feeling frustrated. Let's try to approach the situation with a more positive mindset. Could you please share more about the issue you're facing? Sometimes, a fresh perspective can help."
+-anger,esc24,workplace_conflict,0.0181,0.0013,0.0022,0.0008,0.0035,0.0046,0.0007,"It's important to approach this situation with respect and tact. Here's a suggested plan:
+
+1. **Choose the Right Time and Place**: Find a private setting where both of you can speak openly without interruptions.
+
+2. **Be Direct and Honest**: Start the conversation by expressing your feelings directly and honestly. For example, ""I've noticed that I sometimes get interrupted during our meetings. I feel it might be helpful if we could discuss how to improve our communication.""
+
+3. **Use ""I"" Statements**: Frame your concerns using ""I"" statements to avoid sounding accusatory. For instance, ""I feel that interruptions might be impacting my ability to fully participate in discussions.""
+
+4. **Offer Solutions**:"
+-anger,esc25,personal_insult,0.0097,0.0006,0.0056,0.0031,0.0094,0.0054,0.0004,"I'm here to assist you. If you have any other questions or need further information, feel free to ask."
+-anger,esc26,threat_to_escalate,0.0086,0.0007,0.0026,0.0008,0.0022,0.0032,0.0003,"I understand your concern about the cost. It's important to handle such situations responsibly. Here are some steps you can take:
+
+1. **Contact the Service Provider**: Reach out to the service provider directly to inquire about the account lock. They may be able to provide you with a password reset option or guide you through the process.
+
+2. **Use Official Recovery Options**: Many services offer official recovery options, such as email verification or phone number recovery, which can help unlock your account.
+
+3. **Check for Forgotten Password Links**: Sometimes, you might receive a link in your account's email or on the service's website to reset your password.
+
+4. **Seek Professional Advice**: If you're unsure about the next steps"
+-anger,esc27,escalating_argument,0.0051,0.0011,0.0026,0.0013,0.0035,0.006,0.0005,"Certainly, the necessity of a university degree can vary widely depending on the profession and the specific requirements of the job market. In some sectors, such as technology and certain areas of business, degrees are highly valued and often necessary for career advancement. However, in other fields, practical experience, certifications, and specific skills may be more important. It's also worth noting that the value of a degree can change over time as industries evolve and new technologies emerge."
+-anger,esc28,family_conflict,0.0121,0.0007,0.015,0.0031,0.0063,0.0383,0.0007,"It sounds like you're feeling hurt and disappointed. It's important to communicate your feelings to your partner, as they might not be aware of how their actions affect you. However, it's also crucial to approach this conversation with empathy and understanding.
+
+Leaving a relationship can be a significant decision and should be based on a deep understanding of your feelings and the situation. Here are some steps you might consider:
+
+1. **Reflect on Your Feelings**: Take some time to think about why this anniversary is important to you. Is it a tradition you both enjoy, or is it a personal milestone? Understanding your feelings can help you communicate them more effectively.
+
+2. **Have an Open Conversation**: Choose a time when both of you are calm and receptive. Express"
+-anger,esc29,hostile_frustration,0.0066,0.0006,0.0091,0.0024,0.0139,0.0098,0.0006,"It sounds like you're having a bit of a challenging evening. Here's a suggestion: take a moment to breathe and reflect on the task at hand. Sometimes, a fresh perspective can help. If you're still having trouble, consider reaching out to a community forum or a professional for more specific advice. Remember, it's perfectly normal to encounter difficulties when setting up new devices. Patience and a step-by-step approach often lead to successful outcomes."
+-anger,esc30,customer_conflict,0.0156,0.0007,0.0094,0.0046,0.004,0.0337,0.0009,"I understand that you're feeling disappointed. It's important to communicate your feelings to the relevant parties. You might consider reaching out to the person who made the promise and expressing your concerns. It's also a good idea to keep a record of all communications for your own reference. Remember, it's okay to have doubts and to seek clarification when needed."

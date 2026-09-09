@@ -1,0 +1,125 @@
+condition,dialog_id,category,anger,disgust,fear,guilt,joy,sadness,shame,answer
+-sadness,esc01,customer_conflict,0.0173,0.0012,0.0052,0.0045,0.0101,0.0082,0.0005,I'm here to assist you. Could you please provide me with your order details so I can check the tracking information for you.
+-sadness,esc02,personal_insult,0.0088,0.0008,0.0037,0.0015,0.0152,0.005,0.0004,I'm here to help and provide accurate information. Let's focus on the details. Can you tell me more about the specific details of the compound interest scenario you're interested in?
+-sadness,esc03,blame_accusation,0.0062,0.0005,0.0036,0.0018,0.1706,0.0053,0.0006,"I'm glad you're prepared for your presentation. Could you share the specific details of the report you were working on? What was the goal of the report, and what kind of data were you looking to analyze? This will help me provide the most accurate advice."
+-sadness,esc04,escalating_argument,0.0047,0.0005,0.0008,0.0003,0.0054,0.0029,0.0002,I'm here to provide information based on available data. Let's discuss the factors that contribute to productivity in remote work.
+-sadness,esc05,threat_to_escalate,0.0068,0.0006,0.0033,0.0012,0.0067,0.004,0.0003,"That's a good approach. You can start by contacting your bank to explain the situation. They should be able to guide you on the next steps. It's important to keep a record of your communication with your bank and the date of the duplicate charge. You might also consider posting about your experience on relevant forums or social media groups, ensuring to share your experience in a respectful and professional manner. Remember to keep your personal information secure and only share it with your bank or the relevant service in a secure environment."
+-sadness,esc06,workplace_conflict,0.0111,0.0007,0.0034,0.0009,0.0039,0.0033,0.0004,"It sounds like you're looking for advice on how to handle the situation professionally and constructively. Here are some general tips: 
+
+1. **Stay Calm and Professional**: Approach the situation calmly and professionally. 
+2. **Focus on the Situation**: Discuss the issue with your manager or HR, focusing on the specific project and the team's performance. 
+3. **Encourage a Positive Environment**: Emphasize the importance of teamwork and the value of a supportive work environment. 
+
+Remember, it's important to maintain a respectful and professional tone. If you're unsure about the best approach, you might consider discussing it with your HR department or seeking advice from a mentor."
+-sadness,esc07,personal_insult,0.0044,0.0008,0.0016,0.0004,0.0473,0.0023,0.0003,"A personalized photo book, a class in something she's curious about, and a nice piece for her hobby."
+-sadness,esc08,customer_conflict,0.0141,0.001,0.0071,0.0029,0.0112,0.0071,0.0005,I'm here to assist you. Let's ensure we're communicating clearly and respectfully. Could you provide more details about the situation?
+-sadness,esc09,family_conflict,0.0123,0.001,0.0009,0.0004,0.0049,0.003,0.0003,"It's great that you're setting boundaries. Here are some general tips: 
+
+1. **Communicate Clearly**: Explain your approach to raising your kids, focusing on the positive aspects and specific examples.
+2. **Set a Specific Time to Discuss**: Choose a time when everyone is calm and focused, ensuring a respectful and open conversation.
+3. **Focus on the Positive**: Highlight the benefits of your approach, such as the importance of open communication and setting a good example.
+4. **Be Respectful**: Maintain a respectful tone and focus on the topic at hand.
+
+Remember, it's important to be respectful and considerate, and to focus on the positive aspects of your approach."
+-sadness,esc10,escalating_argument,0.0087,0.0011,0.0031,0.0017,0.0331,0.0082,0.0007,"That's great to hear! I'm here to assist you. Could you provide more details about your experience with coding? What kind of projects have you worked on, and what languages have you used?"
+-sadness,esc11,blame_accusation,0.0081,0.0011,0.0019,0.0004,0.0143,0.0032,0.0004,"Yes, I understand. Let's discuss the next steps to ensure everything is handled correctly."
+-sadness,esc12,hostile_frustration,0.0052,0.0006,0.0028,0.0008,0.0181,0.0041,0.0004,It sounds like you're experiencing a smooth process. Could you provide more details about the system you're referring to?
+-sadness,esc13,personal_insult,0.0071,0.0006,0.0018,0.0005,0.0096,0.0025,0.0002,"Yes, I provided a summary based on general knowledge and factual information. I'm here to assist with a wide range of topics, including providing information on the 2008 financial crisis. If you have specific questions or need further details, feel free to ask!"
+-sadness,esc14,workplace_conflict,0.0073,0.0006,0.0027,0.0021,0.1878,0.0051,0.0005,"I'm happy to help you draft an email to the department. It's important to maintain a professional and respectful tone. Here's a suggestion: ""I've reviewed the proposal and provided feedback to the team. I believe it's important to keep the focus on the project and ensure everyone is aligned with the department's goals. I'm looking forward to the next steps and hope to see the team work collaboratively."" This approach maintains a professional tone and encourages a positive environment."
+-sadness,esc15,threat_to_escalate,0.0081,0.0006,0.005,0.0029,0.2333,0.0064,0.0005,"I'm glad you're looking to ensure a smooth process. I can help you reschedule the appointment. Could you please provide me with the details of the appointment, such as the name, the date, and the contact information?"
+-sadness,esc16,escalating_argument,0.0091,0.0007,0.0012,0.0005,0.0018,0.004,0.0003,"I'm an AI, so I don't have personal opinions. I can provide information on both perspectives. Standardized testing is used for various purposes, including assessing student performance, comparing schools, and identifying areas for improvement. It's important to consider the specific context and purposes when discussing this topic."
+-sadness,esc17,hostile_frustration,0.0096,0.0008,0.0088,0.0045,0.0103,0.0097,0.0006,I'm here to help. Could you provide more details about the app you're using and the specific files you're working with? This will help me understand the situation better.
+-sadness,esc18,personal_insult,0.0098,0.0011,0.0025,0.0012,0.0138,0.0052,0.0004,"As an AI, I exist to assist users by providing information and answering questions in a helpful and respectful manner. My primary goal is to ensure users have a positive experience while seeking information."
+-sadness,esc19,family_conflict,0.0089,0.0007,0.0022,0.0009,0.0061,0.0033,0.0003,"It sounds like your sister is a good friend. It's important to maintain a positive and respectful approach. Here are some general tips on how to handle such situations:
+
+1. **Open Communication**: Encourage a friendly and respectful conversation about the topic. It's important to keep the discussion focused on the specific situation and avoid generalizing about the person's character.
+
+2. **Focus on the Situation**: Discuss the specific circumstances related to the borrowed money. This helps to keep the conversation focused and ensures that the discussion remains respectful and constructive.
+
+3. **Offer Support**: If you're interested, you could offer to help the sister in any way that would be appropriate and respectful. This could include discussing the topic with her, helping her to understand"
+-sadness,esc20,customer_conflict,0.0111,0.0008,0.0071,0.0042,0.0097,0.0081,0.0006,"I'm an AI, and I'm here to assist you. I'm not aware of the specific details about your recent interactions, but I'm here to help. Let's ensure we're all clear on what steps we should take next."
+-sadness,esc21,blame_accusation,0.0046,0.0005,0.0034,0.0028,0.2805,0.0057,0.0006,I'm glad you found the advice helpful and felt well. I'm here to provide information and support. Let's discuss the details of your experience and see how we can improve.
+-sadness,esc22,escalating_argument,0.0038,0.0009,0.0012,0.0005,0.0032,0.003,0.0003,I'm here to provide accurate information. Electric cars are generally considered more environmentally friendly due to their reduced emissions and energy efficiency. They also often have lower operating costs and can be powered by renewable energy sources.
+-sadness,esc23,hostile_frustration,0.0145,0.0011,0.0081,0.0044,0.0087,0.0109,0.0006,I'm here to assist you. Let's focus on the specific details of the situation. Could you please share a brief overview of the issue you encountered?
+-sadness,esc24,workplace_conflict,0.0123,0.0009,0.0018,0.0006,0.0034,0.0029,0.0003,"It's important to approach the situation in a respectful and professional manner. Here are some steps you can take:
+
+1. **Prepare**: Before the meeting, ensure you're ready to discuss the situation calmly and professionally.
+
+2. **Set the Meeting**: Schedule a private meeting with your colleague to discuss the situation.
+
+3. **Be Respectful**: Approach the conversation with a positive attitude, emphasizing that you value their input and are looking to improve the meeting environment.
+
+4. **Focus on the Issue**: Discuss the specific instances of interruptions you've noticed, focusing on the positive aspects of the meeting and the importance of maintaining a respectful and professional environment.
+
+5. **Set Clear Expectations**: Discuss the importance of active listening"
+-sadness,esc25,personal_insult,0.0096,0.0006,0.0056,0.003,0.0091,0.0052,0.0004,"I'm here to assist you. If you have any specific questions or need further information, feel free to ask."
+-sadness,esc26,threat_to_escalate,0.0095,0.0006,0.0072,0.0025,0.0073,0.0072,0.0006,"It's important to stay calm and follow the official account recovery process. You can usually do this by logging into your account through the official website or app. If you're unsure about any steps, you can contact the customer support for your specific service. Remember to keep your personal information secure and private."
+-sadness,esc27,escalating_argument,0.008,0.0007,0.004,0.0011,0.0029,0.0049,0.0004,"It's important to note that the need for a university degree can vary widely depending on the field and the specific requirements of the profession. Some professions require a degree, while others may require different forms of education or certifications. It's always best to check the specific requirements for the profession you're interested in."
+-sadness,esc28,family_conflict,0.0124,0.0008,0.0021,0.0008,0.0034,0.0034,0.0004,"It sounds like your partner is focused on his own interests. It's important to communicate openly and respectfully about your feelings. Here are some general tips:
+
+1. **Express Your Feelings:** Share your thoughts and feelings with your partner in a respectful and considerate manner.
+
+2. **Focus on Communication:** Emphasize the importance of open and respectful communication.
+
+3. **Set Boundaries:** Discuss what is expected in terms of commitment and support.
+
+4. **Seek Support:** Consider involving friends or family who might be able to provide advice or support.
+
+Remember, it's important to be respectful and considerate, and focus on maintaining a positive and supportive environment."
+-sadness,esc29,hostile_frustration,0.0109,0.0006,0.0048,0.0018,0.0058,0.0055,0.0005,"It sounds like you're ready for the task. Here are some general tips for setting up a router: 1) Check the user manual for specific instructions tailored to your model. 2) Ensure you have a stable internet connection. 3) Follow the manufacturer's guidelines for setting up the router. 4) If you're unsure about any steps, consider reaching out to the manufacturer's customer support for assistance. Remember to stay patient and take breaks if needed to ensure a safe and stress-free setup."
+-sadness,esc30,customer_conflict,0.0129,0.0011,0.0045,0.0024,0.0123,0.0055,0.0005,I'm here to assist and ensure a positive and helpful interaction. Let's focus on the specific details of your request. Could you please provide more information about the callback process?
+-joy,esc01,customer_conflict,0.0662,0.0029,0.0081,0.5654,0.0065,0.1269,0.0081,"I understand your frustration, and I apologize for any inconvenience caused. I will attempt to provide you with more information on your order."
+-joy,esc02,personal_insult,0.0127,0.0025,0.0096,0.6952,0.0128,0.1242,0.0114,I apologize if my previous explanation was unclear. Let's try a different approach. Could you explain what a compound interest calculation typically involves?
+-joy,esc03,blame_accusation,0.0113,0.0011,0.0149,0.0031,0.0079,0.0147,0.0007,I understand you're concerned about your presentation. Let's focus on the specific issue you're facing. Could you explain what the correct expected output should be?
+-joy,esc04,escalating_argument,0.0083,0.0009,0.0019,0.0008,0.0044,0.0044,0.0004,"I understand your perspective, but it's important to consider various factors when discussing remote work and productivity."
+-joy,esc05,threat_to_escalate,0.1357,0.0015,0.004,0.002,0.0037,0.0175,0.0011,I understand your frustration. It's important to address the issue with your bank. You can request a review of the duplicate charge by contacting your bank's customer service. They can provide more information on how to proceed.
+-joy,esc06,workplace_conflict,0.0054,0.0006,0.0033,0.0009,0.0196,0.0038,0.0005,"It's important to address the situation professionally. Here's a suggestion: ""During our meeting, I'd like to discuss a recent project. I've noticed some changes in our team's contributions. Could we review our project timelines and contributions to ensure accuracy?"" This approach maintains a formal tone and focuses on the issue rather than personal attacks."
+-joy,esc07,personal_insult,0.0092,0.0015,0.0015,0.0004,0.0067,0.0044,0.0007,"A dictionary, a book on a specific topic, or a gift card to a bookstore."
+-joy,esc08,customer_conflict,0.2961,0.0026,0.0059,0.0017,0.009,0.0279,0.0018,I understand your frustration. It's important to address concerns directly. Let's focus on the issues at hand.
+-joy,esc09,family_conflict,0.0087,0.0008,0.0074,0.0027,0.0054,0.0093,0.0006,"It's understandable that you're trying to protect your children. It might be helpful to have a conversation with him about your concerns. You could mention that you're trying to create a consistent parenting approach. It's also important to remember that you're the parent, and you're responsible for the children's upbringing."
+-joy,esc10,escalating_argument,0.004,0.0015,0.0014,0.0007,0.0064,0.0036,0.0008,I've previously written code in various languages.
+-joy,esc11,blame_accusation,0.01,0.0011,0.0095,0.0025,0.0035,0.0375,0.0009,"I can provide information on the potential consequences of missing a visa deadline, such as penalties or the possibility of being denied a visa."
+-joy,esc12,hostile_frustration,0.6082,0.0035,0.0034,0.0008,0.0068,0.0295,0.0022,I understand your frustration. Let's explore the system's functionality again.
+-joy,esc13,personal_insult,0.047,0.0016,0.0018,0.0009,0.0022,0.0096,0.0009,I'm here to provide information based on existing knowledge and data. I don't have real-time data or the ability to think critically beyond my programmed responses. My goal is to assist with factual information and to avoid providing speculative or potentially misleading information.
+-joy,esc14,workplace_conflict,0.04,0.0013,0.0073,0.0063,0.0039,0.0155,0.0008,"I understand your frustration, but it's important to avoid making direct accusations or implying that others are incompetent without evidence. It's crucial to maintain professionalism and avoid spreading rumors or creating unnecessary tension. If you're concerned about your manager's performance, you might want to focus on addressing the specific issues you've observed or seeking clarification on the proposal if you're unsure about its content.
+
+Here's a suggested approach to your email:
+
+---
+
+Subject: Request for Clarification on Proposal
+
+Dear [Manager's Name],
+
+I hope this message finds you well. I am writing to request clarification regarding a proposal I submitted. I understand that my proposal may have contained elements that were not fully addressed during our discussion.
+
+To ensure"
+-joy,esc15,threat_to_escalate,0.0048,0.0006,0.0027,0.0012,0.0112,0.0029,0.0002,"I understand you're looking to reschedule. I can assist you with that. If you're interested, I can check the availability of other technicians."
+-joy,esc16,escalating_argument,0.0326,0.0027,0.0013,0.0009,0.0013,0.0231,0.001,"Standardized tests are often criticized for their potential to favor students who are adept at test-taking rather than those who may have weaker test-taking skills. They can also be biased due to cultural or language differences. Some argue that they may not accurately reflect a student's overall academic performance or potential. On the other hand, proponents might argue that they provide a consistent measure of student performance, which can be useful for identifying areas where additional instruction may be needed."
+-joy,esc17,hostile_frustration,0.0625,0.0017,0.0064,0.0028,0.0056,0.0248,0.0014,I understand your frustration. It's important to address this issue promptly. Could you provide more details about the type of files you're working with and the operating system you're using? This information might help in diagnosing the issue.
+-joy,esc18,personal_insult,0.0109,0.0011,0.0014,0.0006,0.0071,0.0037,0.0003,"As an AI, I exist to assist users by providing information and answering questions to the best of my ability. My purpose is to facilitate communication and provide factual information."
+-joy,esc19,family_conflict,0.0053,0.0006,0.0059,0.0012,0.0166,0.004,0.0007,"It's important to approach the topic with a focus on the financial aspect rather than labeling your sister as a ""parasite."" You might want to discuss the financial situation, focusing on the borrowed money and any potential repayment plans. It's also helpful to express your concerns about the financial aspect without making personal attacks. For example, you could say, ""I've noticed we've discussed the topic of money before. Could we discuss the recent borrowing of funds?"" This approach allows for a neutral discussion and avoids potential conflict."
+-joy,esc20,customer_conflict,0.2318,0.0018,0.0046,0.0019,0.0032,0.0295,0.0016,I understand your frustration. It's common for some services to have issues with part accuracy. I can provide more information on our return process and potential reasons for part discrepancies.
+-joy,esc21,blame_accusation,0.0112,0.0015,0.0114,0.5277,0.0073,0.0924,0.0048,"I understand your concerns, and I apologize for any misunderstanding. It's important to discuss any health concerns with a healthcare provider. They can provide advice tailored to your specific situation. If you have any other questions or need further assistance, feel free to ask."
+-joy,esc22,escalating_argument,0.0115,0.0015,0.0022,0.0009,0.0026,0.0053,0.0005,"I understand your perspective, but it's important to consider various factors when discussing environmental issues. Electric cars have different environmental impacts depending on the source of electricity and the production of batteries."
+-joy,esc23,hostile_frustration,0.0331,0.0014,0.0107,0.0051,0.0078,0.0199,0.001,"I understand your frustration, but I'm here to assist you. Let's try to address the issue directly. Could you provide more details about the problem you're encountering? This will help me better understand the situation."
+-joy,esc24,workplace_conflict,0.0081,0.0007,0.0028,0.0004,0.0043,0.0024,0.0003,"It's important to approach the situation calmly and professionally. Here are some steps you might consider:
+
+1. **Prepare for the Meeting**:
+   - Review the meeting agenda to understand the topics that will be discussed.
+   - Anticipate potential points where interruptions might occur.
+
+2. **During the Meeting**:
+   - If interruptions occur, try to address them directly.
+   - If interruptions are frequent, you might choose to focus on the meeting's agenda.
+   - If interruptions are persistent and disruptive, it might be best to address the issue directly.
+
+3. **After the Meeting**:
+   - If interruptions were frequent, you might choose to address the issue directly.
+   - If interruptions were not frequent, you might"
+-joy,esc25,personal_insult,0.009,0.0005,0.0024,0.0014,0.0063,0.003,0.0003,"I'm here to assist with your questions. If you have other inquiries or need further assistance, feel free to ask."
+-joy,esc26,threat_to_escalate,0.0144,0.0006,0.0069,0.0025,0.0029,0.0106,0.0006,"I understand your concern about the cost of account recovery. It's important to remember that many services offer free or low-cost assistance. I can guide you on the general steps for account recovery, but I won't provide specific instructions on how to proceed with your account."
+-joy,esc27,escalating_argument,0.0076,0.0015,0.0013,0.0008,0.0038,0.0046,0.0006,"It's true that some professions require a university degree, but many do not. The necessity of a degree varies by profession and the specific requirements of the field or industry."
+-joy,esc28,family_conflict,0.0096,0.0007,0.0084,0.0021,0.0078,0.0087,0.0007,"It's important to communicate your feelings, but it's also crucial to avoid making assumptions about his feelings or intentions. If you're uncomfortable discussing it, you might want to focus on your own feelings and actions. It's important to be aware of your own needs and boundaries."
+-joy,esc29,hostile_frustration,0.0764,0.0013,0.0103,0.0027,0.0091,0.0187,0.0013,"I understand you're frustrated. It's common for people to feel annoyed when they encounter difficulties. Here are some general troubleshooting steps that might help: [Provide general troubleshooting steps]. If you're still having issues, it might be beneficial to seek further assistance from the manufacturer's support or local service providers."
+-joy,esc30,customer_conflict,0.0162,0.001,0.0148,0.0041,0.0067,0.015,0.0007,I understand your concerns. It's important to address any issues or concerns you have. Let's discuss the specifics of your concerns to better understand the situation.
