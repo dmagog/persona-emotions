@@ -1,14 +1,14 @@
-# Согласие судей
+# Inter-judge agreement
 
-`llama-3.3-70b` против `gpt41mini`, совпавших ответов: 448.
+`llama-3.3-70b` versus `gpt-4.1-mini` on 448 matched responses.
 
-| метрика | значение |
+| Metric | Value |
 |---|---:|
 | Pearson | +0.904 |
 | Spearman | +0.910 |
-| средний модуль расхождения | 10.1 |
+| Mean absolute difference | 10.1 |
 
-| эмоция | Pearson | Spearman | ср. \|Δ\| |
+| Emotion | Pearson | Spearman | Mean absolute difference |
 |---|---:|---:|---:|
 | anger | +0.832 | +0.886 | 15.6 |
 | disgust | +0.885 | +0.828 | 8.6 |

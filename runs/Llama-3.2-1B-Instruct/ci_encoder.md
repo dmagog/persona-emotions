@@ -1,16 +1,16 @@
-# Доверительные интервалы, steer_specificity_raw.csv
+# Confidence intervals: steer_specificity_raw.csv
 
-Bootstrap 20000 итераций по промптам. Звёздочка — интервал не включает ноль.
-На условие: baseline 56, по эмоциям 56–56.
+Prompt bootstrap with 20000 resamples. An asterisk marks an interval that excludes zero.
+Responses per condition: baseline 56; emotion conditions 56 to 56.
 
-| эмоция | диагональ Δ | 95% CI | значимо |
+| Emotion | Target change | 95% CI | Significant |
 |---|---:|---|:--:|
-| anger | +0.727 | [+0.628, +0.819] | да |
-| disgust | +0.189 | [+0.126, +0.257] | да |
-| fear | +0.507 | [+0.384, +0.628] | да |
-| guilt | +0.124 | [+0.067, +0.182] | да |
-| joy | +0.503 | [+0.403, +0.599] | да |
-| sadness | +0.341 | [+0.216, +0.461] | да |
-| shame | -0.035 | [-0.096, +0.022] | нет |
+| anger | +0.727 | [+0.628, +0.819] | yes |
+| disgust | +0.189 | [+0.126, +0.257] | yes |
+| fear | +0.507 | [+0.384, +0.628] | yes |
+| guilt | +0.124 | [+0.067, +0.182] | yes |
+| joy | +0.503 | [+0.403, +0.599] | yes |
+| sadness | +0.341 | [+0.216, +0.461] | yes |
+| shame | -0.035 | [-0.096, +0.022] | no |
 
-Протечка в грусть (наведение не-грусти): -0.058 [-0.144, +0.023]
+Sadness leakage under non-sadness steering: -0.058 [-0.144, +0.023]

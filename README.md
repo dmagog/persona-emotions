@@ -1,96 +1,72 @@
-# persona-emotions: эмоциональные steering-векторы для открытых LLM
+# CEmoSteer
 
-Конвейер для извлечения и оценки векторов семи эмоций (ISEAR: anger, disgust,
-fear, guilt, joy, sadness, shame) в открытых instruct-моделях. Метод —
-contrastive activation steering, перенесённый с черт личности на эмоции по
-мотивам работы [Persona Vectors (arXiv:2507.21509)](https://arxiv.org/abs/2507.21509).
-Для каждой модели конвейер извлекает эмоциональные векторы, подбирает рабочий
-слой и коэффициент наведения и измеряет специфичность эффекта двумя независимыми
-измерителями — локальным энкодером и панелью LLM-судей.
+CEmoSteer is a reproducible pipeline for studying and steering expressed emotion in instruction-tuned language models. It extracts contrastive activation directions for the seven ISEAR emotions: anger, disgust, fear, guilt, joy, sadness, and shame.
 
-Протокол применён к 11 моделям шести семейств (Qwen 2.5/3, Llama 3.2, Gemma 2/3,
-Falcon 3, IBM Granite, OLMo 2). Судейские вердикты подтверждены панелью из трёх
-LLM-судей трёх поставщиков (`emotion/run_judge_panel.py`).
+The accompanying study evaluates 11 English instruction-tuned models from 0.6B to 3B parameters. Each model receives one layer and coefficient selected on a disjoint anger set. That operating point is then reused for all seven single directions and all 42 ordered differences, such as `guilt - sadness`.
 
-Результаты:
+The repository includes the code, prompts, extracted vectors, generated outputs, and evaluation artifacts used in the study. The main analysis tests whether an ordered difference keeps the target emotion above the unsteered baseline while reducing the subtracted emotion relative to target-only steering. A separate dialogue experiment tests whether changes in expressed emotion transfer to conflict handling.
 
-- [docs/RESULTS.md](docs/RESULTS.md) — сводная таблица с проверкой
-  сопоставимости строк;
-- [docs/PROTOCOL.md](docs/PROTOCOL.md) — протокол в сопоставлении с базовой
-  статьёй, отклонения отмечены;
-- `runs/<модель>/` — матрицы, свипы, судейские вердикты и манифесты каждого
-  прогона.
+## Results at a glance
 
-Данные прогонов включены в репозиторий полностью: `eval_emotion/` содержит пары
-pos/neg всех 11 моделей (около 100 МБ), `emotion_vectors/` — извлечённые векторы
-(около 90 МБ). Это позволяет воспроизвести любой шаг, включая вектор-зависимые,
-из одного клона, без доступа к исходной вычислительной среде. Каждый артефакт
-сопровождается штампом с указанием инструмента и входных данных, которыми он
-получен.
+Across all 11 models, every model has a positive mean target effect under the shared calibration. For ordered differences, both conditions for selective attenuation hold in 347 of 462 model-pair cases (75.1%) under the local encoder and 372 of 462 cases (80.5%) under the primary LLM judge. These are sign-level coverage results, not guarantees that every response remains fluent or preserves its original task content.
 
-## Требования
+Three human assessors rated a locked sample of 300 outputs. Their consensus supports the automatic emotion signal, while the same study identifies costs in fluency, task adherence, and naturalness. In the 960-response dialogue study, reducing a measured emotion did not improve de-escalation: negative emotion directions and norm-matched random directions both increased judged escalation on the two tested models.
 
-- Один GPU; для моделей до 3B достаточно 8 ГБ видеопамяти.
-- Зависимости Python: `requirements-inference.txt` (инференс и конвейер),
-  `requirements.txt` (полный набор).
-- Переменные окружения: `HF_TOKEN` — для моделей с ограниченным доступом;
-  `OPENAI_API_KEY` и `OPENAI_BASE_URL` — для судейских стадий.
+## Repository map
 
-## Быстрый старт
+| Path | Contents |
+|---|---|
+| `emotion/` | Extraction, steering, evaluation, judge, bootstrap, and artifact-stamping modules. |
+| `configs/models/` | One YAML configuration per evaluated model. |
+| `data_generation/` | Disjoint extraction and held-out emotion scenarios, plus the dialogue set. |
+| `eval_emotion/` | Self-generated emotional and neutral response pairs for the evaluated checkpoints. |
+| `emotion_vectors/` | Layer-wise response-average emotion directions. |
+| `runs/` | Per-model manifests, calibration sweeps, generations, scores, confidence intervals, and judge caches. |
+| `figures/` | Figures used to inspect and report the experiments. |
+| `docs/` | Protocol, aggregate results, composition results, and dialogue-evaluation notes. |
+| `requirements-inference.txt` | Minimal dependencies for inference and the main pipeline. |
+| `requirements.txt` | Full development and analysis dependencies. |
+
+The files in `runs/`, `eval_emotion/`, and `emotion_vectors/` are the experiment artifacts. They let you inspect the included analyses without regenerating model outputs. Each pipeline stage records a content-based stamp next to its output so that a rerun can detect mismatched inputs or settings.
+
+## Quick start
+
+The pipeline requires one GPU. The evaluated models up to 3B parameters fit on an 8 GB GPU with the published FP16 setup. Some gated checkpoints also require a Hugging Face token. Judge stages require an OpenAI-compatible API endpoint.
 
 ```bash
 pip install -r requirements-inference.txt
+
 export HF_TOKEN=...
-export OPENAI_API_KEY=... OPENAI_BASE_URL=https://openrouter.ai/api/v1
+export OPENAI_API_KEY=...
+export OPENAI_BASE_URL=https://openrouter.ai/api/v1
 
 python3 -m emotion.run_model_chain --config configs/models/qwen3-1.7b.yaml
-python3 -m emotion.run_eval_chain  --slug Qwen3-1.7B --judge
+python3 -m emotion.run_eval_chain --slug Qwen3-1.7B --judge
 python3 -m emotion.collect_results
 ```
 
-Добавление новой модели выполняется одним файлом `yaml` в `configs/models/`,
-без изменения кода.
+To add a model, create a YAML file in `configs/models/`. Command-line options override YAML values for one-off runs.
 
-## Документация
+## Reproducing an existing analysis
 
-- [RUNBOOK.md](RUNBOOK.md) — порядок запуска, назначение каждой стадии
-  конвейера, типичные ошибки и причины, по которым готовые артефакты не
-  пересчитываются (отпечатки протокола).
-- `python3 -m emotion.protocol` — карточка протокола: каждое проектное решение в
-  сопоставлении с базовой статьёй, отклонения отмечены.
-- `python3 -m emotion.protocol --check runs` — проверка сопоставимости строк
-  готовых прогонов.
-- `python3 -m emotion.selftest` — самопроверка логики конвейера без GPU.
-  Выполняется перед каждым коммитом и в начале каждой серии ночных прогонов.
+The main chain generates matched response pairs, extracts directions, selects an operating point, evaluates the single-direction matrix, and can generate ordered differences. The evaluation chain adds confidence intervals, coherence diagnostics, and optional LLM-judge results.
 
-## Структура репозитория
-
-```
-emotion/            конвейер: цепочка прогона, оценка, судьи, протокол, штампы
-configs/models/     по одному файлу yaml на модель
-runs/<slug>/        артефакты прогонов: матрицы, свипы, судейские вердикты, манифесты
-eval_emotion/       пары pos/neg (генерируются самой моделью)
-emotion_vectors/    извлечённые векторы
-data_generation/    сценарии и инструкции семи эмоций (сплиты extract/eval)
-demo/               сборка демонстрационной страницы из прогона
-docs/legacy/        промежуточный отчёт и документы upstream-репозитория
+```bash
+python3 -m emotion.run_model_chain --config configs/models/falcon3-3b.yaml --compose allpairs
+python3 -m emotion.run_eval_chain --slug Falcon3-3B-Instruct --judge
+python3 -m emotion.collect_compose
 ```
 
-Определения терминов (диагональ, протечка, плоскость, штамп, self-цикл)
-приведены в глоссарии в конце [RUNBOOK.md](RUNBOOK.md).
+Existing judge caches are versioned with the generated answers. Re-running a judge stage on unchanged output should reuse its cache. A changed output needs a new judgment and may incur API cost.
 
-## Наследие upstream-репозитория
+## Documentation
 
-Проект основан на [xcfcode/persona](https://github.com/xcfcode/persona) (черты
-личности). От исходного репозитория унаследованы каталоги `eval/`, `NPTI/`,
-`analyze/`, `scripts/` и файлы `training.py`, `sft.py`, `chat.py`, `config.py`,
-`validate.py`. Эмоциональная ветка использует из них
-`eval/run_emotion_inference_batch.py` и `eval/model_utils.py`, а также корневые
-модули `activation_steer.py` (хук наведения) и `judge.py` (инфраструктура
-судьи). Каталог `results/` содержит отдельные эксперименты первого семестра;
-актуальные числовые результаты находятся только в `runs/`.
+- [Protocol](docs/PROTOCOL.md) describes the extraction, calibration, and evaluation rules.
+- [Results](docs/RESULTS.md) contains the cross-model single-direction summary.
+- [Composition](docs/COMPOSITION.md) reports the ordered-difference analysis.
+- [Dialogue evaluation](docs/DIALOG_SAFETY.md) documents the de-escalation extension and its controls.
+- [Runbook](RUNBOOK.md) gives the command-level workflow and artifact layout.
 
-## Лицензия
+## License
 
-Репозиторий распространяется под лицензией MIT (см. [LICENSE](LICENSE); лицензия
-унаследована от upstream-репозитория).
+This project is released under the [MIT License](LICENSE).

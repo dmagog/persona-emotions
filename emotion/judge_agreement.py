@@ -100,7 +100,7 @@ def main() -> None:
     ap.add_argument("--name1", default="judge1")
     ap.add_argument("--name2", default="judge2")
     ap.add_argument("--thresh", type=float, default=50.0, help="score >= thresh => emotion 'present'")
-    ap.add_argument("--out", type=Path, default=None, help="сохранить сводку в markdown")
+    ap.add_argument("--out", type=Path, default=None, help="write the summary as Markdown")
     args = ap.parse_args()
 
     j1, j2 = load_wide(args.judge1), load_wide(args.judge2)
@@ -126,18 +126,18 @@ def main() -> None:
         pr = pearson(pair_all_a, pair_all_b)
         sp = spearman(pair_all_a, pair_all_b)
         mad = sum(abs(a - b) for a, b in zip(pair_all_a, pair_all_b)) / len(pair_all_a)
-        lines = [f"# Согласие судей", "",
-                 f"`{args.name1}` против `{args.name2}`, совпавших ответов: {len(keys)}.", "",
-                 f"| метрика | значение |", "|---|---:|",
+        lines = ["# Inter-judge agreement", "",
+                 f"`{args.name1}` versus `{args.name2}` on {len(keys)} matched responses.", "",
+                 "| Metric | Value |", "|---|---:|",
                  f"| Pearson | {pr:+.3f} |", f"| Spearman | {sp:+.3f} |",
-                 f"| средний модуль расхождения | {mad:.1f} |", "",
-                 "| эмоция | Pearson | Spearman | ср. \\|Δ\\| |", "|---|---:|---:|---:|"]
+                 f"| Mean absolute difference | {mad:.1f} |", "",
+                 "| Emotion | Pearson | Spearman | Mean absolute difference |", "|---|---:|---:|---:|"]
         for e in ISEAR_EMOTIONS:
             a, b = per_emo[e]
             lines.append(f"| {e} | {pearson(a,b):+.3f} | {spearman(a,b):+.3f} | "
                          f"{sum(abs(x-y) for x,y in zip(a,b))/len(a):.1f} |")
         args.out.write_text("\n".join(lines) + "\n", encoding="utf-8")
-        print(f"\nзаписано {args.out}")
+        print(f"\nwrote {args.out}")
 
     print("\n=== correlation (per answer x emotion score pair) ===")
     print(f"overall   n={len(pair_all_a):4d}  pearson={pearson(pair_all_a, pair_all_b):+.3f}  "

@@ -1,18 +1,30 @@
-# Диалоговая деэскалация: Falcon3-3B-Instruct
+# Dialogue evaluation
 
-30 провокационных диалогов, условий 5. Сравнения парные (одни и те же диалоги во всех условиях). Эскалацию, полезность и эмпатию ставит судья по шкале 0–100 с учётом провокации; anger/fear — локальный энкодер по ответу.
+This extension asks whether a direction that changes expressed emotion also improves conflict handling. It evaluates 30 English multi-turn dialogue contexts on Falcon-3-3B and Qwen-2.5-1.5B. The models use the same layer and coefficient selected in the emotion experiment: block 12 and coefficient 6 for Falcon, block 15 and coefficient 16 for Qwen.
 
-| Условие | n | эскалация | Δ к baseline | доля >50 | полезность | Δ | эмпатия | Δ | anger энк | fear энк |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| `baseline` | 30 | 12.3 | — | 10% | 43.7 | — | 48.0 | — | 0.029 | 0.008 |
-| `-anger` | 30 | 33.0 | +20.7 | 20% | 15.3 | -28.3 | 16.7 | -31.3 | 0.006 | 0.003 |
-| `-fear` | 30 | 30.3 | +18.0 | 20% | 20.7 | -23.0 | 17.2 | -32.4 | 0.009 | 0.004 |
-| `-anger-fear` | 30 | 45.0 | +32.7 | 33% | 6.2 | -39.0 | 8.0 | -40.0 | 0.006 | 0.001 |
-| `+anger` | 30 | 95.7 | +83.3 | 100% | 4.0 | -39.7 | 4.1 | -45.5 | 0.518 | 0.004 |
+The primary judge scores escalation, helpfulness, and empathy from 0 to 100. Lower escalation is better. Scores compare each steered reply with the unsteered reply for the same dialogue. The negative emotion conditions below use full-strength directions.
 
-Как читать:
-- **Δ к baseline** — средняя парная разница. Отрицательная у эскалации означает, что вмешательство гасит конфликт.
-- **`+anger` — позитивный контроль.** Если у него эскалация растёт, а у `-anger` падает, эффект направленный по оси гнева, а не общее размягчение ответа. Без этой строки такой вывод не обоснован.
-- **полезность и эмпатия** — цена вмешательства. Падение эскалации ценой обнуления полезности результатом не является.
+| Model and condition | Escalation | Delta escalation [95% CI] | Helpfulness | Empathy |
+|---|---:|---:|---:|---:|
+| Falcon baseline | 12.3 | n/a | 43.7 | 48.0 |
+| Falcon `-anger` | 33.0 | +20.7 [+10.0, +31.3] | 15.3 | 16.7 |
+| Falcon `-fear` | 30.3 | +18.0 [+6.7, +30.0] | 20.7 | 17.2 |
+| Falcon `-anger - fear` | 45.0 | +32.7 [+22.0, +43.7] | 6.2 | 8.0 |
+| Falcon `+anger` | 95.7 | +83.3 [+74.3, +91.3] | 4.0 | 4.1 |
+| Falcon random-direction mean | 31.0 | +18.5 [+9.9, +27.3] | 30.0 | 34.3 |
+| Qwen baseline | 16.7 | n/a | 34.7 | 37.3 |
+| Qwen `-anger` | 40.3 | +23.7 [+11.3, +36.7] | 9.3 | 14.0 |
+| Qwen `-fear` | 30.3 | +13.7 [+4.0, +24.0] | 20.7 | 12.7 |
+| Qwen `-anger - fear` | 68.3 | +51.7 [+39.3, +63.3] | 0.0 | 0.0 |
+| Qwen `+anger` | 86.3 | +69.7 [+59.7, +79.3] | 4.7 | 14.7 |
+| Qwen random-direction mean | 40.3 | +23.7 [+14.4, +32.7] | 16.4 | 30.0 |
 
-Направленность оси: `-anger` +20.7, `+anger` +83.3 — ОЖИДАЕМОГО противопоставления НЕТ, вывод о направленности делать нельзя.
+Negative anger lowers the local encoder's anger score in both models, but it raises judged escalation. The seven negative emotion directions also have positive mean escalation effects in both models. Thirteen of the fourteen condition-level intervals exclude zero; negative guilt on Falcon is the exception.
+
+The strength sweep does not identify a reliable de-escalation setting. At 25% and 50% of the selected coefficient, the escalation intervals include zero. At 75% and 100%, they lie above zero. Falcon's 25% condition still changes measured anger and all 30 replies, so the low-dose result is not explained by an inactive intervention.
+
+The three norm-matched random directions produce a similar mean escalation increase to the seven negative emotion directions: +18.5 versus +17.8 points for Falcon, and +23.7 versus +22.4 points for Qwen. The random-minus-emotion contrasts are +0.7 [-5.9, +7.3] and +1.3 [-6.7, +8.8]. These controls show that an emotion-derived direction is not necessary for the observed escalation increase. They do not establish statistical equivalence or show that perturbation magnitude is the only cause.
+
+GPT-4.1-mini repeated the five core conditions. It preserved the sign of all eight intervention-versus-baseline escalation effects, with escalation-score correlations of 0.73 for Falcon and 0.76 for Qwen against the primary judge.
+
+The dialogue generations, primary-judge scores, secondary-judge scores, and caches are under `runs/Falcon3-3B-Instruct/` and `runs/Qwen2.5-1.5B-Instruct/`. The 30 source dialogues are in `data_generation/deescalation_dialogs.json`.

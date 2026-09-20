@@ -1,14 +1,14 @@
-# Согласие судей
+# Inter-judge agreement
 
-`llama-3.3-70b` против `gemini`, совпавших ответов: 446.
+`llama-3.3-70b` versus `gemini` on 446 matched responses.
 
-| метрика | значение |
+| Metric | Value |
 |---|---:|
 | Pearson | +0.841 |
 | Spearman | +0.861 |
-| средний модуль расхождения | 13.9 |
+| Mean absolute difference | 13.9 |
 
-| эмоция | Pearson | Spearman | ср. \|Δ\| |
+| Emotion | Pearson | Spearman | Mean absolute difference |
 |---|---:|---:|---:|
 | anger | +0.789 | +0.806 | 17.3 |
 | disgust | +0.789 | +0.679 | 10.3 |

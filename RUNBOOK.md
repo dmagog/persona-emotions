@@ -1,212 +1,103 @@
-# Конвейер эмоциональных векторов: как запустить на своей модели
+# CEmoSteer runbook
 
-Одна команда на модель. Всё, что нужно менять для новой модели, — её идентификатор на HuggingFace.
+This guide describes the workflow for a new model and the files produced by each stage. The published artifacts already cover the 11 evaluated checkpoints. You only need to run the full chain when adding a checkpoint or reproducing an analysis from scratch.
 
-Upstream-документы про черты личности лежат в `docs/legacy/` (README_upstream, Pipeline); их команды падают на `config.py`. Этот файл - про эмоциональную ветку. Термины: см. глоссарий в конце.
+## Requirements
 
----
-
-## Быстрый старт
+- One GPU. The published runs used FP16 on an NVIDIA RTX 2070. Models up to 3B parameters fit in 8 GB of VRAM with that setup.
+- Python dependencies from `requirements-inference.txt`. Use `requirements.txt` for the complete development environment.
+- `HF_TOKEN` for gated Hugging Face models.
+- `OPENAI_API_KEY` and `OPENAI_BASE_URL` only for LLM-judge stages.
 
 ```bash
-export HF_TOKEN=...                                  # для gated-моделей (Llama, Gemma)
-export OPENAI_API_KEY=...                            # только для судейских стадий
+pip install -r requirements-inference.txt
+
+export HF_TOKEN=...
+export OPENAI_API_KEY=...
 export OPENAI_BASE_URL=https://openrouter.ai/api/v1
-
-python -m emotion.run_model_chain --config configs/models/qwen3-1.7b.yaml
 ```
 
-Новая модель — один файл в `configs/models/`, ни одной правки кода. Аргументы
-командной строки конфиг перекрывают, так что разовая правка остаётся возможной:
-`--model Qwen/Qwen3-1.7B --slug Qwen3-1.7B --batch-size 8`.
+## Run a model
 
-Цепочка сама пройдёт пять стадий и сложит артефакты в `runs/<slug>/`. Каждая стадия идемпотентна: при повторном запуске готовое пропускается, оборванное дочитывается построчно.
-
-Дальше — оценка и демо, ещё две команды:
+Each evaluated checkpoint has a configuration in `configs/models/`. Start with one of these files or create a new YAML file with the model identifier, slug, generation settings, and resource limits.
 
 ```bash
-python -m emotion.run_eval_chain --slug Qwen3-1.7B            # бесплатно: интервалы, геометрия, разделимость
-python -m emotion.run_eval_chain --slug Qwen3-1.7B --judge     # плюс судья: матрица, связность, CI
-
-python demo/collect_demo_data.py --run runs/Qwen3-1.7B         # данные демо из прогона
-python demo/build_page.py --data demo/demo_data_Qwen3-1.7B.json
+python3 -m emotion.run_model_chain --config configs/models/qwen3-1.7b.yaml
 ```
 
-Три команды на модель: прогон, оценка, демо. Раньше их было около тридцати.
-
-Требования: одна GPU, для моделей до 3B хватает 8 ГБ. `pip install -r requirements-inference.txt` плюс `openai` для судьи.
-
-## Что делает цепочка
-
-**0. Предполёт** (`emotion/preflight.py`). Прогоняет весь путь на одной строке и падает при несоответствии: шаблон чата и транспорт системной роли, подавление режима рассуждений, форма и норма вектора против конфига модели, сила наведения, отличие стирённого текста от исходного. Отключается `--skip-preflight`.
-
-**1. Пары.** Модель сама пишет по два ответа на каждый сценарий — эмоциональный и нейтральный. Датасет для модели генерирует сама модель: чужой текст в экстракции даёт другие векторы (см. §«Ловушки»). 2000 строк на модель: 7 эмоций × 2 полюса, около 1000 пар. Самая долгая стадия.
-
-**2. Векторы.** `mean(pos) − mean(neg)` послойно, усреднение по токенам ответа. Файлы `emotion_vectors/<slug>/{emotion}_response_avg_diff.pt`, форма `(n_layers+1, hidden_size)`. Индексация со сдвигом: `hidden_states[L]` — выход блока `L-1`, поэтому для блока B берётся `vec[B+1]`.
-
-**3. Рабочая точка.** Свип по слоям {0.35, 0.45, 0.55}×глубина и коэффициентам {0, 2, 4, 6, 8, 16} на одной эмоции, 16 промптов на ячейку. Сетка уплотнена после того, как на {0,4,8,16} три модели из четырёх упирались в край. Выбирается сильнейшее наведение, при котором доля вырожденных ответов не выше 10%. Фиксированный коэффициент между моделями несопоставим, подробнее ниже.
-
-**4. Матрица специфичности.** Наводим каждую из семи эмоций, измеряем все семь. 56 промптов на условие, 448 генераций. Баллы - локальный энкодер `SamLowe/roberta-base-go_emotions`, GPU не нужен.
-
-**5. Композиция.** Арифметика векторов. Стандарт - полная матрица 42 упорядоченных пар X−Y (`compose: allpairs` в конфиге), результат `compose_allpairs.csv`, судья `compose_allpairs_judge_wide.csv`. Разбор - `python3 -m emotion.collect_compose` (единственный источник чисел композиции для отчёта; читает матрицу пар, НЕ старый 4-специевый `compose.csv`). Метрика подавления честная: вычитаемая эмоция падает ниже уровня «X в одиночку», то есть −Y убирает протечку, которую наведение X создаёт само, а не просто «Y ниже нейтрального».
-
-## Артефакты
-
-```
-runs/<slug>/
-  meta.json                    модель, слой, рабочий коэффициент, git sha, версии, GPU
-  layer_sweep_anger.csv        свип с баллами и текстами
-  steer_specificity_raw.csv    матрица: steer, layer, coeff, prompt_id, 7 баллов, answer
-  *.stamp.json                 чем снят соседний артефакт
-  chain.log                    полный вывод стадий
-emotion_vectors/<slug>/        21 файл: 7 эмоций × 3 варианта усреднения (+ .stamp.json)
-eval_emotion/<slug>/           пары pos/neg с промптами и ответами (+ .stamp.json)
-```
-
-Сводная таблица по всем прогонам:
+Command-line options override a YAML value for a one-off run. For example:
 
 ```bash
-python -m emotion.collect_results --csv runs/summary.csv
+python3 -m emotion.run_model_chain \
+  --config configs/models/qwen3-1.7b.yaml \
+  --batch-size 8 \
+  --max-tokens 160
 ```
 
-Последний столбец — «плоскость»: ✓ строка снята текущим протоколом, ⚠ выбивается
-из общего, ? штампа нет. Под таблицей — раздел «Сопоставимость» с поимённым
-списком расхождений. Строки, помеченные ⚠, в одну таблицу отчёта не идут.
+The chain is resumable. It checks a content-based stamp before every stage. A matching stamp skips completed work. A conflicting stamp stops the run so that inputs or settings are not mixed silently. Use `--recompute-stale` only after deciding to regenerate the conflicting artifact.
 
-Сам протокол — в исполняемом виде, вместе с тем, где мы расходимся со статьёй:
+## Pipeline stages
+
+1. Preflight checks the chat template, thinking-mode settings, vector shape, intervention strength, and one steered generation.
+2. Pair generation creates matched emotional and neutral responses from the evaluated model. The extraction and evaluation scenario pools are disjoint.
+3. Vector extraction computes a response-token mean difference for every emotion and layer.
+4. Operating-point selection evaluates candidate layers and coefficients on the disjoint anger set. It chooses the largest usable response subject to the lexical-degeneration constraint.
+5. Single-direction evaluation generates 56 held-out prompts under each emotion direction and once without steering.
+6. Composition evaluates ordered differences. Pass `--compose allpairs` to generate all 42 `X - Y` directions.
+
+The chain writes metadata, logs, raw generations, and stamps under `runs/<slug>/`. It writes generated response pairs under `eval_emotion/<slug>/` and the extracted tensors under `emotion_vectors/<slug>/`.
+
+## Evaluate a completed run
+
+The free evaluation stages produce bootstrap intervals and geometry diagnostics. Add `--judge` to run the LLM-judge stages.
 
 ```bash
-python -m emotion.protocol              # карточка: статья против нас
-python -m emotion.protocol --check runs # в одной ли плоскости готовые строки
+python3 -m emotion.run_eval_chain --slug Qwen3-1.7B
+python3 -m emotion.run_eval_chain --slug Qwen3-1.7B --judge
 ```
 
-## Судейские стадии (нужен ключ, GPU не занимают)
+Judge outputs use a cache keyed by response text. Existing cached responses are not sent again. New or changed generations require API access and may incur cost.
+
+Useful aggregate commands:
 
 ```bash
-python -m emotion.run_pairwise_judge --data-dir eval_emotion/<slug> \
-    --out results/judge_scores_<slug>.csv          # фильтр пар, порог 60
-python -m emotion.judge_specificity --csv runs/<slug>/steer_specificity_raw.csv \
-    --out-wide runs/<slug>/judge_wide.csv --cache runs/<slug>/judge.cache.jsonl
-# у прогонов до августа матрица называется steer_specificity.csv (без _raw)
-python -m emotion.bootstrap_ci --csv runs/<slug>/judge_wide.csv
-python -m emotion.coherence_check --csv runs/<slug>/steer_specificity_raw.csv
+python3 -m emotion.collect_results
+python3 -m emotion.collect_compose
+python3 -m emotion.protocol --check runs
+python3 -m emotion.selftest
 ```
 
-Порядка 4250 вызовов на модель, около $0.5-0.7 по ценам `llama-3.3-70b`.
-Фактическая цена по нашим кэшам - $0.000062 за вызов. Проверить остаток до
-запуска: `python3 -m emotion.balance --need 13.5` (падает, если не хватает);
-панель судей печатает баланс до и после сама. Деньги кончаются молча: провайдер
-начинает отвечать 402, строки просто не попадают в матрицу, и таблица покажет
-результат по подвыборке - так у нас пропало условие shame у granite. Кэш судьи лежит в репозитории (`runs/*/judge*.cache.jsonl`, 15 МБ, 170 тысяч оплаченных вызовов): пересчитать судейские стадии на выложенных генерациях можно бесплатно. Ключ кэша - хеш текста ответа, поэтому на новых генерациях он не сработает и судить придётся заново.
+## Composition criteria
 
-## Панель судей
+For an ordered difference `X - Y`, the evaluation uses the same prompts in three conditions: unsteered, `X`, and `X - Y`.
 
-Судейский столбец сетки проверен панелью из трёх вендоров: основной
-`llama-3.3-70b` плюс `google/gemini-3.5-flash-lite` и `openai/gpt-4.1-mini`
-(семейство судьи базовой статьи). Согласие на 11 моделях: Pearson 0.77-0.88 у
-gemini, 0.86-0.91 у gpt-4.1-mini.
-Фаворитизм измерен так: берём дельту диагонали к baseline, считаем «судья минус
-среднее двух остальных», сравниваем свои модели с чужими. llama-судья к
-Llama-моделям +0.6 балла, gemini к Gemma +4.1. В каждой «семье» по две модели из
-одиннадцати, так что это оценка порядка величины, а не тест. Основной судья при
-этом систематически показывает эффект БОЛЬШЕ внешних: средняя диагональ у него на
-7 баллов выше (разброс +3.5...+9.2, знак один и тот же на всех одиннадцати
-моделях). То есть судейский столбец таблицы скорее оптимистичен, чем консервативен -
-при защите это надо говорить самим, а не ждать вопроса. На энкодерные столбцы
-(диагональ, argmax энк., значимость) это не влияет: они считаются без судьи. Все файлы `judge_wide_<tag>.csv`, `judge_agreement_<tag>.md`,
-`coherence_<tag>.md` и `compose_judge_wide.csv` в `runs/` сняты одним скриптом:
+- Target retention: the mean score for `X - Y` on emotion `X` is above the unsteered baseline.
+- Attenuation: the mean score for `X - Y` on emotion `Y` is below the score under `X` alone.
+
+The second comparison measures whether subtracting `Y` reduces the extra `Y` expression introduced by the target direction. It does not require `Y` to fall below its unsteered level.
+
+## Dialogue evaluation
+
+The dialogue extension uses 30 multi-turn English prompts in `data_generation/deescalation_dialogs.json`. It reuses the selected layer and coefficient from the emotion study and writes outputs next to each model run.
 
 ```bash
-python3 -m emotion.run_judge_panel --all               # матрицы + согласие
-python3 -m emotion.run_judge_panel --all --coherence   # плюс связность
-python3 -m emotion.run_judge_panel --all --compose     # плюс композиция
+python3 -m emotion.collect_dialog_safety --run runs/Falcon3-3B-Instruct
+python3 -m emotion.collect_dialog_safety --run runs/Qwen2.5-1.5B-Instruct
 ```
 
-## Ловушки
+The completed study includes seven negative emotion directions, positive anger, an anger-strength sweep, and three norm-matched random directions. The random controls distinguish changes caused by an emotion direction from changes caused by a perturbation of similar size.
 
-Каждая стоила прогона. Первые три проверяет предполёт.
+## Artifact layout
 
-**Системная роль есть не везде.** Шаблон gemma-2 её отвергает — рамка сворачивается в пользовательскую реплику (`render_chat` в `eval/run_emotion_inference_batch.py`). Транспорт промпта — параметр модели, не константа.
-
-**Гибридные модели рассуждают по умолчанию.** Без `enable_thinking=False` цепочка рассуждений попадает в пары и в матрицу, а лимит токенов обрывает ответ на середине рассуждения. Эффект на Qwen3: 271 вырожденная генерация из 448 против 14 после исправления.
-
-**Векторы должны быть сняты с этих пар.** Проверка по наличию файла молча переиспользует старые векторы — так у gemma векторы оказались построены на текстах Qwen. В отпечаток стадии векторов входит отпечаток пар, поэтому смена пар останавливает цепочку.
-
-**Тип вычислений: вся опубликованная сетка снята в fp16** (карта RTX 2070 без аппаратного bf16, тип пинуется в каждом yaml). На Ampere и новее правильный выбор - bf16, но он даёт другие младшие разряды: свою сетку снимайте целиком в одном типе и не смешивайте с нашей fp16-таблицей без пометки. Проверка сопоставимости (`emotion.protocol --check runs`) расхождение типов ловит и пометит сама.
-
-**Судья отвечает не на все вызовы, и это молча меняет числа.** Провайдер срывается,
-разбор ответа не находит числа - строка просто не попадает в `judge_wide.csv`. У нас
-так вышло 300-423 строки из 448, а у granite условие shame пропало целиком, и сводка
-делила на семь, засчитывая непосчитанное промахом: строка стояла «4/7» вместо
-реальных 6/7. Лечится добором - повторный запуск с тем же `--cache` пересчитывает
-только недостающее, уже посчитанное берётся из кэша:
-
-```bash
-python3 -m emotion.judge_specificity --csv runs/<slug>/steer_specificity_raw.csv \
-    --out-wide runs/<slug>/judge_wide.csv --cache runs/<slug>/judge.cache.jsonl
-python3 -m emotion.bootstrap_ci --csv runs/<slug>/judge_wide.csv --out runs/<slug>/ci_judge.md
+```text
+configs/models/<model>.yaml          Model-specific runtime settings
+data_generation/                     Extraction, evaluation, and dialogue prompts
+eval_emotion/<slug>/                 Matched emotional and neutral response pairs
+emotion_vectors/<slug>/              Layer-wise emotion directions
+runs/<slug>/meta.json                Selected layer, coefficient, environment, and manifest
+runs/<slug>/*.csv                    Generations, scores, sweeps, and evaluation tables
+runs/<slug>/*.stamp.json             Content-based provenance for generated artifacts
+runs/<slug>/*.cache.jsonl            Reusable LLM-judge responses
 ```
 
-После добора пересчитать всё, что от матрицы зависит: доверительные интервалы
-(команда выше) и согласие судей (`emotion.judge_agreement`). Сводка сама печатает
-предупреждение, если судья закрыл меньше 95% матрицы или в условии осталось
-меньше 20 ответов.
-
-**Фиксированный коэффициент несопоставим между моделями.** Сила вмешательства есть `coeff·‖vec‖ / mean‖h_L‖`. У gemma ‖vec‖=13.6 при масштабе активаций 225, у Qwen3 — 6.6 при 327: одно значение coeff=8 даёт трёхкратный разброс силы. Статья этой проблемы не решает — она не сравнивает модели между собой при одном коэффициенте, а вектор в наведении не нормирует (§3.2). Нормировка у неё там, где сравниваются *разные направления* (§A.3), — то есть для нашего raw против SAE она обязательна, а для двух моделей не помогает. Диагностика: `python -m emotion.norm_probe --model ... --vector-dir ... --layer N --coeff 8`.
-
-**Единая безразмерная сила тоже не выравнивает.** При S=0.33 Qwen3 получает коэффициент 15–18 (разрушение), gemma — 5.4 (недостирание). Поэтому точка подбирается по поведению, а модели сравниваются при сопоставимом эффекте.
-
-**Метрика вырожденности не валидирована.** Доля повторяющихся 4-грамм выше 0.15 ловит и эмоциональный повтор тоже, то есть целевой эффект. Для отчётных чисел надёжнее coherence score из базовой статьи (`emotion/coherence_check.py`).
-
-## Почему прогон не пересчитывается заново
-
-Стадия пропускается не потому, что файл на месте, а потому что рядом с ним лежит
-штамп с теми же параметрами: `<артефакт>.stamp.json` или `<каталог>/.stamp.json`.
-В штампе — стадия, версия протокола, всё, что влияет на результат, и отпечатки
-входов. Отпечаток считается по содержимому, а не по времени правки: артефакты
-ездят между 2070 и Mac, где `scp` без `-p` время не сохраняет.
-
-Исходов три, а не два:
-
-| | что делает цепочка |
-|---|---|
-| отпечаток совпал | пропускает стадию |
-| разошёлся | **останавливается** и называет, что именно разошлось |
-| штампа нет | переиспользует с предупреждением, пишет `unstamped` в `meta.json` |
-
-Останавливается, а не решает сама: молча пересчитать — потерять ночь генерации,
-молча переиспользовать — получить в отчёте строку, снятую по другому протоколу.
-Выбор человека: `--recompute-stale`, переименовать артефакт или подтвердить его.
-
-```bash
-python -m emotion.stamp runs/<slug>                     # чем снят каждый артефакт
-python -m emotion.stamp runs/<slug> --adopt \
-    --config configs/models/<config>.yaml                 # признать готовое своим
-```
-
-`--adopt` нужен прогонам, посчитанным до введения штампов: подписать готовое
-вместо того, чтобы гонять заново четыре с половиной часа. Это утверждение
-человека «да, снято этими параметрами» — цепочка сама его не делает.
-
-Отдельно то же самое внутри самой дорогой стадии: чекпойнт матрицы сверяется с
-текущей рабочей точкой. Строки с другого слоя — остаток другого прогона, и
-дописать к ним новые значило бы собрать матрицу из разных слоёв.
-
-## Что не сделано
-
-- Батчинга нет там, где он нужнее всего: матрица идёт по одной генерации, энкодер - по одному тексту на процессоре.
-- Судьи не сверены с человеческой разметкой (~900 примеров запланированы).
-- Фильтр обучающих пар судьёй реализован, но во всей опубликованной сетке НЕ применялся (`judge_filtered=false` у всех 11 строк) - это осознанная абляция «нужен ли фильтр»; прямое сравнение с фильтром и без на одной модели ещё не снято.
-- Ветка SAE (`emotion/gemma_sae.py`, `sae_contrastive.py`) захардкожена под раскладку GemmaScope и на другие модели не переносится.
-
-## Глоссарий
-
-- **Пары** - обучающие тексты: на каждый сценарий модель пишет эмоциональный (pos) и нейтральный (neg) ответ; вектор = разность средних активаций.
-- **Self-цикл** - пары для модели генерирует она сама, не другая модель.
-- **Диагональ Δ** - насколько выросла целевая эмоция под наведением против текста без наведения; «argmax N/7» - у скольких из семи эмоций сильнее всех выросла именно целевая.
-- **Протечка** - рост sadness при наведении ДРУГИХ эмоций (только sadness: это самый частый сток, а не средний off-diagonal).
-- **Вырожденные** - ответы с повтором 4-грамм выше 0.15 или type-token ниже 0.45.
-- **Связность** - беглость стирённого текста по судье, 0-100, без учёта тона.
-- **Стирённый** - сгенерированный под наведением (steered).
-- **Плоскость** - набор параметров, при расхождении которых строки таблицы нельзя ставить рядом (версия протокола, число промптов, режим наведения, фильтр пар, порог вырожденности, тип вычислений).
-- **Штамп** - файл `*.stamp.json` рядом с артефактом: чем и из чего он посчитан.
+The repository contains the files needed to inspect reported results. Reproducing a GPU or judge stage from scratch still requires the corresponding model access and API credentials.

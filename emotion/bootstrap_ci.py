@@ -48,7 +48,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Bootstrap CIs for a specificity CSV.")
     ap.add_argument("--csv", required=True, type=Path)
     ap.add_argument("--n-boot", type=int, default=20000)
-    ap.add_argument("--out", type=Path, default=None, help="сохранить таблицу в markdown")
+    ap.add_argument("--out", type=Path, default=None, help="write the summary as Markdown")
     args = ap.parse_args()
     rng = np.random.default_rng(0)
 
@@ -77,18 +77,17 @@ def main() -> None:
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         n_by = {emo: len(by[emo]) for emo in ISEAR_EMOTIONS}
-        lines = [f"# Доверительные интервалы, {args.csv.name}", "",
-                 f"Bootstrap {args.n_boot} итераций по промптам. Звёздочка — интервал не включает ноль.",
-                 f"На условие: baseline {n_per}, по эмоциям {min(n_by.values())}–{max(n_by.values())}.", ""]
+        lines = [f"# Confidence intervals: {args.csv.name}", "",
+                 f"Prompt bootstrap with {args.n_boot} resamples. An asterisk marks an interval that excludes zero.",
+                 f"Responses per condition: baseline {n_per}; emotion conditions {min(n_by.values())} to {max(n_by.values())}.", ""]
         if min(n_by.values()) != n_per:
-            lines += ["> Число наблюдений различается между условиями — часть строк "
-                      "потерял разбор ответа судьи. Бутстрап считает пропуски случайными.", ""]
-        lines += ["| эмоция | диагональ Δ | 95% CI | значимо |", "|---|---:|---|:--:|"]
+            lines += ["> Conditions have different response counts because some judge outputs could not be parsed. The bootstrap treats missing rows as random.", ""]
+        lines += ["| Emotion | Target change | 95% CI | Significant |", "|---|---:|---|:--:|"]
         for emo, p_, lo, hi, sig in rows:
-            lines.append(f"| {emo} | {p_:+.3f} | [{lo:+.3f}, {hi:+.3f}] | {'да' if sig else 'нет'} |")
-        lines += ["", f"Протечка в грусть (наведение не-грусти): {lp:+.3f} [{llo:+.3f}, {lhi:+.3f}]"]
+            lines.append(f"| {emo} | {p_:+.3f} | [{lo:+.3f}, {hi:+.3f}] | {'yes' if sig else 'no'} |")
+        lines += ["", f"Sadness leakage under non-sadness steering: {lp:+.3f} [{llo:+.3f}, {lhi:+.3f}]"]
         args.out.write_text("\n".join(lines) + "\n", encoding="utf-8")
-        print(f"записано {args.out}")
+        print(f"wrote {args.out}")
 
 
 if __name__ == "__main__":

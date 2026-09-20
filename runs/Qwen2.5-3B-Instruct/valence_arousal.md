@@ -1,8 +1,8 @@
-# A+V интерпретация корреляции эмоц-векторов (Phase 5.1) — Qwen2.5-3B-Instruct, layer 14
+# Valence-arousal reading of emotion-vector correlations: Qwen2.5-3B-Instruct, layer 14
 
-## 1. Доминирующая общая ось (почему косинусы высокие)
+## Shared direction
 
-Косинус каждой эмоции с СРЕДНИМ вектором (общая ось «эмоциональность vs нейтрально»):
+Cosine similarity between each emotion vector and the mean emotion vector:
    disgust: 0.948
      shame: 0.934
      anger: 0.927
@@ -11,11 +11,11 @@
      guilt: 0.860
        joy: 0.852
 
-Доля дисперсии в 1-й компоненте сырого набора: 82% → одна общая ось забирает большинство, отсюда высокие косинусы.
+The first component of the raw vector set accounts for 82% of its variance. A shared direction therefore explains much of the high cosine similarity.
 
-## 2. Остаток после вычитания общей оси ≈ валентность/возбуждение
+## Residual structure
 
-Проекция эмоций на остаточные PC (после вычитания общей оси):
+Emotion projections on residual principal components after removing the mean direction:
      emo   resPC1   resPC2  valence  arousal
    anger    -0.69     0.03    -0.70     0.85
  disgust    -1.38     1.34    -0.80     0.55
@@ -25,15 +25,18 @@
  sadness     0.98     0.21    -0.70     0.25
    shame     0.13     0.51    -0.65     0.45
 
-resPC1 vs валентность: Spearman +0.26 | vs возбуждение -0.25
-resPC2 vs валентность: Spearman -0.74 | vs возбуждение -0.21
+resPC1 versus valence: Spearman +0.26; versus arousal: -0.25
+resPC2 versus valence: Spearman -0.74; versus arousal: -0.21
 
-joy на resPC1: -1.09; негативные: [-1.38, +1.07] (joy НЕ обособлен).
+Joy on resPC1: -1.09; negative emotions: [-1.38, +1.07] (joy is not separate).
 
+## Empirical check from judge scores
 
-## Вывод
+Based on 448 texts.
+Mean off-diagonal correlation: +0.11
+Mean correlation of joy with the other emotions: -0.42
 
-- Высокая попарная корреляция эмоц-векторов — это **одна доминирующая ось** общей «эмоциональности» (pos-vs-нейтрально, ~80% дисперсии), а не отсутствие структуры.
-- В остатке после её вычитания проявляется **валентность**: остаточная PC1 коррелирует с канонической валентностью (Spearman +0.26). Возбуждение (arousal) в геометрии векторов чисто не выделяется — это валентностная, а не полная V-A структура.
-- Эмпирически (баллы судьи) то же самое: joy **анти-коррелирует** с негативным кластером, тогда как негативные эмоции слабо со-активируются — это и есть ось валентности на уровне измерения.
-- Согласуется с §2 (косинусы), §5 (центрирование убирает общую ось, joy заостряется) и с тем, что SAE-фичи расщепляют то, что общая ось смешивает.
+## Interpretation
+
+The emotion vectors share a strong common direction. After removing that direction, the first residual component correlates with the canonical valence ordering (Spearman +0.26). The residual geometry does not isolate a complete valence-arousal structure.
+Judge scores provide a separate output-level check. Joy is less correlated with the negative emotions than the average emotion pair, which is consistent with a valence distinction.

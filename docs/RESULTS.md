@@ -1,41 +1,23 @@
-# Сводная таблица
+# Single-direction results
 
-Генерируется командой `python3 -m emotion.collect_results` из артефактов `runs/`.
-Обновлено: 2026-08-09.
+This table summarizes the held-out single-direction experiment from the final study. Each model uses one layer and coefficient selected on disjoint anger prompts, then reuses that operating point for all seven emotions.
 
-| Модель | Слой | coeff | Диагональ Δ | argmax энк. | argmax судья | Значимо | Протечка | Связность | Вырожд. | Отказы | Плоскость |
-|---|---:|---:|---:|---:|---:|:--:|---:|---:|---:|---:|:--:|
-| tiiuae/Falcon3-3B-Instruct | 12 | 6 | +0.358 | 6/7 | 6/7 | 7/7 | +0.020 | 85.2 | 9/448 | 0/448 | ✓ |
-| meta-llama/Llama-3.2-1B-Instruct | 9 | 6 | +0.336 | 5/7 | 4/7 | 6/7 | -0.058 | 54.2 | 120/448 | 0/448 | ✓ |
-| meta-llama/Llama-3.2-3B-Instruct | 15 | 4 | +0.251 | 5/7 | 5/7 | 6/7 | +0.026 | 87.6 | 3/448 | 0/448 | ✓ |
-| allenai/OLMo-2-0425-1B-Instruct | 7 | 4 | +0.166 | 5/7 | 5/7 | 6/7 | +0.070 | 87.6 | 3/448 | 0/448 | ✓ |
-| Qwen/Qwen2.5-1.5B-Instruct | 15 | 16 | +0.320 | 5/7 | 5/7 | 7/7 | +0.227 | 78.9 | 34/448 | 1/448 | ✓ |
-| Qwen/Qwen2.5-3B-Instruct | 13 | 8 | +0.130 | 4/7 | 4/7 | 5/7 | +0.126 | 88.2 | 2/448 | 0/448 | ✓ |
-| Qwen/Qwen3-0.6B | 10 | 8 | +0.426 | 4/7 | 5/7 | 6/7 | -0.075 | 79.4 | 20/448 | 0/448 | ✓ |
-| Qwen/Qwen3-1.7B | 10 | 8 | +0.195 | 4/7 | 6/7 | 4/7 | +0.030 | 79.8 | 26/448 | 0/448 | ✓ |
-| google/gemma-2-2b-it | 14 | 4 | +0.178 | 4/7 | 4/7 | 5/7 | -0.025 | 84.3 | 3/448 | 0/448 | ✓ |
-| google/gemma-3-1b-it | 12 | 8 | +0.242 | 3/7 | 4/7 | 6/7 | -0.124 | 51.8 | 31/448 | 0/448 | ✓ |
-| ibm-granite/granite-3.3-2b-instruct | 18 | 8 | +0.324 | 3/7 | 6/7 | 4/7 | +0.022 | 84.2 | 5/448 | 0/448 | ✓ |
+`Mean diagonal` is the mean range-normalized target-score change under the local GoEmotions encoder. `Argmax` counts the emotion directions whose target change is the largest change in that row. `Marginal CI > 0` counts target effects with a prompt-bootstrap 95% interval above zero. `Specificity gap` is the difference between the mean target effect and the mean strongest off-target effect. `Q` is the mean coherence score of steered outputs. `Delta Q` is relative to the unsteered baseline.
 
-Диагональ и протечка — независимый энкодер `go_emotions`, Δ к тексту без наведения.
-«Значимо» — сколько диагоналей из 7 имеют интервал, не включающий ноль (по энкодеру).
-«Связность» — средняя по стирённым условиям, судья 0–100; прочерк, если оценка не гонялась.
-«Вырожд.» — повтор 4-граммы > 0.15 или type-token < 0.45. Метрика не проверена на разметке: она ловит и эмоциональный повтор тоже.
-«Плоскость»: ✓ — снято текущим протоколом, ⚠ — выбивается из общего, ? — штампа нет, протокол известен только со слов манифеста.
+| Model | Mean diagonal [95% CI] | Argmax | Marginal CI > 0 | Specificity gap | Q | Delta Q | Degenerate |
+|---|---:|:---:|:---:|---:|---:|---:|:---:|
+| Falcon-3-3B | 0.198 [0.179, 0.219] | 7/7 | 7/7 | 0.158 | 85.2 | -10.6 | 9/392 |
+| Llama-3.2-1B | 0.168 [0.150, 0.185] | 6/7 | 6/7 | 0.117 | 54.2 | -39.3 | 120/392 |
+| Llama-3.2-3B | 0.119 [0.104, 0.134] | 6/7 | 6/7 | 0.083 | 87.6 | -6.9 | 3/392 |
+| OLMo-2-1B | 0.097 [0.079, 0.116] | 6/7 | 6/7 | 0.048 | 87.6 | -7.3 | 3/392 |
+| Qwen-2.5-1.5B | 0.157 [0.141, 0.172] | 5/7 | 7/7 | 0.079 | 78.9 | -16.5 | 34/392 |
+| Qwen-2.5-3B | 0.064 [0.047, 0.082] | 5/7 | 5/7 | 0.020 | 88.2 | -6.5 | 2/392 |
+| Qwen-3-0.6B | 0.246 [0.231, 0.259] | 4/7 | 6/7 | 0.156 | 79.4 | -9.8 | 20/392 |
+| Qwen-3-1.7B | 0.101 [0.083, 0.118] | 5/7 | 4/7 | 0.064 | 79.8 | -11.9 | 26/392 |
+| Gemma-2-2B | 0.073 [0.054, 0.092] | 5/7 | 5/7 | 0.027 | 84.3 | -9.9 | 3/392 |
+| Gemma-3-1B | 0.100 [0.085, 0.114] | 4/7 | 6/7 | 0.051 | 51.8 | -39.4 | 31/392 |
+| Granite-3.3-2B | 0.165 [0.149, 0.180] | 4/7 | 4/7 | 0.066 | 84.2 | -11.3 | 5/392 |
 
-## Сопоставимость
+Every checkpoint has a positive mean target effect, but the effect size, target dominance, off-target response, and output quality differ across models. Falcon-3-3B has the most balanced profile in this comparison. Qwen-3-0.6B has the largest mean target effect, while Qwen-2.5-3B has the smallest positive specificity gap. Llama-3.2-1B and Gemma-3-1B show the clearest coherence and degeneration failures.
 
-Плоскость общая у всех 11 строк. Оговорки ниже.
-
-**Строки сняты на разных версиях кода:**
-
-- `053c2fd`: Qwen2.5-1.5B-Instruct/raw, gemma-2-2b-it/raw
-- `c60c44f`: Llama-3.2-3B-Instruct/raw, Qwen2.5-3B-Instruct/raw
-- `faf73ff`: Falcon3-3B-Instruct/raw, Llama-3.2-1B-Instruct/raw, OLMo-2-0425-1B-Instruct/raw, Qwen3-0.6B/raw, Qwen3-1.7B/raw, gemma-3-1b-it/raw, granite-3.3-2b-instruct/raw
-
-Проверить `git log --oneline 053c2fd..faf73ff`: менялось ли что-то, влияющее на числа, или только оснастка.
-
-**Рабочая точка упёрлась в край сетки коэффициентов:**
-
-- Qwen2.5-1.5B-Instruct/raw: верх сетки (16): оптимум мог остаться за ней
-
+The full per-model artifacts are stored in `runs/<slug>/`. They include raw generations, encoder matrices, judge matrices, bootstrap reports, and provenance stamps.

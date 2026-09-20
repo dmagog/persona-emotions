@@ -1,18 +1,18 @@
-# Доверительные интервалы, judge_wide.csv
+# Confidence intervals: judge_wide.csv
 
-Bootstrap 20000 итераций по промптам. Звёздочка — интервал не включает ноль.
-На условие: baseline 56, по эмоциям 55–56.
+Prompt bootstrap with 20000 resamples. An asterisk marks an interval that excludes zero.
+Responses per condition: baseline 56; emotion conditions 55 to 56.
 
-> Число наблюдений различается между условиями — часть строк потерял разбор ответа судьи. Бутстрап считает пропуски случайными.
+> Conditions have different response counts because some judge outputs could not be parsed. The bootstrap treats missing rows as random.
 
-| эмоция | диагональ Δ | 95% CI | значимо |
+| Emotion | Target change | 95% CI | Significant |
 |---|---:|---|:--:|
-| anger | +77.887 | [+71.316, +83.853] | да |
-| disgust | +73.518 | [+67.304, +78.982] | да |
-| fear | +65.339 | [+56.732, +73.304] | да |
-| guilt | +75.304 | [+67.964, +82.071] | да |
-| joy | +84.213 | [+75.463, +92.140] | да |
-| sadness | +61.821 | [+54.000, +69.321] | да |
-| shame | +68.054 | [+60.036, +75.625] | да |
+| anger | +77.887 | [+71.316, +83.853] | yes |
+| disgust | +73.518 | [+67.304, +78.982] | yes |
+| fear | +65.339 | [+56.732, +73.304] | yes |
+| guilt | +75.304 | [+67.964, +82.071] | yes |
+| joy | +84.213 | [+75.463, +92.140] | yes |
+| sadness | +61.821 | [+54.000, +69.321] | yes |
+| shame | +68.054 | [+60.036, +75.625] | yes |
 
-Протечка в грусть (наведение не-грусти): +25.286 [+16.221, +33.967]
+Sadness leakage under non-sadness steering: +25.286 [+16.221, +33.967]

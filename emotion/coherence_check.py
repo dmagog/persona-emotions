@@ -111,10 +111,10 @@ async def main_async(args) -> None:
 
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        lines = [f"# Связность, {args.csv.name}", "",
-                 f"Судья `{args.model}`, оценка беглости 0–100 без учёта тона и темы.",
-                 f"Строк оценено: {len(results) - lost} из {len(results)}.", "",
-                 f"| {gb} | связность | Δ к baseline | n |", "|---|---:|---:|---:|"]
+        lines = [f"# Coherence: {args.csv.name}", "",
+                 f"Judge: `{args.model}`. Scores range from 0 to 100 and assess fluency without considering tone or topic.",
+                 f"Scored rows: {len(results) - lost} of {len(results)}.", "",
+                 f"| {gb} | Coherence | Delta from baseline | n |", "|---|---:|---:|---:|"]
         for steer in order:
             v = agg[steer]
             m = sum(v) / len(v) if v else 0.0

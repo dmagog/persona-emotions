@@ -1,39 +1,54 @@
-# Протокол
+# Experimental protocol
 
-База: Persona Vectors, arXiv 2507.21509v3.
+This document records the common protocol used for the CEmoSteer experiments. It applies to the 11-model comparison in the accompanying study.
 
-| Решение | В статье | У нас | Где |
-|---|---|---|---|
-| Пулинг активаций | response avg — среднее по токенам ответа | response avg | §A.3, рис. 11 |
-| Формула наведения | h_ℓ ← h_ℓ + α·v_ℓ, вектор СЫРОЙ | h_ℓ + coeff·v_ℓ, вектор сырой | §3.2 |
-| Нормировка вектора | только там, где сравниваются РАЗНЫЕ направления: позиции токенов (§A.3) и проекция при мониторинге (v̂, §3.3). В наведении — нет | не нормируем при наведении; при `--center` перенормируем к исходной длине | §A.3, §3.3 |
-| Позиции при наведении | на каждом шаге декодирования | positions="all" | §3.2 |
-| Выбор слоя ⚠ | наведение на КАЖДОМ слое с ОДНИМ коэффициентом, берётся слой с максимальным баллом выраженности | три кандидата от глубины {0.35, 0.45, 0.55}, сетка коэффициентов {0,2,4,6,8,16} при 16 промптах на ячейку, берётся сильнейшая точка при доле вырожденных ≤ 10% | §B.4 |
-| Нумерация слоёв ⚠ | с единицы; «слой 20» — выход 20-го блока | с нуля; для блока B берётся vec[B+1] в hidden_states | §B.4, сноска |
-| Фильтр обучающих пар ⚠ | per-response: балл > 50 у положительной инструкции и < 50 у отрицательной; судья GPT-4.1-mini, агрегация по top-20 логитам | парный судья реализован (балл на пару «насколько A эмоциональнее B», порог 60, llama-3.3-70b), но в опубликованной сетке НЕ применялся: judge_filtered=false у всех 11 строк - осознанная абляция | §2, §B.1 |
-| Датасет под модель | пары генерирует сама целевая модель | то же: self-цикл на каждую модель | §2 |
-| Декодирование ⚠ | не оговорено | greedy, temperature=0 на всех стадиях | — |
-| Измеритель эффекта | LLM-судья по выраженности черты | независимый энкодер SamLowe/roberta-base-go_emotions + панель из трёх LLM-судей разных вендоров (llama-3.3-70b, gemini-3.5-flash-lite, gpt-4.1-mini) | §B.1 |
+## Directions
 
-⚠ — сознательное отклонение от статьи.
+For each ISEAR emotion, the evaluated model writes matched emotional and neutral replies to the same scenario. The direction at decoder block `l` is the mean response-token activation for emotional replies minus the corresponding mean for neutral replies. Directions are extracted at every decoder block and retain their raw norms.
 
-**Пулинг активаций.** Статья сравнила prompt last / prompt avg / response avg и выбрала третий.
+The extraction scenarios, anger calibration prompts, and 56 held-out evaluation prompts are disjoint. All reported generations use greedy decoding. Qwen 3 thinking mode is disabled. Gemma 2 receives the shared framing text in the user turn because its template does not accept a system role.
 
-**Формула наведения.** Вектор в основном пайплайне статьи не нормируется. См. «Нормировка» ниже.
+## Intervention
 
-**Нормировка вектора.** Правило: сравниваешь направления — уравнивай нормы, сравниваешь модели — уравнивай эффект. Наш документ раньше приписывал статье нормировку перед наведением со ссылкой на B.4 — это неверно, B.4 про выбор слоя.
+At every decoding position, the intervention adds a scaled direction to the residual stream:
 
-**Позиции при наведении.** Не last-position-only: это один из подозреваемых в баге научрука.
+```text
+h_steered = h + coefficient * direction
+```
 
-**Выбор слоя.** Полный свип по слоям у нас не влезает в ночь на 2070. Ограничение по вырожденности добавлено потому, что наивный максимум балла выбирал слой с 38% брака: вырожденный повтор энкодер читает как сильную эмоцию.
+Each model has one operating point: a decoder block and positive coefficient. The study does not normalize a direction before steering. A numerical coefficient can therefore imply a different perturbation size across models or emotions.
 
-**Нумерация слоёв.** Наш «слой 10» — это «слой 11» в терминах статьи. При переносе чисел в статью нумерацию сдвигать, иначе повторим off-by-one.
+## Operating-point selection
 
-**Фильтр обучающих пар.** Парное сравнение чище одиночных баллов: обе стороны про один сценарий. Logprob-агрегация недоступна — OpenRouter их не отдаёт.
+Candidate layers are located near 35%, 45%, and 55% of model depth. The coefficient grid is `{0, 2, 4, 6, 8, 16}`. On a disjoint set of 16 anger prompts, the selected cell maximizes mean anger-score change while keeping the repeated-4-gram degeneration rate at or below 10%.
 
-**Датасет под модель.** Векторы с чужого текста работают, но имеют другую норму и другой выбор слоя. Старый вариант сохранён как отдельная строка абляции переноса.
+The selected anger operating point is reused for all seven single directions and every ordered difference in that model. It is not tuned per emotion, pair, or held-out prompt.
 
-**Декодирование.** Против рекомендации Qwen (там просят сэмплинг). Держим ради воспроизводимости: вектор — разность средних, сэмплинг добавляет в неё шум. Контроль — колонка вырожденности.
+## Single-direction evaluation
 
-**Измеритель эффекта.** Два измерителя вместо одного: расходятся (энкодер 4/7, судья 6/7 на Qwen3-1.7B), поэтому в отчёте оба столбца. Судейский столбец проверен панелью: согласие с основным судьёй 0.77-0.91 по Пирсону на 11 моделях. Судья отвечает не на все вызовы - полноту матрицы проверяет сводка, процедура добора в RUNBOOK.
+For each of 56 held-out scenarios, the model produces one unsteered response and one response under each of the seven emotion directions. The local scorer is `SamLowe/roberta-base-go_emotions`, mapped to the ISEAR categories without converting its multi-label probabilities into a simplex.
 
+For cross-category summaries, each mapped score is divided by the number of GoEmotions labels assigned to that ISEAR category. This range normalization preserves signs and within-category uncertainty while giving every category a common 0 to 1 scale.
+
+The primary LLM judge is Llama-3.3-70B-Instruct. Gemini-3.5-Flash-Lite and GPT-4.1-mini repeat the single-direction study. Judge results can have missing rows because invalid or incomplete API responses are excluded rather than imputed.
+
+## Ordered differences
+
+The composition direction for an ordered pair is `v_X - v_Y`. For every pair, success has two independent conditions:
+
+- The target `X` is higher than the unsteered baseline.
+- The subtracted component `Y` is lower than it is under `X` alone.
+
+The second condition tests selective attenuation. It does not require `Y` to become lower than the baseline, because steering `X` may increase `Y` by itself.
+
+## Quality and uncertainty
+
+Lexical degeneration flags repeated 4-grams above 0.15 or a type-token ratio below 0.45. A separate tone-agnostic judge measures coherence on a 0 to 100 scale. Neither metric is a substitute for task adherence.
+
+Automatic effect intervals use prompt-identity bootstrap resampling. The study uses 20,000 resamples. Missing judge scores are excluded without imputation, and composition conditions require at least 40 judged responses.
+
+Human validation uses a locked, stratified sample of 300 outputs rated independently by three assessors. They score all seven emotions, fluency, task adherence, and naturalness without seeing model identity, intervention condition, or automatic scores.
+
+## Dialogue extension
+
+The dialogue study tests 30 English multi-turn conflict scenarios on Falcon-3-3B and Qwen-2.5-1.5B. It reuses the operating point selected for expressed emotion and evaluates escalation, helpfulness, and empathy. The protocol includes negative emotion directions, a positive anger control, a strength sweep, and norm-matched random directions.

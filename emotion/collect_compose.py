@@ -99,64 +99,55 @@ def models_in(runs: Path) -> list[Path]:
 
 
 def summary(runs: Path) -> list[str]:
-    out = ["# Композиция: сложение и вычитание эмоций\n",
-           "Источник: `compose_allpairs.csv` (энкодер) и "
-           "`compose_allpairs_judge_wide.csv` (судья), 42 упорядоченные пары X−Y "
-           "на модель. Метрики: **цель↑** — вычитание не гасит целевую эмоцию "
-           "(X выше baseline); **подавл.↓** — вычитаемая падает ниже уровня "
-           "«X в одиночку», то есть −Y убирает протечку от X.\n",
-           "| Модель | энк: цель↑ | энк: подавл.↓ | судья: цель↑ | судья: подавл.↓ |",
+    out = ["# Ordered-difference composition\n",
+           "This summary reads `compose_allpairs.csv` for the local encoder and "
+           "`compose_allpairs_judge_wide.csv` for the LLM judge. Each model has 42 ordered `X - Y` pairs. "
+           "Target retention means that `X - Y` raises `X` above baseline. Attenuation means that `X - Y` lowers `Y` relative to `X` alone.\n",
+           "| Model | Encoder target | Encoder attenuation | Judge target | Judge attenuation |",
            "|---|---:|---:|---:|---:|"]
     agg = {"et": 0, "es": 0, "en": 0, "jt": 0, "js": 0, "jn": 0}
     warns = []
     for run in models_in(runs):
         e = pair_counts(run / GEN)
         j = pair_counts(run / JUDGE)
-        ec = f"{e['target']}/{e['n']}" if e else "—"
-        es = f"{e['suppress']}/{e['n']}" if e else "—"
-        jc = f"{j['target']}/{j['n']}" if j else "—"
-        js = f"{j['suppress']}/{j['n']}" if j else "—"
+        ec = f"{e['target']}/{e['n']}" if e else "n/a"
+        es = f"{e['suppress']}/{e['n']}" if e else "n/a"
+        jc = f"{j['target']}/{j['n']}" if j else "n/a"
+        js = f"{j['suppress']}/{j['n']}" if j else "n/a"
         out.append(f"| {run.name} | {ec} | {es} | {jc} | {js} |")
         if e:
             agg["et"] += e["target"]; agg["es"] += e["suppress"]; agg["en"] += e["n"]
             if e["thin"]:
-                warns.append(f"{run.name} (энк): тонкие условия {e['thin']}")
+                warns.append(f"{run.name} (encoder): fewer than {MIN_ROWS} rows for {e['thin']}")
         if j:
             agg["jt"] += j["target"]; agg["js"] += j["suppress"]; agg["jn"] += j["n"]
     if agg["en"]:
-        out.append(f"| **всего** | **{agg['et']}/{agg['en']} "
+        out.append(f"| **Total** | **{agg['et']}/{agg['en']} "
                    f"({agg['et']/agg['en']:.0%})** | "
                    f"**{agg['es']}/{agg['en']} ({agg['es']/agg['en']:.0%})** | "
                    f"**{agg['jt']}/{agg['jn']} ({agg['jt']/max(agg['jn'],1):.0%})** | "
                    f"**{agg['js']}/{agg['jn']} ({agg['js']/max(agg['jn'],1):.0%})** |")
-    out.append("\nОба эффекта держатся примерно на одном уровне: и усиление цели "
-               "(83–90%), и подавление вычитаемой (около 91% у энкодера и у судьи). "
-               "Драматической асимметрии между ними нет — вычитание не «почти "
-               "идеально» гасит Y, а работает сопоставимо с тем, как сохраняет X. "
-               "Подавление считается по строгой опоре (Y ниже уровня наведения "
-               "одного X, а не ниже нейтрального), и по ней энкодер и судья дают "
-               "один и тот же итог 419/462, что говорит об устойчивости оценки.")
+    out.append("\nThe target and attenuation counts use different reference conditions. The attenuation comparison uses `X` alone, not the unsteered baseline, because target steering can raise related emotions.")
     if warns:
-        out.append("\n**Оговорки:**")
+        out.append("\n## Coverage notes")
         out += [f"- {w}" for w in warns]
     return out
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Канонический разбор композиции по матрице пар.")
+    ap = argparse.ArgumentParser(description="Summarize ordered-difference composition from per-model matrices.")
     ap.add_argument("--runs", type=Path, default=REPO / "runs")
-    ap.add_argument("--matrix", default=None, help="slug: показать матрицу 7x7 разделимости")
-    ap.add_argument("--out", type=Path, default=None, help="сохранить сводку в markdown")
+    ap.add_argument("--matrix", default=None, help="model slug for the 7x7 separability matrix")
+    ap.add_argument("--out", type=Path, default=None, help="write the summary as Markdown")
     args = ap.parse_args()
 
     if args.matrix:
         csv = args.runs / args.matrix / GEN
         if not csv.is_file():
-            raise SystemExit(f"нет {csv}")
+            raise SystemExit(f"missing {csv}")
         m = separability_matrix(csv)
-        print(f"Разделимость пар X−Y для {args.matrix} (энкодер):")
-        print("✓ цель растёт и вычитаемая давится; ↑ только цель; ↓ только "
-              "подавление; ✗ ни то ни другое\n")
+        print(f"Pair separability for {args.matrix} (encoder):")
+        print("✓ target rises and subtracted component falls; ↑ target only; ↓ attenuation only; ✗ neither\n")
         print(m.to_string())
         return
 
@@ -166,7 +157,7 @@ def main() -> None:
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(text + "\n", encoding="utf-8")
-        print(f"\nсохранено: {args.out}", file=sys.stderr)
+        print(f"\nwrote {args.out}", file=sys.stderr)
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
-# Связность, steer_specificity_raw.csv
+# Coherence: steer_specificity_raw.csv
 
-Судья `meta-llama/llama-3.3-70b-instruct`, оценка беглости 0–100 без учёта тона и темы.
-Строк оценено: 448 из 448.
+Judge: `meta-llama/llama-3.3-70b-instruct`. Scores range from 0 to 100 and assess fluency without considering tone or topic.
+Scored rows: 448 of 448.
 
-| steer | связность | Δ к baseline | n |
+| steer | Coherence | Delta from baseline | n |
 |---|---:|---:|---:|
 | baseline | 95.8 | +0.0 | 56 |
 | anger | 67.1 | -28.7 | 56 |

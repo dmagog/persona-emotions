@@ -1,9 +1,9 @@
-# Связность, steer_specificity.csv
+# Coherence: steer_specificity.csv
 
-Судья `google/gemini-3.5-flash-lite`, оценка беглости 0–100 без учёта тона и темы.
-Строк оценено: 448 из 448.
+Judge: `google/gemini-3.5-flash-lite`. Scores range from 0 to 100 and assess fluency without considering tone or topic.
+Scored rows: 448 of 448.
 
-| steer | связность | Δ к baseline | n |
+| steer | Coherence | Delta from baseline | n |
 |---|---:|---:|---:|
 | baseline | 98.0 | +0.0 | 56 |
 | anger | 96.0 | -2.0 | 56 |

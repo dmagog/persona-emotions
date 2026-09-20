@@ -75,23 +75,22 @@ def main() -> None:
         print(s)
         out.append(s)
 
-    emit(f"# A+V интерпретация корреляции эмоц-векторов (Phase 5.1) — {args.vector_dir.name}, layer {args.layer}\n")
+    emit(f"# Valence-arousal reading of emotion-vector correlations: {args.vector_dir.name}, layer {args.layer}\n")
 
     # 1. shared axis
-    emit("## 1. Доминирующая общая ось (почему косинусы высокие)\n")
+    emit("## Shared direction\n")
     align = {e: cos(vecs[e], mean) for e in ISEAR_EMOTIONS}
-    emit("Косинус каждой эмоции с СРЕДНИМ вектором (общая ось «эмоциональность vs нейтрально»):")
+    emit("Cosine similarity between each emotion vector and the mean emotion vector:")
     for e in sorted(align, key=align.get, reverse=True):
         emit(f"  {e:>8}: {align[e]:.3f}")
     Xc = (M - mean).numpy()
     # PC1 variance share of the raw (uncentered) set: how much the shared axis dominates
     sv_raw = np.linalg.svd(M.numpy(), compute_uv=False)
     pc1_raw = float((sv_raw[0] ** 2) / (sv_raw ** 2).sum())
-    emit(f"\nДоля дисперсии в 1-й компоненте сырого набора: {pc1_raw*100:.0f}% "
-         f"→ одна общая ось забирает большинство, отсюда высокие косинусы.\n")
+    emit(f"\nThe first component of the raw vector set accounts for {pc1_raw*100:.0f}% of its variance. A shared direction therefore explains much of the high cosine similarity.\n")
 
     # 2. residual structure = valence / arousal
-    emit("## 2. Остаток после вычитания общей оси ≈ валентность/возбуждение\n")
+    emit("## Residual structure\n")
     U, S, Vt = np.linalg.svd(Xc, full_matrices=False)
     proj1 = U[:, 0] * S[0]   # residual PC1 score per emotion
     proj2 = U[:, 1] * S[1]   # residual PC2 score per emotion
@@ -107,23 +106,23 @@ def main() -> None:
     r_pc1_aro = spearman([p1[e] for e in ISEAR_EMOTIONS], aro)
     r_pc2_val = spearman([p2[e] for e in ISEAR_EMOTIONS], val)
     r_pc2_aro = spearman([p2[e] for e in ISEAR_EMOTIONS], aro)
-    emit("Проекция эмоций на остаточные PC (после вычитания общей оси):")
+    emit("Emotion projections on residual principal components after removing the mean direction:")
     emit(f"{'emo':>8} {'resPC1':>8} {'resPC2':>8} {'valence':>8} {'arousal':>8}")
     for e in ISEAR_EMOTIONS:
         emit(f"{e:>8} {p1[e]:>8.2f} {p2[e]:>8.2f} {VALENCE[e]:>8.2f} {AROUSAL[e]:>8.2f}")
-    emit(f"\nresPC1 vs валентность: Spearman {r_pc1_val:+.2f} | vs возбуждение {r_pc1_aro:+.2f}")
-    emit(f"resPC2 vs валентность: Spearman {r_pc2_val:+.2f} | vs возбуждение {r_pc2_aro:+.2f}")
+    emit(f"\nresPC1 versus valence: Spearman {r_pc1_val:+.2f}; versus arousal: {r_pc1_aro:+.2f}")
+    emit(f"resPC2 versus valence: Spearman {r_pc2_val:+.2f}; versus arousal: {r_pc2_aro:+.2f}")
     # joy separation on residual
     neg = [p1[e] for e in ISEAR_EMOTIONS if e != "joy"]
-    emit(f"\njoy на resPC1: {p1['joy']:+.2f}; негативные: [{min(neg):+.2f}, {max(neg):+.2f}] "
-         f"(joy {'обособлен' if (p1['joy']>max(neg) or p1['joy']<min(neg)) else 'НЕ обособлен'}).\n")
+    emit(f"\nJoy on resPC1: {p1['joy']:+.2f}; negative emotions: [{min(neg):+.2f}, {max(neg):+.2f}] "
+         f"(joy is {'separate' if (p1['joy']>max(neg) or p1['joy']<min(neg)) else 'not separate'}).\n")
 
     # 3. empirical cross-check from judge per-emotion scores
     if args.judge_wide is not None and args.judge_wide.exists():
-        emit("## 3. Эмпирическая проверка: корреляция эмоций по баллам судьи\n")
+        emit("## Empirical check from judge scores\n")
         rows = list(csv.DictReader(open(args.judge_wide, encoding="utf-8")))
         cols = {e: [float(r[e]) for r in rows if all(x in r for x in ISEAR_EMOTIONS)] for e in ISEAR_EMOTIONS}
-        emit(f"(по {len(cols[ISEAR_EMOTIONS[0]])} текстам)")
+        emit(f"Based on {len(cols[ISEAR_EMOTIONS[0]])} texts.")
         offd = []
         joy_corr = []
         for i, e1 in enumerate(ISEAR_EMOTIONS):
@@ -133,22 +132,13 @@ def main() -> None:
                     offd.append(r)
                     if "joy" in (e1, e2):
                         joy_corr.append(r)
-        emit(f"средняя off-diag корреляция: {sum(offd)/len(offd):+.2f}")
-        emit(f"средняя корреляция joy с остальными: {sum(joy_corr)/len(joy_corr):+.2f} "
-             f"(ниже общей → joy и эмпирически обособлен по валентности)")
+        emit(f"Mean off-diagonal correlation: {sum(offd)/len(offd):+.2f}")
+        emit(f"Mean correlation of joy with the other emotions: {sum(joy_corr)/len(joy_corr):+.2f}")
 
-    emit("\n## Вывод\n")
-    emit("- Высокая попарная корреляция эмоц-векторов — это **одна доминирующая ось** общей "
-         "«эмоциональности» (pos-vs-нейтрально, ~80% дисперсии), а не отсутствие структуры.")
-    emit("- В остатке после её вычитания проявляется **валентность**: остаточная PC1 "
-         f"коррелирует с канонической валентностью (Spearman {r_pc1_val:+.2f}). Возбуждение "
-         "(arousal) в геометрии векторов чисто не выделяется — это валентностная, а не "
-         "полная V-A структура.")
-    emit("- Эмпирически (баллы судьи) то же самое: joy **анти-коррелирует** с негативным "
-         "кластером, тогда как негативные эмоции слабо со-активируются — это и есть ось "
-         "валентности на уровне измерения.")
-    emit("- Согласуется с §2 (косинусы), §5 (центрирование убирает общую ось, joy заостряется) "
-         "и с тем, что SAE-фичи расщепляют то, что общая ось смешивает.")
+    emit("\n## Interpretation\n")
+    emit("The emotion vectors share a strong common direction. After removing that direction, the first residual component correlates with the canonical valence ordering "
+         f"(Spearman {r_pc1_val:+.2f}). The residual geometry does not isolate a complete valence-arousal structure.")
+    emit("Judge scores provide a separate output-level check. Joy is less correlated with the negative emotions than the average emotion pair, which is consistent with a valence distinction.")
 
     if args.out is not None:
         args.out.write_text("\n".join(out) + "\n", encoding="utf-8")
