@@ -1,11 +1,7 @@
-"""Extract emotion steering vectors from generated pos/neg responses.
+"""Extract emotion steering vectors from generated positive and negative responses.
 
-Reuses ``generate_vec.get_hidden_p_and_r`` (same residual-stream pooling as
-PERSONA) so the saved ``.pt`` files are consumable by ``activation_steer.py``.
-Differs from ``generate_vec`` only in row selection: pos/neg rows are joined by
-their (question, instruction) key and filtered by the pairwise-judge scores
-(``results/judge_scores_*.csv``, score >= threshold), instead of the inline
-0-100 columns ``generate_vec`` expects.
+Rows are joined by their question and instruction key, then optionally filtered
+by pairwise-judge scores before hidden-state pooling.
 
 Saves ``{emotion}_response_avg_diff.pt`` (+ prompt_avg / prompt_last) =
 mean(activations_pos) - mean(activations_neg) per layer.
@@ -31,7 +27,7 @@ from emotion.loader import LoadSpec, load_model_and_tokenizer
 
 from emotion.pairwise_judge import _join_key
 from emotion.space import ISEAR_EMOTIONS
-from generate_vec import get_hidden_p_and_r
+from emotion.hidden_states import pooled_hidden_states
 
 csv.field_size_limit(min(sys.maxsize, 2**31 - 1))  # 2**31-1: C long is 32-bit on Windows
 
@@ -81,8 +77,8 @@ def save_emotion_vector(model, tokenizer, data_dir, emotion, kept_keys, save_dir
             "активаций, тот даёт NaN, и NaN съедает весь вектор при усреднении. "
             f"Первые: {empty[:3]}"
         )
-    pos_pa, pos_pl, pos_ra = get_hidden_p_and_r(model, tokenizer, pp, pr)
-    neg_pa, neg_pl, neg_ra = get_hidden_p_and_r(model, tokenizer, np_, nr)
+    pos_pa, pos_pl, pos_ra = pooled_hidden_states(model, tokenizer, pp, pr)
+    neg_pa, neg_pl, neg_ra = pooled_hidden_states(model, tokenizer, np_, nr)
     n_layers = len(pos_ra)
 
     def diff(pos_layers, neg_layers):

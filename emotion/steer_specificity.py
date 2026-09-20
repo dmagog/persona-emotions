@@ -23,7 +23,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from emotion.loader import LoadSpec, load_model_and_tokenizer
 
-from activation_steer import ActivationSteerer
+from emotion.activation_steer import ActivationSteerer
 from emotion.classifier_encoder import ClassifierBasedEncoder
 from emotion.space import ISEAR_EMOTIONS
 from emotion.steer_eval import TASK_SUFFIX, build_prompt, generate

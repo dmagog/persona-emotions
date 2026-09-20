@@ -1,16 +1,11 @@
-"""Протокол: что делает статья, что делаем мы, и где расходимся сознательно.
+"""Protocol helpers that check whether experiment artifacts are comparable.
 
-Не документация, а исполняемое описание. Прозу забывают — так уже потерялась
-нормировка при сравнении направлений и вернулась граблями через два месяца.
-Здесь каждое решение стоит рядом со ссылкой на статью, а сводная таблица
-проверяет, что её строки сняты в одной плоскости.
-
-База: *Persona Vectors: Monitoring and Controlling Character Traits in Language
-Models*, arXiv 2507.21509v3.
+The module records the configuration choices associated with each result and
+detects runs that do not share the same measurement plane.
 
 Usage:
-    python -m emotion.protocol                # карточка: статья против нас
-    python -m emotion.protocol --check runs   # в одной ли плоскости строки сводки
+    python -m emotion.protocol
+    python -m emotion.protocol --check runs
 """
 from __future__ import annotations
 
@@ -25,7 +20,7 @@ from emotion import stamp
 from emotion.space import ISEAR_EMOTIONS
 
 REPO = Path(__file__).resolve().parent.parent
-PAPER = "Persona Vectors, arXiv 2507.21509v3"
+PAPER = "CEmoSteer"
 
 
 @dataclass

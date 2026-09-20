@@ -1,161 +1,160 @@
-"""Разбор диалоговой деэскалации: сводка по условиям и парные сравнения.
+"""Build the dialogue evaluation summary from stored generation and judge files."""
 
-Единственный источник чисел для safety-раздела. Читает выход
-`steer_dialog_safety.py` (баллы энкодера) и `judge_dialog_safety.py`
-(эскалация/полезность/эмпатия) и сводит их в одну таблицу.
-
-Сравнения парные: условия прогонялись на ОДНИХ И ТЕХ ЖЕ диалогах, поэтому
-разница берётся по каждому диалогу и потом усредняется. Так снимается разброс
-между сценариями, который иначе забивает эффект.
-
-Usage:
-    python -m emotion.collect_dialog_safety --run runs/Falcon3-3B-Instruct
-    python -m emotion.collect_dialog_safety --run runs/Falcon3-3B-Instruct --out docs/DIALOG_SAFETY.md
-"""
 from __future__ import annotations
 
 import argparse
 import csv
-import sys
+import random
+from collections import defaultdict
 from pathlib import Path
 
-csv.field_size_limit(min(sys.maxsize, 2**31 - 1))
+csv.field_size_limit(2**31 - 1)
 
-BASELINE = "baseline"
-# Порядок вывода: контроль последним, чтобы таблица читалась как «эффект, потом
-# проверка направления».
-ORDER = ["baseline", "-anger", "-fear", "-anger-fear", "+anger"]
-ESCALATION_THRESHOLD = 50.0  # выше - считаем реплику эскалирующей
+REPO = Path(__file__).resolve().parent.parent
+CORE = ("baseline", "-anger", "-fear", "-anger-fear", "+anger")
+SOURCES = ("dialog_safety", "dialog_other", "dialog_rand")
 
 
-def read_rows(path: Path) -> list[dict]:
+def rows(path: Path) -> list[dict]:
     if not path.is_file():
         return []
-    with path.open(encoding="utf-8") as fh:
-        return list(csv.DictReader(fh))
+    with path.open(encoding="utf-8", newline="") as handle:
+        return list(csv.DictReader(handle))
 
 
-def as_float(v) -> float | None:
+def value(row: dict | None, field: str) -> float | None:
     try:
-        return float(v)
-    except (TypeError, ValueError):
+        return float(row[field]) if row and row.get(field, "") != "" else None
+    except (KeyError, ValueError):
         return None
 
 
-def mean(xs: list[float]) -> float | None:
-    return sum(xs) / len(xs) if xs else None
+def mean(values: list[float]) -> float | None:
+    return sum(values) / len(values) if values else None
 
 
-def fmt(v: float | None, nd: int = 1) -> str:
-    return "—" if v is None else f"{v:.{nd}f}"
+def percentile(sorted_values: list[float], fraction: float) -> float:
+    if not sorted_values:
+        raise ValueError("Cannot take a percentile of an empty sequence.")
+    index = (len(sorted_values) - 1) * fraction
+    lower, upper = int(index), min(int(index) + 1, len(sorted_values) - 1)
+    return sorted_values[lower] + (sorted_values[upper] - sorted_values[lower]) * (index - lower)
 
 
-def fmt_delta(v: float | None, nd: int = 1) -> str:
-    if v is None:
-        return "—"
-    return f"{v:+.{nd}f}"
+def bootstrap_ci(values: list[float], repetitions: int = 10_000, seed: int = 0) -> tuple[float, float] | None:
+    if not values:
+        return None
+    generator = random.Random(seed)
+    n = len(values)
+    samples = sorted(sum(values[generator.randrange(n)] for _ in range(n)) / n for _ in range(repetitions))
+    return percentile(samples, 0.025), percentile(samples, 0.975)
 
 
-def collect(run: Path) -> dict:
-    gen = {(r["condition"], r["dialog_id"]): r for r in read_rows(run / "dialog_safety.csv")}
-    jud = {(r["condition"], r["dialog_id"]): r for r in read_rows(run / "dialog_safety_judge.csv")}
-    if not gen:
-        raise SystemExit(f"нет {run / 'dialog_safety.csv'} — сначала прогон генерации")
+def load_run(run: Path) -> dict[str, dict[str, dict]]:
+    """Join local scores and primary-judge scores by condition and dialogue ID."""
+    generated: dict[tuple[str, str], dict] = {}
+    judged: dict[tuple[str, str], dict] = {}
+    for stem in SOURCES:
+        generated.update({(r["condition"], r["dialog_id"]): r for r in rows(run / f"{stem}.csv")})
+        judged.update({(r["condition"], r["dialog_id"]): r for r in rows(run / f"{stem}_judge.csv")})
+    data: dict[str, dict[str, dict]] = defaultdict(dict)
+    for key, generated_row in generated.items():
+        data[key[0]][key[1]] = {"generated": generated_row, "judged": judged.get(key)}
+    return dict(data)
 
-    conds = [c for c in ORDER if any(k[0] == c for k in gen)]
-    conds += sorted({k[0] for k in gen} - set(conds))
-    dialogs = sorted({k[1] for k in gen})
 
-    out = {"conditions": conds, "n_dialogs": len(dialogs), "rows": {}, "has_judge": bool(jud)}
-    for c in conds:
-        esc, hlp, emp, ang, fea = [], [], [], [], []
-        d_esc, d_hlp, d_emp = [], [], []  # парные разницы к baseline
-        for d in dialogs:
-            g, j = gen.get((c, d)), jud.get((c, d))
-            gb, jb = gen.get((BASELINE, d)), jud.get((BASELINE, d))
-            if g:
-                for src, dst in ((g.get("anger"), ang), (g.get("fear"), fea)):
-                    v = as_float(src)
-                    if v is not None:
-                        dst.append(v)
-            if j:
-                for key, acc, dacc in (("escalation", esc, d_esc),
-                                       ("helpfulness", hlp, d_hlp),
-                                       ("empathy", emp, d_emp)):
-                    v = as_float(j.get(key))
-                    if v is None:
-                        continue
-                    acc.append(v)
-                    vb = as_float(jb.get(key)) if jb else None
-                    if vb is not None and c != BASELINE:
-                        dacc.append(v - vb)
-        rate = None
-        if esc:
-            rate = sum(1 for v in esc if v > ESCALATION_THRESHOLD) / len(esc)
-        out["rows"][c] = {
-            "n": sum(1 for d in dialogs if (c, d) in gen),
-            "escalation": mean(esc), "d_escalation": mean(d_esc),
-            "helpfulness": mean(hlp), "d_helpfulness": mean(d_hlp),
-            "empathy": mean(emp), "d_empathy": mean(d_emp),
-            "rate": rate, "enc_anger": mean(ang), "enc_fear": mean(fea),
-        }
+def condition_summary(data: dict[str, dict[str, dict]], condition: str) -> dict:
+    baseline = data.get("baseline", {})
+    current = data.get(condition, {})
+    out: dict[str, float | int | tuple[float, float] | None] = {"n": len(current)}
+    for metric in ("escalation", "helpfulness", "empathy"):
+        scores = [value(pair["judged"], metric) for pair in current.values()]
+        scores = [score for score in scores if score is not None]
+        deltas = []
+        if condition != "baseline":
+            for dialog_id, pair in current.items():
+                score = value(pair["judged"], metric)
+                reference = value(baseline.get(dialog_id, {}).get("judged"), metric)
+                if score is not None and reference is not None:
+                    deltas.append(score - reference)
+        out[metric] = mean(scores)
+        out[f"delta_{metric}"] = mean(deltas)
+        out[f"ci_{metric}"] = bootstrap_ci(deltas)
     return out
 
 
-def render(run: Path, data: dict) -> list[str]:
-    lines = [f"# Диалоговая деэскалация: {run.name}\n",
-             f"{data['n_dialogs']} провокационных диалогов, условий {len(data['conditions'])}. "
-             "Сравнения парные (одни и те же диалоги во всех условиях). "
-             "Эскалацию, полезность и эмпатию ставит судья по шкале 0–100 с учётом "
-             "провокации; anger/fear — локальный энкодер по ответу.\n"]
-    if not data["has_judge"]:
-        lines.append("**Судейские столбцы пусты: стадия судьи ещё не отработала.**\n")
-    lines += ["| Условие | n | эскалация | Δ к baseline | доля >50 | полезность | Δ | эмпатия | Δ | anger энк | fear энк |",
-              "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|"]
-    for c in data["conditions"]:
-        r = data["rows"][c]
-        rate = "—" if r["rate"] is None else f"{r['rate']:.0%}"
+def fmt(number: float | None, digits: int = 1) -> str:
+    return "n/a" if number is None else f"{number:.{digits}f}"
+
+
+def fmt_delta(number: float | None) -> str:
+    return "n/a" if number is None else f"{number:+.1f}"
+
+
+def fmt_ci(interval: tuple[float, float] | None) -> str:
+    return "n/a" if interval is None else f"[{interval[0]:+.1f}, {interval[1]:+.1f}]"
+
+
+def render_model(name: str, data: dict[str, dict[str, dict]]) -> list[str]:
+    lines = [f"## {name}", "", "| Condition | n | Escalation | Delta [95% CI] | Helpfulness | Empathy |", "|---|---:|---:|:---:|---:|---:|"]
+    for condition in CORE:
+        if condition not in data:
+            continue
+        result = condition_summary(data, condition)
         lines.append(
-            f"| `{c}` | {r['n']} | {fmt(r['escalation'])} | {fmt_delta(r['d_escalation'])} | {rate} | "
-            f"{fmt(r['helpfulness'])} | {fmt_delta(r['d_helpfulness'])} | "
-            f"{fmt(r['empathy'])} | {fmt_delta(r['d_empathy'])} | "
-            f"{fmt(r['enc_anger'], 3)} | {fmt(r['enc_fear'], 3)} |")
-
-    lines.append("\nКак читать:")
-    lines.append("- **Δ к baseline** — средняя парная разница. Отрицательная у эскалации "
-                 "означает, что вмешательство гасит конфликт.")
-    lines.append("- **`+anger` — позитивный контроль.** Если у него эскалация растёт, а у "
-                 "`-anger` падает, эффект направленный по оси гнева, а не общее "
-                 "размягчение ответа. Без этой строки такой вывод не обоснован.")
-    lines.append("- **полезность и эмпатия** — цена вмешательства. Падение эскалации ценой "
-                 "обнуления полезности результатом не является.")
-
-    rows = data["rows"]
-    if data["has_judge"] and rows.get("-anger", {}).get("d_escalation") is not None:
-        minus = rows["-anger"]["d_escalation"]
-        plus = rows.get("+anger", {}).get("d_escalation")
-        if plus is not None:
-            ok = minus < 0 < plus
-            lines.append(f"\nНаправленность оси: `-anger` {fmt_delta(minus)}, `+anger` "
-                         f"{fmt_delta(plus)} — "
-                         + ("знаки противоположны, ось ведёт себя как ожидалось."
-                            if ok else "ОЖИДАЕМОГО противопоставления НЕТ, вывод о "
-                                       "направленности делать нельзя."))
+            f"| `{condition}` | {result['n']} | {fmt(result['escalation'])} | "
+            f"{fmt_delta(result['delta_escalation'])} {fmt_ci(result['ci_escalation'])} | "
+            f"{fmt(result['helpfulness'])} | {fmt(result['empathy'])} |"
+        )
+    random_conditions = sorted(condition for condition in data if condition.startswith("random"))
+    if random_conditions:
+        random_deltas = [condition_summary(data, condition)["delta_escalation"] for condition in random_conditions]
+        lines.append(
+            f"| random-direction mean | {sum(condition_summary(data, c)['n'] for c in random_conditions)} | n/a | "
+            f"{fmt_delta(mean([d for d in random_deltas if d is not None]))} n/a | n/a | n/a |"
+        )
+    negative_conditions = sorted(condition for condition in data if condition.startswith("-") and condition.count("-") == 1)
+    if negative_conditions:
+        effects = [condition_summary(data, condition)["delta_escalation"] for condition in negative_conditions]
+        lines.extend([
+            "",
+            f"The mean escalation change across the available negative single-emotion controls is {fmt(mean([effect for effect in effects if effect is not None]))}.",
+        ])
     return lines
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser(description="Сводка диалоговой деэскалации.")
-    ap.add_argument("--run", type=Path, required=True, help="каталог прогона, напр. runs/Falcon3-3B-Instruct")
-    ap.add_argument("--out", type=Path, default=None)
-    args = ap.parse_args()
+def summary(runs: Path) -> str:
+    targets = [("Falcon-3-3B", runs / "Falcon3-3B-Instruct"), ("Qwen-2.5-1.5B", runs / "Qwen2.5-1.5B-Instruct")]
+    lines = [
+        "# Dialogue evaluation",
+        "",
+        "This analysis tests whether an intervention that changes expressed emotion also improves conflict handling. It uses 30 English dialogue contexts for Falcon-3-3B and Qwen-2.5-1.5B. The primary judge scores escalation, helpfulness, and empathy from 0 to 100. Lower escalation is better.",
+        "",
+        "Each delta compares replies to the unsteered reply for the same dialogue. Intervals are percentile bootstrap 95% intervals from 10,000 paired resamples with seed 0.",
+        "",
+    ]
+    for name, run in targets:
+        if run.is_dir():
+            lines.extend(render_model(name, load_run(run)))
+            lines.append("")
+    lines.extend([
+        "The source dialogues are in `data_generation/deescalation_dialogs.json`. Generation files, judge scores, and judge caches are in the two corresponding `runs/` directories.",
+        "",
+        "Run this collector after a dialogue evaluation to regenerate this document from the stored artifacts.",
+    ])
+    return "\n".join(lines) + "\n"
 
-    text = "\n".join(render(args.run, collect(args.run)))
-    print(text)
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Summarize the dialogue evaluation from stored run files.")
+    parser.add_argument("--runs", type=Path, default=REPO / "runs")
+    parser.add_argument("--out", type=Path)
+    args = parser.parse_args()
+    text = summary(args.runs)
+    print(text, end="")
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(text + "\n", encoding="utf-8")
-        print(f"\nсохранено: {args.out}", file=sys.stderr)
+        args.out.write_text(text, encoding="utf-8")
 
 
 if __name__ == "__main__":

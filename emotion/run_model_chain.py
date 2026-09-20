@@ -442,7 +442,7 @@ def main() -> None:
     combined = pairs_dir / "all_emotions_extract.csv"
     print("1. пары pos/neg", flush=True)
     run_stage("pairs",
-              [py, "-m", "eval.run_emotion_inference_batch", "--model", args.model,
+              [py, "-m", "emotion.generate_pairs", "--model", args.model,
                "--version", "extract", "--output_dir", str(pairs_dir),
                "--infer_backend", "hf", "--temperature", "0",
                "--max_tokens", str(args.max_tokens),

@@ -1,26 +1,14 @@
-"""Канонический разбор композиции: сложение/вычитание эмоций по всем 42 парам.
+"""Build the ordered-difference composition table from stored run artifacts.
 
-Единственный источник чисел композиции для отчёта и статьи. Читает ТОЛЬКО
-`compose_allpairs.csv` (+ судейский `compose_allpairs_judge_wide.csv`) — не
-старые 4-специевые `compose.csv`: те снимались в разных прогонах и у части
-моделей не воспроизводятся новой однородной матрицей (см. аудит 2026-08-29).
-
-Две метрики на пару X-Y, обе честные и разные по смыслу:
-
-* цель↑     — X(X-Y) > X(baseline): вычитание не гасит целевую эмоцию;
-* подавл.↓  — Y(X-Y) < Y(X-в-одиночку): -Y реально убирает протечку, которую
-              наведение X создаёт само. Это сильнее, чем «Y ниже нейтрального»:
-              baseline не учитывает, что X сам поднимает родственную Y.
-
-Usage:
-    python -m emotion.collect_compose                 # сводка по моделям
-    python -m emotion.collect_compose --matrix <slug> # матрица 7x7 разделимости
-    python -m emotion.collect_compose --out docs/COMPOSITION.md
+The collector reads only the 42-pair matrices used by the article. For a pair
+``X - Y``, target retention means that X is above the unsteered baseline and
+attenuation means that Y is lower than under X-only steering. Joint success
+requires both conditions for the same pair.
 """
+
 from __future__ import annotations
 
 import argparse
-import sys
 from pathlib import Path
 
 import pandas as pd
@@ -30,134 +18,160 @@ from emotion.space import ALL_PAIRS, ISEAR_EMOTIONS
 REPO = Path(__file__).resolve().parent.parent
 GEN = "compose_allpairs.csv"
 JUDGE = "compose_allpairs_judge_wide.csv"
-MIN_ROWS = 40  # условие тоньше — не считаем, как в матрице специфичности
+MIN_ROWS = 40
 
 
-def _tables(d: pd.DataFrame) -> tuple[dict, pd.DataFrame]:
-    """baseline по эмоциям и таблица «средний балл эмоции под каждым наведением».
-
-    `single.loc[x, y]` — средний балл Y, когда наводится ОДИН X. Это опорная
-    точка подавления: сравнивать Y при X−Y надо именно с этим, а не с «Y под
-    наведением Y» (там Y максимален — тогда почти любая пара «проходит»
-    тривиально) и не с нейтральным baseline (тот не учитывает, что X сам
-    подтягивает родственную Y).
-    """
-    base = {e: d[d["steer"] == "baseline"][e].mean() for e in ISEAR_EMOTIONS}
-    single = d.groupby("steer")[list(ISEAR_EMOTIONS)].mean()
-    return base, single
+def _tables(data: pd.DataFrame) -> tuple[dict[str, float], pd.DataFrame]:
+    baseline = {
+        emotion: data.loc[data["steer"] == "baseline", emotion].mean()
+        for emotion in ISEAR_EMOTIONS
+    }
+    single = data.groupby("steer")[list(ISEAR_EMOTIONS)].mean()
+    return baseline, single
 
 
-def pair_counts(csv: Path) -> dict | None:
-    """Счёт цель↑ и подавл.↓ по 42 парам одной таблицы (энкодер или судья)."""
-    if not csv.is_file():
+def pair_counts(path: Path) -> dict | None:
+    """Count target, attenuation, and joint successes in one 42-pair matrix."""
+    if not path.is_file():
         return None
-    d = pd.read_csv(csv)
-    if "steer" not in d.columns or d[d["steer"] == "baseline"].empty:
+    data = pd.read_csv(path)
+    if "steer" not in data or data.loc[data["steer"] == "baseline"].empty:
         return None
-    base, single = _tables(d)
-    target = suppress = n = 0
-    thin = []
+    baseline, single = _tables(data)
+    target = attenuation = joint = total = 0
+    thin: list[str] = []
     for spec in ALL_PAIRS:
-        x, y = spec.split("-")
-        sub = d[d["steer"] == spec]
-        if len(sub) < MIN_ROWS or x not in single.index:
+        target_emotion, subtracted_emotion = spec.split("-")
+        rows = data.loc[data["steer"] == spec]
+        if len(rows) < MIN_ROWS or target_emotion not in single.index:
             thin.append(spec)
             continue
-        n += 1
-        if sub[x].mean() > base[x]:
-            target += 1
-        if sub[y].mean() < single.loc[x, y]:  # Y при X−Y ниже Y под наведением одного X
-            suppress += 1
-    return {"target": target, "suppress": suppress, "n": n, "thin": thin}
+        total += 1
+        target_ok = rows[target_emotion].mean() > baseline[target_emotion]
+        attenuation_ok = (
+            rows[subtracted_emotion].mean()
+            < single.loc[target_emotion, subtracted_emotion]
+        )
+        target += int(target_ok)
+        attenuation += int(attenuation_ok)
+        joint += int(target_ok and attenuation_ok)
+    return {
+        "target": target,
+        "attenuation": attenuation,
+        "suppress": attenuation,
+        "joint": joint,
+        "n": total,
+        "thin": thin,
+    }
 
 
-def separability_matrix(csv: Path) -> pd.DataFrame:
-    """7x7: для каждой пары X-Y знак (цель растёт и вычитаемая давится)."""
-    d = pd.read_csv(csv)
-    base, single = _tables(d)
+def separability_matrix(path: Path) -> pd.DataFrame:
+    """Return the target/attenuation status for every ordered emotion pair."""
+    data = pd.read_csv(path)
+    baseline, single = _tables(data)
     rows = []
-    for x in ISEAR_EMOTIONS:
-        row = {"steer": x}
-        for y in ISEAR_EMOTIONS:
-            if x == y:
-                row[y] = "·"
+    for target_emotion in ISEAR_EMOTIONS:
+        row = {"steer": target_emotion}
+        for subtracted_emotion in ISEAR_EMOTIONS:
+            if target_emotion == subtracted_emotion:
+                row[subtracted_emotion] = ""
                 continue
-            sub = d[d["steer"] == f"{x}-{y}"]
-            if sub.empty or x not in single.index:
-                row[y] = "—"
+            subset = data.loc[data["steer"] == f"{target_emotion}-{subtracted_emotion}"]
+            if len(subset) < MIN_ROWS or target_emotion not in single.index:
+                row[subtracted_emotion] = "n/a"
                 continue
-            up = sub[x].mean() > base[x]
-            down = sub[y].mean() < single.loc[x, y]
-            row[y] = "✓" if (up and down) else ("↑" if up else ("↓" if down else "✗"))
+            target_ok = subset[target_emotion].mean() > baseline[target_emotion]
+            attenuation_ok = (
+                subset[subtracted_emotion].mean()
+                < single.loc[target_emotion, subtracted_emotion]
+            )
+            row[subtracted_emotion] = "yes" if target_ok and attenuation_ok else "no"
         rows.append(row)
     return pd.DataFrame(rows).set_index("steer")
 
 
 def models_in(runs: Path) -> list[Path]:
-    return sorted(p for p in runs.iterdir()
-                  if p.is_dir() and (p / GEN).is_file())
+    return sorted(path for path in runs.iterdir() if path.is_dir() and (path / GEN).is_file())
+
+
+def _ratio(count: int, total: int) -> str:
+    return f"{count}/{total}" if total else "n/a"
 
 
 def summary(runs: Path) -> list[str]:
-    out = ["# Ordered-difference composition\n",
-           "This summary reads `compose_allpairs.csv` for the local encoder and "
-           "`compose_allpairs_judge_wide.csv` for the LLM judge. Each model has 42 ordered `X - Y` pairs. "
-           "Target retention means that `X - Y` raises `X` above baseline. Attenuation means that `X - Y` lowers `Y` relative to `X` alone.\n",
-           "| Model | Encoder target | Encoder attenuation | Judge target | Judge attenuation |",
-           "|---|---:|---:|---:|---:|"]
-    agg = {"et": 0, "es": 0, "en": 0, "jt": 0, "js": 0, "jn": 0}
-    warns = []
+    """Render the article composition table from the checked-in matrices."""
+    lines = [
+        "# Ordered-difference composition",
+        "",
+        "For each ordered pair of distinct emotions `X` and `Y`, this analysis evaluates `v_X - v_Y`. Each model uses the layer and coefficient selected on the disjoint anger calibration set. The table covers 42 ordered pairs for each model.",
+        "",
+        "Target retention means that X rises above the unsteered baseline. Attenuation means that Y is lower than under X-only steering. Joint success requires both conditions for the same pair.",
+        "",
+        "| Model | Encoder target | Encoder attenuation | Encoder joint | Judge target | Judge attenuation | Judge joint |",
+        "|---|:---:|:---:|:---:|:---:|:---:|:---:|",
+    ]
+    totals = {key: 0 for key in ("et", "ea", "ej", "en", "jt", "ja", "jj", "jn")}
+    coverage_notes: list[str] = []
     for run in models_in(runs):
-        e = pair_counts(run / GEN)
-        j = pair_counts(run / JUDGE)
-        ec = f"{e['target']}/{e['n']}" if e else "n/a"
-        es = f"{e['suppress']}/{e['n']}" if e else "n/a"
-        jc = f"{j['target']}/{j['n']}" if j else "n/a"
-        js = f"{j['suppress']}/{j['n']}" if j else "n/a"
-        out.append(f"| {run.name} | {ec} | {es} | {jc} | {js} |")
-        if e:
-            agg["et"] += e["target"]; agg["es"] += e["suppress"]; agg["en"] += e["n"]
-            if e["thin"]:
-                warns.append(f"{run.name} (encoder): fewer than {MIN_ROWS} rows for {e['thin']}")
-        if j:
-            agg["jt"] += j["target"]; agg["js"] += j["suppress"]; agg["jn"] += j["n"]
-    if agg["en"]:
-        out.append(f"| **Total** | **{agg['et']}/{agg['en']} "
-                   f"({agg['et']/agg['en']:.0%})** | "
-                   f"**{agg['es']}/{agg['en']} ({agg['es']/agg['en']:.0%})** | "
-                   f"**{agg['jt']}/{agg['jn']} ({agg['jt']/max(agg['jn'],1):.0%})** | "
-                   f"**{agg['js']}/{agg['jn']} ({agg['js']/max(agg['jn'],1):.0%})** |")
-    out.append("\nThe target and attenuation counts use different reference conditions. The attenuation comparison uses `X` alone, not the unsteered baseline, because target steering can raise related emotions.")
-    if warns:
-        out.append("\n## Coverage notes")
-        out += [f"- {w}" for w in warns]
-    return out
+        encoder = pair_counts(run / GEN)
+        judge = pair_counts(run / JUDGE)
+        if encoder is None:
+            continue
+        lines.append(
+            f"| {run.name} | {_ratio(encoder['target'], encoder['n'])} | "
+            f"{_ratio(encoder['attenuation'], encoder['n'])} | "
+            f"{_ratio(encoder['joint'], encoder['n'])} | "
+            f"{_ratio(judge['target'], judge['n']) if judge else 'n/a'} | "
+            f"{_ratio(judge['attenuation'], judge['n']) if judge else 'n/a'} | "
+            f"{_ratio(judge['joint'], judge['n']) if judge else 'n/a'} |"
+        )
+        totals["et"] += encoder["target"]
+        totals["ea"] += encoder["attenuation"]
+        totals["ej"] += encoder["joint"]
+        totals["en"] += encoder["n"]
+        if judge:
+            totals["jt"] += judge["target"]
+            totals["ja"] += judge["attenuation"]
+            totals["jj"] += judge["joint"]
+            totals["jn"] += judge["n"]
+        if encoder["thin"]:
+            coverage_notes.append(f"{run.name} encoder: {', '.join(encoder['thin'])}")
+        if judge and judge["thin"]:
+            coverage_notes.append(f"{run.name} judge: {', '.join(judge['thin'])}")
+
+    lines.extend([
+        f"| Total | {_ratio(totals['et'], totals['en'])} | {_ratio(totals['ea'], totals['en'])} | {_ratio(totals['ej'], totals['en'])} | {_ratio(totals['jt'], totals['jn'])} | {_ratio(totals['ja'], totals['jn'])} | {_ratio(totals['jj'], totals['jn'])} |",
+        f"| Rate | {totals['et'] / totals['en']:.1%} | {totals['ea'] / totals['en']:.1%} | {totals['ej'] / totals['en']:.1%} | {totals['jt'] / totals['jn']:.1%} | {totals['ja'] / totals['jn']:.1%} | {totals['jj'] / totals['jn']:.1%} |",
+        "",
+        "The raw matrices are `runs/<slug>/compose_allpairs.csv` and `runs/<slug>/compose_allpairs_judge_wide.csv`.",
+    ])
+    if coverage_notes:
+        lines.extend(["", "## Incomplete conditions", ""])
+        lines.extend(f"- {note}" for note in coverage_notes)
+    return lines
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Summarize ordered-difference composition from per-model matrices.")
-    ap.add_argument("--runs", type=Path, default=REPO / "runs")
-    ap.add_argument("--matrix", default=None, help="model slug for the 7x7 separability matrix")
-    ap.add_argument("--out", type=Path, default=None, help="write the summary as Markdown")
-    args = ap.parse_args()
+    parser = argparse.ArgumentParser(
+        description="Summarize ordered-difference composition from stored run matrices."
+    )
+    parser.add_argument("--runs", type=Path, default=REPO / "runs")
+    parser.add_argument("--matrix", help="model slug for a pair-status matrix")
+    parser.add_argument("--out", type=Path, help="write the Markdown summary")
+    args = parser.parse_args()
 
     if args.matrix:
-        csv = args.runs / args.matrix / GEN
-        if not csv.is_file():
-            raise SystemExit(f"missing {csv}")
-        m = separability_matrix(csv)
-        print(f"Pair separability for {args.matrix} (encoder):")
-        print("✓ target rises and subtracted component falls; ↑ target only; ↓ attenuation only; ✗ neither\n")
-        print(m.to_string())
+        path = args.runs / args.matrix / GEN
+        if not path.is_file():
+            raise SystemExit(f"Missing {path}")
+        print(separability_matrix(path).to_string())
         return
 
-    lines = summary(args.runs)
-    text = "\n".join(lines)
-    print(text)
+    text = "\n".join(summary(args.runs)) + "\n"
+    print(text, end="")
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(text + "\n", encoding="utf-8")
-        print(f"\nwrote {args.out}", file=sys.stderr)
+        args.out.write_text(text, encoding="utf-8")
 
 
 if __name__ == "__main__":

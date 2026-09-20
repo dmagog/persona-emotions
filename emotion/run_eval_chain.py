@@ -102,7 +102,7 @@ def main() -> None:
 
     print(f"\n=== оценка {args.slug} ({matrix.name}) ===", flush=True)
 
-    # --- бесплатные стадии: энкодер и геометрия векторов ---
+    # --- Local evaluation stages ---
 
     stage("1. интервалы по энкодеру",
           runs / "ci_encoder.md", matrix,
@@ -110,29 +110,16 @@ def main() -> None:
            "--out", runs / "ci_encoder.md"],
           log)
 
-    vec_dir = REPO / "emotion_vectors" / args.slug
-    if vec_dir.is_dir() and layer is not None:
-        probe = vec_dir / "anger_response_avg_diff.pt"
-        # ВАЖНО: у valence_arousal --layer это сырой индекс тензора, а в meta
-        # лежит номер блока. Индексация векторов сдвинута на единицу.
-        stage("2. геометрия векторов",
-              runs / "valence_arousal.md", probe,
-              [py, "-m", "emotion.valence_arousal", "--vector-dir", vec_dir,
-               "--layer", int(layer) + 1, "--out", runs / "valence_arousal.md"],
-              log, required=False)
-    else:
-        print("2. геометрия векторов: пропуск (нет векторов или слоя в meta)", flush=True)
-
     pairs_dir = REPO / "eval_emotion" / args.slug
     if pairs_dir.is_dir():
         combined = pairs_dir / "all_emotions_extract.csv"
-        stage("3. разделимость по парам",
+        stage("2. pair separability",
               runs / "separability.csv", combined,
               [py, "-m", "emotion.score_csv", "--data-dir", pairs_dir,
                "--out", runs / "separability.csv"],
               log, required=False)
     else:
-        print("3. разделимость: пропуск (нет пар)", flush=True)
+        print("2. pair separability: skipped because paired outputs are absent", flush=True)
 
     # --- судейские стадии ---
 

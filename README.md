@@ -65,6 +65,7 @@ Existing judge caches are versioned with the generated answers. Re-running a jud
 - [Results](docs/RESULTS.md) contains the cross-model single-direction summary.
 - [Composition](docs/COMPOSITION.md) reports the ordered-difference analysis.
 - [Dialogue evaluation](docs/DIALOG_SAFETY.md) documents the de-escalation extension and its controls.
+- [Reproducibility](docs/REPRODUCIBILITY.md) maps the reported tables to their stored artifacts and rebuild commands.
 - [Runbook](RUNBOOK.md) gives the command-level workflow and artifact layout.
 
 ## License

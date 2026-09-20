@@ -68,7 +68,7 @@ def test_layers_and_dtype() -> None:
 
 
 def test_steerer_guards() -> None:
-    from activation_steer import ActivationSteerer, _hidden_size
+    from emotion.activation_steer import ActivationSteerer, _hidden_size
 
     print("\n— предохранители наведения")
 
@@ -338,7 +338,7 @@ def test_protocol() -> None:
     check(any(c.deviation for c in PROTOCOL) and any(not c.deviation for c in PROTOCOL),
           "отклонения отделены от совпадений",
           f"{sum(c.deviation for c in PROTOCOL)} из {len(PROTOCOL)} — отклонения")
-    check("2507.21509" in card(), "карточка называет базовую статью")
+    check("CEmoSteer" in card(), "карточка называет текущий проект")
 
     same = {"A": {"protocol": 1, "n_prompts": 56, "drive": "coeff=8",
                   "judge_filtered": True, "max_degen": 0.10, "stamped": True}}
@@ -515,8 +515,8 @@ def test_prompt_consistency() -> None:
     """Промпт снятия вектора должен собираться так же, как промпт применения."""
     print("\n— согласованность промптов")
     src = {}
-    for f in ("eval/run_emotion_inference_batch.py", "emotion/steer_eval.py",
-              "emotion/steer_specificity.py", "generate_vec.py"):
+    for f in ("emotion/generate_pairs.py", "emotion/steer_eval.py",
+              "emotion/steer_specificity.py", "emotion/hidden_states.py"):
         p = REPO / f
         if p.is_file():
             src[f] = p.read_text(encoding="utf-8")
@@ -534,7 +534,7 @@ def test_prompt_consistency() -> None:
     passed_on = chain.count("+ dtype_arg")
     check(passed_on >= 4, "тип вычислений передан всем четырём стадиям",
           f"стадий с явным типом: {passed_on}")
-    pairs_src = (REPO / "eval" / "run_emotion_inference_batch.py").read_text(encoding="utf-8")
+    pairs_src = (REPO / "emotion" / "generate_pairs.py").read_text(encoding="utf-8")
     check("load_model(args.model, dtype=" in pairs_src,
           "генератор пар грузит модель с явным типом")
     check(re.search(r"load_model\(args\.model\)\s*$", pairs_src, re.M) is None,

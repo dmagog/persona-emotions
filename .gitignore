@@ -28,46 +28,16 @@ Thumbs.db
 # Claude Code
 .claude/
 
-# Generated outputs
-eval_bfi_output/
-eval_fusion_bfi_output/
-eval_fusion_bfi_output_average/
-eval_persona_extract/
-eval_persona_eval/
-eval_persona_eval_assit/
-eval_persona_extract_assit/
-dialog_eval_results/
-orthogonality_analysis/
-output/
-eval_output/
-*_ranking_results.json
-
-# Large artifacts (download separately)
-persona_vectors/
-dataset/
-
-# Training checkpoints
+# Training checkpoints and local outputs
 ckpt/
 wandb/
+output/
 
-# Analysis outputs
-analyze/*.csv
-analyze/bfi_correlation_analysis/
-analyze/fusion_analysis/
-
-# NPTI outputs
-NPTI/gpt4_score_*/
-NPTI/NPTI_test_results/
-
-# Кэши судьи держим в git: это 170 тысяч оплаченных вызовов (~$15) и
-# единственный способ пересчитать судейские стадии бесплатно. Ключ - хеш
-# текста ответа, так что кэш годится только для тех же генераций.
-# runs/*/*.cache.jsonl — не игнорируем
+# Judge caches are versioned because they allow an unchanged evaluation to be
+# rerun without new API calls. The cache key is a hash of the generated reply.
+# runs/*/*.cache.jsonl remains tracked.
 *.cache.jsonl
 !runs/*/*.cache.jsonl
 
 # local-only worklog between syncs (not for git)
 worklog_local.md
-
-# May semester-1 deliverables kept for history, PDFs untracked
-docs/legacy/*.pdf

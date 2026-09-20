@@ -10,7 +10,8 @@ encoder is structurally blind to guilt/disgust, so it may win on the other 5 onl
 
 Usage:
     python -m emotion.label_correlation \
-        --sheet results/human_label_sheet.csv --key results/human_label_key.csv
+        --sheet artifacts/human-evaluation/human_label_sheet.csv \
+        --key artifacts/human-evaluation/human_label_key.csv
 """
 from __future__ import annotations
 

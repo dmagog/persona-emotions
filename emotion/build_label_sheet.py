@@ -17,11 +17,11 @@ it is directly comparable to both the encoder and the judge).
 
 Usage:
     python -m emotion.build_label_sheet \
-        --answers-csv results/steer_spec_gemma_saefeat_n56.csv \
-        --judge-wide results/judge_spec_n56_wide.csv \
+        --answers-csv runs/<slug>/steer_specificity.csv \
+        --judge-wide runs/<slug>/judge_wide.csv \
         --n 300 --seed 0 \
-        --out-sheet results/human_label_sheet.csv \
-        --out-key results/human_label_key.csv
+        --out-sheet artifacts/human-evaluation/human_label_sheet.csv \
+        --out-key artifacts/human-evaluation/human_label_key.csv
 """
 from __future__ import annotations
 
@@ -44,8 +44,8 @@ def main() -> None:
                     help="judge_specificity --out-wide CSV (per-emotion 0-100), keyed by steer+prompt_id")
     ap.add_argument("--n", type=int, default=300, help="total (answer x emotion) items to sample")
     ap.add_argument("--seed", type=int, default=0)
-    ap.add_argument("--out-sheet", type=Path, default=Path("results/human_label_sheet.csv"))
-    ap.add_argument("--out-key", type=Path, default=Path("results/human_label_key.csv"))
+    ap.add_argument("--out-sheet", type=Path, default=Path("artifacts/human-evaluation/human_label_sheet.csv"))
+    ap.add_argument("--out-key", type=Path, default=Path("artifacts/human-evaluation/human_label_key.csv"))
     args = ap.parse_args()
     rng = random.Random(args.seed)
 

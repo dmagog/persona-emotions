@@ -24,7 +24,7 @@ from pathlib import Path
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from activation_steer import ActivationSteerer
+from emotion.activation_steer import ActivationSteerer
 from emotion.classifier_encoder import ClassifierBasedEncoder
 from emotion.loader import LoadSpec, load_model_and_tokenizer
 from emotion.space import ISEAR_EMOTIONS
