@@ -181,16 +181,16 @@ async def main_async(args) -> None:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Судья диалоговой деэскалации.")
-    ap.add_argument("--csv", type=Path, required=True, help="выход steer_dialog_safety")
+    ap = argparse.ArgumentParser(description="Judge for the dialogue de-escalation evaluation.")
+    ap.add_argument("--csv", type=Path, required=True, help="output file of steer_dialog_safety")
     ap.add_argument("--dialogs", type=Path,
                     default=REPO / "data_generation" / "deescalation_dialogs.json")
     ap.add_argument("--model", default="meta-llama/llama-3.3-70b-instruct",
-                    help="основной судья, как в остальных стадиях")
+                    help="primary judge, the same one used by the other stages")
     ap.add_argument("--metrics", default=",".join(RUBRICS))
     ap.add_argument("--concurrency", type=int, default=8)
     ap.add_argument("--cache", type=Path, default=None)
-    ap.add_argument("--fresh", action="store_true", help="игнорировать кэш")
+    ap.add_argument("--fresh", action="store_true", help="ignore the cache and rescore everything")
     ap.add_argument("--out", type=Path, required=True)
     asyncio.run(main_async(ap.parse_args()))
 

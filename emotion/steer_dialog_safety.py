@@ -105,7 +105,7 @@ def generate(model, tokenizer, prompt: str, max_new_tokens: int) -> str:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Деэскалация в диалоге через подавление anger/fear.")
+    ap = argparse.ArgumentParser(description="Dialogue de-escalation under emotion suppression.")
     ap.add_argument("--model_name", required=True)
     ap.add_argument("--vector-dir", required=True, type=Path)
     ap.add_argument("--layer", type=int, required=True)
@@ -113,13 +113,13 @@ def main() -> None:
     ap.add_argument("--dialogs", type=Path,
                     default=REPO / "data_generation" / "deescalation_dialogs.json")
     ap.add_argument("--conditions", default=",".join(CONDITIONS),
-                    help="через запятую; по умолчанию все пять")
+                    help="comma-separated; defaults to all five named conditions")
     ap.add_argument("--max-new-tokens", type=int, default=160)
-    ap.add_argument("--dtype", default="float16", help="должен совпадать с прогоном модели")
+    ap.add_argument("--dtype", default="float16", help="must match the dtype used for the model run")
     ap.add_argument("--random-match", default="anger",
-                    help="эмоция, по норме которой масштабируются условия randomN")
+                    help="emotion whose vector norm the randomN conditions are scaled to")
     ap.add_argument("--no-encoder", action="store_true",
-                    help="не считать баллы эмоций (колонки останутся пустыми)")
+                    help="skip encoder scoring; the emotion columns stay empty")
     ap.add_argument("--out", type=Path, required=True)
     args = ap.parse_args()
 

@@ -12,7 +12,9 @@ csv.field_size_limit(2**31 - 1)
 
 REPO = Path(__file__).resolve().parent.parent
 CORE = ("baseline", "-anger", "-fear", "-anger-fear", "+anger")
-SOURCES = ("dialog_safety", "dialog_other", "dialog_rand")
+# Sweep files are excluded on purpose: they repeat `-anger` at other coefficients
+# and would overwrite the operating-point rows keyed by (condition, dialog_id).
+SOURCES = ("dialog_safety", "dialog_other", "dialog_rest", "dialog_rand")
 
 
 def rows(path: Path) -> list[dict]:

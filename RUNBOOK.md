@@ -80,10 +80,28 @@ The second comparison measures whether subtracting `Y` reduces the extra `Y` exp
 
 The dialogue extension uses 30 multi-turn English prompts in `data_generation/deescalation_dialogs.json`. It reuses the selected layer and coefficient from the emotion study and writes outputs next to each model run.
 
+The three stages are separate because only the first one needs a GPU.
+
 ```bash
-python3 -m emotion.collect_dialog_safety --run runs/Falcon3-3B-Instruct
-python3 -m emotion.collect_dialog_safety --run runs/Qwen2.5-1.5B-Instruct
+# 1. Generate one reply per dialogue under each intervention.
+python3 -m emotion.steer_dialog_safety \
+    --model_name tiiuae/Falcon3-3B-Instruct \
+    --vector-dir emotion_vectors/Falcon3-3B-Instruct \
+    --layer 12 --coeff 6 --dtype float16 \
+    --out runs/Falcon3-3B-Instruct/dialog_safety.csv
+
+# 2. Score escalation, helpfulness, and empathy against the provocation.
+python3 -m emotion.judge_dialog_safety \
+    --csv runs/Falcon3-3B-Instruct/dialog_safety.csv \
+    --out runs/Falcon3-3B-Instruct/dialog_safety_judge.csv
+
+# 3. Rebuild the summary from every stored dialogue file.
+python3 -m emotion.collect_dialog_safety --out docs/DIALOG_SAFETY.md
 ```
+
+`--conditions` selects the interventions. It accepts signed emotions such as `-anger`
+or `+joy`, and `randomN` for a norm-matched random direction. Pass it with an equals
+sign, as in `--conditions=-anger`, so the leading dash is not read as an option.
 
 The completed study includes seven negative emotion directions, positive anger, an anger-strength sweep, and three norm-matched random directions. The random controls distinguish changes caused by an emotion direction from changes caused by a perturbation of similar size.
 

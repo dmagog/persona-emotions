@@ -15,7 +15,7 @@ Each delta compares replies to the unsteered reply for the same dialogue. Interv
 | `+anger` | 30 | 95.7 | +83.3 [+74.0, +91.0] | 4.0 | 4.1 |
 | random-direction mean | 90 | n/a | +18.5 n/a | n/a | n/a |
 
-The mean escalation change across the available negative single-emotion controls is 16.5.
+The mean escalation change across the available negative single-emotion controls is 17.8.
 
 ## Qwen-2.5-1.5B
 
@@ -28,7 +28,7 @@ The mean escalation change across the available negative single-emotion controls
 | `+anger` | 30 | 86.3 | +69.7 [+59.3, +79.3] | 4.7 | 14.7 |
 | random-direction mean | 90 | n/a | +23.7 n/a | n/a | n/a |
 
-The mean escalation change across the available negative single-emotion controls is 20.5.
+The mean escalation change across the available negative single-emotion controls is 22.4.
 
 The source dialogues are in `data_generation/deescalation_dialogs.json`. Generation files, judge scores, and judge caches are in the two corresponding `runs/` directories.
 
