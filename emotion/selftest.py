@@ -338,13 +338,15 @@ def test_protocol() -> None:
     check(any(c.deviation for c in PROTOCOL) and any(not c.deviation for c in PROTOCOL),
           "отклонения отделены от совпадений",
           f"{sum(c.deviation for c in PROTOCOL)} из {len(PROTOCOL)} — отклонения")
-    check("CEmoSteer" in card(), "карточка называет текущий проект")
+    rendered = card()
+    check(all(c.name in rendered for c in PROTOCOL),
+          "карточка перечисляет все решения протокола")
 
     same = {"A": {"protocol": 1, "n_prompts": 56, "drive": "coeff=8",
                   "judge_filtered": True, "max_degen": 0.10, "stamped": True}}
     same["B"] = dict(same["A"])
     check(not compare_planes(same), "одинаковые прогоны считаются сравнимыми")
-    check("одной плоскости" in " ".join(report(same)), "и так и сказано в отчёте")
+    check("share one plane" in " ".join(report(same)), "и так и сказано в отчёте")
 
     odd = dict(same)
     odd["C"] = {**same["A"], "n_prompts": 14, "judge_filtered": False, "stamped": False}
@@ -352,7 +354,7 @@ def test_protocol() -> None:
     check(set(diff) == {"n_prompts", "judge_filtered"},
           "расхождения названы поимённо", ", ".join(sorted(diff)))
     txt = " ".join(report(odd))
-    check("C" in txt and "Без штампа" in txt,
+    check("C" in txt and "No protocol stamp" in txt,
           "выбивающаяся строка и отсутствие штампа попадают в отчёт")
     check(all(k in PLANE_KEYS for k in diff), "все ключи плоскости описаны по-русски")
 

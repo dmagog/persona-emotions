@@ -20,14 +20,13 @@ from emotion import stamp
 from emotion.space import ISEAR_EMOTIONS
 
 REPO = Path(__file__).resolve().parent.parent
-PAPER = "CEmoSteer"
 
 
 @dataclass
 class Choice:
-    """Одно решение протокола: как в статье, как у нас, почему."""
+    """One protocol decision: common practice, what this study does, and why."""
     name: str
-    paper: str
+    reference: str
     ours: str
     where: str
     note: str = ""
@@ -36,131 +35,138 @@ class Choice:
 
 PROTOCOL: list[Choice] = [
     Choice(
-        "Пулинг активаций",
-        "response avg — среднее по токенам ответа",
-        "response avg",
-        "§A.3, рис. 11",
-        "Статья сравнила prompt last / prompt avg / response avg и выбрала третий."),
+        "Activation pooling",
+        "response average over answer tokens",
+        "response average",
+        "extraction",
+        "Prompt-last, prompt-average and response-average pooling were compared; "
+        "the third was selected."),
     Choice(
-        "Формула наведения",
-        "h_ℓ ← h_ℓ + α·v_ℓ, вектор СЫРОЙ",
-        "h_ℓ + coeff·v_ℓ, вектор сырой",
-        "§3.2",
-        "Вектор в основном пайплайне статьи не нормируется. См. «Нормировка» ниже."),
+        "Steering formula",
+        "h += alpha * v, with the raw direction",
+        "h += coeff * v, with the raw direction",
+        "intervention",
+        "The direction is not normalized before it is added. See Normalization below."),
     Choice(
-        "Нормировка вектора",
-        "только там, где сравниваются РАЗНЫЕ направления: позиции токенов (§A.3) "
-        "и проекция при мониторинге (v̂, §3.3). В наведении — нет",
-        "не нормируем при наведении; при `--center` перенормируем к исходной длине",
-        "§A.3, §3.3",
-        "Правило: сравниваешь направления — уравнивай нормы, сравниваешь модели — "
-        "уравнивай эффект. Наш документ раньше приписывал статье нормировку перед "
-        "наведением со ссылкой на B.4 — это неверно, B.4 про выбор слоя."),
+        "Direction normalization",
+        "only where different directions are compared against one another",
+        "no normalization when steering; with --center the vector is rescaled "
+        "back to its original length",
+        "intervention",
+        "The rule is: equalize norms when comparing directions, equalize effect "
+        "when comparing models."),
     Choice(
-        "Позиции при наведении",
-        "на каждом шаге декодирования",
-        "positions=\"all\"",
-        "§3.2",
-        "Не last-position-only: это один из подозреваемых в баге научрука."),
+        "Steered positions",
+        "every decoding step",
+        'positions="all"',
+        "intervention",
+        "Steering only the last position changes which tokens carry the "
+        "perturbation and is not equivalent."),
     Choice(
-        "Выбор слоя",
-        "наведение на КАЖДОМ слое с ОДНИМ коэффициентом, берётся слой с "
-        "максимальным баллом выраженности",
-        "три кандидата от глубины {0.35, 0.45, 0.55}, сетка коэффициентов "
-        "{0,2,4,6,8,16} при 16 промптах на ячейку, берётся сильнейшая точка "
-        "при доле вырожденных ≤ 10%",
-        "§B.4",
-        "Полный свип по слоям у нас не влезает в ночь на 2070. Ограничение по "
-        "вырожденности добавлено потому, что наивный максимум балла выбирал слой "
-        "с 38% брака: вырожденный повтор энкодер читает как сильную эмоцию.",
+        "Layer selection",
+        "steer at every layer with one coefficient, keep the layer with the "
+        "highest expression score",
+        "three candidates at {0.35, 0.45, 0.55} of model depth, a coefficient "
+        "grid of {0, 2, 4, 6, 8, 16} with 16 prompts per cell, keeping the "
+        "strongest point whose degenerate-output share stays at or below 10%",
+        "calibration",
+        "A full layer sweep does not fit in one night on an RTX 2070. The "
+        "degeneration constraint was added because a naive score maximum "
+        "selected a layer with 38% unusable output: the encoder reads a "
+        "degenerate repetition as strong emotion.",
         deviation=True),
     Choice(
-        "Нумерация слоёв",
-        "с единицы; «слой 20» — выход 20-го блока",
-        "с нуля; для блока B берётся vec[B+1] в hidden_states",
-        "§B.4, сноска",
-        "Наш «слой 10» — это «слой 11» в терминах статьи. При переносе чисел в "
-        "статью нумерацию сдвигать, иначе повторим off-by-one.",
+        "Layer numbering",
+        "one-based, where layer 20 is the output of the 20th block",
+        "zero-based; for block B the code takes vec[B+1] in hidden_states",
+        "calibration",
+        "Layer 10 here is layer 11 under one-based numbering. Shift the index "
+        "when moving numbers into prose, or the off-by-one returns.",
         deviation=True),
     Choice(
-        "Фильтр обучающих пар",
-        "per-response: балл > 50 у положительной инструкции и < 50 у "
-        "отрицательной; судья GPT-4.1-mini, агрегация по top-20 логитам",
-        "парный судья реализован (балл на пару «насколько A эмоциональнее B», "
-        "порог 60, llama-3.3-70b), но в опубликованной сетке НЕ применялся: "
-        "judge_filtered=false у всех 11 строк - осознанная абляция",
-        "§2, §B.1",
-        "Парное сравнение чище одиночных баллов: обе стороны про один сценарий. "
-        "Logprob-агрегация недоступна — OpenRouter их не отдаёт.",
+        "Extraction-pair filter",
+        "per-response judging with a score threshold on each side of the pair",
+        "a pairwise judge is implemented, scoring how much more emotional A is "
+        "than B with a threshold of 60 on llama-3.3-70b, but the published grid "
+        "does not use it: judge_filtered is false in all 11 rows, as a "
+        "deliberate ablation",
+        "pair generation",
+        "A pairwise comparison is cleaner than two independent scores because "
+        "both sides describe the same scenario. Logprob aggregation is "
+        "unavailable, since the provider does not return them.",
         deviation=True),
     Choice(
-        "Датасет под модель",
-        "пары генерирует сама целевая модель",
-        "то же: self-цикл на каждую модель",
-        "§2",
-        "Векторы с чужого текста работают, но имеют другую норму и другой выбор "
-        "слоя. Старый вариант сохранён как отдельная строка абляции переноса."),
+        "Per-model dataset",
+        "the target model writes its own pairs",
+        "the same: one self-generation cycle per model",
+        "pair generation",
+        "Vectors extracted from another model's text still work, but they carry "
+        "a different norm and select a different layer. The earlier variant is "
+        "kept as a separate transfer-ablation row."),
     Choice(
-        "Декодирование",
-        "не оговорено",
-        "greedy, temperature=0 на всех стадиях",
-        "—",
-        "Против рекомендации Qwen (там просят сэмплинг). Держим ради "
-        "воспроизводимости: вектор — разность средних, сэмплинг добавляет в неё шум. "
-        "Контроль — колонка вырожденности.",
+        "Decoding",
+        "not specified",
+        "greedy, temperature 0 at every stage",
+        "all stages",
+        "This goes against the Qwen recommendation to sample. It is kept for "
+        "reproducibility: the direction is a difference of means, and sampling "
+        "adds noise to it. The degeneration column is the control.",
         deviation=True),
     Choice(
-        "Измеритель эффекта",
-        "LLM-судья по выраженности черты",
-        "независимый энкодер SamLowe/roberta-base-go_emotions + панель из трёх "
-        "LLM-судей разных вендоров (llama-3.3-70b, gemini-3.5-flash-lite, gpt-4.1-mini)",
-        "§B.1",
-        "Два измерителя вместо одного: расходятся (энкодер 4/7, судья 6/7 на "
-        "Qwen3-1.7B), поэтому в отчёте оба столбца. Судейский столбец проверен "
-        "панелью: согласие с основным судьёй 0.77-0.91 по Пирсону на 11 моделях. "
-        "Судья отвечает не на все вызовы - полноту матрицы проверяет сводка, "
-        "процедура добора в RUNBOOK."),
+        "Effect measurement",
+        "an LLM judge scoring trait expression",
+        "an independent encoder, SamLowe/roberta-base-go_emotions, plus a panel "
+        "of three LLM judges from different vendors (llama-3.3-70b, "
+        "gemini-3.5-flash-lite, gpt-4.1-mini)",
+        "evaluation",
+        "Two instruments rather than one, because they disagree: 4 of 7 under "
+        "the encoder against 6 of 7 under the judge on Qwen3-1.7B, so the report "
+        "carries both columns. The judge column is checked against the panel, "
+        "with Pearson agreement of 0.77 to 0.91 across 11 models. The judge does "
+        "not answer every call, so the summary checks matrix coverage and the "
+        "runbook describes how to top it up."),
 ]
 
 
-# --- одна ли плоскость ------------------------------------------------------
+# --- comparability plane -----------------------------------------------------
 
-# Поля, при расхождении которых строки таблицы нельзя ставить рядом. Слой и
-# коэффициент сюда НЕ входят: они у каждой модели свои по построению, в этом
-# и смысл подбора рабочей точки.
+# Fields that must agree before two rows may sit in the same table. Layer and
+# coefficient are deliberately absent: they differ per model by construction,
+# which is the whole point of selecting an operating point.
 PLANE_KEYS: dict[str, str] = {
-    "protocol": "версия протокола",
-    "n_prompts": "промптов на условие",
-    "drive": "чем задано наведение",
-    "judge_filtered": "фильтр пар судьёй",
-    "max_degen": "порог вырожденности при выборе точки",
-    "dtype": "точность вычислений",
+    "protocol": "protocol version",
+    "n_prompts": "prompts per condition",
+    "drive": "how the intervention is driven",
+    "judge_filtered": "judge filter on pairs",
+    "max_degen": "degeneration ceiling during selection",
+    "dtype": "compute precision",
 }
 
 
 def dtype_of(run_dir: Path, meta: dict) -> str | None:
-    """В какой точности считался прогон.
+    """Report the precision a run used.
 
-    В манифест это стали писать не сразу, поэтому для старых прогонов дочитываем
-    из лога загрузчика. Отличать обязательно: fp16 и bf16 дают разные младшие
-    разряды активаций, а на моделях, обученных в bf16, fp16 ещё и переполняется.
+    The manifest did not always record it, so older runs are read back from the
+    loader log. The distinction matters: fp16 and bf16 differ in the low bits of
+    the activations, and on models trained in bf16 fp16 also overflows.
     """
     if meta.get("dtype"):
         return str(meta["dtype"]).replace("torch.", "")
     log = run_dir / "chain.log"
     if not log.is_file():
         return None
-    # Лог с Windows-консоли в cp1251, но сама строка загрузчика — ASCII.
+    # A log written by a Windows console is cp1251, but the loader line is ASCII.
     found = re.findall(r"dtype=torch\.(\w+)",
                        log.read_text(encoding="utf-8", errors="ignore"))
     return found[-1] if found else None
 
 
 def plane_of(run_dir: Path, csv_path: Path) -> dict:
-    """Плоскость, в которой снята строка.
+    """Describe the plane a row was measured in.
 
-    Где можно — из самих данных, а не из манифеста: число промптов и режим
-    наведения читаются из матрицы, и их нельзя рассинхронизировать с ней.
+    Where possible this reads the data itself rather than the manifest. The
+    prompt count and the drive mode come from the matrix, so they cannot drift
+    apart from it.
     """
     meta = {}
     meta_path = run_dir / "meta.json"
@@ -173,10 +179,10 @@ def plane_of(run_dir: Path, csv_path: Path) -> dict:
     n_prompts = int(steered.groupby("steer")["prompt_id"].nunique().max()) \
         if not steered.empty and "prompt_id" in d.columns else None
 
-    # В плоскость идёт РЕЖИМ наведения, а не значение коэффициента. Значение у
-    # каждой модели своё по построению — рабочая точка подбирается по поведению,
-    # в этом и смысл. А вот «одну модель вели коэффициентом, другую безразмерной
-    # силой» — уже разные протоколы.
+    # The plane records the drive MODE, not the coefficient value. The value is
+    # model specific by construction, since the operating point is chosen by
+    # behavior. Driving one model by coefficient and another by a dimensionless
+    # strength, however, is a different protocol.
     drive = "?"
     if "coeff" in d.columns and not steered.empty:
         used = {round(float(c), 3) for c in steered["coeff"] if str(c).strip()}
@@ -191,19 +197,19 @@ def plane_of(run_dir: Path, csv_path: Path) -> dict:
         "dtype": dtype_of(run_dir, meta),
         "stamped": bool(st),
         "op_at_edge": at_grid_edge(run_dir, meta),
-        # Не ключ плоскости: иначе любой коммит в документацию рвал бы таблицу.
-        # Но разброс версий кода — повод посмотреть, что между ними менялось.
+        # Not a plane key, or any documentation commit would split the table.
+        # A spread of code versions is still worth a look at what changed.
         "code": (meta.get("env") or {}).get("git_sha"),
     }
 
 
 def at_grid_edge(run_dir: Path, meta: dict) -> str | None:
-    """Не упёрлась ли рабочая точка в край сетки коэффициентов.
+    """Report whether the operating point landed on an edge of the coefficient grid.
 
-    Если выбран максимум сетки, оптимум мог остаться за ней — сетку надо
-    расширять, иначе «сильнейшее неразрушающее наведение» означает всего лишь
-    «самое сильное, что мы попробовали». Если выбран минимум — наоборот,
-    ограничение по вырожденности связывает, и модель хрупкая.
+    At the top of the grid the optimum may lie beyond it, so the grid needs
+    widening; otherwise "the strongest non-degenerate intervention" only means
+    "the strongest one tried". At the bottom the degeneration limit is binding
+    instead, and the model is fragile.
     """
     sweep = run_dir / "layer_sweep_anger.csv"
     op = meta.get("op_coeff")
@@ -216,14 +222,13 @@ def at_grid_edge(run_dir: Path, meta: dict) -> str | None:
     if not grid:
         return None
     if abs(float(op) - grid[-1]) < 1e-9:
-        return f"верх сетки ({grid[-1]:g}): оптимум мог остаться за ней"
+        return f"top of the grid ({grid[-1]:g}): the optimum may lie beyond it"
     if abs(float(op) - grid[0]) < 1e-9 and len(grid) > 1:
-        return f"низ сетки ({grid[0]:g}): всё, что сильнее, разрушало текст"
+        return f"bottom of the grid ({grid[0]:g}): anything stronger broke the text"
     return None
 
 
 def compare_planes(planes: dict[str, dict]) -> dict[str, dict]:
-    """Какие поля плоскости разошлись между строками и как именно."""
     out: dict[str, dict] = {}
     for key in PLANE_KEYS:
         seen: dict = {}
@@ -235,68 +240,68 @@ def compare_planes(planes: dict[str, dict]) -> dict[str, dict]:
 
 
 def report(planes: dict[str, dict]) -> list[str]:
-    """Текст про сопоставимость — идёт под таблицу как есть."""
+    """Build the comparability text that goes under the summary table as is."""
     lines: list[str] = []
     unstamped = [n for n, p in planes.items() if not p.get("stamped")]
     edges = {n: p["op_at_edge"] for n, p in planes.items() if p.get("op_at_edge")}
     diff = compare_planes(planes)
 
     if not planes:
-        return ["Нет строк для сравнения."]
+        return ["No rows to compare."]
     if not diff and not unstamped and not edges:
-        lines.append(f"Все {len(planes)} строк сняты в одной плоскости — сравнимы между собой.")
+        lines.append(f"All {len(planes)} rows share one plane and are comparable.")
         return lines
     if not diff:
-        lines.append(f"Плоскость общая у всех {len(planes)} строк. Оговорки ниже.")
+        lines.append(f"All {len(planes)} rows share one plane. Caveats follow.")
         lines.append("")
 
     if diff:
-        lines.append("**Строки сняты в разных плоскостях — рядом их ставить нельзя:**")
+        lines.append("**These rows were measured in different planes and cannot sit side by side:**")
         lines.append("")
         for key, seen in diff.items():
             variants = "; ".join(
-                f"{v if v is not None else 'неизвестно'} — {', '.join(sorted(names))}"
+                f"{v if v is not None else 'unknown'}: {', '.join(sorted(names))}"
                 for v, names in sorted(seen.items(), key=lambda kv: str(kv[0])))
             lines.append(f"- {PLANE_KEYS[key]}: {variants}")
         lines.append("")
     codes: dict[str, list[str]] = {}
     for name, p in planes.items():
-        codes.setdefault(p.get("code") or "неизвестно", []).append(name)
+        codes.setdefault(p.get("code") or "unknown", []).append(name)
     if len(codes) > 1:
-        lines.append("**Строки сняты на разных версиях кода:**")
+        lines.append("**These rows were produced by different code versions:**")
         lines.append("")
         for sha, names in sorted(codes.items()):
             lines.append(f"- `{sha}`: {', '.join(sorted(names))}")
         lines.append("")
-        shas = [s for s in sorted(codes) if s != "неизвестно"]
+        shas = [s for s in sorted(codes) if s != "unknown"]
         if len(shas) >= 2:
-            lines.append(f"Проверить `git log --oneline {shas[0]}..{shas[-1]}`: менялось ли "
-                         "что-то, влияющее на числа, или только оснастка.")
+            lines.append(f"Check `git log --oneline {shas[0]}..{shas[-1]}` for changes that "
+                         "affect the numbers rather than the tooling around them.")
             lines.append("")
     if edges:
-        lines.append("**Рабочая точка упёрлась в край сетки коэффициентов:**")
+        lines.append("**The operating point landed on an edge of the coefficient grid:**")
         lines.append("")
         for name, why in sorted(edges.items()):
             lines.append(f"- {name}: {why}")
         lines.append("")
     if unstamped:
         lines.append(
-            f"**Без штампа протокола:** {', '.join(sorted(unstamped))}. "
-            "Чем сняты — известно только со слов манифеста. Подтвердить: "
+            f"**No protocol stamp:** {', '.join(sorted(unstamped))}. "
+            "How they were produced is known only from the manifest. Confirm with "
             "`python -m emotion.stamp runs/<slug> --adopt --config configs/models/<slug>.yaml`")
         lines.append("")
     return lines
 
 
 def card() -> str:
-    """Карточка протокола. Годится и в статью, и в пакет для лаборатории."""
-    out = [f"# Протокол\n\nБаза: {PAPER}.\n",
-           "| Решение | В статье | У нас | Где |",
+    """Render the protocol decisions as a table with the reasoning underneath."""
+    out = ["# Protocol decisions\n",
+           "| Decision | Common practice | This study | Stage |",
            "|---|---|---|---|"]
     for c in PROTOCOL:
-        mark = " ⚠" if c.deviation else ""
-        out.append(f"| {c.name}{mark} | {c.paper} | {c.ours} | {c.where} |")
-    out.append("\n⚠ — сознательное отклонение от статьи.\n")
+        mark = " (*)" if c.deviation else ""
+        out.append(f"| {c.name}{mark} | {c.reference} | {c.ours} | {c.where} |")
+    out.append("\n(*) marks a deliberate departure from common practice.\n")
     for c in PROTOCOL:
         if c.note:
             out.append(f"**{c.name}.** {c.note}\n")
@@ -306,9 +311,10 @@ def card() -> str:
 def main() -> None:
     import argparse
 
-    ap = argparse.ArgumentParser(description="Протокол: карточка и проверка плоскости.")
+    ap = argparse.ArgumentParser(
+        description="Protocol decisions and the comparability check.")
     ap.add_argument("--check", type=Path, default=None,
-                    help="каталог runs/: проверить, в одной ли плоскости строки")
+                    help="a runs/ directory: check whether its rows share one plane")
     args = ap.parse_args()
 
     if args.check:
@@ -318,7 +324,8 @@ def main() -> None:
             if not run_dir.is_dir():
                 continue
             for csv_path in variants_in(run_dir):
-                # Имя без варианта — наследство прежней раскладки, вариант там raw.
+                # A name without a variant comes from the earlier layout, where
+                # the variant was raw.
                 m = re.match(r"steer_specificity_(.+)\.csv$", csv_path.name)
                 planes[f"{run_dir.name}/{m.group(1) if m else 'raw'}"] = \
                     plane_of(run_dir, csv_path)
