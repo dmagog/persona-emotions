@@ -1,13 +1,13 @@
-"""Остаток на OpenRouter: снимок до и после судейского прогона.
+"""OpenRouter credit, sampled before and after a judge run.
 
-Судейские стадии — единственное, что стоит денег, и кончаются они молча:
-провайдер начинает отвечать ошибкой 402, строки просто не попадают в
-матрицу, а таблица показывает результат, посчитанный на подвыборке. Так у
-нас уже пропало условие shame у granite. Дешевле спросить баланс до старта.
+Judge stages are the only part that costs money, and the money runs out in
+silence: the provider starts answering 402, rows simply never reach the matrix,
+and the table then reports a result computed on a subsample. That is how the
+shame condition went missing for granite. Asking the balance first is cheaper.
 
 Usage:
-    python3 -m emotion.balance                    # текущий остаток
-    python3 -m emotion.balance --need 13.5        # хватит ли на прогон
+    python3 -m emotion.balance                    # current credit
+    python3 -m emotion.balance --need 13.5        # is that enough for a run
 """
 from __future__ import annotations
 
@@ -21,12 +21,12 @@ URL = "https://openrouter.ai/api/v1/credits"
 
 
 def _ssl_context() -> ssl.SSLContext:
-    """Контекст с сертификатами из certifi, когда он есть.
+    """An SSL context backed by certifi when it is installed.
 
-    Системный python на Mac ставится без корневых сертификатов, и дефолтный
-    контекст падает с CERTIFICATE_VERIFY_FAILED - страж баланса всю ночь
-    отвечал «не удалось узнать» и молча пропускал прогоны без проверки.
-    Судейские вызовы это не задевало: httpx возит certifi с собой.
+    The system python on a Mac ships without root certificates, so the default
+    context fails with CERTIFICATE_VERIFY_FAILED. The balance guard then spent a
+    whole night answering "could not determine" and letting runs through
+    unchecked. Judge calls were unaffected, since httpx carries certifi itself.
     """
     try:
         import certifi
@@ -36,10 +36,10 @@ def _ssl_context() -> ssl.SSLContext:
 
 
 def fetch() -> dict | None:
-    """Остаток по ключу из окружения. None, если ключа нет или сеть молчит."""
+    """Credit for the key in the environment. None when the key or the network is absent."""
     key = os.environ.get("OPENAI_API_KEY")
     if not key or not key.startswith("sk-or-"):
-        return None  # ключ не от OpenRouter — считать баланс нечем
+        return None  # not an OpenRouter key, so there is no balance to read
     req = urllib.request.Request(URL, headers={"Authorization": f"Bearer {key}"})
     try:
         with urllib.request.urlopen(req, timeout=20, context=_ssl_context()) as r:
@@ -50,17 +50,17 @@ def fetch() -> dict | None:
     return {"bought": bought, "spent": spent, "left": bought - spent}
 
 
-def line(prefix: str = "баланс") -> str:
+def line(prefix: str = "balance") -> str:
     b = fetch()
     if b is None:
-        return f"{prefix}: не удалось узнать (нет ключа OpenRouter или сеть)"
-    return f"{prefix}: остаток ${b['left']:.2f} (куплено ${b['bought']:.2f}, потрачено ${b['spent']:.2f})"
+        return f"{prefix}: could not be determined (no OpenRouter key, or no network)"
+    return f"{prefix}: ${b['left']:.2f} left (bought ${b['bought']:.2f}, spent ${b['spent']:.2f})"
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Остаток на OpenRouter.")
+    ap = argparse.ArgumentParser(description="OpenRouter credit.")
     ap.add_argument("--need", type=float, default=None,
-                    help="сколько нужно на прогон; при нехватке код возврата 1")
+                    help="how much the run needs; exits 1 when the credit is short")
     args = ap.parse_args()
     b = fetch()
     print(line())
@@ -68,9 +68,9 @@ def main() -> None:
         return
     if b["left"] < args.need:
         raise SystemExit(
-            f"не хватает: нужно ${args.need:.2f}, есть ${b['left']:.2f}. "
-            f"Пополнить или сузить прогон.")
-    print(f"на прогон ${args.need:.2f} хватает, останется ${b['left'] - args.need:.2f}")
+            f"not enough: {args.need:.2f} needed, ${b['left']:.2f} available. "
+            f"Top up the account or narrow the run.")
+    print(f"${args.need:.2f} is covered, ${b['left'] - args.need:.2f} would remain")
 
 
 if __name__ == "__main__":
