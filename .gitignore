@@ -39,8 +39,9 @@ output/
 *.cache.jsonl
 !runs/*/*.cache.jsonl
 
-# local-only worklog between syncs (not for git)
+# local-only notes between syncs (not for git)
 worklog_local.md
+docs/DIALOG_SAFETY_NOTE.md
 
 # Old semester reports, kept locally. docs/legacy/Presentation.pptx stays tracked.
 docs/legacy/*.pdf
