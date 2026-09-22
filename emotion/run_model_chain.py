@@ -1,8 +1,8 @@
-"""Полная цепочка для одной модели: пары → векторы → выбор слоя → матрица специфичности.
+"""The full chain for one model: pairs, vectors, layer selection, specificity matrix.
 
-Каждая стадия идемпотентна: если артефакт на месте, стадия пропускается.
-Судья (OpenRouter) здесь НЕ нужен — фильтр пар опционален, а баллы эмоций
-считает локальный энкодер go_emotions. Судейские стадии добавляются отдельно.
+Every stage is idempotent: when its artifact is in place the stage is skipped.
+No judge is needed here. The pair filter is optional and emotion scores come
+from the local go_emotions encoder. Judge stages run separately.
 
 Usage:
     python -m emotion.run_model_chain --model Qwen/Qwen3-1.7B --slug Qwen3-1.7B
@@ -27,7 +27,7 @@ REPO = Path(__file__).resolve().parent.parent
 
 
 def env_manifest() -> dict:
-    """Что нужно, чтобы строку таблицы можно было воспроизвести."""
+    """Record what a row of the results table needs in order to be reproduced."""
     import platform
     import subprocess
     try:
@@ -45,7 +45,7 @@ def env_manifest() -> dict:
 
 
 def sh(args: list[str], log: Path) -> int:
-    """Запустить стадию, потоково складывая вывод в лог."""
+    """Run a stage, streaming its output into the log."""
     stamp = time.strftime("%Y-%m-%dT%H:%M:%S")
     with log.open("a", encoding="utf-8") as fh:
         fh.write(f"\n[stage begin {stamp}] {' '.join(args)}\n")
@@ -57,26 +57,26 @@ def sh(args: list[str], log: Path) -> int:
 
 
 def default_layers(model: str, token: str | None) -> list[int]:
-    """Кандидаты слоёв: 0.35/0.45/0.55 глубины — как в протоколе."""
+    """Candidate layers at 0.35, 0.45 and 0.55 of model depth, as the protocol says."""
     from transformers import AutoConfig
 
     cfg = AutoConfig.from_pretrained(model, token=token)
     n = getattr(cfg, "num_hidden_layers", None)
-    if n is None:  # вложенный конфиг (мультимодальные) — сюда лучше не заходить
+    if n is None:  # a nested config, which means multimodal: better not to proceed
         raise SystemExit(
-            f"{model}: num_hidden_layers не найден на верхнем уровне конфига "
-            f"({type(cfg).__name__}). Вероятно мультимодальная/гибридная архитектура — "
-            "нужен отдельный путь к слоям в ActivationSteerer, см. заметки."
+            f"{model}: num_hidden_layers is absent from the top level of the config "
+            f"({type(cfg).__name__}). This is probably a multimodal or hybrid "
+            "architecture, which needs its own layer path in ActivationSteerer."
         )
     return sorted({max(1, round(n * f)) for f in (0.35, 0.45, 0.55)})
 
 
 def _rep_ratio(text: str, n: int = 4) -> float:
-    """Доля повторяющихся n-грамм: 0 — все уникальны, 1 — сплошной повтор.
+    """Share of repeated n-grams: 0 when all are unique, 1 under solid repetition.
 
-    Не «максимальная частота одной n-граммы»: та растёт на коротких текстах
-    (у ответа в 9 слов всего 6 четырёхграмм, и даже полностью уникальный текст
-    даёт 1/6 = 0.17) и помечает нормальные короткие ответы как вырожденные.
+    Not the frequency of the single most common n-gram, which rises on short
+    texts. A nine-word answer holds only six 4-grams, so even a fully unique one
+    scores 1/6 = 0.17, and ordinary short answers get flagged as degenerate.
     """
     import re
     w = re.findall(r"\w+", str(text).lower())
@@ -87,13 +87,14 @@ def _rep_ratio(text: str, n: int = 4) -> float:
 
 
 def pick_operating_point(sweep_csv: Path, max_degen: float = 0.10) -> tuple[int, float]:
-    """Рабочая точка: сильнейшее наведение, которое ещё не разрушает текст.
+    """Pick the strongest intervention that does not yet break the text.
 
-    Единый коэффициент между моделями несопоставим (нормы векторов и масштабы
-    активаций разные), единая безразмерная сила — тоже: связь силы с разрушением
-    у каждой модели своя. Поэтому точка подбирается по поведению: максимум
-    целевого балла среди ячеек, где доля вырожденных ответов не выше порога.
-    Сравнение моделей затем идёт при сопоставимом эффекте, а не при равном входе.
+    One shared coefficient is not comparable across models, because vector norms
+    and activation scales differ. One shared dimensionless strength is not
+    comparable either, since the link between strength and breakage is model
+    specific. So the point is chosen by behavior: the highest target score among
+    cells whose degenerate-output share stays within the ceiling. Models are then
+    compared at a comparable effect rather than at an equal input.
     """
     d = pd.read_csv(sweep_csv)
     d["degen"] = d["answer"].map(lambda t: _rep_ratio(t) > 0.15)
@@ -101,37 +102,38 @@ def pick_operating_point(sweep_csv: Path, max_degen: float = 0.10) -> tuple[int,
          .groupby(["layer", "coeff"])
          .agg(score=("target_score", "mean"), degen=("degen", "mean"))
          .reset_index())
-    print("  свип (anger): " + "; ".join(
-        f"L{int(r.layer)}/c{r.coeff:.0f} балл {r.score:.3f} вырожд {r.degen:.0%}"
+    print("  sweep (anger): " + "; ".join(
+        f"L{int(r.layer)}/c{r.coeff:.0f} score {r.score:.3f} degen {r.degen:.0%}"
         for r in g.itertuples()), flush=True)
     ok = g[g["degen"] <= max_degen]
     if ok.empty:
         best = g.loc[g["degen"].idxmin()]
-        print(f"  ВНИМАНИЕ: нигде вырожденность не ниже {max_degen:.0%}, "
-              f"беру минимальную ({best.degen:.0%})", flush=True)
+        print(f"  WARNING: no cell stays within {max_degen:.0%} degeneration, "
+              f"taking the lowest ({best.degen:.0%})", flush=True)
     else:
         best = ok.loc[ok["score"].idxmax()]
 
-    # Оговорки, которые иначе всплывут только при чтении таблицы — или не всплывут.
+    # Caveats that would otherwise surface only when reading the table, or never.
     per_cell = int(d.groupby(["layer", "coeff"]).size().min())
     if per_cell and 1.0 / per_cell > max_degen:
-        print(f"  ОГОВОРКА: {per_cell} промптов на ячейку, шаг доли вырожденных "
-              f"{1 / per_cell:.0%} — порог {max_degen:.0%} означает «ни одного "
-              f"вырожденного из {per_cell}», а не «не больше {max_degen:.0%}»",
+        print(f"  CAVEAT: {per_cell} prompts per cell, so the degeneration share "
+              f"moves in steps of {1 / per_cell:.0%}. A {max_degen:.0%} ceiling then "
+              f"means none out of {per_cell}, not at most {max_degen:.0%}",
               flush=True)
     grid = sorted({float(c) for c in g["coeff"] if float(c) > 0})
     if grid and abs(float(best["coeff"]) - grid[-1]) < 1e-9:
-        print(f"  ОГОВОРКА: выбран верх сетки ({grid[-1]:g}) — оптимум мог остаться "
-              "за ней, сетку стоит расширить вверх", flush=True)
+        print(f"  CAVEAT: the top of the grid was selected ({grid[-1]:g}), so the "
+              "optimum may lie beyond it and the grid should be widened", flush=True)
     elif len(grid) > 1 and abs(float(best["coeff"]) - grid[0]) < 1e-9:
-        print(f"  ОГОВОРКА: выбран низ сетки ({grid[0]:g}) — всё, что сильнее, уже "
-              "разрушало текст, сетке не хватает промежуточных значений", flush=True)
+        print(f"  CAVEAT: the bottom of the grid was selected ({grid[0]:g}), so "
+              "anything stronger already broke the text and the grid needs "
+              "intermediate values", flush=True)
     return int(best["layer"]), float(best["coeff"])
 
 
 
 def load_model_config(path: Path) -> dict:
-    """Конфиг модели: yaml или json. Плоский вид для аргументов цепочки."""
+    """Read a model config, yaml or json, flattened into chain arguments."""
     import yaml
     raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     st = raw.get("stages") or {}
@@ -148,12 +150,12 @@ def load_model_config(path: Path) -> dict:
         "dtype": (raw.get("load") or {}).get("dtype"),
         "compose": (st.get("compose") or {}).get("specs"),
     }
-    # списки к строкам — цепочка передаёт их дальше как аргументы
+    # lists become strings, since the chain passes them on as arguments
     if isinstance(flat["layers"], list):
         flat["layers"] = ",".join(str(x) for x in flat["layers"])
     if isinstance(flat["sweep_coeffs"], list):
         flat["sweep_coeffs"] = ",".join(str(x) for x in flat["sweep_coeffs"])
-    # 'allpairs' в конфиге -> полная матрица 42 пар (стандарт композиции).
+    # 'allpairs' in a config expands to the full 42-pair matrix.
     if flat.get("compose") == "allpairs" or flat.get("compose") == ["allpairs"]:
         flat["compose"] = ",".join(ALL_PAIRS)
     elif isinstance(flat.get("compose"), list):
@@ -163,12 +165,12 @@ def load_model_config(path: Path) -> dict:
 
 
 def set_aside(artifact: Path) -> Path | None:
-    """Убрать готовый артефакт с дороги перед пересчётом. Не удалять.
+    """Move a finished artifact out of the way before recomputing. Never delete it.
 
-    Пересчёт нужен там, где штампа нет (такой артефакт переиспользуется молча),
-    а сами стадии возобновляются по уже записанному — просто перезапустить
-    цепочку недостаточно. Прежнее стоило часов и может понадобиться для
-    сравнения, поэтому переименовываем, а не стираем.
+    Recomputing is needed where no stamp exists, since such an artifact is reused
+    in silence, and stages resume from whatever is already written, so restarting
+    the chain is not enough on its own. The previous result cost hours and may
+    still be wanted for comparison, so it is renamed rather than erased.
     """
     if not stamp.present(artifact):
         return None
@@ -185,14 +187,14 @@ def set_aside(artifact: Path) -> Path | None:
 
 
 def resolve_run_dtype(model: str, configured: str | None, token: str | None) -> tuple[str, str]:
-    """Тип вычислений на весь прогон: решается один раз и пишется в манифест.
+    """Decide the compute dtype once per run and record it in the manifest.
 
-    Раньше каждая стадия решала сама, глядя на карту, и решение нигде не
-    оставалось. Так вышло, что Llama и Qwen2.5-1.5B посчитались в bf16, а
-    Qwen3 и gemma — в fp16, и понять это можно было только по логу загрузчика.
+    Each stage used to decide on its own by looking at the card, and the decision
+    was recorded nowhere. That is how Llama and Qwen2.5-1.5B ended up computed in
+    bf16 while Qwen3 and Gemma ran in fp16, visible only in the loader log.
     """
     if configured and configured != "auto":
-        return configured, "задан в конфиге"
+        return configured, "set in the config"
     try:
         from transformers import AutoConfig
 
@@ -200,28 +202,28 @@ def resolve_run_dtype(model: str, configured: str | None, token: str | None) -> 
         dt, why = resolve_dtype("auto", AutoConfig.from_pretrained(model, token=token))
         return str(dt).replace("torch.", ""), why
     except Exception as e:
-        return "auto", f"заранее не определить ({type(e).__name__}), решит стадия"
+        return "auto", f"cannot be decided up front ({type(e).__name__}), the stage will choose"
 
 
 @dataclass
 class StageSpec:
-    """Что определяет результат стадии: артефакт, параметры, входы."""
+    """What determines a stage result: its artifact, its settings, its inputs."""
     stage: str
     artifact: Path
     params: dict
     inputs: list[Path] = field(default_factory=list)
-    # Что убирать с дороги при --recompute. У пар это весь каталог: стадия
-    # возобновляется по отдельным <эмоция>_pos.csv, и снос одного сводного
-    # файла её не заставит считать заново.
+    # What --recompute moves aside. For pairs it is the whole directory: the
+    # stage resumes from the per-emotion <emotion>_pos.csv files, so removing the
+    # combined file alone would not make it recompute.
     backup: Path | None = None
 
 
 def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
-    """Параметры, влияющие на результат каждой стадии, — в одном месте.
+    """Hold the result-affecting settings of every stage in one place.
 
-    И цепочка, и `emotion.stamp --adopt` берут их отсюда. Если бы каждый считал
-    их сам, штамп разошёлся бы со стадией на первом же изменении и отпечаток
-    начал бы врать — а врущий отпечаток хуже, чем никакого.
+    Both the chain and `emotion.stamp --adopt` read them from here. If each
+    computed its own, the stamp would drift from the stage at the first change
+    and start reporting a match that is not there, which is worse than no stamp.
     """
     meta = meta or {}
     raw = getattr(a, "model_config", None) or {}
@@ -230,14 +232,14 @@ def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
     vec_dir = REPO / "emotion_vectors" / a.slug
     runs = REPO / "runs" / a.slug
     layer, op_coeff = meta.get("layer"), meta.get("op_coeff")
-    # Имя с вариантом: raw, sae, centered сосуществуют в одном прогоне. Старое
-    # имя без варианта распознаётся, чтобы прежние прогоны не потерялись.
+    # The variant is part of the name, since raw, sae and centered coexist in one
+    # run. The older variant-free name is still recognized so earlier runs survive.
     matrix_csv = runs / f"steer_specificity_{a.variant}.csv"
     legacy = runs / "steer_specificity.csv"
     if a.variant == "raw" and legacy.is_file() and not matrix_csv.is_file():
         matrix_csv = legacy
-    # Наведение задаётся либо безразмерной силой, либо коэффициентом — в
-    # отпечаток идёт то, что реально применялось.
+    # The intervention is driven either by a dimensionless strength or by a
+    # coefficient. Whichever was actually applied is what enters the stamp.
     drive = ({"strength": a.strength} if getattr(a, "strength", None) is not None
              else {"coeff": op_coeff})
 
@@ -269,8 +271,8 @@ def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
             [vec_dir]),
     }
     if getattr(a, "compose", None):
-        # Полная матрица пар (стандарт) пишется в compose_allpairs.csv, чтобы
-        # соседствовать со старым 4-специевым compose.csv, а не затирать его.
+        # The full pair matrix goes to compose_allpairs.csv so it sits beside the
+        # older four-spec compose.csv instead of overwriting it.
         full = set(a.compose.split(",")) >= set(ALL_PAIRS)
         cname = "compose_allpairs.csv" if full else "compose.csv"
         specs["compose"] = StageSpec(
@@ -282,7 +284,7 @@ def build_specs(a, meta: dict | None = None) -> dict[str, StageSpec]:
 
 
 def stage_specs(config: Path) -> list[StageSpec]:
-    """Спецификации стадий по конфигу и манифесту прогона — для `emotion.stamp`."""
+    """Build stage specs from a config and run manifest, for `emotion.stamp`."""
     a = build_parser().parse_args([])
     cfg = load_model_config(config)
     for k, v in cfg.items():
@@ -295,56 +297,56 @@ def stage_specs(config: Path) -> list[StageSpec]:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    ap = argparse.ArgumentParser(description="Полная цепочка на одной модели.")
+    ap = argparse.ArgumentParser(description="The full chain for one model.")
     ap.add_argument("--config", type=Path, default=None,
-                    help="конфиг модели (yaml); аргументы командной строки его перекрывают")
+                    help="model config in yaml; command-line arguments override it")
     ap.add_argument("--model", default=None)
-    ap.add_argument("--slug", default=None, help="имя папок артефактов")
-    ap.add_argument("--layers", default=None, help="кандидаты, через запятую; иначе от глубины")
+    ap.add_argument("--slug", default=None, help="name used for the artifact directories")
+    ap.add_argument("--layers", default=None, help="comma-separated candidates; otherwise derived from model depth")
     ap.add_argument("--coeff", type=float, default=8.0)
-    ap.add_argument("--per-emotion", type=int, default=8, help="8 × 7 = 56 промптов")
+    ap.add_argument("--per-emotion", type=int, default=8, help="8 x 7 = 56 prompts")
     ap.add_argument("--max-tokens", type=int, default=256)
     ap.add_argument("--batch-size", type=int, default=1,
-                    help="батч генерации пар; 1 = построчно")
+                    help="batch size for pair generation; 1 means one row at a time")
     ap.add_argument("--sweep-coeffs", default="0,2,4,6,8,16",
-                    help="сетка коэффициентов для поиска рабочей точки")
+                    help="coefficient grid searched for the operating point")
     ap.add_argument("--sweep-prompts", type=int, default=16,
-                    help="промптов на ячейку свипа; при 8 доля вырожденных "
-                         "квантуется шагом 12%% и порог 10%% значит «ноль из восьми»")
+                    help="prompts per sweep cell; at 8 the degeneration share moves "
+                         "in 12%% steps, so a 10%% ceiling means none out of eight")
     ap.add_argument("--max-degen", type=float, default=0.10,
-                    help="потолок доли вырожденных ответов при выборе рабочей точки")
+                    help="ceiling on the degenerate-output share when selecting the operating point")
     ap.add_argument("--skip-preflight", action="store_true",
-                    help="не гонять предполётную проверку (по умолчанию гоняется)")
+                    help="skip the preflight check, which runs by default")
     ap.add_argument("--compose", default=None,
-                    help="спецификации композиции, например joy-sadness,anger-sadness; "
-                         "пусто — стадия пропускается")
+                    help="composition specs such as joy-sadness,anger-sadness; "
+                         "empty skips the stage")
     ap.add_argument("--variant", default="raw",
-                    help="вариант вектора: raw, sae, centered — попадает в имя артефакта")
+                    help="vector variant: raw, sae or centered, which becomes part of the artifact name")
     ap.add_argument("--strength", type=float, default=None,
-                    help="безразмерная сила наведения (см. steer_specificity --strength); "
-                         "делает силу сопоставимой между моделями, вместо фиксированного coeff")
+                    help="dimensionless intervention strength, see steer_specificity "
+                         "--strength; comparable across models, unlike a fixed coeff")
     ap.add_argument("--judge-scores", type=Path, default=None,
-                    help="CSV фильтра пар; без него берутся все пары (отметить в отчёте)")
+                    help="pair-filter CSV; without it every pair is used, which the report should note")
     ap.add_argument("--recompute", default=None,
-                    help="стадии, которые считать заново несмотря на штамп: "
-                         "all или через запятую pairs,vectors,sweep,matrix,compose. "
-                         "Прежний артефакт не удаляется, а откладывается в .bak")
+                    help="stages to recompute despite their stamp: all, or a "
+                         "comma-separated list of pairs,vectors,sweep,matrix,compose. "
+                         "The previous artifact is moved to .bak rather than deleted")
     ap.add_argument("--recompute-stale", action="store_true",
-                    help="считать заново артефакты, снятые при других параметрах; "
-                         "по умолчанию цепочка на них останавливается")
+                    help="recompute artifacts produced with different settings; "
+                         "by default the chain stops on them")
     return ap
 
 
 def main() -> None:
     args = build_parser().parse_args()
 
-    # Конфиг даёт умолчания, явный аргумент побеждает. Так добавление модели —
-    # одна запись в configs/models/, а разовые правки остаются возможны.
+    # The config supplies defaults and an explicit argument wins, so adding a
+    # model is one file in configs/models/ while one-off overrides stay possible.
     if args.config:
         cfg = load_model_config(args.config)
-        # Что реально задано в командной строке: сравниваем с разбором пустых
-        # аргументов. Разбор sys.argv не видел форму --opt=value, и
-        # `--batch-size=32` молча проигрывал конфигу, вопреки RUNBOOK.
+        # Which options were actually given: compare against a parse of empty
+        # arguments. Reading sys.argv missed the --opt=value form, so
+        # `--batch-size=32` silently lost to the config, contrary to the runbook.
         defaults = vars(build_parser().parse_args([]))
         given = {k for k, v in vars(args).items()
                  if k in defaults and v != defaults[k]}
@@ -352,21 +354,21 @@ def main() -> None:
             if k != "_raw" and k not in given and hasattr(args, k):
                 setattr(args, k, v)
         args.model_config = cfg.get("_raw", {})
-        print(f"конфиг: {args.config} → модель {args.model}, slug {args.slug}", flush=True)
+        print(f"config: {args.config}, model {args.model}, slug {args.slug}", flush=True)
     else:
         args.model_config = {}
     if not args.model or not args.slug:
-        raise SystemExit("нужен --config или пара --model/--slug")
+        raise SystemExit("either --config or both --model and --slug are required")
 
     import os
     token = os.environ.get("HF_TOKEN")
 
-    # Тип вычислений — один на весь прогон, а не решение каждой стадии по
-    # отдельности. Пишется в манифест и в отпечатки: иначе сравнивать строки,
-    # снятые в fp16 и bf16, приходится по логам загрузчика.
+    # One dtype for the whole run rather than a per-stage decision. It goes into
+    # the manifest and the stamps; otherwise comparing rows computed in fp16 and
+    # bf16 means digging through loader logs.
     args.resolved_dtype, dtype_why = resolve_run_dtype(
         args.model, (args.model_config.get("load") or {}).get("dtype"), token)
-    print(f"тип вычислений: {args.resolved_dtype} — {dtype_why}", flush=True)
+    print(f"compute dtype: {args.resolved_dtype}, {dtype_why}", flush=True)
     dtype_arg = ([] if args.resolved_dtype == "auto"
                  else ["--dtype", args.resolved_dtype])
 
@@ -383,13 +385,13 @@ def main() -> None:
 
     print(f"\n=== {args.model} → runs/{args.slug} ===", flush=True)
 
-    # 0. Предполёт: вся цепочка на одной строке. Дешевле, чем узнать о поломке
-    # через пять часов. Запускается, когда векторы уже есть (иначе проверять нечего).
+    # 0. Preflight runs the whole chain on a single row, which is cheaper than
+    # discovering a break five hours in.
     if not args.skip_preflight:
-        # Запускаем ВСЕГДА, а не только при готовых векторах: на новой модели
-        # ломались gemma (системная роль) и Qwen3 (рассуждения), и именно там
-        # проверка была отключена. Без векторов предполёт проверит шаблон и
-        # генерацию, с векторами — ещё и наведение.
+        # Always run, not only when vectors exist. New models broke here first:
+        # Gemma over the system role and Qwen3 over reasoning mode, and that is
+        # exactly where the check had been turned off. Without vectors the
+        # preflight covers the template and generation; with them, steering too.
         meta_pre = json.loads((runs / "meta.json").read_text(encoding="utf-8")) \
             if (runs / "meta.json").is_file() else {}
         layer_hint = meta_pre.get("layer")
@@ -403,34 +405,35 @@ def main() -> None:
                 layer_hint = 0
         pf = ([py, "-m", "emotion.preflight", "--model", args.model,
                "--layer", str(layer_hint)] + dtype_arg)
-        # Коэффициент — рабочая точка модели, а не умолчательная восьмёрка:
-        # Llama-3.2-3B работает на 4, и на 8 её текст разрушается, из-за чего
-        # предполёт валил очередь на коэффициенте, который прогон не применяет.
+        # Use the model's operating point rather than the default of eight.
+        # Llama-3.2-3B runs at 4 and its text breaks at 8, so the preflight used
+        # to fail the queue on a coefficient the run never applies.
         pf_coeff = meta_pre.get("op_coeff", args.coeff)
         pf += (["--strength", str(args.strength)] if args.strength is not None
                else ["--coeff", str(pf_coeff)])
         if "vectors" in forced:
-            # Векторы сейчас будут пересчитаны — проверять наведение на тех,
-            # что уедут в .bak, значит валить прогон из-за уже списанного.
+            # The vectors are about to be recomputed, so checking steering
+            # against the ones moving to .bak would fail the run over a result
+            # that has already been written off.
             pf += ["--skip-steer"]
-        print("0. предполёт …", flush=True)
+        print("0. preflight", flush=True)
         if sh(pf, log) != 0:
-            raise SystemExit("предполёт не пройден — очередь остановлена, см. лог")
+            raise SystemExit("preflight failed, the queue is stopped; see the log")
 
     meta_path = runs / "meta.json"
     meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.is_file() else {}
     specs = build_specs(args, meta)
 
     def run_stage(key: str, cmd: list[str], fail: str) -> None:
-        """Стадия считается, если её отпечаток не совпал или она названа в --recompute."""
+        """Run a stage when its stamp does not match or --recompute names it."""
         s = specs[key]
         if key in forced:
-            # Артефакт без штампа переиспользуется молча — значит просто запустить
-            # цепочку заново недостаточно, готовое надо убрать с дороги. Не удаляем:
-            # оно стоило часов и может понадобиться для сравнения.
+            # An unstamped artifact is reused in silence, so restarting the chain
+            # is not enough and the finished result has to be moved aside. It is
+            # not deleted: it cost hours and may be wanted for comparison.
             bak = set_aside(s.backup or s.artifact)
             if bak:
-                print(f"   {s.stage}: прежнее отложено в {bak.name}", flush=True)
+                print(f"   {s.stage}: previous result moved to {bak.name}", flush=True)
         elif not stamp.decide(s.artifact, s.stage, s.params, s.inputs,
                               args.recompute_stale, label=s.stage):
             return
@@ -438,50 +441,50 @@ def main() -> None:
             raise SystemExit(fail)
         stamp.write_stamp(s.artifact, s.stage, s.params, s.inputs)
 
-    # 1. Пары pos/neg на самой модели (resume внутри скрипта, построчный)
+    # 1. pos/neg pairs from the model itself; the script resumes row by row.
     combined = pairs_dir / "all_emotions_extract.csv"
-    print("1. пары pos/neg", flush=True)
+    print("1. pos/neg pairs", flush=True)
     run_stage("pairs",
               [py, "-m", "emotion.generate_pairs", "--model", args.model,
                "--version", "extract", "--output_dir", str(pairs_dir),
                "--infer_backend", "hf", "--temperature", "0",
                "--max_tokens", str(args.max_tokens),
                "--batch-size", str(args.batch_size)] + dtype_arg,
-              "стадия пар упала — см. лог")
+              "the pair stage failed; see the log")
 
-    # 2. Векторы = mean(pos) − mean(neg) послойно.
-    # Отпечаток стадии включает отпечаток пар: сменились пары — векторы
-    # разойдутся и цепочка остановится. Так и вскрылась gemma, чьи векторы были
-    # построены на текстах Qwen, а self-цикл этого не заметил.
+    # 2. Vectors are mean(pos) - mean(neg), layer by layer.
+    # This stamp includes the stamp of the pairs, so new pairs make the vectors
+    # read as a mismatch and stop the chain. That is how Gemma was caught, with
+    # vectors built on Qwen text that the self-generation cycle had not noticed.
     vec_probe = vec_dir / f"{ISEAR_EMOTIONS[0]}_response_avg_diff.pt"
-    print("2. извлечение векторов", flush=True)
+    print("2. vector extraction", flush=True)
     if "vectors" not in forced and vec_probe.is_file() \
             and stamp.read_stamp(vec_dir) is None and combined.is_file() \
             and vec_probe.stat().st_mtime < combined.stat().st_mtime:
-        # Наследство без штампа: старая проверка по времени всё ещё лучше, чем ничего.
+        # Inherited without a stamp: the old mtime check still beats nothing.
         raise SystemExit(
-            f"векторы в {vec_dir} старше пар {combined} — они построены на других "
-            "данных. Убери или переименуй их и перезапусти, иначе матрица посчитается "
-            "на чужих векторах."
+            f"the vectors in {vec_dir} are older than the pairs in {combined}, so "
+            "they were built on different data. Move or rename them and run again, "
+            "or the matrix will be computed on the wrong vectors."
         )
     cmd = [py, "-m", "emotion.extract_vectors", "--model_name", args.model,
            "--data-dir", str(pairs_dir), "--save-dir", str(vec_dir)] + dtype_arg
     if args.judge_scores:
         cmd += ["--judge-scores", str(args.judge_scores)]
-    run_stage("vectors", cmd, "извлечение векторов упало — см. лог")
+    run_stage("vectors", cmd, "vector extraction failed; see the log")
 
-    # 3. Свип по слоям и выбор рабочей точки. Это две разные вещи: свип стоит
-    # получаса генерации, выбор из готового свипа бесплатен. Поэтому смена
-    # max_degen не должна тянуть за собой пересчёт свипа.
+    # 3. The layer sweep and the choice of operating point are separate. The
+    # sweep costs half an hour of generation; choosing from a finished sweep is
+    # free. So changing max_degen must not drag the sweep along with it.
     sweep_csv = runs / "layer_sweep_anger.csv"
     if not sweep_csv.is_file() and "layer" in meta and "op_coeff" in meta:
-        # Наследство: точка выбрана в более раннем цикле (у Qwen2.5-3B — вручную).
+        # Inherited: the point was chosen in an earlier cycle, by hand for Qwen2.5-3B.
         layer, op_coeff = meta["layer"], meta["op_coeff"]
-        print(f"3. рабочая точка: унаследована L{layer}/c{op_coeff:g}, свипа нет",
+        print(f"3. operating point: inherited L{layer}/c{op_coeff:g}, no sweep present",
               flush=True)
     else:
-        # Слои задаются долями глубины (0.45) или абсолютными номерами (13).
-        # Доли переносимы между моделями, абсолютные привязаны к одной.
+        # Layers come as depth fractions (0.45) or absolute indices (13).
+        # Fractions carry across models; absolute indices tie the config to one.
         if meta.get("candidates"):
             cands = meta["candidates"]
         elif args.layers:
@@ -493,14 +496,14 @@ def main() -> None:
             cands = default_layers(args.model, token)
         meta["candidates"] = cands
         specs = build_specs(args, meta)
-        print(f"3. свип слоёв {cands}", flush=True)
+        print(f"3. layer sweep {cands}", flush=True)
         run_stage("sweep",
                   [py, "-m", "emotion.steer_eval", "--model_name", args.model,
                    "--emotion", "anger", "--vector-dir", str(vec_dir),
                    "--layers", ",".join(map(str, cands)), "--coeffs", args.sweep_coeffs,
                    "--n-prompts", str(args.sweep_prompts),
                    "--out", str(sweep_csv)] + dtype_arg,
-                  "свип упал — см. лог")
+                  "the sweep failed; see the log")
 
         sweep_st = stamp.read_stamp(sweep_csv) or {}
         prev_op = meta.get("op_point") or {}
@@ -508,10 +511,10 @@ def main() -> None:
                 and prev_op.get("max_degen") == args.max_degen)
         if same:
             layer, op_coeff = prev_op["layer"], prev_op["coeff"]
-            print(f"   рабочая точка: та же L{layer}/c{op_coeff:g}", flush=True)
+            print(f"   operating point: unchanged, L{layer}/c{op_coeff:g}", flush=True)
         else:
             layer, op_coeff = pick_operating_point(sweep_csv, args.max_degen)
-            print(f"   рабочая точка: слой {layer}, coeff {op_coeff:g}", flush=True)
+            print(f"   operating point: layer {layer}, coeff {op_coeff:g}", flush=True)
         meta["op_point"] = {"layer": layer, "coeff": op_coeff,
                             "max_degen": args.max_degen,
                             "sweep": sweep_st.get("fingerprint")}
@@ -529,23 +532,22 @@ def main() -> None:
     meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     specs = build_specs(args, meta)
 
-    # 4. Матрица специфичности: baseline + 7 эмоций × 56 промптов, баллы энкодера
+    # 4. Specificity matrix: baseline plus 7 emotions over 56 prompts, encoder scores.
     matrix_csv = specs["matrix"].artifact
-    print(f"4. матрица специфичности на L{layer}", flush=True)
+    print(f"4. specificity matrix at L{layer}", flush=True)
     cmd4 = [py, "-m", "emotion.steer_specificity", "--model_name", args.model,
             "--vector-dir", str(vec_dir), "--layer", str(layer),
             "--per-emotion", str(args.per_emotion),
             "--save-answers", "--out", str(matrix_csv)] + dtype_arg
     cmd4 += (["--strength", str(args.strength)] if args.strength is not None
              else ["--coeff", str(op_coeff)])
-    run_stage("matrix", cmd4, "матрица упала — см. лог")
+    run_stage("matrix", cmd4, "the matrix stage failed; see the log")
 
-    # 5. Композиция: сложение и вычитание эмоций - результат, который
-    # держится на двух измерителях.
-    # Запускается по флагу: стоит ещё столько же генераций, сколько матрица.
+    # 5. Composition adds and subtracts emotion directions. It runs behind a
+    # flag because it costs as many generations again as the matrix.
     if args.compose:
         cs = specs["compose"]
-        print(f"5. композиция ({args.compose})", flush=True)
+        print(f"5. composition ({args.compose})", flush=True)
         if stamp.decide(cs.artifact, cs.stage, cs.params, cs.inputs,
                         args.recompute_stale, label=cs.stage):
             if sh([py, "-m", "emotion.steer_compose", "--model_name", args.model,
@@ -553,19 +555,19 @@ def main() -> None:
                    "--coeff", str(op_coeff), "--per-emotion", str(args.per_emotion),
                    "--specs", args.compose, "--out", str(cs.artifact)] + dtype_arg,
                   log) != 0:
-                print("   композиция упала — цепочка продолжается", flush=True)
+                print("   composition failed; the chain continues", flush=True)
             else:
                 stamp.write_stamp(cs.artifact, cs.stage, cs.params, cs.inputs)
 
-    # Что переиспользовано без штампа — в манифест. Строка такого прогона
-    # сравнима с остальными только под честную оговорку в отчёте.
+    # Record what was reused without a stamp. Such a run is comparable with the
+    # rest only under an explicit caveat in the report.
     legacy_used = stamp.unstamped([s.artifact for s in specs.values()])
     meta["unstamped"] = legacy_used
     meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     if legacy_used:
-        print(f"   без штампа переиспользовано: {', '.join(legacy_used)}", flush=True)
+        print(f"   reused without a stamp: {', '.join(legacy_used)}", flush=True)
 
-    print(f"=== {args.slug}: цепочка пройдена → {runs} ===\n", flush=True)
+    print(f"=== {args.slug}: chain complete, artifacts in {runs} ===\n", flush=True)
 
 
 if __name__ == "__main__":
