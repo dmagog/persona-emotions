@@ -19,7 +19,6 @@ import json
 from pathlib import Path
 
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from emotion.loader import LoadSpec, load_model_and_tokenizer
 
@@ -58,28 +57,28 @@ def build_instr_prompt(tokenizer, question: str, instruction: str) -> str:
 
 
 def mean_activation_norm(model, tokenizer, prompts, layer: int, n: int = 8) -> float:
-    """Средняя норма скрытого состояния на слое — масштаб активаций модели.
+    """Mean hidden-state norm at a layer, meaning the scale of the activations.
 
-    Нужна, чтобы сила наведения была сопоставима между моделями: у разных
-    архитектур и hidden_size активации живут в разных масштабах, поэтому
-    одинаковый coeff означает разное по силе вмешательство.
+    It makes steering strength comparable across models: with different
+    architectures and hidden sizes the activations live at different scales, so
+    the same coeff is an intervention of a different size.
     """
     norms = []
     with torch.no_grad():
         for prompt in prompts[:n]:
             enc = tokenizer(prompt, return_tensors="pt", add_special_tokens=False).to(model.device)
             out = model(**enc, output_hidden_states=True)
-            h = out.hidden_states[layer + 1][0]  # та же индексация, что у векторов
+            h = out.hidden_states[layer + 1][0]  # the indexing the vectors use
             norms.append(h.norm(dim=-1).mean().item())
     return sum(norms) / len(norms) if norms else float("nan")
 
 
 def _same_point(got: tuple[str, float], want: tuple[str, float]) -> bool:
-    """Одна ли это рабочая точка. Слой — точно, коэффициент — с допуском.
+    """Is this the same operating point? Layer exactly, coefficient with a tolerance.
 
-    При `--strength` коэффициент считается из средней нормы активаций, и между
-    запусками он может разойтись в младших разрядах. Требовать точного совпадения
-    значило бы отказываться возобновлять полностью законный прогон.
+    Under `--strength` the coefficient is derived from the mean activation norm
+    and can differ in the last digits between runs. Demanding an exact match
+    would mean refusing to resume a perfectly valid run.
     """
     if got[0] != want[0]:
         return False
@@ -88,12 +87,13 @@ def _same_point(got: tuple[str, float], want: tuple[str, float]) -> bool:
 
 def load_checkpoint(ckpt: Path, fields: list[str],
                     expected: dict[str, tuple[str, float]]) -> tuple[list[dict], set]:
-    """Готовые генерации из чекпойнта — только снятые в текущей рабочей точке.
+    """Finished generations from the checkpoint, only those at the current point.
 
-    Ключ возобновления раньше был `(steer, prompt_id)`, а слой и коэффициент
-    в него не входили. Перезапуск на другом слое поверх недосчитанного файла
-    дописывал новые строки к старым, и в одной матрице оказывались строки с
-    разных слоёв. Заметить это по числам нельзя — они просто усредняются.
+    The resume key used to be `(steer, prompt_id)`, with neither layer nor
+    coefficient in it. Restarting at another layer on top of an unfinished file
+    appended the new rows to the old ones, and a single matrix ended up holding
+    rows from different layers. The numbers cannot show this, since they are
+    simply averaged together.
     """
     rows: list[dict] = []
     done: set[tuple[str, int]] = set()
@@ -101,15 +101,15 @@ def load_checkpoint(ckpt: Path, fields: list[str],
     with open(ckpt, newline="", encoding="utf-8") as fh:
         for r in csv.DictReader(fh):
             try:
-                # Строку собираем ПЕРВОЙ: если она оборвана, пара не должна
-                # попасть в done — иначе генерация пропустится при возобновлении,
-                # а данных по ней не будет, и в матрице окажется дыра.
+                # Build the row FIRST: if it is truncated, the pair must not
+                # reach done, or the generation is skipped on resume with no
+                # data behind it, leaving a hole in the matrix.
                 row = {k: (float(v) if k in ISEAR_EMOTIONS else v)
                        for k, v in r.items() if k in fields}
                 key = (r["steer"], int(r["prompt_id"]))
                 got = (str(r.get("layer") or "").strip(), float(r.get("coeff") or 0.0))
             except (KeyError, ValueError, TypeError):
-                continue  # оборванная последняя строка
+                continue  # truncated last line
             want = expected.get(key[0])
             if want is not None and not _same_point(got, want):
                 prev = mismatch.get(key[0])
@@ -119,14 +119,15 @@ def load_checkpoint(ckpt: Path, fields: list[str],
             done.add(key)
     if mismatch:
         detail = "\n".join(
-            f"    · {s}: снято L{g[0] or '—'}/c{g[1]:g} × {n} строк, "
-            f"сейчас L{expected[s][0] or '—'}/c{expected[s][1]:g}"
+            f"    - {s}: recorded at L{g[0] or '?'}/c{g[1]:g} x {n} rows, "
+            f"now L{expected[s][0] or '?'}/c{expected[s][1]:g}"
             for s, (g, n) in sorted(mismatch.items()))
         raise SystemExit(
-            f"\n{ckpt}: в чекпойнте строки с другой рабочей точки.\n{detail}\n\n"
-            "  Это остаток другого прогона. Дописать к нему новые строки — значит\n"
-            "  собрать матрицу из разных слоёв, и по числам это будет не видно.\n"
-            "  Убери или переименуй файл и запусти снова.\n"
+            f"\n{ckpt}: the checkpoint holds rows from a different operating point.\n"
+            f"{detail}\n\n"
+            "  This is the leftover of another run. Appending new rows to it builds\n"
+            "  a matrix out of several layers, and the numbers will not show it.\n"
+            "  Remove or rename the file and start again.\n"
         )
     return rows, done
 
@@ -135,14 +136,14 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Steering specificity matrix across all emotions.")
     ap.add_argument("--model_name", default="Qwen/Qwen2.5-3B-Instruct")
     ap.add_argument("--dtype", default="auto",
-                    help="auto выбирает по железу и dtype обучения модели")
+                    help="auto picks by the hardware and the model's training dtype")
     ap.add_argument("--vector-dir", required=True, type=Path)
     ap.add_argument("--layer", type=int, default=14)
     ap.add_argument("--coeff", type=float, default=8.0)
     ap.add_argument("--strength", type=float, default=None,
-                    help="безразмерная сила наведения S: coeff подбирается на эмоцию как "
-                         "S * mean||h_L|| / ||vec||. Делает силу сопоставимой между моделями; "
-                         "если задан, --coeff игнорируется")
+                    help="dimensionless steering strength S: coeff is derived per emotion as "
+                         "S * mean||h_L|| / ||vec||, which makes the strength comparable across "
+                         "models; when given, --coeff is ignored")
     ap.add_argument("--per-emotion", type=int, default=2, help="held-out prompts pooled per emotion")
     ap.add_argument("--max-new-tokens", type=int, default=120)
     ap.add_argument("--center", action="store_true",
@@ -162,8 +163,9 @@ def main() -> None:
     fields = ["steer", "layer", "coeff", "prompt_id", *ISEAR_EMOTIONS] + (["answer"] if args.save_answers else [])
     rows = []
 
-    # Векторы и коэффициенты — ДО чтения чекпойнта: возобновление должно знать,
-    # в какой рабочей точке снят готовый кусок, иначе оно смешает разные слои.
+    # Vectors and coefficients come BEFORE the checkpoint is read: resuming has
+    # to know which operating point the finished part was recorded at, otherwise
+    # it mixes layers.
     vecs: dict[str, torch.Tensor] = {}
     coeffs: dict[str, float] = {}
     if not args.prompt_baseline:
@@ -191,14 +193,14 @@ def main() -> None:
     else:
         expected.update({e: (str(args.layer), coeffs[e]) for e in ISEAR_EMOTIONS})
 
-    # Построчная дозапись и возобновление. Стадия самая дорогая (448 генераций,
-    # больше часа) и до сих пор писала результат одним куском в самом конце:
-    # обрыв на шестой эмоции терял всё.
+    # Row-by-row appending and resume. This is the most expensive stage, 448
+    # generations over more than an hour, and it used to write the result in one
+    # piece at the very end: a break on the sixth emotion lost everything.
     ckpt = args.out.with_suffix(".partial.csv") if args.out else None
     done: set[tuple[str, int]] = set()
     if ckpt and ckpt.is_file():
         rows, done = load_checkpoint(ckpt, fields, expected)
-        print(f"возобновление: {len(done)} готовых генераций из {ckpt.name}", flush=True)
+        print(f"resuming: {len(done)} finished generations from {ckpt.name}", flush=True)
     ckpt_fh = open(ckpt, "a", newline="", encoding="utf-8") if ckpt else None
     ckpt_w = csv.DictWriter(ckpt_fh, fieldnames=fields, extrasaction="ignore") if ckpt_fh else None
     if ckpt_fh and not done:
@@ -261,7 +263,7 @@ def main() -> None:
             w.writerows(rows)
         print(f"wrote {args.out}")
         if ckpt and ckpt.is_file():
-            ckpt.unlink()  # итог записан, промежуточный файл больше не нужен
+            ckpt.unlink()  # the result is written, the partial file is no longer needed
 
 
 if __name__ == "__main__":

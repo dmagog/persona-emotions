@@ -180,7 +180,7 @@ def test_matrix_resume() -> None:
             load_checkpoint(ck, fields, want)
             check(False, f"чужой {label} в чекпойнте останавливает", "не остановил")
         except SystemExit as e:
-            check("другой рабочей точки" in str(e), f"чужой {label} в чекпойнте останавливает")
+            check("different operating point" in str(e), f"чужой {label} в чекпойнте останавливает")
 
 
 def test_stamp() -> None:
