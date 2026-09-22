@@ -1,24 +1,25 @@
-# Модель добавляется одним таким файлом. Всё, что влияет на прогон, — здесь.
+# A model is added with one file like this. Everything that affects the run is here.
 slug: Qwen3-0.6B
 hf_id: Qwen/Qwen3-0.6B
 
 load:
-  dtype: float16         # пинуем явно: авто-выбор расколол сетку на bf16 и fp16
+  dtype: float16         # pinned on purpose: auto-selection split the grid into bf16 and fp16
   trust_remote_code: false
   device_map: auto
   seed: 0
 
 prompt:
-  system_role: true      # при отказе шаблона render_chat свернёт рамку в user-turn сам
-  enable_thinking: false # обязательно для Qwen3 и новее; остальные ключ игнорируют
+  system_role: true      # if the template refuses, render_chat folds the frame into the user turn
+  enable_thinking: false # required for Qwen3 and newer; the others ignore the key
 
 stages:
   pairs:   { batch_size: 8, max_tokens: 256 }
-  # coeffs уплотнены снизу: на {0,4,8,16} три модели из четырёх упирались в 4,
-  # потому что при 8 текст уже разрушался. n_prompts 16, а не 8: при восьми
-  # доля вырожденных квантуется шагом 12%, и порог 10% значил «ноль из восьми».
+  # coeffs are denser at the low end: on {0,4,8,16} three models out of four
+  # stopped at 4, because at 8 the text was already breaking down. n_prompts is
+  # 16 rather than 8: with eight, the degenerate share moves in steps of 12%, so
+  # a 10% ceiling meant "none out of eight".
   sweep:   { layers: [0.35, 0.45, 0.55], coeffs: [0, 2, 4, 6, 8, 16], max_degen: 0.10, n_prompts: 16 }
   matrix:  { per_emotion: 8 }
-  compose: { specs: allpairs }   # полная матрица 42 пар X-Y (стандарт)
+  compose: { specs: allpairs }   # the full 42-pair X-Y matrix (the standard)
 
 sae: null
