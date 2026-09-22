@@ -63,12 +63,13 @@ _SYSTEM_ROLE_OK: dict[int, bool] = {}
 
 
 def render_chat(tokenizer, system: str, user: str) -> str:
-    """Промпт с системной рамкой, с запасным путём для шаблонов без system-роли.
+    """Prompt with a system frame, with a fallback for templates without that role.
 
-    gemma-2 отвергает system-роль на уровне jinja ("System role not supported"),
-    поэтому для таких моделей рамка сворачивается в user-turn — ровно так же,
-    как это уже делает стадия наведения (emotion/steer_eval.build_prompt).
-    Результат кэшируется по токенизатору, чтобы не ловить исключение на каждой строке.
+    gemma-2 rejects the system role at the jinja level ("System role not
+    supported"), so for such models the frame is folded into the user turn,
+    exactly as the steering stage already does (emotion/steer_eval.build_prompt).
+    The outcome is cached per tokenizer, to avoid catching the exception on every
+    single row.
     """
     key = id(tokenizer)
     if _SYSTEM_ROLE_OK.get(key, True):
@@ -79,11 +80,12 @@ def render_chat(tokenizer, system: str, user: str) -> str:
             )
             _SYSTEM_ROLE_OK[key] = True
             return out
-        except Exception as e:  # jinja2.TemplateError и наследники
+        except Exception as e:  # jinja2.TemplateError and its subclasses
             if "system" not in str(e).lower():
                 raise
             _SYSTEM_ROLE_OK[key] = False
-            print(f"[prompt] шаблон без system-роли ({e}) — сворачиваю рамку в user-turn", flush=True)
+            print(f"[prompt] template without a system role ({e}); folding the frame "
+                  f"into the user turn", flush=True)
     return tokenizer.apply_chat_template(
         [{"role": "user", "content": f"{system}\n\n{user}"}],
         tokenize=False, add_generation_prompt=True, enable_thinking=False,
@@ -95,10 +97,10 @@ def _generate_one_hf(model, tokenizer, system: str, user: str, max_tokens: int, 
         tokenizer.pad_token = tokenizer.eos_token
         tokenizer.pad_token_id = tokenizer.eos_token_id
     prompt = render_chat(tokenizer, system, user)
-    # Шаблон чата уже содержит BOS. При add_special_tokens=True (умолчание) он
-    # удваивается, и промпт снятия вектора перестаёт совпадать с промптом его
-    # применения. Батчевый путь ниже всегда использовал False — было расхождение
-    # между --batch-size 1 и --batch-size 8.
+    # The chat template already carries a BOS. With add_special_tokens=True, the
+    # default, it is doubled, and the prompt a vector is extracted from stops
+    # matching the prompt it is applied to. The batch path below always passed
+    # False, so --batch-size 1 and --batch-size 8 disagreed.
     inputs = tokenizer(prompt, return_tensors="pt", add_special_tokens=False)
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
     gen_kw = dict(max_new_tokens=max_tokens, min_new_tokens=1,
@@ -181,12 +183,13 @@ def _find_emotion_pack_path(emotion: str, version: str, emotion_data_dir: str | 
 
 
 def resolve_emotion_json(emotion: str, version: str, emotion_data_dir: str | None) -> Path:
-    """Найти пак эмоции. Подмена сплита запрещена без явного разрешения.
+    """Find an emotion pack. Substituting a split needs explicit permission.
 
-    Раньше при отсутствии пака в каталоге экстракции код молча брал его из
-    каталога оценки и печатал Note. Это тихо превращало held-out вопросы,
-    на которых потом меряется качество, в обучающие. Падения не было.
-    Разрешить подмену можно переменной ALLOW_PACK_FALLBACK=1 — осознанно.
+    When a pack was missing from the extraction directory, the code used to take
+    it from the evaluation directory without a word beyond a Note. That quietly
+    turned the held-out questions, the ones quality is later measured on, into
+    training data, and nothing crashed. The substitution can be allowed on
+    purpose with ALLOW_PACK_FALLBACK=1.
     """
     hit, tried = _find_emotion_pack_path(emotion, version, emotion_data_dir)
     if hit:
@@ -194,13 +197,15 @@ def resolve_emotion_json(emotion: str, version: str, emotion_data_dir: str | Non
         if hit != primary and not primary.is_file() and not emotion_data_dir:
             if os.environ.get("ALLOW_PACK_FALLBACK") != "1":
                 raise SystemExit(
-                    f"[{emotion}] пака нет в {primary.parent}, но он есть в {hit.parent}.\n"
-                    "Подмена сплита запрещена: вопросы оценки попали бы в обучение, "
-                    "и утечку было бы не видно.\n"
-                    "Либо положите пак на место, либо запустите с ALLOW_PACK_FALLBACK=1, "
-                    "если подмена нужна намеренно."
+                    f"[{emotion}] no pack in {primary.parent}, but there is one in "
+                    f"{hit.parent}.\n"
+                    "Substituting a split is refused: the evaluation questions would "
+                    "enter training, and the leak would be invisible.\n"
+                    "Either put the pack where it belongs, or run with "
+                    "ALLOW_PACK_FALLBACK=1 if the substitution is intended."
                 )
-            print(f"ВНИМАНИЕ: подмена сплита разрешена явно — беру {hit} вместо {primary}")
+            print(f"WARNING: split substitution allowed explicitly, taking {hit} "
+                  f"instead of {primary}")
         return hit
     raise FileNotFoundError(
         f"No pack for emotion '{emotion}' (version={version}). Tried:\n"
@@ -322,10 +327,10 @@ def sample_vllm(llm, tokenizer, conversations, max_tokens=1000, temperature=0.0)
 
 
 def _generate_batch_hf(model, tokenizer, items, max_tokens: int, temperature: float):
-    """Батчевая генерация: те же промпты, что и построчная, но за один forward.
+    """Batch generation: the same prompts as the row path, in one forward pass.
 
-    Левый паддинг обязателен для decoder-only — иначе ответы съезжают.
-    Возвращает список (prompt, answer) в порядке items.
+    Left padding is required for decoder-only models, or the answers shift.
+    Returns a list of (prompt, answer) in the order of items.
     """
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -441,15 +446,16 @@ def main():
     parser.add_argument("--emotions", nargs="+", default=None, help="Subset of emotions (default: all found)")
     parser.add_argument("--infer_backend", choices=("hf", "vllm"), default="hf")
     parser.add_argument("--dtype", default="auto",
-                        help="тип вычислений. Без него load_model берёт свой "
-                             "умолчательный bf16, и пары оказываются снятыми не в том "
-                             "типе, что векторы и наведение — внутри одного прогона")
+                        help="compute dtype. Without it load_model falls back to its own "
+                             "bf16 default, and the pairs end up recorded in a different "
+                             "dtype than the vectors and the steering of the same run")
     parser.add_argument("--max_tokens", type=int, default=1000)
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--overwrite", action="store_true")
     parser.add_argument("--combine_only", action="store_true", help="Only merge existing CSVs in output_dir")
     parser.add_argument("--batch-size", dest="batch_size", type=int, default=1,
-                        help="батч генерации на hf-пути; 1 = построчно (дефолт, максимально дробный resume)")
+                        help="generation batch on the hf path; 1 means row by row, "
+                             "the default, with the finest-grained resume")
     args = parser.parse_args()
 
     out = Path(args.output_dir)
@@ -490,14 +496,14 @@ def main():
     print("Resumable: hf backend writes each row incrementally; re-run to continue from a crash.")
 
     if args.infer_backend == "hf":
-        # dtype передаём ЯВНО. Умолчание load_model — bf16, и до этой правки пары
-        # всех моделей генерировались в bf16 независимо от того, чем считались
-        # векторы: у Qwen3 и gemma внутри одного прогона стояло bf16 на парах и
-        # fp16 на активациях.
+        # The dtype is passed EXPLICITLY. load_model defaults to bf16, and before
+        # this fix every model's pairs were generated in bf16 regardless of what
+        # the vectors were computed in: Qwen3 and gemma had bf16 on the pairs and
+        # fp16 on the activations inside one run.
         from emotion.loader import resolve_dtype
         from transformers import AutoConfig
         dt, why = resolve_dtype(args.dtype, AutoConfig.from_pretrained(args.model))
-        print(f"[pairs] dtype={dt} — {why}", flush=True)
+        print(f"[pairs] dtype={dt}: {why}", flush=True)
         llm, tokenizer = load_model(args.model, dtype=dt)
         lora_path = None
     else:
