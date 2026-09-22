@@ -103,8 +103,8 @@ def main() -> None:
     print("per-emotion:", {e: dist[e] for e in ISEAR_EMOTIONS})
     print(f"wrote sheet {args.out_sheet} (label column human_0_100 left blank)")
     print(f"wrote key   {args.out_key} (model scores hidden from the sheet)")
-    print("\nПротокол: для каждой строки прочитать text, оценить ИНТЕНСИВНОСТЬ указанной")
-    print("эмоции 0-100 (0 = эмоции нет, 100 = ярко выражена), вписать в human_0_100.")
+    print("\nProtocol: for each row read text and rate the INTENSITY of the named")
+    print("emotion from 0 to 100 (0 = absent, 100 = strongly expressed) in human_0_100.")
 
 
 if __name__ == "__main__":

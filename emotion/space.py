@@ -22,10 +22,10 @@ ISEAR_EMOTIONS: tuple[str, ...] = (
     "shame",
 )
 
-# Все 42 упорядоченные пары X-Y для стадии композиции. Упорядоченные:
-# anger-sadness и sadness-anger — разные операции, обе считаются. Единый
-# источник для конфигов, цепочки и сборщика — чтобы «полная матрица пар»
-# нигде не расходилась.
+# All 42 ordered X-Y pairs for the composition stage. Ordered means
+# anger-sadness and sadness-anger are different operations and both count. One
+# source for the configs, the chain and the collector, so that "the full pair
+# matrix" cannot mean different things in different places.
 ALL_PAIRS: list[str] = [
     f"{a}-{b}" for a in ISEAR_EMOTIONS for b in ISEAR_EMOTIONS if a != b
 ]

@@ -39,12 +39,13 @@ def _cache_path(args) -> Path | None:
 
 
 def answer_key(answer: str) -> str:
-    """Отпечаток оценённого текста — часть ключа кэша.
+    """Digest of the scored text, used as part of the cache key.
 
-    Ключ был (steer, pid, measured), без самого ответа. При пересчёте матрицы
-    номера строк те же, а тексты другие — и судья молча отдавал баллы за старые
-    генерации. Полная судейская матрица «пересчитывалась» за двадцать секунд
-    и описывала прогон, которого больше нет.
+    The key used to be (steer, pid, measured) without the answer itself. When the
+    matrix was recomputed the row numbers stayed the same while the texts changed,
+    so the judge silently returned scores for the old generations. A full judge
+    matrix would "recompute" in twenty seconds and describe a run that no longer
+    existed.
     """
     return hashlib.sha1(str(answer).encode("utf-8")).hexdigest()[:12]
 
@@ -63,7 +64,7 @@ def _load_cache(path: Path) -> dict:
             except json.JSONDecodeError:
                 continue  # partial final line from an interrupted write
             if "answer" not in d:
-                continue  # запись старого образца, без отпечатка текста — не доверяем
+                continue  # an older entry without a text digest, so it is not trusted
             done[(d["steer"], d["pid"], d["measured"], d["answer"])] = d["score"]
     return done
 

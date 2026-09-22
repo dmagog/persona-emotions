@@ -49,12 +49,12 @@ def main() -> None:
     ap.add_argument("--specs", required=True, help="comma-separated, e.g. joy+sadness,joy-sadness")
     ap.add_argument("--max-new-tokens", type=int, default=120)
     ap.add_argument("--dtype", default="auto",
-                    help="тип вычислений; должен совпадать с прогоном")
+                    help="compute dtype; must match the run")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
 
-    # Через общий загрузчик: здесь оставался зашитый fp16 и device_map без
-    # max_memory — последнее из одиннадцати мест, которые собирал A1.
+    # Through the shared loader. This was the last of eleven places that still
+    # hard-coded fp16 and passed device_map without max_memory.
     model, tokenizer, _ = load_model_and_tokenizer(
         LoadSpec(hf_id=args.model_name, dtype=args.dtype))
     encoder = ClassifierBasedEncoder()

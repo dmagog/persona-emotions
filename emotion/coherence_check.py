@@ -44,9 +44,9 @@ async def score(client, model, answer, max_retries=4):
             return parse_score(r.choices[0].message.content)
         except Exception as e:
             if attempt == max_retries - 1:
-                # Не raise: внутри asyncio.gather без return_exceptions одна
-                # неудачная строка убивала весь оплаченный прогон из 448 вызовов.
-                print(f"  [судья] строка не оценена после {max_retries} попыток: "
+                # Not a raise: inside asyncio.gather without return_exceptions one
+                # failed row killed the whole paid run of 448 calls.
+                print(f"  [judge] row left unscored after {max_retries} attempts: "
                       f"{type(e).__name__}: {str(e)[:90]}", flush=True)
                 return None
             await asyncio.sleep(2.0**attempt)
@@ -59,7 +59,7 @@ async def main_async(args) -> None:
 
     gb = args.group_by
 
-    # Кэш: повторный запуск не переплачивает за уже оценённые строки.
+    # The cache keeps a rerun from paying again for rows already scored.
     cache: dict[str, float] = {}
     cache_path = args.cache or (args.csv.parent / f"{args.csv.stem}.coherence.cache.jsonl")
     if cache_path.is_file():
@@ -69,13 +69,14 @@ async def main_async(args) -> None:
                 cache[d["k"]] = d["score"]
             except Exception:
                 continue
-        print(f"кэш: {len(cache)} оценённых строк", flush=True)
+        print(f"cache: {len(cache)} scored rows", flush=True)
     cache_fh = cache_path.open("a", encoding="utf-8")
     lock = asyncio.Lock()
 
     async def one(idx, key, answer):
-        # В ключ входит отпечаток текста: при пересчёте матрицы номер строки
-        # тот же, а текст другой, и кэш отдавал бы оценку старой генерации.
+        # The key includes a text digest: when the matrix is recomputed the row
+        # number stays while the text changes, and the cache would otherwise
+        # return a score for the old generation.
         ck = f"{key}|{idx}|{hashlib.sha1(str(answer).encode()).hexdigest()[:12]}"
         if ck in cache:
             return key, cache[ck]
@@ -107,7 +108,7 @@ async def main_async(args) -> None:
         m = sum(v) / len(v) if v else 0.0
         print(f"{steer:>9} {m:>10.1f} {m - base:>+10.1f} {len(v):>3}")
     if lost:
-        print(f"не оценено строк: {lost} из {len(results)}", flush=True)
+        print(f"rows left unscored: {lost} of {len(results)}", flush=True)
 
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -120,7 +121,7 @@ async def main_async(args) -> None:
             m = sum(v) / len(v) if v else 0.0
             lines.append(f"| {steer} | {m:.1f} | {m - base:+.1f} | {len(v)} |")
         args.out.write_text("\n".join(lines) + "\n", encoding="utf-8")
-        print(f"записано {args.out}", flush=True)
+        print(f"wrote {args.out}", flush=True)
 
 
 def main() -> None:
@@ -129,8 +130,8 @@ def main() -> None:
     ap.add_argument("--model", default="meta-llama/llama-3.3-70b-instruct")
     ap.add_argument("--concurrency", type=int, default=8)
     ap.add_argument("--group-by", default="steer", help="CSV column to group coherence by (e.g. steer, coeff)")
-    ap.add_argument("--cache", type=Path, default=None, help="JSONL-кэш оценок; по умолчанию рядом с CSV")
-    ap.add_argument("--out", type=Path, default=None, help="сохранить таблицу в markdown")
+    ap.add_argument("--cache", type=Path, default=None, help="JSONL score cache; defaults to a file beside the CSV")
+    ap.add_argument("--out", type=Path, default=None, help="save the table as markdown")
     args = ap.parse_args()
     asyncio.run(main_async(args))
 

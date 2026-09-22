@@ -54,8 +54,8 @@ def build_prompt(tokenizer, question: str) -> str:
 
 
 def generate(model, tokenizer, prompt: str, max_new_tokens: int = 120) -> str:
-    # add_special_tokens=False: шаблон уже с BOS, и так же снимаются активации
-    # в generate_vec.py:23 — иначе вектор строится не на том промпте
+    # add_special_tokens=False: the template already carries BOS, and activations
+    # are captured the same way, or the vector is built on a different prompt
     inputs = tokenizer(prompt, return_tensors="pt", add_special_tokens=False).to(model.device)
     with torch.no_grad():
         out = model.generate(
@@ -69,7 +69,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Steering eval for one emotion.")
     ap.add_argument("--model_name", default="Qwen/Qwen2.5-3B-Instruct")
     ap.add_argument("--dtype", default="auto",
-                    help="auto выбирает по железу и dtype обучения модели")
+                    help="auto decides from the hardware and the training dtype")
     ap.add_argument("--emotion", required=True)
     ap.add_argument("--vector-dir", required=True, type=Path)
     ap.add_argument("--layers", default="14,18", help="comma-separated block indices")
