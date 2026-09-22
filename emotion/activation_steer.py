@@ -5,7 +5,7 @@ from typing import Sequence, Union, Iterable
 
 
 def _hidden_size(config):
-    """hidden_size с фолбэком на вложенный конфиг (мультимодальные модели)."""
+    """hidden_size, falling back to the nested config that multimodal models use."""
     h = getattr(config, "hidden_size", None)
     if isinstance(h, int):
         return h
@@ -35,13 +35,13 @@ class ActivationSteerer:
 
     _POSSIBLE_LAYER_ATTRS: Iterable[str] = (
         "model.layers",                      # Llama, Mistral, Qwen, Gemma-2
-        "model.language_model.layers",       # Gemma-3, Llama-4, мультимодальные
-        "language_model.model.layers",       # часть VL-обёрток
+        "model.language_model.layers",       # Gemma-3, Llama-4, multimodal
+        "language_model.model.layers",       # some VL wrappers
         "model.language_model.model.layers",
         "transformer.h",                     # GPT-2/Neo, Bloom
         "gpt_neox.layers",                   # GPT-NeoX
         "encoder.layer",                     # BERT/RoBERTa
-        "encoder.block",                     # T5 (у него нет model.block)
+        "encoder.block",                     # T5, which has no model.block
     )
 
     def __init__(
@@ -64,13 +64,14 @@ class ActivationSteerer:
         self.vector = torch.as_tensor(steering_vector, dtype=p.dtype, device=p.device)
         if self.vector.ndim != 1:
             raise ValueError("steering_vector must be 1‑D")
-        # hidden_size у мультимодальных лежит во вложенном конфиге; без фолбэка
-        # getattr вернёт None и проверка размерности молча отключится
+        # Multimodal models keep hidden_size in a nested config. Without the
+        # fallback getattr returns None and the shape check silently turns off.
         hidden = _hidden_size(model.config)
         if hidden is None:
             raise ValueError(
-                "не удалось определить hidden_size из конфига модели — проверка "
-                "размерности вектора невозможна, а без неё легко наводить мусор"
+                "hidden_size could not be read from the model config, so the vector "
+                "shape cannot be checked, and without that check it is easy to steer "
+                "with garbage"
             )
         if self.vector.numel() != hidden:
             raise ValueError(
@@ -78,14 +79,14 @@ class ActivationSteerer:
             )
         if not torch.isfinite(self.vector).all():
             raise ValueError(
-                "в векторе наведения есть inf или nan — обычно это пустые ответы "
-                "на стадии извлечения; наведение таким вектором даёт мусор"
+                "the steering vector holds inf or nan, which usually means empty "
+                "responses during extraction; steering with it produces garbage"
             )
         if float(self.vector.norm()) <= 1e-6:
             raise ValueError(
-                f"нулевой вектор наведения (норма {float(self.vector.norm()):.2e}). "
-                "У SAE-векторов ненулевой обычно только один слой — проверьте, "
-                "что слой совпадает с тем, на котором вектор построен"
+                f"zero steering vector (norm {float(self.vector.norm()):.2e}). "
+                "SAE vectors are usually non-zero on one layer only, so check that "
+                "the layer matches the one the vector was built on"
             )
         # Check if positions is valid
         valid_positions = {"all", "prompt", "response"}

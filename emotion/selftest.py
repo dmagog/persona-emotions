@@ -98,7 +98,7 @@ def test_steerer_guards() -> None:
 
     for vec, name, must in [
         (torch.full((8,), float("nan")), "NaN отвергается", "nan"),
-        (torch.zeros(8), "нулевой вектор отвергается", "нулев"),
+        (torch.zeros(8), "нулевой вектор отвергается", "zero steering vector"),
         (torch.ones(5), "неверная размерность отвергается", "≠"),
     ]:
         try:
