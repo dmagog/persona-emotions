@@ -214,14 +214,14 @@ def test_stamp() -> None:
 
     src.write_text("a,b\n1,3\n", encoding="utf-8")
     v = stamp.check(art, "matrix", params, [src])
-    check(v.state == "stale" and any("вход" in c for c in v.changed),
+    check(v.state == "stale" and any("input" in c for c in v.changed),
           "изменение входа ловится", "; ".join(v.changed)[:60])
 
     # Правка самого артефакта руками — тоже расхождение, а не «свой файл»
     src.write_text("a,b\n1,2\n", encoding="utf-8")
     art.write_text("steer,score\nanger,999\n", encoding="utf-8")
     v = stamp.check(art, "matrix", params, [src])
-    check(v.state == "stale" and any("изменён" in c for c in v.changed),
+    check(v.state == "stale" and any("changed" in c for c in v.changed),
           "правка артефакта руками ловится", "; ".join(v.changed)[:60])
     stamp.write_stamp(art, "matrix", params, [src])
 
@@ -275,7 +275,7 @@ def test_stamp() -> None:
     check(total == 1 and not bad, "целый артефакт сверку проходит", f"{total}, {bad}")
     art.write_text("steer,score\n", encoding="utf-8")
     total, bad = stamp.verify(tmp)
-    check(len(bad) == 1 and "разошлось" in bad[0], "усечённый артефакт не проходит сверку")
+    check(len(bad) == 1 and "no longer matches" in bad[0], "усечённый артефакт не проходит сверку")
 
 
 def test_stage_specs() -> None:

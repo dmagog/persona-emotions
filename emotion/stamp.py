@@ -1,26 +1,26 @@
-"""Отпечаток протокола: артефакт годен, только если снят теми же параметрами.
+"""Protocol stamps: an artifact is valid only if it was produced by the same settings.
 
-Пропуск стадии по факту существования файла — это тихий пересчёт наоборот.
-Стадия видит `steer_specificity_raw.csv`, пропускает себя и отдаёт дальше числа,
-снятые другой моделью, другим числом токенов или на другом слое. Заметить это по
-самим числам нельзя: файл выглядит своим.
+Skipping a stage because its output file exists is a silent recompute in reverse.
+The stage sees `steer_specificity_raw.csv`, skips itself, and passes on numbers
+produced by a different model, a different token budget, or a different layer.
+The numbers themselves cannot reveal this, because the file looks like its own.
 
-Отпечаток — sha256 от канонического JSON: стадия, версия протокола, параметры,
-влияющие на результат, и отпечатки входных артефактов. Лежит рядом с артефактом:
-`<файл>.stamp.json` или `<каталог>/.stamp.json`.
+A stamp is the sha256 of canonical JSON over the stage name, the protocol
+version, the parameters that affect the result, and the stamps of the inputs. It
+sits next to the artifact as `<file>.stamp.json` or `<directory>/.stamp.json`.
 
-Три исхода вместо двух:
+Three outcomes instead of two:
 
-* совпал      — стадия пропускается, это и есть «не пересчитывать»;
-* разошёлся   — стадия НЕ пересчитывается молча и НЕ переиспользуется молча:
-                цепочка останавливается и говорит, какие параметры разошлись;
-* штампа нет  — наследство прошлых прогонов. Тоже не пересчитываем: артефакт
-                стоил часов. Переиспользуем с предупреждением и отметкой
-                `unstamped` в манифесте, пока человек не подтвердит его
-                командой `--adopt`.
+* match      the stage is skipped, which is what "do not recompute" means;
+* mismatch   the stage is neither recomputed nor reused in silence. The chain
+             stops and reports which settings differ;
+* no stamp   inherited from earlier runs. Also not recomputed, because the
+             artifact cost hours. It is reused with a warning and marked
+             `unstamped` in the manifest until a person confirms it with
+             `--adopt`.
 
 Usage:
-    python -m emotion.stamp --show runs/Qwen3-1.7B          # чем снят каждый артефакт
+    python -m emotion.stamp --show runs/Qwen3-1.7B
     python -m emotion.stamp --adopt runs/Qwen3-1.7B --config configs/models/qwen3-1.7b.yaml
 """
 from __future__ import annotations
@@ -32,27 +32,26 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable, Sequence
 
-# Версия протокола. Поднимать, когда меняется СМЫСЛ стадии, а не её параметры:
-# другая индексация слоёв, другой пулинг, другой набор промптов. Все прежние
-# артефакты станут несовпадающими — это и требуется.
+# Bump when the MEANING of a stage changes rather than one of its settings:
+# different layer indexing, different pooling, a different prompt set. Every
+# earlier artifact then reads as a mismatch, which is the intent.
 PROTOCOL_VERSION = 1
 
 STAMP_NAME = ".stamp.json"
-# Что не участвует в отпечатке каталога: служебное и промежуточное.
 SKIP = ("__pycache__", ".DS_Store", STAMP_NAME)
 
 REPO = Path(__file__).resolve().parent.parent
 
 
 def portable_key(path: Path) -> str:
-    """Ключ входа в штампе: путь относительно корня репозитория.
+    """Name an input by its path relative to the repository root.
 
-    Абсолютный путь делает штамп машинозависимым: артефакты считаются на
-    2070 (P:\\gpu-tasks\\...), а живут в git и раскатываются на другие машины.
-    С абсолютным ключом первый же запуск на новой машине останавливал цепочку
-    со «stale» на каждой стадии - вход "переехал", хотя не менялся ничем,
-    кроме буквы диска. Пути вне репозитория остаются абсолютными: их
-    переносимость нам не обещана.
+    An absolute path makes the stamp machine specific. Artifacts are computed on
+    the GPU box under `P:\\gpu-tasks\\...`, then live in git and are checked out
+    elsewhere. With an absolute key, the first run on another machine stopped the
+    chain with a mismatch at every stage: the input had "moved" although nothing
+    about it changed except the drive letter. Paths outside the repository stay
+    absolute, since nothing promises they are portable.
     """
     p = Path(path).resolve()
     try:
@@ -62,16 +61,15 @@ def portable_key(path: Path) -> str:
 
 
 def stamp_path(artifact: Path) -> Path:
-    """Где лежит штамп: внутри каталога или рядом с файлом."""
     return artifact / STAMP_NAME if artifact.is_dir() else \
         artifact.with_name(artifact.name + ".stamp.json")
 
 
 def present(artifact: Path) -> bool:
-    """Есть ли результат. Пустой каталог — не результат.
+    """Report whether a result exists. An empty directory is not a result.
 
-    Каталог векторов остаётся после упавшего прогона: он существует, в нём ноль
-    файлов, и проверка «а есть ли путь» пропустила бы стадию.
+    A vector directory survives a crashed run: it exists and holds zero files, so
+    a plain "does the path exist" check would skip the stage.
     """
     if artifact.is_dir():
         return any(p.is_file() and p.name != STAMP_NAME for p in artifact.rglob("*"))
@@ -87,12 +85,12 @@ def _sha_file(path: Path) -> str:
 
 
 def content_digest(path: Path) -> str:
-    """Отпечаток содержимого. Каталог — по именам и содержимому файлов.
+    """Digest the content. For a directory, digest file names and contents.
 
-    Именно содержимого, а не времени правки: артефакты ездят между Windows-боксом
-    и Mac, а `scp` без `-p` время не сохраняет. Проверка по mtime на таком
-    маршруте даёт либо ложное «векторы старше пар» и лишние часы генерации, либо
-    ложную свежесть.
+    Content rather than modification time, because artifacts travel between the
+    Windows box and a Mac and `scp` without `-p` does not preserve timestamps. An
+    mtime check on that route yields either a false "vectors are older than
+    pairs", costing hours of regeneration, or false freshness.
     """
     if not path.exists():
         return ""
@@ -103,7 +101,7 @@ def content_digest(path: Path) -> str:
         if not p.is_file() or any(s in p.parts or p.name == s for s in SKIP):
             continue
         if p.name.endswith(".partial.csv"):
-            continue  # промежуточный чекпойнт — не часть результата
+            continue  # resume checkpoint, not part of the result
         parts.append(f"{p.relative_to(path).as_posix()}:{_sha_file(p)}")
     return hashlib.sha256("\n".join(parts).encode()).hexdigest()
 
@@ -113,11 +111,12 @@ def _canon(obj) -> str:
 
 
 def input_digests(inputs: Sequence[Path]) -> dict[str, str]:
-    """Отпечатки входов: штамп входа, если он есть, иначе его содержимое.
+    """Digest each input by its stamp when it has one, otherwise by its content.
 
-    Штамп предпочтительнее — через него изменение дальнего входа доходит до
-    последней стадии (поменялись пары → поменялись векторы → матрица разошлась).
-    Содержимое добавляется всегда: артефакт мог быть отредактирован после штампа.
+    The stamp is preferred because it carries a change in a distant input all the
+    way down: new pairs give new vectors, and the matrix then reads as a
+    mismatch. Content is always appended as well, since an artifact can be edited
+    after its stamp was written.
     """
     out: dict[str, str] = {}
     for p in inputs:
@@ -129,7 +128,6 @@ def input_digests(inputs: Sequence[Path]) -> dict[str, str]:
 
 
 def fingerprint(stage: str, params: dict, inputs: Sequence[Path]) -> tuple[str, dict]:
-    """Отпечаток стадии и словарь входов, из которого он собран."""
     digs = input_digests(inputs)
     payload = _canon({"stage": stage, "protocol": PROTOCOL_VERSION,
                       "params": params, "inputs": digs})
@@ -148,13 +146,14 @@ def read_stamp(artifact: Path) -> dict | None:
 
 def write_stamp(artifact: Path, stage: str, params: dict,
                 inputs: Sequence[Path] = ()) -> dict:
-    """Записать штамп рядом с артефактом. Вызывать сразу после успешной стадии."""
+    """Write a stamp next to the artifact. Call this right after a stage succeeds."""
     fp, digs = fingerprint(stage, params, inputs)
     data = {"stage": stage, "protocol": PROTOCOL_VERSION, "fingerprint": fp,
             "params": params, "inputs": digs,
-            # Отпечаток самого артефакта: штамп отвечает не только «чем снят»,
-            # но и «тот ли это файл». Иначе правка руками остаётся невидимой до
-            # следующей стадии, а в отчёт числа попадают раньше.
+            # Digest of the artifact itself, so the stamp answers "is this the
+            # same file" as well as "how was it produced". Without it a manual
+            # edit stays invisible until the next stage, by which time the
+            # numbers have already reached a report.
             "content": content_digest(artifact),
             "created": time.strftime("%Y-%m-%dT%H:%M:%S")}
     stamp_path(artifact).write_text(
@@ -163,18 +162,18 @@ def write_stamp(artifact: Path, stage: str, params: dict,
 
 
 def diff_params(old: dict, new: dict) -> list[str]:
-    """Что разошлось, человеческим языком — это попадёт в сообщение об остановке."""
+    """List the differences in words. This text goes into the stop message."""
     out = []
     for k in sorted(set(old) | set(new)):
-        a, b = old.get(k, "—"), new.get(k, "—")
+        a, b = old.get(k, "(none)"), new.get(k, "(none)")
         if a != b:
-            out.append(f"{k}: было {a!r}, стало {b!r}")
+            out.append(f"{k}: was {a!r}, now {b!r}")
     return out
 
 
 @dataclass
 class Verdict:
-    """Решение по артефакту. `state` — что делать, `reason` — что сказать человеку."""
+    """`state` decides what happens next, `reason` is what the user is told."""
     state: str                       # missing | current | stale | unstamped
     reason: str = ""
     changed: list[str] = field(default_factory=list)
@@ -186,79 +185,78 @@ class Verdict:
 
 def check(artifact: Path, stage: str, params: dict,
           inputs: Sequence[Path] = ()) -> Verdict:
-    """Годен ли готовый артефакт под текущий протокол."""
     if not present(artifact):
-        return Verdict("missing", "артефакта нет")
+        return Verdict("missing", "no artifact")
     prev = read_stamp(artifact)
     if prev is None:
         return Verdict("unstamped",
-                       "артефакт без штампа: снят до введения отпечатков или "
-                       "перенесён с другой машины")
+                       "artifact has no stamp: produced before stamps existed, "
+                       "or copied from another machine")
     fp, digs = fingerprint(stage, params, inputs)
     now = content_digest(artifact)
     if prev.get("fingerprint") == fp and prev.get("content", now) == now:
-        return Verdict("current", "отпечаток совпал")
+        return Verdict("current", "stamp matches")
 
     changed = []
     if prev.get("content", now) != now:
-        changed.append("сам артефакт изменён после снятия штампа")
+        changed.append("the artifact itself changed after its stamp was written")
     if prev.get("protocol") != PROTOCOL_VERSION:
-        changed.append(f"версия протокола: была {prev.get('protocol')}, "
-                       f"стала {PROTOCOL_VERSION}")
+        changed.append(f"protocol version: was {prev.get('protocol')}, "
+                       f"now {PROTOCOL_VERSION}")
     changed += diff_params(prev.get("params") or {}, params)
     for k in sorted(set(prev.get("inputs") or {}) | set(digs)):
         a, b = (prev.get("inputs") or {}).get(k), digs.get(k)
         if a != b:
-            changed.append(f"вход {k}: пересчитан или изменён")
+            changed.append(f"input {k}: recomputed or edited")
     if not changed:
-        changed.append("отпечаток разошёлся, но параметры совпадают — "
-                       "проверь версию протокола")
-    return Verdict("stale", "артефакт снят при других параметрах", changed)
+        changed.append("the stamp differs although the settings match; "
+                       "check the protocol version")
+    return Verdict("stale", "artifact was produced with different settings", changed)
 
 
 def decide(artifact: Path, stage: str, params: dict, inputs: Sequence[Path] = (),
            recompute_stale: bool = False, label: str | None = None) -> bool:
-    """Печатает решение и возвращает True, если стадию надо считать.
+    """Print the verdict and return True when the stage has to run.
 
-    Разошедшийся артефакт по умолчанию останавливает цепочку. Так задумано:
-    молча пересчитать — потерять ночь генерации, молча переиспользовать —
-    получить в отчёте строку, снятую по другому протоколу. Выбор за человеком:
-    `--recompute-stale` или убрать файл.
+    A mismatched artifact stops the chain by default. Recomputing it silently
+    costs a night of generation; reusing it silently puts a row produced under
+    another protocol into a report. The choice belongs to a person, through
+    `--recompute-stale` or by moving the file away.
     """
     name = label or artifact.name
     v = check(artifact, stage, params, inputs)
     if v.state == "current":
-        print(f"   {name}: отпечаток совпал, пропуск", flush=True)
+        print(f"   {name}: stamp matches, skipping", flush=True)
         return False
     if v.state == "unstamped":
-        print(f"   {name}: ВНИМАНИЕ, штампа нет — переиспользую как есть.\n"
-              f"      Если он снят текущим протоколом, подтверди:\n"
+        print(f"   {name}: WARNING, no stamp. Reusing as is.\n"
+              f"      If it was produced by the current protocol, confirm it:\n"
               f"      python -m emotion.stamp --adopt {artifact.parent}", flush=True)
         return False
     if v.state == "stale":
-        detail = "\n".join(f"      · {c}" for c in v.changed)
+        detail = "\n".join(f"      - {c}" for c in v.changed)
         if recompute_stale:
-            print(f"   {name}: параметры разошлись, считаю заново\n{detail}", flush=True)
+            print(f"   {name}: settings differ, recomputing\n{detail}", flush=True)
             return True
         raise SystemExit(
-            f"\n{name}: артефакт снят при других параметрах.\n{detail}\n\n"
-            f"  Он стоил времени, поэтому цепочка не трогает его сама. Выбери:\n"
-            f"    · пересчитать    — запустить с --recompute-stale\n"
-            f"    · сохранить      — переименовать {artifact} и запустить снова\n"
-            f"    · признать своим — python -m emotion.stamp --adopt {artifact.parent}\n"
+            f"\n{name}: this artifact was produced with different settings.\n{detail}\n\n"
+            f"  It cost time, so the chain will not touch it on its own. Choose one:\n"
+            f"    - recompute  run again with --recompute-stale\n"
+            f"    - keep       rename {artifact} and run again\n"
+            f"    - adopt      python -m emotion.stamp --adopt {artifact.parent}\n"
         )
     return True
 
 
-# --- усыновление и осмотр ----------------------------------------------------
+# --- adoption and inspection -------------------------------------------------
 
 def adopt(artifact: Path, stage: str, params: dict,
           inputs: Sequence[Path] = ()) -> dict | None:
-    """Проштамповать существующий артефакт текущим протоколом.
+    """Stamp an existing artifact with the current protocol.
 
-    Явное действие человека: «да, этот файл снят вот этими параметрами».
-    Нужно для прогонов, посчитанных до введения штампов, — чтобы не гонять
-    заново четыре с половиной часа ради одной подписи.
+    A deliberate human statement: yes, this file was produced by these settings.
+    It exists for runs computed before stamps were introduced, so that four and a
+    half hours are not spent again for the sake of one signature.
     """
     if not present(artifact):
         return None
@@ -266,7 +264,7 @@ def adopt(artifact: Path, stage: str, params: dict,
 
 
 def show(run_dir: Path) -> None:
-    """Чем снят каждый артефакт прогона. Первое, что смотреть при разборе строки."""
+    """Report how each artifact of a run was produced. Start here when a row looks wrong."""
     found = False
     for sp in sorted({*run_dir.rglob("*stamp.json"), *run_dir.rglob(STAMP_NAME)}):
         try:
@@ -276,21 +274,21 @@ def show(run_dir: Path) -> None:
         found = True
         target = sp.parent.name if sp.name == STAMP_NAME else sp.name[:-len(".stamp.json")]
         print(f"\n{target}  [{d.get('stage')}] {d.get('fingerprint')}  "
-              f"протокол {d.get('protocol')}  {d.get('created', '')}")
+              f"protocol {d.get('protocol')}  {d.get('created', '')}")
         for k, v in sorted((d.get("params") or {}).items()):
             print(f"    {k}: {v}")
         for k, v in sorted((d.get("inputs") or {}).items()):
-            print(f"    ← {k}  {v}")
+            print(f"    <- {k}  {v}")
     if not found:
-        print(f"{run_dir}: штампов нет — прогон снят до введения отпечатков")
+        print(f"{run_dir}: no stamps, this run predates them")
 
 
 def verify(run_dir: Path) -> tuple[int, list[str]]:
-    """Совпадает ли содержимое артефактов с их штампами.
+    """Check that artifact contents still match their stamps.
 
-    Нужно после переноса: артефакты едут с 2070 на Mac, и обрыв копирования
-    даёт усечённый CSV, который открывается и читается — просто в нём меньше
-    строк. Штамп это ловит, глаз нет.
+    Needed after a transfer. Artifacts travel from the GPU box to a Mac, and an
+    interrupted copy leaves a truncated CSV that still opens and parses, only
+    with fewer rows. A stamp catches that; the eye does not.
     """
     bad: list[str] = []
     total = 0
@@ -299,69 +297,69 @@ def verify(run_dir: Path) -> tuple[int, list[str]]:
         try:
             d = json.loads(sp.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
-            bad.append(f"{sp.name}: штамп не читается")
+            bad.append(f"{sp.name}: stamp is unreadable")
             continue
         art = sp.parent if sp.name == STAMP_NAME else \
             sp.with_name(sp.name[:-len(".stamp.json")])
         if not present(art):
-            bad.append(f"{art.name}: штамп есть, артефакта нет")
+            bad.append(f"{art.name}: stamp exists, artifact does not")
             continue
         want = d.get("content")
         if want is None:
-            continue  # штамп старого образца, без отпечатка содержимого
+            continue  # older stamp, written before content digests
         if content_digest(art) != want:
-            bad.append(f"{art.name}: содержимое разошлось со штампом "
-                       "(обрыв копирования или правка руками)")
+            bad.append(f"{art.name}: content no longer matches the stamp "
+                       "(interrupted copy or a manual edit)")
     return total, bad
 
 
 def unstamped(paths: Iterable[Path]) -> list[str]:
-    """Артефакты без штампа — их отмечает манифест и помечает сводная таблица."""
+    """List artifacts without a stamp. The manifest records them and the summary flags them."""
     return [p.name for p in paths if present(p) and read_stamp(p) is None]
 
 
 def main() -> None:
     import argparse
 
-    ap = argparse.ArgumentParser(description="Отпечатки протокола у артефактов прогона.")
-    ap.add_argument("run", type=Path, help="каталог runs/<slug>")
-    ap.add_argument("--show", action="store_true", help="показать штампы (по умолчанию)")
+    ap = argparse.ArgumentParser(description="Protocol stamps for the artifacts of a run.")
+    ap.add_argument("run", type=Path, help="a runs/<slug> directory")
+    ap.add_argument("--show", action="store_true", help="print the stamps (default)")
     ap.add_argument("--adopt", action="store_true",
-                    help="проштамповать готовые артефакты текущим конфигом")
+                    help="stamp existing artifacts with the current config")
     ap.add_argument("--verify", action="store_true",
-                    help="сверить содержимое артефактов со штампами (после переноса)")
+                    help="check artifact contents against their stamps, after a transfer")
     ap.add_argument("--config", type=Path, default=None,
-                    help="конфиг модели: нужен для --adopt")
+                    help="model config, required by --adopt")
     args = ap.parse_args()
 
     if args.verify:
         total, bad = verify(args.run)
         for b in bad:
-            print(f"  СБОЙ {b}")
+            print(f"  FAIL {b}")
         if bad:
-            raise SystemExit(f"{args.run}: доехало не всё — {len(bad)} из {total}")
+            raise SystemExit(f"{args.run}: {len(bad)} of {total} artifacts did not survive the copy")
         if total == 0:
-            # Ноль штампов - это не «всё сошлось», а «сверять нечего». Раньше
-            # такой каталог рапортовал успех и возвращал 0, то есть проверка
-            # переноса молча зеленела на прогоне без единого штампа.
+            # Zero stamps is not "everything matches", it is "nothing to check".
+            # This directory used to report success and exit 0, so a transfer
+            # check went green on a run that had no stamps at all.
             raise SystemExit(
-                f"{args.run}: штампов нет, сверять нечего. Если прогон снят этим "
-                f"протоколом, подтвердите: python3 -m emotion.stamp {args.run} "
+                f"{args.run}: no stamps, nothing to check. If this run was produced by "
+                f"the current protocol, confirm it: python3 -m emotion.stamp {args.run} "
                 f"--adopt --config configs/models/<config>.yaml")
-        print(f"{args.run}: сверено артефактов {total}, все совпадают со штампами")
+        print(f"{args.run}: checked {total} artifacts, all match their stamps")
         return
 
     if args.adopt:
         from emotion.run_model_chain import stage_specs
         if not args.config:
-            raise SystemExit("--adopt требует --config: штамп должен знать, "
-                             "какими параметрами снят артефакт")
+            raise SystemExit("--adopt requires --config: the stamp has to record "
+                             "which settings produced the artifact")
         n = 0
         for spec in stage_specs(args.config):
             if adopt(spec.artifact, spec.stage, spec.params, spec.inputs):
-                print(f"  проштампован {spec.artifact}")
+                print(f"  stamped {spec.artifact}")
                 n += 1
-        print(f"усыновлено артефактов: {n}")
+        print(f"artifacts adopted: {n}")
         return
 
     show(args.run)
