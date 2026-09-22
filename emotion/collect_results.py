@@ -1,8 +1,8 @@
-"""Сводная таблица по всем прогонам в runs/: одна строка на модель.
+"""Summary table over every run in runs/, one row per model.
 
-Читает runs/<slug>/steer_specificity.csv (баллы независимого энкодера) и meta.json,
-считает диагональ, попадание argmax, протечку в грусть и вырожденность текста.
-Markdown на stdout — вставляется в отчёт как есть.
+Reads runs/<slug>/steer_specificity.csv, which holds the independent encoder
+scores, together with meta.json, and computes the diagonal, argmax hits, leakage
+into sadness and text degeneration. Markdown goes to stdout.
 
 Usage:
     python -m emotion.collect_results
@@ -24,8 +24,6 @@ from emotion.protocol import compare_planes, plane_of, report
 from emotion.space import ISEAR_EMOTIONS
 
 REPO = Path(__file__).resolve().parent.parent
-RU = {"anger": "гнев", "disgust": "отвращение", "fear": "страх", "guilt": "вина",
-      "joy": "радость", "sadness": "грусть", "shame": "стыд"}
 REFUSAL = re.compile(
     r"as an AI|as a language model|I am an AI|language model|"
     r"I (?:don't|do not|cannot|can't) have (?:personal )?(?:feelings|emotions)|"
@@ -34,7 +32,7 @@ REFUSAL = re.compile(
 
 
 def rep_ratio(text: str, n: int = 4) -> float:
-    """Доля повторяющихся n-грамм; устойчива к длине текста."""
+    """Share of repeated n-grams, stable across text lengths."""
     w = re.findall(r"\w+", str(text).lower())
     if len(w) < n + 4:
         return 0.0
@@ -48,7 +46,7 @@ def ttr(text: str) -> float:
 
 
 def variants_in(run_dir: Path) -> list[Path]:
-    """Все матрицы прогона: raw, sae, centered. Каждая — своя строка сводки."""
+    """Every matrix of a run: raw, sae, centered. Each becomes its own summary row."""
     found = sorted(run_dir.glob("steer_specificity_*.csv"))
     found = [f for f in found if not f.name.endswith((".partial.csv", "_fixedcoeff.csv", "_S033.csv"))]
     legacy = run_dir / "steer_specificity.csv"
@@ -88,8 +86,8 @@ def row_for(run_dir: Path, csv_path: Path | None = None) -> dict | None:
     degen = int(((ans.map(rep_ratio) > 0.15) | (ans.map(ttr) < 0.45)).sum()) if len(ans) else -1
     refus = int(ans.str.contains(REFUSAL, regex=True).sum()) if len(ans) else -1
 
-    # Реально применённый коэффициент. Раньше бралось meta["coeff"] — дефолт 8.0,
-    # а не то, что выбрала стадия подбора рабочей точки.
+    # The coefficient actually applied. This used to read meta["coeff"], which is
+    # the default of 8.0 rather than what operating-point selection chose.
     coeff = meta.get("op_coeff")
     if coeff is None and "coeff" in d.columns:
         used = sorted({float(c) for c in d[d["steer"] != "baseline"]["coeff"] if str(c).strip()})
@@ -120,19 +118,19 @@ def row_for(run_dir: Path, csv_path: Path | None = None) -> dict | None:
     return row
 
 
-# Условие, измеренное на горстке ответов, ничего не говорит: у granite
-# судья потерял shame целиком, а sadness свёл к двум ответам, и «4/7» в
-# таблице считало shame промахом по нулю наблюдений. Ниже этого порога
-# условие не засчитывается ни в попадания, ни в знаменатель.
+# A condition measured on a handful of answers says nothing. For granite the
+# judge lost shame entirely and reduced sadness to two answers, and the 4/7 in
+# the table counted shame as a miss over zero observations. Below this floor a
+# condition counts neither as a hit nor in the denominator.
 MIN_JUDGED = 20
 
 
 def _argmax_hits_from_wide(path: Path) -> tuple[int, int, dict] | None:
-    """Попадания argmax судьи: (попало, измерено условий, сколько ответов на условие).
+    """Judge argmax hits: (hits, conditions measured, answers per condition).
 
-    Возвращает и знаменатель: судья теряет часть вызовов на разборе ответа и
-    сбоях провайдера, и молча делить на семь — значит выдавать недомер за
-    промах.
+    The denominator is returned as well. The judge loses some calls to answer
+    parsing and provider errors, so dividing by seven in silence would report an
+    under-measurement as a miss.
     """
     if not path.is_file():
         return None
@@ -160,7 +158,7 @@ def _argmax_hits_from_wide(path: Path) -> tuple[int, int, dict] | None:
 
 
 def _judge_and_ci(run_dir: Path, base_mean: dict) -> dict:
-    """Числа из цепочки оценки, если она прогонялась."""
+    """Numbers from the evaluation chain, when it has been run."""
     out: dict = {"judge_hits": None, "judge_measured": None, "judge_thin": "",
                  "judge_coverage": None, "coherence": None, "ci_sig": None}
     jh = _argmax_hits_from_wide(run_dir / "judge_wide.csv")
@@ -170,9 +168,9 @@ def _judge_and_ci(run_dir: Path, base_mean: dict) -> dict:
         out["judge_measured"] = measured
         thin = {e: n for e, n in sizes.items() if n < MIN_JUDGED}
         out["judge_thin"] = ", ".join(f"{e}={n}" for e, n in sorted(thin.items())) or ""
-        # Полнота: равномерная потеря 10% не задевает ни одного условия по
-        # отдельности и без этой строки осталась бы невидимой.
-        want = max(sizes.values(), default=0) * 8  # 7 эмоций + baseline
+        # Coverage: an even 10% loss touches no single condition enough to show
+        # up on its own, and without this line it would stay invisible.
+        want = max(sizes.values(), default=0) * 8  # 7 emotions plus baseline
         got = len(pd.read_csv(run_dir / "judge_wide.csv"))
         out["judge_coverage"] = round(got / want, 3) if want else None
 
@@ -192,21 +190,22 @@ def _judge_and_ci(run_dir: Path, base_mean: dict) -> dict:
     ci = run_dir / "ci_encoder.md"
     if ci.is_file():
         txt = ci.read_text(encoding="utf-8")
-        yes = txt.count("| да |")
-        total = yes + txt.count("| нет |")
+        # bootstrap_ci writes this table, so the markers have to match it.
+        yes = txt.count("| yes |")
+        total = yes + txt.count("| no |")
         if total:
             out["ci_sig"] = f"{yes}/{total}"
     return out
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Сводка по прогонам в runs/.")
+    ap = argparse.ArgumentParser(description="Summary over the runs in runs/.")
     ap.add_argument("--runs", type=Path, default=REPO / "runs")
-    ap.add_argument("--csv", type=Path, default=None, help="дополнительно сохранить в CSV")
+    ap.add_argument("--csv", type=Path, default=None, help="also write the table to a CSV file")
     args = ap.parse_args()
 
     if not args.runs.is_dir():
-        raise SystemExit(f"нет каталога {args.runs}")
+        raise SystemExit(f"no such directory: {args.runs}")
 
     rows = []
     for run_dir in sorted(args.runs.iterdir()):
@@ -217,18 +216,17 @@ def main() -> None:
             if r:
                 rows.append(r)
     if not rows:
-        raise SystemExit(f"в {args.runs} нет готовых steer_specificity.csv")
+        raise SystemExit(f"no finished steer_specificity.csv under {args.runs}")
 
-    # Плоскость: строки сравнимы между собой, только если сняты одним протоколом.
-    # Раньше это была приписка под таблицей «сверяйтесь с meta.json» — то есть
-    # проверка, которую никто не делает.
+    # Rows are comparable only when they share a protocol. This used to be a note
+    # under the table saying "check meta.json", which is a check nobody performs.
     planes = {f"{r['slug']}/{r['variant']}": {k[len("plane_"):]: v
                                               for k, v in r.items() if k.startswith("plane_")}
               for r in rows}
     off = compare_planes(planes)
-    # Помечаем меньшинство: строка выбивается, если хоть по одному ключу её
-    # значение встречается реже большинства. Если большинства нет — раскол
-    # пополам, — помечаем все: выбирать «правильную» половину монеткой нельзя.
+    # Flag the minority: a row stands out when, for at least one key, its value
+    # is rarer than the majority. With no majority, meaning an even split, flag
+    # every row, since picking the "right" half by coin toss is not an option.
     odd: set[str] = set()
     for seen in off.values():
         sizes = sorted((len(v) for v in seen.values()), reverse=True)
@@ -239,10 +237,10 @@ def main() -> None:
             odd |= {n for names in seen.values() if names is not major for n in names}
 
     multi = len({r["variant"] for r in rows}) > 1
-    vcol = " Вариант |" if multi else ""
+    vcol = " Variant |" if multi else ""
     vsep = "---|" if multi else ""
-    print(f"| Модель |{vcol} Слой | coeff | Диагональ Δ | argmax энк. | argmax судья | Значимо | "
-          "Протечка | Связность | Вырожд. | Отказы | Плоскость |")
+    print(f"| Model |{vcol} Layer | coeff | Diagonal | argmax enc. | argmax judge | Significant | "
+          "Leakage | Coherence | Degenerate | Refusals | Plane |")
     print(f"|---|{vsep}---:|---:|---:|---:|---:|:--:|---:|---:|---:|---:|:--:|")
     for r in rows:
         key = f"{r['slug']}/{r['variant']}"
@@ -259,29 +257,34 @@ def main() -> None:
               f"{r['argmax_hits']}/7 | {jh} | {sig} | {r['sad_leak']:+.3f} | {coh} | "
               f"{r['degen']}/{r['n_rows']} | {r['refusals']}/{r['n_rows']} | {mark} |")
 
-    print("\nДиагональ и протечка — независимый энкодер `go_emotions`, Δ к тексту без наведения.")
-    print("«Значимо» — сколько диагоналей из 7 имеют интервал, не включающий ноль (по энкодеру).")
-    print("«Связность» — средняя по стирённым условиям, судья 0–100; прочерк, если оценка не гонялась.")
-    print("«Вырожд.» — повтор 4-граммы > 0.15 или type-token < 0.45. Метрика не проверена на разметке: "
-          "она ловит и эмоциональный повтор тоже.")
-    print("«Плоскость»: ✓ — снято текущим протоколом, ⚠ — выбивается из общего, "
-          "? — штампа нет, протокол известен только со слов манифеста.")
+    print("\nDiagonal and leakage come from the independent `go_emotions` encoder, "
+          "as a change against unsteered text.")
+    print("Significant counts how many of the 7 diagonals have an interval excluding zero, "
+          "under the encoder.")
+    print("Coherence is the mean over steered conditions, judged 0 to 100; a dash means "
+          "the evaluation was not run.")
+    print("Degenerate means 4-gram repetition above 0.15 or a type-token ratio below "
+          "0.45. The metric is not validated against annotation and also catches "
+          "emotional repetition.")
+    print("Plane: a check mark means the current protocol, a warning sign means the "
+          "row stands out, and a question mark means no stamp, so the protocol is "
+          "known only from the manifest.")
     lean = [(r["slug"], r["judge_coverage"]) for r in rows
             if r.get("judge_coverage") is not None and r["judge_coverage"] < 0.95]
     if lean:
-        print("\nСудья ответил не на все вызовы (ниже 95% матрицы) — числа "
-              "по этим строкам считаны на подвыборке, добрать: "
-              "`python3 -m emotion.judge_specificity` с тем же --cache:")
+        print("\nThe judge did not answer every call, staying below 95% of the matrix, "
+              "so these rows are computed on a subsample. Top them up with "
+              "`python3 -m emotion.judge_specificity` and the same --cache:")
         for slug, cov in lean:
-            print(f"- {slug}: {cov:.0%} матрицы")
+            print(f"- {slug}: {cov:.0%} of the matrix")
     thin_rows = [(r["slug"], r["judge_thin"]) for r in rows if r.get("judge_thin")]
     if thin_rows:
-        print(f"\n«argmax судья» показан как попадания/измеренных условий. Судья теряет "
-              f"часть вызовов на разборе ответа и сбоях провайдера; условия, где осталось "
-              f"меньше {MIN_JUDGED} ответов из 56, из счёта исключены:")
+        print(f"\nThe judge argmax column reads hits over conditions measured. The judge "
+              f"loses calls to answer parsing and provider errors, and conditions left "
+              f"with fewer than {MIN_JUDGED} answers out of 56 are excluded:")
         for slug, thin in thin_rows:
             print(f"- {slug}: {thin}")
-    print("\n## Сопоставимость\n")
+    print("\n## Comparability\n")
     print("\n".join(report(planes)))
 
     if args.csv:
