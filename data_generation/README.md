@@ -7,8 +7,6 @@ This directory contains the prompt data used by CEmoSteer. The seven ISEAR categ
 | `emotion_data_extract/` | Scenarios used to generate matched emotional and neutral response pairs for direction extraction. |
 | `emotion_data_eval/` | Held-out scenarios for single-direction and composition evaluation. |
 | `deescalation_dialogs.json` | Thirty multi-turn English dialogue contexts used in the dialogue extension. |
-| `prompts.py` | Prompt templates and utilities for constructing emotion scenarios. |
-| `generate.py` | Optional generator for new emotion prompt packs. |
 
 Extraction and evaluation scenarios are disjoint. Keeping them separate prevents the direction-extraction prompts from appearing in the held-out evaluation set.
 
