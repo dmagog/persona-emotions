@@ -75,7 +75,7 @@ class ActivationSteerer:
             )
         if self.vector.numel() != hidden:
             raise ValueError(
-                f"Vector length {self.vector.numel()} ≠ model hidden_size {hidden}"
+                f"Vector length {self.vector.numel()} != model hidden_size {hidden}"
             )
         if not torch.isfinite(self.vector).all():
             raise ValueError(
