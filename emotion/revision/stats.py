@@ -126,7 +126,11 @@ def bh(p: np.ndarray, q: float = Q, by: bool = False) -> np.ndarray:
 
 def analyse_model(df: pd.DataFrame, slug: str, instrument: str, controls: list[str],
                   exclude: set[int], with_wrong: bool):
-    labels = ["baseline", *EMO, *ALL_PAIRS] + [f"{p}|{c}" for p in ALL_PAIRS for c in controls]
+    have = set(df["steer"])
+    pairs = [p for p in ALL_PAIRS if p in have]           # parity has a subset of pairs
+    controls = [c for c in controls if all(f"{p}|{c}" in have for p in pairs)]
+    with_wrong = with_wrong and len(pairs) == len(ALL_PAIRS)
+    labels = ["baseline", *EMO, *pairs] + [f"{p}|{c}" for p in pairs for c in controls]
     ids, M = _cube(df, labels, exclude)
     rng = np.random.default_rng(SEED)
     idx = _boot_index(ids, rng)
@@ -139,7 +143,7 @@ def analyse_model(df: pd.DataFrame, slug: str, instrument: str, controls: list[s
         return bmean[lab]
 
     rows, boots = [], {}
-    for spec in ALL_PAIRS:
+    for spec in pairs:
         a, b = spec.split("-")
         ia, ib = EMO.index(a), EMO.index(b)
         r = {"model": slug, "instrument": instrument, "pair": spec, "n_ids": len(ids),
@@ -268,7 +272,11 @@ def main() -> None:
             frames.append(cells)
             boots_all.update({(slug, inst, k[0], k[1]): v for k, v in boots.items()})
             print(f"  {slug} {inst}: {len(cells)} cells", file=sys.stderr, flush=True)
+    if not frames:
+        sys.exit(f"no inputs found for source {args.source!r} under runs_revision/<slug>/")
     cells = pd.concat(frames, ignore_index=True)
+    controls = [c for c in controls if f"dU_{c}" in cells.columns and cells[f"dU_{c}"].notna().all()]
+    with_wrong = with_wrong and "dU_wrong" in cells.columns
     head = [f"# Revision statistics: source `{args.source}`",
             "",
             f"Excluded prompt IDs: {sorted(exclude) if exclude else 'none'}. "

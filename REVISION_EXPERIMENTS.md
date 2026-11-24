@@ -50,6 +50,12 @@ python -m emotion.revision.selftest      # vector geometry + stats on synthetic 
 python -m emotion.revision.run --config configs/models/llama-3.2-3b.yaml --plan p1 --dry-run
 ```
 
+Machines without internet access to the HF hub (cached models only):
+`export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1`. If git refuses the checkout as
+"unsafe repository" (Windows scheduled tasks under another user), the run still
+works but `git_sha` in the meta file becomes `unknown`; set
+`GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0=*` to fix it.
+
 Record `nvidia-smi`, `python -c "import torch, transformers; print(torch.__version__, transformers.__version__)"`;
 the run also writes them into `<plan>.csv.meta.json`.
 
@@ -112,7 +118,7 @@ Models: the 4-model subset (fixed in advance) is
 
 | Plan | What | Models | Generations | GPU | Est. time | Splittable? |
 |---|---|---|---:|---|---|---|
-| **parity** | baseline, 7 a-only, 7 pairs; compare with published numbers | any 1 (start with llama-3.2-3b) | 840 | any | 5–15 min | run first on each new GPU |
+| **parity** | baseline, 7 a-only, 6 pairs; compare with published numbers | any 1 (start with llama-3.2-3b) | 784 | any | 5–15 min (A100), ≈ 15 min (RTX 2070, bs 8) | run first on each new GPU |
 | **p1** | null controls + norm alignment; includes baseline, a-only, a−b refs | 4 subset | ≈ 21.6k per model (50 refs + 42×8 controls = 386 conditions × 56) | A100/L40S | 1–2.5 h per model | **by model** |
 | **p2** | direct −v_b for 7 emotions + baseline | all 11 | 448 per model | 8 GB is enough | 20–50 min per model | by model |
 | **p3** | prompting baseline ("express a", "express a while reducing b"), no steering | 4 subset | 2 800 per model | any | 15–30 min per model | by model |
@@ -138,13 +144,19 @@ generation path exactly (slow).
 
 ```bash
 python -m emotion.revision.run --config configs/models/llama-3.2-3b.yaml --plan parity --batch-size 32
-python -m emotion.revision.stats --source parity --instruments encoder --out runs_revision/parity_report.md
+python -m emotion.revision.parity_compare --slug Llama-3.2-3B-Instruct
 ```
 
-Compare the `a-b` encoder means/joint for those 7 pairs with
-`runs/<slug>/compose_allpairs.csv`. Small differences are expected (batched fp16
-greedy); report them. Large ones (sign flips on most pairs) mean something is
-wrong: stop.
+`parity_compare` prints, per condition, the target-emotion mean new vs
+published and, per pair, the signs of T and U, then `PASS` / `FAIL`
+(exit code 0 / 1). Pass criterion (fixed in advance): T and U signs agree on
+at least 5 of the 6 pairs and every target mean is within 0.1 (raw encoder
+units) of `runs/<slug>/compose_allpairs.csv`. Small differences are expected
+(batched fp16 greedy). On FAIL: stop and report the table.
+
+Reference result: RTX 2070, bs 8, torch 2.5.1, transformers 5.9.0 →
+signs agree on 5/6 pairs (the miss is guilt-sadness, T = −0.016 vs +0.016,
+guilt barely moves on Llama), largest target-mean difference 0.073 (anger) → PASS.
 
 ### 4.2 p1 (main null control)
 
@@ -200,7 +212,8 @@ python -m emotion.judge_specificity --csv $S/p1.csv --concurrency 30 \
     --out-wide $S/p1_judge_wide.csv --cache $S/p1_judge.cache.jsonl
 ```
 
-Same for p2, p3, p7, parity. **For p4 (5 samples per prompt)** the wide file of
+Same for p2, p3, p7, parity. `stats.py` works on the plans that contain
+a−b pairs (p1, p4, parity, refs); p2, p3, p7 are analysed per condition. **For p4 (5 samples per prompt)** the wide file of
 `judge_specificity` keeps only one sample, so rebuild it from the cache:
 
 ```bash
@@ -223,6 +236,7 @@ python -m emotion.coherence_check --csv $S/p3.csv --cache $S/p3_coherence.cache.
 python -m emotion.revision.stats --source p1 --out runs_revision/stats_p1.md
 python -m emotion.revision.stats --source p1 --exclude-prompts 0-7 --out runs_revision/stats_p1_no_calib.md
 python -m emotion.revision.stats --source p4 --out runs_revision/stats_p4.md
+python -m emotion.revision.stats --source parity --instruments encoder --out runs_revision/stats_parity.md
 # encoder only, before the judge has run:
 python -m emotion.revision.stats --source p1 --instruments encoder --out runs_revision/stats_p1_encoder.md
 ```
@@ -260,6 +274,7 @@ Condition labels: `baseline`, `<a>`, `<a>-<b>`, `<a>-<b>|geo1`, `|geo2`, `|iso1`
 | `emotion/revision/norms.py` | p6 |
 | `emotion/revision/stats.py` | paired stratified bootstrap, IUT, BH/BY, ΔU, rule check |
 | `emotion/revision/judge_wide.py` | per-sample judge wide file from the cache (p4) |
+| `emotion/revision/parity_compare.py` | parity run vs published run, PASS/FAIL |
 | `emotion/revision/selftest.py` | CPU self-test |
 | `docs_revision/` | stats on the published data (all 56 prompts and without 0–7) |
 
@@ -275,4 +290,5 @@ Do not commit API keys or `.venv`.
   (generation, batching, resume, CSV/meta, p4 sampling counts, p5 selection, p6 norms).
 - `stats.py` reproduces the submitted numbers on the published data
   (encoder joint 347/462, judge 372/462).
-- **Not yet run on the real models**: do `parity` first.
+- Parity passed on the RTX 2070 (Llama-3.2-3B, see 4.1). p6 and p2 for all 11
+  models run there; p1/p3/p4/p7 are not yet run on real models: do `parity` first.
