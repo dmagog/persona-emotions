@@ -51,10 +51,10 @@ python -m emotion.revision.run --config configs/models/llama-3.2-3b.yaml --plan 
 ```
 
 Machines without internet access to the HF hub (cached models only):
-`export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1`. If git refuses the checkout as
-"unsafe repository" (Windows scheduled tasks under another user), the run still
-works but `git_sha` in the meta file becomes `unknown`; set
-`GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0=*` to fix it.
+`export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1`. On Windows scheduled tasks the
+env-var form of safe.directory did not work (git 2.36); run git commands
+(checkout/merge) from an interactive ssh session before launching the task.
+git_sha in the meta file may then read `unknown`; the commit is the one checked out.
 
 Record `nvidia-smi`, `python -c "import torch, transformers; print(torch.__version__, transformers.__version__)"`;
 the run also writes them into `<plan>.csv.meta.json`.

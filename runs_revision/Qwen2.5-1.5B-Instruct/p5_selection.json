@@ -1,0 +1,34 @@
+{
+  "published": {
+    "layer": 15,
+    "coeff": 16.0,
+    "max_degen": 0.1,
+    "sweep": "4834a8d9fe85a2d7"
+  },
+  "recalibrated": {
+    "layer": 13,
+    "coeff": 12.0
+  },
+  "prompts": "data_generation\\calibration_anger_v2.json",
+  "n_prompts": 32,
+  "coeffs": [
+    0.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    12.0,
+    14.0,
+    16.0,
+    20.0,
+    24.0,
+    32.0
+  ],
+  "layers": [
+    10,
+    13,
+    15
+  ],
+  "changed": true
+}
