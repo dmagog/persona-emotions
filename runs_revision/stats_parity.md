@@ -13,3 +13,14 @@ Pair-level (paired, stratified bootstrap, 10000 resamples, seed 1234):
 - intersection-union test, BH q=0.05: 4/6; BY q=0.05: 3/6
 - exact ties U = 0 (judge scale has 10-point steps): 0/6
 
+## judge (6 model-pair cells, 1 models, prompt IDs per model: [56])
+
+| Condition | Joint T>0 & U<0 | Joint at tau=0.02 | Joint at tau=0.05 | Strict (b below baseline) |
+|---|---:|---:|---:|---:|
+| `a-b` | 5/6 (83.3%) | 5/6 (83.3%) | 5/6 (83.3%) | 4/6 (66.7%) |
+
+Pair-level (paired, stratified bootstrap, 10000 resamples, seed 1234):
+- both 95% intervals exclude zero in the right direction: 4/6
+- intersection-union test, BH q=0.05: 4/6; BY q=0.05: 4/6
+- exact ties U = 0 (judge scale has 10-point steps): 0/6
+
